@@ -59,10 +59,19 @@ def _hit(text: str, words: list) -> list:
     return out
 
 
+HANGUL = re.compile(r"[가-힣]")
+
+
 def classify(item: dict) -> dict:
     name, desc = item["name"], item.get("description") or ""
     blob = f"{name} {desc}"
     kr, data, nod = _hit(blob, KR), _hit(blob, DATA), _hit(blob, NOT_DATA)
+    # **한글로 쓰였다는 것 자체가 한국 신호다.** 2026-08-18 실측: 우리 계약나침반이
+    # "계약나침반 — 공공계약 방법 결정 도우미(국가계약법·지방계약법 룰엔진)"라는 순한글
+    # 설명 때문에 kr신호 0으로 drop됐다 — 목록에 `공공계약`이 없었기 때문이다. 단어를
+    # 계속 늘리는 것은 지는 싸움이고(한국어 어휘는 무한하다), 문자 자체가 더 강한 신호다.
+    if HANGUL.search(desc):
+        kr = kr + ["한글 설명"]
 
     # 저장소 자체가 MCP 서버가 아닌 것 — 이름으로 확실히 걸리는 것만
     if name.endswith("/.github") or re.search(r"awesome[-_]", name, re.I):

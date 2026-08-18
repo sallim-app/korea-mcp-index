@@ -23,19 +23,34 @@ import urllib.error
 import urllib.parse
 import urllib.request
 
+from categories import queries
+
+UA = "sallim-mcp-index/0.1 (+https://github.com/sallim-app; building a measured MCP index)"
 REGISTRY = "https://registry.modelcontextprotocol.io/v0/servers"
+# 4차 원천(2026-08-18): mcpmoa가 **스스로 공개한** 기계 판독 API다. 긁는 게 아니라 초대에
+# 응하는 것이다 — robots는 `User-agent: * / Allow: /`이고 Content-Signal이
+# `search=yes, use=reference`(우리 용도)이며 ai-train은 no(우리는 학습을 안 한다).
+# 나머지 한국 MCP 스토어는 원천으로 쓰지 않는다: playmcp는 SPA 껍데기라 본문이 없고
+# (HTML 2.6KB·키워드 0), mcpmarket은 403이며, mcphub는 robots에서 anthropic-ai·GPTBot을
+# 명시 차단한다 — UA 이름으로 우회하지 않는다.
+# 우리가 빌리는 것은 **발견**이지 판정이 아니다. 그들의 25건도 우리 실호출이 다시 가른다.
+MCPMOA = "https://mcpmoa.com/api/v1/servers.json"
 GITHUB = "https://api.github.com/search/repositories"
 PAGE = 100
+MAX_PAGES = 120   # 12,000건까지. 상한에 걸리면 숨기지 않고 공시한다.
 
 # ASCII만 걸린다(레지스트리 한글 미지원 실측). 한글 전용 항목은 3차가 맡는다.
 REGISTRY_TERMS = ["korea", "korean", "kr-", "molit", "kosis", "naver", "kakao",
                   "hangul", "seoul", "krx", "dart"]
-GITHUB_QUERIES = ["topic:mcp korea", "topic:mcp-server korea", "mcp korea in:name",
-                  "mcp korean in:description", "mcp 한국 in:readme"]
+# 질의는 categories.py가 낳는다 — 분야가 검색어를 정하고, 찾아낸 검색어가 곧 분야다
+# (사장님 지적 2026-08-18: "우리가 분야를 어떻게 나눌지 고려해서 거기 맞는 키워드를 써야").
+# 그래서 분류가 수집과 어긋날 수 없고, 커버리지가 분야별로 측정된다.
 
 
 def _get(url: str, token: str | None = None, tries: int = 3):
-    req = urllib.request.Request(url, headers={"Accept": "application/json"})
+    # **UA를 반드시 보낸다.** 없으면 Cloudflare 앞단이 막는다(2026-08-18 mcpmoa 수집
+    # HTTPError 실측 — 손으로 UA를 붙이면 200이었다). 정체를 밝히는 것은 예의이자 실용이다.
+    req = urllib.request.Request(url, headers={"Accept": "application/json", "User-Agent": UA})
     if token:
         req.add_header("Authorization", f"Bearer {token}")
     for i in range(tries):
@@ -51,69 +66,98 @@ def _get(url: str, token: str | None = None, tries: int = 3):
 
 
 def from_registry() -> tuple[dict, list]:
-    """공식 레지스트리 — nextCursor로 끝까지 판다. 절단하면 공시한다."""
+    """공식 레지스트리 **전수 스윕**.
+
+    검색어 스윕을 버린 이유(2026-08-18 실측): 레지스트리 `search=`는 **이름만** 본다.
+    우리 `app.sallim/contract-compass`는 설명이 "Korean public procurement law…"인데
+    `search=korean`에 안 잡히고 `search=contract`에만 잡혔다. 즉 이름에 한국 단어가 없는
+    한국 서버는 검색어를 아무리 늘려도 **구조적으로** 못 본다.
+    전체가 수천 건 규모라 커서로 다 넘길 수 있으니, 받아서 우리가 거른다.
+    """
     found, notes = {}, []
-    for term in REGISTRY_TERMS:
-        cursor, seen, pages = None, 0, 0
-        while True:
-            q = {"search": term, "limit": PAGE}
-            if cursor:
-                q["cursor"] = cursor
-            try:
-                d = _get(f"{REGISTRY}?{urllib.parse.urlencode(q)}")
-            except Exception as e:  # 실패는 0건이 아니다 — 그렇게 적는다
-                notes.append(f"registry:{term} 수집 실패({type(e).__name__}) — 0건 아님, 미확인")
-                break
-            rows = d.get("servers") or []
-            for e in rows:
-                s = e.get("server") or {}
-                name = s.get("name")
-                if not name:
-                    continue
-                found.setdefault(name, {
-                    "name": name, "description": s.get("description") or "",
-                    # 측정 입력: remotes[].url은 실제로 두드릴 주소, repository.url은
-                    # GitHub 원천과 합칠 열쇠다(이게 없으면 슬러그 추측으로 합쳐야 한다).
-                    "packages": [{"type": p.get("registryType"), "id": p.get("identifier"),
-                                  "version": p.get("version")} for p in (s.get("packages") or [])],
-                    "remotes": [{"type": r.get("type"), "url": r.get("url"),
-                                 "needs_auth": bool(r.get("headers"))} for r in (s.get("remotes") or [])],
-                    "repo_url": (s.get("repository") or {}).get("url") or "",
-                    "sources": set(), "terms": set()})
-                found[name]["sources"].add("registry")
-                found[name]["terms"].add(term)
-            seen += len(rows)
-            pages += 1
-            cursor = (d.get("metadata") or {}).get("nextCursor")
-            if not cursor or not rows or pages >= 20:
-                if cursor and pages >= 20:
-                    notes.append(f"registry:{term} 20페이지 상한에서 중단 — truncated(총계 미상)")
-                break
+    cursor, pages = None, 0
+    while pages < MAX_PAGES:
+        q = {"limit": PAGE}
+        if cursor:
+            q["cursor"] = cursor
+        try:
+            d = _get(f"{REGISTRY}?{urllib.parse.urlencode(q)}")
+        except Exception as e:
+            notes.append(f"registry 전수 스윕 {pages}페이지에서 중단({type(e).__name__}) — 이후 미확인")
+            break
+        rows = d.get("servers") or []
+        for e in rows:
+            s = e.get("server") or {}
+            name = s.get("name")
+            if not name:
+                continue
+            found.setdefault(name, {
+                "name": name, "description": s.get("description") or "",
+                "packages": [{"type": p.get("registryType"), "id": p.get("identifier"),
+                              "version": p.get("version")} for p in (s.get("packages") or [])],
+                "remotes": [{"type": r.get("type"), "url": r.get("url"),
+                             "needs_auth": bool(r.get("headers"))} for r in (s.get("remotes") or [])],
+                "repo_url": (s.get("repository") or {}).get("url") or "",
+                "sources": set(), "terms": set()})
+            found[name]["sources"].add("registry")
+            found[name]["terms"].add("전수")
+        pages += 1
+        cursor = (d.get("metadata") or {}).get("nextCursor")
+        if not cursor or not rows:
+            break
+    if cursor:
+        notes.append(f"registry 전수 스윕이 {MAX_PAGES}페이지 상한에서 멈췄다 — truncated(뒤쪽 미확인)")
+    return found, notes
+
+
+def from_mcpmoa() -> tuple[dict, list]:
+    """mcpmoa 공개 API — korean_apis 필드가 우리 문자열 필터보다 정확한 한국 신호다."""
+    found, notes = {}, []
+    try:
+        d = _get(MCPMOA)
+    except Exception as e:
+        return {}, [f"mcpmoa 수집 실패({type(e).__name__}) — 0건 아님, 미확인"]
+    rows = d if isinstance(d, list) else (d.get("servers") or d.get("data") or [])
+    for m in rows:
+        gh = (m.get("github_url") or "").strip()
+        if not gh:
+            notes.append(f"mcpmoa:{m.get('name')} github_url 없음 — 병합 열쇠가 없어 건너뜀")
+            continue
+        name = gh.split("github.com/", 1)[-1].strip("/") if "github.com/" in gh else gh
+        desc = " ".join(filter(None, [m.get("description_ko"), m.get("tagline_ko"),
+                                      " ".join(m.get("korean_apis") or []),
+                                      " ".join(m.get("tags") or [])]))
+        found[name] = {"name": name, "description": desc, "repo_url": gh,
+                       "korean_apis": m.get("korean_apis") or [],
+                       "sources": {"mcpmoa"}, "terms": {"mcpmoa:" + (m.get("category") or "?")}}
     return found, notes
 
 
 def from_github(token: str | None) -> tuple[dict, list]:
     found, notes = {}, []
-    for q in GITHUB_QUERIES:
+    for kw, cat in queries():
+        q = f"mcp {kw}"
         url = f"{GITHUB}?{urllib.parse.urlencode({'q': q, 'per_page': PAGE, 'sort': 'stars'})}"
         try:
             d = _get(url, token)
         except Exception as e:
-            notes.append(f"github:{q!r} 수집 실패({type(e).__name__}) — 0건 아님, 미확인")
+            notes.append(f"github:{q!r}[{cat}] 수집 실패({type(e).__name__}) — 0건 아님, 미확인")
             continue
         total, items = d.get("total_count", 0), d.get("items") or []
         if total > len(items):
-            notes.append(f"github:{q!r} 총 {total}건 중 {len(items)}건만 수집 — truncated")
+            notes.append(f"github:{q!r}[{cat}] 총 {total}건 중 {len(items)}건만 — truncated")
         for r in items:
             key = r["full_name"]
             found.setdefault(key, {
                 "name": key, "description": r.get("description") or "",
                 "stars": r["stargazers_count"], "pushed": r["pushed_at"][:10],
                 "archived": r["archived"], "repo_url": r["html_url"],
-                "sources": set(), "terms": set()})
+                "categories": set(), "sources": set(), "terms": set()})
             found[key]["sources"].add("github")
             found[key]["terms"].add(q)
-        time.sleep(2.5)   # search API 30/min
+            if cat != "기타":
+                found[key]["categories"].add(cat)
+        time.sleep(2.2)   # search API 30/min
     return found, notes
 
 
@@ -125,19 +169,21 @@ def main() -> int:
 
     reg, n1 = from_registry()
     gh, n2 = from_github(token)
-    notes = n1 + n2
+    moa, n3 = from_mcpmoa()
+    notes = n1 + n2 + n3
 
     # repo_url이 같으면 같은 서버다 — 레지스트리 이름 규칙(app.sallim/…)과 GitHub
     # 경로(sallim-app/…)가 달라 이름으로는 절대 안 합쳐진다(실측 겹침 0건).
     merged: dict = {}
     by_repo: dict = {}
-    for d in list(reg.values()) + list(gh.values()):
+    for d in list(reg.values()) + list(gh.values()) + list(moa.values()):
         ru = (d.get("repo_url") or "").rstrip("/").lower()
         key = by_repo.get(ru) if ru else None
         if key:
             tgt = merged[key]
             tgt["sources"] |= d["sources"]
             tgt["terms"] |= d["terms"]
+            tgt["categories"] = tgt.get("categories", set()) | d.get("categories", set())
             for f in ("stars", "pushed", "archived", "packages", "remotes"):
                 if f in d and f not in tgt:
                     tgt[f] = d[f]
@@ -148,21 +194,31 @@ def main() -> int:
     for d in merged.values():
         d["sources"] = sorted(d["sources"])
         d["terms"] = sorted(d["terms"])
+        d["categories"] = sorted(d.get("categories") or [])
 
     json.dump({"generated_note": "재실행 가능. sources·terms로 어느 원천이 잡았는지 추적된다.",
                "boundaries": notes, "count": len(merged),
                "items": sorted(merged.values(), key=lambda x: x["name"])},
               open("candidates_raw.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 
-    print(f"레지스트리 {len(reg)}건 · GitHub {len(gh)}건 · 합집합 {len(merged)}건")
+    print(f"레지스트리(전수) {len(reg)} · GitHub {len(gh)} · mcpmoa {len(moa)} · 합집합 {len(merged)}건")
     print(f"repo_url로 병합해 {len(reg) + len(gh) - len(merged)}건이 합쳐졌다")
+    import collections
+    cov = collections.Counter(c for d in merged.values() for c in (d.get("categories") or []))
+    print("\n■ 분야별 수확 (분야가 검색어를 낳는다)")
+    from categories import CATEGORIES
+    for cat in CATEGORIES:
+        print(f"  {cat:<14} {cov.get(cat, 0):3d}건" + ("   ← 0건: 그 분야를 못 봤다" if not cov.get(cat) else ""))
     print("\n■ 경계 공시 — 못 본 것 (없다가 아니라 미확인)")
     if not notes:
         print("  (절단·실패 없음)")
     for n in notes:
         print(f"  - {n}")
-    print("  - 레지스트리 검색은 한글을 못 읽는다(실측: `한국` 0건·`kakao` 0건) → 한글 전용 항목 누락, 3차(awesome)가 보완")
+    print("  - 레지스트리는 이제 전수 스윕이라 검색어 누락은 없다. 대신 한국 여부 판정을 "
+          "우리 필터가 지므로, 필터가 놓치면 그대로 누락된다")
     print("  - npm 검색은 총계가 무의미해 원천에서 제외했다(\"mcp korea\" 94,855건)")
+    print("  - playmcp(SPA 껍데기·본문 0)·mcpmarket(403)·mcphub(robots에서 AI 봇 차단)는 "
+          "원천에서 제외 — 그쪽에만 있는 항목은 우리가 못 본다")
     return 0
 
 

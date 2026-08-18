@@ -134,8 +134,18 @@ def measure_package(p: dict) -> dict:
     try:
         req = urllib.request.Request(url, headers={"User-Agent": UA})
         with urllib.request.urlopen(req, timeout=TIMEOUT) as r:
-            json.load(r)
-        return {"type": kind, "id": ident, "installable": True}
+            d = json.load(r)
+        # 설치형(stdio) 서버는 원격 호출로 잴 수 없다. 대신 **배포가 실제로 있고 언제인지**가
+        # 그 서버의 '지금 되냐'다 — 패키지가 없으면 README가 뭐라 하든 설치가 안 된다.
+        last = ""
+        if kind == "npm":
+            last = ((d.get("time") or {}).get("modified") or "")[:10]
+            ver = (d.get("dist-tags") or {}).get("latest", "")
+        else:
+            last = (((d.get("urls") or [{}])[0]).get("upload_time") or "")[:10]
+            ver = (d.get("info") or {}).get("version", "")
+        return {"type": kind, "id": ident, "installable": True,
+                "last_publish": last or None, "version": ver or None}
     except urllib.error.HTTPError as e:
         return {"type": kind, "id": ident, "installable": e.code != 404,
                 "why": "레지스트리에 없다(설치 불가)" if e.code == 404 else f"HTTP {e.code}"}
