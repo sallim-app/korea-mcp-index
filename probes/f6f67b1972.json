@@ -1,0 +1,44 @@
+{
+ "server": "com.aikstockdata/mcp",
+ "url": "https://mcp.aikstockdata.com/mcp",
+ "at": "2026-08-18T23:20:23Z",
+ "calls": [
+  {
+   "label": "①데이터",
+   "tool": "get_today",
+   "arguments": {},
+   "http": 200,
+   "ms": 340,
+   "is_error": false,
+   "error_code": null,
+   "shape": {
+    "bytes": 1691,
+    "json": false
+   },
+   "excerpt": "⚠ 발행 지연 — 시세가 2026-08-14 에 멈춰 있습니다 — 오늘(2026-08-19) 기준 delayed_after(2026-08-18) 경과.\n[신선도] 지연 · 시세 2026-08-14(T+1 확정) · 공시 2026-08-18 · 이후 접수분은 15:00 장중본(get_disclosures) · 다음 갱신 18:10 KST\n   상태 원본: https://aikstockdata.com/data/public/index.json (freshness·pipeline)\n\n오늘의 한국 증시 요약 (한국주식데이터 · 금융위 T+1 확정 종가)\n- 기준일: 2026-08-14 · 스냅샷(실시간 아님)\n- 지수: 코스피 6,977.94 (+164.6p, +2.42%) · 코스닥 864.65 (+3.28p, +0.38%)\n- 등락 폭: 상승 우세 (상승 947·하락 455·보합 60종목, 상승 비율 68%) — 종목 수 기준(시총가중 아님)\n- 52주 신고가 17·신저가 6 · 실측 흑",
+   "excerpt_truncated": true
+  },
+  {
+   "label": "②환각",
+   "tool": "search_stock",
+   "arguments": {
+    "query": "존재하지않는항목ZZZ9999"
+   },
+   "http": 200,
+   "ms": 350,
+   "is_error": false,
+   "error_code": null,
+   "shape": {
+    "bytes": 826,
+    "json": false
+   },
+   "excerpt": "⚠ 발행 지연 — 시세가 2026-08-14 에 멈춰 있습니다 — 오늘(2026-08-19) 기준 delayed_after(2026-08-18) 경과.\n[신선도] 지연 · 시세 2026-08-14(T+1 확정) · 공시 2026-08-18 · 이후 접수분은 15:00 장중본(get_disclosures) · 다음 갱신 18:10 KST\n   상태 원본: https://aikstockdata.com/data/public/index.json (freshness·pipeline)\n\n'존재하지않는항목ZZZ9999'와 일치하는 종목이 없습니다. 현재 데이터셋은 KOSPI·KOSDAQ 1,500종목입니다.\n종목명 일부(예: '삼성')나 6자리 코드(예: '005930')로 다시 시도해 보세요.\n---\n기준일 2026-08-18 | 출처 https://aikstockdata.com/data/public/search_index.json | 투자 권유가 아닌 정보 제공입니다.\n집계 범위: 시총 상위",
+   "excerpt_truncated": true
+  }
+ ],
+ "machine": {
+  "has_data": true,
+  "fabricates": false,
+  "nonsense_reply_bytes": 826
+ }
+}

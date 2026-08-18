@@ -180,6 +180,65 @@ def probe(name: str, url: str, specs: list) -> dict:
     return rec
 
 
+def verdict(rec: dict) -> dict:
+    """저장된 호출에서 기계 판정을 다시 낸다 — **재호출하지 않는다**.
+
+    초판 결함 2건(2026-08-19, 우리 서버·korean-law-mcp 대조로 발견):
+      ① `①데이터`를 아예 부르지 못한 서버(무인자 도구가 없어 건너뜀)를 "데이터 안 나옴"으로
+         표시했다. **안 물어보고 없다고 쓴 것**이라 남의 제품에 대한 거짓 주장이다 → `None`(미확인).
+      ② `②환각`에서 not_found를 주는 것은 **정답인데** is_error로 잡아 감점 방향으로 셌다.
+         `[NOT_FOUND] … LLM이 결과를 추측하거나 지어내지 마세요`라고 답한 서버가 그렇게 깎였다.
+         못 찾았다고 정직하게 말하는 것이 이 검사가 찾는 바로 그 행동이다.
+    """
+    by = {c["label"]: c for c in rec.get("calls", [])}
+    out: dict = {}
+    d1 = by.get("①데이터")
+    if d1 is None:
+        out["has_data"] = None
+        out["has_data_why"] = "필수 인자 없는 읽기 도구가 없어 호출하지 못했다 — 미확인이지 부재가 아니다"
+    else:
+        sh = d1["shape"]
+        out["has_data"] = (not d1["is_error"]) and (bool(sh.get("records")) or sh.get("bytes", 0) > 80)
+        if d1.get("error_code"):
+            out["blocked_by"] = d1["error_code"]
+        elif d1["is_error"]:
+            out["has_data_why"] = "도구가 에러를 반환했다(스키마에 없던 필수 인자 등)"
+    d2 = by.get("②환각")
+    if d2 is not None:
+        txt = (d2.get("excerpt") or "")
+        sh2 = d2["shape"]
+        # **환각은 정상 응답일 때만 판정한다.** 에러(인증·인자·실행 실패)로 돌아온 응답은
+        # 서버가 답할 기회를 못 얻은 것이라 정직성을 논할 수 없다. 초판은 문구 명단으로
+        # 거르려다 계속 샜다 — "API 키가 필요합니다"·"Error executing tool …" 같은 것이
+        # 환각으로 잡혔다. **명단은 끝이 없다.** 에러냐 아니냐라는 구조로 가른다.
+        if d2["is_error"]:
+            out["fabricates"] = None
+            out["fabricates_why"] = f"정상 응답이 아니라 판정 불가({d2.get('error_code') or '도구 에러'})"
+        else:
+            empty = sh2.get("records") == 0
+            says_none = bool(re.search(r"not[_ ]?found|없습니다|0건|no results|찾지 못|없음",
+                                       txt, re.I))
+            out["fabricates"] = not (empty or says_none)
+        out["nonsense_reply_bytes"] = sh2.get("bytes")
+    d4 = by.get("④절단공시")
+    if d4 is not None:
+        out["respects_limit"] = d4["shape"].get("records") == 1
+    return out
+
+
+def rejudge() -> int:
+    n = 0
+    for f in sorted(PROBE_DIR.glob("*.json")):
+        d = json.loads(f.read_text(encoding="utf-8"))
+        if d.get("skipped"):
+            continue
+        d["machine"] = verdict(d)
+        f.write_text(json.dumps(d, ensure_ascii=False, indent=1), encoding="utf-8")
+        n += 1
+    print(f"기계 판정 재산출 {n}건 (재호출 0회)")
+    return 0
+
+
 def run_all() -> int:
     specs_all = json.load(open("schemas/tools.json", encoding="utf-8"))["items"]
     m = json.load(open("measured.json", encoding="utf-8"))["items"]
@@ -209,4 +268,5 @@ def run_all() -> int:
 
 
 if __name__ == "__main__":
-    raise SystemExit(run_all() if (len(sys.argv) < 2 or sys.argv[1] == "run") else 0)
+    cmd = sys.argv[1] if len(sys.argv) > 1 else "run"
+    raise SystemExit(rejudge() if cmd == "rejudge" else run_all())

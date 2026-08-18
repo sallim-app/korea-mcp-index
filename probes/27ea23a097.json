@@ -1,0 +1,87 @@
+{
+ "server": "obundh/korea-public-data-catalog-mcp",
+ "url": "https://korea-public-data-catalog-mcp-production.up.railway.app/mcp",
+ "at": "2026-08-18T23:20:42Z",
+ "calls": [
+  {
+   "label": "①데이터",
+   "tool": "list_public_data_sources",
+   "arguments": {},
+   "http": 200,
+   "ms": 558,
+   "is_error": false,
+   "error_code": null,
+   "shape": {
+    "bytes": 2422,
+    "json": true,
+    "fields": [
+     "advisory",
+     "limit",
+     "offset",
+     "release_channel",
+     "scope_notice",
+     "snapshot",
+     "sources",
+     "total"
+    ],
+    "records": 1,
+    "record_key": "sources"
+   },
+   "excerpt": "{\n  \"snapshot\": {\n    \"index_version\": \"data-go-kr-public-routing-catalog-v1\",\n    \"snapshot_version\": \"data-go-kr-monthly-list-2026-06-30\",\n    \"epoch_id\": \"data-go-kr-public-routing-2026-06-30\",\n    \"cutoff_at\": \"2026-06-30\",\n    \"content_sha256\": \"7205c25deb1e679853a791959ac8dcd25df980198811aea4496c0f9bdfb665a1\",\n    \"summary_sha256\": \"cb0a1842738fc7f134a4bfe5dd8aba9313ae3bacd578750a36eb335a399eec1f\",\n    \"legal_policy_version\": \"kr-public-data-legal-policy-v1\",\n    \"legal_gate_passed\": false",
+   "excerpt_truncated": true
+  },
+  {
+   "label": "④절단공시",
+   "tool": "list_public_data_sources",
+   "arguments": {
+    "limit": 1
+   },
+   "http": 200,
+   "ms": 221,
+   "is_error": false,
+   "error_code": null,
+   "shape": {
+    "bytes": 2421,
+    "json": true,
+    "fields": [
+     "advisory",
+     "limit",
+     "offset",
+     "release_channel",
+     "scope_notice",
+     "snapshot",
+     "sources",
+     "total"
+    ],
+    "records": 1,
+    "record_key": "sources"
+   },
+   "excerpt": "{\n  \"snapshot\": {\n    \"index_version\": \"data-go-kr-public-routing-catalog-v1\",\n    \"snapshot_version\": \"data-go-kr-monthly-list-2026-06-30\",\n    \"epoch_id\": \"data-go-kr-public-routing-2026-06-30\",\n    \"cutoff_at\": \"2026-06-30\",\n    \"content_sha256\": \"7205c25deb1e679853a791959ac8dcd25df980198811aea4496c0f9bdfb665a1\",\n    \"summary_sha256\": \"cb0a1842738fc7f134a4bfe5dd8aba9313ae3bacd578750a36eb335a399eec1f\",\n    \"legal_policy_version\": \"kr-public-data-legal-policy-v1\",\n    \"legal_gate_passed\": false",
+   "excerpt_truncated": true
+  },
+  {
+   "label": "②환각",
+   "tool": "get_public_dataset_details",
+   "arguments": {
+    "dataset_id": "존재하지않는항목ZZZ9999"
+   },
+   "http": 200,
+   "ms": 603,
+   "is_error": true,
+   "error_code": null,
+   "shape": {
+    "bytes": 86,
+    "json": false
+   },
+   "excerpt": "UNKNOWN_PUBLIC_DATASET_ID: 요청한 ID는 현재 로컬 카탈로그에 없습니다. search_public_datasets를 먼저 호출하세요.",
+   "excerpt_truncated": false
+  }
+ ],
+ "machine": {
+  "has_data": true,
+  "fabricates": null,
+  "fabricates_why": "정상 응답이 아니라 판정 불가(도구 에러)",
+  "nonsense_reply_bytes": 86,
+  "respects_limit": true
+ }
+}

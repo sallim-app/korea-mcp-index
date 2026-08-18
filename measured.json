@@ -192,10 +192,10 @@
    "remote": {
     "url": "https://startup-law-mcp.fly.dev/mcp",
     "http": 200,
-    "cold_ms": 4140,
-    "latency_ms": 128,
+    "cold_ms": 3951,
+    "latency_ms": 127,
     "retried": false,
-    "warm_ms": 128,
+    "warm_ms": 127,
     "reachable": true,
     "needs_key": false,
     "tool_count": 13,
@@ -252,8 +252,8 @@
    "remote": {
     "url": "https://korea-stats-mcp-yxup.vercel.app/mcp",
     "http": 404,
-    "cold_ms": 184,
-    "latency_ms": 184,
+    "cold_ms": 141,
+    "latency_ms": 141,
     "retried": false,
     "reachable": false,
     "why": "HTTP 404",
@@ -466,8 +466,8 @@
    "remote": {
     "url": "https://open-proxy-mcp.fly.dev/mcp",
     "http": 401,
-    "cold_ms": 911,
-    "latency_ms": 911,
+    "cold_ms": 181,
+    "latency_ms": 181,
     "retried": false,
     "reachable": true,
     "needs_key": true,
@@ -498,10 +498,10 @@
    "remote": {
     "url": "https://alpha.moss.land/api/mcp",
     "http": 200,
-    "cold_ms": 243,
-    "latency_ms": 29,
+    "cold_ms": 184,
+    "latency_ms": 31,
     "retried": false,
-    "warm_ms": 29,
+    "warm_ms": 31,
     "reachable": true,
     "needs_key": false,
     "tool_count": 12,
@@ -541,10 +541,10 @@
    "remote": {
     "url": "https://korea-stock-analyzer-mcp-production.up.railway.app/mcp",
     "http": 200,
-    "cold_ms": 547,
-    "latency_ms": 220,
+    "cold_ms": 538,
+    "latency_ms": 219,
     "retried": false,
-    "warm_ms": 220,
+    "warm_ms": 219,
     "reachable": true,
     "needs_key": false,
     "tool_count": 6,
@@ -872,8 +872,8 @@
    "remote": {
     "url": "https://supershopping-mcp.atdev.ai/mcp",
     "http": 400,
-    "cold_ms": 221,
-    "latency_ms": 221,
+    "cold_ms": 192,
+    "latency_ms": 192,
     "retried": false,
     "reachable": false,
     "why": "HTTP 400",
@@ -895,8 +895,8 @@
    "remote": {
     "url": "https://server.smithery.ai/@alphago2580/naramarketmcp/mcp",
     "http": 404,
-    "cold_ms": 527,
-    "latency_ms": 527,
+    "cold_ms": 503,
+    "latency_ms": 503,
     "retried": false,
     "reachable": false,
     "why": "HTTP 404",
@@ -917,8 +917,8 @@
    "remote": {
     "url": "https://server.smithery.ai/@hjsh200219/pharminfo-mcp/mcp",
     "http": 404,
-    "cold_ms": 359,
-    "latency_ms": 359,
+    "cold_ms": 363,
+    "latency_ms": 363,
     "retried": false,
     "reachable": false,
     "why": "HTTP 404",
@@ -941,8 +941,8 @@
    "remote": {
     "url": "https://server.smithery.ai/@isnow890/data4library-mcp/mcp",
     "http": 404,
-    "cold_ms": 357,
-    "latency_ms": 357,
+    "cold_ms": 360,
+    "latency_ms": 360,
     "retried": false,
     "reachable": false,
     "why": "HTTP 404",
@@ -965,8 +965,8 @@
    "remote": {
     "url": "https://server.smithery.ai/@jjlabsio/korea-stock-mcp/mcp",
     "http": 404,
-    "cold_ms": 720,
-    "latency_ms": 720,
+    "cold_ms": 357,
+    "latency_ms": 357,
     "retried": false,
     "reachable": false,
     "why": "HTTP 404",
@@ -987,10 +987,10 @@
    "remote": {
     "url": "https://chat.timeplex.ai/mcp",
     "http": 200,
-    "cold_ms": 1182,
-    "latency_ms": 455,
+    "cold_ms": 1245,
+    "latency_ms": 388,
     "retried": false,
-    "warm_ms": 455,
+    "warm_ms": 388,
     "reachable": true,
     "needs_key": false,
     "tool_count": 6,
@@ -1073,10 +1073,10 @@
    "remote": {
     "url": "https://apick.app/mcp/all",
     "http": 200,
-    "cold_ms": 128,
-    "latency_ms": 64,
+    "cold_ms": 125,
+    "latency_ms": 62,
     "retried": false,
-    "warm_ms": 64,
+    "warm_ms": 62,
     "reachable": true,
     "needs_key": false,
     "tool_count": 82,
@@ -1109,10 +1109,10 @@
    "remote": {
     "url": "https://apick.app/mcp/business",
     "http": 200,
-    "cold_ms": 47,
-    "latency_ms": 35,
+    "cold_ms": 41,
+    "latency_ms": 39,
     "retried": false,
-    "warm_ms": 35,
+    "warm_ms": 39,
     "reachable": true,
     "needs_key": false,
     "tool_count": 16,
@@ -1145,10 +1145,10 @@
    "remote": {
     "url": "https://apick.app/mcp/finance",
     "http": 200,
-    "cold_ms": 33,
-    "latency_ms": 32,
+    "cold_ms": 30,
+    "latency_ms": 29,
     "retried": false,
-    "warm_ms": 32,
+    "warm_ms": 29,
     "reachable": true,
     "needs_key": false,
     "tool_count": 3,
@@ -1171,7 +1171,7 @@
   },
   {
    "name": "app.sallim/contract-compass",
-   "repo_url": "https://github.com/sallim-app/contract-compass",
+   "repo_url": "https://github.com/kwenhwang/contract-compass",
    "stars": null,
    "pushed": null,
    "archived": null,
@@ -1181,10 +1181,10 @@
    "remote": {
     "url": "https://contract.sallim.app/mcp",
     "http": 200,
-    "cold_ms": 140,
-    "latency_ms": 36,
+    "cold_ms": 77,
+    "latency_ms": 54,
     "retried": false,
-    "warm_ms": 36,
+    "warm_ms": 54,
     "reachable": true,
     "needs_key": false,
     "tool_count": 11,
@@ -1203,10 +1203,7 @@
     "disclosed": false
    },
    "package": null,
-   "self_hostable": true,
-   "also_known_as": [
-    "sallim-app/contract-compass"
-   ]
+   "self_hostable": null
   },
   {
    "name": "app.sallim/korea-realty",
@@ -1221,10 +1218,10 @@
    "remote": {
     "url": "https://realty.sallim.app/mcp",
     "http": 200,
-    "cold_ms": 138,
-    "latency_ms": 45,
+    "cold_ms": 53,
+    "latency_ms": 46,
     "retried": false,
-    "warm_ms": 45,
+    "warm_ms": 46,
     "reachable": true,
     "needs_key": false,
     "tool_count": 47,
@@ -1260,8 +1257,8 @@
    "remote": {
     "url": "https://inv-kr.wishpool.app/mcp",
     "http": null,
-    "cold_ms": 45,
-    "latency_ms": 45,
+    "cold_ms": 77,
+    "latency_ms": 77,
     "retried": true,
     "reachable": false,
     "why": "URLError: <urlopen error [Errno -2] Name or service not known>",
@@ -1319,8 +1316,8 @@
    "remote": {
     "url": "https://mcp.bootpay.ai/mcp",
     "http": null,
-    "cold_ms": 160,
-    "latency_ms": 160,
+    "cold_ms": 291,
+    "latency_ms": 291,
     "retried": true,
     "reachable": false,
     "why": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certific",
@@ -1446,8 +1443,8 @@
    "remote": {
     "url": "https://archhub-mcp.fly.dev/mcp",
     "http": null,
-    "cold_ms": 5176,
-    "latency_ms": 5176,
+    "cold_ms": 5154,
+    "latency_ms": 5154,
     "retried": true,
     "reachable": false,
     "why": "URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)>",
@@ -1494,10 +1491,10 @@
    "remote": {
     "url": "https://korean-law-mcp.fly.dev/mcp",
     "http": 200,
-    "cold_ms": 279,
-    "latency_ms": 209,
+    "cold_ms": 311,
+    "latency_ms": 222,
     "retried": false,
-    "warm_ms": 209,
+    "warm_ms": 222,
     "reachable": true,
     "needs_key": false,
     "tool_count": 10,
@@ -1522,10 +1519,7 @@
     "last_publish": "2026-08-16",
     "version": "4.12.0"
    },
-   "self_hostable": true,
-   "also_known_as": [
-    "kang-aco/korean-law"
-   ]
+   "self_hostable": true
   },
   {
    "name": "chrisryugj/korean-patent-mcp",
@@ -1597,10 +1591,10 @@
    "remote": {
     "url": "https://mcp.aikstockdata.com/mcp",
     "http": 200,
-    "cold_ms": 68,
-    "latency_ms": 25,
+    "cold_ms": 182,
+    "latency_ms": 45,
     "retried": false,
-    "warm_ms": 25,
+    "warm_ms": 45,
     "reachable": true,
     "needs_key": false,
     "tool_count": 12,
@@ -1633,10 +1627,10 @@
    "remote": {
     "url": "https://seoul-apt-signal.airblock2026.workers.dev/mcp",
     "http": 200,
-    "cold_ms": 54,
-    "latency_ms": 26,
+    "cold_ms": 79,
+    "latency_ms": 33,
     "retried": false,
-    "warm_ms": 26,
+    "warm_ms": 33,
     "reachable": true,
     "needs_key": false,
     "tool_count": 6,
@@ -1669,10 +1663,10 @@
    "remote": {
     "url": "https://mcp.arcasos.com",
     "http": 200,
-    "cold_ms": 1704,
-    "latency_ms": 660,
+    "cold_ms": 1099,
+    "latency_ms": 648,
     "retried": false,
-    "warm_ms": 660,
+    "warm_ms": 648,
     "reachable": true,
     "needs_key": false,
     "tool_count": 3,
@@ -1705,8 +1699,8 @@
    "remote": {
     "url": "https://mcp.beauticslab.com/mcp",
     "http": 401,
-    "cold_ms": 167,
-    "latency_ms": 167,
+    "cold_ms": 158,
+    "latency_ms": 158,
     "retried": false,
     "reachable": true,
     "needs_key": true,
@@ -1732,8 +1726,8 @@
    "remote": {
     "url": "https://app.boltena.com/api/ext/mcp",
     "http": 401,
-    "cold_ms": 148,
-    "latency_ms": 148,
+    "cold_ms": 151,
+    "latency_ms": 151,
     "retried": false,
     "reachable": true,
     "needs_key": true,
@@ -1759,8 +1753,8 @@
    "remote": {
     "url": "https://empresskorea.com/kb-agent-network/mcp",
     "http": 403,
-    "cold_ms": 299,
-    "latency_ms": 299,
+    "cold_ms": 379,
+    "latency_ms": 379,
     "retried": false,
     "reachable": true,
     "needs_key": true,
@@ -1805,10 +1799,10 @@
    "remote": {
     "url": "https://mcp.hankookilbo.com/mcp",
     "http": 200,
-    "cold_ms": 386,
-    "latency_ms": 202,
+    "cold_ms": 451,
+    "latency_ms": 217,
     "retried": false,
-    "warm_ms": 202,
+    "warm_ms": 217,
     "reachable": true,
     "needs_key": false,
     "tool_count": 10,
@@ -1841,10 +1835,10 @@
    "remote": {
     "url": "https://saaskr.com/api/mcp",
     "http": 200,
-    "cold_ms": 664,
-    "latency_ms": 254,
+    "cold_ms": 443,
+    "latency_ms": 253,
     "retried": false,
-    "warm_ms": 254,
+    "warm_ms": 253,
     "reachable": true,
     "needs_key": false,
     "tool_count": 5,
@@ -1877,10 +1871,10 @@
    "remote": {
     "url": "https://www.theprotoclinical.com/api/ucp/mcp",
     "http": 200,
-    "cold_ms": 197,
-    "latency_ms": 147,
+    "cold_ms": 329,
+    "latency_ms": 149,
     "retried": false,
-    "warm_ms": 147,
+    "warm_ms": 149,
     "reachable": true,
     "needs_key": false,
     "tool_count": 13,
@@ -1945,8 +1939,8 @@
    "remote": {
     "url": "https://dartpoint.ai/mcp-sse/mcp",
     "http": 307,
-    "cold_ms": 157,
-    "latency_ms": 157,
+    "cold_ms": 291,
+    "latency_ms": 291,
     "retried": false,
     "reachable": false,
     "why": "HTTP 307",
@@ -2035,8 +2029,8 @@
    "remote": {
     "url": "https://eddmpython-dartlab.hf.space/mcp/sse",
     "http": 405,
-    "cold_ms": 840,
-    "latency_ms": 840,
+    "cold_ms": 1227,
+    "latency_ms": 1227,
     "retried": false,
     "reachable": false,
     "why": "HTTP 405",
@@ -2250,7 +2244,7 @@
    "remote": {
     "url": "https://service.datahub.kr/projects/public-data-lens/mcp",
     "http": 200,
-    "cold_ms": 28,
+    "cold_ms": 42,
     "latency_ms": 23,
     "retried": false,
     "warm_ms": 23,
@@ -2277,10 +2271,7 @@
     "installable": false,
     "why": "레지스트리에 없다(설치 불가)"
    },
-   "self_hostable": true,
-   "also_known_as": [
-    "hike-lab/public-data-lens"
-   ]
+   "self_hostable": true
   },
   {
    "name": "herrozim-ship-it/yureong",
@@ -2301,6 +2292,42 @@
    "self_hostable": true
   },
   {
+   "name": "hike-lab/public-data-lens",
+   "repo_url": "https://github.com/hike-lab/public-data-lens",
+   "stars": 80,
+   "pushed": "2026-08-10",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": {
+    "url": "https://service.datahub.kr/projects/public-data-lens/mcp",
+    "http": 200,
+    "cold_ms": 39,
+    "latency_ms": 24,
+    "retried": false,
+    "warm_ms": 24,
+    "reachable": true,
+    "needs_key": false,
+    "tool_count": 9,
+    "quality": {
+     "described_pct": 100,
+     "desc_median": 225,
+     "input_schema_pct": 89,
+     "output_schema_pct": 100,
+     "annotated_pct": 100,
+     "readonly_pct": 100
+    },
+    "why": "",
+    "url_source": "readme"
+   },
+   "paid_disclosure": {
+    "disclosed": false
+   },
+   "package": null,
+   "self_hostable": null
+  },
+  {
    "name": "hjsh200219/korea-public-data-mcp",
    "repo_url": "https://github.com/hjsh200219/korea-public-data-mcp",
    "stars": 8,
@@ -2312,8 +2339,8 @@
    "remote": {
     "url": "https://public-data.up.railway.app/mcp",
     "http": 400,
-    "cold_ms": 735,
-    "latency_ms": 735,
+    "cold_ms": 753,
+    "latency_ms": 753,
     "retried": false,
     "reachable": false,
     "why": "HTTP 400",
@@ -2340,10 +2367,10 @@
    "remote": {
     "url": "https://realestate-stats-mcp.fly.dev/mcp",
     "http": 200,
-    "cold_ms": 5226,
-    "latency_ms": 125,
+    "cold_ms": 5484,
+    "latency_ms": 121,
     "retried": false,
-    "warm_ms": 125,
+    "warm_ms": 121,
     "reachable": true,
     "needs_key": false,
     "tool_count": 3,
@@ -2400,8 +2427,8 @@
    "remote": {
     "url": "https://immortal0900-real-estate-location-analyzer-mcp.hf.space/gradio_api/mcp/sse",
     "http": 404,
-    "cold_ms": 1283,
-    "latency_ms": 1283,
+    "cold_ms": 1217,
+    "latency_ms": 1217,
     "retried": false,
     "reachable": false,
     "why": "HTTP 404",
@@ -2484,10 +2511,10 @@
    "remote": {
     "url": "https://aidc-ai.io/api/mcp",
     "http": 200,
-    "cold_ms": 569,
-    "latency_ms": 274,
+    "cold_ms": 1058,
+    "latency_ms": 790,
     "retried": false,
-    "warm_ms": 274,
+    "warm_ms": 790,
     "reachable": true,
     "needs_key": false,
     "tool_count": 7,
@@ -2576,8 +2603,8 @@
    "remote": {
     "url": "https://korean-agriculture-mcp.onrender.com/mcp",
     "http": 503,
-    "cold_ms": 477,
-    "latency_ms": 477,
+    "cold_ms": 479,
+    "latency_ms": 479,
     "retried": true,
     "reachable": false,
     "why": "HTTP 503",
@@ -2599,8 +2626,8 @@
    "remote": {
     "url": "https://korean-public-data-mcp.onrender.com/mcp",
     "http": 503,
-    "cold_ms": 174,
-    "latency_ms": 174,
+    "cold_ms": 175,
+    "latency_ms": 175,
     "retried": true,
     "reachable": false,
     "why": "HTTP 503",
@@ -2622,8 +2649,8 @@
    "remote": {
     "url": "https://korean-stock-mcp.onrender.com/mcp",
     "http": 503,
-    "cold_ms": 219,
-    "latency_ms": 219,
+    "cold_ms": 174,
+    "latency_ms": 174,
     "retried": true,
     "reachable": false,
     "why": "HTTP 503",
@@ -2644,8 +2671,8 @@
    "remote": {
     "url": "https://jp-data-api-production.up.railway.app/mcp",
     "http": 404,
-    "cold_ms": 1336,
-    "latency_ms": 1336,
+    "cold_ms": 754,
+    "latency_ms": 754,
     "retried": false,
     "reachable": false,
     "why": "HTTP 404",
@@ -2667,10 +2694,10 @@
    "remote": {
     "url": "https://buyking.saleplaza.com/.well-known/mcp",
     "http": 200,
-    "cold_ms": 77,
-    "latency_ms": 26,
+    "cold_ms": 108,
+    "latency_ms": 29,
     "retried": false,
-    "warm_ms": 26,
+    "warm_ms": 29,
     "reachable": true,
     "needs_key": false,
     "tool_count": null,
@@ -2720,8 +2747,8 @@
    "remote": {
     "url": "https://mcp.printmoneylab.com/mcp",
     "http": 400,
-    "cold_ms": 154,
-    "latency_ms": 154,
+    "cold_ms": 233,
+    "latency_ms": 233,
     "retried": false,
     "reachable": false,
     "why": "HTTP 400",
@@ -2864,8 +2891,8 @@
    "remote": {
     "url": "https://coffee.pryzm.gg/coffee/mcp",
     "http": 403,
-    "cold_ms": 327,
-    "latency_ms": 327,
+    "cold_ms": 548,
+    "latency_ms": 548,
     "retried": false,
     "reachable": true,
     "needs_key": true,
@@ -2896,8 +2923,8 @@
    "remote": {
     "url": "https://playmcp.kakao.com/mcp",
     "http": 401,
-    "cold_ms": 75,
-    "latency_ms": 75,
+    "cold_ms": 71,
+    "latency_ms": 71,
     "retried": false,
     "reachable": true,
     "needs_key": true,
@@ -3145,6 +3172,42 @@
    "self_hostable": true
   },
   {
+   "name": "kang-aco/korean-law",
+   "repo_url": "https://github.com/kang-aco/korean-law",
+   "stars": 0,
+   "pushed": "2026-04-07",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": {
+    "url": "https://korean-law-mcp.fly.dev/mcp",
+    "http": 200,
+    "cold_ms": 214,
+    "latency_ms": 219,
+    "retried": false,
+    "warm_ms": 219,
+    "reachable": true,
+    "needs_key": false,
+    "tool_count": 10,
+    "quality": {
+     "described_pct": 100,
+     "desc_median": 215,
+     "input_schema_pct": 100,
+     "output_schema_pct": 0,
+     "annotated_pct": 100,
+     "readonly_pct": 100
+    },
+    "why": "",
+    "url_source": "readme"
+   },
+   "paid_disclosure": {
+    "disclosed": false
+   },
+   "package": null,
+   "self_hostable": null
+  },
+  {
    "name": "keonho-kim/OpenDart-mcp",
    "repo_url": "https://github.com/keonho-kim/OpenDart-mcp",
    "stars": 3,
@@ -3298,8 +3361,8 @@
    "remote": {
     "url": "https://stock-data-mcp-production.up.railway.app/mcp",
     "http": 400,
-    "cold_ms": 816,
-    "latency_ms": 816,
+    "cold_ms": 754,
+    "latency_ms": 754,
     "retried": false,
     "reachable": false,
     "why": "HTTP 400",
@@ -3326,8 +3389,8 @@
    "remote": {
     "url": "https://ragalgo-service-production.up.railway.app/sse",
     "http": 404,
-    "cold_ms": 998,
-    "latency_ms": 998,
+    "cold_ms": 1011,
+    "latency_ms": 1011,
     "retried": false,
     "reachable": false,
     "why": "HTTP 404",
@@ -3463,8 +3526,8 @@
     "type": "npm",
     "id": "skills",
     "installable": true,
-    "last_publish": "2026-08-05",
-    "version": "1.5.22"
+    "last_publish": "2026-08-18",
+    "version": "1.5.23"
    },
    "self_hostable": true
   },
@@ -3554,9 +3617,9 @@
    "remote": {
     "url": "https://kosis-mcp-70b9.onrender.com/mcp",
     "http": 400,
-    "cold_ms": 365,
-    "latency_ms": 365,
-    "retried": false,
+    "cold_ms": 14132,
+    "latency_ms": 14132,
+    "retried": true,
     "reachable": false,
     "why": "HTTP 400",
     "url_source": "readme"
@@ -3790,8 +3853,8 @@
    "remote": {
     "url": "https://health.autotaxsystem.co.kr/mcp",
     "http": 405,
-    "cold_ms": 33,
-    "latency_ms": 33,
+    "cold_ms": 786,
+    "latency_ms": 786,
     "retried": false,
     "reachable": false,
     "why": "HTTP 405",
@@ -3855,10 +3918,10 @@
    "remote": {
     "url": "https://korea-public-data-catalog-mcp-production.up.railway.app/mcp",
     "http": 200,
-    "cold_ms": 550,
-    "latency_ms": 218,
+    "cold_ms": 549,
+    "latency_ms": 222,
     "retried": false,
-    "warm_ms": 218,
+    "warm_ms": 222,
     "reachable": true,
     "needs_key": false,
     "tool_count": 7,
@@ -4122,6 +4185,47 @@
    "self_hostable": null
   },
   {
+   "name": "sallim-app/contract-compass",
+   "repo_url": "https://github.com/sallim-app/contract-compass",
+   "stars": 0,
+   "pushed": "2026-08-17",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": {
+    "url": "https://contract.sallim.app/mcp",
+    "http": 200,
+    "cold_ms": 73,
+    "latency_ms": 35,
+    "retried": false,
+    "warm_ms": 35,
+    "reachable": true,
+    "needs_key": false,
+    "tool_count": 11,
+    "quality": {
+     "described_pct": 100,
+     "desc_median": 584,
+     "input_schema_pct": 100,
+     "output_schema_pct": 0,
+     "annotated_pct": 100,
+     "readonly_pct": 91
+    },
+    "why": "",
+    "url_source": "readme"
+   },
+   "paid_disclosure": {
+    "disclosed": false
+   },
+   "package": {
+    "type": "pypi",
+    "id": "-r",
+    "installable": false,
+    "why": "레지스트리에 없다(설치 불가)"
+   },
+   "self_hostable": true
+  },
+  {
    "name": "scvcoder/korean-law-alio-mcp",
    "repo_url": "https://github.com/scvcoder/korean-law-alio-mcp",
    "stars": 15,
@@ -4133,10 +4237,10 @@
    "remote": {
     "url": "https://korean-law-alio-mcp.fly.dev/mcp",
     "http": 200,
-    "cold_ms": 292,
-    "latency_ms": 213,
+    "cold_ms": 301,
+    "latency_ms": 223,
     "retried": false,
-    "warm_ms": 213,
+    "warm_ms": 223,
     "reachable": true,
     "needs_key": false,
     "tool_count": 125,
@@ -4194,8 +4298,8 @@
    "remote": {
     "url": "https://korean-stat-mcp.seolcoding.com/mcp",
     "http": 401,
-    "cold_ms": 964,
-    "latency_ms": 964,
+    "cold_ms": 328,
+    "latency_ms": 328,
     "retried": false,
     "reachable": true,
     "needs_key": true,
@@ -4265,8 +4369,8 @@
    "remote": {
     "url": "https://electronics-price-mcp.jinhyuk9714.workers.dev/mcp",
     "http": 404,
-    "cold_ms": 54,
-    "latency_ms": 54,
+    "cold_ms": 122,
+    "latency_ms": 122,
     "retried": false,
     "reachable": false,
     "why": "HTTP 404",
@@ -4311,8 +4415,8 @@
    "remote": {
     "url": "https://mcp.rndmanagers.org/mcp",
     "http": 400,
-    "cold_ms": 67,
-    "latency_ms": 67,
+    "cold_ms": 104,
+    "latency_ms": 104,
     "retried": false,
     "reachable": false,
     "why": "HTTP 400",
@@ -4575,8 +4679,8 @@
    "remote": {
     "url": "https://mcp.koreanpulse.dev/mcp",
     "http": 400,
-    "cold_ms": 103,
-    "latency_ms": 103,
+    "cold_ms": 73,
+    "latency_ms": 73,
     "retried": false,
     "reachable": false,
     "why": "HTTP 400",
@@ -4805,10 +4909,10 @@
    "remote": {
     "url": "https://academyinfo-mcp-433006350023.asia-northeast3.run.app/mcp",
     "http": 200,
-    "cold_ms": 236,
-    "latency_ms": 137,
+    "cold_ms": 197,
+    "latency_ms": 55,
     "retried": false,
-    "warm_ms": 137,
+    "warm_ms": 55,
     "reachable": true,
     "needs_key": false,
     "tool_count": 8,

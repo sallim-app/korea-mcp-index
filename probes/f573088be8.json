@@ -1,0 +1,51 @@
+{
+ "server": "Mrbaeksang/korea-stock-analyzer-mcp",
+ "url": "https://korea-stock-analyzer-mcp-production.up.railway.app/mcp",
+ "at": "2026-08-18T23:19:51Z",
+ "calls": [
+  {
+   "label": "①데이터",
+   "tool": "ping",
+   "arguments": {},
+   "http": 200,
+   "ms": 600,
+   "is_error": false,
+   "error_code": null,
+   "shape": {
+    "bytes": 4,
+    "json": false
+   },
+   "excerpt": "pong",
+   "excerpt_truncated": false
+  },
+  {
+   "label": "②환각",
+   "tool": "search_company",
+   "arguments": {
+    "query": "존재하지않는항목ZZZ9999"
+   },
+   "http": 200,
+   "ms": 543,
+   "is_error": false,
+   "error_code": null,
+   "shape": {
+    "bytes": 50,
+    "json": true,
+    "fields": [
+     "count",
+     "matches",
+     "query"
+    ],
+    "records": 0,
+    "record_key": "matches"
+   },
+   "excerpt": "{\"query\":\"존재하지않는항목ZZZ9999\",\"count\":0,\"matches\":[]}",
+   "excerpt_truncated": false
+  }
+ ],
+ "machine": {
+  "has_data": false,
+  "fabricates": false,
+  "nonsense_reply_bytes": 50
+ }
+}

@@ -1,0 +1,38 @@
+{
+ "server": "sallim-app/contract-compass",
+ "url": "https://contract.sallim.app/mcp",
+ "at": "2026-08-18T23:20:47Z",
+ "calls": [
+  {
+   "label": "②환각",
+   "tool": "search_law",
+   "arguments": {
+    "query": "존재하지않는항목ZZZ9999"
+   },
+   "http": 200,
+   "ms": 356,
+   "is_error": false,
+   "error_code": null,
+   "shape": {
+    "bytes": 145,
+    "json": true,
+    "fields": [
+     "count",
+     "hint",
+     "hits",
+     "total_found"
+    ],
+    "records": 0,
+    "record_key": "hits"
+   },
+   "excerpt": "{\n  \"hits\": [],\n  \"count\": 0,\n  \"total_found\": 0,\n  \"hint\": \"0건 — 짧은 단일 키워드('수의계약')나 '법령명 제N조' 형태로 재검색하거나, search_references로 예규·가이드까지 넓혀 찾아라.\"\n}",
+   "excerpt_truncated": false
+  }
+ ],
+ "machine": {
+  "has_data": null,
+  "has_data_why": "필수 인자 없는 읽기 도구가 없어 호출하지 못했다 — 미확인이지 부재가 아니다",
+  "fabricates": false,
+  "nonsense_reply_bytes": 145
+ }
+}

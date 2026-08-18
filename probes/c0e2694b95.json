@@ -1,0 +1,56 @@
+{
+ "server": "haklaekim/public-data-lens",
+ "url": "https://service.datahub.kr/projects/public-data-lens/mcp",
+ "at": "2026-08-18T23:20:31Z",
+ "calls": [
+  {
+   "label": "①데이터",
+   "tool": "search_datasets",
+   "arguments": {},
+   "http": 200,
+   "ms": 43,
+   "is_error": false,
+   "error_code": null,
+   "shape": {
+    "bytes": 7311,
+    "json": true,
+    "fields": [
+     "data",
+     "meta",
+     "notices",
+     "warnings"
+    ],
+    "records": 1,
+    "record_key": "warnings"
+   },
+   "excerpt": "{\"data\":{\"items\":[{\"recordId\":\"15044753\",\"listKey\":\"15044753\",\"listType\":\"FILE\",\"title\":\"서울특별시 _서초구_건축허가정보\",\"orgName\":\"서울특별시 서초구\",\"theme\":{\"top\":\"국토관리\",\"sub\":\"지역및도시\"},\"formats\":[\"CSV\"],\"updateCycle\":\"IRREGULAR\",\"modifiedDate\":\"2026-07-10\",\"completeness\":{\"score\":0.8125,\"profile\":\"FILE\",\"rule\":\"catalog-completeness-file-v1.0\",\"filledFields\":13,\"totalFields\":16,\"keyFields\":{\"spatial\":false,\"temporal\":false,\"dataLimits\":false},\"topPercent\":10.7,\"typical\":true,\"typicalShare\":89.3},\"structureAvailabl",
+   "excerpt_truncated": true
+  },
+  {
+   "label": "②환각",
+   "tool": "get_dataset",
+   "arguments": {
+    "recordId": "존재하지않는항목ZZZ9999"
+   },
+   "http": 200,
+   "ms": 26,
+   "is_error": true,
+   "error_code": "DATASET_NOT_FOUND",
+   "shape": {
+    "bytes": 151,
+    "json": true,
+    "fields": [
+     "error"
+    ]
+   },
+   "excerpt": "{\"error\":{\"code\":\"DATASET_NOT_FOUND\",\"message\":\"데이터셋을 찾을 수 없습니다: 존재하지않는항목ZZZ9999\",\"details\":{\"recordId\":\"존재하지않는항목ZZZ9999\"},\"sourceSnapshot\":\"2026-06\"}}",
+   "excerpt_truncated": false
+  }
+ ],
+ "machine": {
+  "has_data": true,
+  "fabricates": null,
+  "fabricates_why": "정상 응답이 아니라 판정 불가(DATASET_NOT_FOUND)",
+  "nonsense_reply_bytes": 151
+ }
+}

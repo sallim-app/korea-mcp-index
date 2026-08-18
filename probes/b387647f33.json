@@ -1,0 +1,61 @@
+{
+ "server": "ai.timeplex/booking",
+ "url": "https://chat.timeplex.ai/mcp",
+ "at": "2026-08-18T23:19:55Z",
+ "calls": [
+  {
+   "label": "①데이터",
+   "tool": "search_shops",
+   "arguments": {},
+   "http": 200,
+   "ms": 740,
+   "is_error": false,
+   "error_code": null,
+   "shape": {
+    "bytes": 777,
+    "json": true,
+    "fields": [
+     "available_service_types",
+     "categories",
+     "count",
+     "filter_applied",
+     "note",
+     "reply_header",
+     "reply_header_usage",
+     "shops"
+    ],
+    "records": 1,
+    "record_key": "shops"
+   },
+   "excerpt": "{\"shops\":[{\"slug\":\"spaslick\",\"name\":\"Spa Slick\",\"business_type\":\"hair\",\"category\":\"hair\",\"address\":\"SPA SLICK  B1, 137 Eunpyeong-ro, Eunpyeong-gu, Seoul\",\"bookable\":true}],\"count\":1,\"available_service_types\":[\"hair\"],\"categories\":[\"hair\",\"beauty\"],\"filter_applied\":{\"category\":null,\"service_type\":null,\"location\":null,\"query\":null},\"reply_header\":\"⏱ **Timeplex K-Beauty Booking Agent**\",\"reply_header_usage\":\"Begin your reply with reply_header on its own line, exactly once, before anything else.\",\"n",
+   "excerpt_truncated": true
+  },
+  {
+   "label": "②환각",
+   "tool": "get_shop_services",
+   "arguments": {
+    "slug": "존재하지않는항목ZZZ9999"
+   },
+   "http": 200,
+   "ms": 705,
+   "is_error": true,
+   "error_code": "store_not_found",
+   "shape": {
+    "bytes": 80,
+    "json": true,
+    "fields": [
+     "error",
+     "hint"
+    ]
+   },
+   "excerpt": "{\"error\":\"store_not_found\",\"hint\":\"Use search_shops first to get a valid slug.\"}",
+   "excerpt_truncated": false
+  }
+ ],
+ "machine": {
+  "has_data": true,
+  "fabricates": null,
+  "fabricates_why": "정상 응답이 아니라 판정 불가(store_not_found)",
+  "nonsense_reply_bytes": 80
+ }
+}
