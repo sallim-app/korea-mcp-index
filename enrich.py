@@ -27,10 +27,20 @@ UA = "sallim-mcp-index/0.1 (+https://github.com/sallim-app)"
 # **배지 이미지가 엔드포인트로 둔갑한다.** 2026-08-18 실측: korean-law-mcp(★2,476)의
 # 엔드포인트로 `https://img.shields.io/badge/MCP`가 잡혔고 이미지라 200이 떠서
 # "작동하는 서버"로 실릴 뻔했다. README에서 뽑는 이상 이 계열은 계속 나온다.
+# 2026-08-19 추가(T-2026W34-107): 배지 이미지 다음으로 새는 것이 **디렉터리·문서 사이트**다.
+# README의 "이 서버를 Glama/LobeHub에 추가하기" 안내문에 적힌 그 사이트 주소가 서버 주소로
+# 잡혔다 — 실측 12건. `server.smithery.ai/@user/x/mcp`는 진짜 호스팅 주소라 살리고
+# `smithery.ai/servers/...` 목록 페이지만 막는다. 측정 쪽(measure.py)에도 같은 그물이 있다 —
+# 여기서 새면 거기서 잡고, 거기 명단이 뒤처지면 '같은 주소 2곳 이상' 규칙이 잡는다.
 SKIP_HOST = re.compile(
     r"localhost|127\.0\.0\.1|0\.0\.0\.0|example\.(com|org)|your-|<|\{|"
     r"modelcontextprotocol\.io|github\.com|npmjs\.com|readthedocs|"
-    r"shields\.io|badge|\.svg|\.png|img\.|raw\.githubusercontent", re.I)
+    r"shields\.io|badge|\.svg|\.png|img\.|raw\.githubusercontent|"
+    r"glama\.ai|lobehub\.com|//(?:www\.)?smithery\.ai|mcp\.so|pulsemcp\.com|"
+    r"mcpservers\.org|antigravity\.google|home-assistant\.io|huggingface\.co|"
+    r"cursor\.com|claude\.ai|openai\.com|/docs/|"
+    # README가 "여기에 당신 주소를" 로 남겨 둔 자리 — 실제로 xxxx.ngrok.io를 두드렸다.
+    r"//(?:xxx+|yyy+|host|domain)[\w-]*\.", re.I)
 RE_ENDPOINT = re.compile(r"https://[\w.-]+(?::\d+)?(?:/[\w./-]*)?/(?:mcp|sse)\b", re.I)
 RE_NPX = re.compile(r"npx\s+(?:-y\s+|--yes\s+)?(@?[\w.@/-]+)", re.I)
 RE_UVX = re.compile(r"uvx\s+(?:--from\s+)?([\w.-]+)", re.I)
@@ -73,8 +83,11 @@ def _readme(repo: str, token: str) -> str | None:
         return None
 
 
+RE_KRDOMAIN = re.compile(r"\b[\w.-]+\.(go|or|re)\.kr\b", re.I)
+
+
 def enrich(repo: str, token: str) -> dict:
-    found = {"packages": [], "remotes": [], "evidence": []}
+    found = {"packages": [], "remotes": [], "evidence": [], "kr_domains": []}
 
     pj = _content(repo, "package.json", token)
     if pj:
@@ -97,6 +110,8 @@ def enrich(repo: str, token: str) -> dict:
 
     rm = _readme(repo, token)
     if rm:
+        # README가 부르는 한국 정부·기관 도메인 — 설명이 영어뿐인 서버를 잡는 유일한 신호다.
+        found["kr_domains"] = sorted({m.group(0).lower() for m in RE_KRDOMAIN.finditer(rm)})[:6]
         for u in dict.fromkeys(RE_ENDPOINT.findall(rm)):
             if not SKIP_HOST.search(u):
                 found["remotes"].append({"type": "streamable-http", "url": u,
@@ -120,10 +135,14 @@ def main() -> int:
             token = line.split("=", 1)[1].strip()
 
     src = json.load(open("candidates_filtered.json", encoding="utf-8"))
+    # **review도 보강한다.** review는 "한국 관련은 맞은데 데이터형 신호가 없다"거나
+    # "설명이 비었다"는 뜻이고, 그 답이 대개 README에 있다. keep만 보강하면 판정을
+    # 못 바꾸는 곳만 파는 셈이다(2026-08-18: README의 .go.kr 신호를 도입하며 발견).
     todo = [i for i in src["items"]
-            if i["verdict"] == "keep" and not i.get("remotes") and not i.get("packages")
+            if i["verdict"] in ("keep", "review")
+            and not i.get("remotes") and not i.get("packages")
             and i.get("repo_url", "").startswith("https://github.com/")]
-    print(f"보강 대상 {len(todo)}건 (keep 중 원격·패키지 둘 다 없는 것)")
+    print(f"보강 대상 {len(todo)}건 (keep+review 중 원격·패키지 둘 다 없는 것)")
 
     hit_r = hit_p = 0
     for n, it in enumerate(todo, 1):
@@ -136,6 +155,8 @@ def main() -> int:
             it["packages"] = f["packages"]
             hit_p += 1
         it["enrich_evidence"] = f["evidence"]
+        if f.get("kr_domains"):
+            it["kr_domains"] = f["kr_domains"]
         if n % 20 == 0:
             print(f"  … {n}/{len(todo)}  (엔드포인트 {hit_r} · 패키지 {hit_p})")
         time.sleep(0.3)
@@ -144,7 +165,8 @@ def main() -> int:
               ensure_ascii=False, indent=1)
     still = len([i for i in src["items"]
                  if i["verdict"] == "keep" and not i.get("remotes") and not i.get("packages")])
-    print(f"\n엔드포인트 발견 {hit_r}건 · 패키지 발견 {hit_p}건")
+    krd = len([i for i in src["items"] if i.get("kr_domains")])
+    print(f"\n엔드포인트 발견 {hit_r}건 · 패키지 발견 {hit_p}건 · 한국 도메인(.go.kr 등) {krd}건")
     print(f"여전히 못 재는 keep {still}건 — 저장소에 실행법이 안 적혀 있다(미확인이지 부재가 아니다)")
     print("\n주의: readme 신뢰도는 **추정**이다. 실호출·레지스트리 조회가 가른다 — measure.py 몫.")
     return 0

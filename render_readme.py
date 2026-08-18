@@ -21,8 +21,12 @@ HDR = """# 한국 데이터 MCP — 실측 목록
 한국의 데이터를 AI에게 주는 MCP 서버를 **직접 붙여서 재고** 그 값을 공개한다.
 
 다른 목록은 "있다"를 말한다. 이 목록은 **"지금 되냐"**를 잰다.
-{ts} 측정 기준, 공식 MCP 레지스트리에 원격 주소를 등록한 한국 MCP **{n_remote}건 중
-{n_dead}건({pct}%)이 응답하지 않았다.** 등록은 가동의 증거가 아니다.
+{ts} UTC 측정 기준, 원격 주소를 확인한 한국 MCP **{n_remote}건 중 {n_dead}건({pct}%)이
+응답하지 않았다.** 등록은 가동의 증거가 아니다.
+
+**주소의 출처를 갈라 읽어라.** 관리자가 공식 레지스트리에 **직접 등록한** 주소 {n_reg}건 중
+{n_reg_dead}건이 무응답이고, 나머지 {n_rme}건은 우리가 README에서 뽑은 **추정** 주소다(무응답 {n_rme_dead}건).
+추정 주소의 무응답은 "그 서버가 죽었다"보다 약한 주장이다 — 우리가 주소를 잘못 짚었을 수 있다.
 
 ## 이 목록을 믿어도 되는 이유 (그리고 믿으면 안 되는 부분)
 
@@ -74,21 +78,29 @@ def main() -> int:
     live.sort(key=lambda r: (r["remote"].get("needs_key") or False,
                              -(r["remote"].get("tool_count") or 0)))
 
+    reg = [r for r in rem if r["remote"].get("url_source") != "readme"]
+    rme = [r for r in rem if r["remote"].get("url_source") == "readme"]
     out = [HDR.format(ts=datetime.now(UTC).strftime("%Y-%m-%d"), n_remote=len(rem),
-                      n_dead=len(dead), pct=round(100 * len(dead) / max(len(rem), 1)))]
+                      n_dead=len(dead), pct=round(100 * len(dead) / max(len(rem), 1)),
+                      n_reg=len(reg), n_reg_dead=sum(1 for r in reg if not r["remote"].get("reachable")),
+                      n_rme=len(rme), n_rme_dead=sum(1 for r in rme if not r["remote"].get("reachable")))]
     out.append("\n## 응답하는 서버\n")
     out.append("| 서버 | 도구 | 웜(ms) | 콜드(ms) | 키 | 셀프호스팅 |")
     out.append("|---|---|---|---|---|---|")
     out += [_fmt(r) for r in live]
 
     out.append("\n## 응답하지 않는 서버\n")
-    out.append("공식 레지스트리에 원격 주소가 등록돼 있으나 측정 시점에 응답하지 않았다. "
-               "일시적 장애일 수 있으니 **폐기 판정이 아니라 관측 기록**으로 읽어라.\n")
-    out.append("| 서버 | 증상 |")
-    out.append("|---|---|")
+    out.append("측정 시점에 그 주소가 응답하지 않았다. 일시적 장애일 수 있으니 "
+               "**폐기 판정이 아니라 관측 기록**으로 읽어라.\n")
+    out.append("주소 출처를 같이 싣는다. `레지스트리`는 관리자가 직접 등록한 주소라 "
+               "무응답이 그 서버에 대한 관측이지만, `README 추정`은 우리가 문서에서 뽑은 "
+               "주소여서 **우리가 잘못 짚었을 가능성이 남아 있다**. 둘을 같은 무게로 읽지 마라.\n")
+    out.append("| 서버 | 증상 | 주소 출처 |")
+    out.append("|---|---|---|")
     for r in dead:
         rm = r["remote"]
-        out.append(f"| {r['name']} | {rm.get('why') or ('HTTP ' + str(rm.get('http')))} |")
+        origin = "README 추정" if rm.get("url_source") == "readme" else "레지스트리"
+        out.append(f"| {r['name']} | {rm.get('why') or ('HTTP ' + str(rm.get('http')))} | {origin} |")
 
     unmeasured = len(items) - len(rem)
     out.append(f"\n## 못 잰 것 — {unmeasured}건\n")
@@ -96,6 +108,9 @@ def main() -> int:
                "가동 여부를 재지 못했다.** 이것은 '작동하지 않는다'가 아니라 "
                "'우리가 확인하지 못했다'는 뜻이다. 저장소만 있고 레지스트리에 등록하지 않은 "
                "경우가 대부분이다 — 등록하면 다음 회차에 자동으로 잡힌다.\n")
+    out.append("여기엔 **주소 미상**도 들어 있다. README에서 뽑은 주소가 그 서버의 것이 아니라 "
+               "디렉터리·문서 사이트(Glama·LobeHub 등)이거나 문서의 placeholder였던 건들이다. "
+               "그런 주소로 얻은 응답은 살았다는 증거도 죽었다는 증거도 아니라서 판정에서 뺐다.\n")
     for b in d.get("boundaries", [])[:5]:
         out.append(f"- {b}")
 

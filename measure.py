@@ -21,7 +21,9 @@
 실행: python3 measure.py [--limit N]
 """
 import argparse
+import collections
 import json
+import re
 import socket
 import time
 import urllib.error
@@ -58,8 +60,41 @@ def _post_jsonrpc(url: str, method: str) -> dict:
                 "error": f"{type(e).__name__}: {e}"[:120]}
 
 
-def _tools_from(raw: str) -> int | None:
-    """SSE(`data: {...}`)와 순수 JSON 둘 다 받는다."""
+def _tool_quality(tools: list) -> dict:
+    """**도메인 지식 없이 잴 수 있는 품질** — 기치 ②(인식 경계 계약)의 측정 가능한 부분.
+
+    "좋은 서버인가"에서 **도메인 정확성은 우리가 전 분야에서 판정할 수 없다.** 부동산·
+    공공계약은 정답을 알지만 의료·교통은 모른다. 모르면서 점수를 매기면 우리가 경계하는
+    '그럴듯한 요약'을 우리가 생산하는 것이다. 그래서 그건 재지 않고 그렇다고 공시한다.
+
+    대신 **분야와 무관하게** 잴 수 있는 것이 있다: 이 서버가 자기를 LLM에게 제대로
+    설명하는가. 설명이 없거나 스키마가 없으면 모델은 그 도구를 언제 어떻게 쓸지 모르고,
+    그러면 데이터가 아무리 정확해도 답에 도달하지 못한다. 어노테이션(readOnlyHint 등)이
+    없으면 클라이언트가 안전하게 다룰 수 없다(비대화 codex가 자동 취소하는 실측 사례가 있다).
+
+    전부 `tools/list` 한 번에 이미 들어 있는 값이다 — 남의 서버에 추가 부담을 주지 않는다.
+    """
+    n = len(tools)
+    if not n:
+        return {}
+    desc = sorted(len(t.get("description") or "") for t in tools)
+
+    def pct(f) -> int:
+        return round(100 * sum(1 for t in tools if f(t)) / n)
+
+    return {
+        "described_pct": pct(lambda t: len(t.get("description") or "") >= 20),
+        "desc_median": desc[n // 2],
+        "input_schema_pct": pct(lambda t: ((t.get("inputSchema") or {}).get("properties"))),
+        "output_schema_pct": pct(lambda t: t.get("outputSchema")),
+        "annotated_pct": pct(lambda t: t.get("annotations")),
+        "readonly_pct": pct(lambda t: (t.get("annotations") or {}).get("readOnlyHint")),
+    }
+
+
+def _tools_from(raw: str) -> list | None:
+    """SSE(`data: {...}`)와 순수 JSON 둘 다 받는다. **목록을 그대로 돌려준다** —
+    개수만 세고 버리면 품질 지표를 다시 받으러 가야 한다(남의 서버에 두 번 묻는 셈)."""
     for chunk in ([raw] + [ln[5:].strip() for ln in raw.splitlines() if ln.startswith("data:")]):
         try:
             d = json.loads(chunk)
@@ -67,7 +102,7 @@ def _tools_from(raw: str) -> int | None:
             continue
         tools = ((d.get("result") or {}).get("tools"))
         if isinstance(tools, list):
-            return len(tools)
+            return tools
     return None
 
 
@@ -114,13 +149,88 @@ def measure_remote(url: str) -> dict:
                 "why": "인증 필요 — 키 없이는 도구 목록도 못 본다"}
     if r["status"] != 200:
         return {**out, "reachable": False, "why": f"HTTP {r['status']}"}
-    n = _tools_from(r["raw"])
+    tools = _tools_from(r["raw"])
+    n = None if tools is None else len(tools)
     if n is None:
         why = ("응답이 상한을 넘어 잘렸다 — 도구 수 미확인(측정기 한계, 서버 문제 아님)"
                if r.get("body_truncated") else "200이지만 tools/list 응답을 못 읽었다 — 규격 이탈 의심")
         return {**out, "reachable": True, "needs_key": False, "tool_count": None, "why": why}
     return {**out, "reachable": True, "needs_key": False, "tool_count": n,
-            "why": "" if n else "도구 0개 — 껍데기"}
+            "quality": _tool_quality(tools), "why": "" if n else "도구 0개 — 껍데기"}
+
+
+# **주소의 출처가 판정의 강도를 정한다** (2026-08-19, T-2026W34-107).
+#
+# 레지스트리 주소는 **관리자가 직접 등록한 것**이다 — 응답이 없으면 "등록한 주소가 죽었다"고
+# 말할 자격이 있다. 그러나 README에서 정규식으로 뽑은 주소는 **우리 추정**이고, 응답이 없을 때
+# 그것은 "이 서버가 죽었다"가 아니라 **"우리가 이 서버의 주소를 못 찾았다"**이다. 둘을 한 표에
+# 실으면 남의 제품에 근거 없는 사망 선고를 하게 된다(기치 ②: 못 봄 != 없음, 기치 ③: 남의 것도 알린다).
+#
+# 실측 2026-08-19 — 양방향으로 틀렸다. README 추정 41건 중 12건이 그 서버의 주소가 아니었다:
+#   거짓 사망 8건  glama.ai/mcp(2·우리 contract-compass 포함) · lobehub.com/mcp(2) ·
+#                  home-assistant.io · huggingface.co/spaces/MCP · smithery.ai 목록페이지 ·
+#                  xxxx.ngrok.io(README의 placeholder를 그대로 두드렸다)
+#   거짓 생존 4건  narajangteo-* 4건이 antigravity.google/docs/mcp(구글 문서 페이지)의 HTTP 200을
+#                  근거로 "응답하는 서버" 표에 실렸다. 문서 페이지는 무엇이든 200을 준다.
+#
+# 그물을 두 겹 친다. 하나는 썩고 하나는 안 썩는다 — 그래서 둘 다 둔다.
+#   (1) 알려진 디렉터리·문서 호스트 명단. 정확하지만 새 사이트가 생기면 뒤처진다(썩는다).
+#       `server.smithery.ai/@user/x/mcp`는 실제 호스팅 엔드포인트라 통과시킨다 — 막는 것은
+#       `smithery.ai/servers/...` 목록 페이지 쪽이다.
+#   (2) **같은 README 추정 주소가 서로 다른 프로젝트 2곳 이상에 나오면 그건 남의 주소다.**
+#       명단 없이 스스로 갱신되는 규칙이라 새 디렉터리 사이트도 잡는다. 단 tools/list가 실제로
+#       읽힌 주소는 예외로 남긴다 — 포크·중복 프로젝트가 진짜 엔드포인트를 공유하는 경우가 있고
+#       (korean-law-mcp.fly.dev, service.datahub.kr) 그때는 증거가 명단을 이긴다.
+THIRD_PARTY = re.compile(
+    r"^https://(?:www\.)?(?:glama\.ai|lobehub\.com|smithery\.ai|mcp\.so|pulsemcp\.com|"
+    r"mcpservers\.org|antigravity\.google|home-assistant\.io|huggingface\.co|"
+    r"cursor\.com|claude\.ai|openai\.com|docs\.[\w.-]+)/", re.I)
+# README가 "여기에 당신 주소를 넣으세요"로 남겨 둔 자리. 실제로 xxxx.ngrok.io를 두드렸다.
+PLACEHOLDER = re.compile(r"//(?:xxx+|yyy+|your|my|host|domain)[\w-]*\.", re.I)
+
+
+def third_party_addr(url: str) -> str:
+    """이 주소가 그 서버의 것이 아니라고 볼 근거가 있으면 사유를, 없으면 빈 문자열."""
+    if THIRD_PARTY.search(url):
+        return "제3자 디렉터리·문서 사이트 주소"
+    if PLACEHOLDER.search(url):
+        return "README의 placeholder 주소"
+    return ""
+
+
+def protocol_confirmed(rm: dict) -> bool:
+    """이 주소가 정말 MCP 서버인지 **관측으로** 확인됐나.
+
+    tools/list가 읽혔거나(도구 수를 셌다) 인증 벽에 막혔다면(401/403) 그 주소는 MCP를 말한다.
+    200을 주지만 tools/list를 못 읽는 것은 확인이 아니다 — 문서 페이지가 정확히 그렇게 생겼다.
+    """
+    return rm.get("tool_count") is not None or bool(rm.get("needs_key"))
+
+
+def measure_paid_disclosure(mcp_url: str) -> dict:
+    """유료 게이트를 **서버가 스스로 밝히는가**.
+
+    왜 이 축이 필요한가(2026-08-18 사장님 지적): `tools/list`는 유료 도구도 그냥 보여준다.
+    그래서 "무인증 · 47종"이라고만 적으면 **47종을 공짜로 다 쓴다**는 뜻으로 읽힌다 —
+    우리 서버가 실은 무료 37 / 유료 10인데도 그랬다. 우리 자신을 부풀리는 표기였다.
+
+    **밖에서는 판정할 수 없다.** 유료인지 알려면 실제로 불러서 거절당해야 하는데 그건
+    남의 서버에 부담이고 오판 위험이다. 그래서 재는 것은 유료 여부가 아니라
+    **공시 여부**다 — 밝히는 서버가 모델에게 정직한 서버다. 못 읽으면 `None`이고,
+    `None`은 "무료"가 아니라 "확인 못 했다"는 뜻이다(표에도 그렇게 쓴다).
+    """
+    base = mcp_url.split("?")[0].rstrip("/")
+    try:
+        req = urllib.request.Request(base + "/health", headers={"User-Agent": UA})
+        with urllib.request.urlopen(req, timeout=10) as r:
+            d = json.load(r)
+    except Exception:
+        return {"disclosed": False}
+    t = d.get("tools")
+    if isinstance(t, dict) and "free" in t:
+        return {"disclosed": True, "total": t.get("total"),
+                "free": t.get("free"), "paid": t.get("paid")}
+    return {"disclosed": False}
 
 
 def measure_package(p: dict) -> dict:
@@ -164,24 +274,55 @@ def main() -> int:
     if a.limit:
         items = items[:a.limit]
 
-    out, notes = [], []
+    out, notes, noted = [], [], set()
     for i, it in enumerate(items, 1):
         rec = {"name": it["name"], "repo_url": it.get("repo_url", ""),
                "stars": it.get("stars"), "pushed": it.get("pushed"),
                "archived": it.get("archived"), "sources": it["sources"]}
-        remotes = it.get("remotes") or []
-        rec["remote"] = measure_remote(remotes[0]["url"]) if remotes and remotes[0].get("url") else None
-        if remotes and remotes[0].get("url"):
+        remotes = [r for r in (it.get("remotes") or []) if r.get("url")]
+        pick = remotes[0] if remotes else None
+        # 레지스트리 수집분에는 confidence가 없다 = 관리자 자기신고 주소.
+        url_src = (pick or {}).get("confidence") or "registry"
+        rec["remote"] = None
+        if pick and url_src == "readme" and (why := third_party_addr(pick["url"])):
+            # 두드리지도 않는다 — 남의 문서 사이트에 POST를 날릴 이유가 없다.
+            notes.append(f"{it['name']}: README에서 뽑은 주소가 {why}({pick['url']})라 "
+                         "**측정 대상에서 뺐다** — 이 서버가 안 된다는 뜻이 아니라 "
+                         "우리가 이 서버의 주소를 모른다는 뜻이다")
+            noted.add(it["name"])
+            pick = None
+        if pick:
+            rec["remote"] = measure_remote(pick["url"])
+            rec["remote"]["url_source"] = url_src
+            if rec["remote"].get("reachable"):
+                rec["paid_disclosure"] = measure_paid_disclosure(pick["url"])
             time.sleep(PAUSE)
         pkgs = it.get("packages") or []
         rec["package"] = measure_package(pkgs[0]) if pkgs else None
         # 우리가 지는 항목 — 원격 전용은 셀프호스팅 불가
         rec["self_hostable"] = bool(pkgs) or None
-        if rec["remote"] is None and rec["package"] is None:
+        if rec["remote"] is None and rec["package"] is None and it["name"] not in noted:
             notes.append(f"{it['name']}: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)")
         out.append(rec)
         if i % 10 == 0:
             print(f"  … {i}/{len(items)}")
+
+    # **2차 그물 — 명단 없이 스스로 갱신되는 쪽**(위 THIRD_PARTY 주석 (2)).
+    # 같은 README 추정 주소가 서로 다른 프로젝트에 2번 이상 나오면 그건 누구의 것도 아닌
+    # 디렉터리·문서 주소다. 단 tools/list가 실제로 읽힌 주소는 남긴다(포크가 진짜 엔드포인트를
+    # 공유하는 경우 — 증거가 명단을 이긴다).
+    shared = collections.Counter(
+        r["remote"]["url"] for r in out
+        if (r.get("remote") or {}).get("url_source") == "readme")
+    for r in out:
+        rm = r.get("remote") or {}
+        if (rm.get("url_source") == "readme" and shared[rm.get("url")] > 1
+                and not protocol_confirmed(rm)):
+            notes.append(f"{r['name']}: README 추정 주소 {rm['url']}가 다른 프로젝트 "
+                         f"{shared[rm['url']] - 1}곳에도 같이 적혀 있고 MCP 응답도 없다 — "
+                         "그 서버의 주소가 아니라고 보고 **측정 대상에서 뺐다**")
+            r["remote"] = None
+            r.pop("paid_disclosure", None)
 
     json.dump({"measured": len(out), "unmeasurable": len(notes), "boundaries": notes,
                "criteria_note": "항목은 D-2026W34-22로 결과 보기 전에 고정됐다. 사후 변경 금지.",
@@ -190,7 +331,9 @@ def main() -> int:
 
     live = [r for r in out if (r.get("remote") or {}).get("reachable")]
     keyed = [r for r in live if (r.get("remote") or {}).get("needs_key")]
+    disc = [r for r in live if (r.get("paid_disclosure") or {}).get("disclosed")]
     print(f"\n측정 {len(out)}건 · 원격 응답 {len(live)}건 · 그중 키 필요 {len(keyed)}건")
+    print(f"무료/유료를 스스로 공시하는 서버 {len(disc)}건 — 나머지는 '확인 못 함'이지 '무료'가 아니다")
     print(f"측정 불가 {len(notes)}건 (원격 주소도 패키지도 없음 — 0건이 아니라 미확인)")
     print("\n■ 실제로 응답한 서버 (키 없이 되는 것 우선)")
     for r in sorted(live, key=lambda x: (x["remote"].get("needs_key") or False,
