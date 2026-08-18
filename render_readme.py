@@ -102,12 +102,20 @@ def main() -> int:
         origin = "README 추정" if rm.get("url_source") == "readme" else "레지스트리"
         out.append(f"| {r['name']} | {rm.get('why') or ('HTTP ' + str(rm.get('http')))} | {origin} |")
 
-    unmeasured = len(items) - len(rem)
+    # **집계와 문장이 어긋나면 그것도 거짓말이다**(codex 교차검증 2026-08-19).
+    # 종전 문장은 원격 없는 건을 전부 "패키지도 없다"고 적었으나 실제로는 대부분 패키지가 있었다.
+    nore = [r for r in items if not r.get("remote")]
+    withpkg = [r for r in nore if r.get("package")]
+    inst = [r for r in withpkg if r["package"].get("installable")]
+    unmeasured = len(nore)
     out.append(f"\n## 못 잰 것 — {unmeasured}건\n")
-    out.append(f"후보 {len(items)}건 중 **{unmeasured}건은 원격 주소도 배포 패키지도 없어 "
-               "가동 여부를 재지 못했다.** 이것은 '작동하지 않는다'가 아니라 "
-               "'우리가 확인하지 못했다'는 뜻이다. 저장소만 있고 레지스트리에 등록하지 않은 "
-               "경우가 대부분이다 — 등록하면 다음 회차에 자동으로 잡힌다.\n")
+    out.append(f"후보 {len(items)}건 중 **{unmeasured}건은 원격 주소를 확인하지 못해 "
+               "'지금 되냐'를 재지 못했다.** 이것은 '작동하지 않는다'가 아니라 "
+               "'우리가 확인하지 못했다'는 뜻이다.\n")
+    out.append(f"그중 {len(withpkg)}건은 배포 패키지가 있어 **직접 띄울 수는 있고**"
+               f"(설치 가능 {len(inst)}건), 나머지 {unmeasured - len(withpkg)}건은 원격 주소도 "
+               "패키지도 없다 — 저장소만 있고 레지스트리에 등록하지 않은 경우다. "
+               "등록하면 다음 회차에 자동으로 잡힌다.\n")
     out.append("여기엔 **주소 미상**도 들어 있다. README에서 뽑은 주소가 그 서버의 것이 아니라 "
                "디렉터리·문서 사이트(Glama·LobeHub 등)이거나 문서의 placeholder였던 건들이다. "
                "그런 주소로 얻은 응답은 살았다는 증거도 죽었다는 증거도 아니라서 판정에서 뺐다.\n")

@@ -77,12 +77,22 @@ def _tool_quality(tools: list) -> dict:
     n = len(tools)
     if not n:
         return {}
+    # **남의 서버 하나가 규격을 어겨도 전체 측정이 죽으면 안 된다**(codex 교차검증 2026-08-19).
+    # tools 원소가 dict가 아닌 서버가 하나만 있어도 여기서 AttributeError로 233건이 통째로
+    # 중단됐다. 걸러내되 **몇 개를 걸렀는지 값으로 공시한다** — 조용히 줄이면 우리가 제품에서
+    # 금지하는 그 절단이다.
+    bad = [t for t in tools if not isinstance(t, dict)]
+    tools = [t for t in tools if isinstance(t, dict)]
+    if not tools:
+        return {"malformed": len(bad), "note": "도구 항목이 전부 규격 이탈이라 품질을 못 쟀다"}
+    n = len(tools)
     desc = sorted(len(t.get("description") or "") for t in tools)
 
     def pct(f) -> int:
         return round(100 * sum(1 for t in tools if f(t)) / n)
 
     return {
+        **({"malformed": len(bad)} if bad else {}),   # 조용히 줄이지 않는다 — 걸렀으면 공시한다
         "described_pct": pct(lambda t: len(t.get("description") or "") >= 20),
         "desc_median": desc[n // 2],
         "input_schema_pct": pct(lambda t: ((t.get("inputSchema") or {}).get("properties"))),
@@ -198,6 +208,14 @@ def third_party_addr(url: str) -> str:
     return ""
 
 
+# **한 README가 /mcp 주소를 여러 개 뱉으면 그건 설치 안내문이다**(codex 교차검증 2026-08-19).
+# 실측: narajangteo-* 4건의 README에 "당신의 클라이언트에 추가하기" 블록이 있어 Claude·Cursor·
+# VS Code·Zed·Warp 등 **클라이언트 문서 주소 16개**가 전부 엔드포인트 후보로 잡혔다. 첫 주소만
+# 막고 다음으로 넘어가면 이번엔 OpenAI 문서를 두드린다 — 명단으로는 끝이 없다.
+# 진짜 서버는 자기 주소를 1~2개 적는다. 이 규칙은 명단과 달리 썩지 않는다.
+BOILERPLATE_MIN = 4
+
+
 def protocol_confirmed(rm: dict) -> bool:
     """이 주소가 정말 MCP 서버인지 **관측으로** 확인됐나.
 
@@ -205,6 +223,30 @@ def protocol_confirmed(rm: dict) -> bool:
     200을 주지만 tools/list를 못 읽는 것은 확인이 아니다 — 문서 페이지가 정확히 그렇게 생겼다.
     """
     return rm.get("tool_count") is not None or bool(rm.get("needs_key"))
+
+
+def pick_endpoint(remotes: list, shared: dict) -> tuple:
+    """이 프로젝트의 주소로 무엇을 두드릴지 고른다. `(고른 것, 못 고른 사유)`.
+
+    레지스트리 수집분에는 confidence가 없다 = 관리자 자기신고 주소라 그대로 믿는다.
+    README 추정분은 세 규칙을 거친다(전부 codex 교차검증 2026-08-19에서 나온 결함):
+      1. README가 /mcp 주소를 여러 개 뱉으면 그건 클라이언트 설치 안내문이다 → 전부 버린다.
+      2. **막힌 주소에서 멈추지 않는다** — 뒤에 진짜 주소가 있다(contract-compass는
+         glama.ai 다음 줄이 contract.sallim.app/mcp였다).
+      3. 여러 프로젝트에 같이 적힌 주소는 뒤로 미룬다 — 그런 건 대개 남의 것이다.
+    """
+    readme = [r for r in remotes if r.get("confidence") == "readme"]
+    if len(readme) >= BOILERPLATE_MIN and len(readme) == len(remotes):
+        return None, (f"README에 /mcp 주소가 {len(readme)}개 있다 — 자기 주소가 아니라 "
+                      "클라이언트 설치 안내문이다")
+    usable = [r for r in remotes
+              if r.get("confidence") != "readme" or not third_party_addr(r["url"])]
+    usable.sort(key=lambda r: shared.get(r["url"], 0) if r.get("confidence") == "readme" else 0)
+    if usable:
+        return usable[0], ""
+    if remotes:
+        return None, f"{third_party_addr(remotes[0]['url'])}({remotes[0]['url']})"
+    return None, ""
 
 
 def measure_paid_disclosure(mcp_url: str) -> dict:
@@ -274,23 +316,25 @@ def main() -> int:
     if a.limit:
         items = items[:a.limit]
 
+    # 측정 **전에** 센다 — 여러 프로젝트에 같이 적힌 주소를 뒤로 미루려면 미리 알아야 한다.
+    shared_readme = collections.Counter(
+        r["url"] for it in items for r in (it.get("remotes") or [])
+        if r.get("url") and r.get("confidence") == "readme")
+
     out, notes, noted = [], [], set()
     for i, it in enumerate(items, 1):
         rec = {"name": it["name"], "repo_url": it.get("repo_url", ""),
                "stars": it.get("stars"), "pushed": it.get("pushed"),
                "archived": it.get("archived"), "sources": it["sources"]}
         remotes = [r for r in (it.get("remotes") or []) if r.get("url")]
-        pick = remotes[0] if remotes else None
-        # 레지스트리 수집분에는 confidence가 없다 = 관리자 자기신고 주소.
-        url_src = (pick or {}).get("confidence") or "registry"
         rec["remote"] = None
-        if pick and url_src == "readme" and (why := third_party_addr(pick["url"])):
+        pick, why = pick_endpoint(remotes, shared_readme)
+        url_src = (pick or {}).get("confidence") or "registry"
+        if why:
             # 두드리지도 않는다 — 남의 문서 사이트에 POST를 날릴 이유가 없다.
-            notes.append(f"{it['name']}: README에서 뽑은 주소가 {why}({pick['url']})라 "
-                         "**측정 대상에서 뺐다** — 이 서버가 안 된다는 뜻이 아니라 "
-                         "우리가 이 서버의 주소를 모른다는 뜻이다")
+            notes.append(f"{it['name']}: {why}라 **측정 대상에서 뺐다** — 이 서버가 "
+                         "안 된다는 뜻이 아니라 우리가 이 서버의 주소를 모른다는 뜻이다")
             noted.add(it["name"])
-            pick = None
         if pick:
             rec["remote"] = measure_remote(pick["url"])
             rec["remote"]["url_source"] = url_src
@@ -311,9 +355,7 @@ def main() -> int:
     # 같은 README 추정 주소가 서로 다른 프로젝트에 2번 이상 나오면 그건 누구의 것도 아닌
     # 디렉터리·문서 주소다. 단 tools/list가 실제로 읽힌 주소는 남긴다(포크가 진짜 엔드포인트를
     # 공유하는 경우 — 증거가 명단을 이긴다).
-    shared = collections.Counter(
-        r["remote"]["url"] for r in out
-        if (r.get("remote") or {}).get("url_source") == "readme")
+    shared = shared_readme
     for r in out:
         rm = r.get("remote") or {}
         if (rm.get("url_source") == "readme" and shared[rm.get("url")] > 1

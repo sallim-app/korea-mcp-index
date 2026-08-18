@@ -3,11 +3,11 @@
 한국의 데이터를 AI에게 주는 MCP 서버를 **직접 붙여서 재고** 그 값을 공개한다.
 
 다른 목록은 "있다"를 말한다. 이 목록은 **"지금 되냐"**를 잰다.
-2026-08-18 UTC 측정 기준, 원격 주소를 확인한 한국 MCP **56건 중 24건(43%)이
+2026-08-18 UTC 측정 기준, 원격 주소를 확인한 한국 MCP **58건 중 25건(43%)이
 응답하지 않았다.** 등록은 가동의 증거가 아니다.
 
 **주소의 출처를 갈라 읽어라.** 관리자가 공식 레지스트리에 **직접 등록한** 주소 27건 중
-11건이 무응답이고, 나머지 29건은 우리가 README에서 뽑은 **추정** 주소다(무응답 13건).
+11건이 무응답이고, 나머지 31건은 우리가 README에서 뽑은 **추정** 주소다(무응답 14건).
 추정 주소의 무응답은 "그 서버가 죽었다"보다 약한 주장이다 — 우리가 주소를 잘못 짚었을 수 있다.
 
 ## 이 목록을 믿어도 되는 이유 (그리고 믿으면 안 되는 부분)
@@ -37,38 +37,39 @@
 
 | 서버 | 도구 | 웜(ms) | 콜드(ms) | 키 | 셀프호스팅 |
 |---|---|---|---|---|---|
-| [scvcoder/korean-law-alio-mcp](https://github.com/scvcoder/korean-law-alio-mcp) | 125 | 221 | 345 | 불필요 | 가능 |
-| app.apick/all | 82 | 63 | 138 | 불필요 | 불가 |
-| [app.sallim/korea-realty](https://github.com/sallim-app/korea-realty) **(이 목록 운영자)** | 47 | 47 | 81 | 불필요 | 불가 |
-| app.apick/business | 16 | 35 | 35 | 불필요 | 불가 |
-| [Choihello/startup-law-mcp](https://github.com/Choihello/startup-law-mcp) | 13 | 134 | **4021** | 불필요 | 가능 |
-| com.theprotoclinical/commerce | 13 | 146 | 372 | 불필요 | 불가 |
-| [MosslandOpenDevs/alpha](https://github.com/MosslandOpenDevs/alpha) | 12 | 29 | **387** | 불필요 | 가능 |
-| [com.aikstockdata/mcp](https://github.com/na77tech-creator/aikstockdata) | 12 | 28 | 81 | 불필요 | 불가 |
-| [app.sallim/contract-compass](https://github.com/kwenhwang/contract-compass) **(이 목록 운영자)** | 11 | 33 | 67 | 불필요 | 불가 |
-| [chrisryugj/korean-law-mcp](https://github.com/chrisryugj/korean-law-mcp) | 10 | 203 | 282 | 불필요 | 가능 |
-| [com.hankookilbo.mcp/hankookilbo-mcp](https://github.com/hkilbo/hankookilbo-mcp) | 10 | 217 | 635 | 불필요 | 불가 |
-| [kang-aco/korean-law](https://github.com/kang-aco/korean-law) | 10 | 218 | 213 | 불필요 | 불가 |
-| [haklaekim/public-data-lens](https://github.com/haklaekim/public-data-lens) | 9 | 22 | 38 | 불필요 | 가능 |
+| [scvcoder/korean-law-alio-mcp](https://github.com/scvcoder/korean-law-alio-mcp) | 125 | 213 | 292 | 불필요 | 가능 |
+| app.apick/all | 82 | 64 | 128 | 불필요 | 불가 |
+| [app.sallim/korea-realty](https://github.com/sallim-app/korea-realty) **(이 목록 운영자)** | 47 | 45 | **138** | 불필요 | 불가 |
+| app.apick/business | 16 | 35 | 47 | 불필요 | 불가 |
+| [Choihello/startup-law-mcp](https://github.com/Choihello/startup-law-mcp) | 13 | 128 | **4140** | 불필요 | 가능 |
+| com.theprotoclinical/commerce | 13 | 147 | 197 | 불필요 | 불가 |
+| [MosslandOpenDevs/alpha](https://github.com/MosslandOpenDevs/alpha) | 12 | 29 | **243** | 불필요 | 가능 |
+| [com.aikstockdata/mcp](https://github.com/na77tech-creator/aikstockdata) | 12 | 25 | 68 | 불필요 | 불가 |
+| [app.sallim/contract-compass](https://github.com/kwenhwang/contract-compass) **(이 목록 운영자)** | 11 | 36 | **140** | 불필요 | 불가 |
+| [sallim-app/contract-compass](https://github.com/sallim-app/contract-compass) **(이 목록 운영자)** | 11 | 36 | 53 | 불필요 | 가능 |
+| [chrisryugj/korean-law-mcp](https://github.com/chrisryugj/korean-law-mcp) | 10 | 209 | 279 | 불필요 | 가능 |
+| [com.hankookilbo.mcp/hankookilbo-mcp](https://github.com/hkilbo/hankookilbo-mcp) | 10 | 202 | 386 | 불필요 | 불가 |
+| [kang-aco/korean-law](https://github.com/kang-aco/korean-law) | 10 | 202 | 217 | 불필요 | 불가 |
+| [haklaekim/public-data-lens](https://github.com/haklaekim/public-data-lens) | 9 | 23 | 28 | 불필요 | 가능 |
 | [hike-lab/public-data-lens](https://github.com/hike-lab/public-data-lens) | 9 | 23 | 33 | 불필요 | 불가 |
-| [yousunjung84-edu/academyinfo-mcp](https://github.com/yousunjung84-edu/academyinfo-mcp) | 8 | 55 | **172** | 불필요 | 가능 |
-| io.aidc-ai/design-engine | 7 | 285 | 590 | 불필요 | 불가 |
-| [obundh/korea-public-data-catalog-mcp](https://github.com/obundh/korea-public-data-catalog-mcp) | 7 | 232 | 542 | 불필요 | 가능 |
-| [Mrbaeksang/korea-stock-analyzer-mcp](https://github.com/Mrbaeksang/korea-stock-analyzer-mcp) | 6 | 215 | 512 | 불필요 | 가능 |
-| ai.timeplex/booking | 6 | 493 | **1628** | 불필요 | 불가 |
-| com.airblockfz/seoul-apt-signal | 6 | 28 | **105** | 불필요 | 불가 |
-| com.saaskr/korean-saas-directory | 5 | 254 | 305 | 불필요 | 불가 |
-| app.apick/finance | 3 | 30 | 38 | 불필요 | 불가 |
-| com.arcasos/arcasos-rentals | 3 | 720 | 1034 | 불필요 | 불가 |
-| [hlucent/realestate-stats-mcp](https://github.com/hlucent/realestate-stats-mcp) | 3 | 121 | **5038** | 불필요 | 가능 |
-| [io.github.accentist/buyking-mcp](https://github.com/accentist/buyking-mcp) | — | 28 | **109** | 불필요 | 가능 |
-| [MarcoYou/open-proxy-mcp](https://github.com/MarcoYou/open-proxy-mcp) | — | — | 1726 | 필요 | 가능 |
-| [com.beauticslab/mcp](https://github.com/websfactory/beauticslab-mcp) | — | — | 299 | 필요 | 불가 |
-| com.boltena/erp | — | — | 143 | 필요 | 불가 |
-| com.empresskorea/kbeauty-agent-commons | — | — | 429 | 필요 | 불가 |
-| [jeonghwanko/coffee-price-mcp](https://github.com/jeonghwanko/coffee-price-mcp) | — | — | 351 | 필요 | 가능 |
-| [jeongmk522-netizen/smishing-stop-mcp](https://github.com/jeongmk522-netizen/smishing-stop-mcp) | — | — | 79 | 필요 | 가능 |
-| [seolcoding/korean-stat-mcp](https://github.com/seolcoding/korean-stat-mcp) | — | — | 1246 | 필요 | 가능 |
+| [yousunjung84-edu/academyinfo-mcp](https://github.com/yousunjung84-edu/academyinfo-mcp) | 8 | 137 | 236 | 불필요 | 가능 |
+| io.aidc-ai/design-engine | 7 | 274 | 569 | 불필요 | 불가 |
+| [obundh/korea-public-data-catalog-mcp](https://github.com/obundh/korea-public-data-catalog-mcp) | 7 | 218 | 550 | 불필요 | 가능 |
+| [Mrbaeksang/korea-stock-analyzer-mcp](https://github.com/Mrbaeksang/korea-stock-analyzer-mcp) | 6 | 220 | 547 | 불필요 | 가능 |
+| ai.timeplex/booking | 6 | 455 | 1182 | 불필요 | 불가 |
+| com.airblockfz/seoul-apt-signal | 6 | 26 | 54 | 불필요 | 불가 |
+| com.saaskr/korean-saas-directory | 5 | 254 | 664 | 불필요 | 불가 |
+| app.apick/finance | 3 | 32 | 33 | 불필요 | 불가 |
+| com.arcasos/arcasos-rentals | 3 | 660 | 1704 | 불필요 | 불가 |
+| [hlucent/realestate-stats-mcp](https://github.com/hlucent/realestate-stats-mcp) | 3 | 125 | **5226** | 불필요 | 가능 |
+| [io.github.accentist/buyking-mcp](https://github.com/accentist/buyking-mcp) | — | 26 | 77 | 불필요 | 가능 |
+| [MarcoYou/open-proxy-mcp](https://github.com/MarcoYou/open-proxy-mcp) | — | — | 911 | 필요 | 가능 |
+| [com.beauticslab/mcp](https://github.com/websfactory/beauticslab-mcp) | — | — | 167 | 필요 | 불가 |
+| com.boltena/erp | — | — | 148 | 필요 | 불가 |
+| com.empresskorea/kbeauty-agent-commons | — | — | 299 | 필요 | 불가 |
+| [jeonghwanko/coffee-price-mcp](https://github.com/jeonghwanko/coffee-price-mcp) | — | — | 327 | 필요 | 가능 |
+| [jeongmk522-netizen/smishing-stop-mcp](https://github.com/jeongmk522-netizen/smishing-stop-mcp) | — | — | 75 | 필요 | 가능 |
+| [seolcoding/korean-stat-mcp](https://github.com/seolcoding/korean-stat-mcp) | — | — | 964 | 필요 | 가능 |
 
 ## 응답하지 않는 서버
 
@@ -90,6 +91,7 @@
 | dartpointai/dartpoint-mcp | HTTP 307 | README 추정 |
 | eddmpython/dartlab | HTTP 405 | README 추정 |
 | hjsh200219/korea-public-data-mcp | HTTP 400 | README 추정 |
+| hwain-hwang/Real-Estate-Location-Analyzer_MCP | HTTP 404 | README 추정 |
 | io.github.SongT-50/korean-agriculture-mcp | HTTP 503 | 레지스트리 |
 | io.github.SongT-50/korean-public-data-mcp | HTTP 503 | 레지스트리 |
 | io.github.SongT-50/korean-stock-mcp | HTTP 503 | 레지스트리 |
@@ -97,19 +99,21 @@
 | io.github.bakyang2/kr-crypto-intelligence | HTTP 400 | 레지스트리 |
 | kmgvv23/stock-data-mcp | HTTP 400 | README 추정 |
 | kokogo100/ragalgo-mcp-server | HTTP 404 | README 추정 |
-| lucidwatper/Kosis-mcp | TimeoutError: The read operation timed out | README 추정 |
+| lucidwatper/Kosis-mcp | HTTP 400 | README 추정 |
 | nokelan/health-fee-mcp | HTTP 405 | README 추정 |
 | sjh9714/electronics-price-mcp | HTTP 404 | README 추정 |
 | smilemin07/korean-rnd-regs-mcp | HTTP 400 | README 추정 |
 | whdrnr2583-cmd/koreanpulse | HTTP 400 | README 추정 |
 
-## 못 잰 것 — 177건
+## 못 잰 것 — 175건
 
-후보 233건 중 **177건은 원격 주소도 배포 패키지도 없어 가동 여부를 재지 못했다.** 이것은 '작동하지 않는다'가 아니라 '우리가 확인하지 못했다'는 뜻이다. 저장소만 있고 레지스트리에 등록하지 않은 경우가 대부분이다 — 등록하면 다음 회차에 자동으로 잡힌다.
+후보 233건 중 **175건은 원격 주소를 확인하지 못해 '지금 되냐'를 재지 못했다.** 이것은 '작동하지 않는다'가 아니라 '우리가 확인하지 못했다'는 뜻이다.
+
+그중 150건은 배포 패키지가 있어 **직접 띄울 수는 있고**(설치 가능 67건), 나머지 25건은 원격 주소도 패키지도 없다 — 저장소만 있고 레지스트리에 등록하지 않은 경우다. 등록하면 다음 회차에 자동으로 잡힌다.
 
 여기엔 **주소 미상**도 들어 있다. README에서 뽑은 주소가 그 서버의 것이 아니라 디렉터리·문서 사이트(Glama·LobeHub 등)이거나 문서의 placeholder였던 건들이다. 그런 주소로 얻은 응답은 살았다는 증거도 죽었다는 증거도 아니라서 판정에서 뺐다.
 
-- 2geonhyup/dart-mcp: README에서 뽑은 주소가 제3자 디렉터리·문서 사이트 주소(https://glama.ai/mcp)라 **측정 대상에서 뺐다** — 이 서버가 안 된다는 뜻이 아니라 우리가 이 서버의 주소를 모른다는 뜻이다
+- 2geonhyup/dart-mcp: 제3자 디렉터리·문서 사이트 주소(https://glama.ai/mcp)라 **측정 대상에서 뺐다** — 이 서버가 안 된다는 뜻이 아니라 우리가 이 서버의 주소를 모른다는 뜻이다
 - CNI-KaeSoon/public-rules-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)
 - JTech-CO/kr-apartment-market-skill: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)
 - JungHoonGhae/gongctl: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)
@@ -121,4 +125,4 @@
 
 ---
 
-생성: `render_readme.py` · 측정: `measure.py` · 원자료: `measured.json` · 마지막 측정 2026-08-18 17:44 UTC
+생성: `render_readme.py` · 측정: `measure.py` · 원자료: `measured.json` · 마지막 측정 2026-08-18 17:54 UTC

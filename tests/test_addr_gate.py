@@ -59,6 +59,36 @@ def main() -> int:
         if enrich.SKIP_HOST.search(url):
             fails.append(f"enrich가 실주소를 막음: {url}")
 
+    # --- 주소 고르기 (codex 교차검증 2026-08-19에서 나온 결함 3건) ---
+    R = lambda u: {"url": u, "confidence": "readme"}          # noqa: E731
+    # 첫 주소가 막혀도 뒤의 진짜 주소를 잡아야 한다 (실측: contract-compass)
+    pick, _ = measure.pick_endpoint(
+        [R("https://glama.ai/mcp"), R("https://contract.sallim.app/mcp")], {})
+    if not pick or pick["url"] != "https://contract.sallim.app/mcp":
+        fails.append(f"막힌 첫 주소에서 멈췄다 — 고른 것: {pick}")
+    # README가 /mcp를 여러 개 뱉으면 설치 안내문이다 (실측: narajangteo-* 16개)
+    boiler = [R(f"https://client{i}.example.dev/docs/mcp") for i in range(16)]
+    pick, why = measure.pick_endpoint(boiler, {})
+    if pick or "설치 안내문" not in why:
+        fails.append(f"설치 안내문 보일러플레이트를 통과시켰다 — {pick} / {why}")
+    # 여러 프로젝트가 공유하는 주소보다 그 프로젝트 고유 주소를 먼저 본다
+    pick, _ = measure.pick_endpoint(
+        [R("https://shared.example.dev/mcp"), R("https://mine.example.dev/mcp")],
+        {"https://shared.example.dev/mcp": 4})
+    if not pick or pick["url"] != "https://mine.example.dev/mcp":
+        fails.append(f"공유 주소를 고유 주소보다 먼저 골랐다 — {pick}")
+    # 레지스트리 자기신고 주소는 명단을 타지 않는다
+    pick, _ = measure.pick_endpoint([{"url": "https://glama.ai/mcp"}], {})
+    if not pick:
+        fails.append("레지스트리 자기신고 주소를 버렸다")
+
+    # --- 규격 이탈 서버 하나가 전체 측정을 죽이면 안 된다 ---
+    q = measure._tool_quality([{"name": "a", "description": "x" * 30}, "문자열", None])
+    if q.get("malformed") != 2:
+        fails.append(f"규격 이탈 도구를 조용히 버렸거나 죽었다 — {q}")
+    if measure._tool_quality(["a", "b"]).get("malformed") != 2:
+        fails.append("도구가 전부 규격 이탈일 때 공시가 없다")
+
     # 프로토콜 증거 — 200뿐인 것은 확인이 아니다(문서 페이지가 정확히 그렇게 생겼다).
     if not measure.protocol_confirmed({"tool_count": 0}):
         fails.append("도구 0개도 tools/list가 읽힌 것이므로 확인이다")
@@ -70,7 +100,7 @@ def main() -> int:
     for f in fails:
         print("FAIL", f)
     print(f"{'실패 ' + str(len(fails)) + '건' if fails else '통과'} — "
-          f"차단 {len(BLOCK)} · 허용 {len(ALLOW)} · 증거규칙 3")
+          f"차단 {len(BLOCK)} · 허용 {len(ALLOW)} · 주소고르기 4 · 규격이탈 2 · 증거규칙 3")
     return 1 if fails else 0
 
 
