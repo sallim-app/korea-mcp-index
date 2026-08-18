@@ -1,286 +1,6230 @@
 {
- "source": "https://raw.githubusercontent.com/darjeeling/awesome-mcp-korea/main/README.md",
- "count": 56,
+ "note": "판정 원자료(간추림). keep·review 전건은 판정 사유째로 싣고, drop은 사유별 건수만 싣는다 — drop 원본까지 실으면 매 회차 5MB가 이력에 쌓인다. 전체가 필요하면 collect_candidates.py를 직접 돌려라(같은 입력이면 같은 결과가 나온다).",
+ "buckets": {
+  "keep": 233,
+  "drop": 10894,
+  "review": 169
+ },
+ "boundaries": [
+  "registry 전수 스윕이 400페이지 상한에서 멈췄다 — truncated(뒤쪽 미확인)",
+  "github:'mcp korea'[기타] 총 426건 중 100건만 — truncated",
+  "github:'mcp korean'[기타] 총 424건 중 100건만 — truncated",
+  "슬러그 병합은 마지막 경로 조각 휴리스틱이다 — 동명이인을 합칠 수 있다",
+  "keep/drop 판정은 이름·설명 문자열만 본다. 실제 도구 목록은 안 봤다(다음 단계=실호출)",
+  "슬러그 병합은 마지막 경로 조각 휴리스틱이다 — 동명이인을 합칠 수 있다",
+  "keep/drop 판정은 이름·설명 문자열만 본다. 실제 도구 목록은 안 봤다(다음 단계=실호출)"
+ ],
+ "drop_reasons": [
+  {
+   "why": "한국 관련 신호 0 — 검색어에 우연히 걸림",
+   "n": 10881
+  },
+  {
+   "why": "MCP 서버가 아니다(조직 프로필·목록 저장소)",
+   "n": 6
+  },
+  {
+   "why": "데이터 제공형이 아니다(erp)",
+   "n": 2
+  },
+  {
+   "why": "데이터 제공형이 아니다(awesome)",
+   "n": 1
+  },
+  {
+   "why": "데이터 제공형이 아니다(template)",
+   "n": 1
+  },
+  {
+   "why": "데이터 제공형이 아니다(gateway)",
+   "n": 1
+  },
+  {
+   "why": "데이터 제공형이 아니다(example)",
+   "n": 1
+  },
+  {
+   "why": "데이터 제공형이 아니다(calendar)",
+   "n": 1
+  }
+ ],
  "items": [
   {
-   "name": "chrisryugj/korean-law-mcp",
-   "repo": "chrisryugj/korean-law-mcp",
-   "category": "Legal & Government"
+   "name": "042Jason/kosis-mcp",
+   "repo_url": "https://github.com/042Jason/kosis-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "공공데이터·행정"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 1,
+   "pushed": "2026-05-19",
+   "kr_domains": null
+  },
+  {
+   "name": "0taemini/maeum-docent-mcp",
+   "repo_url": "https://github.com/0taemini/maeum-docent-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "커머스·생활"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-06-19",
+   "kr_domains": null
+  },
+  {
+   "name": "2geonhyup/dart-mcp",
+   "repo_url": "https://github.com/2geonhyup/dart-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(데이터)",
+   "categories": [],
+   "sources": [
+    "mcpmoa"
+   ],
+   "stars": null,
+   "pushed": null,
+   "kr_domains": [
+    "opendart.fss.or.kr"
+   ]
+  },
+  {
+   "name": "4thIS/hackathon_mjc_mcp",
+   "repo_url": "https://github.com/4thIS/hackathon_mjc_mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "교육·문화"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-08-07",
+   "kr_domains": null
+  },
+  {
+   "name": "AI-Dico/korea-law-mcp-public",
+   "repo_url": "https://github.com/AI-Dico/korea-law-mcp-public",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(검색)",
+   "categories": [
+    "법령·판례"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-07-10",
+   "kr_domains": [
+    "open.law.go.kr"
+   ]
+  },
+  {
+   "name": "AgentBridge-Lab/korea-space-support-mcp",
+   "repo_url": "https://github.com/AgentBridge-Lab/korea-space-support-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(데이터)",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-06-09",
+   "kr_domains": [
+    "data.jntp.or.kr",
+    "www.bizinfo.go.kr"
+   ]
+  },
+  {
+   "name": "Alfex4936/Hangul-MCP",
+   "repo_url": "https://github.com/Alfex4936/Hangul-MCP",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "한국어·언어"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 2,
+   "pushed": "2025-06-22",
+   "kr_domains": null
+  },
+  {
+   "name": "Anna-Jeong-MS/mcp-opendart",
+   "repo_url": "https://github.com/Anna-Jeong-MS/mcp-opendart",
+   "verdict": "keep",
+   "why": "한국(한글 설명) + 데이터(공시)",
+   "categories": [
+    "금융·증시"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2025-09-29",
+   "kr_domains": [
+    "opendart.fss.or.kr"
+   ]
+  },
+  {
+   "name": "Atrani-Labs/visitkorea-tour-mcp",
+   "repo_url": "https://github.com/Atrani-Labs/visitkorea-tour-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(data)",
+   "categories": [
+    "공공데이터·행정"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-08-13",
+   "kr_domains": [
+    "apis.data.go.kr",
+    "data.go.kr",
+    "www.data.go.kr"
+   ]
+  },
+  {
+   "name": "BewitchSK/apartment-price-mcp",
+   "repo_url": "https://github.com/BewitchSK/apartment-price-mcp",
+   "verdict": "keep",
+   "why": "한국(한글 설명) + 데이터(price)",
+   "categories": [
+    "부동산"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2025-08-05",
+   "kr_domains": null
+  },
+  {
+   "name": "ByteforceAi/bimil-oracle-mcp",
+   "repo_url": "https://github.com/ByteforceAi/bimil-oracle-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "커머스·생활"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-07-14",
+   "kr_domains": null
+  },
+  {
+   "name": "CNI-KaeSoon/public-rules-mcp",
+   "repo_url": "https://github.com/CNI-KaeSoon/public-rules-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(조회)",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-07-02",
+   "kr_domains": null
   },
   {
    "name": "ChangooLee/mcp-kr-legislation",
-   "repo": "ChangooLee/mcp-kr-legislation",
-   "category": "Legal & Government"
+   "repo_url": "https://github.com/ChangooLee/mcp-kr-legislation",
+   "verdict": "keep",
+   "why": "한국(한국) + 데이터(법령)",
+   "categories": [
+    "법령·판례"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 9,
+   "pushed": "2026-04-28",
+   "kr_domains": [
+    "www.law.go.kr"
+   ]
   },
   {
-   "name": "hollobit/assembly-api-mcp",
-   "repo": "hollobit/assembly-api-mcp",
-   "category": "Legal & Government"
+   "name": "ChoHyeonChan/maskingtape",
+   "repo_url": "https://github.com/ChoHyeonChan/maskingtape",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "한국어·언어"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 1,
+   "pushed": "2026-08-18",
+   "kr_domains": null
   },
   {
-   "name": "finalchild/law-mcp",
-   "repo": "finalchild/law-mcp",
-   "category": "Legal & Government"
+   "name": "Choihello/startup-law-mcp",
+   "repo_url": "https://github.com/Choihello/startup-law-mcp",
+   "verdict": "keep",
+   "why": "한국(한국) + 데이터(조회)",
+   "categories": [
+    "법령·판례"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 1,
+   "pushed": "2026-08-16",
+   "kr_domains": [
+    "data.go.kr",
+    "law.go.kr",
+    "open.law.go.kr",
+    "www.data.go.kr",
+    "www.k-startup.go.kr",
+    "www.law.go.kr"
+   ]
   },
   {
-   "name": "DrMoony/koregx",
-   "repo": "DrMoony/koregx",
-   "category": "Legal & Government"
+   "name": "Claude-MOCOCO/real-estate-mvp",
+   "repo_url": "https://github.com/Claude-MOCOCO/real-estate-mvp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "부동산"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-02-15",
+   "kr_domains": null
   },
   {
-   "name": "seung23/lawtutor-mcp",
-   "repo": "seung23/lawtutor-mcp",
-   "category": "Legal & Government"
+   "name": "DECK6/korea-mice-safety-agent",
+   "repo_url": "https://github.com/DECK6/korea-mice-safety-agent",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 6,
+   "pushed": "2026-08-08",
+   "kr_domains": null
   },
   {
-   "name": "rabqatab/LexLink-ko-mcp",
-   "repo": "rabqatab/LexLink-ko-mcp",
-   "category": "Legal & Government"
+   "name": "DatagokrGit/data-go-kr-mcp",
+   "repo_url": "https://github.com/DatagokrGit/data-go-kr-mcp",
+   "verdict": "keep",
+   "why": "한국(.go.kr) + 데이터(data)",
+   "categories": [
+    "공공데이터·행정"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 3,
+   "pushed": "2026-04-01",
+   "kr_domains": [
+    "data.go.kr",
+    "www.data.go.kr"
+   ]
+  },
+  {
+   "name": "Dayoooun/korea-stats-mcp",
+   "repo_url": "https://github.com/Dayoooun/korea-stats-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(stats)",
+   "categories": [
+    "공공데이터·행정"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 15,
+   "pushed": "2026-02-17",
+   "kr_domains": null
+  },
+  {
+   "name": "Demian-Yim/playmcp-guide",
+   "repo_url": "https://github.com/Demian-Yim/playmcp-guide",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "커머스·생활"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-05-19",
+   "kr_domains": null
+  },
+  {
+   "name": "DevMinGeonPark/gaejo",
+   "repo_url": "https://github.com/DevMinGeonPark/gaejo",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-06-23",
+   "kr_domains": null
+  },
+  {
+   "name": "Donyangyi/agent-naver-login",
+   "repo_url": "https://github.com/Donyangyi/agent-naver-login",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "커머스·생활"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-02-22",
+   "kr_domains": null
+  },
+  {
+   "name": "DrFirstLee/korea-stock-mcp",
+   "repo_url": "https://github.com/DrFirstLee/korea-stock-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 3,
+   "pushed": "2026-06-05",
+   "kr_domains": null
+  },
+  {
+   "name": "DwvN-Lee/fAInancial-agent",
+   "repo_url": "https://github.com/DwvN-Lee/fAInancial-agent",
+   "verdict": "keep",
+   "why": "한국(한국) + 데이터(조회)",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-03-26",
+   "kr_domains": [
+    "opendart.fss.or.kr"
+   ]
+  },
+  {
+   "name": "Everydaily/clova-speech-mcp",
+   "repo_url": "https://github.com/Everydaily/clova-speech-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "커머스·생활"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-06-05",
+   "kr_domains": null
+  },
+  {
+   "name": "GyeongHoKim/naeryeo",
+   "repo_url": "https://github.com/GyeongHoKim/naeryeo",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "교통·이동"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 3,
+   "pushed": "2026-08-10",
+   "kr_domains": null
+  },
+  {
+   "name": "HaChanho/passfit",
+   "repo_url": "https://github.com/HaChanho/passfit",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "교통·이동"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-07-11",
+   "kr_domains": null
+  },
+  {
+   "name": "Hoodess/naver-mail-mcp-basic",
+   "repo_url": "https://github.com/Hoodess/naver-mail-mcp-basic",
+   "verdict": "keep",
+   "why": "한국(naver) + 데이터(조회)",
+   "categories": [
+    "커머스·생활"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-08-12",
+   "kr_domains": null
+  },
+  {
+   "name": "INNO-HI/weeklaude",
+   "repo_url": "https://github.com/INNO-HI/weeklaude",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 3,
+   "pushed": "2026-08-10",
+   "kr_domains": null
+  },
+  {
+   "name": "Ihan0316/codex-code-toolkit",
+   "repo_url": "https://github.com/Ihan0316/codex-code-toolkit",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "한국어·언어"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-07-23",
+   "kr_domains": null
+  },
+  {
+   "name": "JIKIHY/kosha-mcp",
+   "repo_url": "https://github.com/JIKIHY/kosha-mcp",
+   "verdict": "keep",
+   "why": "한국(한국) + 데이터(search)",
+   "categories": [
+    "공공데이터·행정"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 1,
+   "pushed": "2026-07-03",
+   "kr_domains": [
+    "apis.data.go.kr",
+    "data.go.kr",
+    "www.data.go.kr"
+   ]
+  },
+  {
+   "name": "JIN-Z-pop/korea-ets-mcp",
+   "repo_url": "https://github.com/JIN-Z-pop/korea-ets-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(query)",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 1,
+   "pushed": "2026-08-17",
+   "kr_domains": null
+  },
+  {
+   "name": "JTech-CO/kr-apartment-market-skill",
+   "repo_url": "https://github.com/JTech-CO/kr-apartment-market-skill",
+   "verdict": "keep",
+   "why": "한국(대한민국) + 데이터(실거래)",
+   "categories": [
+    "부동산"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-08-18",
+   "kr_domains": null
+  },
+  {
+   "name": "Jaeminyx-Stoa/pydbsec",
+   "repo_url": "https://github.com/Jaeminyx-Stoa/pydbsec",
+   "verdict": "keep",
+   "why": "한국(한글 설명) + 데이터(조회)",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 3,
+   "pushed": "2026-07-21",
+   "kr_domains": null
+  },
+  {
+   "name": "JeongSeongMok/tossinvest-openapi-mcp",
+   "repo_url": "https://github.com/JeongSeongMok/tossinvest-openapi-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 2,
+   "pushed": "2026-06-10",
+   "kr_domains": null
+  },
+  {
+   "name": "JinhuiStudy/llm-engineering-bootcamp",
+   "repo_url": "https://github.com/JinhuiStudy/llm-engineering-bootcamp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 2,
+   "pushed": "2026-04-25",
+   "kr_domains": null
+  },
+  {
+   "name": "Johnhyeon/dartlens-mcp",
+   "repo_url": "https://github.com/Johnhyeon/dartlens-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(disclosure)",
+   "categories": [
+    "금융·증시"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 1,
+   "pushed": "2026-08-16",
+   "kr_domains": [
+    "opendart.fss.or.kr"
+   ]
+  },
+  {
+   "name": "JunbeomL22/dart-krx-mcp",
+   "repo_url": "https://github.com/JunbeomL22/dart-krx-mcp",
+   "verdict": "review",
+   "why": "설명이 비어 자동 판정 불가 — 사람이 열어봐야 한다",
+   "categories": [
+    "금융·증시"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-03-22",
+   "kr_domains": null
+  },
+  {
+   "name": "JungHoonGhae/gongctl",
+   "repo_url": "https://github.com/JungHoonGhae/gongctl",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(data)",
+   "categories": [
+    "공공데이터·행정"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-07-25",
+   "kr_domains": [
+    "data.go.kr"
+   ]
+  },
+  {
+   "name": "JungHoonGhae/k-vote-cli",
+   "repo_url": "https://github.com/JungHoonGhae/k-vote-cli",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(data)",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 3,
+   "pushed": "2026-07-08",
+   "kr_domains": [
+    "data.go.kr",
+    "data.nec.go.kr",
+    "info.nec.go.kr",
+    "nesdc.go.kr"
+   ]
+  },
+  {
+   "name": "Kinuk97/mcp-get-weather",
+   "repo_url": "https://github.com/Kinuk97/mcp-get-weather",
+   "verdict": "keep",
+   "why": "한국(기상청) + 데이터(weather)",
+   "categories": [
+    "날씨·환경"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2025-06-19",
+   "kr_domains": null
+  },
+  {
+   "name": "Koomook/data-go-mcp-servers",
+   "repo_url": "https://github.com/Koomook/data-go-mcp-servers",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(data)",
+   "categories": [
+    "공공데이터·행정"
+   ],
+   "sources": [
+    "github",
+    "mcpmoa"
+   ],
+   "stars": 288,
+   "pushed": "2025-09-16",
+   "kr_domains": [
+    "data.go.kr"
+   ]
+  },
+  {
+   "name": "Lex6won/vibecode-checker",
+   "repo_url": "https://github.com/Lex6won/vibecode-checker",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 4,
+   "pushed": "2026-08-16",
+   "kr_domains": null
+  },
+  {
+   "name": "MarcoYou/open-proxy-mcp",
+   "repo_url": "https://github.com/MarcoYou/open-proxy-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(filing)",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 20,
+   "pushed": "2026-08-17",
+   "kr_domains": [
+    "dart.fss.or.kr",
+    "opendart.fss.or.kr"
+   ]
+  },
+  {
+   "name": "MikeVenge/krx-dart-mcp",
+   "repo_url": "https://github.com/MikeVenge/krx-dart-mcp",
+   "verdict": "review",
+   "why": "설명이 비어 자동 판정 불가 — 사람이 열어봐야 한다",
+   "categories": [
+    "금융·증시"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-03-26",
+   "kr_domains": null
+  },
+  {
+   "name": "MosslandOpenDevs/alpha",
+   "repo_url": "https://github.com/MosslandOpenDevs/alpha",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(records)",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 2,
+   "pushed": "2026-08-18",
+   "kr_domains": null
+  },
+  {
+   "name": "Mrbaeksang/korea-stock-analyzer-mcp",
+   "repo_url": "https://github.com/Mrbaeksang/korea-stock-analyzer-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(filing)",
+   "categories": [
+    "금융·증시"
+   ],
+   "sources": [
+    "github",
+    "mcpmoa"
+   ],
+   "stars": 23,
+   "pushed": "2026-07-29",
+   "kr_domains": [
+    "opendart.fss.or.kr"
+   ]
+  },
+  {
+   "name": "N0WST4NDUP/openlaw-mcp-server",
+   "repo_url": "https://github.com/N0WST4NDUP/openlaw-mcp-server",
+   "verdict": "keep",
+   "why": "한국(한글 설명) + 데이터(검색)",
+   "categories": [
+    "법령·판례"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 1,
+   "pushed": "2025-05-12",
+   "kr_domains": [
+    "open.law.go.kr"
+   ]
+  },
+  {
+   "name": "NSLC7779/dk-korea-health-mcp",
+   "repo_url": "https://github.com/NSLC7779/dk-korea-health-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(data)",
+   "categories": [
+    "공공데이터·행정",
+    "의료·복지"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 1,
+   "pushed": "2026-06-23",
+   "kr_domains": [
+    "data.go.kr",
+    "www.data.go.kr"
+   ]
+  },
+  {
+   "name": "Nicegomting/PyGenAI",
+   "repo_url": "https://github.com/Nicegomting/PyGenAI",
+   "verdict": "keep",
+   "why": "한국(한글 설명) + 데이터(조회)",
+   "categories": [
+    "날씨·환경"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2025-10-24",
+   "kr_domains": null
+  },
+  {
+   "name": "Noah3521/coupang-sourcing",
+   "repo_url": "https://github.com/Noah3521/coupang-sourcing",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "커머스·생활"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-06-09",
+   "kr_domains": null
+  },
+  {
+   "name": "NotNull92/korea-unipass-mcp",
+   "repo_url": "https://github.com/NotNull92/korea-unipass-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(조회)",
+   "categories": [
+    "세금·재정"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-03-11",
+   "kr_domains": [
+    "unipass.customs.go.kr"
+   ]
+  },
+  {
+   "name": "OldTemple91/korea-filings-api",
+   "repo_url": "https://github.com/OldTemple91/korea-filings-api",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(filing)",
+   "categories": [
+    "금융·증시"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-07-30",
+   "kr_domains": [
+    "dart.fss.or.kr",
+    "opendart.fss.or.kr"
+   ]
+  },
+  {
+   "name": "OneVth/danbooru-tag-rag-mcp",
+   "repo_url": "https://github.com/OneVth/danbooru-tag-rag-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(search)",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 2,
+   "pushed": "2026-07-27",
+   "kr_domains": null
+  },
+  {
+   "name": "Park3min/yr-weather-mcp",
+   "repo_url": "https://github.com/Park3min/yr-weather-mcp",
+   "verdict": "keep",
+   "why": "한국(기상청) + 데이터(weather)",
+   "categories": [
+    "날씨·환경"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-08-11",
+   "kr_domains": null
+  },
+  {
+   "name": "PlateerLab/synaptic-memory",
+   "repo_url": "https://github.com/PlateerLab/synaptic-memory",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 33,
+   "pushed": "2026-07-03",
+   "kr_domains": null
+  },
+  {
+   "name": "PyungkangHong094/mcp-all-korea",
+   "repo_url": "https://github.com/PyungkangHong094/mcp-all-korea",
+   "verdict": "review",
+   "why": "설명이 비어 자동 판정 불가 — 사람이 열어봐야 한다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 2,
+   "pushed": "2026-07-09",
+   "kr_domains": [
+    "data.go.kr",
+    "open.law.go.kr"
+   ]
+  },
+  {
+   "name": "RealYoungk/opendart_mcp",
+   "repo_url": "https://github.com/RealYoungk/opendart_mcp",
+   "verdict": "keep",
+   "why": "한국(dart) + 데이터(공시)",
+   "categories": [
+    "금융·증시"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-02-08",
+   "kr_domains": [
+    "opendart.fss.or.kr"
+   ]
+  },
+  {
+   "name": "RealYoungk/openkrx-mcp",
+   "repo_url": "https://github.com/RealYoungk/openkrx-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "금융·증시"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 1,
+   "pushed": "2026-02-20",
+   "kr_domains": null
+  },
+  {
+   "name": "Sedong-Choi/jangbogo-mcp",
+   "repo_url": "https://github.com/Sedong-Choi/jangbogo-mcp",
+   "verdict": "keep",
+   "why": "한국(카카오) + 데이터(data)",
+   "categories": [
+    "공공데이터·행정",
+    "지도·주소",
+    "커머스·생활"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-07-12",
+   "kr_domains": [
+    "www.kamis.or.kr"
+   ]
+  },
+  {
+   "name": "Sedong-Choi/kakao-mcp",
+   "repo_url": "https://github.com/Sedong-Choi/kakao-mcp",
+   "verdict": "keep",
+   "why": "한국(kakao) + 데이터(검색)",
+   "categories": [
+    "커머스·생활"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-07-12",
+   "kr_domains": null
+  },
+  {
+   "name": "Sejin-Koo/krx-regulation-mcp",
+   "repo_url": "https://github.com/Sejin-Koo/krx-regulation-mcp",
+   "verdict": "review",
+   "why": "설명이 비어 자동 판정 불가 — 사람이 열어봐야 한다",
+   "categories": [
+    "금융·증시"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-08-16",
+   "kr_domains": null
   },
   {
    "name": "SeoNaRu/korean-law-mcp",
-   "repo": "SeoNaRu/korean-law-mcp",
-   "category": "Legal & Government"
+   "repo_url": "https://github.com/SeoNaRu/korean-law-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github",
+    "mcpmoa"
+   ],
+   "stars": 71,
+   "pushed": "2026-01-20",
+   "kr_domains": [
+    "open.law.go.kr"
+   ]
   },
   {
-   "name": "workbookbulb863/korean-law-alio-mcp",
-   "repo": "workbookbulb863/korean-law-alio-mcp",
-   "category": "Legal & Government"
+   "name": "SeoNaRu/lexguard-mcp",
+   "repo_url": "https://github.com/SeoNaRu/lexguard-mcp",
+   "verdict": "keep",
+   "why": "한국(한글 설명) + 데이터(조회)",
+   "categories": [
+    "법령·판례"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 127,
+   "pushed": "2026-08-11",
+   "kr_domains": [
+    "open.law.go.kr",
+    "www.law.go.kr"
+   ]
   },
   {
-   "name": "daiso-mcp",
-   "repo": "hmmhmmhm/daiso-mcp",
-   "category": "Commerce & Retail"
+   "name": "Seonh0/naver-land-mcp",
+   "repo_url": "https://github.com/Seonh0/naver-land-mcp",
+   "verdict": "keep",
+   "why": "한국(naver) + 데이터(조회)",
+   "categories": [
+    "부동산",
+    "커머스·생활"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-04-17",
+   "kr_domains": null
   },
   {
-   "name": "edward-kim-dev/kr-pc-deals-mcp",
-   "repo": "edward-kim-dev/kr-pc-deals-mcp",
-   "category": "Commerce & Retail"
+   "name": "SinGonKim/korean-med-mcp",
+   "repo_url": "https://github.com/SinGonKim/korean-med-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(데이터)",
+   "categories": [
+    "공공데이터·행정",
+    "법령·판례"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 1,
+   "pushed": "2026-06-04",
+   "kr_domains": [
+    "cancer.go.kr",
+    "data.go.kr",
+    "open.law.go.kr",
+    "www.cancer.go.kr",
+    "www.data.go.kr",
+    "www.hira.or.kr"
+   ]
   },
   {
-   "name": "KIS_MCP_Server",
-   "repo": "migusdn/KIS_MCP_Server",
-   "category": "Finance & Tax"
+   "name": "SonAIengine/ku-portal-mcp",
+   "repo_url": "https://github.com/SonAIengine/ku-portal-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github",
+    "mcpmoa"
+   ],
+   "stars": 12,
+   "pushed": "2026-08-12",
+   "kr_domains": null
   },
   {
-   "name": "korea-stock-analyzer-mcp",
-   "repo": "Mrbaeksang/korea-stock-analyzer-mcp",
-   "category": "Finance & Tax"
+   "name": "TanTenTin/kakao-docs-mcp",
+   "repo_url": "https://github.com/TanTenTin/kakao-docs-mcp",
+   "verdict": "keep",
+   "why": "한국(kakao) + 데이터(검색)",
+   "categories": [
+    "커머스·생활"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-07-17",
+   "kr_domains": null
   },
   {
-   "name": "korea-stock-mcp",
-   "repo": "jjlabsio/korea-stock-mcp",
-   "category": "Finance & Tax"
+   "name": "Tech-curator/korean-patent-mcp",
+   "repo_url": "https://github.com/Tech-curator/korean-patent-mcp",
+   "verdict": "review",
+   "why": "설명이 비어 자동 판정 불가 — 사람이 열어봐야 한다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 2,
+   "pushed": "2025-12-16",
+   "kr_domains": [
+    "plus.kipris.or.kr"
+   ]
+  },
+  {
+   "name": "TheNaham/koreafood-mcp",
+   "repo_url": "https://github.com/TheNaham/koreafood-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(search)",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 1,
+   "pushed": "2026-06-12",
+   "kr_domains": null
+  },
+  {
+   "name": "UrbanWatcherKr/korean-land-mcp",
+   "repo_url": "https://github.com/UrbanWatcherKr/korean-land-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 17,
+   "pushed": "2026-04-21",
+   "kr_domains": [
+    "eum.go.kr"
+   ]
+  },
+  {
+   "name": "WillyWilley/condensation-mcp",
+   "repo_url": "https://github.com/WillyWilley/condensation-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "커머스·생활"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-06-28",
+   "kr_domains": null
+  },
+  {
+   "name": "YongjunJeong/mcp-stock-agent",
+   "repo_url": "https://github.com/YongjunJeong/mcp-stock-agent",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-03-03",
+   "kr_domains": null
+  },
+  {
+   "name": "adminhelper/saju-engine",
+   "repo_url": "https://github.com/adminhelper/saju-engine",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 3,
+   "pushed": "2026-05-30",
+   "kr_domains": null
   },
   {
    "name": "aesthetic-legalism5470/korean-dart-mcp",
-   "repo": "aesthetic-legalism5470/korean-dart-mcp",
-   "category": "Finance & Tax"
+   "repo_url": "https://github.com/aesthetic-legalism5470/korean-dart-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(data)",
+   "categories": [
+    "금융·증시"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 3,
+   "pushed": "2026-08-17",
+   "kr_domains": [
+    "opendart.fss.or.kr"
+   ]
   },
   {
-   "name": "koreainvestment-mcp",
-   "repo": "koreainvestment/koreainvestment-mcp",
-   "category": "Finance & Tax"
+   "name": "afrontend/dongnelibrary-mcp-server",
+   "repo_url": "https://github.com/afrontend/dongnelibrary-mcp-server",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "교육·문화"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-01-10",
+   "kr_domains": null
   },
   {
-   "name": "pykrx-mcp",
-   "repo": "sharebook-kr/pykrx-mcp",
-   "category": "Finance & Tax"
+   "name": "agent504330-ux/mcp-korean-stock",
+   "repo_url": "https://github.com/agent504330-ux/mcp-korean-stock",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(데이터)",
+   "categories": [
+    "커머스·생활"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 2,
+   "pushed": "2026-04-20",
+   "kr_domains": null
   },
   {
-   "name": "redoxnet/mcp-lsopenapi",
-   "repo": "redoxnet/mcp-lsopenapi",
-   "category": "Finance & Tax"
+   "name": "ai-screams/HwpForge",
+   "repo_url": "https://github.com/ai-screams/HwpForge",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github",
+    "mcpmoa"
+   ],
+   "stars": 15,
+   "pushed": "2026-08-18",
+   "kr_domains": null
   },
   {
-   "name": "snaiws/DART-mcp-server",
-   "repo": "snaiws/DART-mcp-server",
-   "category": "Finance & Tax"
+   "name": "ai.atdev/supershopping",
+   "repo_url": "https://github.com/alex-hoyeol-choi/headless-commerce",
+   "verdict": "keep",
+   "why": "한국(한글 설명) + 데이터(검색)",
+   "categories": [],
+   "sources": [
+    "registry"
+   ],
+   "stars": null,
+   "pushed": null,
+   "kr_domains": null
   },
   {
-   "name": "A2A-MCP-RealEstate",
-   "repo": "gum798/A2A-MCP-RealEstate",
-   "category": "Real Estate"
+   "name": "ai.bareun/bareun",
+   "repo_url": "https://github.com/gih2yun/bareun-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "registry"
+   ],
+   "stars": null,
+   "pushed": null,
+   "kr_domains": null
   },
   {
-   "name": "mcp-kr-realestate",
-   "repo": "ChangooLee/mcp-kr-realestate",
-   "category": "Real Estate"
+   "name": "ai.smithery/airmang-hwpx-mcp",
+   "repo_url": "https://github.com/airmang/hwpx-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "registry"
+   ],
+   "stars": null,
+   "pushed": null,
+   "kr_domains": null
   },
   {
-   "name": "real-estate-mcp",
-   "repo": "tae0y/real-estate-mcp",
-   "category": "Real Estate"
+   "name": "ai.smithery/alphago2580-naramarketmcp",
+   "repo_url": "https://github.com/alphago2580/naramarketmcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(data)",
+   "categories": [
+    "세금·재정"
+   ],
+   "sources": [
+    "github",
+    "registry"
+   ],
+   "stars": 3,
+   "pushed": "2026-02-09",
+   "kr_domains": null
   },
   {
-   "name": "navermap-mcp-server",
-   "repo": "flor3z-github/navermap-mcp-server",
-   "category": "Maps & Address"
+   "name": "ai.smithery/hjsh200219-pharminfo-mcp",
+   "repo_url": "https://github.com/hjsh200219/pharminfo-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(data)",
+   "categories": [],
+   "sources": [
+    "registry"
+   ],
+   "stars": null,
+   "pushed": null,
+   "kr_domains": null
   },
   {
-   "name": "mcp-naver-map",
-   "repo": "yeonupark/mcp-naver-map",
-   "category": "Maps & Address"
+   "name": "ai.smithery/isnow890-data4library-mcp",
+   "repo_url": "https://github.com/isnow890/data4library-mcp",
+   "verdict": "keep",
+   "why": "한국(한글 설명) + 데이터(data)",
+   "categories": [],
+   "sources": [
+    "github",
+    "mcpmoa",
+    "registry"
+   ],
+   "stars": 9,
+   "pushed": "2025-10-11",
+   "kr_domains": null
   },
   {
-   "name": "mcp-naver-maps",
-   "repo": "yunkee-lee/mcp-naver-maps",
-   "category": "Maps & Address"
+   "name": "ai.smithery/jjlabsio-korea-stock-mcp",
+   "repo_url": "https://github.com/jjlabsio/korea-stock-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(search)",
+   "categories": [],
+   "sources": [
+    "github",
+    "mcpmoa",
+    "registry"
+   ],
+   "stars": 174,
+   "pushed": "2026-08-16",
+   "kr_domains": null
   },
   {
-   "name": "kakao-navigation-mcp-server",
-   "repo": "CaChiJ/kakao-navigation-mcp-server",
-   "category": "Maps & Address"
+   "name": "ai.timeplex/booking",
+   "repo_url": "",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(search)",
+   "categories": [],
+   "sources": [
+    "registry"
+   ],
+   "stars": null,
+   "pushed": null,
+   "kr_domains": null
   },
   {
-   "name": "jeong-sik/kakao-api-mcp-server",
-   "repo": "jeong-sik/kakao-api-mcp-server",
-   "category": "Maps & Address"
+   "name": "aibridge-leo/tradingview-mcp-aibridge",
+   "repo_url": "https://github.com/aibridge-leo/tradingview-mcp-aibridge",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 3,
+   "pushed": "2026-04-23",
+   "kr_domains": null
   },
   {
-   "name": "mcp-server-kakao-map",
-   "repo": "cgoinglove/mcp-server-kakao-map",
-   "category": "Maps & Address"
+   "name": "akatjd/blog-mcp",
+   "repo_url": "https://github.com/akatjd/blog-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "커머스·생활"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-04-21",
+   "kr_domains": null
   },
   {
-   "name": "naver-search-mcp",
-   "repo": "isnow890/naver-search-mcp",
-   "category": "Search & Trends"
+   "name": "alice840126-ship-it/korean-law-mcp-setup",
+   "repo_url": "https://github.com/alice840126-ship-it/korean-law-mcp-setup",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(법령)",
+   "categories": [
+    "법령·판례"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-04-06",
+   "kr_domains": [
+    "open.law.go.kr"
+   ]
   },
   {
-   "name": "py-mcp-naver-search",
-   "repo": "jikime/py-mcp-naver-search",
-   "category": "Search & Trends"
+   "name": "alphago2580/naver_searchad_mcp",
+   "repo_url": "https://github.com/alphago2580/naver_searchad_mcp",
+   "verdict": "keep",
+   "why": "한국(naver) + 데이터(search)",
+   "categories": [
+    "커머스·생활"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-02-08",
+   "kr_domains": null
   },
   {
-   "name": "mcp-korea-tourism-api",
-   "repo": "harimkang/mcp-korea-tourism-api",
-   "category": "Tourism & Travel"
+   "name": "anboyu-alt/dart-risk-mcp",
+   "repo_url": "https://github.com/anboyu-alt/dart-risk-mcp",
+   "verdict": "keep",
+   "why": "한국(한국) + 데이터(공시)",
+   "categories": [
+    "금융·증시"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 1,
+   "pushed": "2026-08-17",
+   "kr_domains": [
+    "opendart.fss.or.kr"
+   ]
   },
   {
-   "name": "mcp-visit-korea",
-   "repo": "pjookim/mcp-visit-korea",
-   "category": "Tourism & Travel"
+   "name": "androidZzT/harness-engineering-practice",
+   "repo_url": "https://github.com/androidZzT/harness-engineering-practice",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "한국어·언어"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 2,
+   "pushed": "2026-06-18",
+   "kr_domains": null
   },
   {
-   "name": "be-node-seoul-data-mcp",
-   "repo": "pinnaclesoft-ko/be-node-seoul-data-mcp",
-   "category": "Public Data"
+   "name": "antryu/kolaw",
+   "repo_url": "https://github.com/antryu/kolaw",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 2,
+   "pushed": "2026-05-19",
+   "kr_domains": null
   },
   {
-   "name": "data-go-mcp-servers",
-   "repo": "Koomook/data-go-mcp-servers",
-   "category": "Public Data"
+   "name": "app.apick/all",
+   "repo_url": "",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(search)",
+   "categories": [],
+   "sources": [
+    "registry"
+   ],
+   "stars": null,
+   "pushed": null,
+   "kr_domains": null
   },
   {
-   "name": "data4library-mcp",
-   "repo": "isnow890/data4library-mcp",
-   "category": "Public Data"
+   "name": "app.apick/business",
+   "repo_url": "",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(registry)",
+   "categories": [],
+   "sources": [
+    "registry"
+   ],
+   "stars": null,
+   "pushed": null,
+   "kr_domains": null
   },
   {
-   "name": "k-mfds-fooddb-mcp-server",
-   "repo": "slicequeue/k-mfds-fooddb-mcp-server",
-   "category": "Public Data"
+   "name": "app.apick/finance",
+   "repo_url": "",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(lookup)",
+   "categories": [],
+   "sources": [
+    "registry"
+   ],
+   "stars": null,
+   "pushed": null,
+   "kr_domains": null
   },
   {
-   "name": "k-targo-subway-mcp-server",
-   "repo": "slicequeue/k-targo-subway-mcp-server",
-   "category": "Public Data"
+   "name": "app.apick/identity",
+   "repo_url": "",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "registry"
+   ],
+   "stars": null,
+   "pushed": null,
+   "kr_domains": null
   },
   {
-   "name": "korea-public-data-mcp",
-   "repo": "hjsh200219/korea-public-data-mcp",
-   "category": "Public Data"
+   "name": "app.apick/ocr",
+   "repo_url": "",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "registry"
+   ],
+   "stars": null,
+   "pushed": null,
+   "kr_domains": null
+  },
+  {
+   "name": "app.odyssey365/mcp-server",
+   "repo_url": "https://github.com/Odyssey365App/odyssey30_60",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "registry"
+   ],
+   "stars": null,
+   "pushed": null,
+   "kr_domains": null
+  },
+  {
+   "name": "app.sallim/contract-compass",
+   "repo_url": "https://github.com/kwenhwang/contract-compass",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(search)",
+   "categories": [],
+   "sources": [
+    "registry"
+   ],
+   "stars": null,
+   "pushed": null,
+   "kr_domains": null
+  },
+  {
+   "name": "app.sallim/korea-realty",
+   "repo_url": "https://github.com/sallim-app/korea-realty",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(data)",
+   "categories": [
+    "부동산"
+   ],
+   "sources": [
+    "github",
+    "registry"
+   ],
+   "stars": 0,
+   "pushed": "2026-08-18",
+   "kr_domains": null
+  },
+  {
+   "name": "app.sallim/korea-stay",
+   "repo_url": "",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "registry"
+   ],
+   "stars": null,
+   "pushed": null,
+   "kr_domains": null
+  },
+  {
+   "name": "app.wishpool/korea-invoice-mcp",
+   "repo_url": "https://github.com/junter1989k-ai/korea-invoice-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(query)",
+   "categories": [],
+   "sources": [
+    "registry"
+   ],
+   "stars": null,
+   "pushed": null,
+   "kr_domains": null
+  },
+  {
+   "name": "arapodcho/mcp_server_neis_api",
+   "repo_url": "https://github.com/arapodcho/mcp_server_neis_api",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "공공데이터·행정"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2025-11-27",
+   "kr_domains": null
+  },
+  {
+   "name": "banatic/Hypercool",
+   "repo_url": "https://github.com/banatic/Hypercool",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 2,
+   "pushed": "2026-08-06",
+   "kr_domains": null
+  },
+  {
+   "name": "bb4rjfl/weathersafetyos-mcp",
+   "repo_url": "https://github.com/bb4rjfl/weathersafetyos-mcp",
+   "verdict": "keep",
+   "why": "한국(카카오) + 데이터(weather)",
+   "categories": [
+    "커머스·생활"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-07-09",
+   "kr_domains": null
+  },
+  {
+   "name": "billy-baek/ansimtalk",
+   "repo_url": "https://github.com/billy-baek/ansimtalk",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "커머스·생활"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-07-13",
+   "kr_domains": [
+    "www.data.go.kr"
+   ]
+  },
+  {
+   "name": "blottosicei/here-now-er-mcp",
+   "repo_url": "https://github.com/blottosicei/here-now-er-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "커머스·생활"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-07-09",
+   "kr_domains": [
+    "data.go.kr",
+    "www.data.go.kr"
+   ]
+  },
+  {
+   "name": "blueming85/busan-contract-mcp",
+   "repo_url": "https://github.com/blueming85/busan-contract-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "세금·재정"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-06-23",
+   "kr_domains": null
+  },
+  {
+   "name": "bong-u/mcp-server-kakao-map",
+   "repo_url": "https://github.com/bong-u/mcp-server-kakao-map",
+   "verdict": "keep",
+   "why": "한국(kakao) + 데이터(검색)",
+   "categories": [
+    "지도·주소",
+    "커머스·생활"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 1,
+   "pushed": "2026-08-03",
+   "kr_domains": null
+  },
+  {
+   "name": "bootpay/bootpay-mcp",
+   "repo_url": "https://github.com/bootpay/bootpay-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(search)",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 2,
+   "pushed": "2026-07-21",
+   "kr_domains": null
+  },
+  {
+   "name": "buenosiempre-cmd/kr-univ-rule-mcp",
+   "repo_url": "https://github.com/buenosiempre-cmd/kr-univ-rule-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-07-30",
+   "kr_domains": null
+  },
+  {
+   "name": "burlesquer/coupang-mcp",
+   "repo_url": "https://github.com/burlesquer/coupang-mcp",
+   "verdict": "keep",
+   "why": "한국(한글 설명) + 데이터(조회)",
+   "categories": [
+    "커머스·생활"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 1,
+   "pushed": "2026-03-19",
+   "kr_domains": null
+  },
+  {
+   "name": "busung/naver_blog_mcp",
+   "repo_url": "https://github.com/busung/naver_blog_mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "커머스·생활"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-06-28",
+   "kr_domains": null
+  },
+  {
+   "name": "byh3071-cpu/vhk",
+   "repo_url": "https://github.com/byh3071-cpu/vhk",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "한국어·언어"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 12,
+   "pushed": "2026-08-18",
+   "kr_domains": null
+  },
+  {
+   "name": "byungjunjang/litigation-writer",
+   "repo_url": "https://github.com/byungjunjang/litigation-writer",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(조회)",
+   "categories": [
+    "법령·판례"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-08-05",
+   "kr_domains": [
+    "open.law.go.kr"
+   ]
+  },
+  {
+   "name": "capitalparser/kreports-dart-mcp",
+   "repo_url": "https://github.com/capitalparser/kreports-dart-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(lookup)",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 3,
+   "pushed": "2026-08-11",
+   "kr_domains": [
+    "dart.fss.or.kr",
+    "opendart.fss.or.kr"
+   ]
+  },
+  {
+   "name": "capitalparser/public-data-opportunity-mcp",
+   "repo_url": "https://github.com/capitalparser/public-data-opportunity-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(data)",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 2,
+   "pushed": "2026-05-17",
+   "kr_domains": [
+    "data.go.kr",
+    "www.data.go.kr"
+   ]
+  },
+  {
+   "name": "cdsassj00/korean-law-ai-chatbot",
+   "repo_url": "https://github.com/cdsassj00/korean-law-ai-chatbot",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(검색)",
+   "categories": [
+    "법령·판례"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 1,
+   "pushed": "2026-05-10",
+   "kr_domains": [
+    "open.law.go.kr"
+   ]
+  },
+  {
+   "name": "changgi/open-go-kr-archive",
+   "repo_url": "https://github.com/changgi/open-go-kr-archive",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "공공데이터·행정"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-04-12",
+   "kr_domains": [
+    "open.go.kr"
+   ]
+  },
+  {
+   "name": "choihyeokbin/kakao-real-estate-mcp",
+   "repo_url": "https://github.com/choihyeokbin/kakao-real-estate-mcp",
+   "verdict": "keep",
+   "why": "한국(kakao) + 데이터(조회)",
+   "categories": [
+    "부동산",
+    "커머스·생활"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-06-24",
+   "kr_domains": null
+  },
+  {
+   "name": "choyeonkyu/mcp-ai-agent",
+   "repo_url": "https://github.com/choyeonkyu/mcp-ai-agent",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "날씨·환경"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2025-10-06",
+   "kr_domains": null
+  },
+  {
+   "name": "chrisryugj/archhub-mcp",
+   "repo_url": "https://github.com/chrisryugj/archhub-mcp",
+   "verdict": "keep",
+   "why": "한국(한글 설명) + 데이터(통계)",
+   "categories": [
+    "부동산"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 63,
+   "pushed": "2026-08-17",
+   "kr_domains": [
+    "cloud.eais.go.kr",
+    "data.go.kr",
+    "www.data.go.kr"
+   ]
+  },
+  {
+   "name": "chrisryugj/kordoc",
+   "repo_url": "https://github.com/chrisryugj/kordoc",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github",
+    "mcpmoa"
+   ],
+   "stars": 1742,
+   "pushed": "2026-08-17",
+   "kr_domains": null
+  },
+  {
+   "name": "chrisryugj/korean-dart-mcp",
+   "repo_url": "https://github.com/chrisryugj/korean-dart-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(disclosure)",
+   "categories": [
+    "금융·증시"
+   ],
+   "sources": [
+    "github",
+    "mcpmoa"
+   ],
+   "stars": 94,
+   "pushed": "2026-07-30",
+   "kr_domains": [
+    "dart.fss.or.kr",
+    "opendart.fss.or.kr"
+   ]
+  },
+  {
+   "name": "chrisryugj/korean-law-mcp",
+   "repo_url": "https://github.com/chrisryugj/korean-law-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(search)",
+   "categories": [
+    "법령·판례"
+   ],
+   "sources": [
+    "github",
+    "mcpmoa"
+   ],
+   "stars": 2476,
+   "pushed": "2026-08-17",
+   "kr_domains": [
+    "law.go.kr",
+    "open.law.go.kr",
+    "taxlaw.nts.go.kr",
+    "www.law.go.kr"
+   ]
+  },
+  {
+   "name": "chrisryugj/korean-patent-mcp",
+   "repo_url": "https://github.com/chrisryugj/korean-patent-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(search)",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 52,
+   "pushed": "2026-08-17",
+   "kr_domains": [
+    "data.go.kr",
+    "plus.kipris.or.kr"
+   ]
+  },
+  {
+   "name": "chrisryugj/ollama-mcp-host",
+   "repo_url": "https://github.com/chrisryugj/ollama-mcp-host",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 22,
+   "pushed": "2026-06-29",
+   "kr_domains": [
+    "law.go.kr",
+    "open.law.go.kr"
+   ]
+  },
+  {
+   "name": "chrisryugj/schoolinfo-mcp",
+   "repo_url": "https://github.com/chrisryugj/schoolinfo-mcp",
+   "verdict": "keep",
+   "why": "한국(한글 설명) + 데이터(공시)",
+   "categories": [
+    "교육·문화"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 42,
+   "pushed": "2026-08-17",
+   "kr_domains": [
+    "open.neis.go.kr",
+    "www.schoolinfo.go.kr"
+   ]
+  },
+  {
+   "name": "chromato99/krx-rule-mcp",
+   "repo_url": "https://github.com/chromato99/krx-rule-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "금융·증시"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-08-14",
+   "kr_domains": null
+  },
+  {
+   "name": "civilian7/korean-people-persona",
+   "repo_url": "https://github.com/civilian7/korean-people-persona",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(data)",
+   "categories": [],
+   "sources": [
+    "github",
+    "mcpmoa"
+   ],
+   "stars": 22,
+   "pushed": "2026-06-11",
+   "kr_domains": null
+  },
+  {
+   "name": "clayop/korean-university-regulation-mcp",
+   "repo_url": "https://github.com/clayop/korean-university-regulation-mcp",
+   "verdict": "review",
+   "why": "설명이 비어 자동 판정 불가 — 사람이 열어봐야 한다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 2,
+   "pushed": "2026-04-06",
+   "kr_domains": null
+  },
+  {
+   "name": "com.a11ychk/mcp",
+   "repo_url": "https://github.com/IsaacEryn/a11ychk",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "registry"
+   ],
+   "stars": null,
+   "pushed": null,
+   "kr_domains": null
+  },
+  {
+   "name": "com.aikstockdata/mcp",
+   "repo_url": "https://github.com/na77tech-creator/aikstockdata",
+   "verdict": "keep",
+   "why": "한국(dart) + 데이터(data)",
+   "categories": [],
+   "sources": [
+    "github",
+    "registry"
+   ],
+   "stars": 6,
+   "pushed": "2026-08-17",
+   "kr_domains": null
+  },
+  {
+   "name": "com.airblockfz/seoul-apt-signal",
+   "repo_url": "",
+   "verdict": "keep",
+   "why": "한국(seoul) + 데이터(transaction)",
+   "categories": [],
+   "sources": [
+    "registry"
+   ],
+   "stars": null,
+   "pushed": null,
+   "kr_domains": null
+  },
+  {
+   "name": "com.airblockfz/stock-signal-kr",
+   "repo_url": "",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "registry"
+   ],
+   "stars": null,
+   "pushed": null,
+   "kr_domains": null
+  },
+  {
+   "name": "com.arcasos/arcasos-rentals",
+   "repo_url": "",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(search)",
+   "categories": [],
+   "sources": [
+    "registry"
+   ],
+   "stars": null,
+   "pushed": null,
+   "kr_domains": null
+  },
+  {
+   "name": "com.beauticslab/mcp",
+   "repo_url": "https://github.com/websfactory/beauticslab-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(search)",
+   "categories": [],
+   "sources": [
+    "registry"
+   ],
+   "stars": null,
+   "pushed": null,
+   "kr_domains": null
+  },
+  {
+   "name": "com.boltena/erp",
+   "repo_url": "",
+   "verdict": "keep",
+   "why": "한국(한글 설명) + 데이터(조회)",
+   "categories": [],
+   "sources": [
+    "registry"
+   ],
+   "stars": null,
+   "pushed": null,
+   "kr_domains": null
+  },
+  {
+   "name": "com.empresskorea/kbeauty-agent-commons",
+   "repo_url": "",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(search)",
+   "categories": [],
+   "sources": [
+    "registry"
+   ],
+   "stars": null,
+   "pushed": null,
+   "kr_domains": null
+  },
+  {
+   "name": "com.goldpopcon/openapi-mcp",
+   "repo_url": "https://github.com/keumbang/goldpopcon-openapi-mcp",
+   "verdict": "keep",
+   "why": "한국(한글 설명) + 데이터(조회)",
+   "categories": [],
+   "sources": [
+    "registry"
+   ],
+   "stars": null,
+   "pushed": null,
+   "kr_domains": null
+  },
+  {
+   "name": "com.goodsaegim/goodsaegim",
+   "repo_url": "",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "registry"
+   ],
+   "stars": null,
+   "pushed": null,
+   "kr_domains": null
+  },
+  {
+   "name": "com.hankookilbo.mcp/hankookilbo-mcp",
+   "repo_url": "https://github.com/hkilbo/hankookilbo-mcp",
+   "verdict": "keep",
+   "why": "한국(한국) + 데이터(검색)",
+   "categories": [],
+   "sources": [
+    "registry"
+   ],
+   "stars": null,
+   "pushed": null,
+   "kr_domains": null
+  },
+  {
+   "name": "com.kimchi-sushi/agent-mcp",
+   "repo_url": "",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "registry"
+   ],
+   "stars": null,
+   "pushed": null,
+   "kr_domains": null
+  },
+  {
+   "name": "com.saaskr/korean-saas-directory",
+   "repo_url": "",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(search)",
+   "categories": [],
+   "sources": [
+    "registry"
+   ],
+   "stars": null,
+   "pushed": null,
+   "kr_domains": null
+  },
+  {
+   "name": "com.salvagesignal/salvage-signal",
+   "repo_url": "",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "registry"
+   ],
+   "stars": null,
+   "pushed": null,
+   "kr_domains": null
+  },
+  {
+   "name": "com.seoapi/naverbot",
+   "repo_url": "",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "registry"
+   ],
+   "stars": null,
+   "pushed": null,
+   "kr_domains": null
+  },
+  {
+   "name": "com.thenextgennexus/global-equities-screener-mcp",
+   "repo_url": "",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "registry"
+   ],
+   "stars": null,
+   "pushed": null,
+   "kr_domains": null
+  },
+  {
+   "name": "com.theprotoclinical/commerce",
+   "repo_url": "",
+   "verdict": "keep",
+   "why": "한국(k-beauty) + 데이터(search)",
+   "categories": [],
+   "sources": [
+    "registry"
+   ],
+   "stars": null,
+   "pushed": null,
+   "kr_domains": null
+  },
+  {
+   "name": "constant94-dev/public-data-mcp-server",
+   "repo_url": "https://github.com/constant94-dev/public-data-mcp-server",
+   "verdict": "keep",
+   "why": "한국(공공데이터) + 데이터(data)",
+   "categories": [
+    "공공데이터·행정"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2025-08-24",
+   "kr_domains": null
+  },
+  {
+   "name": "coyaSONG/kra-mcp",
+   "repo_url": "https://github.com/coyaSONG/kra-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-08-12",
+   "kr_domains": [
+    "data.go.kr"
+   ]
+  },
+  {
+   "name": "daehyub71/smart-korean-legal-platform",
+   "repo_url": "https://github.com/daehyub71/smart-korean-legal-platform",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(법령)",
+   "categories": [
+    "법령·판례"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-04-06",
+   "kr_domains": [
+    "open.law.go.kr"
+   ]
+  },
+  {
+   "name": "dahlia/ko-stdict-mcp",
+   "repo_url": "https://github.com/dahlia/ko-stdict-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "한국어·언어"
+   ],
+   "sources": [
+    "github",
+    "mcpmoa"
+   ],
+   "stars": 27,
+   "pushed": "2026-03-29",
+   "kr_domains": null
+  },
+  {
+   "name": "dartpointai/dartpoint-mcp",
+   "repo_url": "https://github.com/dartpointai/dartpoint-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(disclosure)",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 3,
+   "pushed": "2025-06-25",
+   "kr_domains": [
+    "dart.fss.or.kr"
+   ]
+  },
+  {
+   "name": "dikehomme/kr-law-mcp",
+   "repo_url": "https://github.com/dikehomme/kr-law-mcp",
+   "verdict": "keep",
+   "why": "한국(한국) + 데이터(조회)",
+   "categories": [
+    "법령·판례"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 1,
+   "pushed": "2026-03-27",
+   "kr_domains": [
+    "law.go.kr",
+    "www.law.go.kr"
+   ]
+  },
+  {
+   "name": "dillettante/power-plan-db",
+   "repo_url": "https://github.com/dillettante/power-plan-db",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-08-10",
+   "kr_domains": null
+  },
+  {
+   "name": "dodopd/kosis-mcp",
+   "repo_url": "https://github.com/dodopd/kosis-mcp",
+   "verdict": "review",
+   "why": "설명이 비어 자동 판정 불가 — 사람이 열어봐야 한다",
+   "categories": [
+    "공공데이터·행정"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-07-27",
+   "kr_domains": null
+  },
+  {
+   "name": "dogdogfat/hanlaw-skill",
+   "repo_url": "https://github.com/dogdogfat/hanlaw-skill",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-04-17",
+   "kr_domains": [
+    "open.law.go.kr"
+   ]
+  },
+  {
+   "name": "dolseom/gongsi-mcp",
+   "repo_url": "https://github.com/dolseom/gongsi-mcp",
+   "verdict": "keep",
+   "why": "한국(dart) + 데이터(검색)",
+   "categories": [
+    "금융·증시"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 1,
+   "pushed": "2026-08-15",
+   "kr_domains": [
+    "opendart.fss.or.kr",
+    "www.egroup.go.kr"
+   ]
+  },
+  {
+   "name": "dongkyucho17/krx-etf-mcp",
+   "repo_url": "https://github.com/dongkyucho17/krx-etf-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(data)",
+   "categories": [
+    "공공데이터·행정",
+    "금융·증시"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-08-13",
+   "kr_domains": [
+    "data.go.kr",
+    "www.data.go.kr"
+   ]
+  },
+  {
+   "name": "dongkyucho17/onbid-mcp",
+   "repo_url": "https://github.com/dongkyucho17/onbid-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "부동산"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-08-13",
+   "kr_domains": [
+    "apis.data.go.kr"
+   ]
+  },
+  {
+   "name": "drclinic79/mcp-docs-kr",
+   "repo_url": "https://github.com/drclinic79/mcp-docs-kr",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "한국어·언어"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-06-12",
+   "kr_domains": null
+  },
+  {
+   "name": "dwook/cosmetics-ad-compliance-mcp",
+   "repo_url": "https://github.com/dwook/cosmetics-ad-compliance-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-04-21",
+   "kr_domains": null
+  },
+  {
+   "name": "eastho20/korea-stock-mcp-vercel",
+   "repo_url": "https://github.com/eastho20/korea-stock-mcp-vercel",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "금융·증시"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-05-06",
+   "kr_domains": null
+  },
+  {
+   "name": "eastminnn/stock-mate-mcp",
+   "repo_url": "https://github.com/eastminnn/stock-mate-mcp",
+   "verdict": "keep",
+   "why": "한국(카카오) + 데이터(조회)",
+   "categories": [
+    "커머스·생활"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-01-08",
+   "kr_domains": null
+  },
+  {
+   "name": "eddmpython/dartlab",
+   "repo_url": "https://github.com/eddmpython/dartlab",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(data)",
+   "categories": [
+    "금융·증시"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 207,
+   "pushed": "2026-08-17",
+   "kr_domains": [
+    "opendart.fss.or.kr"
+   ]
+  },
+  {
+   "name": "edward-kim-dev/kr-pc-deals-mcp",
+   "repo_url": "https://github.com/edward-kim-dev/kr-pc-deals-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 10,
+   "pushed": "2026-03-31",
+   "kr_domains": null
+  },
+  {
+   "name": "emceeKim/korea-finance-mcp",
+   "repo_url": "https://github.com/emceeKim/korea-finance-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "금융·증시"
+   ],
+   "sources": [
+    "github",
+    "mcpmoa"
+   ],
+   "stars": 53,
+   "pushed": "2026-07-04",
+   "kr_domains": [
+    "ecos.bok.or.kr",
+    "opendart.fss.or.kr",
+    "www.data.go.kr"
+   ]
+  },
+  {
+   "name": "epoko77-ai/korean-bill-debate-mcp",
+   "repo_url": "https://github.com/epoko77-ai/korean-bill-debate-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 24,
+   "pushed": "2026-07-20",
+   "kr_domains": [
+    "open.assembly.go.kr"
+   ]
+  },
+  {
+   "name": "eu.ansvar/south-korea-law-mcp",
+   "repo_url": "https://github.com/Ansvar-Systems/south-korea-law-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(search)",
+   "categories": [],
+   "sources": [
+    "registry"
+   ],
+   "stars": null,
+   "pushed": null,
+   "kr_domains": null
+  },
+  {
+   "name": "farmbit-mdk/korea-market-data-mcp",
+   "repo_url": "https://github.com/farmbit-mdk/korea-market-data-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(data)",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 2,
+   "pushed": "2026-06-20",
+   "kr_domains": null
+  },
+  {
+   "name": "feelyday/kadlint",
+   "repo_url": "https://github.com/feelyday/kadlint",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-07-18",
+   "kr_domains": null
+  },
+  {
+   "name": "fieldcure/fieldcure-mcp-publicdata",
+   "repo_url": "https://github.com/fieldcure/fieldcure-mcp-publicdata",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(data)",
+   "categories": [
+    "공공데이터·행정"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-05-25",
+   "kr_domains": [
+    "api.data.go.kr",
+    "apis.data.go.kr",
+    "data.go.kr",
+    "open.neis.go.kr",
+    "openapi.data.go.kr",
+    "www.data.go.kr"
+   ]
+  },
+  {
+   "name": "finalchild/law-mcp",
+   "repo_url": "https://github.com/finalchild/law-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(data)",
+   "categories": [
+    "공공데이터·행정"
+   ],
+   "sources": [
+    "github",
+    "mcpmoa"
+   ],
+   "stars": 31,
+   "pushed": "2025-07-07",
+   "kr_domains": [
+    "open.law.go.kr"
+   ]
+  },
+  {
+   "name": "flytothesky23/obsidian-korean-dart-codex",
+   "repo_url": "https://github.com/flytothesky23/obsidian-korean-dart-codex",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(search)",
+   "categories": [
+    "금융·증시"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-08-05",
+   "kr_domains": null
+  },
+  {
+   "name": "geonwoo-jeong/japanese-law-mcp",
+   "repo_url": "https://github.com/geonwoo-jeong/japanese-law-mcp",
+   "verdict": "keep",
+   "why": "한국(공공데이터) + 데이터(데이터)",
+   "categories": [
+    "공공데이터·행정",
+    "법령·판례"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-08-17",
+   "kr_domains": null
+  },
+  {
+   "name": "ghga20-ui/eval-bank",
+   "repo_url": "https://github.com/ghga20-ui/eval-bank",
+   "verdict": "keep",
+   "why": "한국(한글 설명) + 데이터(공시)",
+   "categories": [
+    "교육·문화"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 1,
+   "pushed": "2026-07-10",
+   "kr_domains": [
+    "schoolinfo.go.kr",
+    "www.schoolinfo.go.kr"
+   ]
+  },
+  {
+   "name": "giovinazo/alio-mcp",
+   "repo_url": "https://github.com/giovinazo/alio-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(data)",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 1,
+   "pushed": "2026-06-13",
+   "kr_domains": [
+    "alio.go.kr",
+    "www.alio.go.kr",
+    "www.g2b.go.kr"
+   ]
+  },
+  {
+   "name": "giovinazo/ic-dev-advisor",
+   "repo_url": "https://github.com/giovinazo/ic-dev-advisor",
+   "verdict": "keep",
+   "why": "한국(한글 설명) + 데이터(데이터)",
+   "categories": [
+    "법령·판례",
+    "세금·재정"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-08-01",
+   "kr_domains": [
+    "data.go.kr",
+    "law.go.kr",
+    "www.data.go.kr"
+   ]
+  },
+  {
+   "name": "guinnessNet/maipharm-domae-mcp",
+   "repo_url": "https://github.com/guinnessNet/maipharm-domae-mcp",
+   "verdict": "keep",
+   "why": "한국(한글 설명) + 데이터(검색)",
+   "categories": [
+    "의료·복지"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-08-09",
+   "kr_domains": null
+  },
+  {
+   "name": "gunh0/kr-mcp-from-scratch",
+   "repo_url": "https://github.com/gunh0/kr-mcp-from-scratch",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "한국어·언어"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 2,
+   "pushed": "2026-07-05",
+   "kr_domains": null
+  },
+  {
+   "name": "gws8820/shippingtracker",
+   "repo_url": "https://github.com/gws8820/shippingtracker",
+   "verdict": "keep",
+   "why": "한국(한국) + 데이터(조회)",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 1,
+   "pushed": "2025-09-15",
+   "kr_domains": null
+  },
+  {
+   "name": "hakkokimkr/nvmcp",
+   "repo_url": "https://github.com/hakkokimkr/nvmcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "커머스·생활"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-08-13",
+   "kr_domains": null
+  },
+  {
+   "name": "haklaekim/public-data-lens",
+   "repo_url": "https://github.com/haklaekim/public-data-lens",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(data)",
+   "categories": [
+    "공공데이터·행정"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-08-05",
+   "kr_domains": [
+    "data.go.kr",
+    "www.data.go.kr"
+   ]
+  },
+  {
+   "name": "handbell-H/mcp-kakao_map_mobility",
+   "repo_url": "https://github.com/handbell-H/mcp-kakao_map_mobility",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "커머스·생활"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-04-06",
+   "kr_domains": null
+  },
+  {
+   "name": "harimkang/mcp-korea-tourism-api",
+   "repo_url": "https://github.com/harimkang/mcp-korea-tourism-api",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github",
+    "mcpmoa"
+   ],
+   "stars": 9,
+   "pushed": "2025-08-12",
+   "kr_domains": [
+    "www.data.go.kr"
+   ]
+  },
+  {
+   "name": "herrozim-ship-it/yureong",
+   "repo_url": "https://github.com/herrozim-ship-it/yureong",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(data)",
+   "categories": [
+    "공공데이터·행정"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-07-25",
+   "kr_domains": [
+    "law.go.kr",
+    "open.law.go.kr"
+   ]
+  },
+  {
+   "name": "heum-kylee/kakao-auth-callback",
+   "repo_url": "https://github.com/heum-kylee/kakao-auth-callback",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "커머스·생활"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-07-08",
+   "kr_domains": null
+  },
+  {
+   "name": "hike-lab/public-data-lens",
+   "repo_url": "https://github.com/hike-lab/public-data-lens",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(data)",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 80,
+   "pushed": "2026-08-10",
+   "kr_domains": [
+    "data.go.kr",
+    "www.data.go.kr"
+   ]
+  },
+  {
+   "name": "hjsh200219/korea-public-data-mcp",
+   "repo_url": "https://github.com/hjsh200219/korea-public-data-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(data)",
+   "categories": [
+    "공공데이터·행정",
+    "법령·판례"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 8,
+   "pushed": "2026-08-12",
+   "kr_domains": [
+    "data.go.kr",
+    "open.assembly.go.kr",
+    "open.law.go.kr",
+    "opendart.fss.or.kr",
+    "www.data.go.kr"
+   ]
+  },
+  {
+   "name": "hlucent/realestate-stats-mcp",
+   "repo_url": "https://github.com/hlucent/realestate-stats-mcp",
+   "verdict": "keep",
+   "why": "한국(한국) + 데이터(stats)",
+   "categories": [
+    "부동산"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-08-17",
+   "kr_domains": [
+    "www.reb.or.kr"
+   ]
+  },
+  {
+   "name": "hmmhmmhm/daiso-mcp",
+   "repo_url": "https://github.com/hmmhmmhm/daiso-mcp",
+   "verdict": "keep",
+   "why": "한국(한국) + 데이터(조회)",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 320,
+   "pushed": "2026-08-18",
+   "kr_domains": null
+  },
+  {
+   "name": "hsh-719/kStock-mcp-server",
+   "repo_url": "https://github.com/hsh-719/kStock-mcp-server",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 1,
+   "pushed": "2025-11-26",
+   "kr_domains": null
+  },
+  {
+   "name": "hueflowstudio/hueflow-sketchup-mcp",
+   "repo_url": "https://github.com/hueflowstudio/hueflow-sketchup-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "한국어·언어"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 7,
+   "pushed": "2026-04-27",
+   "kr_domains": null
+  },
+  {
+   "name": "hwain-hwang/Real-Estate-Location-Analyzer_MCP",
+   "repo_url": "https://github.com/hwain-hwang/Real-Estate-Location-Analyzer_MCP",
+   "verdict": "keep",
+   "why": "한국(kakao) + 데이터(검색)",
+   "categories": [
+    "부동산"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-04-05",
+   "kr_domains": null
+  },
+  {
+   "name": "hyeonhoyoonKR/naver-blog-mcp",
+   "repo_url": "https://github.com/hyeonhoyoonKR/naver-blog-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "커머스·생활"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-03-27",
+   "kr_domains": null
+  },
+  {
+   "name": "hypn4/opendart-fss-mcp",
+   "repo_url": "https://github.com/hypn4/opendart-fss-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(search)",
+   "categories": [
+    "금융·증시"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-02-06",
+   "kr_domains": [
+    "dart.fss.or.kr",
+    "opendart.fss.or.kr"
+   ]
+  },
+  {
+   "name": "hypn4/tossinvest-mcp",
+   "repo_url": "https://github.com/hypn4/tossinvest-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "금융·증시"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 1,
+   "pushed": "2026-07-30",
+   "kr_domains": null
+  },
+  {
+   "name": "iiacjay/dart-briefing-mcp",
+   "repo_url": "https://github.com/iiacjay/dart-briefing-mcp",
+   "verdict": "keep",
+   "why": "한국(dart) + 데이터(공시)",
+   "categories": [
+    "금융·증시",
+    "커머스·생활"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-07-14",
+   "kr_domains": [
+    "opendart.fss.or.kr"
+   ]
+  },
+  {
+   "name": "iiacjay/incheon-airport-mcp",
+   "repo_url": "https://github.com/iiacjay/incheon-airport-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "커머스·생활"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-07-14",
+   "kr_domains": [
+    "data.go.kr"
+   ]
+  },
+  {
+   "name": "in.houseduck/house-duck-public",
+   "repo_url": "https://github.com/chaddungnam/chaddungnam.github.io",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "registry"
+   ],
+   "stars": null,
+   "pushed": null,
+   "kr_domains": null
+  },
+  {
+   "name": "ink.seosa/seosa",
+   "repo_url": "",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "registry"
+   ],
+   "stars": null,
+   "pushed": null,
+   "kr_domains": null
+  },
+  {
+   "name": "insung8150/AgentWebSearch-MCP",
+   "repo_url": "https://github.com/insung8150/AgentWebSearch-MCP",
+   "verdict": "keep",
+   "why": "한국(naver) + 데이터(search)",
+   "categories": [],
+   "sources": [
+    "github",
+    "mcpmoa"
+   ],
+   "stars": 16,
+   "pushed": "2026-02-19",
+   "kr_domains": null
+  },
+  {
+   "name": "io.aidc-ai/design-engine",
+   "repo_url": "",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(data)",
+   "categories": [],
+   "sources": [
+    "registry"
+   ],
+   "stars": null,
+   "pushed": null,
+   "kr_domains": null
+  },
+  {
+   "name": "io.github.CSOAI-ORG/korea-ai-basic-act-mcp",
+   "repo_url": "https://github.com/CSOAI-ORG/korea-ai-basic-act-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "registry"
+   ],
+   "stars": null,
+   "pushed": null,
+   "kr_domains": null
+  },
+  {
+   "name": "io.github.DeepSearch-Common/korean-stocks",
+   "repo_url": "https://github.com/deepsearch-hq/deepsearch-x402.git",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(search)",
+   "categories": [],
+   "sources": [
+    "registry"
+   ],
+   "stars": null,
+   "pushed": null,
+   "kr_domains": null
+  },
+  {
+   "name": "io.github.LJaysk/kr-dart-events",
+   "repo_url": "https://github.com/LJaysk/kr-dart-events",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(disclosure)",
+   "categories": [],
+   "sources": [
+    "registry"
+   ],
+   "stars": null,
+   "pushed": null,
+   "kr_domains": null
+  },
+  {
+   "name": "io.github.MUSE-CODE-SPACE/content-genie",
+   "repo_url": "https://github.com/MUSE-CODE-SPACE/content-genie-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github",
+    "registry"
+   ],
+   "stars": 0,
+   "pushed": "2026-07-06",
+   "kr_domains": null
+  },
+  {
+   "name": "io.github.MongLong0214/stockmatrix-mcp",
+   "repo_url": "https://github.com/MongLong0214/stock-ai-newsletter",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "registry"
+   ],
+   "stars": null,
+   "pushed": null,
+   "kr_domains": null
+  },
+  {
+   "name": "io.github.PJW2004/job-search",
+   "repo_url": "https://github.com/PJW2004/career-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(search)",
+   "categories": [],
+   "sources": [
+    "registry"
+   ],
+   "stars": null,
+   "pushed": null,
+   "kr_domains": null
+  },
+  {
+   "name": "io.github.SongT-50/korean-agriculture-mcp",
+   "repo_url": "https://github.com/SongT-50/korean-agriculture-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(data)",
+   "categories": [],
+   "sources": [
+    "registry"
+   ],
+   "stars": null,
+   "pushed": null,
+   "kr_domains": null
+  },
+  {
+   "name": "io.github.SongT-50/korean-news-mcp",
+   "repo_url": "https://github.com/SongT-50/korean-news-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github",
+    "registry"
+   ],
+   "stars": 1,
+   "pushed": "2026-03-08",
+   "kr_domains": null
+  },
+  {
+   "name": "io.github.SongT-50/korean-public-data-mcp",
+   "repo_url": "https://github.com/SongT-50/korean-public-data-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(search)",
+   "categories": [
+    "공공데이터·행정",
+    "날씨·환경",
+    "부동산"
+   ],
+   "sources": [
+    "github",
+    "registry"
+   ],
+   "stars": 1,
+   "pushed": "2026-03-08",
+   "kr_domains": null
+  },
+  {
+   "name": "io.github.SongT-50/korean-stock-mcp",
+   "repo_url": "https://github.com/SongT-50/korean-stock-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(data)",
+   "categories": [
+    "공공데이터·행정"
+   ],
+   "sources": [
+    "github",
+    "registry"
+   ],
+   "stars": 0,
+   "pushed": "2026-03-08",
+   "kr_domains": null
+  },
+  {
+   "name": "io.github.a-mashiro-art/jp-data",
+   "repo_url": "",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(data)",
+   "categories": [],
+   "sources": [
+    "registry"
+   ],
+   "stars": null,
+   "pushed": null,
+   "kr_domains": null
+  },
+  {
+   "name": "io.github.accentist/buyking-mcp",
+   "repo_url": "https://github.com/accentist/buyking-mcp",
+   "verdict": "keep",
+   "why": "한국(한글 설명) + 데이터(검색)",
+   "categories": [],
+   "sources": [
+    "github",
+    "registry"
+   ],
+   "stars": 0,
+   "pushed": "2026-08-18",
+   "kr_domains": null
+  },
+  {
+   "name": "io.github.aidc2026ai-melon/aidc-mcp-server",
+   "repo_url": "https://github.com/aidc2026ai-melon/aidc-ai-io",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(data)",
+   "categories": [],
+   "sources": [
+    "registry"
+   ],
+   "stars": null,
+   "pushed": null,
+   "kr_domains": null
+  },
+  {
+   "name": "io.github.aminpiano/nara-tour",
+   "repo_url": "https://github.com/aminpiano/naratour-mvp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "registry"
+   ],
+   "stars": null,
+   "pushed": null,
+   "kr_domains": null
+  },
+  {
+   "name": "io.github.bakyang2/kr-crypto-intelligence",
+   "repo_url": "https://github.com/bakyang2/kr-crypto-intelligence",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(data)",
+   "categories": [],
+   "sources": [
+    "registry"
+   ],
+   "stars": null,
+   "pushed": null,
+   "kr_domains": null
+  },
+  {
+   "name": "io.github.bubilife1202/crossfin",
+   "repo_url": "https://github.com/bubilife1202/crossfin",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "registry"
+   ],
+   "stars": null,
+   "pushed": null,
+   "kr_domains": null
+  },
+  {
+   "name": "io.github.choiyounggi/korea-data-mcp",
+   "repo_url": "https://github.com/choiyounggi/korea-data-suite",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(data)",
+   "categories": [],
+   "sources": [
+    "registry"
+   ],
+   "stars": null,
+   "pushed": null,
+   "kr_domains": null
+  },
+  {
+   "name": "jang236/etf-analyzer",
+   "repo_url": "https://github.com/jang236/etf-analyzer",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-08-17",
+   "kr_domains": null
+  },
+  {
+   "name": "java-jaydev/kiwoom-mcp",
+   "repo_url": "https://github.com/java-jaydev/kiwoom-mcp",
+   "verdict": "keep",
+   "why": "한국(한국) + 데이터(조회)",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 3,
+   "pushed": "2026-03-06",
+   "kr_domains": null
+  },
+  {
+   "name": "java-jaydev/toss-invest-mcp",
+   "repo_url": "https://github.com/java-jaydev/toss-invest-mcp",
+   "verdict": "keep",
+   "why": "한국(한국) + 데이터(시세)",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-07-28",
+   "kr_domains": null
   },
   {
    "name": "jayjodev/vivory-mcp",
-   "repo": "jayjodev/vivory-mcp",
-   "category": "Public Data"
+   "repo_url": "https://github.com/jayjodev/vivory-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(data)",
+   "categories": [
+    "공공데이터·행정"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-06-05",
+   "kr_domains": [
+    "ecos.bok.or.kr"
+   ]
   },
   {
    "name": "jaykim429/korea-statistic-MCP-cginside",
-   "repo": "jaykim429/korea-statistic-MCP-cginside",
-   "category": "Public Data"
+   "repo_url": "https://github.com/jaykim429/korea-statistic-MCP-cginside",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(통계)",
+   "categories": [
+    "공공데이터·행정"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 2,
+   "pushed": "2026-07-16",
+   "kr_domains": null
   },
   {
-   "name": "korea-stats-mcp",
-   "repo": "Dayoooun/korea-stats-mcp",
-   "category": "Public Data"
+   "name": "jcahn99/gis-accessibility-mcp",
+   "repo_url": "https://github.com/jcahn99/gis-accessibility-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-04-14",
+   "kr_domains": null
   },
   {
-   "name": "opendata-mcp",
-   "repo": "ceami/opendata-mcp",
-   "category": "Public Data"
+   "name": "jcyeom/pubdata-insight-mcp",
+   "repo_url": "https://github.com/jcyeom/pubdata-insight-mcp",
+   "verdict": "keep",
+   "why": "한국(공공데이터) + 데이터(data)",
+   "categories": [
+    "공공데이터·행정",
+    "날씨·환경"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-07-31",
+   "kr_domains": [
+    "data.go.kr"
+   ]
   },
   {
-   "name": "KMA-WEATHER-MCP",
-   "repo": "woongaro/KMA-WEATHER-MCP",
-   "category": "Weather"
+   "name": "jennifer76cha/nemc-law-search",
+   "repo_url": "https://github.com/jennifer76cha/nemc-law-search",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(search)",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-04-12",
+   "kr_domains": null
   },
   {
-   "name": "korea_weather",
-   "repo": "ohhan777/korea_weather",
-   "category": "Weather"
+   "name": "jeonghwanko/coffee-price-mcp",
+   "repo_url": "https://github.com/jeonghwanko/coffee-price-mcp",
+   "verdict": "keep",
+   "why": "한국(한글 설명) + 데이터(price)",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 2,
+   "pushed": "2026-06-22",
+   "kr_domains": null
   },
   {
-   "name": "korea-weather-mcp",
-   "repo": "worker-ants/korea-weather-mcp",
-   "category": "Weather"
+   "name": "jeongmk522-netizen/smishing-stop-mcp",
+   "repo_url": "https://github.com/jeongmk522-netizen/smishing-stop-mcp",
+   "verdict": "keep",
+   "why": "한국(카카오) + 데이터(조회)",
+   "categories": [
+    "커머스·생활"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-06-23",
+   "kr_domains": [
+    "apis.data.go.kr",
+    "data.go.kr",
+    "privacy.kisa.or.kr",
+    "www.data.go.kr"
+   ]
   },
   {
-   "name": "mcp-get-weather",
-   "repo": "Kinuk97/mcp-get-weather",
-   "category": "Weather"
+   "name": "jeonjeon12/jeonse-ansim-mcp",
+   "repo_url": "https://github.com/jeonjeon12/jeonse-ansim-mcp",
+   "verdict": "keep",
+   "why": "한국(공공데이터) + 데이터(데이터)",
+   "categories": [
+    "공공데이터·행정"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-07-12",
+   "kr_domains": null
   },
   {
-   "name": "mcp-weather",
-   "repo": "jikime/mcp-weather",
-   "category": "Weather"
+   "name": "jhchoi-ptech/data-go-kr-mcp",
+   "repo_url": "https://github.com/jhchoi-ptech/data-go-kr-mcp",
+   "verdict": "keep",
+   "why": "한국(.go.kr) + 데이터(data)",
+   "categories": [
+    "공공데이터·행정"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-03-30",
+   "kr_domains": [
+    "data.go.kr",
+    "www.data.go.kr"
+   ]
   },
   {
-   "name": "mcp-weather-server",
-   "repo": "dbsxortime/mcp-weather-server",
-   "category": "Weather"
+   "name": "jinjukimink/subway-congestion-mcp",
+   "repo_url": "https://github.com/jinjukimink/subway-congestion-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "교통·이동"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-01-23",
+   "kr_domains": [
+    "data.seoul.go.kr"
+   ]
   },
   {
-   "name": "ko-stdict-mcp",
-   "repo": "dahlia/ko-stdict-mcp",
-   "category": "Korean NLP & Language"
+   "name": "jinmyungjong/korean-law-mcp",
+   "repo_url": "https://github.com/jinmyungjong/korean-law-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(검색)",
+   "categories": [
+    "법령·판례"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-06-12",
+   "kr_domains": null
   },
   {
-   "name": "kordoc",
-   "repo": "chrisryugj/kordoc",
-   "category": "Korean NLP & Language"
+   "name": "jinny-han/data.go.kr-water-api-mcp",
+   "repo_url": "https://github.com/jinny-han/data.go.kr-water-api-mcp",
+   "verdict": "keep",
+   "why": "한국(.go.kr) + 데이터(data)",
+   "categories": [
+    "공공데이터·행정"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-05-15",
+   "kr_domains": [
+    "data.go.kr",
+    "www.data.go.kr"
+   ]
   },
   {
-   "name": "mcp-korean-spell",
-   "repo": "winterjung/mcp-korean-spell",
-   "category": "Korean NLP & Language"
+   "name": "jinny-han/industrial-complex-api-mcp",
+   "repo_url": "https://github.com/jinny-han/industrial-complex-api-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-05-15",
+   "kr_domains": [
+    "juso.go.kr",
+    "www.data.go.kr"
+   ]
   },
   {
-   "name": "dooray-go/dooray_mcp",
-   "repo": "dooray-go/dooray_mcp",
-   "category": "Collaboration & Communication"
+   "name": "jinny-han/vworld-api-mcp",
+   "repo_url": "https://github.com/jinny-han/vworld-api-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "부동산"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 1,
+   "pushed": "2026-05-11",
+   "kr_domains": null
   },
   {
-   "name": "kwanok/dooray-mcp",
-   "repo": "kwanok/dooray-mcp",
-   "category": "Collaboration & Communication"
+   "name": "jinsw96/aco-mcp",
+   "repo_url": "https://github.com/jinsw96/aco-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-08-17",
+   "kr_domains": null
   },
   {
-   "name": "mskim8717/dooray-mcp",
-   "repo": "mskim8717/dooray-mcp",
-   "category": "Collaboration & Communication"
+   "name": "jjmcpa93-design/g2b-bid-mcp",
+   "repo_url": "https://github.com/jjmcpa93-design/g2b-bid-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "세금·재정"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-07-27",
+   "kr_domains": null
   },
   {
-   "name": "hyeri0903/naver-works-mcp",
-   "repo": "hyeri0903/naver-works-mcp",
-   "category": "Collaboration & Communication"
+   "name": "jkf87/obsidian-mcp-kr",
+   "repo_url": "https://github.com/jkf87/obsidian-mcp-kr",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "한국어·언어"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 16,
+   "pushed": "2026-01-11",
+   "kr_domains": null
   },
   {
-   "name": "kr-movie-tv-mcp",
-   "repo": "carasjung/kr-movie-tv-mcp",
-   "category": "Miscellaneous"
+   "name": "jkf87/weather-mcp",
+   "repo_url": "https://github.com/jkf87/weather-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(weather)",
+   "categories": [
+    "날씨·환경"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2025-11-30",
+   "kr_domains": null
+  },
+  {
+   "name": "jo73089622-pixel/gyeongbuk-arch-law-mcp",
+   "repo_url": "https://github.com/jo73089622-pixel/gyeongbuk-arch-law-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "법령·판례"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-08-12",
+   "kr_domains": null
+  },
+  {
+   "name": "jobeanghun/mcp-guide",
+   "repo_url": "https://github.com/jobeanghun/mcp-guide",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "한국어·언어"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-06-12",
+   "kr_domains": null
+  },
+  {
+   "name": "josanku/wehome-insight",
+   "repo_url": "https://github.com/josanku/wehome-insight",
+   "verdict": "keep",
+   "why": "한국(한국) + 데이터(데이터)",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-05-23",
+   "kr_domains": [
+    "www.kogl.or.kr"
+   ]
+  },
+  {
+   "name": "jshsakura/oc-korea-weather-time-mcp",
+   "repo_url": "https://github.com/jshsakura/oc-korea-weather-time-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(weather)",
+   "categories": [
+    "날씨·환경"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-08-11",
+   "kr_domains": [
+    "www.data.go.kr"
+   ]
+  },
+  {
+   "name": "juhyunchoi-mech/korean-law-mcp",
+   "repo_url": "https://github.com/juhyunchoi-mech/korean-law-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(검색)",
+   "categories": [
+    "법령·판례"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-04-06",
+   "kr_domains": [
+    "open.law.go.kr"
+   ]
+  },
+  {
+   "name": "junghan0611/zotero-config",
+   "repo_url": "https://github.com/junghan0611/zotero-config",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(search)",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 3,
+   "pushed": "2026-08-12",
+   "kr_domains": null
+  },
+  {
+   "name": "justcoding-ys/mcp-naver-news",
+   "repo_url": "https://github.com/justcoding-ys/mcp-naver-news",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "커머스·생활"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2025-06-26",
+   "kr_domains": null
+  },
+  {
+   "name": "justcoding-ys/mcp-opendart",
+   "repo_url": "https://github.com/justcoding-ys/mcp-opendart",
+   "verdict": "keep",
+   "why": "한국(한글 설명) + 데이터(공시)",
+   "categories": [
+    "금융·증시"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2025-06-25",
+   "kr_domains": [
+    "opendart.fss.or.kr"
+   ]
+  },
+  {
+   "name": "jwgo/lemory",
+   "repo_url": "https://github.com/jwgo/lemory",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(search)",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 9,
+   "pushed": "2026-08-10",
+   "kr_domains": null
+  },
+  {
+   "name": "k08200/korea-mcp-suite",
+   "repo_url": "https://github.com/k08200/korea-mcp-suite",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(데이터)",
+   "categories": [
+    "교통·이동",
+    "날씨·환경",
+    "부동산"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-05-17",
+   "kr_domains": [
+    "data.go.kr",
+    "data.seoul.go.kr",
+    "juso.go.kr",
+    "www.data.go.kr",
+    "www.juso.go.kr"
+   ]
+  },
+  {
+   "name": "k821209/smartfarm-mcp",
+   "repo_url": "https://github.com/k821209/smartfarm-mcp",
+   "verdict": "keep",
+   "why": "한국(한글 설명) + 데이터(data)",
+   "categories": [
+    "공공데이터·행정"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-06-29",
+   "kr_domains": [
+    "data.go.kr"
+   ]
+  },
+  {
+   "name": "kang-aco/korean-law",
+   "repo_url": "https://github.com/kang-aco/korean-law",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(검색)",
+   "categories": [
+    "법령·판례"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-04-07",
+   "kr_domains": [
+    "open.law.go.kr"
+   ]
+  },
+  {
+   "name": "kendrick-na/segeum-matjip",
+   "repo_url": "https://github.com/kendrick-na/segeum-matjip",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "커머스·생활"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-07-07",
+   "kr_domains": [
+    "data.seoul.go.kr",
+    "www.foodsafetykorea.go.kr"
+   ]
+  },
+  {
+   "name": "keonho-kim/OpenDart-mcp",
+   "repo_url": "https://github.com/keonho-kim/OpenDart-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(disclosure)",
+   "categories": [
+    "금융·증시"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 3,
+   "pushed": "2025-06-22",
+   "kr_domains": [
+    "dart.fss.or.kr"
+   ]
+  },
+  {
+   "name": "kim-go-chon/dart-notes-mcp",
+   "repo_url": "https://github.com/kim-go-chon/dart-notes-mcp",
+   "verdict": "keep",
+   "why": "한국(dart) + 데이터(검색)",
+   "categories": [
+    "금융·증시"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-06-23",
+   "kr_domains": [
+    "opendart.fss.or.kr"
+   ]
+  },
+  {
+   "name": "kimduksoo/naver-land-mcp",
+   "repo_url": "https://github.com/kimduksoo/naver-land-mcp",
+   "verdict": "keep",
+   "why": "한국(naver) + 데이터(조회)",
+   "categories": [
+    "부동산",
+    "커머스·생활"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 1,
+   "pushed": "2026-03-09",
+   "kr_domains": null
+  },
+  {
+   "name": "kimju1416/naver-land-mcp",
+   "repo_url": "https://github.com/kimju1416/naver-land-mcp",
+   "verdict": "keep",
+   "why": "한국(naver) + 데이터(조회)",
+   "categories": [
+    "부동산",
+    "커머스·생활"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-07-12",
+   "kr_domains": null
+  },
+  {
+   "name": "kimju1416/realestate-mcp",
+   "repo_url": "https://github.com/kimju1416/realestate-mcp",
+   "verdict": "keep",
+   "why": "한국(공공데이터) + 데이터(데이터)",
+   "categories": [
+    "부동산"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-07-09",
+   "kr_domains": [
+    "code.go.kr",
+    "data.go.kr",
+    "www.code.go.kr",
+    "www.data.go.kr"
+   ]
+  },
+  {
+   "name": "kimlawtech/korean-certified-mail",
+   "repo_url": "https://github.com/kimlawtech/korean-certified-mail",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(법령)",
+   "categories": [
+    "법령·판례"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 9,
+   "pushed": "2026-04-29",
+   "kr_domains": null
+  },
+  {
+   "name": "kimlawtech/korean-contracts",
+   "repo_url": "https://github.com/kimlawtech/korean-contracts",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(판례)",
+   "categories": [
+    "법령·판례"
+   ],
+   "sources": [
+    "github",
+    "mcpmoa"
+   ],
+   "stars": 61,
+   "pushed": "2026-04-22",
+   "kr_domains": null
+  },
+  {
+   "name": "kkhwan1/KONEPS_sionlab",
+   "repo_url": "https://github.com/kkhwan1/KONEPS_sionlab",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "세금·재정"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-04-24",
+   "kr_domains": [
+    "data.go.kr",
+    "www.data.go.kr"
+   ]
+  },
+  {
+   "name": "kknas1/consumer-dispute-mcp",
+   "repo_url": "https://github.com/kknas1/consumer-dispute-mcp",
+   "verdict": "keep",
+   "why": "한국(법제처) + 데이터(데이터)",
+   "categories": [
+    "법령·판례"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 1,
+   "pushed": "2026-04-06",
+   "kr_domains": [
+    "law.go.kr",
+    "open.law.go.kr",
+    "www.law.go.kr"
+   ]
+  },
+  {
+   "name": "kmgvv23/stock-data-mcp",
+   "repo_url": "https://github.com/kmgvv23/stock-data-mcp",
+   "verdict": "keep",
+   "why": "한국(한국) + 데이터(data)",
+   "categories": [
+    "금융·증시"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-04-14",
+   "kr_domains": [
+    "ecos.bok.or.kr",
+    "opendart.fss.or.kr"
+   ]
+  },
+  {
+   "name": "kmjm231/korea-scholar-mcp",
+   "repo_url": "https://github.com/kmjm231/korea-scholar-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-01-18",
+   "kr_domains": null
+  },
+  {
+   "name": "kokogo100/ragalgo-mcp-server",
+   "repo_url": "https://github.com/kokogo100/ragalgo-mcp-server",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(data)",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 5,
+   "pushed": "2026-01-31",
+   "kr_domains": null
+  },
+  {
+   "name": "koreainvestment/koreainvestment-mcp",
+   "repo_url": "https://github.com/koreainvestment/koreainvestment-mcp",
+   "verdict": "review",
+   "why": "설명이 비어 자동 판정 불가 — 사람이 열어봐야 한다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 17,
+   "pushed": "2025-08-27",
+   "kr_domains": null
+  },
+  {
+   "name": "koreainvestment/open-trading-api",
+   "repo_url": "https://github.com/koreainvestment/open-trading-api",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 1570,
+   "pushed": "2026-07-28",
+   "kr_domains": null
+  },
+  {
+   "name": "koy4648/McpServer",
+   "repo_url": "https://github.com/koy4648/McpServer",
+   "verdict": "keep",
+   "why": "한국(공공데이터) + 데이터(데이터)",
+   "categories": [
+    "공공데이터·행정"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2025-08-08",
+   "kr_domains": null
+  },
+  {
+   "name": "kunho-park/mcpack-translator",
+   "repo_url": "https://github.com/kunho-park/mcpack-translator",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "한국어·언어"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 12,
+   "pushed": "2026-01-15",
+   "kr_domains": null
+  },
+  {
+   "name": "kwakseongjae/dawn-cut",
+   "repo_url": "https://github.com/kwakseongjae/dawn-cut",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 2,
+   "pushed": "2026-07-20",
+   "kr_domains": null
+  },
+  {
+   "name": "kyo504/krx-cli",
+   "repo_url": "https://github.com/kyo504/krx-cli",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(data)",
+   "categories": [
+    "금융·증시"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 1,
+   "pushed": "2026-03-20",
+   "kr_domains": null
+  },
+  {
+   "name": "la1av1a/hospital-fee-mcp",
+   "repo_url": "https://github.com/la1av1a/hospital-fee-mcp",
+   "verdict": "keep",
+   "why": "한국(한글 설명) + 데이터(query)",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 3,
+   "pushed": "2026-01-11",
+   "kr_domains": [
+    "www.hira.or.kr"
+   ]
+  },
+  {
+   "name": "lapiogga/caseLaw",
+   "repo_url": "https://github.com/lapiogga/caseLaw",
+   "verdict": "keep",
+   "why": "한국(한국) + 데이터(법령)",
+   "categories": [
+    "법령·판례"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 1,
+   "pushed": "2026-06-20",
+   "kr_domains": [
+    "open.law.go.kr"
+   ]
+  },
+  {
+   "name": "leadbrain/korean-data-mcp",
+   "repo_url": "https://github.com/leadbrain/korean-data-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(data)",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 1,
+   "pushed": "2026-03-10",
+   "kr_domains": null
+  },
+  {
+   "name": "leejaew/visitkorea-medicaltourism-mcp",
+   "repo_url": "https://github.com/leejaew/visitkorea-medicaltourism-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(data)",
+   "categories": [
+    "공공데이터·행정"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 1,
+   "pushed": "2026-04-12",
+   "kr_domains": [
+    "data.go.kr",
+    "www.data.go.kr"
+   ]
+  },
+  {
+   "name": "legalize-kr/agent-skills",
+   "repo_url": "https://github.com/legalize-kr/agent-skills",
+   "verdict": "keep",
+   "why": "한국(한국) + 데이터(조회)",
+   "categories": [
+    "법령·판례"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 11,
+   "pushed": "2026-07-01",
+   "kr_domains": null
+  },
+  {
+   "name": "legalize-kr/cli-tools",
+   "repo_url": "https://github.com/legalize-kr/cli-tools",
+   "verdict": "keep",
+   "why": "한국(한국) + 데이터(조회)",
+   "categories": [
+    "법령·판례"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 10,
+   "pushed": "2026-07-01",
+   "kr_domains": null
+  },
+  {
+   "name": "leokim90/gov-data-mcp",
+   "repo_url": "https://github.com/leokim90/gov-data-mcp",
+   "verdict": "keep",
+   "why": "한국(한국) + 데이터(data)",
+   "categories": [
+    "공공데이터·행정",
+    "세금·재정"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 2,
+   "pushed": "2026-07-28",
+   "kr_domains": [
+    "apis.data.go.kr",
+    "bizinfo.go.kr",
+    "data.go.kr",
+    "smes.go.kr",
+    "www.data.go.kr"
+   ]
+  },
+  {
+   "name": "lesstif/Rovo-forge-law-mcp-app",
+   "repo_url": "https://github.com/lesstif/Rovo-forge-law-mcp-app",
+   "verdict": "keep",
+   "why": "한국(법제처) + 데이터(검색)",
+   "categories": [
+    "법령·판례"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-07-29",
+   "kr_domains": [
+    "law.go.kr",
+    "open.law.go.kr"
+   ]
+  },
+  {
+   "name": "lhy1244-art/korean-ordinance-mcp",
+   "repo_url": "https://github.com/lhy1244-art/korean-ordinance-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "법령·판례"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-06-16",
+   "kr_domains": [
+    "open.law.go.kr"
+   ]
+  },
+  {
+   "name": "lovelyquality/korail-mcp",
+   "repo_url": "https://github.com/lovelyquality/korail-mcp",
+   "verdict": "keep",
+   "why": "한국(공공데이터) + 데이터(데이터)",
+   "categories": [
+    "공공데이터·행정"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 2,
+   "pushed": "2026-08-17",
+   "kr_domains": [
+    "data.go.kr",
+    "openapi.kric.go.kr",
+    "www.data.go.kr"
+   ]
+  },
+  {
+   "name": "lucidwatper/Kosis-mcp",
+   "repo_url": "https://github.com/lucidwatper/Kosis-mcp",
+   "verdict": "keep",
+   "why": "한국(kosis) + 데이터(통계)",
+   "categories": [
+    "공공데이터·행정"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-04-18",
+   "kr_domains": null
+  },
+  {
+   "name": "millet04/krx-stock-mcp",
+   "repo_url": "https://github.com/millet04/krx-stock-mcp",
+   "verdict": "keep",
+   "why": "한국(한국) + 데이터(조회)",
+   "categories": [
+    "금융·증시"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-03-07",
+   "kr_domains": null
+  },
+  {
+   "name": "mindm1ner/bangbang-mcp",
+   "repo_url": "https://github.com/mindm1ner/bangbang-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "커머스·생활"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-07-06",
+   "kr_domains": null
+  },
+  {
+   "name": "mindm1ner/gyogwon-mcp",
+   "repo_url": "https://github.com/mindm1ner/gyogwon-mcp",
+   "verdict": "keep",
+   "why": "한국(법제처) + 데이터(법령)",
+   "categories": [
+    "법령·판례",
+    "커머스·생활"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-07-08",
+   "kr_domains": null
+  },
+  {
+   "name": "mirulili/Friendantial",
+   "repo_url": "https://github.com/mirulili/Friendantial",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "금융·증시"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-02-13",
+   "kr_domains": null
+  },
+  {
+   "name": "mkkim2102/finance-mcp-server-ko",
+   "repo_url": "https://github.com/mkkim2102/finance-mcp-server-ko",
+   "verdict": "keep",
+   "why": "한국(한국) + 데이터(데이터)",
+   "categories": [
+    "한국어·언어"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-08-14",
+   "kr_domains": null
+  },
+  {
+   "name": "moby-11c/opendart_mcp",
+   "repo_url": "https://github.com/moby-11c/opendart_mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(disclosure)",
+   "categories": [
+    "금융·증시"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-02-07",
+   "kr_domains": [
+    "opendart.fss.or.kr"
+   ]
+  },
+  {
+   "name": "modu-ai/moai-cowork",
+   "repo_url": "https://github.com/modu-ai/moai-cowork",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 294,
+   "pushed": "2026-08-12",
+   "kr_domains": null
+  },
+  {
+   "name": "mogoon/evcharger-mcp-kc",
+   "repo_url": "https://github.com/mogoon/evcharger-mcp-kc",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-07-29",
+   "kr_domains": null
+  },
+  {
+   "name": "molpass/mcp-newsfeed",
+   "repo_url": "https://github.com/molpass/mcp-newsfeed",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-06-20",
+   "kr_domains": null
+  },
+  {
+   "name": "molpass/mcp-weather",
+   "repo_url": "https://github.com/molpass/mcp-weather",
+   "verdict": "keep",
+   "why": "한국(한국) + 데이터(weather)",
+   "categories": [
+    "날씨·환경"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-06-30",
+   "kr_domains": [
+    "data.go.kr"
+   ]
+  },
+  {
+   "name": "mongle250129/korea-life-mcp",
+   "repo_url": "https://github.com/mongle250129/korea-life-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "커머스·생활"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 1,
+   "pushed": "2026-07-15",
+   "kr_domains": null
+  },
+  {
+   "name": "nagyeop/kosis_mcp",
+   "repo_url": "https://github.com/nagyeop/kosis_mcp",
+   "verdict": "keep",
+   "why": "한국(한국) + 데이터(데이터)",
+   "categories": [
+    "공공데이터·행정"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-08-18",
+   "kr_domains": null
+  },
+  {
+   "name": "nds12345-ko/sgis-mcp",
+   "repo_url": "https://github.com/nds12345-ko/sgis-mcp",
+   "verdict": "keep",
+   "why": "한국(한국) + 데이터(통계)",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-06-08",
+   "kr_domains": null
+  },
+  {
+   "name": "nerin81-netizen/arxiv-daily-mcp",
+   "repo_url": "https://github.com/nerin81-netizen/arxiv-daily-mcp",
+   "verdict": "keep",
+   "why": "한국(카카오) + 데이터(검색)",
+   "categories": [
+    "커머스·생활"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 1,
+   "pushed": "2026-07-06",
+   "kr_domains": null
+  },
+  {
+   "name": "ngwoon/korea-realestate-mcp",
+   "repo_url": "https://github.com/ngwoon/korea-realestate-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(조회)",
+   "categories": [
+    "부동산",
+    "커머스·생활"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-02-08",
+   "kr_domains": null
+  },
+  {
+   "name": "nine-hundred/naramarket-mcp",
+   "repo_url": "https://github.com/nine-hundred/naramarket-mcp",
+   "verdict": "keep",
+   "why": "한국(한글 설명) + 데이터(데이터)",
+   "categories": [
+    "세금·재정"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 5,
+   "pushed": "2025-05-11",
+   "kr_domains": null
+  },
+  {
+   "name": "nodeul99-dev/dart_basic_mcp",
+   "repo_url": "https://github.com/nodeul99-dev/dart_basic_mcp",
+   "verdict": "keep",
+   "why": "한국(dart) + 데이터(조회)",
+   "categories": [
+    "금융·증시"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-08-12",
+   "kr_domains": [
+    "opendart.fss.or.kr"
+   ]
+  },
+  {
+   "name": "nokelan/KoreanLawMCP",
+   "repo_url": "https://github.com/nokelan/KoreanLawMCP",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(법령)",
+   "categories": [
+    "법령·판례"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-08-08",
+   "kr_domains": null
+  },
+  {
+   "name": "nokelan/health-fee-mcp",
+   "repo_url": "https://github.com/nokelan/health-fee-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(검색)",
+   "categories": [
+    "의료·복지"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-07-07",
+   "kr_domains": null
+  },
+  {
+   "name": "ntriq/lawink-mcp",
+   "repo_url": "https://github.com/ntriq/lawink-mcp",
+   "verdict": "keep",
+   "why": "한국(한국) + 데이터(법령)",
+   "categories": [
+    "법령·판례"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 1,
+   "pushed": "2026-06-06",
+   "kr_domains": [
+    "law.go.kr"
+   ]
+  },
+  {
+   "name": "nuri428/mcp_kipris",
+   "repo_url": "https://github.com/nuri428/mcp_kipris",
+   "verdict": "keep",
+   "why": "한국(.or.kr) + 데이터(search)",
+   "categories": [
+    "공공데이터·행정"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 17,
+   "pushed": "2026-08-07",
+   "kr_domains": [
+    "plus.kipris.or.kr"
+   ]
+  },
+  {
+   "name": "nymphadrian/claude-autocad-drafting",
+   "repo_url": "https://github.com/nymphadrian/claude-autocad-drafting",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-08-18",
+   "kr_domains": null
+  },
+  {
+   "name": "obundh/korea-public-data-catalog-mcp",
+   "repo_url": "https://github.com/obundh/korea-public-data-catalog-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(data)",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 15,
+   "pushed": "2026-08-05",
+   "kr_domains": [
+    "data.go.kr",
+    "www.data.go.kr"
+   ]
+  },
+  {
+   "name": "ohhan777/korea_weather",
+   "repo_url": "https://github.com/ohhan777/korea_weather",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(weather)",
+   "categories": [],
+   "sources": [
+    "github",
+    "mcpmoa"
+   ],
+   "stars": 12,
+   "pushed": "2026-02-22",
+   "kr_domains": [
+    "data.go.kr",
+    "kari.re.kr",
+    "www.data.go.kr"
+   ]
+  },
+  {
+   "name": "okdoittttt/ko-stock-mcp",
+   "repo_url": "https://github.com/okdoittttt/ko-stock-mcp",
+   "verdict": "keep",
+   "why": "한국(한국) + 데이터(데이터)",
+   "categories": [
+    "금융·증시"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-07-04",
+   "kr_domains": [
+    "opendart.fss.or.kr"
+   ]
+  },
+  {
+   "name": "oksure/bible-ko-mcp",
+   "repo_url": "https://github.com/oksure/bible-ko-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 2,
+   "pushed": "2026-06-22",
+   "kr_domains": [
+    "bskorea.or.kr"
+   ]
+  },
+  {
+   "name": "open-play-ground/datago-mcp",
+   "repo_url": "https://github.com/open-play-ground/datago-mcp",
+   "verdict": "keep",
+   "why": "한국(공공데이터) + 데이터(data)",
+   "categories": [
+    "공공데이터·행정"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-03-18",
+   "kr_domains": [
+    "apis.data.go.kr",
+    "data.go.kr",
+    "www.data.go.kr"
+   ]
+  },
+  {
+   "name": "opendata-kr/core",
+   "repo_url": "https://github.com/opendata-kr/core",
+   "verdict": "keep",
+   "why": "한국(한글 설명) + 데이터(data)",
+   "categories": [
+    "공공데이터·행정"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-07-26",
+   "kr_domains": [
+    "apis.data.go.kr",
+    "data.go.kr"
+   ]
+  },
+  {
+   "name": "opendata-kr/narajangteo-bid-mcp",
+   "repo_url": "https://github.com/opendata-kr/narajangteo-bid-mcp",
+   "verdict": "keep",
+   "why": "한국(공공데이터) + 데이터(data)",
+   "categories": [
+    "공공데이터·행정",
+    "세금·재정"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-08-02",
+   "kr_domains": [
+    "apis.data.go.kr",
+    "data.go.kr",
+    "www.data.go.kr"
+   ]
+  },
+  {
+   "name": "opendata-kr/narajangteo-corpinfo-mcp",
+   "repo_url": "https://github.com/opendata-kr/narajangteo-corpinfo-mcp",
+   "verdict": "keep",
+   "why": "한국(공공데이터) + 데이터(data)",
+   "categories": [
+    "공공데이터·행정",
+    "세금·재정"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-08-02",
+   "kr_domains": [
+    "apis.data.go.kr",
+    "data.go.kr",
+    "www.data.go.kr"
+   ]
+  },
+  {
+   "name": "opendata-kr/narajangteo-opening-mcp",
+   "repo_url": "https://github.com/opendata-kr/narajangteo-opening-mcp",
+   "verdict": "keep",
+   "why": "한국(한글 설명) + 데이터(data)",
+   "categories": [
+    "세금·재정"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-08-02",
+   "kr_domains": [
+    "apis.data.go.kr",
+    "data.go.kr",
+    "www.data.go.kr"
+   ]
+  },
+  {
+   "name": "opendata-kr/narajangteo-prespec-mcp",
+   "repo_url": "https://github.com/opendata-kr/narajangteo-prespec-mcp",
+   "verdict": "keep",
+   "why": "한국(한글 설명) + 데이터(data)",
+   "categories": [
+    "세금·재정"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-08-02",
+   "kr_domains": [
+    "apis.data.go.kr",
+    "data.go.kr",
+    "www.data.go.kr"
+   ]
+  },
+  {
+   "name": "openpharma-org/asia-filings-mcp-server",
+   "repo_url": "https://github.com/openpharma-org/asia-filings-mcp-server",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(filing)",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 3,
+   "pushed": "2025-12-18",
+   "kr_domains": [
+    "opendart.fss.or.kr"
+   ]
+  },
+  {
+   "name": "pblsketch/korean-teacher-mcp",
+   "repo_url": "https://github.com/pblsketch/korean-teacher-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-05-17",
+   "kr_domains": null
+  },
+  {
+   "name": "pchuri/korean-capital-gains-tax-mcp",
+   "repo_url": "https://github.com/pchuri/korean-capital-gains-tax-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 2,
+   "pushed": "2026-03-24",
+   "kr_domains": null
+  },
+  {
+   "name": "peppermint1231/stock-screener-mcp",
+   "repo_url": "https://github.com/peppermint1231/stock-screener-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "금융·증시"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-03-24",
+   "kr_domains": null
+  },
+  {
+   "name": "pianovirus/kfda-mcp",
+   "repo_url": "https://github.com/pianovirus/kfda-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "의료·복지"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-06-30",
+   "kr_domains": [
+    "data.go.kr",
+    "www.data.go.kr",
+    "www.mfds.go.kr"
+   ]
+  },
+  {
+   "name": "pinnaclesoft-ko/be-node-seoul-data-mcp",
+   "repo_url": "https://github.com/pinnaclesoft-ko/be-node-seoul-data-mcp",
+   "verdict": "keep",
+   "why": "한국(한국) + 데이터(data)",
+   "categories": [
+    "공공데이터·행정"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 1,
+   "pushed": "2025-04-03",
+   "kr_domains": [
+    "openapi.seoul.go.kr"
+   ]
+  },
+  {
+   "name": "pjookim/mcp-visit-korea",
+   "repo_url": "https://github.com/pjookim/mcp-visit-korea",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 2,
+   "pushed": "2025-04-10",
+   "kr_domains": null
+  },
+  {
+   "name": "pollmap/luxon-sangkwon-mcp",
+   "repo_url": "https://github.com/pollmap/luxon-sangkwon-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-04-20",
+   "kr_domains": [
+    "data.go.kr",
+    "data.seoul.go.kr",
+    "www.data.go.kr"
+   ]
+  },
+  {
+   "name": "procpalee/OpenDART-MCP-Server",
+   "repo_url": "https://github.com/procpalee/OpenDART-MCP-Server",
+   "verdict": "keep",
+   "why": "한국(한국) + 데이터(공시)",
+   "categories": [
+    "금융·증시"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 3,
+   "pushed": "2026-03-29",
+   "kr_domains": [
+    "opendart.fss.or.kr"
+   ]
+  },
+  {
+   "name": "prscsl/llm-mcp-weekly",
+   "repo_url": "https://github.com/prscsl/llm-mcp-weekly",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "한국어·언어"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-05-28",
+   "kr_domains": null
+  },
+  {
+   "name": "psa0426/sw-settlement-mcp",
+   "repo_url": "https://github.com/psa0426/sw-settlement-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 2,
+   "pushed": "2026-04-03",
+   "kr_domains": null
+  },
+  {
+   "name": "qbong1010/kosis-qbong-mcp",
+   "repo_url": "https://github.com/qbong1010/kosis-qbong-mcp",
+   "verdict": "review",
+   "why": "설명이 비어 자동 판정 불가 — 사람이 열어봐야 한다",
+   "categories": [
+    "공공데이터·행정"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-06-08",
+   "kr_domains": null
+  },
+  {
+   "name": "quanttraderkim/korean-name-generator-mcp",
+   "repo_url": "https://github.com/quanttraderkim/korean-name-generator-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2025-09-24",
+   "kr_domains": null
+  },
+  {
+   "name": "raphysicst-create/korean-secondary-learning-map-mcp",
+   "repo_url": "https://github.com/raphysicst-create/korean-secondary-learning-map-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 10,
+   "pushed": "2026-08-07",
+   "kr_domains": null
+  },
+  {
+   "name": "raphysicst-create/korean-vocational-learning-map-mcp",
+   "repo_url": "https://github.com/raphysicst-create/korean-vocational-learning-map-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 1,
+   "pushed": "2026-08-11",
+   "kr_domains": null
+  },
+  {
+   "name": "ratelworks/agent-quality-oss",
+   "repo_url": "https://github.com/ratelworks/agent-quality-oss",
+   "verdict": "keep",
+   "why": "한국(한국) + 데이터(법령)",
+   "categories": [
+    "법령·판례"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 5,
+   "pushed": "2026-08-03",
+   "kr_domains": null
+  },
+  {
+   "name": "reallygood83/sbinfo",
+   "repo_url": "https://github.com/reallygood83/sbinfo",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "교육·문화"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-07-17",
+   "kr_domains": [
+    "www.schoolinfo.go.kr"
+   ]
+  },
+  {
+   "name": "redoxnet/mcp-lsopenapi",
+   "repo_url": "https://github.com/redoxnet/mcp-lsopenapi",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(data)",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 2,
+   "pushed": "2026-06-09",
+   "kr_domains": null
+  },
+  {
+   "name": "rhfl04-dfdf/jychoi_everything-claude-code-ko",
+   "repo_url": "https://github.com/rhfl04-dfdf/jychoi_everything-claude-code-ko",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "한국어·언어"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 1,
+   "pushed": "2026-03-17",
+   "kr_domains": null
+  },
+  {
+   "name": "sallim-app/contract-compass",
+   "repo_url": "https://github.com/sallim-app/contract-compass",
+   "verdict": "keep",
+   "why": "한국(한글 설명) + 데이터(법령)",
+   "categories": [
+    "법령·판례"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-08-17",
+   "kr_domains": [
+    "law.go.kr"
+   ]
+  },
+  {
+   "name": "scvcoder/korean-law-alio-mcp",
+   "repo_url": "https://github.com/scvcoder/korean-law-alio-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(검색)",
+   "categories": [
+    "법령·판례"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 15,
+   "pushed": "2026-06-06",
+   "kr_domains": [
+    "alio.go.kr",
+    "open.law.go.kr"
+   ]
+  },
+  {
+   "name": "scvcoder/korean-privacy-law-mcp",
+   "repo_url": "https://github.com/scvcoder/korean-privacy-law-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 4,
+   "pushed": "2026-05-10",
+   "kr_domains": [
+    "open.law.go.kr",
+    "privacy.go.kr",
+    "www.privacy.go.kr"
+   ]
+  },
+  {
+   "name": "seo-jinseok/korean-law-mcp",
+   "repo_url": "https://github.com/seo-jinseok/korean-law-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(검색)",
+   "categories": [
+    "법령·판례"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 4,
+   "pushed": "2025-12-26",
+   "kr_domains": [
+    "law.go.kr",
+    "www.law.go.kr"
+   ]
+  },
+  {
+   "name": "seolcoding/korean-stat-mcp",
+   "repo_url": "https://github.com/seolcoding/korean-stat-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(data)",
+   "categories": [
+    "공공데이터·행정"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 1,
+   "pushed": "2026-05-01",
+   "kr_domains": null
+  },
+  {
+   "name": "serithemage/botmadang-mcp",
+   "repo_url": "https://github.com/serithemage/botmadang-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "한국어·언어"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 3,
+   "pushed": "2026-02-03",
+   "kr_domains": null
+  },
+  {
+   "name": "shwi-project/stocklens-mcp",
+   "repo_url": "https://github.com/shwi-project/stocklens-mcp",
+   "verdict": "keep",
+   "why": "한국(네이버) + 데이터(조회)",
+   "categories": [
+    "커머스·생활"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 1,
+   "pushed": "2026-04-20",
+   "kr_domains": null
+  },
+  {
+   "name": "simonsez9510/kosis-mcp",
+   "repo_url": "https://github.com/simonsez9510/kosis-mcp",
+   "verdict": "keep",
+   "why": "한국(kosis) + 데이터(검색)",
+   "categories": [
+    "공공데이터·행정"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-04-10",
+   "kr_domains": null
+  },
+  {
+   "name": "sjh9714/electronics-price-mcp",
+   "repo_url": "https://github.com/sjh9714/electronics-price-mcp",
+   "verdict": "keep",
+   "why": "한국(한국) + 데이터(price)",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-08-08",
+   "kr_domains": null
+  },
+  {
+   "name": "slowdevv-shinnoah/naver-searchad-mcp",
+   "repo_url": "https://github.com/slowdevv-shinnoah/naver-searchad-mcp",
+   "verdict": "keep",
+   "why": "한국(naver) + 데이터(search)",
+   "categories": [
+    "커머스·생활"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-01-12",
+   "kr_domains": null
+  },
+  {
+   "name": "smilemin07/korean-rnd-regs-mcp",
+   "repo_url": "https://github.com/smilemin07/korean-rnd-regs-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(검색)",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 10,
+   "pushed": "2026-08-11",
+   "kr_domains": [
+    "law.go.kr",
+    "open.law.go.kr",
+    "www.kistep.re.kr",
+    "www.law.go.kr"
+   ]
+  },
+  {
+   "name": "snaiws/DART-mcp-server",
+   "repo_url": "https://github.com/snaiws/DART-mcp-server",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(data)",
+   "categories": [],
+   "sources": [
+    "mcpmoa"
+   ],
+   "stars": null,
+   "pushed": null,
+   "kr_domains": [
+    "opendart.fss.or.kr"
+   ]
+  },
+  {
+   "name": "sodam-ai/Langent-MCP_One-Click_Kit",
+   "repo_url": "https://github.com/sodam-ai/Langent-MCP_One-Click_Kit",
+   "verdict": "keep",
+   "why": "한국(한글 설명) + 데이터(검색)",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 4,
+   "pushed": "2026-06-16",
+   "kr_domains": null
+  },
+  {
+   "name": "sodam-ai/Neon-CLI_One-Click_Kit",
+   "repo_url": "https://github.com/sodam-ai/Neon-CLI_One-Click_Kit",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "한국어·언어"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 12,
+   "pushed": "2026-06-12",
+   "kr_domains": null
+  },
+  {
+   "name": "sodam-ai/NotebookLM-CLI_One-Click_Kit",
+   "repo_url": "https://github.com/sodam-ai/NotebookLM-CLI_One-Click_Kit",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 2,
+   "pushed": "2026-06-18",
+   "kr_domains": null
+  },
+  {
+   "name": "songhwangcross-svg/krx-mcp-server",
+   "repo_url": "https://github.com/songhwangcross-svg/krx-mcp-server",
+   "verdict": "review",
+   "why": "설명이 비어 자동 판정 불가 — 사람이 열어봐야 한다",
+   "categories": [
+    "금융·증시"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-07-11",
+   "kr_domains": null
+  },
+  {
+   "name": "sonmeggy/korean-engineering-mcp",
+   "repo_url": "https://github.com/sonmeggy/korean-engineering-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(검색)",
+   "categories": [
+    "법령·판례"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 2,
+   "pushed": "2026-08-15",
+   "kr_domains": [
+    "codil.or.kr",
+    "open.law.go.kr",
+    "www.kcsc.re.kr"
+   ]
+  },
+  {
+   "name": "sound0-07/stdict-korean-mcp-server",
+   "repo_url": "https://github.com/sound0-07/stdict-korean-mcp-server",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "한국어·언어"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2025-04-11",
+   "kr_domains": null
+  },
+  {
+   "name": "spoyodevelop/korean-weather-mcp",
+   "repo_url": "https://github.com/spoyodevelop/korean-weather-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(weather)",
+   "categories": [
+    "날씨·환경"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 1,
+   "pushed": "2025-04-13",
+   "kr_domains": [
+    "apihub.kma.go.kr"
+   ]
+  },
+  {
+   "name": "ssol-park/booking-checker-mcp",
+   "repo_url": "https://github.com/ssol-park/booking-checker-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "커머스·생활"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-06-13",
+   "kr_domains": null
+  },
+  {
+   "name": "ssuksak/cheongyak-rag-mcp",
+   "repo_url": "https://github.com/ssuksak/cheongyak-rag-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(data)",
+   "categories": [
+    "부동산"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-04-22",
+   "kr_domains": [
+    "data.go.kr"
+   ]
+  },
+  {
+   "name": "syleedlabs/deal-locator-mcp",
+   "repo_url": "https://github.com/syleedlabs/deal-locator-mcp",
+   "verdict": "keep",
+   "why": "한국(국토부) + 데이터(조회)",
+   "categories": [
+    "부동산"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 25,
+   "pushed": "2026-08-17",
+   "kr_domains": [
+    "data.go.kr",
+    "www.data.go.kr"
+   ]
+  },
+  {
+   "name": "tae0y/real-estate-mcp",
+   "repo_url": "https://github.com/tae0y/real-estate-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(price)",
+   "categories": [
+    "부동산"
+   ],
+   "sources": [
+    "github",
+    "mcpmoa"
+   ],
+   "stars": 368,
+   "pushed": "2026-07-18",
+   "kr_domains": [
+    "www.data.go.kr"
+   ]
+  },
+  {
+   "name": "taehyeonglim/korean-elementary-learning-map-mcp",
+   "repo_url": "https://github.com/taehyeonglim/korean-elementary-learning-map-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 11,
+   "pushed": "2026-07-28",
+   "kr_domains": null
+  },
+  {
+   "name": "techkwon/teacher-guard",
+   "repo_url": "https://github.com/techkwon/teacher-guard",
+   "verdict": "keep",
+   "why": "한국(한국) + 데이터(법령)",
+   "categories": [
+    "법령·판례"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 1,
+   "pushed": "2026-06-22",
+   "kr_domains": [
+    "law.go.kr"
+   ]
+  },
+  {
+   "name": "tenacl/koreandict-mcp-server",
+   "repo_url": "https://github.com/tenacl/koreandict-mcp-server",
+   "verdict": "review",
+   "why": "설명이 비어 자동 판정 불가 — 사람이 열어봐야 한다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 4,
+   "pushed": "2025-04-05",
+   "kr_domains": [
+    "stdict.korean.go.kr"
+   ]
+  },
+  {
+   "name": "tjwodud04/mcp-tour",
+   "repo_url": "https://github.com/tjwodud04/mcp-tour",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 2,
+   "pushed": "2026-08-05",
+   "kr_domains": [
+    "data.go.kr",
+    "www.data.go.kr"
+   ]
+  },
+  {
+   "name": "tlee0818/data-go-kr-realestate-mcp",
+   "repo_url": "https://github.com/tlee0818/data-go-kr-realestate-mcp",
+   "verdict": "keep",
+   "why": "한국(.go.kr) + 데이터(data)",
+   "categories": [
+    "공공데이터·행정"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-06-06",
+   "kr_domains": [
+    "www.data.go.kr"
+   ]
+  },
+  {
+   "name": "treesoop/hwp-mcp",
+   "repo_url": "https://github.com/treesoop/hwp-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github",
+    "mcpmoa"
+   ],
+   "stars": 73,
+   "pushed": "2026-07-08",
+   "kr_domains": null
+  },
+  {
+   "name": "u2em/coupang-delivery-bookkeeping",
+   "repo_url": "https://github.com/u2em/coupang-delivery-bookkeeping",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "커머스·생활"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-08-07",
+   "kr_domains": null
+  },
+  {
+   "name": "uju777/coupang-mcp",
+   "repo_url": "https://github.com/uju777/coupang-mcp",
+   "verdict": "keep",
+   "why": "한국(한글 설명) + 데이터(검색)",
+   "categories": [
+    "커머스·생활"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 17,
+   "pushed": "2026-04-13",
+   "kr_domains": null
+  },
+  {
+   "name": "updown256/kosis-mcp",
+   "repo_url": "https://github.com/updown256/kosis-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(statistics)",
+   "categories": [
+    "공공데이터·행정"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-07-24",
+   "kr_domains": null
+  },
+  {
+   "name": "uscaidev/galpi-korean-law-mcp",
+   "repo_url": "https://github.com/uscaidev/galpi-korean-law-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(법령)",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-07-21",
+   "kr_domains": null
+  },
+  {
+   "name": "vertical-mcp/dart-mcp",
+   "repo_url": "https://github.com/vertical-mcp/dart-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(disclosure)",
+   "categories": [
+    "금융·증시"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-04-22",
+   "kr_domains": [
+    "opendart.fss.or.kr"
+   ]
+  },
+  {
+   "name": "vipermo15-dotcom/cgd-naver-detailpage-mcp",
+   "repo_url": "https://github.com/vipermo15-dotcom/cgd-naver-detailpage-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "커머스·생활"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-08-10",
+   "kr_domains": null
+  },
+  {
+   "name": "websfactory/dongtori-mcp",
+   "repo_url": "https://github.com/websfactory/dongtori-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "커머스·생활"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-07-07",
+   "kr_domains": null
+  },
+  {
+   "name": "whdrnr2583-cmd/koreanpulse",
+   "repo_url": "https://github.com/whdrnr2583-cmd/koreanpulse",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(filing)",
+   "categories": [
+    "금융·증시"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 3,
+   "pushed": "2026-07-19",
+   "kr_domains": null
+  },
+  {
+   "name": "whtjdgns2121-dot/seoul-accessible-transit-mcp",
+   "repo_url": "https://github.com/whtjdgns2121-dot/seoul-accessible-transit-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "교통·이동",
+    "커머스·생활"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-07-20",
+   "kr_domains": [
+    "data.go.kr"
+   ]
+  },
+  {
+   "name": "wintenboy/law-ontology-mcp",
+   "repo_url": "https://github.com/wintenboy/law-ontology-mcp",
+   "verdict": "keep",
+   "why": "한국(법제처) + 데이터(검색)",
+   "categories": [
+    "법령·판례"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 2,
+   "pushed": "2026-02-27",
+   "kr_domains": [
+    "lod.law.go.kr"
+   ]
+  },
+  {
+   "name": "winterjung/mcp-korean-spell",
+   "repo_url": "https://github.com/winterjung/mcp-korean-spell",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github",
+    "mcpmoa"
+   ],
+   "stars": 24,
+   "pushed": "2025-04-15",
+   "kr_domains": null
+  },
+  {
+   "name": "wjdengus98/MCP_Langgraph_Agent",
+   "repo_url": "https://github.com/wjdengus98/MCP_Langgraph_Agent",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "날씨·환경"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 1,
+   "pushed": "2026-08-16",
+   "kr_domains": null
+  },
+  {
+   "name": "wkdwlgus/k-fingraph",
+   "repo_url": "https://github.com/wkdwlgus/k-fingraph",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-05-03",
+   "kr_domains": null
+  },
+  {
+   "name": "wlsdnen/claude-code-guide-kr",
+   "repo_url": "https://github.com/wlsdnen/claude-code-guide-kr",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "한국어·언어"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 2,
+   "pushed": "2026-02-13",
+   "kr_domains": null
+  },
+  {
+   "name": "wnduq8/kr-mkt-mcp",
+   "repo_url": "https://github.com/wnduq8/kr-mkt-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-05-05",
+   "kr_domains": null
+  },
+  {
+   "name": "woongaro/korean-law-mcp",
+   "repo_url": "https://github.com/woongaro/korean-law-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(검색)",
+   "categories": [
+    "법령·판례"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 1,
+   "pushed": "2026-03-12",
+   "kr_domains": [
+    "open.law.go.kr",
+    "www.law.go.kr"
+   ]
+  },
+  {
+   "name": "worker-ants/korea-weather-mcp",
+   "repo_url": "https://github.com/worker-ants/korea-weather-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(weather)",
+   "categories": [
+    "공공데이터·행정",
+    "날씨·환경"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-05-13",
+   "kr_domains": [
+    "apihub.kma.go.kr"
+   ]
+  },
+  {
+   "name": "wowzoo/korea-weather-mcp",
+   "repo_url": "https://github.com/wowzoo/korea-weather-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(forecast)",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 1,
+   "pushed": "2025-09-01",
+   "kr_domains": [
+    "www.data.go.kr"
+   ]
+  },
+  {
+   "name": "xoqhdgh1002/smb-mcp",
+   "repo_url": "https://github.com/xoqhdgh1002/smb-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "커머스·생활"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-05-02",
+   "kr_domains": null
+  },
+  {
+   "name": "yesetr8/korea-law-mcp-public",
+   "repo_url": "https://github.com/yesetr8/korea-law-mcp-public",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(검색)",
+   "categories": [
+    "법령·판례"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-04-07",
+   "kr_domains": [
+    "open.law.go.kr"
+   ]
+  },
+  {
+   "name": "yjhann33-design/korea-stock-insight-mcp",
+   "repo_url": "https://github.com/yjhann33-design/korea-stock-insight-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(disclosure)",
+   "categories": [
+    "금융·증시"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-05-20",
+   "kr_domains": [
+    "opendart.fss.or.kr"
+   ]
+  },
+  {
+   "name": "yonghwan1106/godsaeng-mate-mcp-server",
+   "repo_url": "https://github.com/yonghwan1106/godsaeng-mate-mcp-server",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "커머스·생활"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-01-14",
+   "kr_domains": null
+  },
+  {
+   "name": "yonghwan1106/korea-culture-mcp",
+   "repo_url": "https://github.com/yonghwan1106/korea-culture-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-01-12",
+   "kr_domains": null
+  },
+  {
+   "name": "yonghwan1106/korea-health-mcp",
+   "repo_url": "https://github.com/yonghwan1106/korea-health-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(조회)",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-01-13",
+   "kr_domains": [
+    "data.go.kr"
+   ]
+  },
+  {
+   "name": "yonghwan1106/mcportal",
+   "repo_url": "https://github.com/yonghwan1106/mcportal",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(data)",
+   "categories": [
+    "공공데이터·행정"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-08-14",
+   "kr_domains": [
+    "data.go.kr",
+    "nia.or.kr"
+   ]
+  },
+  {
+   "name": "yonghwan86/narajangteo-searcher",
+   "repo_url": "https://github.com/yonghwan86/narajangteo-searcher",
+   "verdict": "keep",
+   "why": "한국(한글 설명) + 데이터(search)",
+   "categories": [
+    "세금·재정"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-06-22",
+   "kr_domains": [
+    "www.data.go.kr"
+   ]
+  },
+  {
+   "name": "yoonstudio/invest-stock-app",
+   "repo_url": "https://github.com/yoonstudio/invest-stock-app",
+   "verdict": "keep",
+   "why": "한국(한국) + 데이터(조회)",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 1,
+   "pushed": "2026-02-28",
+   "kr_domains": null
+  },
+  {
+   "name": "youngs75/kor-legal-mcp",
+   "repo_url": "https://github.com/youngs75/kor-legal-mcp",
+   "verdict": "keep",
+   "why": "한국(한국) + 데이터(조회)",
+   "categories": [
+    "법령·판례"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-04-24",
+   "kr_domains": null
+  },
+  {
+   "name": "youngsooco/k-mail-mcp",
+   "repo_url": "https://github.com/youngsooco/k-mail-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 5,
+   "pushed": "2026-04-16",
+   "kr_domains": null
+  },
+  {
+   "name": "yousunjung84-edu/academyinfo-mcp",
+   "repo_url": "https://github.com/yousunjung84-edu/academyinfo-mcp",
+   "verdict": "keep",
+   "why": "한국(korea) + 데이터(data)",
+   "categories": [
+    "공공데이터·행정"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-08-16",
+   "kr_domains": [
+    "academyinfo.go.kr",
+    "data.go.kr"
+   ]
+  },
+  {
+   "name": "yt010108/kr-gov-job-mcp",
+   "repo_url": "https://github.com/yt010108/kr-gov-job-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-07-24",
+   "kr_domains": null
+  },
+  {
+   "name": "yuneunmi814-cmyk/legal-navigator-mcp",
+   "repo_url": "https://github.com/yuneunmi814-cmyk/legal-navigator-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "커머스·생활"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 1,
+   "pushed": "2026-08-17",
+   "kr_domains": [
+    "easylaw.go.kr",
+    "law.go.kr"
+   ]
+  },
+  {
+   "name": "yuneunmi814-cmyk/sinmungo-mcp",
+   "repo_url": "https://github.com/yuneunmi814-cmyk/sinmungo-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "커머스·생활"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-08-07",
+   "kr_domains": null
+  },
+  {
+   "name": "yunkee-lee/mcp-kakao-local",
+   "repo_url": "https://github.com/yunkee-lee/mcp-kakao-local",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "커머스·생활"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2025-05-11",
+   "kr_domains": null
+  },
+  {
+   "name": "yunkee-lee/mcp-naver-maps",
+   "repo_url": "https://github.com/yunkee-lee/mcp-naver-maps",
+   "verdict": "keep",
+   "why": "한국(naver) + 데이터(search)",
+   "categories": [
+    "커머스·생활"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 2,
+   "pushed": "2025-05-12",
+   "kr_domains": null
+  },
+  {
+   "name": "zeikar/kimcp",
+   "repo_url": "https://github.com/zeikar/kimcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [],
+   "sources": [
+    "github",
+    "mcpmoa"
+   ],
+   "stars": 10,
+   "pushed": "2025-05-15",
+   "kr_domains": null
+  },
+  {
+   "name": "zxc8661/safety-health-chemical-mcp",
+   "repo_url": "https://github.com/zxc8661/safety-health-chemical-mcp",
+   "verdict": "keep",
+   "why": "한국(한국) + 데이터(조회)",
+   "categories": [
+    "법령·판례"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-07-31",
+   "kr_domains": [
+    "data.go.kr",
+    "open.law.go.kr",
+    "www.data.go.kr"
+   ]
+  },
+  {
+   "name": "zzjiho/kr-medicine-mcp",
+   "repo_url": "https://github.com/zzjiho/kr-medicine-mcp",
+   "verdict": "review",
+   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
+   "categories": [
+    "의료·복지"
+   ],
+   "sources": [
+    "github"
+   ],
+   "stars": 0,
+   "pushed": "2026-07-26",
+   "kr_domains": [
+    "data.go.kr",
+    "www.data.go.kr"
+   ]
   }
  ]
 }

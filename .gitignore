@@ -1,0 +1,8 @@
+__pycache__/
+.ruff_cache/
+*.pyc
+*.bak.json
+*.prev.json
+candidates_raw.json
+candidates_filtered.json
+candidates_enriched.json

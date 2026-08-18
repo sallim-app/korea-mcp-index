@@ -69,9 +69,46 @@ def _fmt(r: dict) -> str:
             f"{'가능' if r.get('self_hostable') else '불가'} |")
 
 
+def dedupe_by_endpoint(items: list) -> tuple[list, int]:
+    """**같은 주소를 부르면 같은 서버다** — 표에 두 줄로 실으면 안 된다.
+
+    수집 시점 중복 제거로는 못 잡는다(2026-08-19 실측): 레지스트리 항목은 처음부터 주소를
+    갖지만 GitHub 항목은 **보강 단계에서야** README로 주소가 붙는다. 그래서 우리
+    contract-compass가 두 줄로 실렸다 — 하나는 저장소가 `sallim-app`, 다른 하나는
+    레지스트리 옛 버전이 들고 있던 **개인 계정 경로**였다. 표에 그 링크가 그대로 나갔다.
+
+    합칠 때 저장소 주소는 **더 나은 쪽**을 고른다: 레지스트리 옛 판이 들고 있는 이전 경로보다
+    실제로 살아 있는 소스 저장소가 맞다(GitHub 이전 리디렉트 때문에 옛 경로도 200을 준다 —
+    200은 그 주소가 최신이라는 증거가 아니다).
+    """
+    by_ep: dict[str, dict] = {}
+    out, merged = [], 0
+    for it in items:
+        ep = ((it.get("remote") or {}).get("url") or "").split("?")[0].rstrip("/").lower()
+        if not ep:
+            out.append(it)
+            continue
+        prev = by_ep.get(ep)
+        if prev is None:
+            by_ep[ep] = it
+            out.append(it)
+            continue
+        merged += 1
+        # 도구 수·품질은 같은 서버니 같다. 저장소 주소와 셀프호스팅 가능 여부만 나은 쪽으로.
+        if it.get("self_hostable") and not prev.get("self_hostable"):
+            prev["self_hostable"] = True
+        cand, cur = it.get("repo_url") or "", prev.get("repo_url") or ""
+        if cand and (not cur or ("sallim-app/" in cand and "sallim-app/" not in cur)):
+            prev["repo_url"] = cand
+        prev.setdefault("also_known_as", []).append(it["name"])
+    return out, merged
+
+
 def main() -> int:
     d = json.load(open("measured.json", encoding="utf-8"))
-    items = d["items"]
+    items, merged = dedupe_by_endpoint(d["items"])
+    if merged:
+        print(f"  같은 주소를 부르는 항목 {merged}건을 한 줄로 합쳤다")
     rem = [r for r in items if r.get("remote")]
     live = [r for r in rem if r["remote"].get("reachable")]
     dead = [r for r in rem if not r["remote"].get("reachable")]

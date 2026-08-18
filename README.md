@@ -3,11 +3,11 @@
 한국의 데이터를 AI에게 주는 MCP 서버를 **직접 붙여서 재고** 그 값을 공개한다.
 
 다른 목록은 "있다"를 말한다. 이 목록은 **"지금 되냐"**를 잰다.
-2026-08-18 UTC 측정 기준, 원격 주소를 확인한 한국 MCP **58건 중 25건(43%)이
+2026-08-18 UTC 측정 기준, 원격 주소를 확인한 한국 MCP **55건 중 25건(45%)이
 응답하지 않았다.** 등록은 가동의 증거가 아니다.
 
 **주소의 출처를 갈라 읽어라.** 관리자가 공식 레지스트리에 **직접 등록한** 주소 27건 중
-11건이 무응답이고, 나머지 31건은 우리가 README에서 뽑은 **추정** 주소다(무응답 14건).
+11건이 무응답이고, 나머지 28건은 우리가 README에서 뽑은 **추정** 주소다(무응답 14건).
 추정 주소의 무응답은 "그 서버가 죽었다"보다 약한 주장이다 — 우리가 주소를 잘못 짚었을 수 있다.
 
 ## 이 목록을 믿어도 되는 이유 (그리고 믿으면 안 되는 부분)
@@ -45,13 +45,10 @@
 | com.theprotoclinical/commerce | 13 | 147 | 197 | 불필요 | 불가 |
 | [MosslandOpenDevs/alpha](https://github.com/MosslandOpenDevs/alpha) | 12 | 29 | **243** | 불필요 | 가능 |
 | [com.aikstockdata/mcp](https://github.com/na77tech-creator/aikstockdata) | 12 | 25 | 68 | 불필요 | 불가 |
-| [app.sallim/contract-compass](https://github.com/kwenhwang/contract-compass) **(이 목록 운영자)** | 11 | 36 | **140** | 불필요 | 불가 |
-| [sallim-app/contract-compass](https://github.com/sallim-app/contract-compass) **(이 목록 운영자)** | 11 | 36 | 53 | 불필요 | 가능 |
+| [app.sallim/contract-compass](https://github.com/sallim-app/contract-compass) **(이 목록 운영자)** | 11 | 36 | **140** | 불필요 | 가능 |
 | [chrisryugj/korean-law-mcp](https://github.com/chrisryugj/korean-law-mcp) | 10 | 209 | 279 | 불필요 | 가능 |
 | [com.hankookilbo.mcp/hankookilbo-mcp](https://github.com/hkilbo/hankookilbo-mcp) | 10 | 202 | 386 | 불필요 | 불가 |
-| [kang-aco/korean-law](https://github.com/kang-aco/korean-law) | 10 | 202 | 217 | 불필요 | 불가 |
 | [haklaekim/public-data-lens](https://github.com/haklaekim/public-data-lens) | 9 | 23 | 28 | 불필요 | 가능 |
-| [hike-lab/public-data-lens](https://github.com/hike-lab/public-data-lens) | 9 | 23 | 33 | 불필요 | 불가 |
 | [yousunjung84-edu/academyinfo-mcp](https://github.com/yousunjung84-edu/academyinfo-mcp) | 8 | 137 | 236 | 불필요 | 가능 |
 | io.aidc-ai/design-engine | 7 | 274 | 569 | 불필요 | 불가 |
 | [obundh/korea-public-data-catalog-mcp](https://github.com/obundh/korea-public-data-catalog-mcp) | 7 | 218 | 550 | 불필요 | 가능 |
@@ -107,7 +104,7 @@
 
 ## 못 잰 것 — 175건
 
-후보 233건 중 **175건은 원격 주소를 확인하지 못해 '지금 되냐'를 재지 못했다.** 이것은 '작동하지 않는다'가 아니라 '우리가 확인하지 못했다'는 뜻이다.
+후보 230건 중 **175건은 원격 주소를 확인하지 못해 '지금 되냐'를 재지 못했다.** 이것은 '작동하지 않는다'가 아니라 '우리가 확인하지 못했다'는 뜻이다.
 
 그중 150건은 배포 패키지가 있어 **직접 띄울 수는 있고**(설치 가능 67건), 나머지 25건은 원격 주소도 패키지도 없다 — 저장소만 있고 레지스트리에 등록하지 않은 경우다. 등록하면 다음 회차에 자동으로 잡힌다.
 
@@ -125,4 +122,4 @@
 
 ---
 
-생성: `render_readme.py` · 측정: `measure.py` · 원자료: `measured.json` · 마지막 측정 2026-08-18 17:54 UTC
+생성: `render_readme.py` · 측정: `measure.py` · 원자료: `measured.json` · 마지막 측정 2026-08-18 20:36 UTC
