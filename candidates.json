@@ -1,5 +1,5 @@
 {
- "note": "판정 원자료(간추림). keep·review 전건은 판정 사유째로 싣고, drop은 사유별 건수만 싣는다 — drop 원본까지 실으면 매 회차 5MB가 이력에 쌓인다. 전체가 필요하면 collect_candidates.py를 직접 돌려라(같은 입력이면 같은 결과가 나온다).",
+ "note": "판정 원자료(간추림). keep·review는 판정 사유째로, drop은 사유별 건수만 싣는다. 전체가 필요하면 collect_candidates.py부터 직접 돌려라 — 같은 입력이면 같은 결과다.",
  "buckets": {
   "keep": 233,
   "drop": 10894,
@@ -81,7 +81,7 @@
   },
   {
    "name": "2geonhyup/dart-mcp",
-   "repo_url": "https://github.com/2geonhyup/dart-mcp",
+   "repo_url": "https://github.com/sallim-app/contract-compass",
    "verdict": "keep",
    "why": "한국(korea) + 데이터(데이터)",
    "categories": [],
@@ -572,7 +572,7 @@
   },
   {
    "name": "JeongSeongMok/tossinvest-openapi-mcp",
-   "repo_url": "https://github.com/JeongSeongMok/tossinvest-openapi-mcp",
+   "repo_url": "https://github.com/sallim-app/contract-compass",
    "verdict": "review",
    "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
    "categories": [],
@@ -1553,7 +1553,7 @@
   },
   {
    "name": "app.sallim/contract-compass",
-   "repo_url": "https://github.com/kwenhwang/contract-compass",
+   "repo_url": "https://github.com/sallim-app/contract-compass",
    "verdict": "keep",
    "why": "한국(korea) + 데이터(search)",
    "categories": [],
@@ -2910,7 +2910,7 @@
   },
   {
    "name": "hike-lab/public-data-lens",
-   "repo_url": "https://github.com/hike-lab/public-data-lens",
+   "repo_url": "https://github.com/haklaekim/public-data-lens",
    "verdict": "keep",
    "why": "한국(korea) + 데이터(data)",
    "categories": [],
@@ -3886,7 +3886,7 @@
   },
   {
    "name": "kang-aco/korean-law",
-   "repo_url": "https://github.com/kang-aco/korean-law",
+   "repo_url": "https://github.com/chrisryugj/korean-law-mcp",
    "verdict": "keep",
    "why": "한국(korea) + 데이터(검색)",
    "categories": [
@@ -4770,7 +4770,7 @@
   },
   {
    "name": "oksure/bible-ko-mcp",
-   "repo_url": "https://github.com/oksure/bible-ko-mcp",
+   "repo_url": "https://github.com/sallim-app/contract-compass",
    "verdict": "review",
    "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
    "categories": [],
@@ -4842,7 +4842,7 @@
   },
   {
    "name": "opendata-kr/narajangteo-corpinfo-mcp",
-   "repo_url": "https://github.com/opendata-kr/narajangteo-corpinfo-mcp",
+   "repo_url": "https://github.com/opendata-kr/narajangteo-bid-mcp",
    "verdict": "keep",
    "why": "한국(공공데이터) + 데이터(data)",
    "categories": [
@@ -4862,7 +4862,7 @@
   },
   {
    "name": "opendata-kr/narajangteo-opening-mcp",
-   "repo_url": "https://github.com/opendata-kr/narajangteo-opening-mcp",
+   "repo_url": "https://github.com/opendata-kr/narajangteo-bid-mcp",
    "verdict": "keep",
    "why": "한국(한글 설명) + 데이터(data)",
    "categories": [
@@ -4881,7 +4881,7 @@
   },
   {
    "name": "opendata-kr/narajangteo-prespec-mcp",
-   "repo_url": "https://github.com/opendata-kr/narajangteo-prespec-mcp",
+   "repo_url": "https://github.com/opendata-kr/narajangteo-bid-mcp",
    "verdict": "keep",
    "why": "한국(한글 설명) + 데이터(data)",
    "categories": [
@@ -5233,7 +5233,7 @@
   },
   {
    "name": "seo-jinseok/korean-law-mcp",
-   "repo_url": "https://github.com/seo-jinseok/korean-law-mcp",
+   "repo_url": "https://github.com/SeoNaRu/lexguard-mcp",
    "verdict": "keep",
    "why": "한국(korea) + 데이터(검색)",
    "categories": [
