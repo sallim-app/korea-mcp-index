@@ -1,18 +1,18 @@
 {
  "server": "com.hankookilbo.mcp/hankookilbo-mcp",
  "url": "https://mcp.hankookilbo.com/mcp",
- "at": "2026-08-18T23:20:27Z",
+ "at": "2026-08-18T23:33:49Z",
  "calls": [
   {
    "label": "①데이터",
    "tool": "list_timely_news",
    "arguments": {},
    "http": 200,
-   "ms": 461,
+   "ms": 735,
    "is_error": false,
    "error_code": null,
    "shape": {
-    "bytes": 3515,
+    "bytes": 3517,
     "json": false
    },
    "excerpt": "1. [\"당장 사진 삭제하라\"…세계 1위 TSMC의 '상상 초월' 철통 보안](https://www.hankookilbo.com/news/article/A202608[전화]84?did=mcp)\n2. [\"김민석 이겼지만…\" 정청래 뒤끝에 박지원 \"깨끗하게 승복해야\"](https://www.hankookilbo.com/news/article/A[주민번호]000028?did=mcp)\n3. [중학생 제자 20차례 '위력 성폭행' 40대 교사…검찰 수사가 죄명 바꿨다](https://www.hankookilbo.com/news/article/A[주민번호]002364?did=mcp)\n4. [정성호 법무부 장관 사직서 제출… \"검찰개혁 주요 입법 마무리\"](https://www.hankookilbo.com/news/article/A[주민번호]002282?did=mcp)\n   단독\n5. ['연봉 1.8억' TSMC 직원들, '삼전닉스 성과급' 듣고도 파업 안 하는 이유](https://www.ha",
@@ -25,7 +25,7 @@
     "section_cd": "존재하지않는항목ZZZ9999"
    },
    "http": 200,
-   "ms": 244,
+   "ms": 216,
    "is_error": true,
    "error_code": null,
    "shape": {

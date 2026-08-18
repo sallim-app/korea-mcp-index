@@ -1,14 +1,14 @@
 {
  "server": "hike-lab/public-data-lens",
  "url": "https://service.datahub.kr/projects/public-data-lens/mcp",
- "at": "2026-08-18T23:20:34Z",
+ "at": "2026-08-18T23:34:17Z",
  "calls": [
   {
    "label": "①데이터",
    "tool": "search_datasets",
    "arguments": {},
    "http": 200,
-   "ms": 31,
+   "ms": 40,
    "is_error": false,
    "error_code": null,
    "shape": {
@@ -33,7 +33,7 @@
     "recordId": "존재하지않는항목ZZZ9999"
    },
    "http": 200,
-   "ms": 33,
+   "ms": 49,
    "is_error": true,
    "error_code": "DATASET_NOT_FOUND",
    "shape": {

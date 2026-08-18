@@ -1,14 +1,14 @@
 {
  "server": "haklaekim/public-data-lens",
  "url": "https://service.datahub.kr/projects/public-data-lens/mcp",
- "at": "2026-08-18T23:20:31Z",
+ "at": "2026-08-18T23:34:13Z",
  "calls": [
   {
    "label": "①데이터",
    "tool": "search_datasets",
    "arguments": {},
    "http": 200,
-   "ms": 43,
+   "ms": 32,
    "is_error": false,
    "error_code": null,
    "shape": {
@@ -33,7 +33,7 @@
     "recordId": "존재하지않는항목ZZZ9999"
    },
    "http": 200,
-   "ms": 26,
+   "ms": 24,
    "is_error": true,
    "error_code": "DATASET_NOT_FOUND",
    "shape": {

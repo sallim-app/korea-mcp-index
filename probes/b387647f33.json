@@ -1,14 +1,14 @@
 {
  "server": "ai.timeplex/booking",
  "url": "https://chat.timeplex.ai/mcp",
- "at": "2026-08-18T23:19:55Z",
+ "at": "2026-08-18T23:33:07Z",
  "calls": [
   {
    "label": "①데이터",
    "tool": "search_shops",
    "arguments": {},
    "http": 200,
-   "ms": 740,
+   "ms": 951,
    "is_error": false,
    "error_code": null,
    "shape": {
@@ -37,7 +37,7 @@
     "slug": "존재하지않는항목ZZZ9999"
    },
    "http": 200,
-   "ms": 705,
+   "ms": 408,
    "is_error": true,
    "error_code": "store_not_found",
    "shape": {

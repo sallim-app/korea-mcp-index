@@ -1,14 +1,14 @@
 {
  "server": "com.aikstockdata/mcp",
  "url": "https://mcp.aikstockdata.com/mcp",
- "at": "2026-08-18T23:20:23Z",
+ "at": "2026-08-18T23:33:40Z",
  "calls": [
   {
    "label": "①데이터",
    "tool": "get_today",
    "arguments": {},
    "http": 200,
-   "ms": 340,
+   "ms": 179,
    "is_error": false,
    "error_code": null,
    "shape": {
@@ -25,7 +25,7 @@
     "query": "존재하지않는항목ZZZ9999"
    },
    "http": 200,
-   "ms": 350,
+   "ms": 74,
    "is_error": false,
    "error_code": null,
    "shape": {

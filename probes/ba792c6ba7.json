@@ -1,14 +1,14 @@
 {
  "server": "chrisryugj/korean-law-mcp",
  "url": "https://korean-law-mcp.fly.dev/mcp",
- "at": "2026-08-18T23:20:17Z",
+ "at": "2026-08-18T23:33:32Z",
  "calls": [
   {
    "label": "①데이터",
    "tool": "get_law_text",
    "arguments": {},
    "http": 200,
-   "ms": 182,
+   "ms": 262,
    "is_error": true,
    "error_code": null,
    "shape": {
@@ -19,13 +19,43 @@
    "excerpt_truncated": false
   },
   {
+   "label": "①데이터재시도1",
+   "tool": "ordinance_radar",
+   "arguments": {},
+   "http": 200,
+   "ms": 184,
+   "is_error": true,
+   "error_code": null,
+   "shape": {
+    "bytes": 123,
+    "json": false
+   },
+   "excerpt": "[INVALID_PARAMETER] : ordinSeq(또는 별칭 id)·ordinanceName·query 중 하나는 필수입니다\n도구: ordinance_radar\n제안:\n  1. 파라미터 형식과 필수 값을 확인하세요.",
+   "excerpt_truncated": false
+  },
+  {
+   "label": "①데이터재시도2",
+   "tool": "legal_research",
+   "arguments": {},
+   "http": 200,
+   "ms": 205,
+   "is_error": true,
+   "error_code": null,
+   "shape": {
+    "bytes": 34,
+    "json": false
+   },
+   "excerpt": "task=full_research에는 query가 필요합니다.",
+   "excerpt_truncated": false
+  },
+  {
    "label": "②환각",
    "tool": "search_law",
    "arguments": {
     "query": "존재하지않는항목ZZZ9999"
    },
    "http": 200,
-   "ms": 3218,
+   "ms": 1473,
    "is_error": true,
    "error_code": null,
    "shape": {
@@ -39,6 +69,11 @@
  "machine": {
   "has_data": false,
   "has_data_why": "도구가 에러를 반환했다(스키마에 없던 필수 인자 등)",
+  "schema_lies": [
+   "get_law_text",
+   "ordinance_radar"
+  ],
+  "schema_lies_why": "스키마는 필수 인자가 없다고 했는데 호출하니 인자를 요구했다",
   "fabricates": null,
   "fabricates_why": "정상 응답이 아니라 판정 불가(도구 에러)",
   "nonsense_reply_bytes": 151

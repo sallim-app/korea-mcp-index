@@ -1,14 +1,14 @@
 {
  "server": "app.apick/business",
  "url": "https://apick.app/mcp/business",
- "at": "2026-08-18T23:20:03Z",
+ "at": "2026-08-18T23:33:17Z",
  "calls": [
   {
    "label": "①데이터",
    "tool": "info",
    "arguments": {},
    "http": 200,
-   "ms": 38,
+   "ms": 39,
    "is_error": true,
    "error_code": null,
    "shape": {
@@ -25,7 +25,7 @@
     "biz_no": "존재하지않는항목ZZZ9999"
    },
    "http": 200,
-   "ms": 36,
+   "ms": 39,
    "is_error": true,
    "error_code": null,
    "shape": {

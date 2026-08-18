@@ -1,8 +1,10 @@
 {
  "server": "hlucent/realestate-stats-mcp",
  "url": "https://realestate-stats-mcp.fly.dev/mcp",
- "at": "2026-08-18T23:20:37Z",
+ "at": "2026-08-18T23:34:20Z",
  "calls": [],
- "machine": {},
- "skipped": "읽기전용 주석이 없어 호출하지 않았다 — 부작용을 알 수 없다"
+ "machine": {
+  "has_data": null,
+  "has_data_why": "필수 인자 없는 읽기 도구가 없어 호출하지 못했다 — 미확인이지 부재가 아니다"
+ }
 }

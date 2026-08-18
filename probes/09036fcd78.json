@@ -1,7 +1,7 @@
 {
  "server": "sallim-app/contract-compass",
  "url": "https://contract.sallim.app/mcp",
- "at": "2026-08-18T23:20:47Z",
+ "at": "2026-08-18T23:34:33Z",
  "calls": [
   {
    "label": "②환각",
@@ -10,7 +10,7 @@
     "query": "존재하지않는항목ZZZ9999"
    },
    "http": 200,
-   "ms": 356,
+   "ms": 599,
    "is_error": false,
    "error_code": null,
    "shape": {

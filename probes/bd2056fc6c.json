@@ -1,8 +1,26 @@
 {
  "server": "Choihello/startup-law-mcp",
  "url": "https://startup-law-mcp.fly.dev/mcp",
- "at": "2026-08-18T23:19:51Z",
- "calls": [],
- "machine": {},
- "skipped": "읽기전용 주석이 없어 호출하지 않았다 — 부작용을 알 수 없다"
+ "at": "2026-08-18T23:32:54Z",
+ "calls": [
+  {
+   "label": "①데이터",
+   "tool": "list_laws",
+   "arguments": {},
+   "http": 200,
+   "ms": 5342,
+   "is_error": false,
+   "error_code": null,
+   "shape": {
+    "bytes": 5413,
+    "json": false
+   },
+   "excerpt": "{\n  \"source\": \"고용보험법 시행규칙\",\n  \"law_type\": \"고용노동부령\",\n  \"revision\": \"시행 2026.07.01\",\n  \"article_count\": 268\n}\n{\n  \"source\": \"근로기준법 시행규칙\",\n  \"law_type\": \"고용노동부령\",\n  \"revision\": \"시행 2025.02.23\",\n  \"article_count\": 42\n}\n{\n  \"source\": \"산업재해보상보험법 시행규칙\",\n  \"law_type\": \"고용노동부령\",\n  \"revision\": \"시행 2026.02.02\",\n  \"article_count\": 126\n}\n{\n  \"source\": \"1인 창조기업 육성에 관한 법률 시행령\",\n  \"law_type\": \"대통령령\",\n  \"revision\": \"시행 2025.12.23\",\n  \"article_count\": 26\n}\n{\n  \"source\": \"개인정보 보호법 시행령\",\n  \"law_type\": \"대통령령\",\n  \"re",
+   "excerpt_truncated": true
+  }
+ ],
+ "machine": {
+  "has_data": true
+ },
+ "read_only_inferred": "list_laws의 읽기 여부를 **이름으로 추정**했다(주석 없음)"
 }

@@ -1,8 +1,26 @@
 {
  "server": "com.arcasos/arcasos-rentals",
  "url": "https://mcp.arcasos.com",
- "at": "2026-08-18T23:20:27Z",
- "calls": [],
- "machine": {},
- "skipped": "읽기전용 주석이 없어 호출하지 않았다 — 부작용을 알 수 없다"
+ "at": "2026-08-18T23:33:43Z",
+ "calls": [
+  {
+   "label": "①데이터",
+   "tool": "search_rentals_structured",
+   "arguments": {},
+   "http": 200,
+   "ms": 4001,
+   "is_error": false,
+   "error_code": null,
+   "shape": {
+    "bytes": 1297,
+    "json": false
+   },
+   "excerpt": "총 10개 매물을 찾았습니다.\n\n1. luca831 — 서울 강남구 역삼동 · 1인 — ₩1,500,000/week\n   https://arcasos.com/prime-stay/luca831-gangnamgu\n2. 이대역도보5분전용15평❤️신촌세브란스 — 서울 서대문구 대현동 · 4인 · 2침실 — ₩549,000/week\n   https://arcasos.com/prime-stay/idaeyeogdobo5bunjeonyong15pyeongsinchonsebeuranseu-seodaemungu-5034m2\n3. 서울숲텔 — 서울 성동구 성수동1가 · 2인 · 1침실 — ₩7,000/week\n   https://arcasos.com/prime-stay/seoulsup-ingeun-modeon-seutyudio-seongdonggu-450m2\n4. 서울역,강남,서울중심 접근성 좋은 도봉3룸신축 — 서울 도봉구 도봉동 · 6인 · 3침실 — ₩800,000/week\n   https://a",
+   "excerpt_truncated": true
+  }
+ ],
+ "machine": {
+  "has_data": true
+ },
+ "read_only_inferred": "search_rentals_structured의 읽기 여부를 **이름으로 추정**했다(주석 없음)"
 }

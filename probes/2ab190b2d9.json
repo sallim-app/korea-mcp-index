@@ -1,14 +1,14 @@
 {
  "server": "yousunjung84-edu/academyinfo-mcp",
  "url": "https://academyinfo-mcp-433006350023.asia-northeast3.run.app/mcp",
- "at": "2026-08-18T23:20:49Z",
+ "at": "2026-08-18T23:34:40Z",
  "calls": [
   {
    "label": "①데이터",
    "tool": "list_sources",
    "arguments": {},
    "http": 200,
-   "ms": 156,
+   "ms": 306,
    "is_error": false,
    "error_code": null,
    "shape": {

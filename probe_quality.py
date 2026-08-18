@@ -184,21 +184,18 @@ def probe(name: str, url: str, specs: list) -> dict:
         run("①데이터" if n == 0 else f"①데이터재시도{n}", t["name"], {})
         if not rec["calls"][-1]["is_error"]:
             break
-    if frees:
-        sh = rec["calls"][-1]["shape"]
-        c0 = rec["calls"][-1]
-        free = frees[0]
-        rec["machine"]["has_data"] = (not c0["is_error"]) and (
-            bool(sh.get("records")) or sh.get("bytes", 0) > 80)
-        if c0.get("error_code"):
-            rec["machine"]["blocked_by"] = c0["error_code"]
-        # ④ 성공한 그 도구에 작은 limit — 잘랐다고 말하는가
-        ok_tool = next((c["tool"] for c in reversed(rec["calls"]) if not c["is_error"]), None)
-        spec_ok = next((t for t in specs if t["name"] == ok_tool), None)
-        if ok_tool and "limit" in ((spec_ok or {}).get("props") or []):
-            run("④절단공시", ok_tool, {"limit": 1})
+    # ④ 성공한 그 도구에 작은 limit — 잘랐다고 말하는가
+    ok_tool = next((c["tool"] for c in reversed(rec["calls"]) if not c["is_error"]), None)
+    spec_ok = next((t for t in specs if t["name"] == ok_tool), None)
+    if ok_tool and "limit" in ((spec_ok or {}).get("props") or []):
+        run("④절단공시", ok_tool, {"limit": 1})
     if one:
         run("②환각", one["name"], {one["required"][0]: NONSENSE})
+    # **판정은 한 곳에서만 낸다.** 초판은 probe() 안에 인라인 판정을, rejudge()엔 verdict()를
+    # 따로 두었다가 갈렸다 — 새 실행이 verdict()를 안 거쳐 fabricates가 통째로 비었고,
+    # 정직하게 답한 서버 4건이 "판정불가"로 사라졌다(2026-08-19). 어제 URL 정규화를 세 곳에
+    # 흩어 뒀다가 한 곳이 뒤처진 것과 같은 실수다. 규칙이 여러 곳에 있으면 반드시 갈린다.
+    rec["machine"] = verdict(rec)
     return rec
 
 

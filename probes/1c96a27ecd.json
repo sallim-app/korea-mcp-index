@@ -1,8 +1,44 @@
 {
  "server": "com.saaskr/korean-saas-directory",
  "url": "https://saaskr.com/api/mcp",
- "at": "2026-08-18T23:20:31Z",
- "calls": [],
- "machine": {},
- "skipped": "읽기전용 주석이 없어 호출하지 않았다 — 부작용을 알 수 없다"
+ "at": "2026-08-18T23:33:53Z",
+ "calls": [
+  {
+   "label": "①데이터",
+   "tool": "search_korean_saas",
+   "arguments": {},
+   "http": 200,
+   "ms": 17255,
+   "is_error": false,
+   "error_code": null,
+   "shape": {
+    "bytes": 2123,
+    "json": false
+   },
+   "excerpt": "한국 SaaS 10개를 찾았습니다(전체 3778개 중). 출처: https://saaskr.com\n\n## AnnotateShot\n스크린샷에 번호, 도형, 텍스트, 이모지 주석을 빠르게 추가하는 웹 기반 마크업 도구\n- slug: alllogo-net\n- 카테고리: productivity\n- 공식 사이트: https://alllogo.net/\n- saaskr: https://saaskr.com/saas/alllogo-net\n- 운영 상태: 운영 중(최근 자동 점검 통과)\n- 메이커 인증됨\n- saaskr 직접 등록\n\n## 망원업\n공개 페이지 + 24시간 AI 챗봇\n- slug: chatbot-mang1up-com\n- 카테고리: 미분류\n- 공식 사이트: https://chatbot.mang1up.com\n- saaskr: https://saaskr.com/saas/chatbot-mang1up-com\n- saaskr 직접 등록\n\n## 아고다 할인코드\n아고다 할인코드\n- slug: coupo",
+   "excerpt_truncated": true
+  },
+  {
+   "label": "④절단공시",
+   "tool": "search_korean_saas",
+   "arguments": {
+    "limit": 1
+   },
+   "http": 200,
+   "ms": 479,
+   "is_error": false,
+   "error_code": null,
+   "shape": {
+    "bytes": 288,
+    "json": false
+   },
+   "excerpt": "한국 SaaS 1개를 찾았습니다(전체 3778개 중). 출처: https://saaskr.com\n\n## AnnotateShot\n스크린샷에 번호, 도형, 텍스트, 이모지 주석을 빠르게 추가하는 웹 기반 마크업 도구\n- slug: alllogo-net\n- 카테고리: productivity\n- 공식 사이트: https://alllogo.net/\n- saaskr: https://saaskr.com/saas/alllogo-net\n- 운영 상태: 운영 중(최근 자동 점검 통과)\n- 메이커 인증됨\n- saaskr 직접 등록",
+   "excerpt_truncated": false
+  }
+ ],
+ "machine": {
+  "has_data": true,
+  "respects_limit": false
+ },
+ "read_only_inferred": "search_korean_saas의 읽기 여부를 **이름으로 추정**했다(주석 없음)"
 }

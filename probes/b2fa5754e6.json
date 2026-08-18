@@ -1,14 +1,14 @@
 {
  "server": "app.apick/finance",
  "url": "https://apick.app/mcp/finance",
- "at": "2026-08-18T23:20:06Z",
+ "at": "2026-08-18T23:33:21Z",
  "calls": [
   {
    "label": "①데이터",
    "tool": "bank_code",
    "arguments": {},
    "http": 200,
-   "ms": 41,
+   "ms": 38,
    "is_error": true,
    "error_code": null,
    "shape": {
@@ -25,7 +25,7 @@
     "account_num": "존재하지않는항목ZZZ9999"
    },
    "http": 200,
-   "ms": 36,
+   "ms": 39,
    "is_error": true,
    "error_code": null,
    "shape": {

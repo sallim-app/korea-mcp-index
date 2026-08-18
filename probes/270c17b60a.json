@@ -1,14 +1,14 @@
 {
  "server": "app.sallim/korea-realty",
  "url": "https://realty.sallim.app/mcp",
- "at": "2026-08-18T23:20:12Z",
+ "at": "2026-08-18T23:33:26Z",
  "calls": [
   {
    "label": "①데이터",
    "tool": "realty_search_auctions",
    "arguments": {},
    "http": 200,
-   "ms": 90,
+   "ms": 116,
    "is_error": true,
    "error_code": "quota_exceeded",
    "shape": {
@@ -24,13 +24,31 @@
    "excerpt_truncated": false
   },
   {
-   "label": "④절단공시",
-   "tool": "realty_search_auctions",
-   "arguments": {
-    "limit": 1
-   },
+   "label": "①데이터재시도1",
+   "tool": "realty_compare_auction_vs_market",
+   "arguments": {},
    "http": 200,
-   "ms": 52,
+   "ms": 53,
+   "is_error": true,
+   "error_code": "quota_exceeded",
+   "shape": {
+    "bytes": 245,
+    "json": true,
+    "fields": [
+     "error",
+     "message",
+     "still_available"
+    ]
+   },
+   "excerpt": "{\n  \"error\": \"quota_exceeded\",\n  \"message\": \"일일 한도(30콜, UTC 자정 리셋)를 다 썼습니다. 이메일만 넣으면 하루 100콜로 올려 주는 **무료 사전등록**이 열려 있습니다: https://realty.sallim.app/prereg\",\n  \"still_available\": \"report_issue(답변 오류 신고)는 이 한도와 무관하게 계속 접수된다 — 틀린 값을 봤으면 지금 신고하라.\"\n}",
+   "excerpt_truncated": false
+  },
+  {
+   "label": "①데이터재시도2",
+   "tool": "realty_auction_sale_rate",
+   "arguments": {},
+   "http": 200,
+   "ms": 45,
    "is_error": true,
    "error_code": "quota_exceeded",
    "shape": {
@@ -52,7 +70,7 @@
     "query": "존재하지않는항목ZZZ9999"
    },
    "http": 200,
-   "ms": 38,
+   "ms": 34,
    "is_error": true,
    "error_code": "quota_exceeded",
    "shape": {
@@ -73,7 +91,6 @@
   "blocked_by": "quota_exceeded",
   "fabricates": null,
   "fabricates_why": "정상 응답이 아니라 판정 불가(quota_exceeded)",
-  "nonsense_reply_bytes": 245,
-  "respects_limit": false
+  "nonsense_reply_bytes": 245
  }
 }
