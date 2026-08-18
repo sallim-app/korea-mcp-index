@@ -60,6 +60,31 @@ def main() -> int:
     # 흩어 두었더니 한 곳을 빠뜨려 measured.json으로 개인 계정 경로가 공개됐다
     # (2026-08-19). 규칙이 여러 곳에 있으면 반드시 한 곳이 뒤처진다.
     m = json.load(open("measured.json", encoding="utf-8"))
+
+    # **엔드포인트 중복은 원자료에서 합친다.** 지금까지 render 안에서만 합쳐서 measured.json에는
+    # 같은 서버가 두 줄로 남아 있었다(contract-compass·korean-law-mcp·public-data-lens 3쌍).
+    # 심사 입력이 원자료에서 나오므로 여기서 안 합치면 **같은 서버를 두 번 심사한다**.
+    seen: dict[str, dict] = {}
+    dedup: list = []
+    dropped = 0
+    for i in m["items"]:
+        ep = ((i.get("remote") or {}).get("url") or "").split("?")[0].rstrip("/").lower()
+        if not ep:
+            dedup.append(i)
+            continue
+        prev = seen.get(ep)
+        if prev is None:
+            seen[ep] = i
+            dedup.append(i)
+            continue
+        dropped += 1
+        if i.get("self_hostable") and not prev.get("self_hostable"):
+            prev["self_hostable"] = True
+        cand, cur = i.get("repo_url") or "", prev.get("repo_url") or ""
+        if cand and (not cur or ("sallim-app/" in cand and "sallim-app/" not in cur)):
+            prev["repo_url"] = cand
+        prev.setdefault("also_known_as", []).append(i["name"])
+    m["items"] = dedup
     mfix = 0
     for i in m["items"]:
         ep = ((i.get("remote") or {}).get("url") or "").split("?")[0].rstrip("/").lower()
@@ -70,7 +95,7 @@ def main() -> int:
     json.dump(m, open("measured.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 
     print(f"candidates.json — keep+review {len(keep)}건 · drop 사유 {len(drops)}종 · 주소 교정 {rewritten}건")
-    print(f"measured.json  — 주소 교정 {mfix}건 (공개 산출물 전부에 같은 규칙)")
+    print(f"measured.json  — 주소 교정 {mfix}건 · 엔드포인트 중복 {dropped}건 합침")
     return 0
 
 

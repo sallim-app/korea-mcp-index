@@ -1,0 +1,122 @@
+{
+ "note": "분야별 블라인드 심사 결과. 키=sha256(분야|프롬프트|입력). 입력이 안 바뀌면 재호출하지 않는다. 심사 기준 전문은 JUDGING.md.",
+ "model": "claude-haiku-4-5",
+ "min_candidates": 3,
+ "items": {
+  "bc9a906cfe30df00": {
+   "category": "공공데이터·행정",
+   "top": [
+    {
+     "name": "app.apick/business",
+     "rank": 1,
+     "why": "사업자등록·기업정보·택배·검증의 핵심 질문을 직결, 응답 최고속(1.34배), 스키마 94%, 설명 명확"
+    },
+    {
+     "name": "app.apick/all",
+     "rank": 2,
+     "why": "공공데이터 전역 커버(82개 도구: 사업자등록·택배·OCR·검색), 설명 품질 우수(중앙 176자), 스키마 98%"
+    },
+    {
+     "name": "haklaekim/public-data-lens",
+     "rank": 3,
+     "why": "AI가 공공데이터를 판단·라우팅하도록 설계된 전문 레이어(AIRD 표준), 설명 최상(225자로 '언제' 명확), 1.22배 응답속"
+    }
+   ],
+   "note": "도구 수 경쟁이 아니라 AI 발견성·실제 질문 커버·응답속이 핵심 — S2(집중)·S1(폭)·S3(게이트웨이) 삼각형 구성이 도메인 최적",
+   "candidates": 5,
+   "by": "llm:haiku(blind)"
+  },
+  "d170de656929d5f6": {
+   "category": "금융·증시",
+   "top": [
+    {
+     "name": "com.aikstockdata/mcp",
+     "rank": 1,
+     "why": "KOSPI/KOSDAQ 시세 + DART 공시는 한국 증시의 정수; 25ms 콜드·370자 상세설명·주석 100% = 모델이 실제 사용 가능"
+    },
+    {
+     "name": "Mrbaeksang/korea-stock-analyzer-mcp",
+     "rank": 2,
+     "why": "KRX + DART 공시로 S4와 동일한 핵심 커버, 287자 설명·주석 100% 보장; 느림(547ms 콜드)이 유일한 약점"
+    },
+    {
+     "name": "app.apick/finance",
+     "rank": 3,
+     "why": "은행계정검증은 증시 외면이나 금융권이고, 33ms 속도·주석 100%로 모델이 사용 가능; S1의 주석 무(0%)는 12도구를 죽인다"
+    }
+   ],
+   "note": "증시 데이터는 S4-S2 이원화(시세·공시); S1은 크립토 미디어로 범주 밖, 주석 0%라 LLM이 도구에 접근 불가",
+   "candidates": 4,
+   "by": "llm:haiku(blind)"
+  },
+  "b50f292a45afb37e": {
+   "category": "법령·판례",
+   "top": [
+    {
+     "name": "chrisryugj/korean-law-mcp",
+     "rank": 1,
+     "why": "법령·판례·조례를 폭넓게 다루며 100% 설명·스키마·주석으로 AI가 도구 용도를 명확히 구분 가능, 성능 안정적(콜드 1.3배)"
+    },
+    {
+     "name": "app.sallim/contract-compass",
+     "rank": 2,
+     "why": "최상의 문서화(584자 중앙)와 최고 성능(콜드 140ms)이나 공공조달 전문이라 일반 법령 도메인 한정"
+    },
+    {
+     "name": "scvcoder/korean-law-alio-mcp",
+     "rank": 3,
+     "why": "1,600법률·판례 수만건 광범위하지만 125개 도구를 42자 설명으로는 AI가 어느 도구를 쓸지 구분 불가능"
+    }
+   ],
+   "note": "S1은 창업법 특화로 도메인 통합 불가, 콜드 4140ms 성능 문제로 제외",
+   "candidates": 4,
+   "by": "llm:haiku(blind)"
+  },
+  "1ff8f3398106a92d": {
+   "category": "커머스·생활",
+   "top": [
+    {
+     "name": "ai.timeplex/booking",
+     "rank": 1,
+     "why": "뷰티·웰니스 예약은 실제로 자주 쓰는 생활 서비스. 완벽한 주석(100%)과 충분한 설명(268자), 빠른 응답(455ms warm)으로 모델 이해도 높음."
+    },
+    {
+     "name": "com.theprotoclinical/commerce",
+     "rank": 2,
+     "why": "가장 빠른 성능(147ms warm/197ms cold)과 가장 많은 도구(13개), 충분한 설명(489자)으로 실행 가능. K-뷰티 쇼핑은 실제 상거래 수요."
+    },
+    {
+     "name": "com.arcasos/arcasos-rentals",
+     "rank": 3,
+     "why": "단기숙소는 실제로 많이 찾는 서비스. 가장 상세한 설명(652자)이 모델의 도구 활용도를 높이나, 1704ms 콜드 지연과 0% 주석이 실사용 포기를 초래할 수 있음."
+    }
+   ],
+   "note": "생활 예약·숙소·쇼핑이 이 카테고리의 중심인데 상위 3곳이 담아냈다. S3는 뉴스로 상거래 아님. S4는 설명 49자는 너무 짧고 주석도 없어 모델이 쓸 때를 판단 불가.",
+   "candidates": 5,
+   "by": "llm:haiku(blind)"
+  },
+  "47c4c268384cc9a3": {
+   "category": "부동산",
+   "top": [
+    {
+     "name": "app.sallim/korea-realty",
+     "rank": 1,
+     "why": "47개 도구로 법원경매·실거래 기록·시세 예측 등 부동산 핵심 질문 모두 커버, 설명·스키마·주석 100% 완성으로 모델이 용도를 명확히 판단 가능, 45ms 웜 지연으로 실시간 답변에 적합"
+    },
+    {
+     "name": "com.airblockfz/seoul-apt-signal",
+     "rank": 2,
+     "why": "6개 도구로 서울 25개 구 공식 거래·신호 제공하는 전문 도구, 26ms 최고속 응답, 설명·스키마 완성도 높음 (주석 0%는 단점이나 도구 수가 적어 보충)"
+    },
+    {
+     "name": "hlucent/realestate-stats-mcp",
+     "rank": 3,
+     "why": "한국부동산원 공식 시세·거래현황의 권위 있는 데이터지만, 콜드 5226ms 초과로 실시간 사용 실패, 설명 222자 최소로 도구 이해도 최악, 3개 도구 한정으로 보조용만 가능"
+    }
+   ],
+   "note": "S1의 포괄성·완성도·속도 삼박자가 우월하고, S3의 극도의 콜드 펼티(5+초)는 모바일 환경에서 치명적이라 실무 사용성 최악",
+   "candidates": 3,
+   "by": "llm:haiku(blind)"
+  }
+ }
+}

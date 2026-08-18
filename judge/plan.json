@@ -1,0 +1,48 @@
+{
+ "공공데이터·행정": {
+  "key": "bc9a906cfe30df00",
+  "ids": {
+   "S1": "app.apick/all",
+   "S2": "app.apick/business",
+   "S3": "haklaekim/public-data-lens",
+   "S4": "obundh/korea-public-data-catalog-mcp",
+   "S5": "yousunjung84-edu/academyinfo-mcp"
+  }
+ },
+ "금융·증시": {
+  "key": "d170de656929d5f6",
+  "ids": {
+   "S1": "MosslandOpenDevs/alpha",
+   "S2": "Mrbaeksang/korea-stock-analyzer-mcp",
+   "S3": "app.apick/finance",
+   "S4": "com.aikstockdata/mcp"
+  }
+ },
+ "법령·판례": {
+  "key": "b50f292a45afb37e",
+  "ids": {
+   "S1": "Choihello/startup-law-mcp",
+   "S2": "app.sallim/contract-compass",
+   "S3": "chrisryugj/korean-law-mcp",
+   "S4": "scvcoder/korean-law-alio-mcp"
+  }
+ },
+ "부동산": {
+  "key": "47c4c268384cc9a3",
+  "ids": {
+   "S1": "app.sallim/korea-realty",
+   "S2": "com.airblockfz/seoul-apt-signal",
+   "S3": "hlucent/realestate-stats-mcp"
+  }
+ },
+ "커머스·생활": {
+  "key": "1ff8f3398106a92d",
+  "ids": {
+   "S1": "ai.timeplex/booking",
+   "S2": "com.arcasos/arcasos-rentals",
+   "S3": "com.hankookilbo.mcp/hankookilbo-mcp",
+   "S4": "com.saaskr/korean-saas-directory",
+   "S5": "com.theprotoclinical/commerce"
+  }
+ }
+}

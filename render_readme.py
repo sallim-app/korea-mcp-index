@@ -170,6 +170,17 @@ def main() -> int:
     except OSError:
         src = {}
 
+    try:
+        rk = json.load(open("ranking.json", encoding="utf-8"))["items"]
+    except OSError:
+        rk = {}
+    rank_of = {}          # name → (순위, 이유)
+    cat_note = {}         # 분야 → 총평
+    for v in rk.values():
+        cat_note[v["category"]] = v.get("note", "")
+        for t in v["top"]:
+            rank_of[t["name"]] = (t["rank"], t.get("why", ""))
+
     items, merged = dedupe_by_endpoint(d["items"])
     for it in items:
         s0 = src.get(it["name"]) or {}
@@ -185,6 +196,11 @@ def main() -> int:
     # 데이터 제공형이 아닌 것은 이 목록의 주제가 아니다 — 조용히 버리지 않고 아래에 센다.
     off = [r for r in live if cls.get(r["name"]) and not cls[r["name"]]["is_data_provider"]]
     live = [r for r in live if r not in off]
+    # **비교 가능한 것만 순위에 올린다.** 키가 있어야 도구 목록도 못 보는 서버(401/403)와
+    # 규격 이탈 서버는 지표가 전부 비어 있어 비교가 성립하지 않는다 — 표에 섞으면
+    # 순위가 희석되고 독자는 왜 `—`뿐인지 모른다. 버리지 않고 별도 구역으로 보낸다.
+    unmeasured = [r for r in live if not (r["remote"].get("tool_count") or 0)]
+    live = [r for r in live if r not in unmeasured]
 
     ts = datetime.now(UTC).strftime("%Y-%m-%d")
     pct = round(100 * len(dead) / max(len(rem), 1))
@@ -208,7 +224,8 @@ def main() -> int:
     A("")
     A("| | |")
     A("|---|---|")
-    A(f"| 응답하는 서버 | {emph(str(len(live)))}건 |")
+    A(f"| 비교 가능한 서버 | {emph(str(len(live)))}건 |")
+    A(f"| 응답했으나 못 잼(키 필요·규격 이탈) | {len(unmeasured)}건 |")
     A(f"| 응답 없음 | {len(dead)}건 → [DOWN.md](DOWN.md) |")
     A(f"| 주제 밖(데이터 제공형 아님) | {len(off)}건 |")
     A("")
@@ -220,6 +237,7 @@ def main() -> int:
     A("* [표기](#표기)")
     for c in cats_live:
         A(f"* [{c}](#{c.replace('·', '')})")
+    A("* [측정 못 함](#측정-못-함)")
     A("* [우리 목록에 넣으려면](#우리-목록에-넣으려면)")
     A("* [어떻게 재나](#어떻게-재나)")
     A("* [믿으면 안 되는 부분](#믿으면-안-되는-부분)")
@@ -252,7 +270,11 @@ def main() -> int:
             ("가장 빠르다(웜)", lambda r: -(r["remote"].get("warm_ms") or 10**9), "{}ms"),
             ("설명이 가장 충실하다", lambda r: q(r, "desc_median", 0) or 0, "중앙 {}자"),
     ):
-        best = max(live, key=key) if live else None
+        # 설명 축은 도구 5개 이상만 본다 — 도구 3개짜리가 긴 설명 하나로 중앙값 1위를
+        # 먹던 자리다(2026-08-19 실측: 3종 652자가 125종 42자를 이겼다).
+        pool = [r for r in live if (r["remote"].get("tool_count") or 0) >= 5] \
+            if label == "설명이 가장 충실하다" else live
+        best = max(pool, key=key) if pool else None
         if not best:
             continue
         val = {"도구가 가장 많다": best["remote"].get("tool_count"),
@@ -279,16 +301,40 @@ def main() -> int:
     # ── 분야별 ──
     for c in cats_live:
         group = [r for r in live if cls.get(r["name"], {}).get("category") == c]
-        group.sort(key=lambda r: (-(r["remote"].get("tool_count") or 0), r["remote"].get("warm_ms") or 10**9))
+        judged = [r for r in group if r["name"] in rank_of]
+        judged.sort(key=lambda r: rank_of[r["name"]][0])
+        rest = sorted([r for r in group if r["name"] not in rank_of],
+                      key=lambda r: -(r["remote"].get("tool_count") or 0))
         A(f"## {c}" + (f" ({CAT_EN[c]})" if not en else ""))
         A("")
-        top, rest = group[:3], group[3:]
+        if not judged:
+            # 후보가 적어 심사하지 않은 분야 — "Top 3"라고 쓰면 실제보다 두껍게 읽힌다.
+            A(f"후보가 {len(group)}건뿐이라 순위를 매기지 않았다. "
+              f"3개 중 3개를 고르는 것은 순위가 아니라 목록이다.")
+            A("")
+        else:
+            if len(group) <= 3:
+                # 셋 중 셋이면 고른 것이 아니라 줄 세운 것이다 — 그 차이를 적는다.
+                A(f"<sub>이 분야는 후보가 {len(group)}건뿐이라 **고른 것이 아니라 줄 세운 것**이다.</sub>")
+                A("")
+            if cat_note.get(c):
+                A(f"> {cat_note[c]}")
+                A("")
+        top = judged
         out.extend(head(en))
-        for r in top:
+        for r in (top or rest[:3] if not judged else top):
             A(row(r, en))
         A("")
-        if rest:
-            A("<details><summary>" + f"나머지 {len(rest)}건" + "</summary>")
+        if judged:
+            for r in judged:
+                rank, why = rank_of[r["name"]]
+                A(f"{rank}. {r['name'].split('/')[-1]} — {why}")
+            A("")
+            A("<sub>순위는 이름을 가린 채 심사한 결과다. 기준·입력·이유 전문은 "
+              "[JUDGING.md](JUDGING.md)·[ranking.json](ranking.json).</sub>")
+            A("")
+        if judged and rest:
+            A("<details><summary>" + f"심사에 들지 못한 {len(rest)}건" + "</summary>")
             A("")
             out.extend(head(en))
             for r in rest:
@@ -296,6 +342,20 @@ def main() -> int:
             A("")
             A("</details>")
             A("")
+
+    # ── 측정 못 함 ──
+    if unmeasured:
+        A("## 측정 못 함")
+        A("")
+        A(f"응답은 했지만 **비교할 값을 얻지 못한 {len(unmeasured)}건.** 지우지 않고 여기 둔다 — "
+          "“없다”가 아니라 **“우리가 못 봤다”**이기 때문이다. 대부분 도구 목록을 보는 데도 "
+          "키를 요구한다. 키가 있으면 잘 도는 서버일 수 있다.")
+        A("")
+        out.extend(["| 서버 | 증상 |", "|---|---|"])
+        for r in sorted(unmeasured, key=lambda x: x["name"]):
+            why = (r["remote"].get("why") or "").strip() or f"HTTP {r['remote'].get('http')}"
+            A(f"| {link(r)} | {why[:60]} |")
+        A("")
 
     # ── 넣으려면 ──
     A("## 우리 목록에 넣으려면")

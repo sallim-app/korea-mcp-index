@@ -1203,7 +1203,10 @@
     "disclosed": false
    },
    "package": null,
-   "self_hostable": null
+   "self_hostable": true,
+   "also_known_as": [
+    "sallim-app/contract-compass"
+   ]
   },
   {
    "name": "app.sallim/korea-realty",
@@ -1519,7 +1522,10 @@
     "last_publish": "2026-08-16",
     "version": "4.12.0"
    },
-   "self_hostable": true
+   "self_hostable": true,
+   "also_known_as": [
+    "kang-aco/korean-law"
+   ]
   },
   {
    "name": "chrisryugj/korean-patent-mcp",
@@ -2271,7 +2277,10 @@
     "installable": false,
     "why": "레지스트리에 없다(설치 불가)"
    },
-   "self_hostable": true
+   "self_hostable": true,
+   "also_known_as": [
+    "hike-lab/public-data-lens"
+   ]
   },
   {
    "name": "herrozim-ship-it/yureong",
@@ -2290,42 +2299,6 @@
     "why": "레지스트리에 없다(설치 불가)"
    },
    "self_hostable": true
-  },
-  {
-   "name": "hike-lab/public-data-lens",
-   "repo_url": "https://github.com/haklaekim/public-data-lens",
-   "stars": 80,
-   "pushed": "2026-08-10",
-   "archived": false,
-   "sources": [
-    "github"
-   ],
-   "remote": {
-    "url": "https://service.datahub.kr/projects/public-data-lens/mcp",
-    "http": 200,
-    "cold_ms": 33,
-    "latency_ms": 23,
-    "retried": false,
-    "warm_ms": 23,
-    "reachable": true,
-    "needs_key": false,
-    "tool_count": 9,
-    "quality": {
-     "described_pct": 100,
-     "desc_median": 225,
-     "input_schema_pct": 89,
-     "output_schema_pct": 100,
-     "annotated_pct": 100,
-     "readonly_pct": 100
-    },
-    "why": "",
-    "url_source": "readme"
-   },
-   "paid_disclosure": {
-    "disclosed": false
-   },
-   "package": null,
-   "self_hostable": null
   },
   {
    "name": "hjsh200219/korea-public-data-mcp",
@@ -3170,42 +3143,6 @@
     "why": "레지스트리에 없다(설치 불가)"
    },
    "self_hostable": true
-  },
-  {
-   "name": "kang-aco/korean-law",
-   "repo_url": "https://github.com/chrisryugj/korean-law-mcp",
-   "stars": 0,
-   "pushed": "2026-04-07",
-   "archived": false,
-   "sources": [
-    "github"
-   ],
-   "remote": {
-    "url": "https://korean-law-mcp.fly.dev/mcp",
-    "http": 200,
-    "cold_ms": 217,
-    "latency_ms": 202,
-    "retried": false,
-    "warm_ms": 202,
-    "reachable": true,
-    "needs_key": false,
-    "tool_count": 10,
-    "quality": {
-     "described_pct": 100,
-     "desc_median": 215,
-     "input_schema_pct": 100,
-     "output_schema_pct": 0,
-     "annotated_pct": 100,
-     "readonly_pct": 100
-    },
-    "why": "",
-    "url_source": "readme"
-   },
-   "paid_disclosure": {
-    "disclosed": false
-   },
-   "package": null,
-   "self_hostable": null
   },
   {
    "name": "keonho-kim/OpenDart-mcp",
@@ -4183,47 +4120,6 @@
    "remote": null,
    "package": null,
    "self_hostable": null
-  },
-  {
-   "name": "sallim-app/contract-compass",
-   "repo_url": "https://github.com/sallim-app/contract-compass",
-   "stars": 0,
-   "pushed": "2026-08-17",
-   "archived": false,
-   "sources": [
-    "github"
-   ],
-   "remote": {
-    "url": "https://contract.sallim.app/mcp",
-    "http": 200,
-    "cold_ms": 53,
-    "latency_ms": 36,
-    "retried": false,
-    "warm_ms": 36,
-    "reachable": true,
-    "needs_key": false,
-    "tool_count": 11,
-    "quality": {
-     "described_pct": 100,
-     "desc_median": 584,
-     "input_schema_pct": 100,
-     "output_schema_pct": 0,
-     "annotated_pct": 100,
-     "readonly_pct": 91
-    },
-    "why": "",
-    "url_source": "readme"
-   },
-   "paid_disclosure": {
-    "disclosed": false
-   },
-   "package": {
-    "type": "pypi",
-    "id": "-r",
-    "installable": false,
-    "why": "레지스트리에 없다(설치 불가)"
-   },
-   "self_hostable": true
   },
   {
    "name": "scvcoder/korean-law-alio-mcp",

@@ -7,3 +7,5 @@ candidates_raw.json
 candidates_filtered.json
 candidates_enriched.json
 batch/
+judge/in_*.txt
+judge/in_*.txt

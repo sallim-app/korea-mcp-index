@@ -15,6 +15,7 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 README = (ROOT / "README.md").read_text(encoding="utf-8")
 DOWN = (ROOT / "DOWN.md").read_text(encoding="utf-8")
 MEASURED = json.loads((ROOT / "measured.json").read_text(encoding="utf-8"))
+RANKING = json.loads((ROOT / "ranking.json").read_text(encoding="utf-8"))
 
 # 닫는 `**` 앞이 문장부호이고 뒤가 글자면 CommonMark가 강조를 닫지 않는다.
 BROKEN_EMPH = re.compile(r'[)\]}"\'.,!?:;][*]{2}[0-9A-Za-z가-힣]')
@@ -59,8 +60,13 @@ def test_categories_exist_and_top3_is_capped():
     """분야별로 나뉘고 상위 3개만 먼저 보여야 한다."""
     cats = re.findall(r"^## ([^\n(]+?) \(", README, re.M)
     assert len(cats) >= 4, f"분야 섹션이 너무 적다: {cats}"
+    # 순위 분야 섹션만 본다. `측정 못 함`·`DOWN` 같은 구역은 순위표가 아니라 전량 목록이다
+    # — 그것까지 3줄로 자르면 "못 본 것을 숨기지 않는다"는 규약과 정면으로 충돌한다.
+    ranked_cats = {v["category"] for v in RANKING["items"].values()}
     for block in re.split(r"^## ", README, flags=re.M)[1:]:
         if "|---|" not in block:
+            continue
+        if not any(block.startswith(c) for c in ranked_cats):
             continue
         head = block.split("<details>")[0]
         rows = [ln for ln in head.splitlines() if ln.startswith("| [") or ln.startswith("| ")]
@@ -79,3 +85,43 @@ def test_no_private_or_personal_paths():
     for name, md in (("README", README), ("DOWN", DOWN)):
         for leak in ("kwenhwang", "sallim-app/realty-mcp"):
             assert leak not in md, f"{name}에 {leak} 유출"
+
+
+# ── 순위 신뢰 회귀 (2026-08-19, "순위가 신뢰가 안 가는데?") ──────────────────
+
+def test_judged_servers_all_have_tools():
+    """심사 대상에 도구 0건이 섞이면 안 된다 — 지표가 비어 비교가 성립하지 않는다."""
+    m = {i["name"]: i for i in MEASURED["items"]}
+    for v in RANKING["items"].values():
+        for t in v["top"]:
+            rm = (m.get(t["name"]) or {}).get("remote") or {}
+            assert rm.get("tool_count"), f"{t['name']}은 도구 0건인데 심사됐다"
+
+
+def test_table_order_matches_the_judgement():
+    """표의 순서가 심사 순위와 같아야 한다 — 다르면 순위를 표기만 하고 안 지킨 것이다."""
+    for v in RANKING["items"].values():
+        names = [t["name"].split("/")[-1] for t in sorted(v["top"], key=lambda x: x["rank"])]
+        block = re.split(r"^## ", README, flags=re.M)
+        block = [b for b in block if b.startswith(v["category"])]
+        if not block:
+            continue
+        pos = [block[0].find(n) for n in names]
+        assert all(p >= 0 for p in pos), f"{v['category']}: 표에 없는 심사 항목"
+        assert pos == sorted(pos), f"{v['category']}: 표 순서가 심사 순위와 다름"
+
+
+def test_every_ranked_server_shows_its_reason():
+    """순위에는 근거가 붙어야 한다 — 이유 없는 순위가 신뢰를 깨뜨린 원인이다."""
+    for v in RANKING["items"].values():
+        for t in v["top"]:
+            assert t["why"].strip(), f"{t['name']}에 심사 이유가 없다"
+            assert t["why"][:20] in README, f"{t['name']}의 이유가 README에 안 실렸다"
+
+
+def test_unmeasurable_servers_are_not_ranked():
+    """키가 있어야 도구 목록도 못 보는 서버는 순위표에 없어야 한다."""
+    ranked = {t["name"] for v in RANKING["items"].values() for t in v["top"]}
+    blocked = {i["name"] for i in MEASURED["items"]
+               if (i.get("remote") or {}).get("needs_key")}
+    assert not (ranked & blocked), f"측정 못 한 서버가 순위에: {ranked & blocked}"
