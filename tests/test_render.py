@@ -125,3 +125,28 @@ def test_unmeasurable_servers_are_not_ranked():
     blocked = {i["name"] for i in MEASURED["items"]
                if (i.get("remote") or {}).get("needs_key")}
     assert not (ranked & blocked), f"측정 못 한 서버가 순위에: {ranked & blocked}"
+
+
+def test_glance_agrees_with_the_category_rankings():
+    """첫 화면과 본문이 어긋나면 안 된다.
+
+    2026-08-19 실사고: 순위를 블라인드 심사로 바꾸면서 `한눈에`를 안 고쳐, 지표 정렬 시절의
+    축별 1위가 그대로 남았다. 그 결과 첫 화면 1위 셋이 본문에서 각각 3위·3위·2위였다.
+    **순위 근거가 둘이면 반드시 어긋난다** — 같은 값에서 나오는지 검사한다.
+    """
+    block = README.split("## 한눈에")[1].split("\n## ")[0]
+    for v in RANKING["items"].values():
+        first = next(t["name"] for t in v["top"] if t["rank"] == 1)
+        assert first.split("/")[-1] in block, f"{v['category']} 1위({first})가 한눈에 없다"
+
+
+def test_no_all_empty_columns():
+    """모든 줄이 `—`인 열은 정보가 아니라 소음이다(키·무료/전체를 뺀 계기)."""
+    rows = _server_rows(README)
+    header = next(ln for ln in README.splitlines() if ln.startswith("| 서버 |"))
+    cols = [c.strip() for c in header.split("|")[1:-1]]
+    body = [ln for ln in README.splitlines() if ln.startswith("| [") and ln.count("|") == len(cols) + 1]
+    assert rows and body, "서버 표를 못 찾았다"
+    for idx, name in enumerate(cols):
+        vals = {r.split("|")[idx + 1].strip() for r in body}
+        assert vals != {"—"}, f"'{name}' 열이 전부 비었다 — 열을 빼거나 각주로 내려라"

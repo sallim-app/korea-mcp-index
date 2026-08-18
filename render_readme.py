@@ -67,17 +67,20 @@ def row(rec: dict, en=False) -> str:
     warm, cold = rm.get("warm_ms"), rm.get("cold_ms")
     slow = cold and warm and cold > warm * 3
     pd = rec.get("paid_disclosure") or {}
-    free = f"{pd.get('free')}/{pd.get('total')}" if pd.get("disclosed") else "—"
-    return (f"| {link(rec)}{mark} | {rm.get('tool_count') or '—'} | {warm or '—'} | "
+    paid = f" <sub>무료 {pd.get('free')}/{pd.get('total')}</sub>" if pd.get("disclosed") else ""
+    return (f"| {link(rec)}{mark}{paid} | {rm.get('tool_count') or '—'} | {warm or '—'} | "
             f"{emph(str(cold)) if slow else (cold or '—')} | "
-            f"{q(rec, 'described_pct')}% | {q(rec, 'annotated_pct')}% | "
-            f"{'🔑' if rm.get('needs_key') else '—'} | {free} |")
+            f"{q(rec, 'described_pct')}% | {q(rec, 'annotated_pct')}% |")
 
 
 def head(en=False) -> list[str]:
-    return ["| 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 | 키 | 무료/전체 |" if not en else
-            "| Server | Tools | Warm | Cold | Desc | Annot | Key | Free/All |",
-            "|---|---|---|---|---|---|---|---|"]
+    # `키`와 `무료/전체`를 열에서 뺐다(2026-08-19). 측정 가능한 것만 표에 남기니 `키`는
+    # 21줄 전부 `—`였고, `무료/전체`는 스스로 공시하는 서버가 우리뿐이라 20/21이 `—`였다.
+    # **빈 열은 정보가 아니라 소음이고, 그것을 설명하는 범례는 독자의 첫 화면을 잡아먹는다.**
+    # 유료 공시는 각주로 내린다.
+    return ["| 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 |" if not en else
+            "| Server | Tools | Warm | Cold | Desc | Annot |",
+            "|---|---|---|---|---|---|"]
 
 
 def dedupe_by_endpoint(items: list) -> tuple[list, int]:
@@ -234,9 +237,9 @@ def main() -> int:
     cats_live = [c for c in CATS if any(cls.get(r["name"], {}).get("category") == c for r in live)]
     A("* [왜 만드나](#왜-만드나)")
     A("* [한눈에](#한눈에)")
-    A("* [표기](#표기)")
     for c in cats_live:
         A(f"* [{c}](#{c.replace('·', '')})")
+    A("* [표기](#표기)")
     A("* [측정 못 함](#측정-못-함)")
     A("* [우리 목록에 넣으려면](#우리-목록에-넣으려면)")
     A("* [어떻게 재나](#어떻게-재나)")
@@ -260,42 +263,23 @@ def main() -> int:
     # ── 한눈에 ──
     A("## 한눈에")
     A("")
-    A("종합 점수는 매기지 않는다 — 가중치를 우리가 정하면, 우리가 상위권인 이 표에서 "
-      "그 설계를 반박할 방법이 없다. 대신 **축마다 1위**를 적는다.")
+    A("분야마다 1위 하나씩. 순서는 아래 각 분야의 심사 결과와 **같은 값에서 나온다** — "
+      "여기와 본문이 어긋날 수 없다.")
     A("")
-    A("| 축 | 1위 | 값 |")
+    A("| 분야 | 1위 | 왜 |")
     A("|---|---|---|")
-    for label, key, fmt in (
-            ("도구가 가장 많다", lambda r: r["remote"].get("tool_count") or 0, "{}종"),
-            ("가장 빠르다(웜)", lambda r: -(r["remote"].get("warm_ms") or 10**9), "{}ms"),
-            ("설명이 가장 충실하다", lambda r: q(r, "desc_median", 0) or 0, "중앙 {}자"),
-    ):
-        # 설명 축은 도구 5개 이상만 본다 — 도구 3개짜리가 긴 설명 하나로 중앙값 1위를
-        # 먹던 자리다(2026-08-19 실측: 3종 652자가 125종 42자를 이겼다).
-        pool = [r for r in live if (r["remote"].get("tool_count") or 0) >= 5] \
-            if label == "설명이 가장 충실하다" else live
-        best = max(pool, key=key) if pool else None
-        if not best:
+    for c in cats_live:
+        winner = next((r for r in live
+                       if cls.get(r["name"], {}).get("category") == c
+                       and rank_of.get(r["name"], (9, ""))[0] == 1), None)
+        if not winner:
             continue
-        val = {"도구가 가장 많다": best["remote"].get("tool_count"),
-               "가장 빠르다(웜)": best["remote"].get("warm_ms"),
-               "설명이 가장 충실하다": q(best, "desc_median")}[label]
-        A(f"| {label} | {link(best)} | {fmt.format(val)} |")
-    nokey = [r for r in live if not r["remote"].get("needs_key")]
-    A(f"| 키 없이 바로 된다 | {len(nokey)}/{len(live)}건 | 가입·키 불필요 |")
+        why = rank_of[winner["name"]][1]
+        A(f"| [{c}](#{c.replace('·', '')}) | {link(winner)}"
+          f"{' 🏠' if winner['name'].startswith(OURS) else ''} | {why[:60]} |")
     A("")
-
-    # ── 표기 ──
-    A("## 표기")
-    A("")
-    A("* **도구** — `tools/list`에 실제로 들어 있는 개수. 0이면 껍데기다")
-    A("* **웜 / 콜드** — 연달아 부를 때 / 첫 호출(ms). 서버리스는 첫 호출에 기동 시간이 붙는다. "
-      "콜드가 웜의 3배를 넘으면 굵게 표시한다")
-    A("* **설명 / 주석** — 도구에 설명이 붙은 비율 / `readOnlyHint` 같은 주석이 붙은 비율. "
-      "**둘 다 없으면 모델이 그 도구를 언제 어떻게 쓸지 모른다** — 데이터가 정확해도 답에 도달하지 못한다")
-    A("* **키** — 🔑 이면 도구 목록을 보는 데도 키가 필요하다")
-    A("* **무료/전체** — 서버가 스스로 공시할 때만 채운다. `—`는 “무료”가 아니라 **확인 못 했다**는 뜻이다")
-    A("* 🏠 — 이 목록의 운영자가 만든 서버")
+    A("종합 1등은 없다. 가중치를 우리가 정하면 우리가 상위권인 이 표에서 그 설계를 "
+      "반박할 방법이 없기 때문이다. 순위는 분야 안에서만 매긴다.")
     A("")
 
     # ── 분야별 ──
@@ -342,6 +326,19 @@ def main() -> int:
             A("")
             A("</details>")
             A("")
+
+    # ── 표기 ──
+    A("## 표기")
+    A("")
+    A("* **도구** — `tools/list`에 실제로 들어 있는 개수. 0이면 껍데기다")
+    A("* **웜 / 콜드** — 연달아 부를 때 / 첫 호출(ms). 서버리스는 첫 호출에 기동 시간이 붙는다. "
+      "콜드가 웜의 3배를 넘으면 굵게 표시한다")
+    A("* **설명 / 주석** — 도구에 설명이 붙은 비율 / `readOnlyHint` 같은 주석이 붙은 비율. "
+      "**둘 다 없으면 모델이 그 도구를 언제 어떻게 쓸지 모른다** — 데이터가 정확해도 답에 도달하지 못한다")
+    A("* 이름 옆 <sub>무료 N/M</sub> — 서버가 유료 게이트를 **스스로 공시**할 때만 붙는다. "
+      "없다고 무료라는 뜻이 아니다 — 밖에서는 판정할 수 없다")
+    A("* 🏠 — 이 목록의 운영자가 만든 서버")
+    A("")
 
     # ── 측정 못 함 ──
     if unmeasured:

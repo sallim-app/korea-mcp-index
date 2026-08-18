@@ -15,12 +15,12 @@
 
 * [왜 만드나](#왜-만드나)
 * [한눈에](#한눈에)
-* [표기](#표기)
 * [공공데이터·행정](#공공데이터행정)
 * [법령·판례](#법령판례)
 * [금융·증시](#금융증시)
 * [부동산](#부동산)
 * [커머스·생활](#커머스생활)
+* [표기](#표기)
 * [측정 못 함](#측정-못-함)
 * [우리 목록에 넣으려면](#우리-목록에-넣으려면)
 * [어떻게 재나](#어떻게-재나)
@@ -36,33 +36,27 @@
 
 ## 한눈에
 
-종합 점수는 매기지 않는다 — 가중치를 우리가 정하면, 우리가 상위권인 이 표에서 그 설계를 반박할 방법이 없다. 대신 **축마다 1위**를 적는다.
+분야마다 1위 하나씩. 순서는 아래 각 분야의 심사 결과와 **같은 값에서 나온다** — 여기와 본문이 어긋날 수 없다.
 
-| 축 | 1위 | 값 |
+| 분야 | 1위 | 왜 |
 |---|---|---|
-| 도구가 가장 많다 | [scvcoder/korean-law-alio-mcp](https://github.com/scvcoder/korean-law-alio-mcp) | 125종 |
-| 가장 빠르다(웜) | [haklaekim/public-data-lens](https://github.com/haklaekim/public-data-lens) | 23ms |
-| 설명이 가장 충실하다 | [app.sallim/contract-compass](https://github.com/sallim-app/contract-compass) | 중앙 584자 |
-| 키 없이 바로 된다 | 21/21건 | 가입·키 불필요 |
+| [공공데이터·행정](#공공데이터행정) | [app.apick/business](https://apick.app) | 사업자등록·기업정보·택배·검증의 핵심 질문을 직결, 응답 최고속(1.34배), 스키마 94%, 설명 명확 |
+| [법령·판례](#법령판례) | [chrisryugj/korean-law-mcp](https://github.com/chrisryugj/korean-law-mcp) | 법령·판례·조례를 폭넓게 다루며 100% 설명·스키마·주석으로 AI가 도구 용도를 명확히 구분 가능, 성능  |
+| [금융·증시](#금융증시) | [com.aikstockdata/mcp](https://github.com/na77tech-creator/aikstockdata) | KOSPI/KOSDAQ 시세 + DART 공시는 한국 증시의 정수; 25ms 콜드·370자 상세설명·주석 1 |
+| [부동산](#부동산) | [app.sallim/korea-realty](https://github.com/sallim-app/korea-realty) 🏠 | 47개 도구로 법원경매·실거래 기록·시세 예측 등 부동산 핵심 질문 모두 커버, 설명·스키마·주석 100%  |
+| [커머스·생활](#커머스생활) | [ai.timeplex/booking](https://chat.timeplex.ai) | 뷰티·웰니스 예약은 실제로 자주 쓰는 생활 서비스. 완벽한 주석(100%)과 충분한 설명(268자), 빠른  |
 
-## 표기
-
-* **도구** — `tools/list`에 실제로 들어 있는 개수. 0이면 껍데기다
-* **웜 / 콜드** — 연달아 부를 때 / 첫 호출(ms). 서버리스는 첫 호출에 기동 시간이 붙는다. 콜드가 웜의 3배를 넘으면 굵게 표시한다
-* **설명 / 주석** — 도구에 설명이 붙은 비율 / `readOnlyHint` 같은 주석이 붙은 비율. **둘 다 없으면 모델이 그 도구를 언제 어떻게 쓸지 모른다** — 데이터가 정확해도 답에 도달하지 못한다
-* **키** — 🔑 이면 도구 목록을 보는 데도 키가 필요하다
-* **무료/전체** — 서버가 스스로 공시할 때만 채운다. `—`는 “무료”가 아니라 **확인 못 했다**는 뜻이다
-* 🏠 — 이 목록의 운영자가 만든 서버
+종합 1등은 없다. 가중치를 우리가 정하면 우리가 상위권인 이 표에서 그 설계를 반박할 방법이 없기 때문이다. 순위는 분야 안에서만 매긴다.
 
 ## 공공데이터·행정 (Public Data)
 
 > 도구 수 경쟁이 아니라 AI 발견성·실제 질문 커버·응답속이 핵심 — S2(집중)·S1(폭)·S3(게이트웨이) 삼각형 구성이 도메인 최적
 
-| 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 | 키 | 무료/전체 |
-|---|---|---|---|---|---|---|---|
-| [app.apick/business](https://apick.app) | 16 | 35 | 47 | 100% | 100% | — | — |
-| [app.apick/all](https://apick.app) | 82 | 64 | 128 | 100% | 100% | — | — |
-| [haklaekim/public-data-lens](https://github.com/haklaekim/public-data-lens) | 9 | 23 | 28 | 100% | 100% | — | — |
+| 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 |
+|---|---|---|---|---|---|
+| [app.apick/business](https://apick.app) | 16 | 35 | 47 | 100% | 100% |
+| [app.apick/all](https://apick.app) | 82 | 64 | 128 | 100% | 100% |
+| [haklaekim/public-data-lens](https://github.com/haklaekim/public-data-lens) | 9 | 23 | 28 | 100% | 100% |
 
 1. business — 사업자등록·기업정보·택배·검증의 핵심 질문을 직결, 응답 최고속(1.34배), 스키마 94%, 설명 명확
 2. all — 공공데이터 전역 커버(82개 도구: 사업자등록·택배·OCR·검색), 설명 품질 우수(중앙 176자), 스키마 98%
@@ -72,10 +66,10 @@
 
 <details><summary>심사에 들지 못한 2건</summary>
 
-| 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 | 키 | 무료/전체 |
-|---|---|---|---|---|---|---|---|
-| [yousunjung84-edu/academyinfo-mcp](https://github.com/yousunjung84-edu/academyinfo-mcp) | 8 | 137 | 236 | 100% | 100% | — | — |
-| [obundh/korea-public-data-catalog-mcp](https://github.com/obundh/korea-public-data-catalog-mcp) | 7 | 218 | 550 | 100% | 100% | — | — |
+| 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 |
+|---|---|---|---|---|---|
+| [yousunjung84-edu/academyinfo-mcp](https://github.com/yousunjung84-edu/academyinfo-mcp) | 8 | 137 | 236 | 100% | 100% |
+| [obundh/korea-public-data-catalog-mcp](https://github.com/obundh/korea-public-data-catalog-mcp) | 7 | 218 | 550 | 100% | 100% |
 
 </details>
 
@@ -83,11 +77,11 @@
 
 > S1은 창업법 특화로 도메인 통합 불가, 콜드 4140ms 성능 문제로 제외
 
-| 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 | 키 | 무료/전체 |
-|---|---|---|---|---|---|---|---|
-| [chrisryugj/korean-law-mcp](https://github.com/chrisryugj/korean-law-mcp) | 10 | 209 | 279 | 100% | 100% | — | — |
-| [app.sallim/contract-compass](https://github.com/sallim-app/contract-compass) 🏠 | 11 | 36 | **140** | 100% | 100% | — | — |
-| [scvcoder/korean-law-alio-mcp](https://github.com/scvcoder/korean-law-alio-mcp) | 125 | 213 | 292 | 76% | 0% | — | — |
+| 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 |
+|---|---|---|---|---|---|
+| [chrisryugj/korean-law-mcp](https://github.com/chrisryugj/korean-law-mcp) | 10 | 209 | 279 | 100% | 100% |
+| [app.sallim/contract-compass](https://github.com/sallim-app/contract-compass) 🏠 | 11 | 36 | **140** | 100% | 100% |
+| [scvcoder/korean-law-alio-mcp](https://github.com/scvcoder/korean-law-alio-mcp) | 125 | 213 | 292 | 76% | 0% |
 
 1. korean-law-mcp — 법령·판례·조례를 폭넓게 다루며 100% 설명·스키마·주석으로 AI가 도구 용도를 명확히 구분 가능, 성능 안정적(콜드 1.3배)
 2. contract-compass — 최상의 문서화(584자 중앙)와 최고 성능(콜드 140ms)이나 공공조달 전문이라 일반 법령 도메인 한정
@@ -97,9 +91,9 @@
 
 <details><summary>심사에 들지 못한 1건</summary>
 
-| 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 | 키 | 무료/전체 |
-|---|---|---|---|---|---|---|---|
-| [Choihello/startup-law-mcp](https://github.com/Choihello/startup-law-mcp) | 13 | 128 | **4140** | 100% | 0% | — | — |
+| 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 |
+|---|---|---|---|---|---|
+| [Choihello/startup-law-mcp](https://github.com/Choihello/startup-law-mcp) | 13 | 128 | **4140** | 100% | 0% |
 
 </details>
 
@@ -107,11 +101,11 @@
 
 > 증시 데이터는 S4-S2 이원화(시세·공시); S1은 크립토 미디어로 범주 밖, 주석 0%라 LLM이 도구에 접근 불가
 
-| 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 | 키 | 무료/전체 |
-|---|---|---|---|---|---|---|---|
-| [com.aikstockdata/mcp](https://github.com/na77tech-creator/aikstockdata) | 12 | 25 | 68 | 100% | 100% | — | — |
-| [Mrbaeksang/korea-stock-analyzer-mcp](https://github.com/Mrbaeksang/korea-stock-analyzer-mcp) | 6 | 220 | 547 | 100% | 100% | — | — |
-| [app.apick/finance](https://apick.app) | 3 | 32 | 33 | 100% | 100% | — | — |
+| 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 |
+|---|---|---|---|---|---|
+| [com.aikstockdata/mcp](https://github.com/na77tech-creator/aikstockdata) | 12 | 25 | 68 | 100% | 100% |
+| [Mrbaeksang/korea-stock-analyzer-mcp](https://github.com/Mrbaeksang/korea-stock-analyzer-mcp) | 6 | 220 | 547 | 100% | 100% |
+| [app.apick/finance](https://apick.app) | 3 | 32 | 33 | 100% | 100% |
 
 1. mcp — KOSPI/KOSDAQ 시세 + DART 공시는 한국 증시의 정수; 25ms 콜드·370자 상세설명·주석 100% = 모델이 실제 사용 가능
 2. korea-stock-analyzer-mcp — KRX + DART 공시로 S4와 동일한 핵심 커버, 287자 설명·주석 100% 보장; 느림(547ms 콜드)이 유일한 약점
@@ -121,9 +115,9 @@
 
 <details><summary>심사에 들지 못한 1건</summary>
 
-| 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 | 키 | 무료/전체 |
-|---|---|---|---|---|---|---|---|
-| [MosslandOpenDevs/alpha](https://github.com/MosslandOpenDevs/alpha) | 12 | 29 | **243** | 100% | 0% | — | — |
+| 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 |
+|---|---|---|---|---|---|
+| [MosslandOpenDevs/alpha](https://github.com/MosslandOpenDevs/alpha) | 12 | 29 | **243** | 100% | 0% |
 
 </details>
 
@@ -133,11 +127,11 @@
 
 > S1의 포괄성·완성도·속도 삼박자가 우월하고, S3의 극도의 콜드 펼티(5+초)는 모바일 환경에서 치명적이라 실무 사용성 최악
 
-| 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 | 키 | 무료/전체 |
-|---|---|---|---|---|---|---|---|
-| [app.sallim/korea-realty](https://github.com/sallim-app/korea-realty) 🏠 | 47 | 45 | **138** | 100% | 100% | — | 37/47 |
-| [com.airblockfz/seoul-apt-signal](https://seoul-apt-signal.airblock2026.workers.dev) | 6 | 26 | 54 | 100% | 0% | — | — |
-| [hlucent/realestate-stats-mcp](https://github.com/hlucent/realestate-stats-mcp) | 3 | 125 | **5226** | 100% | 0% | — | — |
+| 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 |
+|---|---|---|---|---|---|
+| [app.sallim/korea-realty](https://github.com/sallim-app/korea-realty) 🏠 <sub>무료 37/47</sub> | 47 | 45 | **138** | 100% | 100% |
+| [com.airblockfz/seoul-apt-signal](https://seoul-apt-signal.airblock2026.workers.dev) | 6 | 26 | 54 | 100% | 0% |
+| [hlucent/realestate-stats-mcp](https://github.com/hlucent/realestate-stats-mcp) | 3 | 125 | **5226** | 100% | 0% |
 
 1. korea-realty — 47개 도구로 법원경매·실거래 기록·시세 예측 등 부동산 핵심 질문 모두 커버, 설명·스키마·주석 100% 완성으로 모델이 용도를 명확히 판단 가능, 45ms 웜 지연으로 실시간 답변에 적합
 2. seoul-apt-signal — 6개 도구로 서울 25개 구 공식 거래·신호 제공하는 전문 도구, 26ms 최고속 응답, 설명·스키마 완성도 높음 (주석 0%는 단점이나 도구 수가 적어 보충)
@@ -149,11 +143,11 @@
 
 > 생활 예약·숙소·쇼핑이 이 카테고리의 중심인데 상위 3곳이 담아냈다. S3는 뉴스로 상거래 아님. S4는 설명 49자는 너무 짧고 주석도 없어 모델이 쓸 때를 판단 불가.
 
-| 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 | 키 | 무료/전체 |
-|---|---|---|---|---|---|---|---|
-| [ai.timeplex/booking](https://chat.timeplex.ai) | 6 | 455 | 1182 | 100% | 100% | — | — |
-| [com.theprotoclinical/commerce](https://www.theprotoclinical.com) | 13 | 147 | 197 | 100% | 0% | — | — |
-| [com.arcasos/arcasos-rentals](https://mcp.arcasos.com) | 3 | 660 | 1704 | 100% | 0% | — | — |
+| 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 |
+|---|---|---|---|---|---|
+| [ai.timeplex/booking](https://chat.timeplex.ai) | 6 | 455 | 1182 | 100% | 100% |
+| [com.theprotoclinical/commerce](https://www.theprotoclinical.com) | 13 | 147 | 197 | 100% | 0% |
+| [com.arcasos/arcasos-rentals](https://mcp.arcasos.com) | 3 | 660 | 1704 | 100% | 0% |
 
 1. booking — 뷰티·웰니스 예약은 실제로 자주 쓰는 생활 서비스. 완벽한 주석(100%)과 충분한 설명(268자), 빠른 응답(455ms warm)으로 모델 이해도 높음.
 2. commerce — 가장 빠른 성능(147ms warm/197ms cold)과 가장 많은 도구(13개), 충분한 설명(489자)으로 실행 가능. K-뷰티 쇼핑은 실제 상거래 수요.
@@ -163,12 +157,20 @@
 
 <details><summary>심사에 들지 못한 2건</summary>
 
-| 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 | 키 | 무료/전체 |
-|---|---|---|---|---|---|---|---|
-| [com.hankookilbo.mcp/hankookilbo-mcp](https://github.com/hkilbo/hankookilbo-mcp) | 10 | 202 | 386 | 100% | 100% | — | — |
-| [com.saaskr/korean-saas-directory](https://saaskr.com) | 5 | 254 | 664 | 100% | 0% | — | — |
+| 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 |
+|---|---|---|---|---|---|
+| [com.hankookilbo.mcp/hankookilbo-mcp](https://github.com/hkilbo/hankookilbo-mcp) | 10 | 202 | 386 | 100% | 100% |
+| [com.saaskr/korean-saas-directory](https://saaskr.com) | 5 | 254 | 664 | 100% | 0% |
 
 </details>
+
+## 표기
+
+* **도구** — `tools/list`에 실제로 들어 있는 개수. 0이면 껍데기다
+* **웜 / 콜드** — 연달아 부를 때 / 첫 호출(ms). 서버리스는 첫 호출에 기동 시간이 붙는다. 콜드가 웜의 3배를 넘으면 굵게 표시한다
+* **설명 / 주석** — 도구에 설명이 붙은 비율 / `readOnlyHint` 같은 주석이 붙은 비율. **둘 다 없으면 모델이 그 도구를 언제 어떻게 쓸지 모른다** — 데이터가 정확해도 답에 도달하지 못한다
+* 이름 옆 <sub>무료 N/M</sub> — 서버가 유료 게이트를 **스스로 공시**할 때만 붙는다. 없다고 무료라는 뜻이 아니다 — 밖에서는 판정할 수 없다
+* 🏠 — 이 목록의 운영자가 만든 서버
 
 ## 측정 못 함
 
