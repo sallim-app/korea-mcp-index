@@ -1,0 +1,2032 @@
+{
+ "measured": 134,
+ "unmeasurable": 106,
+ "boundaries": [
+  "AgentBridge-Lab/korea-space-support-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "Beau314/korea-tax-skills: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "ChangooLee/mcp-kr-legislation: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "Dayoooun/korea-stats-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "Engccer/gildongmu: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "Hwan3434/korean-job-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "HyeonhoonLee/kcris-mcp-server: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "Indigo-Coder-github/Mcp-Korea-Weather-Forecast: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "JIN-Z-pop/korea-ets-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "Jeric1223/tossinvest-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "Johnhyeon/dartlens-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "Johnhyeon/stocklens-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "JungHoonGhae/k-vote-cli: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "Koomook/data-go-mcp-servers: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "LimEulYoung/legal-search-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "LimEulYoung/legal_mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "Lt-kang/korea-weather-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "MarcoYou/open-proxy-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "MosslandOpenDevs/alpha: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "Mrbaeksang/korea-stock-analyzer-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "NSLC7779/dk-korea-health-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "NotNull92/korea-unipass-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "OldTemple91/korea-filings-api: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "OneVth/danbooru-tag-rag-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "SinGonKim/korean-med-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "TheNaham/koreafood-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "Whitening-Sinabro/korean-keyword-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "aeriis-kr/opendata-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "aesthetic-legalism5470/korean-dart-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "agent504330-ux/mcp-korean-stock: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "ai-frendly-datahub/KoreanNLPMCPRadar: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "bootpay/bootpay-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "capitalparser/kreports-dart-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "capitalparser/public-data-opportunity-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "chrisryugj/korean-dart-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "chrisryugj/korean-law-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "chrisryugj/korean-patent-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "civilian7/korean-people-persona: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "codivery/creir-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "dartpointai/dartpoint-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "dolseom/gongsi-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "eddmpython/dartlab: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "farmbit-mdk/korea-market-data-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "fieldcure/fieldcure-mcp-publicdata: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "finalchild/law-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "flytothesky23/obsidian-korean-dart-codex: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "giovinazo/alio-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "hike-lab/public-data-lens: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "hjsh200219/korea-public-data-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "hmmhmmhm/daiso-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "htjworld/art-bridge: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "hyeonseo2/bok-ecos-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "hypn4/opendart-fss-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "isnow890/data4library-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "jaykim429/korea-statistic-MCP-cginside: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "jinny-han/mcp-korea-fiscal: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "jkf87/weather-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "jshsakura/oc-korea-weather-time-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "juhyunchoi-mech/korean-law-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "junghan0611/zotero-config: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "jwgo/lemory: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "k08200/korea-mcp-suite: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "keonho-kim/OpenDart-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "kimjj81/KoreaWeatherMCP: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "kimlawtech/korean-certified-mail: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "kimlawtech/korean-contracts: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "kltng/calendar_converter: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "kokogo100/ragalgo-mcp-server: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "koreafintech/korean-crypto-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "kwangdol-star/koreaapi: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "kyo504/krx-cli: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "lazymac2x/korea-public-data-api: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "leadbrain/korean-data-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "leejaew/visitkorea-medicaltourism-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "leejaew/visitkorea-wellnesstourism-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "legalize-kr/agent-skills: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "legalize-kr/cli-tools: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "loved0543-dotcom/kdata-gate-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "na77tech-creator/aikstockdata: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "ngwoon/korea-realestate-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "nokelan/KoreanLawMCP: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "obundh/korea-public-data-catalog-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "ohhan777/korea_weather: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "opendata-kr/narajangteo-bid-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "opendata-kr/narajangteo-corpinfo-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "openpharma-org/asia-filings-mcp-server: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "pipeworx-io/mcp-ecos-kr: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "rabqatab/RegLink-Search-ko-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "redoxnet/mcp-lsopenapi: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "scvcoder/korean-law-alio-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "seo-jinseok/korean-law-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "seolcoding/korean-stat-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "socialkim/korea-onegov-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "sonmeggy/korean-engineering-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "spoyodevelop/korean-weather-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "sunhye/mcp-korea-weather: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "tae0y/real-estate-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "taehyun-lim/kr-elections-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "topnotcher107-dotcom/korea-university-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "uju777/mcp-server-naver-search: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "uscaidev/galpi-korean-law-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "woongaro/korean-law-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "wowzoo/korea-geocoder-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "wowzoo/korea-weather-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "yonghwan1106/korea-health-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "yoonJJ/korea-weather-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)"
+ ],
+ "criteria_note": "항목은 D-2026W34-22로 결과 보기 전에 고정됐다. 사후 변경 금지.",
+ "items": [
+  {
+   "name": "AgentBridge-Lab/korea-space-support-mcp",
+   "repo_url": "https://github.com/AgentBridge-Lab/korea-space-support-mcp",
+   "stars": 0,
+   "pushed": "2026-06-09",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "Beau314/korea-tax-skills",
+   "repo_url": "https://github.com/Beau314/korea-tax-skills",
+   "stars": 0,
+   "pushed": "2026-07-14",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "ChangooLee/mcp-kr-legislation",
+   "repo_url": "https://github.com/ChangooLee/mcp-kr-legislation",
+   "stars": 9,
+   "pushed": "2026-04-28",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "Dayoooun/korea-stats-mcp",
+   "repo_url": "https://github.com/Dayoooun/korea-stats-mcp",
+   "stars": 15,
+   "pushed": "2026-02-17",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "Engccer/gildongmu",
+   "repo_url": "https://github.com/Engccer/gildongmu",
+   "stars": 0,
+   "pushed": "2026-08-18",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "Hwan3434/korean-job-mcp",
+   "repo_url": "https://github.com/Hwan3434/korean-job-mcp",
+   "stars": 0,
+   "pushed": "2026-06-07",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "HyeonhoonLee/kcris-mcp-server",
+   "repo_url": "https://github.com/HyeonhoonLee/kcris-mcp-server",
+   "stars": 1,
+   "pushed": "2026-02-02",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "Indigo-Coder-github/Mcp-Korea-Weather-Forecast",
+   "repo_url": "https://github.com/Indigo-Coder-github/Mcp-Korea-Weather-Forecast",
+   "stars": 0,
+   "pushed": "2025-05-01",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "JIN-Z-pop/korea-ets-mcp",
+   "repo_url": "https://github.com/JIN-Z-pop/korea-ets-mcp",
+   "stars": 1,
+   "pushed": "2026-08-17",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "Jeric1223/tossinvest-mcp",
+   "repo_url": "https://github.com/Jeric1223/tossinvest-mcp",
+   "stars": 1,
+   "pushed": "2026-08-14",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "Johnhyeon/dartlens-mcp",
+   "repo_url": "https://github.com/Johnhyeon/dartlens-mcp",
+   "stars": 1,
+   "pushed": "2026-08-16",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "Johnhyeon/stocklens-mcp",
+   "repo_url": "https://github.com/Johnhyeon/stocklens-mcp",
+   "stars": 1,
+   "pushed": "2026-08-17",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "JungHoonGhae/k-vote-cli",
+   "repo_url": "https://github.com/JungHoonGhae/k-vote-cli",
+   "stars": 3,
+   "pushed": "2026-07-08",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "Koomook/data-go-mcp-servers",
+   "repo_url": "https://github.com/Koomook/data-go-mcp-servers",
+   "stars": 288,
+   "pushed": "2025-09-16",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "LimEulYoung/legal-search-mcp",
+   "repo_url": "https://github.com/LimEulYoung/legal-search-mcp",
+   "stars": 0,
+   "pushed": "2026-08-07",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "LimEulYoung/legal_mcp",
+   "repo_url": "https://github.com/LimEulYoung/legal_mcp",
+   "stars": 0,
+   "pushed": "2026-07-05",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "Lt-kang/korea-weather-mcp",
+   "repo_url": "https://github.com/Lt-kang/korea-weather-mcp",
+   "stars": 0,
+   "pushed": "2025-07-09",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "MarcoYou/open-proxy-mcp",
+   "repo_url": "https://github.com/MarcoYou/open-proxy-mcp",
+   "stars": 20,
+   "pushed": "2026-08-17",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "MosslandOpenDevs/alpha",
+   "repo_url": "https://github.com/MosslandOpenDevs/alpha",
+   "stars": 2,
+   "pushed": "2026-08-18",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "Mrbaeksang/korea-stock-analyzer-mcp",
+   "repo_url": "https://github.com/Mrbaeksang/korea-stock-analyzer-mcp",
+   "stars": 23,
+   "pushed": "2026-07-29",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "NSLC7779/dk-korea-health-mcp",
+   "repo_url": "https://github.com/NSLC7779/dk-korea-health-mcp",
+   "stars": 1,
+   "pushed": "2026-06-23",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "NotNull92/korea-unipass-mcp",
+   "repo_url": "https://github.com/NotNull92/korea-unipass-mcp",
+   "stars": 0,
+   "pushed": "2026-03-11",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "OldTemple91/korea-filings-api",
+   "repo_url": "https://github.com/OldTemple91/korea-filings-api",
+   "stars": 0,
+   "pushed": "2026-07-30",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "OneVth/danbooru-tag-rag-mcp",
+   "repo_url": "https://github.com/OneVth/danbooru-tag-rag-mcp",
+   "stars": 2,
+   "pushed": "2026-07-27",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "SinGonKim/korean-med-mcp",
+   "repo_url": "https://github.com/SinGonKim/korean-med-mcp",
+   "stars": 1,
+   "pushed": "2026-06-04",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "TheNaham/koreafood-mcp",
+   "repo_url": "https://github.com/TheNaham/koreafood-mcp",
+   "stars": 1,
+   "pushed": "2026-06-12",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "Whitening-Sinabro/korean-keyword-mcp",
+   "repo_url": "https://github.com/Whitening-Sinabro/korean-keyword-mcp",
+   "stars": 0,
+   "pushed": "2026-02-21",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "aeriis-kr/opendata-mcp",
+   "repo_url": "https://github.com/aeriis-kr/opendata-mcp",
+   "stars": 11,
+   "pushed": "2025-10-15",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "aesthetic-legalism5470/korean-dart-mcp",
+   "repo_url": "https://github.com/aesthetic-legalism5470/korean-dart-mcp",
+   "stars": 3,
+   "pushed": "2026-08-17",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "agent504330-ux/mcp-korean-stock",
+   "repo_url": "https://github.com/agent504330-ux/mcp-korean-stock",
+   "stars": 2,
+   "pushed": "2026-04-20",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "ai-frendly-datahub/KoreanNLPMCPRadar",
+   "repo_url": "https://github.com/ai-frendly-datahub/KoreanNLPMCPRadar",
+   "stars": 0,
+   "pushed": "2026-08-17",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "ai.smithery/jjlabsio-korea-stock-mcp",
+   "repo_url": "https://github.com/jjlabsio/korea-stock-mcp",
+   "stars": 174,
+   "pushed": "2026-08-16",
+   "archived": false,
+   "sources": [
+    "github",
+    "registry"
+   ],
+   "remote": {
+    "url": "https://server.smithery.ai/@jjlabsio/korea-stock-mcp/mcp",
+    "http": 404,
+    "latency_ms": 428,
+    "reachable": false,
+    "why": "HTTP 404"
+   },
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "app.sallim/korea-realty",
+   "repo_url": "https://github.com/sallim-app/korea-realty",
+   "stars": 0,
+   "pushed": "2026-08-18",
+   "archived": false,
+   "sources": [
+    "github",
+    "registry"
+   ],
+   "remote": {
+    "url": "https://realty.sallim.app/mcp",
+    "http": 200,
+    "latency_ms": 76,
+    "reachable": true,
+    "needs_key": false,
+    "tool_count": 47,
+    "why": ""
+   },
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "app.wishpool/korea-invoice-mcp",
+   "repo_url": "https://github.com/junter1989k-ai/korea-invoice-mcp",
+   "stars": null,
+   "pushed": null,
+   "archived": null,
+   "sources": [
+    "registry"
+   ],
+   "remote": {
+    "url": "https://inv-kr.wishpool.app/mcp",
+    "http": null,
+    "latency_ms": 1,
+    "reachable": false,
+    "why": "URLError: <urlopen error [Errno -2] Name or service not known>"
+   },
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "bootpay/bootpay-mcp",
+   "repo_url": "https://github.com/bootpay/bootpay-mcp",
+   "stars": 2,
+   "pushed": "2026-07-21",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "capitalparser/kreports-dart-mcp",
+   "repo_url": "https://github.com/capitalparser/kreports-dart-mcp",
+   "stars": 3,
+   "pushed": "2026-08-11",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "capitalparser/public-data-opportunity-mcp",
+   "repo_url": "https://github.com/capitalparser/public-data-opportunity-mcp",
+   "stars": 2,
+   "pushed": "2026-05-17",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "chrisryugj/korean-dart-mcp",
+   "repo_url": "https://github.com/chrisryugj/korean-dart-mcp",
+   "stars": 94,
+   "pushed": "2026-07-30",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "chrisryugj/korean-law-mcp",
+   "repo_url": "https://github.com/chrisryugj/korean-law-mcp",
+   "stars": 2476,
+   "pushed": "2026-08-17",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "chrisryugj/korean-patent-mcp",
+   "repo_url": "https://github.com/chrisryugj/korean-patent-mcp",
+   "stars": 52,
+   "pushed": "2026-08-17",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "civilian7/korean-people-persona",
+   "repo_url": "https://github.com/civilian7/korean-people-persona",
+   "stars": 22,
+   "pushed": "2026-06-11",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "codivery/creir-mcp",
+   "repo_url": "https://github.com/codivery/creir-mcp",
+   "stars": 0,
+   "pushed": "2026-02-13",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "com.airblockfz/seoul-apt-signal",
+   "repo_url": "",
+   "stars": null,
+   "pushed": null,
+   "archived": null,
+   "sources": [
+    "registry"
+   ],
+   "remote": {
+    "url": "https://seoul-apt-signal.airblock2026.workers.dev/mcp",
+    "http": 200,
+    "latency_ms": 685,
+    "reachable": true,
+    "needs_key": false,
+    "tool_count": 6,
+    "why": ""
+   },
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "com.empresskorea/kbeauty-agent-commons",
+   "repo_url": "",
+   "stars": null,
+   "pushed": null,
+   "archived": null,
+   "sources": [
+    "registry"
+   ],
+   "remote": {
+    "url": "https://empresskorea.com/kb-agent-network/mcp",
+    "http": 403,
+    "latency_ms": 291,
+    "reachable": true,
+    "needs_key": true,
+    "tool_count": null,
+    "why": "인증 필요 — 키 없이는 도구 목록도 못 본다"
+   },
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "com.saaskr/korean-saas-directory",
+   "repo_url": "",
+   "stars": null,
+   "pushed": null,
+   "archived": null,
+   "sources": [
+    "registry"
+   ],
+   "remote": {
+    "url": "https://saaskr.com/api/mcp",
+    "http": 200,
+    "latency_ms": 269,
+    "reachable": true,
+    "needs_key": false,
+    "tool_count": 5,
+    "why": ""
+   },
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "dartpointai/dartpoint-mcp",
+   "repo_url": "https://github.com/dartpointai/dartpoint-mcp",
+   "stars": 3,
+   "pushed": "2025-06-25",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "dolseom/gongsi-mcp",
+   "repo_url": "https://github.com/dolseom/gongsi-mcp",
+   "stars": 1,
+   "pushed": "2026-08-15",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "eddmpython/dartlab",
+   "repo_url": "https://github.com/eddmpython/dartlab",
+   "stars": 207,
+   "pushed": "2026-08-17",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "eu.ansvar/south-korea-law-mcp",
+   "repo_url": "https://github.com/Ansvar-Systems/south-korea-law-mcp",
+   "stars": null,
+   "pushed": null,
+   "archived": null,
+   "sources": [
+    "registry"
+   ],
+   "remote": null,
+   "package": {
+    "type": "npm",
+    "id": "@ansvar/south-korea-law-mcp",
+    "installable": true
+   },
+   "self_hostable": true
+  },
+  {
+   "name": "farmbit-mdk/korea-market-data-mcp",
+   "repo_url": "https://github.com/farmbit-mdk/korea-market-data-mcp",
+   "stars": 2,
+   "pushed": "2026-06-20",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "fieldcure/fieldcure-mcp-publicdata",
+   "repo_url": "https://github.com/fieldcure/fieldcure-mcp-publicdata",
+   "stars": 0,
+   "pushed": "2026-05-25",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "finalchild/law-mcp",
+   "repo_url": "https://github.com/finalchild/law-mcp",
+   "stars": 31,
+   "pushed": "2025-07-07",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "flytothesky23/obsidian-korean-dart-codex",
+   "repo_url": "https://github.com/flytothesky23/obsidian-korean-dart-codex",
+   "stars": 0,
+   "pushed": "2026-08-05",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "giovinazo/alio-mcp",
+   "repo_url": "https://github.com/giovinazo/alio-mcp",
+   "stars": 1,
+   "pushed": "2026-06-13",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "hike-lab/public-data-lens",
+   "repo_url": "https://github.com/hike-lab/public-data-lens",
+   "stars": 80,
+   "pushed": "2026-08-10",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "hjsh200219/korea-public-data-mcp",
+   "repo_url": "https://github.com/hjsh200219/korea-public-data-mcp",
+   "stars": 8,
+   "pushed": "2026-08-12",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "hmmhmmhm/daiso-mcp",
+   "repo_url": "https://github.com/hmmhmmhm/daiso-mcp",
+   "stars": 320,
+   "pushed": "2026-08-18",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "htjworld/art-bridge",
+   "repo_url": "https://github.com/htjworld/art-bridge",
+   "stars": 1,
+   "pushed": "2026-03-24",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "hyeonseo2/bok-ecos-mcp",
+   "repo_url": "https://github.com/hyeonseo2/bok-ecos-mcp",
+   "stars": 1,
+   "pushed": "2026-03-21",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "hypn4/opendart-fss-mcp",
+   "repo_url": "https://github.com/hypn4/opendart-fss-mcp",
+   "stars": 0,
+   "pushed": "2026-02-06",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "io.github.DarthSander/agentdata-nl",
+   "repo_url": "https://github.com/DarthSander/data_agent",
+   "stars": null,
+   "pushed": null,
+   "archived": null,
+   "sources": [
+    "registry"
+   ],
+   "remote": {
+    "url": "https://agentdata-api.sander-van-aard.workers.dev/mcp",
+    "http": 200,
+    "latency_ms": 33,
+    "reachable": true,
+    "needs_key": false,
+    "tool_count": 51,
+    "why": ""
+   },
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "io.github.DeepSearch-Common/korean-stocks",
+   "repo_url": "https://github.com/deepsearch-hq/deepsearch-x402.git",
+   "stars": null,
+   "pushed": null,
+   "archived": null,
+   "sources": [
+    "registry"
+   ],
+   "remote": null,
+   "package": {
+    "type": "npm",
+    "id": "deepsearch-x402-mcp",
+    "installable": true
+   },
+   "self_hostable": true
+  },
+  {
+   "name": "io.github.LJaysk/kr-dart-events",
+   "repo_url": "https://github.com/LJaysk/kr-dart-events",
+   "stars": null,
+   "pushed": null,
+   "archived": null,
+   "sources": [
+    "registry"
+   ],
+   "remote": null,
+   "package": {
+    "type": "oci",
+    "id": "ghcr.io/ljaysk/kr-dart-events-mcp:0.1.0",
+    "installable": null,
+    "why": "조회 경로 없음(oci)"
+   },
+   "self_hostable": true
+  },
+  {
+   "name": "io.github.SongT-50/korean-agriculture-mcp",
+   "repo_url": "https://github.com/SongT-50/korean-agriculture-mcp",
+   "stars": 0,
+   "pushed": "2026-03-08",
+   "archived": false,
+   "sources": [
+    "github",
+    "registry"
+   ],
+   "remote": {
+    "url": "https://korean-agriculture-mcp.onrender.com/mcp",
+    "http": 503,
+    "latency_ms": 250,
+    "reachable": false,
+    "why": "HTTP 503"
+   },
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "io.github.SongT-50/korean-public-data-mcp",
+   "repo_url": "https://github.com/SongT-50/korean-public-data-mcp",
+   "stars": 1,
+   "pushed": "2026-03-08",
+   "archived": false,
+   "sources": [
+    "github",
+    "registry"
+   ],
+   "remote": {
+    "url": "https://korean-public-data-mcp.onrender.com/mcp",
+    "http": 503,
+    "latency_ms": 180,
+    "reachable": false,
+    "why": "HTTP 503"
+   },
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "io.github.SongT-50/korean-stock-mcp",
+   "repo_url": "https://github.com/SongT-50/korean-stock-mcp",
+   "stars": 0,
+   "pushed": "2026-03-08",
+   "archived": false,
+   "sources": [
+    "github",
+    "registry"
+   ],
+   "remote": {
+    "url": "https://korean-stock-mcp.onrender.com/mcp",
+    "http": 503,
+    "latency_ms": 455,
+    "reachable": false,
+    "why": "HTTP 503"
+   },
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "io.github.bakyang2/kr-crypto-intelligence",
+   "repo_url": "https://github.com/bakyang2/kr-crypto-intelligence",
+   "stars": null,
+   "pushed": null,
+   "archived": null,
+   "sources": [
+    "registry"
+   ],
+   "remote": {
+    "url": "https://mcp.printmoneylab.com/mcp",
+    "http": 400,
+    "latency_ms": 96,
+    "reachable": false,
+    "why": "HTTP 400"
+   },
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "io.github.choiyounggi/korea-data-mcp",
+   "repo_url": "https://github.com/choiyounggi/korea-data-suite",
+   "stars": null,
+   "pushed": null,
+   "archived": null,
+   "sources": [
+    "registry"
+   ],
+   "remote": null,
+   "package": {
+    "type": "pypi",
+    "id": "korea-data-mcp",
+    "installable": true
+   },
+   "self_hostable": true
+  },
+  {
+   "name": "io.github.do-droid/seoul-essentials",
+   "repo_url": "https://github.com/do-droid/seoul-essentials",
+   "stars": null,
+   "pushed": null,
+   "archived": null,
+   "sources": [
+    "registry"
+   ],
+   "remote": null,
+   "package": {
+    "type": "oci",
+    "id": "ghcr.io/do-droid/seoul-essentials:0.2.0",
+    "installable": null,
+    "why": "조회 경로 없음(oci)"
+   },
+   "self_hostable": true
+  },
+  {
+   "name": "io.github.jayjodev/vivory-mcp-korea",
+   "repo_url": "https://github.com/jayjodev/vivory-mcp",
+   "stars": null,
+   "pushed": null,
+   "archived": null,
+   "sources": [
+    "registry"
+   ],
+   "remote": null,
+   "package": {
+    "type": "pypi",
+    "id": "vivory-mcp-korea",
+    "installable": false,
+    "why": "레지스트리에 없다(설치 불가)"
+   },
+   "self_hostable": true
+  },
+  {
+   "name": "io.github.koreal6803/finlab-ai",
+   "repo_url": "https://github.com/koreal6803/finlab-ai",
+   "stars": null,
+   "pushed": null,
+   "archived": null,
+   "sources": [
+    "registry"
+   ],
+   "remote": {
+    "url": "https://finlab-ai.koreal6803.workers.dev/mcp",
+    "http": 404,
+    "latency_ms": 28,
+    "reachable": false,
+    "why": "HTTP 404"
+   },
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "io.github.lazymac2x/govdata-korea",
+   "repo_url": "https://github.com/lazymac2x/govdata-korea-api",
+   "stars": null,
+   "pushed": null,
+   "archived": null,
+   "sources": [
+    "registry"
+   ],
+   "remote": {
+    "url": "https://api.lazy-mac.com/govdata-korea/mcp",
+    "http": 200,
+    "latency_ms": 1097,
+    "reachable": true,
+    "needs_key": false,
+    "tool_count": 6,
+    "why": ""
+   },
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "io.github.namuaix/seoul-tourism",
+   "repo_url": "",
+   "stars": null,
+   "pushed": null,
+   "archived": null,
+   "sources": [
+    "registry"
+   ],
+   "remote": {
+    "url": "https://mcp.namu.ai.kr/mcp",
+    "http": 200,
+    "latency_ms": 20,
+    "reachable": true,
+    "needs_key": false,
+    "tool_count": 3,
+    "why": ""
+   },
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "io.github.pipeworx-io/dart-kr",
+   "repo_url": "https://github.com/pipeworx-io/mcp-dart-kr",
+   "stars": 0,
+   "pushed": "2026-08-04",
+   "archived": false,
+   "sources": [
+    "github",
+    "registry"
+   ],
+   "remote": {
+    "url": "https://gateway.pipeworx.io/dart-kr/mcp",
+    "http": 200,
+    "latency_ms": 2057,
+    "reachable": true,
+    "needs_key": false,
+    "tool_count": 36,
+    "why": ""
+   },
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "io.github.sharebook-kr/pykrx-mcp",
+   "repo_url": "https://github.com/sharebook-kr/pykrx-mcp",
+   "stars": null,
+   "pushed": null,
+   "archived": null,
+   "sources": [
+    "registry"
+   ],
+   "remote": null,
+   "package": {
+    "type": "pypi",
+    "id": "pykrx-mcp",
+    "installable": true
+   },
+   "self_hostable": true
+  },
+  {
+   "name": "io.github.smilemin07/korean-rnd-regs-mcp",
+   "repo_url": "https://github.com/smilemin07/korean-rnd-regs-mcp",
+   "stars": 10,
+   "pushed": "2026-08-11",
+   "archived": false,
+   "sources": [
+    "github",
+    "registry"
+   ],
+   "remote": null,
+   "package": {
+    "type": "pypi",
+    "id": "korean-rnd-regs-mcp",
+    "installable": true
+   },
+   "self_hostable": true
+  },
+  {
+   "name": "io.github.standardbeagle/dart-query",
+   "repo_url": "https://github.com/standardbeagle/dart-query",
+   "stars": null,
+   "pushed": null,
+   "archived": null,
+   "sources": [
+    "registry"
+   ],
+   "remote": null,
+   "package": {
+    "type": "npm",
+    "id": "@standardbeagle/dart-query",
+    "installable": true
+   },
+   "self_hostable": true
+  },
+  {
+   "name": "io.github.whdrnr2583-cmd/koreanpulse",
+   "repo_url": "https://github.com/whdrnr2583-cmd/koreanpulse",
+   "stars": 3,
+   "pushed": "2026-07-19",
+   "archived": false,
+   "sources": [
+    "github",
+    "registry"
+   ],
+   "remote": {
+    "url": "https://mcp.koreanpulse.dev/mcp",
+    "http": 400,
+    "latency_ms": 35,
+    "reachable": false,
+    "why": "HTTP 400"
+   },
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "io.github.wujinkim/korea-business-verify",
+   "repo_url": "https://github.com/wujinkim/korea-business-verify",
+   "stars": null,
+   "pushed": null,
+   "archived": null,
+   "sources": [
+    "registry"
+   ],
+   "remote": null,
+   "package": {
+    "type": "npm",
+    "id": "korea-business-verify",
+    "installable": true
+   },
+   "self_hostable": true
+  },
+  {
+   "name": "io.github.yjhann33-design/korea-stock-insight-mcp",
+   "repo_url": "https://github.com/yjhann33-design/korea-stock-insight-mcp",
+   "stars": null,
+   "pushed": null,
+   "archived": null,
+   "sources": [
+    "registry"
+   ],
+   "remote": null,
+   "package": {
+    "type": "pypi",
+    "id": "korea-stock-insight-mcp",
+    "installable": true
+   },
+   "self_hostable": true
+  },
+  {
+   "name": "isnow890/data4library-mcp",
+   "repo_url": "https://github.com/isnow890/data4library-mcp",
+   "stars": 9,
+   "pushed": "2025-10-11",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "jaykim429/korea-statistic-MCP-cginside",
+   "repo_url": "https://github.com/jaykim429/korea-statistic-MCP-cginside",
+   "stars": 2,
+   "pushed": "2026-07-16",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "jinny-han/mcp-korea-fiscal",
+   "repo_url": "https://github.com/jinny-han/mcp-korea-fiscal",
+   "stars": 0,
+   "pushed": "2026-05-06",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "jkf87/weather-mcp",
+   "repo_url": "https://github.com/jkf87/weather-mcp",
+   "stars": 0,
+   "pushed": "2025-11-30",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "jshsakura/oc-korea-weather-time-mcp",
+   "repo_url": "https://github.com/jshsakura/oc-korea-weather-time-mcp",
+   "stars": 0,
+   "pushed": "2026-08-11",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "juhyunchoi-mech/korean-law-mcp",
+   "repo_url": "https://github.com/juhyunchoi-mech/korean-law-mcp",
+   "stars": 0,
+   "pushed": "2026-04-06",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "junghan0611/zotero-config",
+   "repo_url": "https://github.com/junghan0611/zotero-config",
+   "stars": 3,
+   "pushed": "2026-08-12",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "jwgo/lemory",
+   "repo_url": "https://github.com/jwgo/lemory",
+   "stars": 9,
+   "pushed": "2026-08-10",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "k08200/korea-mcp-suite",
+   "repo_url": "https://github.com/k08200/korea-mcp-suite",
+   "stars": 0,
+   "pushed": "2026-05-17",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "keonho-kim/OpenDart-mcp",
+   "repo_url": "https://github.com/keonho-kim/OpenDart-mcp",
+   "stars": 3,
+   "pushed": "2025-06-22",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "kimjj81/KoreaWeatherMCP",
+   "repo_url": "https://github.com/kimjj81/KoreaWeatherMCP",
+   "stars": 0,
+   "pushed": "2025-05-01",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "kimlawtech/korean-certified-mail",
+   "repo_url": "https://github.com/kimlawtech/korean-certified-mail",
+   "stars": 9,
+   "pushed": "2026-04-29",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "kimlawtech/korean-contracts",
+   "repo_url": "https://github.com/kimlawtech/korean-contracts",
+   "stars": 61,
+   "pushed": "2026-04-22",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "kltng/calendar_converter",
+   "repo_url": "https://github.com/kltng/calendar_converter",
+   "stars": 1,
+   "pushed": "2026-04-11",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "kokogo100/ragalgo-mcp-server",
+   "repo_url": "https://github.com/kokogo100/ragalgo-mcp-server",
+   "stars": 5,
+   "pushed": "2026-01-31",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "koreafintech/korean-crypto-mcp",
+   "repo_url": "https://github.com/koreafintech/korean-crypto-mcp",
+   "stars": 0,
+   "pushed": "2026-02-21",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "kr.eocpa/mydart",
+   "repo_url": "",
+   "stars": null,
+   "pushed": null,
+   "archived": null,
+   "sources": [
+    "registry"
+   ],
+   "remote": {
+    "url": "https://mydart.eocpa.kr/mcp",
+    "http": 200,
+    "latency_ms": 204,
+    "reachable": true,
+    "needs_key": false,
+    "tool_count": 16,
+    "why": ""
+   },
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "kwangdol-star/koreaapi",
+   "repo_url": "https://github.com/kwangdol-star/koreaapi",
+   "stars": 0,
+   "pushed": "2026-07-16",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "kyo504/krx-cli",
+   "repo_url": "https://github.com/kyo504/krx-cli",
+   "stars": 1,
+   "pushed": "2026-03-20",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "lazymac2x/korea-public-data-api",
+   "repo_url": "https://github.com/lazymac2x/korea-public-data-api",
+   "stars": 1,
+   "pushed": "2026-04-11",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "leadbrain/korean-data-mcp",
+   "repo_url": "https://github.com/leadbrain/korean-data-mcp",
+   "stars": 1,
+   "pushed": "2026-03-10",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "leejaew/visitkorea-medicaltourism-mcp",
+   "repo_url": "https://github.com/leejaew/visitkorea-medicaltourism-mcp",
+   "stars": 1,
+   "pushed": "2026-04-12",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "leejaew/visitkorea-wellnesstourism-mcp",
+   "repo_url": "https://github.com/leejaew/visitkorea-wellnesstourism-mcp",
+   "stars": 1,
+   "pushed": "2026-04-12",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "legalize-kr/agent-skills",
+   "repo_url": "https://github.com/legalize-kr/agent-skills",
+   "stars": 11,
+   "pushed": "2026-07-01",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "legalize-kr/cli-tools",
+   "repo_url": "https://github.com/legalize-kr/cli-tools",
+   "stars": 10,
+   "pushed": "2026-07-01",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "loved0543-dotcom/kdata-gate-mcp",
+   "repo_url": "https://github.com/loved0543-dotcom/kdata-gate-mcp",
+   "stars": 1,
+   "pushed": "2026-06-12",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "na77tech-creator/aikstockdata",
+   "repo_url": "https://github.com/na77tech-creator/aikstockdata",
+   "stars": 6,
+   "pushed": "2026-08-17",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "ngwoon/korea-realestate-mcp",
+   "repo_url": "https://github.com/ngwoon/korea-realestate-mcp",
+   "stars": 0,
+   "pushed": "2026-02-08",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "nokelan/KoreanLawMCP",
+   "repo_url": "https://github.com/nokelan/KoreanLawMCP",
+   "stars": 0,
+   "pushed": "2026-08-08",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "obundh/korea-public-data-catalog-mcp",
+   "repo_url": "https://github.com/obundh/korea-public-data-catalog-mcp",
+   "stars": 15,
+   "pushed": "2026-08-05",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "ohhan777/korea_weather",
+   "repo_url": "https://github.com/ohhan777/korea_weather",
+   "stars": 12,
+   "pushed": "2026-02-22",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "opendata-kr/narajangteo-bid-mcp",
+   "repo_url": "https://github.com/opendata-kr/narajangteo-bid-mcp",
+   "stars": 0,
+   "pushed": "2026-08-02",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "opendata-kr/narajangteo-corpinfo-mcp",
+   "repo_url": "https://github.com/opendata-kr/narajangteo-corpinfo-mcp",
+   "stars": 0,
+   "pushed": "2026-08-02",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "openpharma-org/asia-filings-mcp-server",
+   "repo_url": "https://github.com/openpharma-org/asia-filings-mcp-server",
+   "stars": 3,
+   "pushed": "2025-12-18",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "pipeworx-io/mcp-ecos-kr",
+   "repo_url": "https://github.com/pipeworx-io/mcp-ecos-kr",
+   "stars": 0,
+   "pushed": "2026-08-04",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "rabqatab/RegLink-Search-ko-mcp",
+   "repo_url": "https://github.com/rabqatab/RegLink-Search-ko-mcp",
+   "stars": 1,
+   "pushed": "2026-04-02",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "redoxnet/mcp-lsopenapi",
+   "repo_url": "https://github.com/redoxnet/mcp-lsopenapi",
+   "stars": 2,
+   "pushed": "2026-06-09",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "scvcoder/korean-law-alio-mcp",
+   "repo_url": "https://github.com/scvcoder/korean-law-alio-mcp",
+   "stars": 15,
+   "pushed": "2026-06-06",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "seo-jinseok/korean-law-mcp",
+   "repo_url": "https://github.com/seo-jinseok/korean-law-mcp",
+   "stars": 4,
+   "pushed": "2025-12-26",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "seolcoding/korean-stat-mcp",
+   "repo_url": "https://github.com/seolcoding/korean-stat-mcp",
+   "stars": 1,
+   "pushed": "2026-05-01",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "socialkim/korea-onegov-mcp",
+   "repo_url": "https://github.com/socialkim/korea-onegov-mcp",
+   "stars": 0,
+   "pushed": "2026-07-27",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "sonmeggy/korean-engineering-mcp",
+   "repo_url": "https://github.com/sonmeggy/korean-engineering-mcp",
+   "stars": 2,
+   "pushed": "2026-08-15",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "spoyodevelop/korean-weather-mcp",
+   "repo_url": "https://github.com/spoyodevelop/korean-weather-mcp",
+   "stars": 1,
+   "pushed": "2025-04-13",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "sunhye/mcp-korea-weather",
+   "repo_url": "https://github.com/sunhye/mcp-korea-weather",
+   "stars": 0,
+   "pushed": "2025-09-05",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "tae0y/real-estate-mcp",
+   "repo_url": "https://github.com/tae0y/real-estate-mcp",
+   "stars": 368,
+   "pushed": "2026-07-18",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "taehyun-lim/kr-elections-mcp",
+   "repo_url": "https://github.com/taehyun-lim/kr-elections-mcp",
+   "stars": 1,
+   "pushed": "2026-07-24",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "topnotcher107-dotcom/korea-university-mcp",
+   "repo_url": "https://github.com/topnotcher107-dotcom/korea-university-mcp",
+   "stars": 0,
+   "pushed": "2026-08-11",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "uju777/mcp-server-naver-search",
+   "repo_url": "https://github.com/uju777/mcp-server-naver-search",
+   "stars": 1,
+   "pushed": "2026-01-12",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "uscaidev/galpi-korean-law-mcp",
+   "repo_url": "https://github.com/uscaidev/galpi-korean-law-mcp",
+   "stars": 0,
+   "pushed": "2026-07-21",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "woongaro/korean-law-mcp",
+   "repo_url": "https://github.com/woongaro/korean-law-mcp",
+   "stars": 1,
+   "pushed": "2026-03-12",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "wowzoo/korea-geocoder-mcp",
+   "repo_url": "https://github.com/wowzoo/korea-geocoder-mcp",
+   "stars": 0,
+   "pushed": "2025-09-01",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "wowzoo/korea-weather-mcp",
+   "repo_url": "https://github.com/wowzoo/korea-weather-mcp",
+   "stars": 1,
+   "pushed": "2025-09-01",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "yonghwan1106/korea-health-mcp",
+   "repo_url": "https://github.com/yonghwan1106/korea-health-mcp",
+   "stars": 0,
+   "pushed": "2026-01-13",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  },
+  {
+   "name": "yoonJJ/korea-weather-mcp",
+   "repo_url": "https://github.com/yoonJJ/korea-weather-mcp",
+   "stars": 0,
+   "pushed": "2026-04-17",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null
+  }
+ ]
+}

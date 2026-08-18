@@ -1,0 +1,5477 @@
+{
+ "generated_note": "재실행 가능. sources·terms로 어느 원천이 잡았는지 추적된다.",
+ "boundaries": [
+  "github:'topic:mcp korea' 총 154건 중 100건만 수집 — truncated",
+  "github:'mcp korea in:name' 총 148건 중 100건만 수집 — truncated",
+  "github:'mcp korean in:description' 총 265건 중 100건만 수집 — truncated",
+  "github:'mcp 한국 in:readme' 총 1046건 중 100건만 수집 — truncated"
+ ],
+ "count": 355,
+ "items": [
+  {
+   "name": "1000ssam/skills-for-teachers",
+   "description": "선생님을 위한 skill 모음",
+   "stars": 8,
+   "pushed": "2026-08-06",
+   "archived": false,
+   "repo_url": "https://github.com/1000ssam/skills-for-teachers",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "119gpt333-sys/fire-regulations-mcp",
+   "description": "Official-source temporal MCP for Korean fire-safety regulations",
+   "stars": 0,
+   "pushed": "2026-08-12",
+   "archived": false,
+   "repo_url": "https://github.com/119gpt333-sys/fire-regulations-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "11pyo/AINavManifest",
+   "description": "Embedded workflow instructions for AI agents. Korean Patent 10-2026-0071716. MIT + FRAND for open standardization.",
+   "stars": 1,
+   "pushed": "2026-05-15",
+   "archived": false,
+   "repo_url": "https://github.com/11pyo/AINavManifest",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "1989jejejeje-cpu/korea-law-mcp",
+   "description": "",
+   "stars": 0,
+   "pushed": "2026-08-10",
+   "archived": false,
+   "repo_url": "https://github.com/1989jejejeje-cpu/korea-law-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "97Wobbler/my-ai-kit",
+   "description": "Personal Claude Code and Codex plugin marketplace.",
+   "stars": 6,
+   "pushed": "2026-08-10",
+   "archived": false,
+   "repo_url": "https://github.com/97Wobbler/my-ai-kit",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "AgentBridge-Lab/korea-space-support-mcp",
+   "description": "한국 우주·항공·국방우주 정부 R&D 지원사업 공고 데이터셋 — 크롤러·분류기·MCP·REST API",
+   "stars": 0,
+   "pushed": "2026-06-09",
+   "archived": false,
+   "repo_url": "https://github.com/AgentBridge-Lab/korea-space-support-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "topic:mcp korea",
+    "topic:mcp-server korea"
+   ]
+  },
+  {
+   "name": "AlexAI-MCP/AgentForge",
+   "description": "AI agent era framework",
+   "stars": 24,
+   "pushed": "2026-03-23",
+   "archived": false,
+   "repo_url": "https://github.com/AlexAI-MCP/AgentForge",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "AlexAI-MCP/PlantOntology",
+   "description": "Open-source plant knowledge graph ? 10,888 species with AI-powered search, companion planting, and carbon calculator",
+   "stars": 19,
+   "pushed": "2026-04-11",
+   "archived": false,
+   "repo_url": "https://github.com/AlexAI-MCP/PlantOntology",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "Beau314/korea-tax-skills",
+   "description": "Estimate Korean NHIS 지역가입자 건보료 from apartment 공시가격 — Claude Code & Codex plugin bundling two remote MCPs",
+   "stars": 0,
+   "pushed": "2026-07-14",
+   "archived": false,
+   "repo_url": "https://github.com/Beau314/korea-tax-skills",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "BoxLogoDev/sapstack",
+   "description": "Universal SAP skills and agents for Claude Code — FI, CO, TR, MM, SD, PP, HCM, SFSF, ABAP, S/4 Migration, BTP, BASIS",
+   "stars": 17,
+   "pushed": "2026-08-17",
+   "archived": false,
+   "repo_url": "https://github.com/BoxLogoDev/sapstack",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "CHAVKVK2/korea-stock-quant-screener",
+   "description": "Korean stock quant screener dashboard built on korea-stock-mcp",
+   "stars": 0,
+   "pushed": "2026-07-22",
+   "archived": false,
+   "repo_url": "https://github.com/CHAVKVK2/korea-stock-quant-screener",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description"
+   ]
+  },
+  {
+   "name": "ChangooLee/mcp-kr-legislation",
+   "description": "한국 법제처 OPEN API를 통합한 Model Context Protocol(MCP) 서버입니다. 130개 이상의 포괄적인 도구를 통해 법령, 부가서비스, 행정규칙, 자치법규, 판례, 위원회결정문, 조약, 별표서식, 학칙공단, 법령용어, 맞춤형, 지식베이스, 특별행정심판, 중앙부처해석 등 모든 법률 정보에 대한 접근을 제공합니다.",
+   "stars": 9,
+   "pushed": "2026-04-28",
+   "archived": false,
+   "repo_url": "https://github.com/ChangooLee/mcp-kr-legislation",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "CharlesLee1991/bmp-ai-air",
+   "description": "AIR Korean Ad Insights — Tier 1 LLM-First MCP gateway (air.bmp.ai). Operated by BIZACTIONER room.",
+   "stars": 1,
+   "pushed": "2026-06-13",
+   "archived": false,
+   "repo_url": "https://github.com/CharlesLee1991/bmp-ai-air",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description"
+   ]
+  },
+  {
+   "name": "Choihello/startup-consult",
+   "description": "창업 지원사업 자격 스크리닝 상담 스킬 — startup-law-mcp를 상담 에이전트로 쓰는 Claude Code Skill",
+   "stars": 1,
+   "pushed": "2026-07-15",
+   "archived": false,
+   "repo_url": "https://github.com/Choihello/startup-consult",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "DECK6/korea-mice-safety-agent",
+   "description": "Offline ontology-based MCP agent for Korean MICE and outdoor-event safety planning",
+   "stars": 6,
+   "pushed": "2026-08-08",
+   "archived": false,
+   "repo_url": "https://github.com/DECK6/korea-mice-safety-agent",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description"
+   ]
+  },
+  {
+   "name": "Daehan-Base/awesome-x402-on-base",
+   "description": "Korean resources and tutorials for x402 payment protocol on Base chain",
+   "stars": 7,
+   "pushed": "2026-02-28",
+   "archived": false,
+   "repo_url": "https://github.com/Daehan-Base/awesome-x402-on-base",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "Dayoooun/dart-mcp",
+   "description": "",
+   "stars": 4,
+   "pushed": "2026-01-09",
+   "archived": false,
+   "repo_url": "https://github.com/Dayoooun/dart-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "Dayoooun/korea-stats-mcp",
+   "description": "자연어로 KOSIS 통계를 조회하는 MCP 서버",
+   "stars": 15,
+   "pushed": "2026-02-17",
+   "archived": false,
+   "repo_url": "https://github.com/Dayoooun/korea-stats-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name",
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "DrFirstLee/korea-stock-mcp",
+   "description": "korea-stock-mcp",
+   "stars": 3,
+   "pushed": "2026-06-05",
+   "archived": false,
+   "repo_url": "https://github.com/DrFirstLee/korea-stock-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name",
+    "mcp korean in:description"
+   ]
+  },
+  {
+   "name": "Engccer/gildongmu",
+   "description": "접근성 우선 대한민국 길찾기 (웹·iOS·CLI·MCP). 스크린 리더만으로 검색부터 실시간 도보 안내까지. Accessibility-first navigation for Korea",
+   "stars": 0,
+   "pushed": "2026-08-18",
+   "archived": false,
+   "repo_url": "https://github.com/Engccer/gildongmu",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "topic:mcp-server korea"
+   ]
+  },
+  {
+   "name": "Gihun-Yun/-mcp-korean-guide",
+   "description": "Awesome MCP Servers 한국어 종합 가이드 - 2,596개 이상의 MCP 서버 정리",
+   "stars": 0,
+   "pushed": "2026-02-27",
+   "archived": false,
+   "repo_url": "https://github.com/Gihun-Yun/-mcp-korean-guide",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "Hwan3434/korean-job-mcp",
+   "description": "🇰🇷 Korean Job Recruitment MCP Server - 원티드, 직장인, 대기업 채용 정보 통합 조회",
+   "stars": 0,
+   "pushed": "2026-06-07",
+   "archived": false,
+   "repo_url": "https://github.com/Hwan3434/korean-job-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "HyeonhoonLee/kcris-mcp-server",
+   "description": "A Model Context Protocol (MCP) Server providing LLM tools for the Korean Clinical Research Information Service (CRIS) DB REST API.",
+   "stars": 1,
+   "pushed": "2026-02-02",
+   "archived": false,
+   "repo_url": "https://github.com/HyeonhoonLee/kcris-mcp-server",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description"
+   ]
+  },
+  {
+   "name": "HyunjunJeon/FastCampus_mcp_a2a_stock_project",
+   "description": "FastCampus 온라인 강의 - MCP와 A2A로 끝내는 상상도 못할 Multi-Agent 구축 (Part03 - Chapter 01)",
+   "stars": 10,
+   "pushed": "2025-12-26",
+   "archived": false,
+   "repo_url": "https://github.com/HyunjunJeon/FastCampus_mcp_a2a_stock_project",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "Indigo-Coder-github/Mcp-Korea-Weather-Forecast",
+   "description": "MCP server to provide weather forecast in South Korea",
+   "stars": 0,
+   "pushed": "2025-05-01",
+   "archived": false,
+   "repo_url": "https://github.com/Indigo-Coder-github/Mcp-Korea-Weather-Forecast",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "topic:mcp korea",
+    "topic:mcp-server korea"
+   ]
+  },
+  {
+   "name": "JIN-Z-pop/korea-ets-mcp",
+   "description": "MCP server for Korea ETS (K-ETS) carbon market data — KAU/KCU/KOC dashboard, query & export tools with 21K+ records (2015-2026)",
+   "stars": 1,
+   "pushed": "2026-08-17",
+   "archived": false,
+   "repo_url": "https://github.com/JIN-Z-pop/korea-ets-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name",
+    "mcp korean in:description",
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "Jaeminyx-Stoa/pydbsec",
+   "description": "Python wrapper for DB Securities (DB증권) OpenAPI — 국내/해외 주식 잔고, 시세, 매수/매도, 차트 조회",
+   "stars": 3,
+   "pushed": "2026-07-21",
+   "archived": false,
+   "repo_url": "https://github.com/Jaeminyx-Stoa/pydbsec",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "JeongSeongMok/tossinvest-openapi-mcp",
+   "description": "토스증권 Open API(Toss Securities Open API)를 AI 에이전트가 쉽게 탐색·연동하도록 돕는 MCP 서버 (stdio). Claude·Cursor·Codex 지원.",
+   "stars": 2,
+   "pushed": "2026-06-10",
+   "archived": false,
+   "repo_url": "https://github.com/JeongSeongMok/tossinvest-openapi-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "topic:mcp korea",
+    "topic:mcp-server korea"
+   ]
+  },
+  {
+   "name": "Jeric1223/tossinvest-mcp",
+   "description": "Claude에서 토스증권 계좌로 국내·미국 주식을 조회하고 주문하는 MCP 서버 · Toss Securities MCP server for Korean and US stocks",
+   "stars": 1,
+   "pushed": "2026-08-14",
+   "archived": false,
+   "repo_url": "https://github.com/Jeric1223/tossinvest-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description",
+    "topic:mcp korea",
+    "topic:mcp-server korea"
+   ]
+  },
+  {
+   "name": "JinHo-von-Choi/SooTool",
+   "description": "SooTool — Precision Calc MCP: Decimal-only deterministic calculation server for LLM tool use",
+   "stars": 4,
+   "pushed": "2026-04-24",
+   "archived": false,
+   "repo_url": "https://github.com/JinHo-von-Choi/SooTool",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "JinhuiStudy/llm-engineering-bootcamp",
+   "description": "14-day hardcore LLM engineering bootcamp curriculum — Prompt / Structured Output / Tool Use / RAG / Eval / Agent / MCP / Observability / Production. Free resources, self-hostable, Korean+English.",
+   "stars": 2,
+   "pushed": "2026-04-25",
+   "archived": false,
+   "repo_url": "https://github.com/JinhuiStudy/llm-engineering-bootcamp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description",
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "Johnhyeon/dartlens-mcp",
+   "description": "Claude MCP server for Korean DART filings, financial statements, ownership disclosures, and insider trades.",
+   "stars": 1,
+   "pushed": "2026-08-16",
+   "archived": false,
+   "repo_url": "https://github.com/Johnhyeon/dartlens-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description",
+    "topic:mcp korea",
+    "topic:mcp-server korea"
+   ]
+  },
+  {
+   "name": "Johnhyeon/stocklens-mcp",
+   "description": "Claude MCP server for AI-ready Korean & US stock market data from Naver Finance and Yahoo Finance.",
+   "stars": 1,
+   "pushed": "2026-08-17",
+   "archived": false,
+   "repo_url": "https://github.com/Johnhyeon/stocklens-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description",
+    "topic:mcp korea",
+    "topic:mcp-server korea"
+   ]
+  },
+  {
+   "name": "JungHoonGhae/k-vote-cli",
+   "description": "한국 선거 공개 데이터 — 개표결과·여론조사·투표율을 API 키 없이 한 명령으로. 사람도, AI 에이전트도(MCP). 누구에게나 같은 데이터. Korean public election data in one command, no API key.",
+   "stars": 3,
+   "pushed": "2026-07-08",
+   "archived": false,
+   "repo_url": "https://github.com/JungHoonGhae/k-vote-cli",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description"
+   ]
+  },
+  {
+   "name": "KRDS-MCP/krds-mcp",
+   "description": "",
+   "stars": 15,
+   "pushed": "2026-02-04",
+   "archived": false,
+   "repo_url": "https://github.com/KRDS-MCP/krds-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "Koomook/data-go-mcp-servers",
+   "description": "Korea public data portal (data.go.kr) API MCP servers",
+   "stars": 288,
+   "pushed": "2025-09-16",
+   "archived": false,
+   "repo_url": "https://github.com/Koomook/data-go-mcp-servers",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description",
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "Leuconoe/GameTranslateSkills",
+   "description": "",
+   "stars": 5,
+   "pushed": "2026-08-12",
+   "archived": false,
+   "repo_url": "https://github.com/Leuconoe/GameTranslateSkills",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "Lex6won/vibecode-checker",
+   "description": "AI로 빠르게 만든 코드를 한국 정부·국제 보안 기준으로 점검하는 1차 보안 린터 (CLI + MCP, 망분리 지원)",
+   "stars": 4,
+   "pushed": "2026-08-16",
+   "archived": false,
+   "repo_url": "https://github.com/Lex6won/vibecode-checker",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "LimEulYoung/legal-search-mcp",
+   "description": "MCP server for Korean case law, statutes and sentencing data",
+   "stars": 0,
+   "pushed": "2026-08-07",
+   "archived": false,
+   "repo_url": "https://github.com/LimEulYoung/legal-search-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "LimEulYoung/legal_mcp",
+   "description": "Legal MCP Server for Korean law search",
+   "stars": 0,
+   "pushed": "2026-07-05",
+   "archived": false,
+   "repo_url": "https://github.com/LimEulYoung/legal_mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description"
+   ]
+  },
+  {
+   "name": "Lt-kang/korea-weather-mcp",
+   "description": "korea weather info mcp",
+   "stars": 0,
+   "pushed": "2025-07-09",
+   "archived": false,
+   "repo_url": "https://github.com/Lt-kang/korea-weather-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name",
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "MarcoYou/open-proxy-mcp",
+   "description": "MCP server for Korean DART filings — financials, valuation, ownership, business analysis, and AGM proxy-voting for AI agents.",
+   "stars": 20,
+   "pushed": "2026-08-17",
+   "archived": false,
+   "repo_url": "https://github.com/MarcoYou/open-proxy-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description",
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "MosslandOpenDevs/MosslandDeveloperSupportProgram",
+   "description": "Mossland offers the MOC Support Program for open-source developers. Ideas can be proposed through voting on Mossland Metaverse. Active developers can submit detailed plans for review. Rewards in MOC tokens are based on project progress and contributions.",
+   "stars": 45,
+   "pushed": "2026-07-05",
+   "archived": false,
+   "repo_url": "https://github.com/MosslandOpenDevs/MosslandDeveloperSupportProgram",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "MosslandOpenDevs/alpha",
+   "description": "Korean crypto × AI vertical media + community — alpha.moss.land. Channel stance, AI briefs, RAG, 8 AI personas with track records, 12-tool MCP server.",
+   "stars": 2,
+   "pushed": "2026-08-18",
+   "archived": false,
+   "repo_url": "https://github.com/MosslandOpenDevs/alpha",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description",
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "MosslandOpenDevs/alpha-mcp",
+   "description": "Korean crypto × AI media as MCP tools — 12 tools exposed by alpha.moss.land for Claude Desktop, Cursor, Cline, Continue, Zed",
+   "stars": 0,
+   "pushed": "2026-07-05",
+   "archived": false,
+   "repo_url": "https://github.com/MosslandOpenDevs/alpha-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "topic:mcp-server korea"
+   ]
+  },
+  {
+   "name": "MosslandOpenDevs/awesome-korean-crypto-ai",
+   "description": "A curated list of Korean crypto × AI resources — channels, MCP servers, macro feeds, datasets, aggregators. LLM-friendly.",
+   "stars": 0,
+   "pushed": "2026-07-14",
+   "archived": false,
+   "repo_url": "https://github.com/MosslandOpenDevs/awesome-korean-crypto-ai",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "Mrbaeksang/korea-stock-analyzer-mcp",
+   "description": "Remote MCP server for Korean stock analysis — real DART filings, KRX quotes, conservative valuation ranges for Claude, Cursor and any MCP client",
+   "stars": 23,
+   "pushed": "2026-07-29",
+   "archived": false,
+   "repo_url": "https://github.com/Mrbaeksang/korea-stock-analyzer-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name",
+    "mcp korean in:description",
+    "mcp 한국 in:readme",
+    "topic:mcp korea",
+    "topic:mcp-server korea"
+   ]
+  },
+  {
+   "name": "NSLC7779/dk-korea-health-mcp",
+   "description": "대한민국 공공 의료 데이터(data.go.kr — 심평원·식약처) MCP 서버 · 비급여·병원·의약품·DUR·질병통계",
+   "stars": 1,
+   "pushed": "2026-06-23",
+   "archived": false,
+   "repo_url": "https://github.com/NSLC7779/dk-korea-health-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name",
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "Nampard/school-violence-docs",
+   "description": "학교폭력 사안처리 행정서류 생성(.hwpx) 스킬",
+   "stars": 4,
+   "pushed": "2026-06-26",
+   "archived": false,
+   "repo_url": "https://github.com/Nampard/school-violence-docs",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "NomaDamas/k-skill",
+   "description": "한국인을 위한 스킬 모음집 - 에이전트를 한국인으로",
+   "stars": 7215,
+   "pushed": "2026-08-18",
+   "archived": false,
+   "repo_url": "https://github.com/NomaDamas/k-skill",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "NotNull92/korea-unipass-mcp",
+   "description": "대한민국 관세청(UNI-PASS) 실시간 해외 직구 통관 정보를 조회하는 MCP 서버",
+   "stars": 0,
+   "pushed": "2026-03-11",
+   "archived": false,
+   "repo_url": "https://github.com/NotNull92/korea-unipass-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "OldTemple91/korea-filings-api",
+   "description": "AI-ready English summaries of Korean DART (전자공시) filings, paid per call in USDC via x402. Python SDK + MCP server included.",
+   "stars": 0,
+   "pushed": "2026-07-30",
+   "archived": false,
+   "repo_url": "https://github.com/OldTemple91/korea-filings-api",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "topic:mcp korea",
+    "topic:mcp-server korea"
+   ]
+  },
+  {
+   "name": "OneVth/danbooru-tag-rag-mcp",
+   "description": "MCP server for Korean→Danbooru tag search with hallucination filtering. Port of joykst96/danbooru-tag-rag where the LLM lives in the client (Claude/Codex/local).",
+   "stars": 2,
+   "pushed": "2026-07-27",
+   "archived": false,
+   "repo_url": "https://github.com/OneVth/danbooru-tag-rag-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description"
+   ]
+  },
+  {
+   "name": "PhDHan88/korea-academic-mcp",
+   "description": "",
+   "stars": 0,
+   "pushed": "2026-07-21",
+   "archived": false,
+   "repo_url": "https://github.com/PhDHan88/korea-academic-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "PlateerLab/synaptic-memory",
+   "description": "Knowledge graph + MCP tool server for LLM agents with hybrid retrieval, live DB sync, Korean FTS, and memory feedback.",
+   "stars": 33,
+   "pushed": "2026-07-03",
+   "archived": false,
+   "repo_url": "https://github.com/PlateerLab/synaptic-memory",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description",
+    "topic:mcp korea",
+    "topic:mcp-server korea"
+   ]
+  },
+  {
+   "name": "PracLee/job_hunting_mcp",
+   "description": "",
+   "stars": 4,
+   "pushed": "2026-05-27",
+   "archived": false,
+   "repo_url": "https://github.com/PracLee/job_hunting_mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "PyungkangHong094/mcp-all-korea",
+   "description": "",
+   "stars": 2,
+   "pushed": "2026-07-09",
+   "archived": false,
+   "repo_url": "https://github.com/PyungkangHong094/mcp-all-korea",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "Rodert/awesome-mcp",
+   "description": "A curated list of MCP servers and related resources.",
+   "stars": 16,
+   "pushed": "2026-08-18",
+   "archived": false,
+   "repo_url": "https://github.com/Rodert/awesome-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "SEOUL-raphael/korean-law-mcp",
+   "description": "",
+   "stars": 0,
+   "pushed": "2026-08-04",
+   "archived": false,
+   "repo_url": "https://github.com/SEOUL-raphael/korean-law-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "SKT-AI/A.X-4.0",
+   "description": "SKT A.X LLM 4.0",
+   "stars": 159,
+   "pushed": "2026-02-11",
+   "archived": false,
+   "repo_url": "https://github.com/SKT-AI/A.X-4.0",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "Sangmoo/Claude-Java-Toolkit",
+   "description": "AI-powered tools for Oracle DB & Java/Spring enterprise development",
+   "stars": 5,
+   "pushed": "2026-07-01",
+   "archived": false,
+   "repo_url": "https://github.com/Sangmoo/Claude-Java-Toolkit",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "Sejin-Koo/korean-law-mcp",
+   "description": "",
+   "stars": 0,
+   "pushed": "2026-08-13",
+   "archived": false,
+   "repo_url": "https://github.com/Sejin-Koo/korean-law-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "SeoNaRu/korean-law-mcp",
+   "description": "korean-law-mcp",
+   "stars": 71,
+   "pushed": "2026-01-20",
+   "archived": false,
+   "repo_url": "https://github.com/SeoNaRu/korean-law-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name",
+    "mcp korean in:description",
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "SeoNaRu/lexguard-mcp",
+   "description": "일반인들이 AI를 통해 법률 정보를 쉽게 조회할 수 있는 MCP 서버. 법령 검색, 조문 조회, 판례 검색 등 159개 API 지원.",
+   "stars": 127,
+   "pushed": "2026-08-11",
+   "archived": false,
+   "repo_url": "https://github.com/SeoNaRu/lexguard-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "SeoulVentures/koreanskinpedia-mcp",
+   "description": "KoreanSkinpedia MCP — publishing client (Claude Code / MCP)",
+   "stars": 0,
+   "pushed": "2026-06-26",
+   "archived": false,
+   "repo_url": "https://github.com/SeoulVentures/koreanskinpedia-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "SinGonKim/korean-med-mcp",
+   "description": "한국 공공데이터 + 법제처 등 의료 관련 데이터를 모아놓은 MCP",
+   "stars": 1,
+   "pushed": "2026-06-04",
+   "archived": false,
+   "repo_url": "https://github.com/SinGonKim/korean-med-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "SonAIengine/ku-portal-mcp",
+   "description": "MCP server for Korea University KUPID portal & Canvas LMS — notices, schedules, library seats, assignments, grades from Claude",
+   "stars": 12,
+   "pushed": "2026-08-12",
+   "archived": false,
+   "repo_url": "https://github.com/SonAIengine/ku-portal-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description",
+    "topic:mcp korea",
+    "topic:mcp-server korea"
+   ]
+  },
+  {
+   "name": "Specialagent-kr/pm-agent-os",
+   "description": "Product Manager를 위한 OS",
+   "stars": 4,
+   "pushed": "2026-04-06",
+   "archived": false,
+   "repo_url": "https://github.com/Specialagent-kr/pm-agent-os",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "Squirbie/im-not-ai-codex",
+   "description": "Codex plugin port of epoko77-ai/im-not-ai for Korean AI-tell rewriting",
+   "stars": 58,
+   "pushed": "2026-05-08",
+   "archived": false,
+   "repo_url": "https://github.com/Squirbie/im-not-ai-codex",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "Team-Delgo/korea-stock-mcp",
+   "description": "",
+   "stars": 0,
+   "pushed": "2026-07-07",
+   "archived": false,
+   "repo_url": "https://github.com/Team-Delgo/korea-stock-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "Tech-curator/korean-patent-mcp",
+   "description": "",
+   "stars": 2,
+   "pushed": "2025-12-16",
+   "archived": false,
+   "repo_url": "https://github.com/Tech-curator/korean-patent-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "TheNaham/koreafood-mcp",
+   "description": "🇰🇷 NAHAM K-Food Export MCP — AI tools for Korean red ginseng, honey & gift-grade wellness foods. Bilingual buyer emails, catalog search, export tasks. By Max Jung @ TradeOn.",
+   "stars": 1,
+   "pushed": "2026-06-12",
+   "archived": false,
+   "repo_url": "https://github.com/TheNaham/koreafood-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name",
+    "mcp korean in:description"
+   ]
+  },
+  {
+   "name": "Torres-09/dhlottery-mcp",
+   "description": "동행복권 로또 6/45 MCP 서버",
+   "stars": 0,
+   "pushed": "2026-07-19",
+   "archived": false,
+   "repo_url": "https://github.com/Torres-09/dhlottery-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "topic:mcp-server korea"
+   ]
+  },
+  {
+   "name": "UrbanWatcherKr/korean-land-mcp",
+   "description": "토지이음(EUM) MCP 서버 - Korean Land Information MCP",
+   "stars": 16,
+   "pushed": "2026-04-21",
+   "archived": false,
+   "repo_url": "https://github.com/UrbanWatcherKr/korean-land-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name",
+    "mcp korean in:description"
+   ]
+  },
+  {
+   "name": "VoidLight00/voidlight-markdown-mcp-server",
+   "description": "Enhanced MarkItDown MCP Server with Korean support",
+   "stars": 0,
+   "pushed": "2025-07-19",
+   "archived": false,
+   "repo_url": "https://github.com/VoidLight00/voidlight-markdown-mcp-server",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description"
+   ]
+  },
+  {
+   "name": "Whitening-Sinabro/korean-keyword-mcp",
+   "description": "Korean keyword research MCP server for Naver SearchAd/DataLab; Project Shield local security-scan notice pinned.",
+   "stars": 0,
+   "pushed": "2026-02-21",
+   "archived": false,
+   "repo_url": "https://github.com/Whitening-Sinabro/korean-keyword-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name",
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "a01032767223-alt/KOREA-stock-MCP",
+   "description": "",
+   "stars": 0,
+   "pushed": "2026-08-11",
+   "archived": false,
+   "repo_url": "https://github.com/a01032767223-alt/KOREA-stock-MCP",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "adminhelper/saju-engine",
+   "description": "결정론 만세력 사주(四柱)·궁합 보고서를 단청 HTML로 생성하는 Claude Code 플러그인 — Deterministic Korean Four-Pillars (Saju) report generator: engine + MCP + diviner skill",
+   "stars": 3,
+   "pushed": "2026-05-30",
+   "archived": false,
+   "repo_url": "https://github.com/adminhelper/saju-engine",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description",
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "aeriis-kr/opendata-mcp",
+   "description": "공공데이터포털 데이터 사용을 편리하게 해주는 MCP 서버",
+   "stars": 11,
+   "pushed": "2025-10-15",
+   "archived": false,
+   "repo_url": "https://github.com/aeriis-kr/opendata-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "aesthetic-legalism5470/korean-dart-mcp",
+   "description": "Access OpenDART financial data and corporate filings via MCP. Analyze disclosures, financial statements, and XBRL data directly in your AI assistant.",
+   "stars": 3,
+   "pushed": "2026-08-17",
+   "archived": false,
+   "repo_url": "https://github.com/aesthetic-legalism5470/korean-dart-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name",
+    "topic:mcp-server korea"
+   ]
+  },
+  {
+   "name": "agent504330-ux/mcp-korean-stock",
+   "description": "Korean Stock MCP Server — 네이버 증권 기반 한국 주식 데이터 MCP 서버 for Claude Code/Desktop",
+   "stars": 2,
+   "pushed": "2026-04-20",
+   "archived": false,
+   "repo_url": "https://github.com/agent504330-ux/mcp-korean-stock",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name",
+    "mcp korean in:description",
+    "topic:mcp korea",
+    "topic:mcp-server korea"
+   ]
+  },
+  {
+   "name": "ai-frendly-datahub/KoreanNLPMCPRadar",
+   "description": "Korean NLP and language MCP radar",
+   "stars": 0,
+   "pushed": "2026-08-17",
+   "archived": false,
+   "repo_url": "https://github.com/ai-frendly-datahub/KoreanNLPMCPRadar",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description"
+   ]
+  },
+  {
+   "name": "ai-screams/HwpForge",
+   "description": "Rust library for programmatic control of Korean HWPX documents — Markdown→HWPX conversion, JSON   round-trip editing, MCP server for AI agents 🔥",
+   "stars": 15,
+   "pushed": "2026-08-18",
+   "archived": false,
+   "repo_url": "https://github.com/ai-screams/HwpForge",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description",
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "ai.smithery/jjlabsio-korea-stock-mcp",
+   "description": "Search company disclosures and financial statements from the Korean market. Retrieve stock profile…",
+   "packages": [],
+   "remotes": [
+    {
+     "type": "streamable-http",
+     "url": "https://server.smithery.ai/@jjlabsio/korea-stock-mcp/mcp",
+     "needs_auth": true
+    }
+   ],
+   "repo_url": "https://github.com/jjlabsio/korea-stock-mcp",
+   "sources": [
+    "github",
+    "registry"
+   ],
+   "terms": [
+    "korea",
+    "mcp korea in:name",
+    "mcp korean in:description",
+    "mcp 한국 in:readme"
+   ],
+   "stars": 174,
+   "pushed": "2026-08-16",
+   "archived": false
+  },
+  {
+   "name": "ai.smithery/skr-cloudify-clickup-mcp-server-new",
+   "description": "Manage your ClickUp workspace by creating, updating, and organizing tasks, lists, folders, and tag…",
+   "packages": [],
+   "remotes": [
+    {
+     "type": "streamable-http",
+     "url": "https://server.smithery.ai/@skr-cloudify/clickup-mcp-server-new/mcp",
+     "needs_auth": true
+    }
+   ],
+   "repo_url": "https://github.com/skr-cloudify/clickup-mcp-server-new",
+   "sources": [
+    "registry"
+   ],
+   "terms": [
+    "kr-"
+   ]
+  },
+  {
+   "name": "aibridge-leo/tradingview-mcp-aibridge",
+   "description": "tradingview-mcp by AI BRIDGE — Windows + Korean trader edition",
+   "stars": 3,
+   "pushed": "2026-04-23",
+   "archived": false,
+   "repo_url": "https://github.com/aibridge-leo/tradingview-mcp-aibridge",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description"
+   ]
+  },
+  {
+   "name": "aidc2026ai-melon/aidc-ai-mcp",
+   "description": "AI data center automation tool — MCP connector (design · validate · layout). Remote MCP: aidc-ai.io/api/mcp · registry io.aidc-ai/design-engine. Engine private.",
+   "stars": 3,
+   "pushed": "2026-07-20",
+   "archived": false,
+   "repo_url": "https://github.com/aidc2026ai-melon/aidc-ai-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "airmang/hwpx-plugins",
+   "description": "Official onboarding skill for HWPX document automation with AI agents.",
+   "stars": 24,
+   "pushed": "2026-08-16",
+   "archived": false,
+   "repo_url": "https://github.com/airmang/hwpx-plugins",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "airmang/python-hwpx",
+   "description": "Pure Python HWPX automation: read, edit, generate, and validate documents without Hancom Office.",
+   "stars": 104,
+   "pushed": "2026-08-16",
+   "archived": false,
+   "repo_url": "https://github.com/airmang/python-hwpx",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "airmang/python-hwpx-automation",
+   "description": "MCP server for AI agents to read, edit, inspect, and validate local HWPX documents.",
+   "stars": 65,
+   "pushed": "2026-08-17",
+   "archived": false,
+   "repo_url": "https://github.com/airmang/python-hwpx-automation",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "alphago2580/naramarketmcp",
+   "description": "나라장터(G2B) MCP 서버 — 공공조달 데이터 조회를 위한 15개 AI 도구 (FastMCP 2.0, Smithery 배포 지원)",
+   "stars": 3,
+   "pushed": "2026-02-09",
+   "archived": false,
+   "repo_url": "https://github.com/alphago2580/naramarketmcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "amnotyoung/koica-reg-mcp",
+   "description": "ALIO 자동 동기화 기반 KOICA 현행 규정 149개·약 6,400개 조문을 8개 원격 MCP 도구로 — Claude Desktop 등에서 자연어 검색·본문/별표 조회·인용 검증·상호참조·규정 정비 점검",
+   "stars": 14,
+   "pushed": "2026-08-14",
+   "archived": false,
+   "repo_url": "https://github.com/amnotyoung/koica-reg-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "antryu/kolaw",
+   "description": "Korean law aggregator: legalize-kr (offline) + korean-law-mcp + lexguard-mcp unified behind one FastAPI",
+   "stars": 2,
+   "pushed": "2026-05-19",
+   "archived": false,
+   "repo_url": "https://github.com/antryu/kolaw",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description",
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "app.sallim/korea-realty",
+   "description": "Korean real estate data: court auctions, 10M+ MOLIT transaction records, price prediction",
+   "packages": [],
+   "remotes": [
+    {
+     "type": "streamable-http",
+     "url": "https://realty.sallim.app/mcp",
+     "needs_auth": false
+    }
+   ],
+   "repo_url": "https://github.com/sallim-app/korea-realty",
+   "sources": [
+    "github",
+    "registry"
+   ],
+   "terms": [
+    "korea",
+    "topic:mcp korea",
+    "topic:mcp-server korea"
+   ],
+   "stars": 0,
+   "pushed": "2026-08-18",
+   "archived": false
+  },
+  {
+   "name": "app.sallim/korea-stay",
+   "description": "Korean lodging: 84,490 stays from 4 government permit ledgers + KTO TourAPI, honest gaps",
+   "packages": [],
+   "remotes": [
+    {
+     "type": "streamable-http",
+     "url": "https://stay.sallim.app/mcp?via=official",
+     "needs_auth": false
+    }
+   ],
+   "repo_url": "",
+   "sources": [
+    "registry"
+   ],
+   "terms": [
+    "korea"
+   ]
+  },
+  {
+   "name": "app.wishpool/korea-invoice-mcp",
+   "description": "Korea POPBiLL e-tax-invoice: AI agents issue, query & transmit e-invoices, stateless BYO.",
+   "packages": [],
+   "remotes": [
+    {
+     "type": "streamable-http",
+     "url": "https://inv-kr.wishpool.app/mcp",
+     "needs_auth": false
+    }
+   ],
+   "repo_url": "https://github.com/junter1989k-ai/korea-invoice-mcp",
+   "sources": [
+    "registry"
+   ],
+   "terms": [
+    "korea"
+   ]
+  },
+  {
+   "name": "app.wishpool/korea-payments-mcp",
+   "description": "Korea payments for AI agents — card, KakaoPay/NaverPay, 가상계좌 via Toss Payments. Never holds funds.",
+   "packages": [],
+   "remotes": [
+    {
+     "type": "streamable-http",
+     "url": "https://mcp-kr.wishpool.app/mcp",
+     "needs_auth": false
+    }
+   ],
+   "repo_url": "https://github.com/junter1989k-ai/korea-payments-mcp",
+   "sources": [
+    "registry"
+   ],
+   "terms": [
+    "korea"
+   ]
+  },
+  {
+   "name": "aqualy02/korean-law-mcp",
+   "description": "",
+   "stars": 0,
+   "pushed": "2026-04-21",
+   "archived": false,
+   "repo_url": "https://github.com/aqualy02/korean-law-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "ashram68/korean-law-mcp",
+   "description": "89 tools for Korean law — statutes, precedents, ordinances, interpretations | MCP Server · CLI · npm",
+   "stars": 0,
+   "pushed": "2026-04-04",
+   "archived": false,
+   "repo_url": "https://github.com/ashram68/korean-law-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "avinash1441/awesome-mcp-korea",
+   "description": "Curate and access MCP servers and tools tailored for Korea’s legal, commerce, public data, finance, and real estate sectors.",
+   "stars": 0,
+   "pushed": "2026-08-18",
+   "archived": false,
+   "repo_url": "https://github.com/avinash1441/awesome-mcp-korea",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "topic:mcp korea",
+    "topic:mcp-server korea"
+   ]
+  },
+  {
+   "name": "awskrug/women-in-cloud",
+   "description": "AWSKRUG Women In Tech",
+   "stars": 4,
+   "pushed": "2026-07-05",
+   "archived": false,
+   "repo_url": "https://github.com/awskrug/women-in-cloud",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "banatic/Hypercool",
+   "description": "쿨메신저(CoolMessenger) 메시지·일정 관리 + 급식/시간표 위젯 + AI(MCP) 연동 Windows 데스크탑 앱 · Tauri + Rust + React",
+   "stars": 2,
+   "pushed": "2026-08-06",
+   "archived": false,
+   "repo_url": "https://github.com/banatic/Hypercool",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "bbqqvv/korean-mcp",
+   "description": "",
+   "stars": 0,
+   "pushed": "2026-08-15",
+   "archived": false,
+   "repo_url": "https://github.com/bbqqvv/korean-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "bear2u/my-skills",
+   "description": "자주 사용하는 스킬들을 모은 나의 클로드 스킬들입니다. ",
+   "stars": 909,
+   "pushed": "2026-06-22",
+   "archived": false,
+   "repo_url": "https://github.com/bear2u/my-skills",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "bhavingajjar/cursor-pro-coupon-code",
+   "description": "Get 50% OFF your first month of Cursor Pro, Pro+ or Ultra using our verified referral code QV8RILYPYJNA — active Cursor AI code editor discount code, promo code & coupon for 2026.",
+   "stars": 5,
+   "pushed": "2026-06-27",
+   "archived": false,
+   "repo_url": "https://github.com/bhavingajjar/cursor-pro-coupon-code",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "binaryloader/korea-persona-interview",
+   "description": "Synthetic Korean persona interview tool over NVIDIA Nemotron-Personas-Korea (CC BY 4.0). CLI / MCP server / MCP orchestrator entry points, multi-provider LLM backend (OpenAI / Anthropic / OpenAI-compatible local), multi-turn interviews with auto follow-up, persona drift detection, and prompt caching.",
+   "stars": 0,
+   "pushed": "2026-05-04",
+   "archived": false,
+   "repo_url": "https://github.com/binaryloader/korea-persona-interview",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "boam79/public-data-api-finder",
+   "description": "",
+   "stars": 40,
+   "pushed": "2026-04-19",
+   "archived": false,
+   "repo_url": "https://github.com/boam79/public-data-api-finder",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "bootpay/bootpay-mcp",
+   "description": "MCP server for Bootpay — Korea's payment platform. AI tools (Claude, Cursor, Windsurf) can search docs, get SDK versions, and generate payment integration code. Supports 나이스페이, 토스페이먼츠, KG이니시스, NHN KCP, 카카오페이, 네이버페이.",
+   "stars": 2,
+   "pushed": "2026-07-21",
+   "archived": false,
+   "repo_url": "https://github.com/bootpay/bootpay-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description",
+    "topic:mcp korea",
+    "topic:mcp-server korea"
+   ]
+  },
+  {
+   "name": "brave-people/Dev-Event",
+   "description": "🎉🎈 개발자 {웨비나, 컨퍼런스, 해커톤} 행사를 알려드립니다. [with 남송리 삼번지]",
+   "stars": 8807,
+   "pushed": "2026-08-15",
+   "archived": false,
+   "repo_url": "https://github.com/brave-people/Dev-Event",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "bubilife1202/crossfin",
+   "description": "The only way AI agents access Asian crypto markets. Routing engine + x402 payments across 9 exchanges.",
+   "stars": 1,
+   "pushed": "2026-02-26",
+   "archived": false,
+   "repo_url": "https://github.com/bubilife1202/crossfin",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "capitalparser/kreports-dart-mcp",
+   "description": "Korean financial intelligence MCP server built by a Big4 auditor. Connects DART (Korean SEC) filings to Claude via MCP protocol. 8 tools: financial snapshots, going concern scoring, restatement detection, accounting policy extraction, auditor history, subsidiary audit matrix, industry benchmarking. No more manual DART lookups.",
+   "stars": 3,
+   "pushed": "2026-08-11",
+   "archived": false,
+   "repo_url": "https://github.com/capitalparser/kreports-dart-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description",
+    "topic:mcp korea",
+    "topic:mcp-server korea"
+   ]
+  },
+  {
+   "name": "capitalparser/public-data-opportunity-mcp",
+   "description": "MCP server for finding Korean public-data access routes for AI agents and automation projects",
+   "stars": 2,
+   "pushed": "2026-05-17",
+   "archived": false,
+   "repo_url": "https://github.com/capitalparser/public-data-opportunity-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description"
+   ]
+  },
+  {
+   "name": "changgi/korea-archive-mcp",
+   "description": "",
+   "stars": 0,
+   "pushed": "2026-08-14",
+   "archived": false,
+   "repo_url": "https://github.com/changgi/korea-archive-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "chrisryugj/archhub-mcp",
+   "description": "국토교통부 건축HUB → MCP 서버. 건축물대장·건축인허가·주택인허가 + 법정동코드 + 한 필지 종합카드·동 단위 통계·노후건축물 분석. 공용키 탑재 remote 커넥터(URL만 등록)",
+   "stars": 63,
+   "pushed": "2026-08-17",
+   "archived": false,
+   "repo_url": "https://github.com/chrisryugj/archhub-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "chrisryugj/chrisryugj",
+   "description": "딴짓하는 류주임 — Public AX Evangelist",
+   "stars": 10,
+   "pushed": "2026-08-18",
+   "archived": false,
+   "repo_url": "https://github.com/chrisryugj/chrisryugj",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "chrisryugj/kordoc",
+   "description": "모두 파싱해버리겠다 — HWP·HWPX·PDF·Office 문서를 Markdown으로. 양식 자동 채우기와 신구대조를 갖춘 CLI·MCP 서버 | Convert Korean documents (HWP, HWPX, PDF, Office) to Markdown — CLI and MCP server with form filling and diff",
+   "stars": 1741,
+   "pushed": "2026-08-17",
+   "archived": false,
+   "repo_url": "https://github.com/chrisryugj/kordoc",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description",
+    "mcp 한국 in:readme",
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "chrisryugj/korean-dart-mcp",
+   "description": "OpenDART 전자공시MCP | 83개 API → 15 MCP 도구. 공시·재무·지분·XBRL + 버핏급 애널리스트 프레임(내부자 시그널·회계 리스크·퀄리티 체크리스트) + HWP/PDF 첨부 마크다운화 | 83 Korean DART disclosure APIs → 15 MCP tools with Buffett-grade analyst frames",
+   "stars": 94,
+   "pushed": "2026-07-30",
+   "archived": false,
+   "repo_url": "https://github.com/chrisryugj/korean-dart-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name",
+    "mcp korean in:description",
+    "mcp 한국 in:readme",
+    "topic:mcp korea",
+    "topic:mcp-server korea"
+   ]
+  },
+  {
+   "name": "chrisryugj/korean-law-mcp",
+   "description": "법제처 국가법령정보를 LLM에서 바로 조회하는 MCP 서버. 법령·판례·조례 검색과 인용 검증 | MCP server for Korean law — search statutes, precedents, and ordinances, and verify citations",
+   "stars": 2476,
+   "pushed": "2026-08-17",
+   "archived": false,
+   "repo_url": "https://github.com/chrisryugj/korean-law-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name",
+    "mcp korean in:description",
+    "topic:mcp korea",
+    "topic:mcp-server korea"
+   ]
+  },
+  {
+   "name": "chrisryugj/korean-patent-mcp",
+   "description": "KIPRIS 특허·실용신안·상표·디자인 검색 MCP — 자유검색/항목검색/출원인/권리자/서지상세 7개 도구 | KIPRIS Korean patent·utility·trademark·design search → 7 MCP tools",
+   "stars": 52,
+   "pushed": "2026-08-17",
+   "archived": false,
+   "repo_url": "https://github.com/chrisryugj/korean-patent-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name",
+    "mcp korean in:description",
+    "topic:mcp korea",
+    "topic:mcp-server korea"
+   ]
+  },
+  {
+   "name": "chrisryugj/ollama-mcp-host",
+   "description": "로컬 Ollama(gemma 등)로 korean-law-mcp·kordoc 같은 여러 MCP 서버를 동시에 돌리는 호스트. 클라우드 API 없이 내부망/오프라인 동작.",
+   "stars": 22,
+   "pushed": "2026-06-29",
+   "archived": false,
+   "repo_url": "https://github.com/chrisryugj/ollama-mcp-host",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description"
+   ]
+  },
+  {
+   "name": "chrisryugj/schoolinfo-mcp",
+   "description": "학교알리미 공시정보 MCP 서버 + CLI — 학부모가 내 아이 학교의 급식·학생수·수행평가 계획을 쉽게 확인 (OpenAPI + kordoc hwp 파싱)",
+   "stars": 42,
+   "pushed": "2026-08-17",
+   "archived": false,
+   "repo_url": "https://github.com/chrisryugj/schoolinfo-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "civilian7/korean-people-persona",
+   "description": "Korean persona dataset (NVIDIA Nemotron-Personas-Korea) → SQLite + FTS5 + MCP server for AI agents",
+   "stars": 22,
+   "pushed": "2026-06-11",
+   "archived": false,
+   "repo_url": "https://github.com/civilian7/korean-people-persona",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description"
+   ]
+  },
+  {
+   "name": "clayop/korean-university-regulation-mcp",
+   "description": "",
+   "stars": 2,
+   "pushed": "2026-04-06",
+   "archived": false,
+   "repo_url": "https://github.com/clayop/korean-university-regulation-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "codivery/creir-mcp",
+   "description": "Korean-specialized LLM search MCP server",
+   "stars": 0,
+   "pushed": "2026-02-13",
+   "archived": false,
+   "repo_url": "https://github.com/codivery/creir-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description"
+   ]
+  },
+  {
+   "name": "com.airblockfz/seoul-apt-signal",
+   "description": "Seoul apartment signals: 25 districts from official transactions, scans. Pay-per-call x402.",
+   "packages": [],
+   "remotes": [
+    {
+     "type": "streamable-http",
+     "url": "https://seoul-apt-signal.airblock2026.workers.dev/mcp",
+     "needs_auth": false
+    }
+   ],
+   "repo_url": "",
+   "sources": [
+    "registry"
+   ],
+   "terms": [
+    "seoul"
+   ]
+  },
+  {
+   "name": "com.empresskorea/kbeauty-agent-commons",
+   "description": "Public K-beauty catalog, product search, and latest-offers tools with canonical product facts.",
+   "packages": [],
+   "remotes": [
+    {
+     "type": "streamable-http",
+     "url": "https://empresskorea.com/kb-agent-network/mcp",
+     "needs_auth": false
+    }
+   ],
+   "repo_url": "",
+   "sources": [
+    "registry"
+   ],
+   "terms": [
+    "korea"
+   ]
+  },
+  {
+   "name": "com.microsoft/workiq-calendartools",
+   "description": "Calendar tools for creating, updating, deleting events, managing invites, and checking availability.",
+   "packages": [],
+   "remotes": [
+    {
+     "type": "streamable-http",
+     "url": "https://agent365.svc.cloud.microsoft/agents/tenants/{tenant_id}/servers/mcp_CalendarTools",
+     "needs_auth": false
+    }
+   ],
+   "repo_url": "https://github.com/bap-microsoft/MCP-Platform/",
+   "sources": [
+    "registry"
+   ],
+   "terms": [
+    "dart"
+   ]
+  },
+  {
+   "name": "com.saaskr/korean-saas-directory",
+   "description": "Search and compare SaaS built in South Korea. 3,800+ services, liveness-checked weekly.",
+   "packages": [],
+   "remotes": [
+    {
+     "type": "streamable-http",
+     "url": "https://saaskr.com/api/mcp",
+     "needs_auth": false
+    }
+   ],
+   "repo_url": "",
+   "sources": [
+    "registry"
+   ],
+   "terms": [
+    "korea",
+    "korean"
+   ]
+  },
+  {
+   "name": "com.seoapi/naverbot",
+   "description": "Validate Naver Yeti IP addresses. Remote MCP validate_ip tool.",
+   "packages": [],
+   "remotes": [
+    {
+     "type": "streamable-http",
+     "url": "https://naverbot.seoapi.com/mcp",
+     "needs_auth": false
+    }
+   ],
+   "repo_url": "",
+   "sources": [
+    "registry"
+   ],
+   "terms": [
+    "naver"
+   ]
+  },
+  {
+   "name": "corazzon/pyconmcp",
+   "description": "파이콘 한국 2025 튜토리얼 4142 강의실",
+   "stars": 6,
+   "pushed": "2025-08-15",
+   "archived": false,
+   "repo_url": "https://github.com/corazzon/pyconmcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "ctk03272/mcp-korean-stock",
+   "description": "personal mcp for kosdaq",
+   "stars": 0,
+   "pushed": "2026-03-02",
+   "archived": false,
+   "repo_url": "https://github.com/ctk03272/mcp-korean-stock",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "currenjin/site-for-developers",
+   "description": "🌎💎 개발자들의 첫 번째 북마크",
+   "stars": 1174,
+   "pushed": "2026-08-18",
+   "archived": false,
+   "repo_url": "https://github.com/currenjin/site-for-developers",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "dandacompany/dante-skills",
+   "description": "Claude Code / Claude AI용 에이전트 스킬 모음 by 단테(Dante Labs)",
+   "stars": 13,
+   "pushed": "2026-08-17",
+   "archived": false,
+   "repo_url": "https://github.com/dandacompany/dante-skills",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "dangamsoft/cafe-mcp",
+   "description": "Korean Saju (Four Pillars) MCP server for Claude, ChatGPT, and AI agents",
+   "stars": 0,
+   "pushed": "2026-06-20",
+   "archived": false,
+   "repo_url": "https://github.com/dangamsoft/cafe-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "topic:mcp-server korea"
+   ]
+  },
+  {
+   "name": "darjeeling/awesome-mcp-korea",
+   "description": "A curated list of MCP servers for the Korean market, including legal, commerce, public data, and local services integrations.",
+   "stars": 234,
+   "pushed": "2026-05-13",
+   "archived": false,
+   "repo_url": "https://github.com/darjeeling/awesome-mcp-korea",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name",
+    "mcp korean in:description",
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "dartpointai/dartpoint-mcp",
+   "description": "MCP Server for public disclosure information of Korean companies, powered by the dartpoint.ai API.",
+   "stars": 3,
+   "pushed": "2025-06-25",
+   "archived": false,
+   "repo_url": "https://github.com/dartpointai/dartpoint-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description",
+    "topic:mcp korea",
+    "topic:mcp-server korea"
+   ]
+  },
+  {
+   "name": "ddin-ddin/korean-law-mcp",
+   "description": "",
+   "stars": 0,
+   "pushed": "2026-04-12",
+   "archived": false,
+   "repo_url": "https://github.com/ddin-ddin/korean-law-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "dillettante/power-plan-db",
+   "description": "한국 전력·에너지 정부 법정계획 수집·파싱·MCP 서버 | Collectors + parser + MCP server for Korean government power & energy statutory plans (no API key, stdio MCP)",
+   "stars": 0,
+   "pushed": "2026-08-10",
+   "archived": false,
+   "repo_url": "https://github.com/dillettante/power-plan-db",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "topic:mcp-server korea"
+   ]
+  },
+  {
+   "name": "dolseom/gongsi-mcp",
+   "description": "DART 전자공시 · 공정위 기업집단 공시 MCP 서버 — 공시담당자용. 대규모내부거래·기업집단현황·비상장사 중요사항 판정, 공시기한·과태료 계산, 타사 선례 검색, 집단 전수 감사. 모든 답에 근거 조문 동봉",
+   "stars": 1,
+   "pushed": "2026-08-15",
+   "archived": false,
+   "repo_url": "https://github.com/dolseom/gongsi-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "topic:mcp korea",
+    "topic:mcp-server korea"
+   ]
+  },
+  {
+   "name": "doorijaehyuk/korea-housing-mcp",
+   "description": "",
+   "stars": 0,
+   "pushed": "2026-07-12",
+   "archived": false,
+   "repo_url": "https://github.com/doorijaehyuk/korea-housing-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "drwon-cmd/wvb-cc-radar",
+   "description": "Daily digest of trending GitHub repos for Claude Code ecosystem upgrade. Curated by WVB.",
+   "stars": 4,
+   "pushed": "2026-08-18",
+   "archived": false,
+   "repo_url": "https://github.com/drwon-cmd/wvb-cc-radar",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "eddmpython/dartlab",
+   "description": "Korean DART + SEC EDGAR filings as structured Python data for company analysis",
+   "stars": 207,
+   "pushed": "2026-08-17",
+   "archived": false,
+   "repo_url": "https://github.com/eddmpython/dartlab",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme",
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "edumgt/edumgt-lab-init",
+   "description": "개발환경 초기 세팅부터 Python·Node.js·Java 앱의 Docker/Kubernetes 배포까지 다루는 교육용 DevOps 실습 랩 저장소",
+   "stars": 5,
+   "pushed": "2026-08-17",
+   "archived": false,
+   "repo_url": "https://github.com/edumgt/edumgt-lab-init",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "edward-kim-dev/kr-pc-deals-mcp",
+   "description": "한국 PC 부품(다나와/컴퓨존) 가격비교 MCP 서버",
+   "stars": 10,
+   "pushed": "2026-03-31",
+   "archived": false,
+   "repo_url": "https://github.com/edward-kim-dev/kr-pc-deals-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "emceeKim/korea-finance-mcp",
+   "description": "Korea's first legally-safe (Capital Markets Act compliant) finance MCP. 15 tools (ECOS · Real Estate · DART · KRX) + 2 Korea-unique synergy tools.",
+   "stars": 53,
+   "pushed": "2026-07-04",
+   "archived": false,
+   "repo_url": "https://github.com/emceeKim/korea-finance-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name",
+    "mcp korean in:description",
+    "mcp 한국 in:readme",
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "epoko77-ai/korean-bill-debate-mcp",
+   "description": "대한민국 국회를 질문으로 탐색하고 공식 기록으로 검증하는 MCP — 법안·처리상태·위원회·회의록·검토보고서·의원과 정부 발언을 하나로 연결합니다",
+   "stars": 24,
+   "pushed": "2026-07-20",
+   "archived": false,
+   "repo_url": "https://github.com/epoko77-ai/korean-bill-debate-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "eu.ansvar/south-korea-law-mcp",
+   "description": "South Korean law database — PIPA, ICT network security, credit information with full-text search",
+   "packages": [
+    {
+     "type": "npm",
+     "id": "@ansvar/south-korea-law-mcp",
+     "version": "1.1.2"
+    },
+    {
+     "type": "npm",
+     "id": "@ansvar/south-korea-law-mcp",
+     "version": "1.1.2"
+    }
+   ],
+   "remotes": [],
+   "repo_url": "https://github.com/Ansvar-Systems/south-korea-law-mcp",
+   "sources": [
+    "registry"
+   ],
+   "terms": [
+    "korea"
+   ]
+  },
+  {
+   "name": "farmbit-mdk/korea-market-data-mcp",
+   "description": "Open-source MCP server for reliable Korean stock, ETF, index, and market data access from AI agents, starting with Kiwoom Securities REST API.",
+   "stars": 2,
+   "pushed": "2026-06-20",
+   "archived": false,
+   "repo_url": "https://github.com/farmbit-mdk/korea-market-data-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name",
+    "mcp korean in:description"
+   ]
+  },
+  {
+   "name": "feelyday/kadlint",
+   "description": "한국 화장품·건기식 광고 카피 컴플라이언스 린터 — Korean ad-compliance linter for cosmetics & health-food marketing copy (CLI · API · MCP server)",
+   "stars": 0,
+   "pushed": "2026-07-18",
+   "archived": false,
+   "repo_url": "https://github.com/feelyday/kadlint",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "topic:mcp-server korea"
+   ]
+  },
+  {
+   "name": "fieldcure/fieldcure-mcp-publicdata",
+   "description": "MCP server for Korean public data APIs (data.go.kr) — discover, inspect, and call 80,000+ government APIs",
+   "stars": 0,
+   "pushed": "2026-05-25",
+   "archived": false,
+   "repo_url": "https://github.com/fieldcure/fieldcure-mcp-publicdata",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "topic:mcp-server korea"
+   ]
+  },
+  {
+   "name": "finalchild/law-mcp",
+   "description": "MCP server for Korean law data access via open.law.go.kr API (experimental. Works in Claude Code)",
+   "stars": 31,
+   "pushed": "2025-07-07",
+   "archived": false,
+   "repo_url": "https://github.com/finalchild/law-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description",
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "flytothesky23/obsidian-korean-dart-codex",
+   "description": "Obsidian disclosure research with Codex CLI OAuth and korean-dart-mcp",
+   "stars": 0,
+   "pushed": "2026-08-05",
+   "archived": false,
+   "repo_url": "https://github.com/flytothesky23/obsidian-korean-dart-codex",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "gameworkerkim/CYBER-THREAT-INTELLIGENCE-REPORT",
+   "description": "Independent OSINT CTI archive (TLP:GREEN): supply-chain, zero-day, DPRK/APT, AI/LLM threats, Web3, and Korea breach/policy reports. Multilingual KR/EN/JP/ZH. By Dennis Kim.",
+   "stars": 65,
+   "pushed": "2026-08-04",
+   "archived": false,
+   "repo_url": "https://github.com/gameworkerkim/CYBER-THREAT-INTELLIGENCE-REPORT",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "gameworkerkim/vibe-investing",
+   "description": "AI-powered Vibe Investing for NASDAQ, S&P500 & crypto: LLM quant trading tools, multi-agent backtesting, and data-driven market columns (mNAV arbitrage, BTC-Nasdaq coupling, Alpha Arena). 미국 주식·가상화폐 AI 투자 큐레이션·칼럼·트레이딩 봇.",
+   "stars": 323,
+   "pushed": "2026-08-18",
+   "archived": false,
+   "repo_url": "https://github.com/gameworkerkim/vibe-investing",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "ghdejr11-beep/saju-mcp",
+   "description": "MCP server for Korean Four Pillars of Destiny (Saju / Bazi). Wraps the Saju API with 4 tools: calculate, interpret, compatibility, daily. Free tier 100 req/day.",
+   "stars": 0,
+   "pushed": "2026-06-28",
+   "archived": false,
+   "repo_url": "https://github.com/ghdejr11-beep/saju-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "topic:mcp-server korea"
+   ]
+  },
+  {
+   "name": "giovinazo/alio-mcp",
+   "description": "MCP server exposing Korea's ALIO public institution disclosure data (한국 공공기관 알리오 항목별공시 MCP)",
+   "stars": 1,
+   "pushed": "2026-06-13",
+   "archived": false,
+   "repo_url": "https://github.com/giovinazo/alio-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description",
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "gitbosung/open-ALIO-mcp",
+   "description": "MCP server for Korean public institution information from ALIO and ALIO Plus.",
+   "stars": 1,
+   "pushed": "2026-07-07",
+   "archived": false,
+   "repo_url": "https://github.com/gitbosung/open-ALIO-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description"
+   ]
+  },
+  {
+   "name": "gum798/A2A-MCP-RealEstate",
+   "description": "",
+   "stars": 4,
+   "pushed": "2025-09-08",
+   "archived": false,
+   "repo_url": "https://github.com/gum798/A2A-MCP-RealEstate",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "harimkang/mcp-korea-maps",
+   "description": "Model Context Protocol (MCP) server that provides tools for accessing Map API",
+   "stars": 0,
+   "pushed": "2025-07-21",
+   "archived": false,
+   "repo_url": "https://github.com/harimkang/mcp-korea-maps",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "harimkang/mcp-korea-tourism-api",
+   "description": "Model Context Protocol (MCP) server that provides tools for accessing the Korea Tourism API",
+   "stars": 9,
+   "pushed": "2025-08-12",
+   "archived": false,
+   "repo_url": "https://github.com/harimkang/mcp-korea-tourism-api",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name",
+    "mcp korean in:description"
+   ]
+  },
+  {
+   "name": "hataeyunn/mcp_server_korean_traffic",
+   "description": "MCP Server Korean Subway Traffic",
+   "stars": 0,
+   "pushed": "2026-01-11",
+   "archived": false,
+   "repo_url": "https://github.com/hataeyunn/mcp_server_korean_traffic",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description"
+   ]
+  },
+  {
+   "name": "heisenbug0306-tech/korea-transit-mcp",
+   "description": "",
+   "stars": 0,
+   "pushed": "2026-01-12",
+   "archived": false,
+   "repo_url": "https://github.com/heisenbug0306-tech/korea-transit-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "heisenbug0306-tech/korea_transit_mcp",
+   "description": "",
+   "stars": 0,
+   "pushed": "2026-01-12",
+   "archived": false,
+   "repo_url": "https://github.com/heisenbug0306-tech/korea_transit_mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "hike-lab/public-data-lens",
+   "description": "MCP-based discovery and judgment layer for Korea’s open data portal—helping AI agents find, compare, and assess datasets with explicit evidence, JSON-LD/DCAT metadata, and versioned deterministic rules.",
+   "stars": 80,
+   "pushed": "2026-08-10",
+   "archived": false,
+   "repo_url": "https://github.com/hike-lab/public-data-lens",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description",
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "hjsh200219/fortuneteller",
+   "description": "",
+   "stars": 39,
+   "pushed": "2026-06-18",
+   "archived": false,
+   "repo_url": "https://github.com/hjsh200219/fortuneteller",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "hjsh200219/korea-public-data-mcp",
+   "description": "대한민국 공공데이터 MCP(Model Context Protocol) 서버입니다. 법제처 국가법령정보센터, DART 전자공시시스템, 공공데이터포털 API를 통합하여 법령·판례·기업공시·생활정보를 검색/조회합니다.",
+   "stars": 8,
+   "pushed": "2026-08-12",
+   "archived": false,
+   "repo_url": "https://github.com/hjsh200219/korea-public-data-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name",
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "hmmhmmhm/daiso-mcp",
+   "description": "다이소를 MCP로! 뿐만 아니라 한국 로컬 리테일과 영화관 조회를 MCP, CLI, Codex Skill로 가능하게 해줍니다.",
+   "stars": 320,
+   "pushed": "2026-08-18",
+   "archived": false,
+   "repo_url": "https://github.com/hmmhmmhm/daiso-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme",
+    "topic:mcp korea",
+    "topic:mcp-server korea"
+   ]
+  },
+  {
+   "name": "hollobit/K-GAPI",
+   "description": "공공 API 현황 분석",
+   "stars": 7,
+   "pushed": "2026-04-11",
+   "archived": false,
+   "repo_url": "https://github.com/hollobit/K-GAPI",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "hollobit/assembly-api-mcp",
+   "description": "국회 API들에 대한 MCP |  276개 국회 + 8개 국민참여입법센터 API 100% 접근 | 6개 Lite / 10개 Full 프로필 도구 | 107개 검증된 API 코드 ",
+   "stars": 87,
+   "pushed": "2026-05-02",
+   "archived": false,
+   "repo_url": "https://github.com/hollobit/assembly-api-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "hongsw/clawfit",
+   "description": "Agent + LLM + Hardware recommendation engine and evidence hub",
+   "stars": 5,
+   "pushed": "2026-08-18",
+   "archived": false,
+   "repo_url": "https://github.com/hongsw/clawfit",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "hoolulu/deep-research",
+   "description": "深度调研报告生成 Skill — 一条命令，十分钟出券商级深度调研报告 / Professional deep research report generation Skill · Supports 19 languages",
+   "stars": 516,
+   "pushed": "2026-06-29",
+   "archived": false,
+   "repo_url": "https://github.com/hoolulu/deep-research",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "hsh-719/kStock-mcp-server",
+   "description": "Korean Stockmarket MCP-server",
+   "stars": 1,
+   "pushed": "2025-11-26",
+   "archived": false,
+   "repo_url": "https://github.com/hsh-719/kStock-mcp-server",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description"
+   ]
+  },
+  {
+   "name": "htjworld/art-bridge",
+   "description": "KOPIS-based MCP server for real-time Korean performance search & recommendation",
+   "stars": 1,
+   "pushed": "2026-03-24",
+   "archived": false,
+   "repo_url": "https://github.com/htjworld/art-bridge",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description",
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "hyeonseo2/bok-ecos-mcp",
+   "description": "MCP server for accessing Bank of Korea ECOS economic statistics.",
+   "stars": 1,
+   "pushed": "2026-03-21",
+   "archived": false,
+   "repo_url": "https://github.com/hyeonseo2/bok-ecos-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description",
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "hypn4/opendart-fss-mcp",
+   "description": "MCP server for Korea's DART/FSS corporate disclosure system — financial statements, shareholding, and market events for AI assistants with smart Korean company search",
+   "stars": 0,
+   "pushed": "2026-02-06",
+   "archived": false,
+   "repo_url": "https://github.com/hypn4/opendart-fss-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "topic:mcp-server korea"
+   ]
+  },
+  {
+   "name": "hypn4/tossinvest-mcp",
+   "description": "MCP server for Toss Securities (토스증권) Open API: Korean stock (KRX) quotes, holdings, orders & technical analysis for Claude and other AI agents. Read-only by default.",
+   "stars": 1,
+   "pushed": "2026-07-30",
+   "archived": false,
+   "repo_url": "https://github.com/hypn4/tossinvest-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description",
+    "topic:mcp korea",
+    "topic:mcp-server korea"
+   ]
+  },
+  {
+   "name": "io.github.CSOAI-ORG/korea-ai-basic-act-mcp",
+   "description": "Korea AI Basic Act compliance MCP — in force 22 Jan 2026. High-impact AI + GenAI labelling + MSIT",
+   "packages": [
+    {
+     "type": "pypi",
+     "id": "korea-ai-basic-act-mcp",
+     "version": "1.0.2"
+    }
+   ],
+   "remotes": [
+    {
+     "type": "streamable-http",
+     "url": "https://api.meok.ai/v1/governance/korea-ai-basic-act",
+     "needs_auth": false
+    }
+   ],
+   "repo_url": "https://github.com/CSOAI-ORG/korea-ai-basic-act-mcp",
+   "sources": [
+    "github",
+    "registry"
+   ],
+   "terms": [
+    "korea",
+    "topic:mcp korea",
+    "topic:mcp-server korea"
+   ],
+   "stars": 0,
+   "pushed": "2026-06-26",
+   "archived": false
+  },
+  {
+   "name": "io.github.DarthSander/agentdata-nl",
+   "description": "Paid Dutch company screening: VAT (VIES), insolvency, supplier screen. x402 v2, USDC on Base.",
+   "packages": [],
+   "remotes": [
+    {
+     "type": "streamable-http",
+     "url": "https://agentdata-api.sander-van-aard.workers.dev/mcp",
+     "needs_auth": false
+    }
+   ],
+   "repo_url": "https://github.com/DarthSander/data_agent",
+   "sources": [
+    "registry"
+   ],
+   "terms": [
+    "dart"
+   ]
+  },
+  {
+   "name": "io.github.DeepSearch-Common/korean-stocks",
+   "description": "Korean stock & crypto for AI agents. KRX news, financials, risk via x402 USDC payments.",
+   "packages": [
+    {
+     "type": "npm",
+     "id": "deepsearch-x402-mcp",
+     "version": "1.0.3"
+    }
+   ],
+   "remotes": [],
+   "repo_url": "https://github.com/deepsearch-hq/deepsearch-x402.git",
+   "sources": [
+    "registry"
+   ],
+   "terms": [
+    "korea",
+    "korean"
+   ]
+  },
+  {
+   "name": "io.github.LJaysk/kr-dart-events",
+   "description": "Real-time Korean corporate disclosure (DART) events. Pay per call in USDC via x402. No API key.",
+   "packages": [
+    {
+     "type": "oci",
+     "id": "ghcr.io/ljaysk/kr-dart-events-mcp:0.1.0",
+     "version": null
+    }
+   ],
+   "remotes": [],
+   "repo_url": "https://github.com/LJaysk/kr-dart-events",
+   "sources": [
+    "registry"
+   ],
+   "terms": [
+    "dart",
+    "kr-"
+   ]
+  },
+  {
+   "name": "io.github.MK3Core/flickr-mcp",
+   "description": "Flickr MCP server — tag photos, write descriptions, set titles, and add photos to groups using AI.",
+   "packages": [
+    {
+     "type": "npm",
+     "id": "flickr-mcp",
+     "version": "0.2.1"
+    }
+   ],
+   "remotes": [],
+   "repo_url": "https://github.com/MK3Core/flickr-mcp",
+   "sources": [
+    "registry"
+   ],
+   "terms": [
+    "kr-"
+   ]
+  },
+  {
+   "name": "io.github.SongT-50/korean-agriculture-mcp",
+   "description": "Korean wholesale agriculture market data - auction prices, seasonal produce, market trends",
+   "packages": [],
+   "remotes": [
+    {
+     "type": "streamable-http",
+     "url": "https://korean-agriculture-mcp.onrender.com/mcp",
+     "needs_auth": false
+    }
+   ],
+   "repo_url": "https://github.com/SongT-50/korean-agriculture-mcp",
+   "sources": [
+    "github",
+    "registry"
+   ],
+   "terms": [
+    "korea",
+    "korean",
+    "mcp korea in:name"
+   ],
+   "stars": 0,
+   "pushed": "2026-03-08",
+   "archived": false
+  },
+  {
+   "name": "io.github.SongT-50/korean-news-mcp",
+   "description": "Korean news aggregator - Naver, Google News, Daum trends in real-time",
+   "packages": [],
+   "remotes": [
+    {
+     "type": "streamable-http",
+     "url": "https://korean-news-mcp.onrender.com/mcp",
+     "needs_auth": false
+    }
+   ],
+   "repo_url": "https://github.com/SongT-50/korean-news-mcp",
+   "sources": [
+    "github",
+    "registry"
+   ],
+   "terms": [
+    "korea",
+    "korean",
+    "mcp korea in:name",
+    "topic:mcp korea",
+    "topic:mcp-server korea"
+   ],
+   "stars": 1,
+   "pushed": "2026-03-08",
+   "archived": false
+  },
+  {
+   "name": "io.github.SongT-50/korean-public-data-mcp",
+   "description": "Korean government open data - weather, population, law search via data.go.kr",
+   "packages": [],
+   "remotes": [
+    {
+     "type": "streamable-http",
+     "url": "https://korean-public-data-mcp.onrender.com/mcp",
+     "needs_auth": false
+    }
+   ],
+   "repo_url": "https://github.com/SongT-50/korean-public-data-mcp",
+   "sources": [
+    "github",
+    "registry"
+   ],
+   "terms": [
+    "korea",
+    "korean",
+    "mcp korea in:name",
+    "topic:mcp korea",
+    "topic:mcp-server korea"
+   ],
+   "stars": 1,
+   "pushed": "2026-03-08",
+   "archived": false
+  },
+  {
+   "name": "io.github.SongT-50/korean-stock-mcp",
+   "description": "Korean stock market data - prices, dividends, short selling, financial disclosures",
+   "packages": [],
+   "remotes": [
+    {
+     "type": "streamable-http",
+     "url": "https://korean-stock-mcp.onrender.com/mcp",
+     "needs_auth": false
+    }
+   ],
+   "repo_url": "https://github.com/SongT-50/korean-stock-mcp",
+   "sources": [
+    "github",
+    "registry"
+   ],
+   "terms": [
+    "korea",
+    "korean",
+    "mcp korea in:name"
+   ],
+   "stars": 0,
+   "pushed": "2026-03-08",
+   "archived": false
+  },
+  {
+   "name": "io.github.adwiteeymauriya/ibkr-portfolio-builder-mcp",
+   "description": "Top-down IBKR research: 468 typed screeners tagged by strategy intent, news, account access.",
+   "packages": [],
+   "remotes": [
+    {
+     "type": "streamable-http",
+     "url": "https://{ibkr_mcp_host}/mcp",
+     "needs_auth": true
+    }
+   ],
+   "repo_url": "https://github.com/adwiteeymauriya/ibkr-portfolio-builder-mcp",
+   "sources": [
+    "registry"
+   ],
+   "terms": [
+    "kr-"
+   ]
+  },
+  {
+   "name": "io.github.bakyang2/kr-crypto-intelligence",
+   "description": "Korean crypto market data: Kimchi Premium, stablecoin premium, Upbit/Bithumb prices, FX rate.",
+   "packages": [],
+   "remotes": [
+    {
+     "type": "streamable-http",
+     "url": "https://mcp.printmoneylab.com/mcp",
+     "needs_auth": false
+    }
+   ],
+   "repo_url": "https://github.com/bakyang2/kr-crypto-intelligence",
+   "sources": [
+    "registry"
+   ],
+   "terms": [
+    "kr-"
+   ]
+  },
+  {
+   "name": "io.github.choiyounggi/korea-data-mcp",
+   "description": "Korean public holidays, business-day math, and MOLIT real-estate transactions as MCP tools.",
+   "packages": [
+    {
+     "type": "pypi",
+     "id": "korea-data-mcp",
+     "version": "0.1.1"
+    }
+   ],
+   "remotes": [],
+   "repo_url": "https://github.com/choiyounggi/korea-data-suite",
+   "sources": [
+    "registry"
+   ],
+   "terms": [
+    "korea"
+   ]
+  },
+  {
+   "name": "io.github.do-droid/seoul-essentials",
+   "description": "22,000+ Seoul public facility data for tourists: restrooms, pharmacies, WiFi, AEDs, and subway.",
+   "packages": [
+    {
+     "type": "oci",
+     "id": "ghcr.io/do-droid/seoul-essentials:0.2.0",
+     "version": null
+    }
+   ],
+   "remotes": [],
+   "repo_url": "https://github.com/do-droid/seoul-essentials",
+   "sources": [
+    "registry"
+   ],
+   "terms": [
+    "seoul"
+   ]
+  },
+  {
+   "name": "io.github.jayjodev/vivory-mcp-korea",
+   "description": "56 MCP tools for 16 Korean public-data sources. Free 100/day per IP, Pro $29/mo unified key.",
+   "packages": [
+    {
+     "type": "pypi",
+     "id": "vivory-mcp-korea",
+     "version": "0.5.0"
+    }
+   ],
+   "remotes": [],
+   "repo_url": "https://github.com/jayjodev/vivory-mcp",
+   "sources": [
+    "registry"
+   ],
+   "terms": [
+    "korea"
+   ]
+  },
+  {
+   "name": "io.github.kcw2034-sayouzone/mcp-opendart-server",
+   "description": "An MCP server that provides OpenDart API",
+   "packages": [
+    {
+     "type": "pypi",
+     "id": "sayou-opendart-mcp",
+     "version": "0.0.4"
+    }
+   ],
+   "remotes": [],
+   "repo_url": "https://github.com/sayouzone/mcp-opendart-server",
+   "sources": [
+    "registry"
+   ],
+   "terms": [
+    "dart"
+   ]
+  },
+  {
+   "name": "io.github.kcw2034-sayouzone/sayou-opendart-mcp",
+   "description": "An MCP server that provides OpenDart API",
+   "packages": [
+    {
+     "type": "pypi",
+     "id": "sayou-opendart-mcp",
+     "version": "0.0.6"
+    }
+   ],
+   "remotes": [],
+   "repo_url": "https://github.com/sayouzone/sayou-opendart-mcp",
+   "sources": [
+    "registry"
+   ],
+   "terms": [
+    "dart"
+   ]
+  },
+  {
+   "name": "io.github.kimnchai/korea-flight-mcp",
+   "description": "Real-time flight status for 14 Korean airports (Incheon + Korea Airports Corp.) as an MCP server.",
+   "packages": [],
+   "remotes": [
+    {
+     "type": "streamable-http",
+     "url": "https://korea-flight-mcp.fly.dev/mcp",
+     "needs_auth": false
+    }
+   ],
+   "repo_url": "",
+   "sources": [
+    "registry"
+   ],
+   "terms": [
+    "korea"
+   ]
+  },
+  {
+   "name": "io.github.koreal6803/finlab-ai",
+   "description": "Quantitative trading toolkit with 900+ data columns, backtesting, and 60+ strategy examples.",
+   "packages": [],
+   "remotes": [
+    {
+     "type": "streamable-http",
+     "url": "https://finlab-ai.koreal6803.workers.dev/mcp",
+     "needs_auth": false
+    }
+   ],
+   "repo_url": "https://github.com/koreal6803/finlab-ai",
+   "sources": [
+    "registry"
+   ],
+   "terms": [
+    "korea"
+   ]
+  },
+  {
+   "name": "io.github.lazymac2x/govdata-korea",
+   "description": "Cloudflare Workers MCP server: govdata-korea",
+   "packages": [],
+   "remotes": [
+    {
+     "type": "streamable-http",
+     "url": "https://api.lazy-mac.com/govdata-korea/mcp",
+     "needs_auth": false
+    }
+   ],
+   "repo_url": "https://github.com/lazymac2x/govdata-korea-api",
+   "sources": [
+    "registry"
+   ],
+   "terms": [
+    "korea"
+   ]
+  },
+  {
+   "name": "io.github.minjikim89/korean-saju-calculator",
+   "description": "Korean Four Pillars (Saju/BaZi) calculator: pillars, elements, ten gods, sinsal, luck cycles.",
+   "packages": [],
+   "remotes": [
+    {
+     "type": "streamable-http",
+     "url": "https://manseryeok-mcp.mj-mcp-tools.workers.dev/mcp",
+     "needs_auth": false
+    }
+   ],
+   "repo_url": "",
+   "sources": [
+    "registry"
+   ],
+   "terms": [
+    "korea",
+    "korean"
+   ]
+  },
+  {
+   "name": "io.github.namuaix/seoul-tourism",
+   "description": "서울의 축제·명소·맛집·쇼핑·숙박을 AI가 바로 조회하는 서울 관광 공공데이터 MCP (현재 Visit Seoul 공식 데이터)",
+   "packages": [],
+   "remotes": [
+    {
+     "type": "streamable-http",
+     "url": "https://mcp.namu.ai.kr/mcp",
+     "needs_auth": false
+    }
+   ],
+   "repo_url": "",
+   "sources": [
+    "registry"
+   ],
+   "terms": [
+    "seoul"
+   ]
+  },
+  {
+   "name": "io.github.pipeworx-io/clevelandart",
+   "description": "Cleveland Museum of Art Open Access API (~63k artworks, many CC0)",
+   "packages": [],
+   "remotes": [
+    {
+     "type": "streamable-http",
+     "url": "https://gateway.pipeworx.io/clevelandart/mcp",
+     "needs_auth": false
+    }
+   ],
+   "repo_url": "https://github.com/pipeworx-io/mcp-clevelandart",
+   "sources": [
+    "registry"
+   ],
+   "terms": [
+    "dart"
+   ]
+  },
+  {
+   "name": "io.github.pipeworx-io/dart-kr",
+   "description": "DART — Korea's Data Analysis, Retrieval and Transfer System.",
+   "packages": [],
+   "remotes": [
+    {
+     "type": "streamable-http",
+     "url": "https://gateway.pipeworx.io/dart-kr/mcp",
+     "needs_auth": false
+    }
+   ],
+   "repo_url": "https://github.com/pipeworx-io/mcp-dart-kr",
+   "sources": [
+    "github",
+    "registry"
+   ],
+   "terms": [
+    "dart",
+    "topic:mcp korea",
+    "topic:mcp-server korea"
+   ],
+   "stars": 0,
+   "pushed": "2026-08-04",
+   "archived": false
+  },
+  {
+   "name": "io.github.pipeworx-io/flickr-public",
+   "description": "Flickr keyless public photo feeds (recent, by tag, by user, by group)",
+   "packages": [],
+   "remotes": [
+    {
+     "type": "streamable-http",
+     "url": "https://gateway.pipeworx.io/flickr-public/mcp",
+     "needs_auth": false
+    }
+   ],
+   "repo_url": "https://github.com/pipeworx-io/mcp-flickr-public",
+   "sources": [
+    "registry"
+   ],
+   "terms": [
+    "kr-"
+   ]
+  },
+  {
+   "name": "io.github.qkrehgk1-wq/mcp-korea-worklife",
+   "description": "Korean calculators: salary take-home, severance, jeonse-rent, annual leave, VAT, pyeong.",
+   "packages": [
+    {
+     "type": "pypi",
+     "id": "mcp-korea-worklife",
+     "version": "0.1.1"
+    }
+   ],
+   "remotes": [],
+   "repo_url": "",
+   "sources": [
+    "registry"
+   ],
+   "terms": [
+    "korea"
+   ]
+  },
+  {
+   "name": "io.github.raphysicst-create/korean-secondary-learning-map-mcp",
+   "description": "한국 중등 2022 개정 교육과정 학습 그래프 MCP 서버 (중학교 714 · 고교 보통교과 2,173 성취기준 · 원문 수록 · 중→고 전이)",
+   "packages": [
+    {
+     "type": "npm",
+     "id": "korean-secondary-learning-map-mcp",
+     "version": "0.1.0"
+    }
+   ],
+   "remotes": [],
+   "repo_url": "https://github.com/raphysicst-create/korean-secondary-learning-map-mcp",
+   "sources": [
+    "github",
+    "registry"
+   ],
+   "terms": [
+    "korea",
+    "korean",
+    "mcp korea in:name",
+    "mcp 한국 in:readme"
+   ],
+   "stars": 10,
+   "pushed": "2026-08-07",
+   "archived": false
+  },
+  {
+   "name": "io.github.raphysicst-create/korean-vocational-learning-map-mcp",
+   "description": "한국 특성화고 전문교과 2022 개정 교육과정 학습 그래프 MCP 서버 (전공일반·전문공통 성취기준 원문 수록)",
+   "packages": [
+    {
+     "type": "npm",
+     "id": "korean-vocational-learning-map-mcp",
+     "version": "0.1.0"
+    }
+   ],
+   "remotes": [],
+   "repo_url": "https://github.com/raphysicst-create/korean-vocational-learning-map-mcp",
+   "sources": [
+    "github",
+    "registry"
+   ],
+   "terms": [
+    "korea",
+    "korean",
+    "mcp korea in:name"
+   ],
+   "stars": 1,
+   "pushed": "2026-08-11",
+   "archived": false
+  },
+  {
+   "name": "io.github.sharebook-kr/pykrx-mcp",
+   "description": "Korean stock market data (KOSPI/KOSDAQ) with ETF tracking and fundamental analysis",
+   "packages": [
+    {
+     "type": "pypi",
+     "id": "pykrx-mcp",
+     "version": "0.1.3"
+    }
+   ],
+   "remotes": [],
+   "repo_url": "https://github.com/sharebook-kr/pykrx-mcp",
+   "sources": [
+    "registry"
+   ],
+   "terms": [
+    "krx"
+   ]
+  },
+  {
+   "name": "io.github.sidart10/runway-mcp-server",
+   "description": "AI video generation with Gen-4, Veo 3, and Aleph editing. Text-to-video, image-to-video, 4K upscale",
+   "packages": [
+    {
+     "type": "pypi",
+     "id": "runway-mcp-server",
+     "version": "0.1.0"
+    }
+   ],
+   "remotes": [],
+   "repo_url": "https://github.com/sidart10/runway-mcp-server",
+   "sources": [
+    "registry"
+   ],
+   "terms": [
+    "dart"
+   ]
+  },
+  {
+   "name": "io.github.smilemin07/korean-rnd-regs-mcp",
+   "description": "Search South Korea's national R&D regulations in natural language with cited provisions.",
+   "packages": [
+    {
+     "type": "pypi",
+     "id": "korean-rnd-regs-mcp",
+     "version": "0.10.0"
+    }
+   ],
+   "remotes": [],
+   "repo_url": "https://github.com/smilemin07/korean-rnd-regs-mcp",
+   "sources": [
+    "github",
+    "registry"
+   ],
+   "terms": [
+    "korea",
+    "korean",
+    "mcp korea in:name",
+    "mcp korean in:description",
+    "topic:mcp korea",
+    "topic:mcp-server korea"
+   ],
+   "stars": 10,
+   "pushed": "2026-08-11",
+   "archived": false
+  },
+  {
+   "name": "io.github.standardbeagle/dart-query",
+   "description": "Dart AI task management MCP with batch operations, DartQL selectors, CSV import, zero context rot",
+   "packages": [
+    {
+     "type": "npm",
+     "id": "@standardbeagle/dart-query",
+     "version": "0.3.5"
+    }
+   ],
+   "remotes": [],
+   "repo_url": "https://github.com/standardbeagle/dart-query",
+   "sources": [
+    "registry"
+   ],
+   "terms": [
+    "dart"
+   ]
+  },
+  {
+   "name": "io.github.taehyeonglim/korean-elementary-learning-map-mcp",
+   "description": "한국 초등 2022 개정 교육과정 학습 그래프 MCP 서버 (성취기준 620 · 원문 수록 · 주제 1,956 · 선수관계 1,894)",
+   "packages": [
+    {
+     "type": "npm",
+     "id": "korean-elementary-learning-map-mcp",
+     "version": "0.5.1"
+    }
+   ],
+   "remotes": [],
+   "repo_url": "https://github.com/taehyeonglim/korean-elementary-learning-map-mcp",
+   "sources": [
+    "github",
+    "registry"
+   ],
+   "terms": [
+    "korea",
+    "korean",
+    "mcp korea in:name",
+    "mcp 한국 in:readme",
+    "topic:mcp korea",
+    "topic:mcp-server korea"
+   ],
+   "stars": 11,
+   "pushed": "2026-07-28",
+   "archived": false
+  },
+  {
+   "name": "io.github.tmtysk/stockr-mcp",
+   "description": "Save insights from AI chats to the Stockr journaling app and let AI read your past reflections.",
+   "packages": [],
+   "remotes": [
+    {
+     "type": "streamable-http",
+     "url": "https://mcp.stockr.biz",
+     "needs_auth": false
+    }
+   ],
+   "repo_url": "",
+   "sources": [
+    "registry"
+   ],
+   "terms": [
+    "kr-"
+   ]
+  },
+  {
+   "name": "io.github.trakkr-aisearch/openai-ads-mcp",
+   "description": "OpenAI Ads tools for campaigns, creatives, audiences, conversions, and insights.",
+   "packages": [
+    {
+     "type": "npm",
+     "id": "openai-ads-mcp",
+     "version": "0.1.3"
+    },
+    {
+     "type": "pypi",
+     "id": "openai-ads-mcp",
+     "version": "0.1.3"
+    }
+   ],
+   "remotes": [],
+   "repo_url": "https://github.com/trakkr-aisearch/openai-ads-mcp",
+   "sources": [
+    "registry"
+   ],
+   "terms": [
+    "kr-"
+   ]
+  },
+  {
+   "name": "io.github.vitalinguist/ukr-vitalinguist-mcp",
+   "description": "Ukrainian grammar/surzhyk check + authentic-rendering lookup. Wraps ukr.vitalinguist.com API.",
+   "packages": [
+    {
+     "type": "pypi",
+     "id": "ukr-vitalinguist-mcp",
+     "version": "0.1.1"
+    }
+   ],
+   "remotes": [],
+   "repo_url": "https://github.com/vitalinguist/ukr-vitalinguist-mcp",
+   "sources": [
+    "registry"
+   ],
+   "terms": [
+    "kr-"
+   ]
+  },
+  {
+   "name": "io.github.whdrnr2583-cmd/koreanpulse",
+   "description": "Korean equity intel (EN): DART filings, KOSPI/KOSDAQ disclosures, activist & foreign-holder flows.",
+   "packages": [],
+   "remotes": [
+    {
+     "type": "streamable-http",
+     "url": "https://mcp.koreanpulse.dev/mcp",
+     "needs_auth": false
+    }
+   ],
+   "repo_url": "https://github.com/whdrnr2583-cmd/koreanpulse",
+   "sources": [
+    "github",
+    "registry"
+   ],
+   "terms": [
+    "korea",
+    "korean",
+    "mcp korean in:description",
+    "topic:mcp korea",
+    "topic:mcp-server korea"
+   ],
+   "stars": 3,
+   "pushed": "2026-07-19",
+   "archived": false
+  },
+  {
+   "name": "io.github.wujinkim/korea-business-verify",
+   "description": "한국 사업자 검증 액션 MCP 서버 — 진위확인·휴폐업·과세유형·세금계산서 발행 가능 여부 (국세청 공공데이터 기반)",
+   "packages": [
+    {
+     "type": "npm",
+     "id": "korea-business-verify",
+     "version": "0.1.1"
+    }
+   ],
+   "remotes": [],
+   "repo_url": "https://github.com/wujinkim/korea-business-verify",
+   "sources": [
+    "registry"
+   ],
+   "terms": [
+    "korea"
+   ]
+  },
+  {
+   "name": "io.github.yjhann33-design/korea-stock-insight-mcp",
+   "description": "Korean stock market MCP — DART disclosures + KRX prices, English-first for global LLM analysts.",
+   "packages": [
+    {
+     "type": "pypi",
+     "id": "korea-stock-insight-mcp",
+     "version": "0.1.1"
+    }
+   ],
+   "remotes": [],
+   "repo_url": "https://github.com/yjhann33-design/korea-stock-insight-mcp",
+   "sources": [
+    "registry"
+   ],
+   "terms": [
+    "korea"
+   ]
+  },
+  {
+   "name": "isnow890/data4library-mcp",
+   "description": "MCP server for Korean National Library API with 25+ tools for book/library search, popular trends, and   GPS-based nearby library discovery",
+   "stars": 9,
+   "pushed": "2025-10-11",
+   "archived": false,
+   "repo_url": "https://github.com/isnow890/data4library-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description",
+    "topic:mcp-server korea"
+   ]
+  },
+  {
+   "name": "j5hjun/k-commerce",
+   "description": "AI agent and MCP infrastructure for Korean commerce workflows.",
+   "stars": 0,
+   "pushed": "2026-07-08",
+   "archived": false,
+   "repo_url": "https://github.com/j5hjun/k-commerce",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description"
+   ]
+  },
+  {
+   "name": "jaykim429/korea-statistic-MCP-cginside",
+   "description": "통계청 API 활용한 MCP",
+   "stars": 2,
+   "pushed": "2026-07-16",
+   "archived": false,
+   "repo_url": "https://github.com/jaykim429/korea-statistic-MCP-cginside",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "jeonghwanko/coffee-price-mcp",
+   "description": "오늘 커피 가장 싸게 먹는 법 — read-only MCP 서버 (Claude/Codex/Gemini, npx 한 줄 연결)",
+   "stars": 2,
+   "pushed": "2026-06-22",
+   "archived": false,
+   "repo_url": "https://github.com/jeonghwanko/coffee-price-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "jihyerish/korean-codex-mcp",
+   "description": "",
+   "stars": 0,
+   "pushed": "2026-07-04",
+   "archived": false,
+   "repo_url": "https://github.com/jihyerish/korean-codex-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "jiin-choi/vc-copilot",
+   "description": "VC 심사역 워크플로우 자동화 — Claude Code 커스텀 슬래시 커맨드 7종",
+   "stars": 11,
+   "pushed": "2026-03-14",
+   "archived": false,
+   "repo_url": "https://github.com/jiin-choi/vc-copilot",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "jinny-han/mcp-korea-fiscal",
+   "description": "MCP server for Korean public fiscal data (national + local)",
+   "stars": 0,
+   "pushed": "2026-05-06",
+   "archived": false,
+   "repo_url": "https://github.com/jinny-han/mcp-korea-fiscal",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "jissp/korea-investment-mcp",
+   "description": "",
+   "stars": 0,
+   "pushed": "2026-04-11",
+   "archived": false,
+   "repo_url": "https://github.com/jissp/korea-investment-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "jkf87/mcp-google-calendar",
+   "description": "",
+   "stars": 8,
+   "pushed": "2025-03-18",
+   "archived": false,
+   "repo_url": "https://github.com/jkf87/mcp-google-calendar",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "jkf87/weather-mcp",
+   "description": "한국 주요 도시 날씨 조회 MCP 서버 (Korean Weather MCP Server)",
+   "stars": 0,
+   "pushed": "2025-11-30",
+   "archived": false,
+   "repo_url": "https://github.com/jkf87/weather-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description"
+   ]
+  },
+  {
+   "name": "jland-93/mond",
+   "description": "🌙 Mond — AI-Powered Open-Source DevSecOps Platform",
+   "stars": 16,
+   "pushed": "2026-08-17",
+   "archived": false,
+   "repo_url": "https://github.com/jland-93/mond",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "joohyukjung/korean-law-mcp",
+   "description": "",
+   "stars": 0,
+   "pushed": "2026-08-03",
+   "archived": false,
+   "repo_url": "https://github.com/joohyukjung/korean-law-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "jshsakura/oc-korea-weather-time-mcp",
+   "description": "LLM 에이전트를 위한 한국 날씨·시간 MCP 서버 — 기상청 단기예보 + 시간대 조회 | Korean weather & time MCP server for LLM agents",
+   "stars": 0,
+   "pushed": "2026-08-11",
+   "archived": false,
+   "repo_url": "https://github.com/jshsakura/oc-korea-weather-time-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "juhyunchoi-mech/korean-law-mcp",
+   "description": "Korean Law MCP Server - 국가법령정보센터 API 기반 법률/판례 검색 MCP 서버",
+   "stars": 0,
+   "pushed": "2026-04-06",
+   "archived": false,
+   "repo_url": "https://github.com/juhyunchoi-mech/korean-law-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "junghan0611/zotero-config",
+   "description": "Reproducible bibliographic workflow with AI-queryable knowledge repository. Korean Dewey Decimal citation keys, Better BibTeX, and MCP integration for semantic search.",
+   "stars": 3,
+   "pushed": "2026-08-12",
+   "archived": false,
+   "repo_url": "https://github.com/junghan0611/zotero-config",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description",
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "junyounglees/koreanki-mcp",
+   "description": "Korean professional certification exam MCP server",
+   "stars": 0,
+   "pushed": "2026-04-05",
+   "archived": false,
+   "repo_url": "https://github.com/junyounglees/koreanki-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name",
+    "mcp korean in:description"
+   ]
+  },
+  {
+   "name": "jurisupport/jurisupport-plugins",
+   "description": "",
+   "stars": 54,
+   "pushed": "2026-08-08",
+   "archived": false,
+   "repo_url": "https://github.com/jurisupport/jurisupport-plugins",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "jwgo/lemory",
+   "description": "🍋 Local-first memory middleware for your Markdown — turn your Obsidian vault into memory for any AI (MCP), with Korean-first hybrid retrieval, keyless on-device search, and an interactive knowledge graph.",
+   "stars": 9,
+   "pushed": "2026-08-10",
+   "archived": false,
+   "repo_url": "https://github.com/jwgo/lemory",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description",
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "k08200/korea-mcp-suite",
+   "description": "한국 공공 데이터 MCP 서버 — 날씨, 지하철, 부동산, 주소",
+   "stars": 0,
+   "pushed": "2026-05-17",
+   "archived": false,
+   "repo_url": "https://github.com/k08200/korea-mcp-suite",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "keonho-kim/OpenDart-mcp",
+   "description": "MCP server for OpenDart API, Korean Financial Disclosure",
+   "stars": 3,
+   "pushed": "2025-06-22",
+   "archived": false,
+   "repo_url": "https://github.com/keonho-kim/OpenDart-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description"
+   ]
+  },
+  {
+   "name": "keumbang/goldpopcon-openapi-mcp",
+   "description": "골드팝콘 Open API MCP 서버 — 스펙 조회 · JWT 서명 코드 생성 · 로컬 서명/검증",
+   "stars": 0,
+   "pushed": "2026-08-18",
+   "archived": false,
+   "repo_url": "https://github.com/keumbang/goldpopcon-openapi-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "topic:mcp-server korea"
+   ]
+  },
+  {
+   "name": "kimjj81/KoreaWeatherMCP",
+   "description": "",
+   "stars": 0,
+   "pushed": "2025-05-01",
+   "archived": false,
+   "repo_url": "https://github.com/kimjj81/KoreaWeatherMCP",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "kimjonghyeok62/korean-law-mcp-vercel",
+   "description": "Korean Law MCP Server - Vercel 서버리스 배포",
+   "stars": 0,
+   "pushed": "2026-04-28",
+   "archived": false,
+   "repo_url": "https://github.com/kimjonghyeok62/korean-law-mcp-vercel",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description"
+   ]
+  },
+  {
+   "name": "kimlawtech/korean-certified-mail",
+   "description": "한국 내용증명 자동 작성 Claude Code 스킬 — 14개 유형 지원, 법원 제출 기준 DOCX 출력, 법령 환각 방지, MCP 개인정보 보호",
+   "stars": 9,
+   "pushed": "2026-04-29",
+   "archived": false,
+   "repo_url": "https://github.com/kimlawtech/korean-certified-mail",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme",
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "kimlawtech/korean-contracts",
+   "description": "한국 사업자용 계약서 자동 생성 Claude Code 스킬. 9종 계약서(근로·알바·유연·일용·프리랜서·외주·변경·연봉) + MCP 개인정보 보호 서버. 2026 최저임금·최신 대법원 판례 반영.",
+   "stars": 61,
+   "pushed": "2026-04-22",
+   "archived": false,
+   "repo_url": "https://github.com/kimlawtech/korean-contracts",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme",
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "kimlawtech/korean-domain-agent",
+   "description": "한국 도메인 특화 LLM 에이전트 키트 — 6모드 자동분류, 법제처 인용 가드, PII 마스킹, prompt cache",
+   "stars": 5,
+   "pushed": "2026-05-30",
+   "archived": false,
+   "repo_url": "https://github.com/kimlawtech/korean-domain-agent",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "kimlawtech/korean-jangbu-for",
+   "description": "한국 스타트업, 1인 법인, 프리랜서, 개인 사업자를 위한 장부 자동 생성 Claude Code 스킬. 카드명세서 PDF·은행 CSV → 재무제표·세무사 전달 CSV 자동 생성. Level 2 민감정보 마스킹 적용.",
+   "stars": 79,
+   "pushed": "2026-04-23",
+   "archived": false,
+   "repo_url": "https://github.com/kimlawtech/korean-jangbu-for",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme",
+    "topic:mcp-server korea"
+   ]
+  },
+  {
+   "name": "kimmingul/clinical-pharmacology-study-protocol-development",
+   "description": "임상약리(Phase 1) 임상시험 문서 개발 플러그인 for Claude Code",
+   "stars": 10,
+   "pushed": "2026-07-31",
+   "archived": false,
+   "repo_url": "https://github.com/kimmingul/clinical-pharmacology-study-protocol-development",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "kiseskrap/korea-payments-mcp",
+   "description": "",
+   "stars": 0,
+   "pushed": "2026-07-20",
+   "archived": false,
+   "repo_url": "https://github.com/kiseskrap/korea-payments-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "kjh5555/MCP-korean",
+   "description": "",
+   "stars": 0,
+   "pushed": "2025-11-04",
+   "archived": false,
+   "repo_url": "https://github.com/kjh5555/MCP-korean",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "kltng/calendar_converter",
+   "description": "CJK historical calendar converter (Chinese/Japanese/Korean/Vietnamese) using Julian Day Numbers. SQLite database + FastAPI + MCP server for LLM tool-use.",
+   "stars": 1,
+   "pushed": "2026-04-11",
+   "archived": false,
+   "repo_url": "https://github.com/kltng/calendar_converter",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description"
+   ]
+  },
+  {
+   "name": "kmjm231/korea-scholar-mcp",
+   "description": "한국 학술지 연동 mcp 서버",
+   "stars": 0,
+   "pushed": "2026-01-18",
+   "archived": false,
+   "repo_url": "https://github.com/kmjm231/korea-scholar-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "kokogo100/ragalgo-mcp-server",
+   "description": "Dynamic RAG Engine for AI Reliability. We provide mathematically scored context & sanitized data to prevent hallucinations in both static & volatile domains (starting with Korean Finance).",
+   "stars": 5,
+   "pushed": "2026-01-31",
+   "archived": false,
+   "repo_url": "https://github.com/kokogo100/ragalgo-mcp-server",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "topic:mcp korea",
+    "topic:mcp-server korea"
+   ]
+  },
+  {
+   "name": "koreafintech/korean-crypto-mcp",
+   "description": "Real-time Korean crypto market data MCP server. Kimchi premium tracking, Upbit/Bithumb price comparison for AI agents.",
+   "stars": 0,
+   "pushed": "2026-02-21",
+   "archived": false,
+   "repo_url": "https://github.com/koreafintech/korean-crypto-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "koreainvestment/koreainvestment-mcp",
+   "description": "",
+   "stars": 17,
+   "pushed": "2025-08-27",
+   "archived": false,
+   "repo_url": "https://github.com/koreainvestment/koreainvestment-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "koreainvestment/open-trading-api",
+   "description": "Korea Investment & Securities Open API Github",
+   "stars": 1570,
+   "pushed": "2026-07-28",
+   "archived": false,
+   "repo_url": "https://github.com/koreainvestment/open-trading-api",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "kr.eocpa/mydart",
+   "description": "Powerful OpenDART API-based Korean corporate disclosure tools for accounting professionals",
+   "packages": [],
+   "remotes": [
+    {
+     "type": "streamable-http",
+     "url": "https://mydart.eocpa.kr/mcp",
+     "needs_auth": true
+    }
+   ],
+   "repo_url": "",
+   "sources": [
+    "registry"
+   ],
+   "terms": [
+    "dart"
+   ]
+  },
+  {
+   "name": "ksm4850/korean-persona-mcp",
+   "description": "",
+   "stars": 0,
+   "pushed": "2026-04-28",
+   "archived": false,
+   "repo_url": "https://github.com/ksm4850/korean-persona-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "kwakseongjae/dawn-cut",
+   "description": "Open-source, 100% local AI video editor — text-based editing, Korean auto-subtitles, auto silence removal, color/reframe/overlays, one-click style packs. No cloud, no account, no watermark.",
+   "stars": 2,
+   "pushed": "2026-07-20",
+   "archived": false,
+   "repo_url": "https://github.com/kwakseongjae/dawn-cut",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "kwangdol-star/koreaapi",
+   "description": "The verifiable data layer for Korean culture — callable by any AI agent (MCP), citable by any answer engine. Cross-verified, with provenance + Skill Score on every record.",
+   "stars": 0,
+   "pushed": "2026-07-16",
+   "archived": false,
+   "repo_url": "https://github.com/kwangdol-star/koreaapi",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "kyo504/krx-cli",
+   "description": "CLI & MCP server for KRX (Korea Exchange) Open API — Korean stock market data (KOSPI, KOSDAQ, ETF, bonds, derivatives)",
+   "stars": 1,
+   "pushed": "2026-03-20",
+   "archived": false,
+   "repo_url": "https://github.com/kyo504/krx-cli",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description",
+    "topic:mcp korea",
+    "topic:mcp-server korea"
+   ]
+  },
+  {
+   "name": "la1av1a/hospital-fee-mcp",
+   "description": "건강보험심사평가원 비급여 진료비 정보를 조회하는 MCP 서버 | MCP server for querying hospital non-reimbursable medical fees from HIRA",
+   "stars": 3,
+   "pushed": "2026-01-11",
+   "archived": false,
+   "repo_url": "https://github.com/la1av1a/hospital-fee-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "topic:mcp korea",
+    "topic:mcp-server korea"
+   ]
+  },
+  {
+   "name": "laughedelic/koreader-mcp-cloud-relay",
+   "description": "A CloudFlare worker implementation of an MCP relay server for the KOReader MCP plugin",
+   "stars": 0,
+   "pushed": "2026-02-04",
+   "archived": false,
+   "repo_url": "https://github.com/laughedelic/koreader-mcp-cloud-relay",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "lazymac2x/korea-public-data-api",
+   "description": "",
+   "stars": 1,
+   "pushed": "2026-04-11",
+   "archived": false,
+   "repo_url": "https://github.com/lazymac2x/korea-public-data-api",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "lazymac2x/korean-business-validator-api",
+   "description": "",
+   "stars": 0,
+   "pushed": "2026-04-02",
+   "archived": false,
+   "repo_url": "https://github.com/lazymac2x/korean-business-validator-api",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "lazymac2x/korean-holidays-api",
+   "description": "Cloudflare Workers MCP server: korean-holidays. REST + MCP (JSON-RPC 2.0). Live: api.lazy-mac.com/korean-holidays",
+   "stars": 0,
+   "pushed": "2026-05-17",
+   "archived": false,
+   "repo_url": "https://github.com/lazymac2x/korean-holidays-api",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description"
+   ]
+  },
+  {
+   "name": "lazymac2x/korean-nlp-tools-api",
+   "description": "",
+   "stars": 0,
+   "pushed": "2026-04-09",
+   "archived": false,
+   "repo_url": "https://github.com/lazymac2x/korean-nlp-tools-api",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "leadbrain/korean-data-mcp",
+   "description": "🇰🇷 MCP server for Korean web data — Naver, Melon, Daangn, Bunjang, Musinsa via Apify",
+   "stars": 1,
+   "pushed": "2026-03-10",
+   "archived": false,
+   "repo_url": "https://github.com/leadbrain/korean-data-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name",
+    "mcp korean in:description",
+    "topic:mcp korea",
+    "topic:mcp-server korea"
+   ]
+  },
+  {
+   "name": "lee-s-dev/youtube-research-mcp",
+   "description": "YouTube MCP server — transcripts, comments & channel analysis as AI research source",
+   "stars": 9,
+   "pushed": "2026-05-19",
+   "archived": false,
+   "repo_url": "https://github.com/lee-s-dev/youtube-research-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "leejaew/visitkorea-mcp",
+   "description": "MCP server wrapping Korea Tourism Organization's general tourism API (EngService2) — 14 tools for attractions, restaurants, accommodations, festivals, and cultural facilities via Streamable HTTP.",
+   "stars": 1,
+   "pushed": "2026-04-12",
+   "archived": false,
+   "repo_url": "https://github.com/leejaew/visitkorea-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description"
+   ]
+  },
+  {
+   "name": "leejaew/visitkorea-medicaltourism-mcp",
+   "description": "MCP server wrapping Korea Tourism Organization's Medical Tourism Open API (data.go.kr) — 8 tools for certified medical tourism facilities in South Korea, via Streamable HTTP",
+   "stars": 1,
+   "pushed": "2026-04-12",
+   "archived": false,
+   "repo_url": "https://github.com/leejaew/visitkorea-medicaltourism-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description"
+   ]
+  },
+  {
+   "name": "leejaew/visitkorea-wellnesstourism-mcp",
+   "description": "MCP server for Korea Tourism Organization's Wellness Tourism Open API — 9 structured tools for wellness destination search, GPS lookup, and detail retrieval via Streamable HTTP.",
+   "stars": 1,
+   "pushed": "2026-04-12",
+   "archived": false,
+   "repo_url": "https://github.com/leejaew/visitkorea-wellnesstourism-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description"
+   ]
+  },
+  {
+   "name": "legalize-kr/agent-skills",
+   "description": "AI Agent를 위한 스킬 및 플러그인 - legalize-kr의 한국 법령·판례·행정규칙·자치법규 조회 및 활용",
+   "stars": 11,
+   "pushed": "2026-07-01",
+   "archived": false,
+   "repo_url": "https://github.com/legalize-kr/agent-skills",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "legalize-kr/cli-tools",
+   "description": "사람과 에이전트를 위한 한국 법령·판례·행정규칙·자치법규 조회 CLI·MCP 도구",
+   "stars": 10,
+   "pushed": "2026-07-01",
+   "archived": false,
+   "repo_url": "https://github.com/legalize-kr/cli-tools",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "lhy1244-art/korean-ordinance-mcp",
+   "description": "한국 조례 입법 도구 — Korean local ordinance drafting MCP (성안 트랙 공개 빌드)",
+   "stars": 0,
+   "pushed": "2026-06-16",
+   "archived": false,
+   "repo_url": "https://github.com/lhy1244-art/korean-ordinance-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "limtaewon/dooray-claude-gui-assistance",
+   "description": "",
+   "stars": 10,
+   "pushed": "2026-08-10",
+   "archived": false,
+   "repo_url": "https://github.com/limtaewon/dooray-claude-gui-assistance",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "loved0543-dotcom/kdata-gate-mcp",
+   "description": "MCP server: Korean market data (K-beauty/K-food products, Naver trends, stocks, DART, real estate) in English JSON for AI agents",
+   "stars": 1,
+   "pushed": "2026-06-12",
+   "archived": false,
+   "repo_url": "https://github.com/loved0543-dotcom/kdata-gate-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description"
+   ]
+  },
+  {
+   "name": "lsszz2100/VibeHacking",
+   "description": "A Collection of Repositories, Videos, Books, and Lecture Materials to Learn Security & Hacking with AI in a Fun Way",
+   "stars": 55,
+   "pushed": "2026-08-15",
+   "archived": false,
+   "repo_url": "https://github.com/lsszz2100/VibeHacking",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "lwsinclair/stdict",
+   "description": "MCP server for the Standard Korean Dictionary",
+   "stars": 0,
+   "pushed": "2025-07-11",
+   "archived": false,
+   "repo_url": "https://github.com/lwsinclair/stdict",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description"
+   ]
+  },
+  {
+   "name": "maenjh/han-auto",
+   "description": "Generate & fill Hancom HWP/HWPX documents from Markdown — CLI + MCP server for Korean office docs (한컴 보고서·품의·공문 자동화, .hwp↔.hwpx)",
+   "stars": 0,
+   "pushed": "2026-06-14",
+   "archived": false,
+   "repo_url": "https://github.com/maenjh/han-auto",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "topic:mcp-server korea"
+   ]
+  },
+  {
+   "name": "mintorain/mintorain-tmux-ocastra",
+   "description": "MINTORAIN 바이브코딩 - Claude Code 팀 에이전트 tmux 5분할 자동화 키트",
+   "stars": 7,
+   "pushed": "2026-05-04",
+   "archived": false,
+   "repo_url": "https://github.com/mintorain/mintorain-tmux-ocastra",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "minwoo19930301/korea-ecommerce-integrated-channel-mcp",
+   "description": "여러 국내 판매처의 상품 등록·수정·판매중지·삭제를 한 번에 처리하는 MCP 서버",
+   "stars": 0,
+   "pushed": "2026-07-17",
+   "archived": false,
+   "repo_url": "https://github.com/minwoo19930301/korea-ecommerce-integrated-channel-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "modu-ai/moai-cowork",
+   "description": "비개발자를 위한 한국 실무 AI 코워커 패밀리 — Claude Cowork·ChatGPT Work에서 /project 한 번으로 시작",
+   "stars": 293,
+   "pushed": "2026-08-12",
+   "archived": false,
+   "repo_url": "https://github.com/modu-ai/moai-cowork",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "mongle250129/korea-life-mcp",
+   "description": "한국 생활 특화 MCP 서버 (카카오 PlayMCP 공모전) — 한글 자모/로마자/한글 금액/번호 검증/공휴일·영업일/전화·면적·나이·원화, 도구 15종",
+   "stars": 1,
+   "pushed": "2026-07-15",
+   "archived": false,
+   "repo_url": "https://github.com/mongle250129/korea-life-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "mossland/Projects",
+   "description": "This repository introduces the projects developed in Mossland and shares the current service status of the projects. It contains the introduction of projects developed since 2018, and projects that are currently being developed as a separate public repository may be omitted from this repository.",
+   "stars": 17,
+   "pushed": "2026-07-15",
+   "archived": false,
+   "repo_url": "https://github.com/mossland/Projects",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "mouseco/k-gov-skills",
+   "description": "Korean public-sector AI skills",
+   "stars": 9,
+   "pushed": "2026-05-31",
+   "archived": false,
+   "repo_url": "https://github.com/mouseco/k-gov-skills",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "na77tech-creator/aikstockdata",
+   "description": "Korean stock market data for AI - KOSPI/KOSDAQ closing prices and DART disclosures as free JSON, plus an MCP server. No signup, no API key.",
+   "stars": 6,
+   "pushed": "2026-08-17",
+   "archived": false,
+   "repo_url": "https://github.com/na77tech-creator/aikstockdata",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description",
+    "mcp 한국 in:readme",
+    "topic:mcp korea",
+    "topic:mcp-server korea"
+   ]
+  },
+  {
+   "name": "ngwoon/korea-realestate-mcp",
+   "description": "네이버 부동산, 직방, 다방 등 다양한 부동산 플랫폼의 정보를 조회할 수 있는 MCP 서버입니다.",
+   "stars": 0,
+   "pushed": "2026-02-08",
+   "archived": false,
+   "repo_url": "https://github.com/ngwoon/korea-realestate-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "nokelan/KoreanLawMCP",
+   "description": "법제처 국가법령정보 Open API 기반 한국 법령 벡터DB + GraphRAG + MCP 서버",
+   "stars": 0,
+   "pushed": "2026-08-08",
+   "archived": false,
+   "repo_url": "https://github.com/nokelan/KoreanLawMCP",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "obundh/korea-public-data-catalog-mcp",
+   "description": "대한민국 공공데이터를 조합해 서비스 아이디어를 설계하는 정적 메타데이터 MCP 공개 베타",
+   "stars": 15,
+   "pushed": "2026-08-05",
+   "archived": false,
+   "repo_url": "https://github.com/obundh/korea-public-data-catalog-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name",
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "ohhan777/korea_weather",
+   "description": "MCP server using the Korea Weather Service (KWS)",
+   "stars": 12,
+   "pushed": "2026-02-22",
+   "archived": false,
+   "repo_url": "https://github.com/ohhan777/korea_weather",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description"
+   ]
+  },
+  {
+   "name": "ohkyuetaek/korea-realestate-mcp",
+   "description": "",
+   "stars": 0,
+   "pushed": "2026-03-09",
+   "archived": false,
+   "repo_url": "https://github.com/ohkyuetaek/korea-realestate-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "oksure/bible-ko-mcp",
+   "description": "MCP server for Korean Bible - cached, validated, all 66 books with 5 translations",
+   "stars": 2,
+   "pushed": "2026-06-22",
+   "archived": false,
+   "repo_url": "https://github.com/oksure/bible-ko-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description"
+   ]
+  },
+  {
+   "name": "opendata-kr/.github",
+   "description": "opendata-kr 조직 공개 프로필과 공통 커뮤니티 헬스 파일",
+   "stars": 0,
+   "pushed": "2026-07-13",
+   "archived": false,
+   "repo_url": "https://github.com/opendata-kr/.github",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "opendata-kr/narajangteo-bid-mcp",
+   "description": "나라장터 입찰공고정보서비스(공공데이터포털 data.go.kr) Open API를 감싼 로컬 MCP 서버",
+   "stars": 0,
+   "pushed": "2026-08-02",
+   "archived": false,
+   "repo_url": "https://github.com/opendata-kr/narajangteo-bid-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "topic:mcp-server korea"
+   ]
+  },
+  {
+   "name": "opendata-kr/narajangteo-corpinfo-mcp",
+   "description": "나라장터 사용자정보서비스(공공데이터포털 data.go.kr) Open API를 감싼 로컬 MCP 서버",
+   "stars": 0,
+   "pushed": "2026-08-02",
+   "archived": false,
+   "repo_url": "https://github.com/opendata-kr/narajangteo-corpinfo-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "topic:mcp-server korea"
+   ]
+  },
+  {
+   "name": "opendata-kr/narajangteo-opening-mcp",
+   "description": "나라장터 낙찰정보서비스 Open API를 위한 로컬 MCP 서버",
+   "stars": 0,
+   "pushed": "2026-08-02",
+   "archived": false,
+   "repo_url": "https://github.com/opendata-kr/narajangteo-opening-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "topic:mcp-server korea"
+   ]
+  },
+  {
+   "name": "opendata-kr/narajangteo-prespec-mcp",
+   "description": "나라장터 사전규격정보서비스 Open API를 위한 로컬 MCP 서버",
+   "stars": 0,
+   "pushed": "2026-08-02",
+   "archived": false,
+   "repo_url": "https://github.com/opendata-kr/narajangteo-prespec-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "topic:mcp-server korea"
+   ]
+  },
+  {
+   "name": "openpharma-org/asia-filings-mcp-server",
+   "description": "MCP server for Asian financial filings (Japan EDINET, Korea DART) - 7,700+ companies with J-GAAP/K-GAAP support",
+   "stars": 3,
+   "pushed": "2025-12-18",
+   "archived": false,
+   "repo_url": "https://github.com/openpharma-org/asia-filings-mcp-server",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description"
+   ]
+  },
+  {
+   "name": "orientpine/honeypot",
+   "description": "tool box for AI agent",
+   "stars": 34,
+   "pushed": "2026-08-14",
+   "archived": false,
+   "repo_url": "https://github.com/orientpine/honeypot",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "pblsketch/k-teacher-skills",
+   "description": "Korean teacher skill pack for lesson design, assessment-first planning, and classroom-context-aware AI workflows",
+   "stars": 17,
+   "pushed": "2026-07-17",
+   "archived": false,
+   "repo_url": "https://github.com/pblsketch/k-teacher-skills",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "pblsketch/korean-teacher-mcp",
+   "description": "한국 교사를 위한 AI 수업 설계 MCP 서버 — 교과서 PDF 업로드 → 활동지·평가지·루브릭·HWPX·PPTX 자동 생성",
+   "stars": 0,
+   "pushed": "2026-05-17",
+   "archived": false,
+   "repo_url": "https://github.com/pblsketch/korean-teacher-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "pchuri/korean-capital-gains-tax-mcp",
+   "description": "Korean Capital Gains Tax Calculator for Real Estate - MCP Server (TypeScript)",
+   "stars": 2,
+   "pushed": "2026-03-24",
+   "archived": false,
+   "repo_url": "https://github.com/pchuri/korean-capital-gains-tax-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name",
+    "mcp korean in:description"
+   ]
+  },
+  {
+   "name": "pikker1981/korean-law-mcp",
+   "description": "korean-law-mcp 디자인 수정버젼",
+   "stars": 0,
+   "pushed": "2026-04-30",
+   "archived": false,
+   "repo_url": "https://github.com/pikker1981/korean-law-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name",
+    "mcp korean in:description"
+   ]
+  },
+  {
+   "name": "pipeworx-io/mcp-ecos-kr",
+   "description": "ECOS — Bank of Korea Economic Statistics System.",
+   "stars": 0,
+   "pushed": "2026-08-04",
+   "archived": false,
+   "repo_url": "https://github.com/pipeworx-io/mcp-ecos-kr",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "topic:mcp korea",
+    "topic:mcp-server korea"
+   ]
+  },
+  {
+   "name": "pjookim/mcp-visit-korea",
+   "description": "MCP server for Korean tourism information",
+   "stars": 2,
+   "pushed": "2025-04-10",
+   "archived": false,
+   "repo_url": "https://github.com/pjookim/mcp-visit-korea",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name",
+    "mcp korean in:description"
+   ]
+  },
+  {
+   "name": "psa0426/sw-settlement-mcp",
+   "description": "사회복지시설 결산 검증 MCP 서버 — 희망이음 B형 엑셀 기반, 파서 16개 + 검증규칙 21개(V14/X7) + CLI. Settlement validator for Korean social welfare facilities.",
+   "stars": 2,
+   "pushed": "2026-04-03",
+   "archived": false,
+   "repo_url": "https://github.com/psa0426/sw-settlement-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description"
+   ]
+  },
+  {
+   "name": "pstanton237/awesome-stars",
+   "description": "A curated list of my GitHub stars by stargazed",
+   "stars": 9,
+   "pushed": "2026-08-18",
+   "archived": false,
+   "repo_url": "https://github.com/pstanton237/awesome-stars",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "quickquickTax/yangdoAngel",
+   "description": "Korean capital gains tax calculator MCP",
+   "stars": 0,
+   "pushed": "2026-07-07",
+   "archived": false,
+   "repo_url": "https://github.com/quickquickTax/yangdoAngel",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description"
+   ]
+  },
+  {
+   "name": "rabqatab/LexLink-ko-mcp",
+   "description": "MCP server integrating the Korean National Law Information Center Open API for structured access to laws, precedents, and legal interpretations.",
+   "stars": 1,
+   "pushed": "2026-06-21",
+   "archived": false,
+   "repo_url": "https://github.com/rabqatab/LexLink-ko-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description"
+   ]
+  },
+  {
+   "name": "rabqatab/RegLink-Search-ko-mcp",
+   "description": "MCP server integrating the Korean National Law Information Center Open API for structured access to laws, precedents, and legal interpretations.",
+   "stars": 1,
+   "pushed": "2026-04-02",
+   "archived": false,
+   "repo_url": "https://github.com/rabqatab/RegLink-Search-ko-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description"
+   ]
+  },
+  {
+   "name": "ratelworks/agent-safety-oss",
+   "description": "건설현장의 법정 안전문서 작성을 더 빠르고 정확하게. 산안법·기준규칙·중처법·KOSHA Guide를 기반으로 안전관리자와 현장소장의 문서 작성과 검토를 돕는 오픈소스 도구입니다.",
+   "stars": 45,
+   "pushed": "2026-08-03",
+   "archived": false,
+   "repo_url": "https://github.com/ratelworks/agent-safety-oss",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "reallygood83/master-of-hwp",
+   "description": "",
+   "stars": 20,
+   "pushed": "2026-04-23",
+   "archived": false,
+   "repo_url": "https://github.com/reallygood83/master-of-hwp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "redoxnet/mcp-lsopenapi",
+   "description": "MCP server over LS Securities OpenAPI — quotes, charts, screeners, ETF, program flow, and portfolio data for Korean and US markets, accessed in natural language.",
+   "stars": 2,
+   "pushed": "2026-06-09",
+   "archived": false,
+   "repo_url": "https://github.com/redoxnet/mcp-lsopenapi",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description",
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "revfactory/claude-code-guide",
+   "description": "Claude Code 와 함께하는 바이브코딩",
+   "stars": 75,
+   "pushed": "2025-07-27",
+   "archived": false,
+   "repo_url": "https://github.com/revfactory/claude-code-guide",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "rootnix/Oh-My-Stock-MCP",
+   "description": "My Stock Data MCP",
+   "stars": 12,
+   "pushed": "2026-05-18",
+   "archived": false,
+   "repo_url": "https://github.com/rootnix/Oh-My-Stock-MCP",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "rostradamus/klaws",
+   "description": "MCP server & CLI that scans source code for possible Korean compliance risks (PIPA/개인정보보호법, Network Act, Credit Info Act, E-Commerce Act) and maps findings to legal provisions. Not legal advice.",
+   "stars": 1,
+   "pushed": "2026-07-24",
+   "archived": false,
+   "repo_url": "https://github.com/rostradamus/klaws",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description",
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "sallim-app/contract-compass",
+   "description": "계약나침반 — 공공계약 방법 결정 도우미 (국가계약법·지방계약법 룰엔진 + 법령 RAG)",
+   "stars": 0,
+   "pushed": "2026-08-17",
+   "archived": false,
+   "repo_url": "https://github.com/sallim-app/contract-compass",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "topic:mcp-server korea"
+   ]
+  },
+  {
+   "name": "scvcoder/korean-law-alio-mcp",
+   "description": "(개요) 국가법령정보센터와 알리오의 공공기관 내부규정을 검색·비교·분석하는 MCP. (도구) 법제처 87 + ALIO 공공기관 규정 23 = 110개 MCP 도구. (데이터) 1,600 법률, 10,000 행정규칙, 수만건 판례, 344개 공공기관 35,000 내부규정.",
+   "stars": 15,
+   "pushed": "2026-06-06",
+   "archived": false,
+   "repo_url": "https://github.com/scvcoder/korean-law-alio-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name",
+    "topic:mcp korea",
+    "topic:mcp-server korea"
+   ]
+  },
+  {
+   "name": "scvcoder/korean-privacy-law-mcp",
+   "description": "중소기업 및 소형병원, 약국, 학원 등 소상공과 개인을 위한 개인정보를 쉽게 설명하는 MCP — 37개 도구와 개인정보 가이드 및 상담사례 2,202 chunks를 사용하여 어려운 개인정보를 쉽게 알려줌.",
+   "stars": 4,
+   "pushed": "2026-05-10",
+   "archived": false,
+   "repo_url": "https://github.com/scvcoder/korean-privacy-law-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name",
+    "mcp 한국 in:readme",
+    "topic:mcp korea",
+    "topic:mcp-server korea"
+   ]
+  },
+  {
+   "name": "seo-jinseok/korean-law-mcp",
+   "description": "MCP Server for Korean Law Open API - 법령, 판례, 행정규칙, 법령해석례, 서식 검색",
+   "stars": 4,
+   "pushed": "2025-12-26",
+   "archived": false,
+   "repo_url": "https://github.com/seo-jinseok/korean-law-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name",
+    "mcp korean in:description",
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "seolcoding/korean-stat-mcp",
+   "description": "MCP server for Korean KOSIS OpenAPI statistics data",
+   "stars": 1,
+   "pushed": "2026-05-01",
+   "archived": false,
+   "repo_url": "https://github.com/seolcoding/korean-stat-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name",
+    "mcp korean in:description",
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "seoulstart/awesome-build-for-korea",
+   "description": "Open-source list of Korean payment gateways (Stripe alternatives), identity verification (본인인증), Kakao/Naver login, Naver Maps, APIs, SDKs & MCP servers for building products for the Korean market. For foreign and AI-assisted builders.",
+   "stars": 3,
+   "pushed": "2026-06-19",
+   "archived": false,
+   "repo_url": "https://github.com/seoulstart/awesome-build-for-korea",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description",
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "serithemage/korea-ai-foundation-model-verification",
+   "description": "한국 정부 국가 AI 파운데이션 모델 5개 기관(Upstage, NAVER, SKT, NC, LG)의 공개 모델이 실제로 from scratch로 학습되었는지 검증하는 프로젝트",
+   "stars": 49,
+   "pushed": "2026-04-30",
+   "archived": false,
+   "repo_url": "https://github.com/serithemage/korea-ai-foundation-model-verification",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "shunshi-ai/bazi-reader-mcp",
+   "description": "Give your AI agent the ability to read Chinese Bazi (八字) charts — an open-source MCP server 🔮",
+   "stars": 10,
+   "pushed": "2026-05-31",
+   "archived": false,
+   "repo_url": "https://github.com/shunshi-ai/bazi-reader-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "sinmb79/22B-ERP-Modular-Self-Hosted-ERP-",
+   "description": "22B-ERP(Modular-Self-Hosted-ERP)",
+   "stars": 4,
+   "pushed": "2026-04-03",
+   "archived": false,
+   "repo_url": "https://github.com/sinmb79/22B-ERP-Modular-Self-Hosted-ERP-",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "sinmb79/GongMun-Doctor-MCP",
+   "description": "공문닥터-MCP-AI와 공문을 작성해봅시다. ",
+   "stars": 23,
+   "pushed": "2026-04-03",
+   "archived": false,
+   "repo_url": "https://github.com/sinmb79/GongMun-Doctor-MCP",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "skyfe79/Awesome",
+   "description": "My Awesome from the starred repos 😋",
+   "stars": 10,
+   "pushed": "2026-08-16",
+   "archived": false,
+   "repo_url": "https://github.com/skyfe79/Awesome",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "smorky850612/Aurakit",
+   "description": "One command. Full stack. Zero compromise. — All-in-one Claude Code skill with 33 modes, 6-layer    security, 23 hooks, and 75% token savings. Works on Codex, Cursor, Manus, Windsurf.",
+   "stars": 38,
+   "pushed": "2026-04-16",
+   "archived": false,
+   "repo_url": "https://github.com/smorky850612/Aurakit",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "socialkim/korea-onegov-mcp",
+   "description": "대한민국 정부 공개자료 통합검색(OneGov) MCP 서버 - Claude/ChatGPT 웹에서 바로 쓰는 원격 MCP + 로컬 stdio 지원",
+   "stars": 0,
+   "pushed": "2026-07-27",
+   "archived": false,
+   "repo_url": "https://github.com/socialkim/korea-onegov-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "sonmeggy/korean-engineering-mcp",
+   "description": "한국 건설기준(KDS/KCS)과 법제처 법령 통합 검색 MCP 서버",
+   "stars": 2,
+   "pushed": "2026-08-15",
+   "archived": false,
+   "repo_url": "https://github.com/sonmeggy/korean-engineering-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "spoyodevelop/korean-weather-mcp",
+   "description": "한국 기상청 api와 MCP 연동",
+   "stars": 1,
+   "pushed": "2025-04-13",
+   "archived": false,
+   "repo_url": "https://github.com/spoyodevelop/korean-weather-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "stephano0308-cloud/korean-law-mcp",
+   "description": "",
+   "stars": 0,
+   "pushed": "2026-07-06",
+   "archived": false,
+   "repo_url": "https://github.com/stephano0308-cloud/korean-law-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "sunhye/mcp-korea-weather",
+   "description": "",
+   "stars": 0,
+   "pushed": "2025-09-05",
+   "archived": false,
+   "repo_url": "https://github.com/sunhye/mcp-korea-weather",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "tae0y/real-estate-mcp",
+   "description": "🏠 Ask Claude about Korean apartment prices — powered by 국토교통부 open API",
+   "stars": 368,
+   "pushed": "2026-07-18",
+   "archived": false,
+   "repo_url": "https://github.com/tae0y/real-estate-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "taehyun-lim/kr-elections-mcp",
+   "description": "Local MCP server for South Korean election data, results, diagnostics, and krpoltext text lookup.",
+   "stars": 1,
+   "pushed": "2026-07-24",
+   "archived": false,
+   "repo_url": "https://github.com/taehyun-lim/kr-elections-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description"
+   ]
+  },
+  {
+   "name": "tangzanaro/korean_context_mcp",
+   "description": "",
+   "stars": 0,
+   "pushed": "2025-09-29",
+   "archived": false,
+   "repo_url": "https://github.com/tangzanaro/korean_context_mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "taxueseek/argo",
+   "description": "专门为 agent 打造的 agent 搜索工具，具备多语言搜索能力，覆盖中文/英文/学术/代码/购物/金融/新闻/百科。",
+   "stars": 100,
+   "pushed": "2026-08-13",
+   "archived": false,
+   "repo_url": "https://github.com/taxueseek/argo",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "techkwon/comci-agent",
+   "description": "Unofficial local-first Python CLI, REST API, and MCP server for Korean Comci school timetables and schedule-change detection.",
+   "stars": 1,
+   "pushed": "2026-08-10",
+   "archived": false,
+   "repo_url": "https://github.com/techkwon/comci-agent",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description",
+    "topic:mcp korea",
+    "topic:mcp-server korea"
+   ]
+  },
+  {
+   "name": "techkwon/comci-agent-sites-ui",
+   "description": "Public web UI and Sites deployment layer for the Comci Agent Korean school timetable CLI, REST API, and MCP server.",
+   "stars": 1,
+   "pushed": "2026-08-10",
+   "archived": false,
+   "repo_url": "https://github.com/techkwon/comci-agent-sites-ui",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description"
+   ]
+  },
+  {
+   "name": "tenacl/koreandict-mcp-server",
+   "description": "",
+   "stars": 4,
+   "pushed": "2025-04-05",
+   "archived": false,
+   "repo_url": "https://github.com/tenacl/koreandict-mcp-server",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "tjwodud04/mcp-tour",
+   "description": "MCP integration for Korea Tourism Organization's API using Claude Desktop App with help from Cursor",
+   "stars": 2,
+   "pushed": "2026-08-05",
+   "archived": false,
+   "repo_url": "https://github.com/tjwodud04/mcp-tour",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description",
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "topnotcher107-dotcom/korea-university-mcp",
+   "description": "MCP server for Korean university disclosure data APIs",
+   "stars": 0,
+   "pushed": "2026-08-11",
+   "archived": false,
+   "repo_url": "https://github.com/topnotcher107-dotcom/korea-university-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "treesoop/hwp-mcp",
+   "description": "MCP server for reading and writing HWP/HWPX (Korean Hangul) documents — built on rhwp. 34 tools, Claude/Cursor/ChatGPT compatible.",
+   "stars": 73,
+   "pushed": "2026-07-08",
+   "archived": false,
+   "repo_url": "https://github.com/treesoop/hwp-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description",
+    "topic:mcp-server korea"
+   ]
+  },
+  {
+   "name": "trevi00/hwp-handler-mcp",
+   "description": "MCP server for Korean HWP/HWPX documents — read .hwp and .hwpx, edit and generate .hwpx, fill form tables by label",
+   "stars": 0,
+   "pushed": "2026-08-03",
+   "archived": false,
+   "repo_url": "https://github.com/trevi00/hwp-handler-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "topic:mcp-server korea"
+   ]
+  },
+  {
+   "name": "uju777/coupang-mcp",
+   "description": "Claude/Cursor에서 쿠팡 검색. 최저가 비교, 로켓배송 표시, 중고상품도 검색됨. API 키 불필요.",
+   "stars": 17,
+   "pushed": "2026-04-13",
+   "archived": false,
+   "repo_url": "https://github.com/uju777/coupang-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "topic:mcp korea",
+    "topic:mcp-server korea"
+   ]
+  },
+  {
+   "name": "uju777/mcp-server-naver-search",
+   "description": "MCP server for Naver Search (Shopping, Cafe, News). Essential for Korean users.",
+   "stars": 1,
+   "pushed": "2026-01-12",
+   "archived": false,
+   "repo_url": "https://github.com/uju777/mcp-server-naver-search",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description",
+    "topic:mcp korea",
+    "topic:mcp-server korea"
+   ]
+  },
+  {
+   "name": "uscaidev/galpi-korean-law-mcp",
+   "description": "목적별 한국 법령검토를 위한 읽기 전용 MCP 서버",
+   "stars": 0,
+   "pushed": "2026-07-21",
+   "archived": false,
+   "repo_url": "https://github.com/uscaidev/galpi-korean-law-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "waterfirst/fde-codex-lawyer",
+   "description": "Codex x Korean Law MCP workshop for bankruptcy lawyer workflow automation",
+   "stars": 1,
+   "pushed": "2026-08-02",
+   "archived": false,
+   "repo_url": "https://github.com/waterfirst/fde-codex-lawyer",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description"
+   ]
+  },
+  {
+   "name": "weniv/mcp_book_source",
+   "description": "",
+   "stars": 5,
+   "pushed": "2025-07-05",
+   "archived": false,
+   "repo_url": "https://github.com/weniv/mcp_book_source",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  },
+  {
+   "name": "winterjung/mcp-korean-spell",
+   "description": "MCP(Model Context Protocol) server designed for Korean spell checking",
+   "stars": 24,
+   "pushed": "2025-04-15",
+   "archived": false,
+   "repo_url": "https://github.com/winterjung/mcp-korean-spell",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name",
+    "mcp korean in:description",
+    "topic:mcp korea",
+    "topic:mcp-server korea"
+   ]
+  },
+  {
+   "name": "woongaro/korean-law-mcp",
+   "description": "대한민국 법령, 판례, 헌법재판소 결정을 검색할 수 있는 MCP(Model Context Protocol) 서버입니다.",
+   "stars": 1,
+   "pushed": "2026-03-12",
+   "archived": false,
+   "repo_url": "https://github.com/woongaro/korean-law-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "woonggykim/korea-stock-mcp",
+   "description": "",
+   "stars": 0,
+   "pushed": "2026-04-10",
+   "archived": false,
+   "repo_url": "https://github.com/woonggykim/korea-stock-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "wowzoo/korea-geocoder-mcp",
+   "description": "MCP server for geocoding Korean addresses using Google Maps API",
+   "stars": 0,
+   "pushed": "2025-09-01",
+   "archived": false,
+   "repo_url": "https://github.com/wowzoo/korea-geocoder-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "wowzoo/korea-weather-mcp",
+   "description": "MCP server for Korean weather forecasts using KMA API",
+   "stars": 1,
+   "pushed": "2025-09-01",
+   "archived": false,
+   "repo_url": "https://github.com/wowzoo/korea-weather-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name",
+    "mcp korean in:description"
+   ]
+  },
+  {
+   "name": "yonghwan1106/korea-health-mcp",
+   "description": "Korean Health & Emergency Medical Information MCP Server - 한국 응급의료/병원/약국 정보 조회",
+   "stars": 0,
+   "pushed": "2026-01-13",
+   "archived": false,
+   "repo_url": "https://github.com/yonghwan1106/korea-health-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "yoonJJ/korea-weather-mcp",
+   "description": "",
+   "stars": 0,
+   "pushed": "2026-04-17",
+   "archived": false,
+   "repo_url": "https://github.com/yoonJJ/korea-weather-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name"
+   ]
+  },
+  {
+   "name": "youngsooco/k-mail-mcp",
+   "description": "AI-powered unified inbox for Korean mail (Naver, Daum, and IMAP support mailing services) · MCP Plugin for Claude Desktop",
+   "stars": 5,
+   "pushed": "2026-04-16",
+   "archived": false,
+   "repo_url": "https://github.com/youngsooco/k-mail-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description",
+    "mcp 한국 in:readme",
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "z0nam/korea-rio-mcp",
+   "description": "Regional Input-Output economic-impact analysis as an MCP server, built on Bank of Korea regional IO tables. Computes production/value-added/employment induced effects (in-region vs out-of-region) for Claude Code, Codex, Gemini CLI.",
+   "stars": 0,
+   "pushed": "2026-07-21",
+   "archived": false,
+   "repo_url": "https://github.com/z0nam/korea-rio-mcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korea in:name",
+    "topic:mcp korea"
+   ]
+  },
+  {
+   "name": "zeikar/kimcp",
+   "description": "MCP server enabling LLMs to use Korean APIs (Naver, Kakao, etc.)",
+   "stars": 10,
+   "pushed": "2025-05-15",
+   "archived": false,
+   "repo_url": "https://github.com/zeikar/kimcp",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp korean in:description",
+    "topic:mcp korea",
+    "topic:mcp-server korea"
+   ]
+  },
+  {
+   "name": "zenajo/hr-legal-review",
+   "description": "",
+   "stars": 8,
+   "pushed": "2026-04-29",
+   "archived": false,
+   "repo_url": "https://github.com/zenajo/hr-legal-review",
+   "sources": [
+    "github"
+   ],
+   "terms": [
+    "mcp 한국 in:readme"
+   ]
+  }
+ ]
+}

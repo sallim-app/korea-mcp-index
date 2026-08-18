@@ -1,0 +1,286 @@
+{
+ "source": "https://raw.githubusercontent.com/darjeeling/awesome-mcp-korea/main/README.md",
+ "count": 56,
+ "items": [
+  {
+   "name": "chrisryugj/korean-law-mcp",
+   "repo": "chrisryugj/korean-law-mcp",
+   "category": "Legal & Government"
+  },
+  {
+   "name": "ChangooLee/mcp-kr-legislation",
+   "repo": "ChangooLee/mcp-kr-legislation",
+   "category": "Legal & Government"
+  },
+  {
+   "name": "hollobit/assembly-api-mcp",
+   "repo": "hollobit/assembly-api-mcp",
+   "category": "Legal & Government"
+  },
+  {
+   "name": "finalchild/law-mcp",
+   "repo": "finalchild/law-mcp",
+   "category": "Legal & Government"
+  },
+  {
+   "name": "DrMoony/koregx",
+   "repo": "DrMoony/koregx",
+   "category": "Legal & Government"
+  },
+  {
+   "name": "seung23/lawtutor-mcp",
+   "repo": "seung23/lawtutor-mcp",
+   "category": "Legal & Government"
+  },
+  {
+   "name": "rabqatab/LexLink-ko-mcp",
+   "repo": "rabqatab/LexLink-ko-mcp",
+   "category": "Legal & Government"
+  },
+  {
+   "name": "SeoNaRu/korean-law-mcp",
+   "repo": "SeoNaRu/korean-law-mcp",
+   "category": "Legal & Government"
+  },
+  {
+   "name": "workbookbulb863/korean-law-alio-mcp",
+   "repo": "workbookbulb863/korean-law-alio-mcp",
+   "category": "Legal & Government"
+  },
+  {
+   "name": "daiso-mcp",
+   "repo": "hmmhmmhm/daiso-mcp",
+   "category": "Commerce & Retail"
+  },
+  {
+   "name": "edward-kim-dev/kr-pc-deals-mcp",
+   "repo": "edward-kim-dev/kr-pc-deals-mcp",
+   "category": "Commerce & Retail"
+  },
+  {
+   "name": "KIS_MCP_Server",
+   "repo": "migusdn/KIS_MCP_Server",
+   "category": "Finance & Tax"
+  },
+  {
+   "name": "korea-stock-analyzer-mcp",
+   "repo": "Mrbaeksang/korea-stock-analyzer-mcp",
+   "category": "Finance & Tax"
+  },
+  {
+   "name": "korea-stock-mcp",
+   "repo": "jjlabsio/korea-stock-mcp",
+   "category": "Finance & Tax"
+  },
+  {
+   "name": "aesthetic-legalism5470/korean-dart-mcp",
+   "repo": "aesthetic-legalism5470/korean-dart-mcp",
+   "category": "Finance & Tax"
+  },
+  {
+   "name": "koreainvestment-mcp",
+   "repo": "koreainvestment/koreainvestment-mcp",
+   "category": "Finance & Tax"
+  },
+  {
+   "name": "pykrx-mcp",
+   "repo": "sharebook-kr/pykrx-mcp",
+   "category": "Finance & Tax"
+  },
+  {
+   "name": "redoxnet/mcp-lsopenapi",
+   "repo": "redoxnet/mcp-lsopenapi",
+   "category": "Finance & Tax"
+  },
+  {
+   "name": "snaiws/DART-mcp-server",
+   "repo": "snaiws/DART-mcp-server",
+   "category": "Finance & Tax"
+  },
+  {
+   "name": "A2A-MCP-RealEstate",
+   "repo": "gum798/A2A-MCP-RealEstate",
+   "category": "Real Estate"
+  },
+  {
+   "name": "mcp-kr-realestate",
+   "repo": "ChangooLee/mcp-kr-realestate",
+   "category": "Real Estate"
+  },
+  {
+   "name": "real-estate-mcp",
+   "repo": "tae0y/real-estate-mcp",
+   "category": "Real Estate"
+  },
+  {
+   "name": "navermap-mcp-server",
+   "repo": "flor3z-github/navermap-mcp-server",
+   "category": "Maps & Address"
+  },
+  {
+   "name": "mcp-naver-map",
+   "repo": "yeonupark/mcp-naver-map",
+   "category": "Maps & Address"
+  },
+  {
+   "name": "mcp-naver-maps",
+   "repo": "yunkee-lee/mcp-naver-maps",
+   "category": "Maps & Address"
+  },
+  {
+   "name": "kakao-navigation-mcp-server",
+   "repo": "CaChiJ/kakao-navigation-mcp-server",
+   "category": "Maps & Address"
+  },
+  {
+   "name": "jeong-sik/kakao-api-mcp-server",
+   "repo": "jeong-sik/kakao-api-mcp-server",
+   "category": "Maps & Address"
+  },
+  {
+   "name": "mcp-server-kakao-map",
+   "repo": "cgoinglove/mcp-server-kakao-map",
+   "category": "Maps & Address"
+  },
+  {
+   "name": "naver-search-mcp",
+   "repo": "isnow890/naver-search-mcp",
+   "category": "Search & Trends"
+  },
+  {
+   "name": "py-mcp-naver-search",
+   "repo": "jikime/py-mcp-naver-search",
+   "category": "Search & Trends"
+  },
+  {
+   "name": "mcp-korea-tourism-api",
+   "repo": "harimkang/mcp-korea-tourism-api",
+   "category": "Tourism & Travel"
+  },
+  {
+   "name": "mcp-visit-korea",
+   "repo": "pjookim/mcp-visit-korea",
+   "category": "Tourism & Travel"
+  },
+  {
+   "name": "be-node-seoul-data-mcp",
+   "repo": "pinnaclesoft-ko/be-node-seoul-data-mcp",
+   "category": "Public Data"
+  },
+  {
+   "name": "data-go-mcp-servers",
+   "repo": "Koomook/data-go-mcp-servers",
+   "category": "Public Data"
+  },
+  {
+   "name": "data4library-mcp",
+   "repo": "isnow890/data4library-mcp",
+   "category": "Public Data"
+  },
+  {
+   "name": "k-mfds-fooddb-mcp-server",
+   "repo": "slicequeue/k-mfds-fooddb-mcp-server",
+   "category": "Public Data"
+  },
+  {
+   "name": "k-targo-subway-mcp-server",
+   "repo": "slicequeue/k-targo-subway-mcp-server",
+   "category": "Public Data"
+  },
+  {
+   "name": "korea-public-data-mcp",
+   "repo": "hjsh200219/korea-public-data-mcp",
+   "category": "Public Data"
+  },
+  {
+   "name": "jayjodev/vivory-mcp",
+   "repo": "jayjodev/vivory-mcp",
+   "category": "Public Data"
+  },
+  {
+   "name": "jaykim429/korea-statistic-MCP-cginside",
+   "repo": "jaykim429/korea-statistic-MCP-cginside",
+   "category": "Public Data"
+  },
+  {
+   "name": "korea-stats-mcp",
+   "repo": "Dayoooun/korea-stats-mcp",
+   "category": "Public Data"
+  },
+  {
+   "name": "opendata-mcp",
+   "repo": "ceami/opendata-mcp",
+   "category": "Public Data"
+  },
+  {
+   "name": "KMA-WEATHER-MCP",
+   "repo": "woongaro/KMA-WEATHER-MCP",
+   "category": "Weather"
+  },
+  {
+   "name": "korea_weather",
+   "repo": "ohhan777/korea_weather",
+   "category": "Weather"
+  },
+  {
+   "name": "korea-weather-mcp",
+   "repo": "worker-ants/korea-weather-mcp",
+   "category": "Weather"
+  },
+  {
+   "name": "mcp-get-weather",
+   "repo": "Kinuk97/mcp-get-weather",
+   "category": "Weather"
+  },
+  {
+   "name": "mcp-weather",
+   "repo": "jikime/mcp-weather",
+   "category": "Weather"
+  },
+  {
+   "name": "mcp-weather-server",
+   "repo": "dbsxortime/mcp-weather-server",
+   "category": "Weather"
+  },
+  {
+   "name": "ko-stdict-mcp",
+   "repo": "dahlia/ko-stdict-mcp",
+   "category": "Korean NLP & Language"
+  },
+  {
+   "name": "kordoc",
+   "repo": "chrisryugj/kordoc",
+   "category": "Korean NLP & Language"
+  },
+  {
+   "name": "mcp-korean-spell",
+   "repo": "winterjung/mcp-korean-spell",
+   "category": "Korean NLP & Language"
+  },
+  {
+   "name": "dooray-go/dooray_mcp",
+   "repo": "dooray-go/dooray_mcp",
+   "category": "Collaboration & Communication"
+  },
+  {
+   "name": "kwanok/dooray-mcp",
+   "repo": "kwanok/dooray-mcp",
+   "category": "Collaboration & Communication"
+  },
+  {
+   "name": "mskim8717/dooray-mcp",
+   "repo": "mskim8717/dooray-mcp",
+   "category": "Collaboration & Communication"
+  },
+  {
+   "name": "hyeri0903/naver-works-mcp",
+   "repo": "hyeri0903/naver-works-mcp",
+   "category": "Collaboration & Communication"
+  },
+  {
+   "name": "kr-movie-tv-mcp",
+   "repo": "carasjung/kr-movie-tv-mcp",
+   "category": "Miscellaneous"
+  }
+ ]
+}
