@@ -37,7 +37,7 @@ REGISTRY = "https://registry.modelcontextprotocol.io/v0/servers"
 MCPMOA = "https://mcpmoa.com/api/v1/servers.json"
 GITHUB = "https://api.github.com/search/repositories"
 PAGE = 100
-MAX_PAGES = 120   # 12,000건까지. 상한에 걸리면 숨기지 않고 공시한다.
+MAX_PAGES = 400   # 12,000건까지. 상한에 걸리면 숨기지 않고 공시한다.
 
 # ASCII만 걸린다(레지스트리 한글 미지원 실측). 한글 전용 항목은 3차가 맡는다.
 REGISTRY_TERMS = ["korea", "korean", "kr-", "molit", "kosis", "naver", "kakao",
@@ -147,6 +147,8 @@ def from_github(token: str | None) -> tuple[dict, list]:
         if total > len(items):
             notes.append(f"github:{q!r}[{cat}] 총 {total}건 중 {len(items)}건만 — truncated")
         for r in items:
+            if r.get("private") or r.get("fork"):
+                continue   # 비공개는 공개 목록에 실을 수 없고, 포크는 원본이 이미 있다
             key = r["full_name"]
             found.setdefault(key, {
                 "name": key, "description": r.get("description") or "",
@@ -162,10 +164,22 @@ def from_github(token: str | None) -> tuple[dict, list]:
 
 
 def main() -> int:
+    # **공개 전용 토큰으로 수집한다(fail-closed).** 조직 접근이 있는 fine-grained 토큰을
+    # 쓰면 우리 **비공개** 저장소가 후보로 딸려 들어온다 — 2026-08-18 실측:
+    # sallim-app/realty-mcp(private=True)가 keep에 올라 공개 목록에 실릴 뻔했다.
+    # 코드에서 걸러도 되지만, 애초에 못 보는 자격을 쓰는 쪽이 안전하다. 아래 private
+    # 배제는 그래도 남겨 둔다(자격이 바뀌어도 막히도록).
     token = None
-    for line in open("/data/secrets/github-sallim.env", encoding="utf-8"):
-        if line.startswith("GITHUB_TOKEN="):
-            token = line.split("=", 1)[1].strip()
+    for path in ("/data/secrets/github-sallim-classic.env", "/data/secrets/github-sallim.env"):
+        try:
+            for line in open(path, encoding="utf-8"):
+                line = line.strip()
+                if line.startswith("GITHUB_TOKEN="):
+                    token = line.split("=", 1)[1].strip()
+            if token:
+                break
+        except OSError:
+            continue
 
     reg, n1 = from_registry()
     gh, n2 = from_github(token)
@@ -178,7 +192,14 @@ def main() -> int:
     by_repo: dict = {}
     for d in list(reg.values()) + list(gh.values()) + list(moa.values()):
         ru = (d.get("repo_url") or "").rstrip("/").lower()
+        # **엔드포인트가 같으면 같은 서버다.** 저장소가 달라도(레지스트리 등록 저장소 vs
+        # 소스 저장소) 같은 주소를 부르면 하나로 센다 — 2026-08-18 실측: 우리 서버가
+        # korea-realty와 realty-mcp 두 줄로 실려 도구 47종이 중복 계상됐다.
+        eps = [(r.get("url") or "").split("?")[0].rstrip("/").lower()
+               for r in (d.get("remotes") or []) if r.get("url")]
         key = by_repo.get(ru) if ru else None
+        for e in eps:
+            key = key or by_repo.get("ep:" + e)
         if key:
             tgt = merged[key]
             tgt["sources"] |= d["sources"]
@@ -191,6 +212,8 @@ def main() -> int:
         merged[d["name"]] = d
         if ru:
             by_repo[ru] = d["name"]
+        for e in eps:
+            by_repo.setdefault("ep:" + e, d["name"])
     for d in merged.values():
         d["sources"] = sorted(d["sources"])
         d["terms"] = sorted(d["terms"])

@@ -16,6 +16,7 @@
 
 실행: python3 filter_candidates.py   →  candidates_filtered.json + 커버리지 표
 """
+import argparse
 import json
 import re
 
@@ -72,6 +73,13 @@ def classify(item: dict) -> dict:
     # 계속 늘리는 것은 지는 싸움이고(한국어 어휘는 무한하다), 문자 자체가 더 강한 신호다.
     if HANGUL.search(desc):
         kr = kr + ["한글 설명"]
+    # **한국 도메인은 사실상 오탐이 없다.** `.go.kr`은 정부, `.or.kr`은 공공기관·협회다.
+    # 영어로만 쓰인 설명이라도 `apis.data.go.kr`을 부르면 그것은 한국 공공데이터 MCP다.
+    # (검색어로 쓸 때는 GitHub이 `go`·`kr`로 쪼개 노이즈가 섞이지만, **문자열 신호로는**
+    #  깨끗하다 — 그래서 여기서 쓴다. 2026-08-18 사장님 지적.)
+    kr = kr + [d for d in (".go.kr", ".or.kr", ".re.kr") if d in blob.lower()]
+    # 보강 단계가 README에서 찾아낸 한국 도메인 — 설명이 영어뿐이어도 여기서 잡힌다.
+    kr = kr + [f"README:{d}" for d in (item.get("kr_domains") or [])]
 
     # 저장소 자체가 MCP 서버가 아닌 것 — 이름으로 확실히 걸리는 것만
     if name.endswith("/.github") or re.search(r"awesome[-_]", name, re.I):
@@ -95,7 +103,14 @@ def slug(name: str) -> str:
 
 
 def main() -> int:
-    raw = json.load(open("candidates_raw.json", encoding="utf-8"))
+    # 보강(enrich)이 README에서 `.go.kr`·패키지·엔드포인트를 찾아낸 뒤 **다시 판정**할 수
+    # 있어야 한다. 보강이 필터 뒤에 오는데 보강 산출물이 판정을 바꾸므로, 같은 판정기를
+    # 두 번 돌린다: 수집→판정→보강→**재판정**→측정.
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--input", default="candidates_raw.json")
+    ap.add_argument("--output", default="candidates_filtered.json")
+    a = ap.parse_args()
+    raw = json.load(open(a.input, encoding="utf-8"))
     out, buckets = [], {"keep": 0, "drop": 0, "review": 0}
     for it in raw["items"]:
         c = classify(it)
@@ -112,7 +127,7 @@ def main() -> int:
                    "슬러그 병합은 마지막 경로 조각 휴리스틱이다 — 동명이인을 합칠 수 있다",
                    "keep/drop 판정은 이름·설명 문자열만 본다. 실제 도구 목록은 안 봤다(다음 단계=실호출)"],
                "items": out},
-              open("candidates_filtered.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+              open(a.output, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 
     print(f"입력 {len(out)}건 → keep {buckets['keep']} · review {buckets['review']} · drop {buckets['drop']}")
     print(f"슬러그 중복 {len(dupes)}건(레지스트리↔GitHub 같은 서버로 추정)")
