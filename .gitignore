@@ -9,3 +9,4 @@ candidates_enriched.json
 batch/
 judge/in_*.txt
 judge/in_*.txt
+schemas/

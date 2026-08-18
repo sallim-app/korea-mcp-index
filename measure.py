@@ -60,6 +60,24 @@ def _post_jsonrpc(url: str, method: str) -> dict:
                 "error": f"{type(e).__name__}: {e}"[:120]}
 
 
+def tool_specs(tools: list) -> list:
+    """호출에 필요한 최소 스키마만 남긴다.
+
+    지금까지 tools 배열을 받아 집계(_tool_quality)만 내고 **버렸다**. 그래서 "도구 47종"까지
+    재놓고 정작 그 도구를 부를 수 없었다 — 어떤 인자가 필요한지 모르니까(2026-08-19).
+    설명 본문은 크므로 뺀다. 필요한 것은 이름·필수 인자·읽기전용 여부 셋이다.
+    """
+    out = []
+    for t in tools:
+        sch = t.get("inputSchema") or {}
+        ann = t.get("annotations") or {}
+        out.append({"name": t.get("name"),
+                    "required": list(sch.get("required") or []),
+                    "props": list((sch.get("properties") or {}).keys())[:12],
+                    "read_only": bool(ann.get("readOnlyHint"))})
+    return out
+
+
 def _tool_quality(tools: list) -> dict:
     """**도메인 지식 없이 잴 수 있는 품질** — 기치 ②(인식 경계 계약)의 측정 가능한 부분.
 
@@ -166,7 +184,8 @@ def measure_remote(url: str) -> dict:
                if r.get("body_truncated") else "200이지만 tools/list 응답을 못 읽었다 — 규격 이탈 의심")
         return {**out, "reachable": True, "needs_key": False, "tool_count": None, "why": why}
     return {**out, "reachable": True, "needs_key": False, "tool_count": n,
-            "quality": _tool_quality(tools), "why": "" if n else "도구 0개 — 껍데기"}
+            "quality": _tool_quality(tools), "specs": tool_specs(tools),
+            "why": "" if n else "도구 0개 — 껍데기"}
 
 
 # **주소의 출처가 판정의 강도를 정한다** (2026-08-19, T-2026W34-107).
@@ -365,6 +384,19 @@ def main() -> int:
                          "그 서버의 주소가 아니라고 보고 **측정 대상에서 뺐다**")
             r["remote"] = None
             r.pop("paid_disclosure", None)
+
+    # 스키마는 별도 파일로 — measured.json에 넣으면 원자료가 매주 그만큼 불어난다
+    # (candidates 5MB 때 배운 것). 프로브만 읽으므로 분리해도 손해가 없다.
+    import os
+    os.makedirs("schemas", exist_ok=True)
+    specs = {}
+    for r in out:
+        sp = (r.get("remote") or {}).pop("specs", None)
+        if sp:
+            specs[r["name"]] = sp
+    json.dump({"note": "호출에 필요한 최소 스키마(이름·필수인자·읽기전용). probe_quality.py가 읽는다.",
+               "items": specs}, open("schemas/tools.json", "w", encoding="utf-8"),
+              ensure_ascii=False, indent=1)
 
     json.dump({"measured": len(out), "unmeasurable": len(notes), "boundaries": notes,
                "criteria_note": "항목은 D-2026W34-22로 결과 보기 전에 고정됐다. 사후 변경 금지.",
