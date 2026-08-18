@@ -10,3 +10,4 @@ batch/
 judge/in_*.txt
 judge/in_*.txt
 schemas/
+probes.prev/

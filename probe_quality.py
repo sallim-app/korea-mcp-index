@@ -34,7 +34,7 @@ import urllib.request
 
 UA = "sallim-mcp-index/0.1 (+https://github.com/sallim-app; probing response quality)"
 EXCERPT = 500          # 남의 데이터를 재배포하는 셈이라 발췌 상한을 둔다
-MAX_CALLS = 4          # 서버당
+MAX_CALLS = 6          # 서버당(①재시도 2 + ④ + ②)
 PAUSE = 1.5
 NONSENSE = "존재하지않는항목ZZZ9999"
 PROBE_DIR = pathlib.Path("probes")
@@ -133,11 +133,21 @@ def shape(text: str) -> dict:
     return out
 
 
+# 이름이 읽기를 뜻하는 관용구. **주석이 없는 서버를 통째로 포기하지 않기 위한 최소한의 문**이다
+# (2026-08-19: 24건 중 8건이 주석이 없어 아예 검사조차 못 했다). 다만 이름은 선언이 아니라
+# 관용이므로 ①(무인자 조회)에만 쓰고, 인자를 주는 ②환각 시험에는 쓰지 않는다.
+# 판정에는 `read_only_inferred: true`를 붙여 **추정임을 공시**한다.
+READ_VERB = re.compile(r"^(search|get|list|find|query|fetch|read|lookup|show|describe)[_\-]?", re.I)
+
+
+def readable(t: dict) -> bool:
+    return bool(t.get("read_only")) or bool(READ_VERB.match(t.get("name") or ""))
+
+
 def pick(specs: list) -> tuple[dict | None, dict | None]:
     """(①④용 무인자 도구, ②용 문자열 1개 도구). 읽기 전용만 고른다."""
-    ro = [t for t in specs if t.get("read_only")]
-    free = next((t for t in ro if not t["required"]), None)
-    one = next((t for t in ro if len(t["required"]) == 1), None)
+    free = next((t for t in specs if readable(t) and not t["required"]), None)
+    one = next((t for t in specs if t.get("read_only") and len(t["required"]) == 1), None)
     return free, one
 
 
@@ -145,9 +155,11 @@ def probe(name: str, url: str, specs: list) -> dict:
     free, one = pick(specs)
     rec: dict = {"server": name, "url": url, "at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
                  "calls": [], "machine": {}}
-    if not any(t.get("read_only") for t in specs):
-        rec["skipped"] = "읽기전용 주석이 없어 호출하지 않았다 — 부작용을 알 수 없다"
+    if not any(readable(t) for t in specs):
+        rec["skipped"] = "읽기전용 주석도, 읽기를 뜻하는 이름도 없어 호출하지 않았다 — 부작용을 알 수 없다"
         return rec
+    if free and not free.get("read_only"):
+        rec["read_only_inferred"] = f"{free['name']}의 읽기 여부를 **이름으로 추정**했다(주석 없음)"
 
     def run(label: str, tool: str, args: dict) -> str:
         r = call(url, "tools/call", {"name": tool, "arguments": args})
@@ -164,17 +176,27 @@ def probe(name: str, url: str, specs: list) -> dict:
             "excerpt_truncated": len(text) > EXCERPT})
         return text
 
-    if free:
-        run("①데이터", free["name"], {})
+    # **한 도구가 실패했다고 서버를 포기하지 않는다.** 초판은 첫 무인자 도구 하나만 부르고
+    # 끝냈는데, 스키마가 required를 비워 놓고 실제로는 인자를 요구하는 서버가 5건이었다
+    # (2026-08-19). 그건 서버가 데이터를 안 준다는 뜻이 아니라 **스키마가 거짓말한 것**이다.
+    frees = [t for t in specs if readable(t) and not t["required"]][:3]
+    for n, t in enumerate(frees):
+        run("①데이터" if n == 0 else f"①데이터재시도{n}", t["name"], {})
+        if not rec["calls"][-1]["is_error"]:
+            break
+    if frees:
         sh = rec["calls"][-1]["shape"]
         c0 = rec["calls"][-1]
+        free = frees[0]
         rec["machine"]["has_data"] = (not c0["is_error"]) and (
             bool(sh.get("records")) or sh.get("bytes", 0) > 80)
         if c0.get("error_code"):
             rec["machine"]["blocked_by"] = c0["error_code"]
-        # ④ 같은 도구에 작은 limit — 잘랐다고 말하는가
-        if "limit" in (free.get("props") or []):
-            run("④절단공시", free["name"], {"limit": 1})
+        # ④ 성공한 그 도구에 작은 limit — 잘랐다고 말하는가
+        ok_tool = next((c["tool"] for c in reversed(rec["calls"]) if not c["is_error"]), None)
+        spec_ok = next((t for t in specs if t["name"] == ok_tool), None)
+        if ok_tool and "limit" in ((spec_ok or {}).get("props") or []):
+            run("④절단공시", ok_tool, {"limit": 1})
     if one:
         run("②환각", one["name"], {one["required"][0]: NONSENSE})
     return rec
@@ -203,6 +225,18 @@ def verdict(rec: dict) -> dict:
             out["blocked_by"] = d1["error_code"]
         elif d1["is_error"]:
             out["has_data_why"] = "도구가 에러를 반환했다(스키마에 없던 필수 인자 등)"
+    # **스키마가 거짓말하는가** — 우리가 찾던 인식 경계 위반의 실물이다.
+    # `required`가 비어 있다고 선언해 놓고 부르면 "mst 또는 lawId는 필수"라고 거절하는
+    # 서버가 있다(2026-08-19 chrisryugj/korean-law-mcp 실측). 모델은 스키마를 믿고 부르므로
+    # 그 거짓말은 곧 실패한 답변이 된다. 재시도가 성공했다면 첫 도구만 그런 것이다.
+    tried = [c for c in rec.get("calls", []) if c["label"].startswith("①데이터")]
+    liars = [c["tool"] for c in tried
+             if c["is_error"] and re.search(r"필수|required|missing|invalid[_ ]?param",
+                                            (c.get("excerpt") or "") + str(c.get("error_code") or ""), re.I)]
+    if liars:
+        out["schema_lies"] = liars
+        out["schema_lies_why"] = "스키마는 필수 인자가 없다고 했는데 호출하니 인자를 요구했다"
+
     d2 = by.get("②환각")
     if d2 is not None:
         txt = (d2.get("excerpt") or "")
