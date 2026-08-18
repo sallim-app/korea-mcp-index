@@ -72,8 +72,41 @@ def _tools_from(raw: str) -> int | None:
 
 
 def measure_remote(url: str) -> dict:
+    """한 번만 재면 콜드 스타트를 재게 된다.
+
+    실측 2026-08-18: `gateway.pipeworx.io/dart-kr`가 1회 측정에서 2,057ms였는데
+    연달아 부르니 57ms였다(36배). 서버리스(Workers·Render)는 첫 호출이 기동 시간을
+    포함하므로 1회 값으로 순위를 매기면 **느린 서버가 아니라 안 쓰이는 서버**를 벌주게 된다.
+    그렇다고 콜드를 버리면 안 된다 — 처음 붙는 사용자에겐 그게 실제 체감이다.
+    그래서 **둘 다 싣는다**: cold_ms(첫 호출) · warm_ms(이후 최소).
+
+    측정 지점 편향도 확인했다(사장님 지적): 우리 서버를 우리 서버에서 재면 유리하지 않냐 —
+    naru·quant 두 지점 대조 결과 우리 서버 79ms vs 64ms로 **오히려 quant가 빨랐다**.
+    다만 두 지점 다 우리 것이고 같은 클라우드라 **국외 지점 편향은 여전히 미확인**이다.
+    """
     r = _post_jsonrpc(url, "tools/list")
-    out = {"url": url, "http": r.get("status"), "latency_ms": r["ms"]}
+    # **1회 실패로 남의 서버를 죽었다고 공표하지 않는다.** 실측 2026-08-18: mydart가
+    # 15초 타임아웃으로 무응답 판정됐는데 직후 재시도에서 208ms로 정상이었다. 이 목록의
+    # "무응답" 줄은 남의 제품에 대한 공개 주장이므로 오판 비용이 우리 쪽 비용보다 크다.
+    retried = False
+    if r.get("status") is None or (r.get("status") or 0) >= 500:
+        time.sleep(3)
+        r2 = _post_jsonrpc(url, "tools/list")
+        retried = True
+        if r2.get("status") == 200 or ("error" not in r2 and r.get("status") is None):
+            r = r2
+    out = {"url": url, "http": r.get("status"), "cold_ms": r["ms"], "latency_ms": r["ms"],
+           "retried": retried}
+    if r.get("status") == 200:
+        warm = []
+        for _ in range(2):
+            time.sleep(0.4)
+            w = _post_jsonrpc(url, "tools/list")
+            if w.get("status") == 200:
+                warm.append(w["ms"])
+        if warm:
+            out["warm_ms"] = min(warm)
+            out["latency_ms"] = min(warm)
     if "error" in r:
         return {**out, "reachable": False, "why": r["error"]}
     if r["status"] in (401, 403):
@@ -154,7 +187,11 @@ def main() -> int:
                                          -(x["remote"].get("tool_count") or 0)))[:15]:
         rm = r["remote"]
         key = "키필요" if rm.get("needs_key") else "무인증"
-        print(f"  {key}  도구{str(rm.get('tool_count') or '?'):>4}개  {rm['latency_ms']:>5}ms  {r['name'][:40]}")
+        warm = rm.get("warm_ms")
+        cold = rm.get("cold_ms")
+        gap = f"  (콜드 {cold}ms)" if warm and cold and cold > warm * 3 else ""
+        print(f"  {key}  도구{str(rm.get('tool_count') or '?'):>4}개  "
+              f"{str(warm or cold):>5}ms{gap:<16}  {r['name'][:38]}")
     return 0
 
 

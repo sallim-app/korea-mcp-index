@@ -1,5 +1,5 @@
 {
- "measured": 134,
+ "measured": 133,
  "unmeasurable": 106,
  "boundaries": [
   "AgentBridge-Lab/korea-space-support-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
@@ -527,7 +527,9 @@
    "remote": {
     "url": "https://server.smithery.ai/@jjlabsio/korea-stock-mcp/mcp",
     "http": 404,
-    "latency_ms": 428,
+    "cold_ms": 431,
+    "latency_ms": 431,
+    "retried": false,
     "reachable": false,
     "why": "HTTP 404"
    },
@@ -547,7 +549,10 @@
    "remote": {
     "url": "https://realty.sallim.app/mcp",
     "http": 200,
-    "latency_ms": 76,
+    "cold_ms": 94,
+    "latency_ms": 49,
+    "retried": false,
+    "warm_ms": 49,
     "reachable": true,
     "needs_key": false,
     "tool_count": 47,
@@ -568,7 +573,9 @@
    "remote": {
     "url": "https://inv-kr.wishpool.app/mcp",
     "http": null,
-    "latency_ms": 1,
+    "cold_ms": 2,
+    "latency_ms": 2,
+    "retried": true,
     "reachable": false,
     "why": "URLError: <urlopen error [Errno -2] Name or service not known>"
    },
@@ -691,7 +698,10 @@
    "remote": {
     "url": "https://seoul-apt-signal.airblock2026.workers.dev/mcp",
     "http": 200,
-    "latency_ms": 685,
+    "cold_ms": 39,
+    "latency_ms": 35,
+    "retried": false,
+    "warm_ms": 35,
     "reachable": true,
     "needs_key": false,
     "tool_count": 6,
@@ -712,7 +722,9 @@
    "remote": {
     "url": "https://empresskorea.com/kb-agent-network/mcp",
     "http": 403,
-    "latency_ms": 291,
+    "cold_ms": 427,
+    "latency_ms": 427,
+    "retried": false,
     "reachable": true,
     "needs_key": true,
     "tool_count": null,
@@ -733,7 +745,10 @@
    "remote": {
     "url": "https://saaskr.com/api/mcp",
     "http": 200,
-    "latency_ms": 269,
+    "cold_ms": 274,
+    "latency_ms": 260,
+    "retried": false,
+    "warm_ms": 260,
     "reachable": true,
     "needs_key": false,
     "tool_count": 5,
@@ -942,27 +957,6 @@
    "self_hostable": null
   },
   {
-   "name": "io.github.DarthSander/agentdata-nl",
-   "repo_url": "https://github.com/DarthSander/data_agent",
-   "stars": null,
-   "pushed": null,
-   "archived": null,
-   "sources": [
-    "registry"
-   ],
-   "remote": {
-    "url": "https://agentdata-api.sander-van-aard.workers.dev/mcp",
-    "http": 200,
-    "latency_ms": 33,
-    "reachable": true,
-    "needs_key": false,
-    "tool_count": 51,
-    "why": ""
-   },
-   "package": null,
-   "self_hostable": null
-  },
-  {
    "name": "io.github.DeepSearch-Common/korean-stocks",
    "repo_url": "https://github.com/deepsearch-hq/deepsearch-x402.git",
    "stars": null,
@@ -1010,7 +1004,9 @@
    "remote": {
     "url": "https://korean-agriculture-mcp.onrender.com/mcp",
     "http": 503,
-    "latency_ms": 250,
+    "cold_ms": 183,
+    "latency_ms": 183,
+    "retried": true,
     "reachable": false,
     "why": "HTTP 503"
    },
@@ -1030,7 +1026,9 @@
    "remote": {
     "url": "https://korean-public-data-mcp.onrender.com/mcp",
     "http": 503,
-    "latency_ms": 180,
+    "cold_ms": 413,
+    "latency_ms": 413,
+    "retried": true,
     "reachable": false,
     "why": "HTTP 503"
    },
@@ -1050,7 +1048,9 @@
    "remote": {
     "url": "https://korean-stock-mcp.onrender.com/mcp",
     "http": 503,
-    "latency_ms": 455,
+    "cold_ms": 179,
+    "latency_ms": 179,
+    "retried": true,
     "reachable": false,
     "why": "HTTP 503"
    },
@@ -1069,7 +1069,9 @@
    "remote": {
     "url": "https://mcp.printmoneylab.com/mcp",
     "http": 400,
-    "latency_ms": 96,
+    "cold_ms": 110,
+    "latency_ms": 110,
+    "retried": false,
     "reachable": false,
     "why": "HTTP 400"
    },
@@ -1141,7 +1143,9 @@
    "remote": {
     "url": "https://finlab-ai.koreal6803.workers.dev/mcp",
     "http": 404,
-    "latency_ms": 28,
+    "cold_ms": 39,
+    "latency_ms": 39,
+    "retried": false,
     "reachable": false,
     "why": "HTTP 404"
    },
@@ -1160,7 +1164,10 @@
    "remote": {
     "url": "https://api.lazy-mac.com/govdata-korea/mcp",
     "http": 200,
-    "latency_ms": 1097,
+    "cold_ms": 115,
+    "latency_ms": 122,
+    "retried": false,
+    "warm_ms": 122,
     "reachable": true,
     "needs_key": false,
     "tool_count": 6,
@@ -1181,7 +1188,10 @@
    "remote": {
     "url": "https://mcp.namu.ai.kr/mcp",
     "http": 200,
-    "latency_ms": 20,
+    "cold_ms": 38,
+    "latency_ms": 19,
+    "retried": false,
+    "warm_ms": 19,
     "reachable": true,
     "needs_key": false,
     "tool_count": 3,
@@ -1203,7 +1213,10 @@
    "remote": {
     "url": "https://gateway.pipeworx.io/dart-kr/mcp",
     "http": 200,
-    "latency_ms": 2057,
+    "cold_ms": 292,
+    "latency_ms": 36,
+    "retried": false,
+    "warm_ms": 36,
     "reachable": true,
     "needs_key": false,
     "tool_count": 36,
@@ -1277,7 +1290,9 @@
    "remote": {
     "url": "https://mcp.koreanpulse.dev/mcp",
     "http": 400,
-    "latency_ms": 35,
+    "cold_ms": 36,
+    "latency_ms": 36,
+    "retried": false,
     "reachable": false,
     "why": "HTTP 400"
    },
@@ -1538,7 +1553,10 @@
    "remote": {
     "url": "https://mydart.eocpa.kr/mcp",
     "http": 200,
-    "latency_ms": 204,
+    "cold_ms": 206,
+    "latency_ms": 196,
+    "retried": false,
+    "warm_ms": 196,
     "reachable": true,
     "needs_key": false,
     "tool_count": 16,

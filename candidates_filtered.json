@@ -1,8 +1,8 @@
 {
  "buckets": {
-  "keep": 134,
-  "drop": 101,
-  "review": 120
+  "keep": 133,
+  "drop": 106,
+  "review": 116
  },
  "dupe_slugs": {
   "korea-stock": [
@@ -3021,10 +3021,8 @@
     "dart"
    ],
    "verdict": "drop",
-   "why": "데이터 제공형이 아니다(calendar)",
-   "kr": [
-    "dart"
-   ],
+   "why": "한국 관련 신호 0 — 검색어에 우연히 걸림",
+   "kr": [],
    "data": [],
    "slug": "workiq-calendartools"
   },
@@ -3235,8 +3233,7 @@
    "why": "한국(korea) + 데이터(disclosure)",
    "kr": [
     "korea",
-    "korean",
-    "dart"
+    "korean"
    ],
    "data": [
     "disclosure"
@@ -4066,8 +4063,7 @@
    "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
    "kr": [
     "korea",
-    "korean",
-    "kma"
+    "korean"
    ],
    "data": [],
    "slug": "kstock"
@@ -4228,11 +4224,9 @@
    "terms": [
     "dart"
    ],
-   "verdict": "keep",
-   "why": "한국(dart) + 데이터(data)",
-   "kr": [
-    "dart"
-   ],
+   "verdict": "drop",
+   "why": "한국 관련 신호 0 — 검색어에 우연히 걸림",
+   "kr": [],
    "data": [
     "data"
    ],
@@ -4635,11 +4629,9 @@
    "terms": [
     "dart"
    ],
-   "verdict": "review",
-   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
-   "kr": [
-    "dart"
-   ],
+   "verdict": "drop",
+   "why": "한국 관련 신호 0 — 검색어에 우연히 걸림",
+   "kr": [],
    "data": [],
    "slug": "mcp-opendart"
   },
@@ -4661,11 +4653,9 @@
    "terms": [
     "dart"
    ],
-   "verdict": "review",
-   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
-   "kr": [
-    "dart"
-   ],
+   "verdict": "drop",
+   "why": "한국 관련 신호 0 — 검색어에 우연히 걸림",
+   "kr": [],
    "data": [],
    "slug": "sayou-opendart"
   },
@@ -4829,11 +4819,9 @@
    "terms": [
     "dart"
    ],
-   "verdict": "review",
-   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
-   "kr": [
-    "dart"
-   ],
+   "verdict": "drop",
+   "why": "한국 관련 신호 0 — 검색어에 우연히 걸림",
+   "kr": [],
    "data": [],
    "slug": "clevelandart"
   },
@@ -5015,7 +5003,6 @@
    "kr": [
     "korea",
     "korean",
-    "krx",
     "kospi",
     "kosdaq"
    ],
@@ -5042,11 +5029,9 @@
    "terms": [
     "dart"
    ],
-   "verdict": "review",
-   "why": "한국 관련은 맞으나 데이터 제공형 신호가 없다",
-   "kr": [
-    "dart"
-   ],
+   "verdict": "drop",
+   "why": "한국 관련 신호 0 — 검색어에 우연히 걸림",
+   "kr": [],
    "data": [],
    "slug": "runway"
   },
@@ -5789,8 +5774,7 @@
    "why": "한국(korea) + 데이터(disclosure)",
    "kr": [
     "korea",
-    "korean",
-    "dart"
+    "korean"
    ],
    "data": [
     "disclosure"
@@ -6186,8 +6170,7 @@
    "why": "한국(korea) + 데이터(disclosure)",
    "kr": [
     "korea",
-    "korean",
-    "dart"
+    "korean"
    ],
    "data": [
     "disclosure"

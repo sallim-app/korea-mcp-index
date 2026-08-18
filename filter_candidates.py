@@ -35,9 +35,28 @@ NOT_DATA = ["framework", "boilerplate", "template", "starter", "scaffold", "all-
             "awesome", "curated list", "공개 프로필", "profile"]
 
 
+# 부분문자열로 찾으면 반드시 오탐이 나는 짧은 약어들. 여기 있는 것만 단어 경계를 건다.
+# **전부에 경계를 걸면 반대편 오탐이 난다** — `data`에 경계를 걸었더니 govdata·opendata가
+# 데이터형 신호를 잃고 review로 떨어졌다(2026-08-18 실측). 경계는 필요한 곳에만.
+AMBIGUOUS = {"dart", "krx", "kma", "kr-", "kospi", "kosdaq"}
+
+
 def _hit(text: str, words: list) -> list:
+    """모호한 약어만 **단어 경계**로 찾는다.
+
+    실측 2026-08-18: 네덜란드 서버 `agentdata-nl`이 한국 후보로 잡혔다 — `dart`가
+    **agent`data`-nl** 안에 들어 있었기 때문이다. 부분문자열 매칭은 dart·krx·kma 같은
+    짧은 약어에서 반드시 오탐을 낸다. 한글은 교착어라 경계 판정이 다르므로 종전대로 둔다.
+    """
     t = text.lower()
-    return [w for w in words if w in t]
+    out = []
+    for w in words:
+        if w in AMBIGUOUS:
+            if re.search(rf"\b{re.escape(w)}\b", t):
+                out.append(w)
+        elif w in t:
+            out.append(w)
+    return out
 
 
 def classify(item: dict) -> dict:
