@@ -55,7 +55,22 @@ def main() -> int:
                                          "sources", "stars", "pushed", "kr_domains")} for i in keep],
     }
     json.dump(out, open("candidates.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-    print(f"candidates.json — keep+review {len(keep)}건 · drop 사유 {len(drops)}종 · 저장소 주소 교정 {rewritten}건")
+
+    # **공개되는 모든 산출물에 같은 규칙을 건다.** 정규화를 세 곳(생성·내보내기·측정본)에
+    # 흩어 두었더니 한 곳을 빠뜨려 measured.json으로 개인 계정 경로가 공개됐다
+    # (2026-08-19). 규칙이 여러 곳에 있으면 반드시 한 곳이 뒤처진다.
+    m = json.load(open("measured.json", encoding="utf-8"))
+    mfix = 0
+    for i in m["items"]:
+        ep = ((i.get("remote") or {}).get("url") or "").split("?")[0].rstrip("/").lower()
+        better = pick.get(ep)
+        if better and better != i.get("repo_url"):
+            i["repo_url"] = better
+            mfix += 1
+    json.dump(m, open("measured.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+
+    print(f"candidates.json — keep+review {len(keep)}건 · drop 사유 {len(drops)}종 · 주소 교정 {rewritten}건")
+    print(f"measured.json  — 주소 교정 {mfix}건 (공개 산출물 전부에 같은 규칙)")
     return 0
 
 

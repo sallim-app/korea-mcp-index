@@ -122,4 +122,4 @@
 
 ---
 
-생성: `render_readme.py` · 측정: `measure.py` · 원자료: `measured.json` · 마지막 측정 2026-08-18 20:36 UTC
+생성: `render_readme.py` · 측정: `measure.py` · 원자료: `measured.json` · 마지막 측정 2026-08-18 20:38 UTC
