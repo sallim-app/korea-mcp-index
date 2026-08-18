@@ -6,3 +6,4 @@ __pycache__/
 candidates_raw.json
 candidates_filtered.json
 candidates_enriched.json
+batch/

@@ -98,6 +98,9 @@ def from_registry() -> tuple[dict, list]:
                 "remotes": [{"type": r.get("type"), "url": r.get("url"),
                              "needs_auth": bool(r.get("headers"))} for r in (s.get("remotes") or [])],
                 "repo_url": (s.get("repository") or {}).get("url") or "",
+                # 레지스트리 등록에 repository가 없는 항목이 많다(응답 33건 중 11건). 그때
+                # websiteUrl이 유일한 링크원인데 버리고 있었다 — 표에 링크 없는 줄이 생긴 원인.
+                "website_url": s.get("websiteUrl") or "",
                 "sources": set(), "terms": set()})
             found[name]["sources"].add("registry")
             found[name]["terms"].add("전수")

@@ -1,85 +1,92 @@
 #!/usr/bin/env python3
-"""측정값 → README.md 생성 (2026-08-18, D-2026W34-21/22).
+"""측정값 → README (2026-08-19 재작성, D-2026W34-21/22).
 
-**사람이 순위를 손으로 쓰지 않는다.** 손으로 쓰는 순간 재현이 끊기고, 재현이 끊기면
-이해충돌을 방어할 수단이 사라진다(D-2026W34-22). 여기서 나오는 표는 measured.json의
-함수이며, 같은 입력이면 같은 표가 나온다.
+**사람이 순위를 손으로 쓰지 않는다.** 손으로 쓰면 재현이 끊기고, 재현이 끊기면 이해충돌을
+방어할 수단이 사라진다. 이 파일이 만드는 표는 measured.json + classification.json의 함수다.
 
-싣는 것과 안 싣는 것:
-  - 우리 제품도 순위에 넣는다. 대신 소유를 밝히고, 우리가 지는 항목을 같이 싣는다.
-  - '못 잰 것'을 숨기지 않는다 — 목록 아래에 미확인 건수를 그대로 적는다.
-  - 등수는 매기지 않는다. 재현 가능한 값으로 정렬만 한다(가중치를 우리가 고르면 그게 편향이다).
+2026-08-19 재작성 계기(사장님 검수 7건): 첫 서버가 나오기까지 30줄이 해명이었고, 순위도
+분야도 없었고, 무응답이 섞여 있었고, 링크 없는 줄이 있었고, 볼드가 깨졌다.
+벤치마크(punkpeye/awesome-mcp-servers)의 순서를 따른다 — 한 줄 정체 → 목차 → 표기 → 분야별.
+**방법론과 한계는 맨 아래로 내린다.** 중요하지 않아서가 아니라, 목록이 먼저 답을 줘야 해서다.
 
-실행: python3 render_readme.py  →  README.md
+실행: python3 render_readme.py [--lang en]
 """
+import argparse
 import json
+import re
+import sys
 from datetime import UTC, datetime
 
 OURS = ("app.sallim/", "sallim-app/")
-HDR = """# 한국 데이터 MCP — 실측 목록
+CATS = ["공공데이터·행정", "법령·판례", "금융·증시", "부동산", "세금·재정", "지도·주소",
+        "날씨·환경", "교통·이동", "의료·복지", "교육·문화", "한국어·언어", "커머스·생활", "기타"]
+CAT_EN = {"공공데이터·행정": "Public Data", "법령·판례": "Law", "금융·증시": "Finance",
+          "부동산": "Real Estate", "세금·재정": "Tax", "지도·주소": "Maps", "날씨·환경": "Weather",
+          "교통·이동": "Transit", "의료·복지": "Health", "교육·문화": "Education",
+          "한국어·언어": "Korean NLP", "커머스·생활": "Commerce", "기타": "Other"}
 
-한국의 데이터를 AI에게 주는 MCP 서버를 **직접 붙여서 재고** 그 값을 공개한다.
-
-다른 목록은 "있다"를 말한다. 이 목록은 **"지금 되냐"**를 잰다.
-{ts} UTC 측정 기준, 원격 주소를 확인한 한국 MCP **{n_remote}건 중 {n_dead}건({pct}%)이
-응답하지 않았다.** 등록은 가동의 증거가 아니다.
-
-**주소의 출처를 갈라 읽어라.** 관리자가 공식 레지스트리에 **직접 등록한** 주소 {n_reg}건 중
-{n_reg_dead}건이 무응답이고, 나머지 {n_rme}건은 우리가 README에서 뽑은 **추정** 주소다(무응답 {n_rme_dead}건).
-추정 주소의 무응답은 "그 서버가 죽었다"보다 약한 주장이다 — 우리가 주소를 잘못 짚었을 수 있다.
-
-## 이 목록을 믿어도 되는 이유 (그리고 믿으면 안 되는 부분)
-
-- **측정 스크립트와 원자료가 이 저장소에 있다.** `measure.py`를 돌리면 아래 표를 다시 만들 수 있다.
-  우리가 1위여도 당신이 직접 재서 반박할 수 있다.
-- **우리도 이 목록에 있다.** `sallim-app`이 이 목록의 운영자이며, 우리 서버 `korea-realty`가
-  표에 들어 있다. 빼지 않는 대신 **밝히고**, 우리가 지는 항목(셀프호스팅 가능 여부)을 같이 싣는다.
-- **측정 항목은 결과를 보기 전에 고정했다.** 사후에 우리에게 유리하게 바꾸지 않는다.
-- **남는 편향**: 어떤 항목을 재기로 골랐는지 자체는 우리가 정했다. 원자료를 공개하는 것으로
-  줄일 수는 있어도 없앨 수는 없다. 없는 척하지 않는다.
-- **측정 지점**: 한국(Oracle Cloud) 두 지점에서 쟀다. 국외에서 재면 값이 다를 수 있고
-  그건 아직 확인하지 않았다.
-
-## 무엇을 재는가
-
-| 항목 | 뜻 |
-|---|---|
-| 도구 수 | `tools/list` 응답에 실제로 들어 있는 도구 개수. 0개면 껍데기다 |
-| 웜 | 연달아 부를 때의 왕복(ms). 이미 쓰고 있는 사용자의 체감 |
-| 콜드 | 첫 호출(ms). 서버리스는 기동 시간이 붙는다. **처음 붙는 사용자의 체감이라 버리지 않는다** |
-| 키 | 키·가입 없이 도구 목록을 볼 수 있는가 |
-| 셀프호스팅 | 패키지가 배포돼 직접 띄울 수 있는가. **원격 전용인 우리 서버는 여기서 진다** |
-"""
+# 닫는 `**` 앞이 문장부호이고 뒤가 글자면 CommonMark가 강조를 닫지 않는다.
+# `**"지금 되냐"**를` 이 형태로 실제로 깨져서 게시됐다(2026-08-19).
+BROKEN_EMPH = re.compile(r'[)\]}"\'.,!?:;][*]{2}[0-9A-Za-z가-힣]')
 
 
-def _fmt(r: dict) -> str:
-    rm = r["remote"]
-    name = r["name"]
-    ours = " **(이 목록 운영자)**" if name.startswith(OURS) else ""
-    repo = r.get("repo_url") or ""
-    label = f"[{name}]({repo})" if repo else name
-    tools = rm.get("tool_count")
+def emph(text: str) -> str:
+    """강조를 만드는 유일한 경로. 끝 문장부호는 강조 **밖으로** 밀어낸다."""
+    t = text.rstrip()
+    tail = ""
+    while t and t[-1] in ')]}"\'.,!?:;':
+        tail = t[-1] + tail
+        t = t[:-1]
+    return f"**{t}**{tail}" if t else text
+
+
+def link(rec: dict) -> str:
+    """이름에 걸 주소. 저장소 → 공식 웹 → 엔드포인트 도메인 순으로 물러선다.
+
+    응답 33건 중 11건이 저장소 주소가 없었다(레지스트리 등록에 repository 필드가 없음).
+    링크 없는 줄은 독자가 그 서버로 갈 방법이 없다는 뜻이라 목록의 기능이 죽는다.
+    """
+    name = rec["name"]
+    for u in (rec.get("repo_url"), rec.get("website_url")):
+        if u:
+            return f"[{name}]({u})"
+    ep = (rec.get("remote") or {}).get("url") or ""
+    if ep:
+        root = "/".join(ep.split("/")[:3])
+        return f"[{name}]({root})"
+    return name
+
+
+def q(rec: dict, key: str, default="—"):
+    return ((rec.get("remote") or {}).get("quality") or {}).get(key, default)
+
+
+def row(rec: dict, en=False) -> str:
+    rm = rec["remote"]
+    mark = " 🏠" if rec["name"].startswith(OURS) else ""
     warm, cold = rm.get("warm_ms"), rm.get("cold_ms")
-    coldtxt = f"{cold}" if cold is not None else "—"
-    if warm and cold and cold > warm * 3:
-        coldtxt = f"**{cold}**"
-    return (f"| {label}{ours} | {tools if tools is not None else '—'} | "
-            f"{warm if warm is not None else '—'} | {coldtxt} | "
-            f"{'필요' if rm.get('needs_key') else '불필요'} | "
-            f"{'가능' if r.get('self_hostable') else '불가'} |")
+    slow = cold and warm and cold > warm * 3
+    pd = rec.get("paid_disclosure") or {}
+    free = f"{pd.get('free')}/{pd.get('total')}" if pd.get("disclosed") else "—"
+    return (f"| {link(rec)}{mark} | {rm.get('tool_count') or '—'} | {warm or '—'} | "
+            f"{emph(str(cold)) if slow else (cold or '—')} | "
+            f"{q(rec, 'described_pct')}% | {q(rec, 'annotated_pct')}% | "
+            f"{'🔑' if rm.get('needs_key') else '—'} | {free} |")
+
+
+def head(en=False) -> list[str]:
+    return ["| 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 | 키 | 무료/전체 |" if not en else
+            "| Server | Tools | Warm | Cold | Desc | Annot | Key | Free/All |",
+            "|---|---|---|---|---|---|---|---|"]
 
 
 def dedupe_by_endpoint(items: list) -> tuple[list, int]:
     """**같은 주소를 부르면 같은 서버다** — 표에 두 줄로 실으면 안 된다.
 
-    수집 시점 중복 제거로는 못 잡는다(2026-08-19 실측): 레지스트리 항목은 처음부터 주소를
-    갖지만 GitHub 항목은 **보강 단계에서야** README로 주소가 붙는다. 그래서 우리
-    contract-compass가 두 줄로 실렸다 — 하나는 저장소가 `sallim-app`, 다른 하나는
-    레지스트리 옛 버전이 들고 있던 **개인 계정 경로**였다. 표에 그 링크가 그대로 나갔다.
-
-    합칠 때 저장소 주소는 **더 나은 쪽**을 고른다: 레지스트리 옛 판이 들고 있는 이전 경로보다
-    실제로 살아 있는 소스 저장소가 맞다(GitHub 이전 리디렉트 때문에 옛 경로도 200을 준다 —
-    200은 그 주소가 최신이라는 증거가 아니다).
+    수집 시점 중복 제거로는 못 잡는다: 레지스트리 항목은 처음부터 주소를 갖지만 GitHub
+    항목은 보강 단계에서야 README로 주소가 붙는다. 실제로 우리 contract-compass가 두 줄로
+    실렸고, 그중 하나는 레지스트리 옛 판이 들고 있던 **이전 전 저장소 경로**였다.
+    합칠 때 저장소 주소는 조직 경로를 우선한다(이전 리디렉트도 200을 주므로 200은 최신의 증거가 아니다).
     """
     by_ep: dict[str, dict] = {}
     out, merged = [], 0
@@ -94,81 +101,258 @@ def dedupe_by_endpoint(items: list) -> tuple[list, int]:
             out.append(it)
             continue
         merged += 1
-        # 도구 수·품질은 같은 서버니 같다. 저장소 주소와 셀프호스팅 가능 여부만 나은 쪽으로.
         if it.get("self_hostable") and not prev.get("self_hostable"):
             prev["self_hostable"] = True
+        if not prev.get("website_url") and it.get("website_url"):
+            prev["website_url"] = it["website_url"]
         cand, cur = it.get("repo_url") or "", prev.get("repo_url") or ""
         if cand and (not cur or ("sallim-app/" in cand and "sallim-app/" not in cur)):
             prev["repo_url"] = cand
-        prev.setdefault("also_known_as", []).append(it["name"])
     return out, merged
 
 
+def write_down(dead: list, ts: str) -> None:
+    """무응답을 본문에서 분리한다(사장님 지적 2026-08-19).
+
+    본문에 섞어 두면 독자가 쓸 수 있는 서버와 못 쓰는 서버를 눈으로 갈라야 한다.
+    그렇다고 버리지도 않는다 — "등록은 가동의 증거가 아니다"가 이 목록의 존재 이유다.
+
+    **주장의 세기를 갈라 싣는다.** 관리자가 레지스트리에 직접 등록한 주소가 응답하지 않는 것과,
+    우리가 README에서 뽑은 추정 주소가 응답하지 않는 것은 무게가 다르다. 후자는 우리가 주소를
+    잘못 짚었을 수 있다 — 남의 제품에 사망 선고를 하는 자리라 그 구분을 지운 채 실으면 안 된다.
+    """
+    o: list[str] = []
+    o.append("# 응답하지 않는 서버")
+    o.append("")
+    o.append(f"{ts} 측정 시점에 `tools/list`에 응답하지 않은 목록. "
+             "**폐기 판정이 아니라 관측 기록이다** — 일시적 장애일 수 있다.")
+    o.append("")
+    o.append("고쳤거나 우리가 주소를 잘못 짚었다면 이슈로 알려 달라. 다음 회차에 다시 잰다.")
+    o.append("")
+    strong = [r for r in dead if r.get("addr_registered")]
+    weak = [r for r in dead if r not in strong]
+    for title, group, note in (
+            ("등록된 주소가 응답하지 않음", strong,
+             "관리자가 공식 레지스트리에 **직접 등록한** 주소다. 주장이 강하다."),
+            ("추정 주소가 응답하지 않음", weak,
+             "우리가 README에서 뽑은 **추정** 주소다. **우리가 주소를 잘못 짚었을 수 있다** — "
+             "그 서버가 죽었다는 뜻으로 읽지 마라."),
+    ):
+        if not group:
+            continue
+        o.append(f"## {title} — {len(group)}건")
+        o.append("")
+        o.append(note)
+        o.append("")
+        o.append("| 서버 | 증상 | 주소 |")
+        o.append("|---|---|---|")
+        for r in group:
+            rm = r["remote"]
+            why = rm.get("why") or f"HTTP {rm.get('http')}"
+            o.append(f"| {link(r)} | {why[:60]} | `{(rm.get('url') or '')[:60]}` |")
+        o.append("")
+    o.append("---")
+    o.append("")
+    o.append("[← 목록으로](README.md)")
+    open("DOWN.md", "w", encoding="utf-8").write("\n".join(o) + "\n")
+
+
 def main() -> int:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--lang", default="ko", choices=["ko", "en"])
+    a = ap.parse_args()
+    en = a.lang == "en"
+
     d = json.load(open("measured.json", encoding="utf-8"))
+    cls = {v["name"]: v for v in json.load(open("classification.json", encoding="utf-8"))["items"].values()}
+    try:
+        src = {i["name"]: i for i in json.load(open("candidates_filtered.json", encoding="utf-8"))["items"]}
+    except OSError:
+        src = {}
+
     items, merged = dedupe_by_endpoint(d["items"])
-    if merged:
-        print(f"  같은 주소를 부르는 항목 {merged}건을 한 줄로 합쳤다")
+    for it in items:
+        s0 = src.get(it["name"]) or {}
+        it.setdefault("website_url", s0.get("website_url"))
+        # **주소의 출처를 측정본까지 끌고 온다.** 관리자가 레지스트리에 등록한 주소가
+        # 응답하지 않는 것과, 우리가 README에서 추정한 주소가 응답하지 않는 것은
+        # 주장의 무게가 다르다. 이 구분이 없으면 남의 제품에 과한 낙인을 찍는다.
+        r0 = (s0.get("remotes") or [{}])[0]
+        it["addr_registered"] = bool(r0.get("url")) and r0.get("confidence") != "readme"
     rem = [r for r in items if r.get("remote")]
     live = [r for r in rem if r["remote"].get("reachable")]
     dead = [r for r in rem if not r["remote"].get("reachable")]
-    live.sort(key=lambda r: (r["remote"].get("needs_key") or False,
-                             -(r["remote"].get("tool_count") or 0)))
+    # 데이터 제공형이 아닌 것은 이 목록의 주제가 아니다 — 조용히 버리지 않고 아래에 센다.
+    off = [r for r in live if cls.get(r["name"]) and not cls[r["name"]]["is_data_provider"]]
+    live = [r for r in live if r not in off]
 
-    reg = [r for r in rem if r["remote"].get("url_source") != "readme"]
-    rme = [r for r in rem if r["remote"].get("url_source") == "readme"]
-    out = [HDR.format(ts=datetime.now(UTC).strftime("%Y-%m-%d"), n_remote=len(rem),
-                      n_dead=len(dead), pct=round(100 * len(dead) / max(len(rem), 1)),
-                      n_reg=len(reg), n_reg_dead=sum(1 for r in reg if not r["remote"].get("reachable")),
-                      n_rme=len(rme), n_rme_dead=sum(1 for r in rme if not r["remote"].get("reachable")))]
-    out.append("\n## 응답하는 서버\n")
-    out.append("| 서버 | 도구 | 웜(ms) | 콜드(ms) | 키 | 셀프호스팅 |")
-    out.append("|---|---|---|---|---|---|")
-    out += [_fmt(r) for r in live]
+    ts = datetime.now(UTC).strftime("%Y-%m-%d")
+    pct = round(100 * len(dead) / max(len(rem), 1))
+    out: list[str] = []
+    A = out.append
 
-    out.append("\n## 응답하지 않는 서버\n")
-    out.append("측정 시점에 그 주소가 응답하지 않았다. 일시적 장애일 수 있으니 "
-               "**폐기 판정이 아니라 관측 기록**으로 읽어라.\n")
-    out.append("주소 출처를 같이 싣는다. `레지스트리`는 관리자가 직접 등록한 주소라 "
-               "무응답이 그 서버에 대한 관측이지만, `README 추정`은 우리가 문서에서 뽑은 "
-               "주소여서 **우리가 잘못 짚었을 가능성이 남아 있다**. 둘을 같은 무게로 읽지 마라.\n")
-    out.append("| 서버 | 증상 | 주소 출처 |")
-    out.append("|---|---|---|")
-    for r in dead:
-        rm = r["remote"]
-        origin = "README 추정" if rm.get("url_source") == "readme" else "레지스트리"
-        out.append(f"| {r['name']} | {rm.get('why') or ('HTTP ' + str(rm.get('http')))} | {origin} |")
+    A("[![한국어](https://img.shields.io/badge/한국어-README-blue)](README.md) "
+      "[![English](https://img.shields.io/badge/English-README--en-lightgrey)](README-en.md)")
+    A("")
+    A("# 한국 데이터 MCP — 실측 목록" if not en else "# Korean Data MCP — Measured Index")
+    A("")
+    A("> 한국의 데이터를 AI에게 주는 MCP 서버를 **직접 붙여서 재고** 그 값을 공개한다."
+      if not en else
+      "> We actually connect to every Korean data MCP server, measure it, and publish the numbers.")
+    A("")
+    A(f"다른 목록은 “있다”를 말한다. 이 목록은 {emph('지금 되냐')}를 잰다. "
+      f"{ts} 기준 주소를 확인한 {len(rem)}건 중 {emph(f'{len(dead)}건({pct}%)이 응답하지 않았다')}."
+      if not en else
+      f"Other lists tell you a server exists. This one tells you whether it {emph('works right now')}. "
+      f"As of {ts}, {len(dead)} of {len(rem)} ({pct}%) did not respond.")
+    A("")
+    A("| | |")
+    A("|---|---|")
+    A(f"| 응답하는 서버 | {emph(str(len(live)))}건 |")
+    A(f"| 응답 없음 | {len(dead)}건 → [DOWN.md](DOWN.md) |")
+    A(f"| 주제 밖(데이터 제공형 아님) | {len(off)}건 |")
+    A("")
 
-    # **집계와 문장이 어긋나면 그것도 거짓말이다**(codex 교차검증 2026-08-19).
-    # 종전 문장은 원격 없는 건을 전부 "패키지도 없다"고 적었으나 실제로는 대부분 패키지가 있었다.
-    nore = [r for r in items if not r.get("remote")]
-    withpkg = [r for r in nore if r.get("package")]
-    inst = [r for r in withpkg if r["package"].get("installable")]
-    unmeasured = len(nore)
-    out.append(f"\n## 못 잰 것 — {unmeasured}건\n")
-    out.append(f"후보 {len(items)}건 중 **{unmeasured}건은 원격 주소를 확인하지 못해 "
-               "'지금 되냐'를 재지 못했다.** 이것은 '작동하지 않는다'가 아니라 "
-               "'우리가 확인하지 못했다'는 뜻이다.\n")
-    out.append(f"그중 {len(withpkg)}건은 배포 패키지가 있어 **직접 띄울 수는 있고**"
-               f"(설치 가능 {len(inst)}건), 나머지 {unmeasured - len(withpkg)}건은 원격 주소도 "
-               "패키지도 없다 — 저장소만 있고 레지스트리에 등록하지 않은 경우다. "
-               "등록하면 다음 회차에 자동으로 잡힌다.\n")
-    out.append("여기엔 **주소 미상**도 들어 있다. README에서 뽑은 주소가 그 서버의 것이 아니라 "
-               "디렉터리·문서 사이트(Glama·LobeHub 등)이거나 문서의 placeholder였던 건들이다. "
-               "그런 주소로 얻은 응답은 살았다는 증거도 죽었다는 증거도 아니라서 판정에서 뺐다.\n")
-    for b in d.get("boundaries", [])[:5]:
-        out.append(f"- {b}")
+    # ── 목차 ──
+    cats_live = [c for c in CATS if any(cls.get(r["name"], {}).get("category") == c for r in live)]
+    A("* [왜 만드나](#왜-만드나)")
+    A("* [한눈에](#한눈에)")
+    A("* [표기](#표기)")
+    for c in cats_live:
+        A(f"* [{c}](#{c.replace('·', '')})")
+    A("* [우리 목록에 넣으려면](#우리-목록에-넣으려면)")
+    A("* [어떻게 재나](#어떻게-재나)")
+    A("* [믿으면 안 되는 부분](#믿으면-안-되는-부분)")
+    A("")
 
-    out.append("\n## 우리 목록에 넣어 달라면\n")
-    out.append("공식 MCP 레지스트리에 등록하면 다음 회차 수집에 자동으로 들어온다. "
-               "PR로 직접 제안해도 된다 — **우리 경쟁 서비스여도 받는다.** "
-               "좋은 MCP는 남의 것이어도 알리는 것이 이 목록의 목적이다.\n")
-    out.append("---\n")
-    out.append(f"생성: `render_readme.py` · 측정: `measure.py` · 원자료: `measured.json` "
-               f"· 마지막 측정 {datetime.now(UTC).strftime('%Y-%m-%d %H:%M UTC')}")
+    # ── 왜 만드나 ──
+    A("## 왜 만드나")
+    A("")
+    A("**AI가 좋은 MCP를 못 찾는다.** 한국 MCP 스토어들은 대부분 AI가 읽을 수 없다 — "
+      "화면을 JS로 그리거나(가져가면 빈 껍데기), robots로 AI 크롤러를 막는다. "
+      "정작 MCP는 AI가 쓰라고 만든 것인데.")
+    A("")
+    A("그래서 이 목록은 **AI가 읽을 수 있게** 만든다. JS도 로그인도 차단도 없는 "
+      "마크다운과 JSON이다. 그리고 **있다고 말하지 않고 두드려 본다** — 등록은 가동의 증거가 아니다.")
+    A("")
+    A("**우리 것만 싣지 않는다.** 남의 MCP가 더 나으면 더 낫다고 쓴다. "
+      "이 목록의 운영자(🏠 표시)도 같은 표에서 같은 잣대로 잰다.")
+    A("")
 
-    open("README.md", "w", encoding="utf-8").write("\n".join(out) + "\n")
-    print(f"README.md 생성 — 응답 {len(live)} · 무응답 {len(dead)} · 미확인 {unmeasured}")
+    # ── 한눈에 ──
+    A("## 한눈에")
+    A("")
+    A("종합 점수는 매기지 않는다 — 가중치를 우리가 정하면, 우리가 상위권인 이 표에서 "
+      "그 설계를 반박할 방법이 없다. 대신 **축마다 1위**를 적는다.")
+    A("")
+    A("| 축 | 1위 | 값 |")
+    A("|---|---|---|")
+    for label, key, fmt in (
+            ("도구가 가장 많다", lambda r: r["remote"].get("tool_count") or 0, "{}종"),
+            ("가장 빠르다(웜)", lambda r: -(r["remote"].get("warm_ms") or 10**9), "{}ms"),
+            ("설명이 가장 충실하다", lambda r: q(r, "desc_median", 0) or 0, "중앙 {}자"),
+    ):
+        best = max(live, key=key) if live else None
+        if not best:
+            continue
+        val = {"도구가 가장 많다": best["remote"].get("tool_count"),
+               "가장 빠르다(웜)": best["remote"].get("warm_ms"),
+               "설명이 가장 충실하다": q(best, "desc_median")}[label]
+        A(f"| {label} | {link(best)} | {fmt.format(val)} |")
+    nokey = [r for r in live if not r["remote"].get("needs_key")]
+    A(f"| 키 없이 바로 된다 | {len(nokey)}/{len(live)}건 | 가입·키 불필요 |")
+    A("")
+
+    # ── 표기 ──
+    A("## 표기")
+    A("")
+    A("* **도구** — `tools/list`에 실제로 들어 있는 개수. 0이면 껍데기다")
+    A("* **웜 / 콜드** — 연달아 부를 때 / 첫 호출(ms). 서버리스는 첫 호출에 기동 시간이 붙는다. "
+      "콜드가 웜의 3배를 넘으면 굵게 표시한다")
+    A("* **설명 / 주석** — 도구에 설명이 붙은 비율 / `readOnlyHint` 같은 주석이 붙은 비율. "
+      "**둘 다 없으면 모델이 그 도구를 언제 어떻게 쓸지 모른다** — 데이터가 정확해도 답에 도달하지 못한다")
+    A("* **키** — 🔑 이면 도구 목록을 보는 데도 키가 필요하다")
+    A("* **무료/전체** — 서버가 스스로 공시할 때만 채운다. `—`는 “무료”가 아니라 **확인 못 했다**는 뜻이다")
+    A("* 🏠 — 이 목록의 운영자가 만든 서버")
+    A("")
+
+    # ── 분야별 ──
+    for c in cats_live:
+        group = [r for r in live if cls.get(r["name"], {}).get("category") == c]
+        group.sort(key=lambda r: (-(r["remote"].get("tool_count") or 0), r["remote"].get("warm_ms") or 10**9))
+        A(f"## {c}" + (f" ({CAT_EN[c]})" if not en else ""))
+        A("")
+        top, rest = group[:3], group[3:]
+        out.extend(head(en))
+        for r in top:
+            A(row(r, en))
+        A("")
+        if rest:
+            A("<details><summary>" + f"나머지 {len(rest)}건" + "</summary>")
+            A("")
+            out.extend(head(en))
+            for r in rest:
+                A(row(r, en))
+            A("")
+            A("</details>")
+            A("")
+
+    # ── 넣으려면 ──
+    A("## 우리 목록에 넣으려면")
+    A("")
+    A("**우리에게 올릴 필요가 없다.** [공식 MCP 레지스트리](https://registry.modelcontextprotocol.io)에 "
+      "등록하면 다음 회차에 자동으로 들어온다. 그쪽이 나은 이유는 우리만 읽는 게 아니라서다.")
+    A("")
+    A("이미 등록했는데 여기 없다면 **우리 수집기의 버그일 수 있다** — 이슈로 알려 달라. "
+      "경쟁 서비스여도 받는다.")
+    A("")
+    A("제출은 등재가 아니다. 실제로 `tools/list`에 응답해야 표에 오른다 — 그래서 심사할 것이 없다.")
+    A("")
+
+    # ── 방법론 ──
+    A("## 어떻게 재나")
+    A("")
+    A("```")
+    A("collect  공식 레지스트리 전수 + GitHub 검색 + mcpmoa 공개 API")
+    A("filter   한국 관련성(한글·.go.kr·기관명) → 후보 좁히기")
+    A("enrich   README에서 엔드포인트·패키지·기관 도메인 추출")
+    A("classify 분야·데이터제공형 판정 (LLM, 결과는 classification.json에 고정)")
+    A("measure  tools/list 실호출 — 가동·도구수·지연·설명·주석")
+    A("render   이 문서")
+    A("```")
+    A("")
+    A("서버당 `tools/list` 3회(콜드 1 + 웜 2), 사이에 간격을 두고, User-Agent로 우리를 밝힌다. "
+      "원자료는 [measured.json](measured.json)·[candidates.json](candidates.json)에 있다. "
+      "**돌리면 같은 표가 나온다** — 우리가 1위여도 직접 재서 반박할 수 있다.")
+    A("")
+
+    # ── 한계 ──
+    A("## 믿으면 안 되는 부분")
+    A("")
+    A("* **데이터가 정확한지는 재지 않는다.** 우리는 부동산·공공계약은 정답을 알지만 "
+      "의료·교통은 모른다. 모르면서 점수를 매기면 우리가 경계하는 그것을 우리가 하게 된다")
+    A("* **측정 항목을 우리가 골랐다.** 원자료 공개로 줄일 수는 있어도 없앨 수는 없다")
+    A("* **측정 지점은 한국 두 곳이다.** 국외에서 재면 값이 다를 수 있고 아직 확인하지 않았다")
+    A("* **콜드는 한 번뿐이다.** 그 순간 그 서버가 자고 있었을 수 있다")
+    A(f"* **못 잰 것이 더 많다.** 후보 중 {len(d['items']) - len(rem)}건은 주소도 패키지도 찾지 못했다. "
+      "“작동하지 않는다”가 아니라 **확인하지 못했다**는 뜻이다")
+    A("")
+    A("---")
+    A("")
+    A(f"생성 `render_readme.py` · 마지막 측정 {ts} · "
+      f"운영 [sallim-app](https://github.com/sallim-app)")
+
+    if not en:
+        write_down(dead, ts)
+
+    text = "\n".join(out) + "\n"
+    bad = BROKEN_EMPH.findall(text)
+    if bad:
+        print(f"생성 중단 — 깨지는 강조 {len(bad)}건: {bad[:3]}", file=sys.stderr)
+        return 1
+    open("README-en.md" if en else "README.md", "w", encoding="utf-8").write(text)
+    print(f"{'README-en' if en else 'README'}.md — 응답 {len(live)} · 무응답 {len(dead)} · "
+          f"주제밖 {len(off)} · 분야 {len(cats_live)}개 · 병합 {merged}")
     return 0
 
 

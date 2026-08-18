@@ -1,10 +1,10 @@
 [![한국어](https://img.shields.io/badge/한국어-README-blue)](README.md) [![English](https://img.shields.io/badge/English-README--en-lightgrey)](README-en.md)
 
-# 한국 데이터 MCP — 실측 목록
+# Korean Data MCP — Measured Index
 
-> 한국의 데이터를 AI에게 주는 MCP 서버를 **직접 붙여서 재고** 그 값을 공개한다.
+> We actually connect to every Korean data MCP server, measure it, and publish the numbers.
 
-다른 목록은 “있다”를 말한다. 이 목록은 **지금 되냐**를 잰다. 2026-08-18 기준 주소를 확인한 55건 중 **25건(45%)이 응답하지 않았다**.
+Other lists tell you a server exists. This one tells you whether it **works right now**. As of 2026-08-18, 25 of 55 (45%) did not respond.
 
 | | |
 |---|---|
@@ -53,9 +53,9 @@
 * **무료/전체** — 서버가 스스로 공시할 때만 채운다. `—`는 “무료”가 아니라 **확인 못 했다**는 뜻이다
 * 🏠 — 이 목록의 운영자가 만든 서버
 
-## 공공데이터·행정 (Public Data)
+## 공공데이터·행정
 
-| 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 | 키 | 무료/전체 |
+| Server | Tools | Warm | Cold | Desc | Annot | Key | Free/All |
 |---|---|---|---|---|---|---|---|
 | [app.apick/all](https://apick.app) | 82 | 64 | 128 | 100% | 100% | — | — |
 | [app.apick/business](https://apick.app) | 16 | 35 | 47 | 100% | 100% | — | — |
@@ -63,7 +63,7 @@
 
 <details><summary>나머지 3건</summary>
 
-| 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 | 키 | 무료/전체 |
+| Server | Tools | Warm | Cold | Desc | Annot | Key | Free/All |
 |---|---|---|---|---|---|---|---|
 | [yousunjung84-edu/academyinfo-mcp](https://github.com/yousunjung84-edu/academyinfo-mcp) | 8 | 137 | 236 | 100% | 100% | — | — |
 | [obundh/korea-public-data-catalog-mcp](https://github.com/obundh/korea-public-data-catalog-mcp) | 7 | 218 | 550 | 100% | 100% | — | — |
@@ -71,9 +71,9 @@
 
 </details>
 
-## 법령·판례 (Law)
+## 법령·판례
 
-| 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 | 키 | 무료/전체 |
+| Server | Tools | Warm | Cold | Desc | Annot | Key | Free/All |
 |---|---|---|---|---|---|---|---|
 | [scvcoder/korean-law-alio-mcp](https://github.com/scvcoder/korean-law-alio-mcp) | 125 | 213 | 292 | 76% | 0% | — | — |
 | [Choihello/startup-law-mcp](https://github.com/Choihello/startup-law-mcp) | 13 | 128 | **4140** | 100% | 0% | — | — |
@@ -81,15 +81,15 @@
 
 <details><summary>나머지 1건</summary>
 
-| 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 | 키 | 무료/전체 |
+| Server | Tools | Warm | Cold | Desc | Annot | Key | Free/All |
 |---|---|---|---|---|---|---|---|
 | [chrisryugj/korean-law-mcp](https://github.com/chrisryugj/korean-law-mcp) | 10 | 209 | 279 | 100% | 100% | — | — |
 
 </details>
 
-## 금융·증시 (Finance)
+## 금융·증시
 
-| 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 | 키 | 무료/전체 |
+| Server | Tools | Warm | Cold | Desc | Annot | Key | Free/All |
 |---|---|---|---|---|---|---|---|
 | [com.aikstockdata/mcp](https://github.com/na77tech-creator/aikstockdata) | 12 | 25 | 68 | 100% | 100% | — | — |
 | [MosslandOpenDevs/alpha](https://github.com/MosslandOpenDevs/alpha) | 12 | 29 | **243** | 100% | 0% | — | — |
@@ -97,24 +97,24 @@
 
 <details><summary>나머지 2건</summary>
 
-| 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 | 키 | 무료/전체 |
+| Server | Tools | Warm | Cold | Desc | Annot | Key | Free/All |
 |---|---|---|---|---|---|---|---|
 | [app.apick/finance](https://apick.app) | 3 | 32 | 33 | 100% | 100% | — | — |
 | [MarcoYou/open-proxy-mcp](https://github.com/MarcoYou/open-proxy-mcp) | — | — | 911 | —% | —% | 🔑 | — |
 
 </details>
 
-## 부동산 (Real Estate)
+## 부동산
 
-| 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 | 키 | 무료/전체 |
+| Server | Tools | Warm | Cold | Desc | Annot | Key | Free/All |
 |---|---|---|---|---|---|---|---|
 | [app.sallim/korea-realty](https://github.com/sallim-app/korea-realty) 🏠 | 47 | 45 | **138** | 100% | 100% | — | 37/47 |
 | [com.airblockfz/seoul-apt-signal](https://seoul-apt-signal.airblock2026.workers.dev) | 6 | 26 | 54 | 100% | 0% | — | — |
 | [hlucent/realestate-stats-mcp](https://github.com/hlucent/realestate-stats-mcp) | 3 | 125 | **5226** | 100% | 0% | — | — |
 
-## 커머스·생활 (Commerce)
+## 커머스·생활
 
-| 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 | 키 | 무료/전체 |
+| Server | Tools | Warm | Cold | Desc | Annot | Key | Free/All |
 |---|---|---|---|---|---|---|---|
 | [com.theprotoclinical/commerce](https://www.theprotoclinical.com) | 13 | 147 | 197 | 100% | 0% | — | — |
 | [com.hankookilbo.mcp/hankookilbo-mcp](https://github.com/hkilbo/hankookilbo-mcp) | 10 | 202 | 386 | 100% | 100% | — | — |
@@ -122,7 +122,7 @@
 
 <details><summary>나머지 6건</summary>
 
-| 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 | 키 | 무료/전체 |
+| Server | Tools | Warm | Cold | Desc | Annot | Key | Free/All |
 |---|---|---|---|---|---|---|---|
 | [com.saaskr/korean-saas-directory](https://saaskr.com) | 5 | 254 | 664 | 100% | 0% | — | — |
 | [com.arcasos/arcasos-rentals](https://mcp.arcasos.com) | 3 | 660 | 1704 | 100% | 0% | — | — |
@@ -133,9 +133,9 @@
 
 </details>
 
-## 기타 (Other)
+## 기타
 
-| 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 | 키 | 무료/전체 |
+| Server | Tools | Warm | Cold | Desc | Annot | Key | Free/All |
 |---|---|---|---|---|---|---|---|
 | [com.boltena/erp](https://app.boltena.com) | — | — | 148 | —% | —% | 🔑 | — |
 
