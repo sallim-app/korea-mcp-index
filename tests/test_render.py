@@ -201,3 +201,20 @@ def test_scope_notes_have_no_broken_table_cells():
     from observed import SCOPE
     for name, note in SCOPE.items():
         assert "|" not in note, f"{name}: 범위 공시에 파이프 문자"
+
+
+def test_remeasure_channel_is_open():
+    """고친 서버가 옛 감점에 묶이지 않게 **신호 받는 창구**가 README에 있는가."""
+    assert "## 고쳤다면 다시 잰다" in README
+    assert "issues" in README.split("## 고쳤다면 다시 잰다")[1].split("## ")[0], \
+        "재측정 요청 경로(이슈 링크)가 없다"
+
+
+def test_ranking_ratchet_rule_is_published():
+    """**우리만 다시 재지 않는다**는 규약이 공개돼 있는가.
+
+    우리는 고칠 때마다 다시 잴 수 있고 남은 못 그런다. 그 비대칭을 적어 두지 않으면
+    개별 재측정이 순위에 스며들어 표가 조용히 우리 쪽으로 기운다.
+    """
+    sec = README.split("## 고쳤다면 다시 잰다")[1].split("## ")[0]
+    assert "전원 동시에" in sec and "예외" in sec, "재측정 대칭 규약이 안 적혀 있다"
