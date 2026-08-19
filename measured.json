@@ -215,9 +215,9 @@
    },
    "package": {
     "type": "pypi",
-    "id": "-r",
-    "installable": false,
-    "why": "레지스트리에 없다(설치 불가)"
+    "installable": null,
+    "why": "설치 명령의 옵션(`-r`)이 패키지명으로 잡혔다 — 이름을 못 읽었다",
+    "unreadable_id": "-r"
    },
    "self_hostable": true
   },
@@ -233,10 +233,9 @@
    "remote": null,
    "package": {
     "type": "npm",
-    "id": "tsx",
-    "installable": true,
-    "last_publish": "2026-08-10",
-    "version": "4.23.12"
+    "installable": null,
+    "why": "`tsx`는 설치기·런너 패키지라 이 서버의 배포판이 아니다 — 배포 여부를 못 쟀다",
+    "unreadable_id": "tsx"
    },
    "self_hostable": true
   },
@@ -385,8 +384,8 @@
     "type": "pypi",
     "id": "dartlens-mcp",
     "installable": true,
-    "last_publish": "2026-08-16",
-    "version": "0.7.1"
+    "last_publish": "2026-08-19",
+    "version": "0.8.0"
    },
    "self_hostable": true
   },
@@ -428,10 +427,9 @@
    "remote": null,
    "package": {
     "type": "npm",
-    "id": "my-mcp-server",
-    "installable": true,
-    "last_publish": "2025-03-17",
-    "version": "0.0.1"
+    "installable": null,
+    "why": "`my-mcp-server`는 설치기·런너 패키지라 이 서버의 배포판이 아니다 — 배포 여부를 못 쟀다",
+    "unreadable_id": "my-mcp-server"
    },
    "self_hostable": true
   },
@@ -1362,10 +1360,9 @@
    "remote": null,
    "package": {
     "type": "pypi",
-    "id": "docxtpl",
-    "installable": true,
-    "last_publish": "2025-11-13",
-    "version": "0.20.2"
+    "installable": null,
+    "why": "`docxtpl`가 이 저장소의 배포판인지 확인하지 못했다 — README 설치 명령이 의존성 안내일 수 있다",
+    "unattributed_id": "docxtpl"
    },
    "self_hostable": true
   },
@@ -1516,8 +1513,8 @@
     "type": "npm",
     "id": "korean-law-mcp",
     "installable": true,
-    "last_publish": "2026-08-16",
-    "version": "4.12.0"
+    "last_publish": "2026-08-19",
+    "version": "4.12.1"
    },
    "self_hostable": true
   },
@@ -1571,10 +1568,9 @@
    "remote": null,
    "package": {
     "type": "pypi",
-    "id": "huggingface_hub",
-    "installable": true,
-    "last_publish": "2026-08-18",
-    "version": "1.28.0"
+    "installable": null,
+    "why": "`huggingface_hub`가 이 저장소의 배포판인지 확인하지 못했다 — README 설치 명령이 의존성 안내일 수 있다",
+    "unattributed_id": "huggingface_hub"
    },
    "self_hostable": true
   },
@@ -1920,10 +1916,9 @@
    "remote": null,
    "package": {
     "type": "npm",
-    "id": "playwright",
-    "installable": true,
-    "last_publish": "2026-08-18",
-    "version": "1.62.1"
+    "installable": null,
+    "why": "`playwright`가 이 저장소의 배포판인지 확인하지 못했다 — README 설치 명령이 의존성 안내일 수 있다",
+    "unattributed_id": "playwright"
    },
    "self_hostable": true
   },
@@ -2170,10 +2165,9 @@
    "remote": null,
    "package": {
     "type": "npm",
-    "id": "@anthropic-ai/mcpb",
-    "installable": true,
-    "last_publish": "2026-06-04",
-    "version": "2.1.2"
+    "installable": null,
+    "why": "`@anthropic-ai/mcpb`는 설치기·런너 패키지라 이 서버의 배포판이 아니다 — 배포 여부를 못 쟀다",
+    "unreadable_id": "@anthropic-ai/mcpb"
    },
    "self_hostable": true
   },
@@ -2189,9 +2183,9 @@
    "remote": null,
    "package": {
     "type": "pypi",
-    "id": "-r",
-    "installable": false,
-    "why": "레지스트리에 없다(설치 불가)"
+    "installable": null,
+    "why": "설치 명령의 옵션(`-r`)이 패키지명으로 잡혔다 — 이름을 못 읽었다",
+    "unreadable_id": "-r"
    },
    "self_hostable": true
   },
@@ -2267,9 +2261,9 @@
    },
    "package": {
     "type": "pypi",
-    "id": "-r",
-    "installable": false,
-    "why": "레지스트리에 없다(설치 불가)"
+    "installable": null,
+    "why": "설치 명령의 옵션(`-r`)이 패키지명으로 잡혔다 — 이름을 못 읽었다",
+    "unreadable_id": "-r"
    },
    "self_hostable": true
   },
@@ -2390,9 +2384,9 @@
    },
    "package": {
     "type": "pypi",
-    "id": "-r",
-    "installable": false,
-    "why": "레지스트리에 없다(설치 불가)"
+    "installable": null,
+    "why": "설치 명령의 옵션(`-r`)이 패키지명으로 잡혔다 — 이름을 못 읽었다",
+    "unreadable_id": "-r"
    },
    "self_hostable": true
   },
@@ -2436,10 +2430,9 @@
    },
    "package": {
     "type": "pypi",
-    "id": "uv",
-    "installable": true,
-    "last_publish": "2026-08-14",
-    "version": "0.12.5"
+    "installable": null,
+    "why": "`uv`는 설치기·런너 패키지라 이 서버의 배포판이 아니다 — 배포 여부를 못 쟀다",
+    "unreadable_id": "uv"
    },
    "self_hostable": true
   },
@@ -2474,9 +2467,9 @@
    "remote": null,
    "package": {
     "type": "pypi",
-    "id": "-r",
-    "installable": false,
-    "why": "레지스트리에 없다(설치 불가)"
+    "installable": null,
+    "why": "설치 명령의 옵션(`-r`)이 패키지명으로 잡혔다 — 이름을 못 읽었다",
+    "unreadable_id": "-r"
    },
    "self_hostable": true
   },
@@ -2493,9 +2486,9 @@
    "remote": null,
    "package": {
     "type": "pypi",
-    "id": "-r",
-    "installable": false,
-    "why": "레지스트리에 없다(설치 불가)"
+    "installable": null,
+    "why": "설치 명령의 옵션(`-r`)이 패키지명으로 잡혔다 — 이름을 못 읽었다",
+    "unreadable_id": "-r"
    },
    "self_hostable": true
   },
@@ -2566,9 +2559,9 @@
    "remote": null,
    "package": {
     "type": "oci",
-    "id": "ghcr.io/ljaysk/kr-dart-events-mcp:0.1.0",
     "installable": null,
-    "why": "조회 경로 없음(oci)"
+    "why": "패키지명 형식이 아니다 — 이름을 못 읽었다",
+    "unreadable_id": "ghcr.io/ljaysk/kr-dart-events-mcp:0.1.0"
    },
    "self_hostable": true
   },
@@ -2711,8 +2704,8 @@
     "type": "npm",
     "id": "buyking-mcp",
     "installable": true,
-    "last_publish": "2026-08-18",
-    "version": "1.1.0"
+    "last_publish": "2026-08-19",
+    "version": "1.1.2"
    },
    "self_hostable": true
   },
@@ -2819,9 +2812,9 @@
    "remote": null,
    "package": {
     "type": "pypi",
-    "id": "--from",
-    "installable": false,
-    "why": "레지스트리에 없다(설치 불가)"
+    "installable": null,
+    "why": "설치 명령의 옵션(`--from`)이 패키지명으로 잡혔다 — 이름을 못 읽었다",
+    "unreadable_id": "--from"
    },
    "self_hostable": true
   },
@@ -2955,9 +2948,9 @@
    "remote": null,
    "package": {
     "type": "pypi",
-    "id": "-r",
-    "installable": false,
-    "why": "레지스트리에 없다(설치 불가)"
+    "installable": null,
+    "why": "설치 명령의 옵션(`-r`)이 패키지명으로 잡혔다 — 이름을 못 읽었다",
+    "unreadable_id": "-r"
    },
    "self_hostable": true
   },
@@ -2973,10 +2966,9 @@
    "remote": null,
    "package": {
     "type": "npm",
-    "id": "tsx",
-    "installable": true,
-    "last_publish": "2026-08-10",
-    "version": "4.23.12"
+    "installable": null,
+    "why": "`tsx`는 설치기·런너 패키지라 이 서버의 배포판이 아니다 — 배포 여부를 못 쟀다",
+    "unreadable_id": "tsx"
    },
    "self_hostable": true
   },
@@ -3042,9 +3034,9 @@
    "remote": null,
    "package": {
     "type": "npm",
-    "id": "@k-stay/mcp-server",
-    "installable": false,
-    "why": "레지스트리에 없다(설치 불가)"
+    "installable": null,
+    "why": "`@k-stay/mcp-server`가 이 저장소의 배포판인지 확인하지 못했다 — README 설치 명령이 의존성 안내일 수 있다",
+    "unattributed_id": "@k-stay/mcp-server"
    },
    "self_hostable": true
   },
@@ -3165,9 +3157,9 @@
    "remote": null,
    "package": {
     "type": "pypi",
-    "id": "-r",
-    "installable": false,
-    "why": "레지스트리에 없다(설치 불가)"
+    "installable": null,
+    "why": "설치 명령의 옵션(`-r`)이 패키지명으로 잡혔다 — 이름을 못 읽었다",
+    "unreadable_id": "-r"
    },
    "self_hostable": true
   },
@@ -3324,10 +3316,9 @@
    "remote": null,
    "package": {
     "type": "pypi",
-    "id": "mcp",
-    "installable": true,
-    "last_publish": "2026-07-28",
-    "version": "2.0.0"
+    "installable": null,
+    "why": "`mcp`가 이 저장소의 배포판인지 확인하지 못했다 — README 설치 명령이 의존성 안내일 수 있다",
+    "unattributed_id": "mcp"
    },
    "self_hostable": true
   },
@@ -3449,9 +3440,9 @@
    "remote": null,
    "package": {
     "type": "pypi",
-    "id": "-r",
-    "installable": false,
-    "why": "레지스트리에 없다(설치 불가)"
+    "installable": null,
+    "why": "설치 명령의 옵션(`-r`)이 패키지명으로 잡혔다 — 이름을 못 읽었다",
+    "unreadable_id": "-r"
    },
    "self_hostable": true
   },
@@ -3505,10 +3496,9 @@
    "remote": null,
    "package": {
     "type": "npm",
-    "id": "workspace",
-    "installable": true,
-    "last_publish": "2024-12-18",
-    "version": "0.0.1-preview.2"
+    "installable": null,
+    "why": "`workspace`가 이 저장소의 배포판인지 확인하지 못했다 — README 설치 명령이 의존성 안내일 수 있다",
+    "unattributed_id": "workspace"
    },
    "self_hostable": true
   },
@@ -3526,7 +3516,7 @@
     "type": "npm",
     "id": "skills",
     "installable": true,
-    "last_publish": "2026-08-18",
+    "last_publish": "2026-08-19",
     "version": "1.5.23"
    },
    "self_hostable": true
@@ -3662,9 +3652,9 @@
    "remote": null,
    "package": {
     "type": "pypi",
-    "id": "-r",
-    "installable": false,
-    "why": "레지스트리에 없다(설치 불가)"
+    "installable": null,
+    "why": "설치 명령의 옵션(`-r`)이 패키지명으로 잡혔다 — 이름을 못 읽었다",
+    "unreadable_id": "-r"
    },
    "self_hostable": true
   },
@@ -3816,10 +3806,9 @@
    "remote": null,
    "package": {
     "type": "pypi",
-    "id": "fastmcp",
-    "installable": true,
-    "last_publish": "2026-08-10",
-    "version": "3.4.7"
+    "installable": null,
+    "why": "`fastmcp`가 이 저장소의 배포판인지 확인하지 못했다 — README 설치 명령이 의존성 안내일 수 있다",
+    "unattributed_id": "fastmcp"
    },
    "self_hostable": true
   },
@@ -3835,9 +3824,9 @@
    "remote": null,
    "package": {
     "type": "pypi",
-    "id": "-r",
-    "installable": false,
-    "why": "레지스트리에 없다(설치 불가)"
+    "installable": null,
+    "why": "설치 명령의 옵션(`-r`)이 패키지명으로 잡혔다 — 이름을 못 읽었다",
+    "unreadable_id": "-r"
    },
    "self_hostable": true
   },
@@ -3862,9 +3851,9 @@
    },
    "package": {
     "type": "pypi",
-    "id": "-r",
-    "installable": false,
-    "why": "레지스트리에 없다(설치 불가)"
+    "installable": null,
+    "why": "설치 명령의 옵션(`-r`)이 패키지명으로 잡혔다 — 이름을 못 읽었다",
+    "unreadable_id": "-r"
    },
    "self_hostable": true
   },
@@ -4127,9 +4116,9 @@
    "remote": null,
    "package": {
     "type": "npm",
-    "id": "KoreaSeoul",
-    "installable": false,
-    "why": "레지스트리에 없다(설치 불가)"
+    "installable": null,
+    "why": "`KoreaSeoul`가 이 저장소의 배포판인지 확인하지 못했다 — README 설치 명령이 의존성 안내일 수 있다",
+    "unattributed_id": "KoreaSeoul"
    },
    "self_hostable": true
   },
@@ -4219,9 +4208,9 @@
    },
    "package": {
     "type": "pypi",
-    "id": "-r",
-    "installable": false,
-    "why": "레지스트리에 없다(설치 불가)"
+    "installable": null,
+    "why": "설치 명령의 옵션(`-r`)이 패키지명으로 잡혔다 — 이름을 못 읽었다",
+    "unreadable_id": "-r"
    },
    "self_hostable": true
   },
@@ -4333,8 +4322,8 @@
     "type": "pypi",
     "id": "stocklens-mcp",
     "installable": true,
-    "last_publish": "2026-08-17",
-    "version": "0.7.2"
+    "last_publish": "2026-08-19",
+    "version": "0.8.0"
    },
    "self_hostable": true
   },
@@ -4426,8 +4415,8 @@
     "type": "pypi",
     "id": "korean-rnd-regs-mcp",
     "installable": true,
-    "last_publish": "2026-08-11",
-    "version": "0.48.0"
+    "last_publish": "2026-08-19",
+    "version": "0.49.0"
    },
    "self_hostable": true
   },
@@ -4443,10 +4432,9 @@
    "remote": null,
    "package": {
     "type": "npm",
-    "id": "@smithery/cli",
-    "installable": true,
-    "last_publish": "2026-04-30",
-    "version": "4.11.1"
+    "installable": null,
+    "why": "`@smithery/cli`는 설치기·런너 패키지라 이 서버의 배포판이 아니다 — 배포 여부를 못 쟀다",
+    "unreadable_id": "@smithery/cli"
    },
    "self_hostable": true
   },
@@ -4462,10 +4450,9 @@
    "remote": null,
    "package": {
     "type": "npm",
-    "id": "method",
-    "installable": true,
-    "last_publish": "2022-06-19",
-    "version": "2.0.0"
+    "installable": null,
+    "why": "`method`가 이 저장소의 배포판인지 확인하지 못했다 — README 설치 명령이 의존성 안내일 수 있다",
+    "unattributed_id": "method"
    },
    "self_hostable": true
   },
@@ -4499,10 +4486,9 @@
    "remote": null,
    "package": {
     "type": "pypi",
-    "id": "fastmcp",
-    "installable": true,
-    "last_publish": "2026-08-10",
-    "version": "3.4.7"
+    "installable": null,
+    "why": "`fastmcp`가 이 저장소의 배포판인지 확인하지 못했다 — README 설치 명령이 의존성 안내일 수 있다",
+    "unattributed_id": "fastmcp"
    },
    "self_hostable": true
   },
@@ -4575,9 +4561,9 @@
    "remote": null,
    "package": {
     "type": "pypi",
-    "id": "-r",
-    "installable": false,
-    "why": "레지스트리에 없다(설치 불가)"
+    "installable": null,
+    "why": "설치 명령의 옵션(`-r`)이 패키지명으로 잡혔다 — 이름을 못 읽었다",
+    "unreadable_id": "-r"
    },
    "self_hostable": true
   },
@@ -4727,8 +4713,8 @@
     "type": "npm",
     "id": "korean-law-mcp",
     "installable": true,
-    "last_publish": "2026-08-16",
-    "version": "4.12.0"
+    "last_publish": "2026-08-19",
+    "version": "4.12.1"
    },
    "self_hostable": true
   },
@@ -4855,9 +4841,9 @@
    "remote": null,
    "package": {
     "type": "npm",
-    "id": "g2b-it-bid-mcp",
-    "installable": false,
-    "why": "레지스트리에 없다(설치 불가)"
+    "installable": null,
+    "why": "`g2b-it-bid-mcp`가 이 저장소의 배포판인지 확인하지 못했다 — README 설치 명령이 의존성 안내일 수 있다",
+    "unattributed_id": "g2b-it-bid-mcp"
    },
    "self_hostable": true
   },
@@ -4873,9 +4859,9 @@
    "remote": null,
    "package": {
     "type": "npm",
-    "id": "investment-mcp",
-    "installable": false,
-    "why": "레지스트리에 없다(설치 불가)"
+    "installable": null,
+    "why": "`investment-mcp`가 이 저장소의 배포판인지 확인하지 못했다 — README 설치 명령이 의존성 안내일 수 있다",
+    "unattributed_id": "investment-mcp"
    },
    "self_hostable": true
   },

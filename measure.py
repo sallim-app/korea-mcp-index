@@ -30,6 +30,9 @@ import urllib.error
 import urllib.parse
 import urllib.request
 
+# 같은 명단을 두 번 적지 않는다 — 추출 쪽이 정본이고 측정 쪽은 그물이다.
+from enrich import NOT_A_SERVER_PKG
+
 UA = "sallim-mcp-index/0.1 (+https://github.com/sallim-app; measuring MCP availability)"
 TIMEOUT = 15
 MAX_BODY = 8 * 1024 * 1024   # 폭주 방어 상한. 걸리면 숨기지 않고 공시한다.
@@ -294,10 +297,36 @@ def measure_paid_disclosure(mcp_url: str) -> dict:
     return {"disclosed": False}
 
 
+# enrich 쪽 파서가 새면 여기서 잡는다(2026-08-20, T-2026W34-107). **레지스트리 404는 두 가지
+# 뜻이 될 수 있다** — 그 패키지가 없거나, 우리가 엉뚱한 것을 물어봤거나. 종전 코드는 둘을 구분하지
+# 않고 전부 `설치 불가`로 확정해, `pip install -r requirements.txt`의 `-r`을 물어보고는 남의 서버
+# 15건을 공개 measured.json에 '설치 불가'로 박았다. 이름이 이름다워 보이지 않으면 **묻지 않는다** —
+# 답을 모르는 것과 없는 것을 갈라 적는 것이 우리가 파는 물건이다.
+def _implausible(ident: str) -> str | None:
+    """패키지명으로 볼 수 없는 식별자면 그 이유를, 이름다우면 None."""
+    if ident.startswith("-"):
+        return f"설치 명령의 옵션(`{ident}`)이 패키지명으로 잡혔다 — 이름을 못 읽었다"
+    if "://" in ident or ident.startswith("git+"):
+        return "패키지명이 아니라 주소다 — 이름을 못 읽었다"
+    if ident.endswith((".txt", ".py", ".js", ".ts", ".json", ".toml")):
+        return f"패키지명이 아니라 파일명(`{ident}`)이다 — 이름을 못 읽었다"
+    if not re.fullmatch(r"@?[\w.-]+(?:/[\w.-]+)?", ident):
+        return "패키지명 형식이 아니다 — 이름을 못 읽었다"
+    if any(ident == b or ident.startswith(b + "/") for b in NOT_A_SERVER_PKG):
+        # 있는 패키지이긴 하다 — 남의 것이다. `installable: true`로 적으면 저장소만 있는
+        # 서버가 '배포됨'으로 올라간다(실측: @smithery/cli·@anthropic-ai/mcpb·tsx).
+        return f"`{ident}`는 설치기·런너 패키지라 이 서버의 배포판이 아니다 — 배포 여부를 못 쟀다"
+    return None
+
+
 def measure_package(p: dict) -> dict:
     kind, ident = (p.get("type") or "").lower(), p.get("id") or ""
     if not ident:
         return {"type": kind, "installable": None, "why": "식별자 없음"}
+    why = _implausible(ident)
+    if why:
+        # `installable: None` = 못 쟀다. False로 적으면 남의 서버를 우리 파서 결함으로 깎는다.
+        return {"type": kind, "id": ident, "installable": None, "why": why}
     url = (f"https://registry.npmjs.org/{urllib.parse.quote(ident, safe='@')}" if kind == "npm"
            else f"https://pypi.org/pypi/{ident}/json" if kind in ("pypi", "python") else None)
     if not url:
@@ -324,11 +353,79 @@ def measure_package(p: dict) -> dict:
         return {"type": kind, "id": ident, "installable": None, "why": f"미확인 {type(e).__name__}"}
 
 
+def repair_packages() -> int:
+    """이미 나간 measured.json의 패키지 축만 다시 잰다 (2026-08-20, T-2026W34-107).
+
+    **남의 MCP 서버는 두드리지 않는다** — README와 npm/PyPI 레지스트리만 본다. 파서를 고쳤을 때
+    전체 재측정(원격 55곳 재프로브)을 하지 않고도 이미 게시된 거짓 판정을 회수할 수 있어야 한다.
+    이름을 못 읽은 항목은 README를 다시 읽어 고친 파서로 재추출하고, 그래도 못 고르면
+    `installable: null`로 **못 쟀다고 적는다**(false로 적으면 남의 서버를 우리 결함으로 깎는다).
+
+    실행: python3 measure.py --repair-packages
+    """
+    import enrich
+    d = json.load(open("measured.json", encoding="utf-8"))
+    token = enrich.github_token()
+    changed = []
+    for r in d["items"]:
+        pkg = r.get("package")
+        if not pkg or not pkg.get("id"):
+            continue
+        before = dict(pkg)
+        ident, kind = pkg["id"], pkg.get("type") or ""
+        why = _implausible(ident)
+        if why:
+            # README를 고친 파서로 다시 읽는다. 그래도 이름을 못 고르면 **이름을 싣지 않는다** —
+            # `id: "-r"`을 남기면 남의 서버에 대해 우리가 읽지도 못한 이름을 게시하는 셈이다.
+            repo = (r.get("repo_url") or "").removeprefix("https://github.com/")
+            rm = enrich._readme(repo, token) if repo else None
+            fresh = None
+            if rm:
+                for rx, k in ((enrich.RE_NPX, "npm"), (enrich.RE_UVX, "pypi"),
+                              (enrich.RE_PIP, "pypi")):
+                    cand = next((x for x in (enrich._pkg_from_cmd(m.group(1))
+                                             for m in rx.finditer(rm)) if x), None)
+                    if cand and enrich.owns_pkg(repo, cand):
+                        fresh, kind = cand, k
+                        break
+            after = (measure_package({"type": kind, "id": fresh}) if fresh else
+                     {"type": kind, "installable": None, "why": why, "unreadable_id": ident})
+        else:
+            # 읽히는 이름이어도 **누구의 것인지**는 별개다. README의 `pip install playwright`·
+            # `pip install fastmcp`를 그 서버의 배포판으로 계상하고 있었다(실측 8건: docxtpl·
+            # huggingface_hub·playwright·mcp·workspace·fastmcp×2·method). 오탐 8건과 오폄하
+            # 1건 중 우리는 후자를 고른다 — '못 쟀다'는 정직하고 '배포됨'은 거짓이다.
+            repo = (r.get("repo_url") or "").removeprefix("https://github.com/")
+            if repo and not enrich.owns_pkg(repo, ident):
+                after = {"type": kind, "installable": None,
+                         "why": f"`{ident}`가 이 저장소의 배포판인지 확인하지 못했다 — "
+                                "README 설치 명령이 의존성 안내일 수 있다",
+                         "unattributed_id": ident}
+            else:
+                after = measure_package({"type": kind, "id": ident})
+        # `self_hostable`은 건드리지 않는다 — 그 값은 '설치 명령이 있었다'는 뜻이고 그건 여전히
+        # 사실이다(패키지명을 못 읽은 것과 소스 설치가 안 되는 것은 다른 얘기다).
+        if after != before:
+            r["package"] = after
+            changed.append((r["name"], before, after))
+        time.sleep(0.2)
+    json.dump(d, open("measured.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    print(f"패키지 축 재측정 — 바뀐 항목 {len(changed)}건")
+    for name, b, a2 in changed:
+        print(f"  {name}\n    전: id={b.get('id')!r} installable={b.get('installable')!r} {b.get('why','')}"
+              f"\n    후: id={a2.get('id')!r} installable={a2.get('installable')!r} {a2.get('why','')}")
+    return 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--bucket", default="keep")
+    ap.add_argument("--repair-packages", action="store_true",
+                    help="measured.json의 패키지 축만 재측정(원격 서버 미접촉)")
     a = ap.parse_args()
+    if a.repair_packages:
+        return repair_packages()
 
     src = json.load(open("candidates_filtered.json", encoding="utf-8"))
     items = [i for i in src["items"] if i["verdict"] == a.bucket]

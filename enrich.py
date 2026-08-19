@@ -42,9 +42,79 @@ SKIP_HOST = re.compile(
     # README가 "여기에 당신 주소를" 로 남겨 둔 자리 — 실제로 xxxx.ngrok.io를 두드렸다.
     r"//(?:xxx+|yyy+|host|domain)[\w-]*\.", re.I)
 RE_ENDPOINT = re.compile(r"https://[\w.-]+(?::\d+)?(?:/[\w./-]*)?/(?:mcp|sse)\b", re.I)
-RE_NPX = re.compile(r"npx\s+(?:-y\s+|--yes\s+)?(@?[\w.@/-]+)", re.I)
-RE_UVX = re.compile(r"uvx\s+(?:--from\s+)?([\w.-]+)", re.I)
-RE_PIP = re.compile(r"pip\s+install\s+([\w.-]+)", re.I)
+# 2026-08-20(T-2026W34-107): **첫 토큰이 패키지명이라는 가정이 틀렸다.**
+#   `pip install -r requirements.txt` → `-r`을, `uvx --from git+…` → `--from`을 패키지명으로
+#   잡았고(문자군에 `-`가 있다), 측정 쪽이 그 이름을 레지스트리에서 못 찾아 남의 서버 15건을
+#   **`설치 불가`로 공개 단정**했다. 우리가 파싱을 실패한 것을 그 서버의 결함으로 게시한 것이다
+#   — 기치②(못 봄 ≠ 없음)를 우리 측정기가 위반한 자리다.
+#   그래서 (a) 옵션 플래그는 이름이 아니고 (b) 명령의 토큰을 **차례로** 보며 첫 '이름다운 것'을
+#   고르고 (c) 그게 설치기·런너면 그 서버의 배포판이 아니므로 계상하지 않는다.
+# `\s`가 아니라 `[^\S\n]` — 줄바꿈을 넘으면 **다음 줄이 이 명령의 인자로 읽힌다**. 실측
+# (2026-08-20 재측정): `pip install -r requirements.txt` 다음 줄에서 `python`·`SUPABASE_URL`을,
+# `npx tsx …` 다음 줄에서 `cp`를 패키지명으로 주워 왔다. 고치던 결함이 반대 방향으로 재발한 것이다.
+_ARGS = r"((?:-{1,2}[\w-]+(?:=\S+)?[^\S\n]+|[@\w.+:/-]+[^\S\n]*)+)"
+RE_NPX = re.compile(r"npx[^\S\n]+" + _ARGS, re.I)
+RE_UVX = re.compile(r"uvx[^\S\n]+" + _ARGS, re.I)
+RE_PIP = re.compile(r"pip3?[^\S\n]+install[^\S\n]+" + _ARGS, re.I)
+
+# 그 서버의 배포판이 **아닌** 패키지 — 설치기·번들러·런너·프레임워크. 이것을 그 서버 실적으로
+# 계상하면 저장소만 있는 서버가 '배포됨'으로 올라간다(실측 4건: @smithery/cli·@anthropic-ai/mcpb·
+# tsx·my-mcp-server). 종전엔 @modelcontextprotocol 하나만 걸렀다.
+NOT_A_SERVER_PKG = (
+    "@modelcontextprotocol", "@smithery/cli", "smithery", "@anthropic-ai/mcpb", "mcpb",
+    "@anthropic-ai/claude-code", "mcp-proxy", "mcp-remote", "supergateway", "mcpo",
+    "tsx", "ts-node", "typescript", "nodemon", "concurrently", "serve", "http-server",
+    "uv", "uvx", "pip", "pipx", "poetry", "virtualenv", "wheel", "setuptools",
+    # README가 자기 이름을 안 바꾼 템플릿 잔재 — 그 서버의 배포판이라 볼 수 없다.
+    "my-mcp-server", "mcp-server-template", "your-package-name", "package-name",
+    # 인터프리터·셸 명령. 이름이 겹치는 실제 패키지가 레지스트리에 있어(npm `cp` 등)
+    # 거르지 않으면 **없는 배포를 있다고 계상한다**.
+    "python", "python3", "node", "npm", "pnpm", "yarn", "deno", "bun", "docker", "make",
+    "git", "sh", "bash", "cd", "cp", "mv", "curl", "wget", "source", "export", "echo",
+    "uvicorn", "gunicorn", "requirements",
+)
+
+
+def _pkg_from_cmd(argstr: str) -> str | None:
+    """설치 명령의 인자 열에서 패키지명을 고른다. 못 고르면 None — 빈 문자열이 아니다.
+
+    **첫 이름 후보 하나만 본다.** 그 자리가 설치기(`@smithery/cli`)·런너(`tsx`)·git 주소면
+    그 명령은 포기한다 — 뒤에 오는 것은 그 도구의 인자이지 이 서버의 npm/PyPI 패키지가 아니다.
+    `npx @smithery/cli install @snaiws/X`에서 뒤 토큰을 주워 오면 레지스트리에 없는 이름을
+    물어보고 다시 '설치 불가'를 만든다 — 고치려던 결함을 반대편에서 되풀이하는 것이다.
+    """
+    toks, i, first = argstr.split(), 0, None
+    while i < len(toks) and first is None:
+        t = toks[i]
+        if t.startswith("-"):
+            base = t.split("=")[0]
+            # 값을 갖는 플래그. `--from`의 값만 이름 후보다(나머지 값은 파일·주소·버전).
+            if "=" in t:
+                first = t.split("=", 1)[1] if base == "--from" else None
+                i += 1
+                continue
+            if base in ("--from", "--with", "-r", "--requirement", "--index-url", "-i",
+                        "--extra-index-url", "-p", "--python", "-e", "--editable"):
+                if base == "--from" and i + 1 < len(toks):
+                    first = toks[i + 1]
+                i += 2
+                continue
+            i += 1
+            continue
+        first = t
+        i += 1
+    if not first:
+        return None
+    c = first.strip().strip("`\"'").rstrip(",;")
+    # 파일·주소·경로·옵션은 패키지명이 아니고, 설치기·런너는 이 서버의 것이 아니다.
+    if re.fullmatch(r"[A-Z][A-Z0-9_]*", c):
+        return None                      # `SUPABASE_URL=…` 같은 환경변수 줄이 섞여 들어온 자리
+    if (not c or c.startswith("-") or c.startswith(".") or "://" in c
+            or c.startswith("git+") or c.endswith((".txt", ".py", ".js", ".ts", ".json", ".toml"))
+            or any(c == b or c.startswith(b + "/") for b in NOT_A_SERVER_PKG)
+            or not re.fullmatch(r"@?[\w.-]+(?:/[\w.-]+)?", c)):
+        return None
+    return c
 
 
 def _api(path: str, token: str):
@@ -86,6 +156,29 @@ def _readme(repo: str, token: str) -> str | None:
 RE_KRDOMAIN = re.compile(r"\b[\w.-]+\.(go|or|re)\.kr\b", re.I)
 
 
+def owns_pkg(repo: str, pkg: str) -> bool:
+    """README에서 읽은 이름이 **이 저장소의 배포판이라고 볼 수 있는가**.
+
+    README의 `pip install X`는 X가 그 서버의 패키지라는 증거가 아니다 — 의존성 설치 안내일 수
+    있다(실측: insung8150/AgentWebSearch-MCP에서 `sglang`을 그 서버의 배포판으로 계상했다.
+    SGLang은 남의 추론 서버 라이브러리다). 매니페스트(package.json·pyproject)에서 읽은 이름은
+    그 저장소가 자기 이름이라 선언한 것이니 이 검사를 거치지 않는다.
+
+    판정: 이름과 저장소명이 토큰 하나라도 겹치면 그 저장소의 것으로 본다. 안 겹치면
+    **누구의 것인지 모른다**고 적는다 — 없다고 적지 않는다.
+    """
+    name = repo.split("/")[-1].lower()
+    ptoks = {t for t in re.split(r"[^a-z0-9]+", pkg.split("/")[-1].lower()) if len(t) > 2}
+    rtoks = {t for t in re.split(r"[^a-z0-9]+", name) if len(t) > 2}
+    if ptoks & rtoks:
+        return True
+    # 구분자만 다른 같은 이름 — `koreafilings` ⊂ `korea-filings-api`. 토큰 대조만 하면
+    # 이런 진짜 배포판이 '못 쟀다'로 내려간다(실측 1건).
+    pflat = re.sub(r"[^a-z0-9]", "", pkg.split("/")[-1].lower())
+    rflat = re.sub(r"[^a-z0-9]", "", name)
+    return len(pflat) >= 5 and (pflat in rflat or rflat in pflat)
+
+
 def enrich(repo: str, token: str) -> dict:
     found = {"packages": [], "remotes": [], "evidence": [], "kr_domains": []}
 
@@ -118,21 +211,29 @@ def enrich(repo: str, token: str) -> dict:
                                          "confidence": "readme"})
         if not found["packages"]:
             for rx, kind in ((RE_NPX, "npm"), (RE_UVX, "pypi"), (RE_PIP, "pypi")):
-                m = rx.search(rm)
-                if m and not m.group(1).startswith("@modelcontextprotocol"):
-                    found["packages"].append({"type": kind, "id": m.group(1),
+                # 첫 일치만 보면 README 상단의 `npx @smithery/cli install`에 걸려 끝난다 —
+                # 그 명령에서 이름을 못 고르면 다음 명령을 본다.
+                pkg = next((p for p in (_pkg_from_cmd(m.group(1))
+                                        for m in rx.finditer(rm)) if p), None)
+                if pkg and owns_pkg(repo, pkg):
+                    found["packages"].append({"type": kind, "id": pkg,
                                               "confidence": "readme"})
                     found["evidence"].append(f"README {kind} 명령")
                     break
     return found
 
 
-def main() -> int:
-    token = None
+def github_token() -> str | None:
+    """토큰 1곳에서만 읽는다 — measure.py의 패키지 축 재측정도 같은 경로를 쓴다."""
     for line in open("/data/secrets/github-sallim.env", encoding="utf-8"):
         line = line.strip()
         if line.startswith("GITHUB_TOKEN="):
-            token = line.split("=", 1)[1].strip()
+            return line.split("=", 1)[1].strip()
+    return None
+
+
+def main() -> int:
+    token = github_token()
 
     src = json.load(open("candidates_filtered.json", encoding="utf-8"))
     # **review도 보강한다.** review는 "한국 관련은 맞은데 데이터형 신호가 없다"거나
