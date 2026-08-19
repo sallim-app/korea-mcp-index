@@ -191,8 +191,10 @@ def main() -> int:
     rank_of = {}          # name → (순위, 이유)
     err_of = {}           # name → 채점에서 나온 사실오류 건수
     cat_note = {}         # 분야 → 총평
+    cat_runs = {}         # 분야 → 그 분야를 몇 번 물어봤나(회차수)
     for v in rk.values():
         cat_note[v["category"]] = v.get("note", "")
+        cat_runs[v["category"]] = int(v.get("회차수") or 1)
         for t in v["top"]:
             rank_of[t["name"]] = (t["rank"], t.get("why", ""))
             if t.get("사실오류") is not None:
@@ -333,8 +335,17 @@ def main() -> int:
                 rank, why = rank_of[r["name"]]
                 A(f"{rank}. {r['name'].split('/')[-1]} — {why}")
             A("")
-            A("<sub>순위는 **실제로 물어본 결과**다 — 같은 질문을 각 서버에 던지고 "
-              "답변을 채점했다. 질문·호출기록·답변은 [answers/](answers)에, 채점은 "
+            # **몇 번 물었는지를 순위 옆에 적는다.** 1회짜리 순위는 서버의 성질과
+            # 모델의 주사위를 구별하지 못한다(variance/ 실측: 4개 자리 중 2곳 등급 갈림).
+            # 적지 않으면 독자는 그 등수가 한 번의 주사위인지 모른다.
+            n = cat_runs.get(c, 1)
+            runs = (f"서버당 {emph(f'{n}회')} 물어 재현성까지 채점했다."
+                    if n >= 2 else
+                    f"이 회차는 서버당 {emph('1회')}만 물었다 — "
+                    "**재현성은 재지 않았다**(다시 물으면 등수가 갈릴 수 있다). "
+                    "다음 채점 회차부터 3회로 잰다.")
+            A(f"<sub>순위는 **실제로 물어본 결과**다 — 같은 질문을 각 서버에 던지고 "
+              f"답변을 채점했다. {runs} 질문·호출기록·답변은 [answers/](answers)에, 채점은 "
               "[grades/](grades)에, 기준은 [JUDGING.md](JUDGING.md)에 있다.</sub>")
             A("")
         if judged and rest:

@@ -218,3 +218,30 @@ def test_ranking_ratchet_rule_is_published():
     """
     sec = README.split("## 고쳤다면 다시 잰다")[1].split("## ")[0]
     assert "전원 동시에" in sec and "예외" in sec, "재측정 대칭 규약이 안 적혀 있다"
+
+
+def test_round_count_is_disclosed():
+    """**몇 번 물어본 순위인지**가 표 옆에 적혀 있는가.
+
+    1회짜리 순위는 서버의 성질과 모델의 주사위를 구별하지 못한다(variance/ 실측:
+    4개 질문 자리 중 2곳 등급 갈림). 회차수를 안 적으면 독자는 그 등수가 한 번의
+    주사위인지 세 번의 합의인지 알 방법이 없다.
+    """
+    assert "순위는 **실제로 물어본 결과**다" in README
+    n = {int(v.get("회차수") or 1) for v in RANKING["items"].values()}
+    if n == {1}:
+        assert "재현성은 재지 않았다" in README, "1회 회차인데 그 사실을 숨겼다"
+    else:
+        assert "재현성까지 채점했다" in README
+
+
+def test_judging_doc_matches_current_method():
+    """공개 기준 문서가 **실제로 쓰는 방식**을 적고 있는가.
+
+    2026-08-19에 JUDGING.md가 폐기된 블라인드 심사를 그대로 싣고 있었다 — 독자가
+    우리 순위를 재현하려면 이 문서를 따르는데, 그러면 우리가 안 쓰는 방식을 따르게 된다.
+    """
+    j = (ROOT / "JUDGING.md").read_text(encoding="utf-8")
+    assert "실제로 물어보고" in j, "JUDGING.md가 실측 채점 방식을 안 적는다"
+    for must in ("3회", "매월 1일", "재현성"):
+        assert must in j, f"JUDGING.md에 {must}가 없다"

@@ -43,18 +43,23 @@ def main() -> int:
                 continue
             rank = len(top) + 1
             errs = [e for q in s["questions"] for e in (q.get("사실오류") or [])]
+            repro = s.get("재현성")
             why = s.get("총평", "")
             if errs:
                 why = f"사실오류 {len(errs)}건 — {errs[0][:60]} · {why}"
             top.append({"name": name, "rank": rank, "why": why[:200],
-                        "사실오류": len(errs),
+                        "사실오류": len(errs), "재현성": repro,
                         "점수": [{k: q.get(k) for k in ("q", "정확성", "근거성", "완결성")}
                                 for q in s["questions"]]})
         if not top:
             continue
+        # **몇 번 물었는지를 순위와 함께 싣는다**(2026-08-19, D-2026W34-26). 1회짜리
+        # 순위는 서버의 성질과 모델의 주사위를 구별하지 못한다 — 우리 서버 반복측정에서
+        # 4개 질문 자리 중 2곳이 등급이 갈렸다(variance/). 회차수를 안 적으면 독자는
+        # 그 순위가 한 번의 주사위인지 세 번의 합의인지 알 방법이 없다.
         items[f"graded:{cat}"] = {
             "category": cat, "top": top[:3], "전체순위": [t["name"] for t in top],
-            "분야교정": moved,
+            "분야교정": moved, "회차수": int(d.get("회차수") or 1),
             "note": d.get("분야_총평", "")[:200], "candidates": len(d["servers"]),
             "by": "opus(실제 질문·답변 채점)", "순위_근거": d.get("순위_근거", "")[:200]}
 
