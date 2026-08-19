@@ -32,6 +32,8 @@ CAT_EN = {"공공데이터·행정": "Public Data", "법령·판례": "Law", "�
 # 닫는 `**` 앞이 문장부호이고 뒤가 글자면 CommonMark가 강조를 닫지 않는다.
 # `**"지금 되냐"**를` 이 형태로 실제로 깨져서 게시됐다(2026-08-19).
 BROKEN_EMPH = re.compile(r'[)\]}"\'.,!?:;][*]{2}[0-9A-Za-z가-힣]')
+# `****`는 리터럴 별표로 렌더된다 — `emph()` 결과를 `**`로 또 감싸면 나온다(실제 사고).
+DOUBLE_EMPH = re.compile(r'\*{4,}')
 
 
 def emph(text: str) -> str:
@@ -42,6 +44,44 @@ def emph(text: str) -> str:
         tail = t[-1] + tail
         t = t[:-1]
     return f"**{t}**{tail}" if t else text
+
+
+def clip(text: str, n: int) -> str:
+    """**문장 한가운데서 자르지 않는다**(2026-08-19 눈으로 읽고 고침).
+
+    종전엔 `why[:200]`·`why[:60]`로 잘랐고 그 결과가 게시본에 그대로 나갔다 —
+    "이 데이터셋은  · " · "포털 실물은 행정안전부( · " · "마진 13.07%가 " ·
+    "판정조차 못 하고 끝났다(". 괄호를 열고 끝나거나 조사에서 끊긴 문장은
+    정보가 아니라 사고로 읽힌다.
+
+    문장이 끝나는 자리(`다.`·`.`)를 먼저 찾고, 너무 짧게 잘릴 때만 어절 경계에서
+    자르고 말줄임을 붙인다. 말줄임이 붙었다는 것 자체가 "뒤가 더 있다"는 신호다.
+    """
+    t = " ".join((text or "").split())
+    if len(t) <= n:
+        return t
+    head = t[:n]
+    for end in ("다. ", ". ", "다.", "."):
+        i = head.rfind(end)
+        if i >= n * 0.55:
+            return t[:i + len(end)].strip()
+    i = head.rfind(" ")
+    return (head[:i] if i >= n * 0.5 else head).rstrip(" ,·—(「『[") + "…"
+
+
+def disp(name: str) -> str:
+    """표에 쓸 서버 이름. **꼬리만 남기지 않는다.**
+
+    종전엔 `name.split("/")[-1]`이라 `com.aikstockdata/mcp`가 그냥 `mcp`,
+    `app.apick/all`이 `all`로 나갔다 — 어느 서버인지 알 수 없는 이름이다.
+    역DNS 형식은 마지막 라벨과 꼬리를 붙여 살린다(`aikstockdata/mcp`).
+    """
+    if "/" not in name:
+        return name
+    owner, tail = name.rsplit("/", 1)
+    if "." in owner:
+        owner = owner.split(".")[-1]
+    return f"{owner}/{tail}"
 
 
 def link(rec: dict) -> str:
@@ -280,11 +320,14 @@ def main() -> int:
     # ── 한눈에 ──
     A("## 한눈에")
     A("")
-    A("분야마다 1위 하나씩. 순서는 아래 각 분야의 심사 결과와 **같은 값에서 나온다** — "
+    A("분야마다 1위 하나씩. 아래 각 분야의 채점 결과와 **같은 값에서 나온다** — "
       "여기와 본문이 어긋날 수 없다.")
     A("")
-    A("| 분야 | 1위 | 왜 |")
-    A("|---|---|---|")
+    # 1위인 **이유**를 적는 자리다. 종전엔 `why[:60]`이었는데 `why`가 사실오류 인용으로
+    # 시작하던 탓에, 이 열이 60자에서 잘린 오류 문장만 보여 주고 정작 왜 1위인지는
+    # 한 글자도 안 적혔다. 오류는 건수로 옆 칸에 세우고, 이 칸은 총평을 쓴다.
+    A("| 분야 | 1위 | 사실오류 | 왜 이것이 1위인가 |")
+    A("|---|---|---|---|")
     for c in cats_live:
         winner = next((r for r in live
                        if cls.get(r["name"], {}).get("category") == c
@@ -292,8 +335,10 @@ def main() -> int:
         if not winner:
             continue
         why = rank_of[winner["name"]][1]
+        n_err = err_of.get(winner["name"])
         A(f"| [{c}](#{c.replace('·', '')}) | {link(winner)}"
-          f"{' 🏠' if winner['name'].startswith(OURS) else ''} | {why[:60]} |")
+          f"{' 🏠' if winner['name'].startswith(OURS) else ''} | "
+          f"{(str(n_err) + '건') if n_err else '0건'} | {clip(why, 110)} |")
     A("")
     A("종합 1등은 없다. 가중치를 우리가 정하면 우리가 상위권인 이 표에서 그 설계를 "
       "반박할 방법이 없기 때문이다. 순위는 분야 안에서만 매긴다.")
@@ -323,7 +368,15 @@ def main() -> int:
                 A(f"<sub>이 분야는 후보가 {len(group)}건뿐이라 **고른 것이 아니라 줄 세운 것**이다.</sub>")
                 A("")
             if cat_note.get(c):
-                A(f"> {cat_note[c]}")
+                # 개행이 들어 있으면 두 번째 줄이 인용 밖으로 나가 blockquote가 끊긴다
+                # (법령 분야에서 실제로 그렇게 게시됐다). clip이 공백을 접어 막는다.
+                A(f"> {clip(cat_note[c], 260)}")
+                A("")
+            if mis:
+                # 채점자 총평은 **분야 교정 전** 서버 수로 말한다("다섯 서버 중" 위에
+                # 세 줄짜리 표). 총평은 남의 말이라 고치지 않고, 어긋나는 이유를 적는다.
+                A(f"<sub>위 총평의 서버 수는 **분야 교정 전** 기준이다 — 이 분야에서 "
+                  f"{len(mis)}건이 아래 「분야 교정」으로 빠졌다.</sub>")
                 A("")
         top = judged
         out.extend(head(en))
@@ -333,7 +386,7 @@ def main() -> int:
         if judged:
             for r in judged:
                 rank, why = rank_of[r["name"]]
-                A(f"{rank}. {r['name'].split('/')[-1]} — {why}")
+                A(f"{rank}. **{disp(r['name'])}** — {clip(why, 300)}")
             A("")
             # **몇 번 물었는지를 순위 옆에 적는다.** 1회짜리 순위는 서버의 성질과
             # 모델의 주사위를 구별하지 못한다(variance/ 실측: 4개 자리 중 2곳 등급 갈림).
@@ -349,7 +402,7 @@ def main() -> int:
               "[grades/](grades)에, 기준은 [JUDGING.md](JUDGING.md)에 있다.</sub>")
             A("")
         if judged and rest:
-            A("<details><summary>" + f"심사에 들지 못한 {len(rest)}건" + "</summary>")
+            A("<details><summary>" + f"채점하지 않은 {len(rest)}건" + "</summary>")
             A("")
             out.extend(head(en))
             for r in rest:
@@ -366,7 +419,11 @@ def main() -> int:
             A("|---|---|---|")
             for r in sorted(mis, key=lambda x: x["name"]):
                 _, now, why = MISFILED[r["name"]]
-                A(f"| {link(r)} | {now} | {why} |")
+                # 채점자 문장에서 그대로 떼어 온 조각이라 어미가 끊긴다("…범위 밖이며").
+                # 고쳐 쓰면 축자성이 깨지므로(회귀가 grades/와 대조한다) 고치지 않고
+                # **발췌임을 보이게** 따옴표와 말줄임으로 감싼다.
+                tail = "…" if not why.rstrip().endswith("다.") else ""
+                A(f"| {link(r)} | {now} | “{why.rstrip()}{tail}” |")
             A("")
 
     # ── 표기 ──
@@ -382,6 +439,9 @@ def main() -> int:
     A("* 이름 밑 작은 글씨 — 불러 보고 알게 된 **그 서버의 성질**. "
       "카탈로그형은 값이 아니라 데이터셋 위치를 주고, 집계 통계표는 개별 거래를 주지 않는다. "
       "몰라서 헛짚는 자리라 표에 낸다")
+    A("* **사실오류** — 그 서버로 답한 내용 중 채점자가 **실제와 다르다고 확인한** 건수. "
+      "서버가 틀린 값을 준 경우와 모델이 옮겨 적다 틀린 경우가 섞여 있고, "
+      "어느 쪽인지는 [grades/](grades)에 문장째 적혀 있다. `—`는 채점하지 않았다는 뜻이다")
     A("* 🏠 — 이 목록의 운영자가 만든 서버")
     A("")
 
@@ -408,7 +468,7 @@ def main() -> int:
     A("이미 등록했는데 여기 없다면 **우리 수집기의 버그일 수 있다** — 이슈로 알려 달라. "
       "경쟁 서비스여도 받는다.")
     A("")
-    A("제출은 등재가 아니다. 실제로 `tools/list`에 응답해야 표에 오른다 — 그래서 심사할 것이 없다.")
+    A("제출은 등재가 아니다. 실제로 `tools/list`에 응답해야 표에 오른다 — 우리가 통과시키고 말고 할 것이 없다.")
     A("")
 
     # ── 고쳤다면 다시 잰다 ──
@@ -447,20 +507,38 @@ def main() -> int:
     A("filter   한국 관련성(한글·.go.kr·기관명) → 후보 좁히기")
     A("enrich   README에서 엔드포인트·패키지·기관 도메인 추출")
     A("classify 분야·데이터제공형 판정 (LLM, 결과는 classification.json에 고정)")
-    A("measure  tools/list 실호출 — 가동·도구수·지연·설명·주석")
+    A("measure  tools/list 실호출 — 가동·도구수·지연·설명·주석          [매주]")
+    A("answer   분야별 실제 질문을 서버에 던져 답하게 한다 (Haiku)       [매월]")
+    A("grade    그 답을 원문과 대조해 채점한다 (Opus) → 순위             [매월]")
     A("render   이 문서")
     A("```")
     A("")
-    A("서버당 `tools/list` 3회(콜드 1 + 웜 2), 사이에 간격을 두고, User-Agent로 우리를 밝힌다. "
-      "원자료는 [measured.json](measured.json)·[candidates.json](candidates.json)에 있다. "
-      "**돌리면 같은 표가 나온다** — 우리가 1위여도 직접 재서 반박할 수 있다.")
+    A("**가동은 매주, 순위는 매월 1일**에 다시 잰다. 서버가 안 바뀌면 채점 결과도 안 바뀌는데 "
+      "매주 재호출하는 것은 새 정보가 아니라 남의 서버에 지우는 부하다.")
+    A("")
+    A("두드릴 때는 `tools/list` 3회(콜드 1 + 웜 2), 사이에 간격을 두고, "
+      "User-Agent로 우리를 밝힌다.")
+    A("")
+    # 종전 문구 "**돌리면 같은 표가 나온다**"는 과장이었다. 가동 지표는 재현되지만
+    # 순위는 LLM 채점이라 그대로 재현되지 않는다 — 실제로 같은 질문을 다시 던졌더니
+    # 4개 자리 중 2곳에서 등급이 갈렸다(variance/). 재현되는 것과 안 되는 것을 가른다.
+    A(f"{emph('가동 지표는 돌리면 같은 값이 나온다')} — 원자료가 "
+      "[measured.json](measured.json)·[candidates.json](candidates.json)에 있다. "
+      f"{emph('순위는 그렇지 않다')} — 채점이 모델 판단이라 같은 입력에도 흔들린다. "
+      "얼마나 흔들리는지를 우리가 직접 재서 [variance/](variance)에 공개해 두었다. "
+      "우리가 1위인 자리일수록 이 두 문장을 함께 읽어 달라.")
     A("")
 
     # ── 한계 ──
     A("## 믿으면 안 되는 부분")
     A("")
-    A("* **데이터가 정확한지는 재지 않는다.** 우리는 부동산·공공계약은 정답을 알지만 "
-      "의료·교통은 모른다. 모르면서 점수를 매기면 우리가 경계하는 그것을 우리가 하게 된다")
+    A("* **정확성은 분야마다 질문 두 개로만 봤다.** 그 두 문항이 그 분야를 대표한다는 "
+      "보장은 없다. 질문은 공개돼 있으니(`questions.py`) 더 나은 질문을 알려 달라")
+    A("* **채점자도 모델이다.** 근거를 전부 공개하는 것으로 줄일 수는 있어도 없앨 수는 없다. "
+      "답변은 약한 모델(Haiku)이 만들고 채점은 강한 모델(Opus)이 하는데, 그 이유와 "
+      "실측 근거는 [JUDGING.md](JUDGING.md)에 있다")
+    A("* **한 번 물어본 순위다.** 다시 물으면 등수가 갈릴 수 있다 — 우리 서버로 재 보니 "
+      "질문 네 자리 중 두 곳이 갈렸다([variance/](variance)). 다음 채점 회차부터 3회로 잰다")
     A("* **측정 항목을 우리가 골랐다.** 원자료 공개로 줄일 수는 있어도 없앨 수는 없다")
     A("* **측정 지점은 한국 두 곳이다.** 국외에서 재면 값이 다를 수 있고 아직 확인하지 않았다")
     A("* **콜드는 한 번뿐이다.** 그 순간 그 서버가 자고 있었을 수 있다")
@@ -476,7 +554,7 @@ def main() -> int:
         write_down(dead, ts)
 
     text = "\n".join(out) + "\n"
-    bad = BROKEN_EMPH.findall(text)
+    bad = BROKEN_EMPH.findall(text) + DOUBLE_EMPH.findall(text)
     if bad:
         print(f"생성 중단 — 깨지는 강조 {len(bad)}건: {bad[:3]}", file=sys.stderr)
         return 1

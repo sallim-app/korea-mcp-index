@@ -245,3 +245,41 @@ def test_judging_doc_matches_current_method():
     assert "실제로 물어보고" in j, "JUDGING.md가 실측 채점 방식을 안 적는다"
     for must in ("3회", "매월 1일", "재현성"):
         assert must in j, f"JUDGING.md에 {must}가 없다"
+
+
+def test_no_double_emphasis():
+    """`****`는 굵게가 아니라 **리터럴 별표**로 렌더된다.
+
+    `emph()` 결과를 다시 `**`로 감싸면 나온다 — 2026-08-19 게시본에
+    `****가동 지표는 돌리면 같은 값이 나온다****`로 실제로 나갔다.
+    기존 깨진-강조 검사는 '문장부호 뒤 닫는 **' 형태만 봐서 이건 못 잡았다.
+    """
+    for name, md in (("README", README), ("DOWN", DOWN)):
+        assert "****" not in md, f"{name}에 이중 강조(****)가 있다"
+
+
+def test_judging_doc_does_not_overstate_current_round():
+    """공개 기준이 **아직 안 하는 것을 하는 것처럼** 적고 있지 않은가.
+
+    JUDGING.md는 '서버당 3회'라고 쓰는데 지금 게시된 회차는 1회다. 독자가 answers/와
+    대조하면 우리가 거짓말한 것이 되므로, 1회인 동안에는 그 사실이 문서에 있어야 한다.
+    (2026-08-19: JUDGING.md가 이미 폐기한 방식을 계속 싣고 있던 전례가 있다)
+    """
+    j = (ROOT / "JUDGING.md").read_text(encoding="utf-8")
+    n = {int(v.get("회차수") or 1) for v in RANKING["items"].values()}
+    if n == {1}:
+        assert "아직 1회짜리" in j, "3회라고만 적고 현행이 1회인 사실을 안 밝혔다"
+
+
+def test_no_bold_markup_inside_code_fences():
+    """코드블록 안의 `**굵게**`는 굵게가 아니라 **리터럴 별표**로 렌더된다."""
+    for name in ("README.md", "JUDGING.md"):
+        md = (ROOT / name).read_text(encoding="utf-8")
+        inside, bad = False, []
+        for ln in md.splitlines():
+            if ln.startswith("```"):
+                inside = not inside
+                continue
+            if inside and "**" in ln:
+                bad.append(ln.strip()[:50])
+        assert not bad, f"{name} 코드블록에 마크업: {bad[:2]}"
