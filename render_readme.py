@@ -295,6 +295,18 @@ def main() -> int:
     A(f"| 응답했으나 못 잼(키 필요·규격 이탈) | {len(unmeasured)}건 |")
     A(f"| 응답 없음 | {len(dead)}건 → [DOWN.md](DOWN.md) |")
     A(f"| 주제 밖(데이터 제공형 아님) | {len(off)}건 |")
+    # 2026-08-20(T-2026W34-107): **설치형은 이 표에 자리가 없었다.** 원격 주소가 없는 서버는
+    # `tools/list`로 잴 수 없어 측정 항목 `installable`을 재 두고도 게시하지 않았고(소비처 0),
+    # 그래서 "저장소는 있는데 설치가 안 되는 것"이 목록에 드러나지 않았다 — 이 목록을 만든
+    # 이유 그대로다. 세 갈래로 갈라 적는다: 확인 / 배포 없음 / **못 쟀다**. 셋째를 둘째에
+    # 합치면 우리 파서의 실패가 남의 서버의 결함으로 게시된다(기치② 못 봄 ≠ 없음).
+    inst = [r for r in items if not r.get("remote") and r.get("package")]
+    ipub = [r for r in inst if r["package"].get("installable") is True]
+    inone = [r for r in inst if r["package"].get("installable") is False]
+    iunk = [r for r in inst if r["package"].get("installable") is None]
+    if inst:
+        A(f"| 설치형(원격 주소 없음) | 배포 확인 {emph(str(len(ipub)))}건 · "
+          f"배포판 없음 {len(inone)}건 · 이름을 못 읽어 미측정 {len(iunk)}건 |")
     A("")
 
     # ── 목차 ──
@@ -550,8 +562,16 @@ def main() -> int:
     A("* **측정 항목을 우리가 골랐다.** 원자료 공개로 줄일 수는 있어도 없앨 수는 없다")
     A("* **측정 지점은 한국 두 곳이다.** 국외에서 재면 값이 다를 수 있고 아직 확인하지 않았다")
     A("* **콜드는 한 번뿐이다.** 그 순간 그 서버가 자고 있었을 수 있다")
-    A(f"* **못 잰 것이 더 많다.** 후보 중 {len(d['items']) - len(rem)}건은 주소도 패키지도 찾지 못했다. "
-      "“작동하지 않는다”가 아니라 **확인하지 못했다**는 뜻이다")
+    # 2026-08-20(T-2026W34-107): 종전 문장은 "주소도 **패키지도** 찾지 못했다"라 쓰면서
+    # 계산은 `전체 - 주소있음`뿐이었다 — 패키지를 한 번도 세지 않았다. 실측 결과 그 178건 중
+    # 74건은 배포 패키지와 배포일이 확인된 것이었다. 우리가 남의 목록에서 잡아내는 종류의
+    # 부정직 공시를 하필 「믿으면 안 되는 부분」 절이 저지르고 있었다. 이제 실제로 센다.
+    no_addr_no_pkg = [r for r in items if not r.get("remote") and not r.get("package")]
+    pkg_only = [r for r in items
+                if not r.get("remote") and (r.get("package") or {}).get("installable") is True]
+    A(f"* **못 잰 것이 더 많다.** 후보 중 {len(no_addr_no_pkg)}건은 주소도 패키지도 찾지 "
+      "못했다. “작동하지 않는다”가 아니라 **확인하지 못했다**는 뜻이다"
+      f"{f' — 그 밖에 {len(pkg_only)}건은 배포 패키지는 확인했으나 원격 주소가 없어 응답을 못 쟀다' if pkg_only else ''}")
     A("")
     A("---")
     A("")
