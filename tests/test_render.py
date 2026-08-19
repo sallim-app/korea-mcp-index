@@ -283,3 +283,65 @@ def test_no_bold_markup_inside_code_fences():
             if inside and "**" in ln:
                 bad.append(ln.strip()[:50])
         assert not bad, f"{name} 코드블록에 마크업: {bad[:2]}"
+
+
+# ── 문장이 끝나는가 (2026-08-19) ──────────────────────────────────────────
+# 오늘 게시본에 이런 것들이 그대로 나갔다: "포털 실물은 행정안전부( · " ·
+# "마진 13.07%가 " · "판정조차 못 하고 끝났다(" · "함께 주지 않".
+# `why[:200]`이 문장 한가운데를 잘랐고, **사람이 읽기 전까지 아무도 몰랐다.**
+# 눈으로 찾은 것을 다시 눈에 맡기지 않는다 — 자르는 자리는 이제 clip()이고,
+# clip()이 지키기로 한 성질을 여기서 검사한다.
+
+_ENDS_OK = ("다.", "…", ".", ")", "”", "%", "건", "다", "라")
+
+
+def _sentence_ends(line: str) -> bool:
+    return line.rstrip().endswith(_ENDS_OK)
+
+
+def test_ranking_lines_end_in_a_finished_sentence():
+    """순위 이유 줄이 조사·여는괄호에서 끊기지 않는가."""
+    bad = [ln for ln in README.splitlines()
+           if re.match(r"^\d+\. \*\*", ln) and not _sentence_ends(ln)]
+    assert not bad, f"순위 줄이 문장 중간에서 끝난다: {[b[-45:] for b in bad][:3]}"
+
+
+def test_glance_reasons_end_in_a_finished_sentence():
+    """「한눈에」의 '왜' 칸도 마찬가지 — 여기가 첫 화면이라 더 눈에 띈다."""
+    rows, inside = [], False
+    for ln in README.splitlines():
+        if ln.startswith("| 분야 | 1위 |"):
+            inside = True
+            continue
+        if inside:
+            if not ln.startswith("|"):
+                break
+            if not ln.startswith("|---"):
+                rows.append(ln.rstrip().rstrip("|").split("|")[-1].strip())
+    assert rows, "「한눈에」 표를 못 찾았다"
+    bad = [c for c in rows if not _sentence_ends(c)]
+    assert not bad, f"'왜' 칸이 문장 중간에서 끝난다: {[b[-45:] for b in bad][:3]}"
+
+
+def test_no_unbalanced_bracket_in_table_cells():
+    """여는 괄호만 남고 끝나는 칸이 없는가 — 절단의 가장 눈에 띄는 흔적이다."""
+    bad = []
+    for ln in README.splitlines():
+        if not ln.startswith("|") or ln.startswith("|---"):
+            continue
+        for cell in ln.split("|"):
+            if cell.count("(") != cell.count(")") and "http" not in cell:
+                bad.append(cell.strip()[:45])
+    assert not bad, f"괄호가 안 닫힌 표 칸: {bad[:3]}"
+
+
+def test_server_names_are_identifiable():
+    """순위 줄의 이름이 그 서버를 **특정**하는가.
+
+    `com.aikstockdata/mcp`를 `mcp`로, `app.apick/all`을 `all`로 줄여 싣던 자리.
+    꼬리만 남기면 어느 서버인지 알 수 없다.
+    """
+    names = re.findall(r"^\d+\. \*\*(.+?)\*\*", README, re.M)
+    assert names, "순위 줄을 못 찾았다"
+    vague = [n for n in names if "/" not in n or len(n) < 6]
+    assert not vague, f"어느 서버인지 알 수 없는 이름: {vague}"

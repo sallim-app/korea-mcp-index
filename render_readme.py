@@ -66,7 +66,15 @@ def clip(text: str, n: int) -> str:
         if i >= n * 0.55:
             return t[:i + len(end)].strip()
     i = head.rfind(" ")
-    return (head[:i] if i >= n * 0.5 else head).rstrip(" ,·—(「『[") + "…"
+    out = head[:i] if i >= n * 0.5 else head
+    # **여는 괄호만 남기고 끝내지 않는다.** 위 어절 절단이 괄호 안에서 멈추면
+    # "…전달 형식에 있다(발췌가 조 전문의 앞머리에서 잘리고…"가 되어 괄호가 안 닫힌다
+    # (회귀 test_no_unbalanced_bracket_in_table_cells가 실제로 이걸 잡았다 —
+    #  내 눈은 못 봤다). 짝이 안 맞으면 마지막 여는 괄호 앞으로 물러선다.
+    for op, cl in (("(", ")"), ("「", "」"), ("『", "』"), ("[", "]"), ("“", "”")):
+        while out.count(op) > out.count(cl):
+            out = out[:out.rfind(op)]
+    return out.rstrip(" ,·—(「『[") + "…"
 
 
 def disp(name: str) -> str:
