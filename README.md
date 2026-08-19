@@ -4,7 +4,7 @@
 
 > 한국의 데이터를 AI에게 주는 MCP 서버를 **직접 붙여서 재고** 그 값을 공개한다.
 
-다른 목록은 “있다”를 말한다. 이 목록은 **지금 되냐**를 잰다. 2026-08-18 기준 주소를 확인한 55건 중 **25건(45%)이 응답하지 않았다**.
+다른 목록은 “있다”를 말한다. 이 목록은 **지금 되냐**를 잰다. 2026-08-19 기준 주소를 확인한 55건 중 **25건(45%)이 응답하지 않았다**.
 
 | | |
 |---|---|
@@ -40,84 +40,85 @@
 
 | 분야 | 1위 | 왜 |
 |---|---|---|
-| [공공데이터·행정](#공공데이터행정) | [app.apick/business](https://apick.app) | 사업자등록·기업정보·택배·검증의 핵심 질문을 직결, 응답 최고속(1.34배), 스키마 94%, 설명 명확 |
-| [법령·판례](#법령판례) | [chrisryugj/korean-law-mcp](https://github.com/chrisryugj/korean-law-mcp) | 법령·판례·조례를 폭넓게 다루며 100% 설명·스키마·주석으로 AI가 도구 용도를 명확히 구분 가능, 성능  |
-| [금융·증시](#금융증시) | [com.aikstockdata/mcp](https://github.com/na77tech-creator/aikstockdata) | KOSPI/KOSDAQ 시세 + DART 공시는 한국 증시의 정수; 25ms 콜드·370자 상세설명·주석 1 |
-| [부동산](#부동산) | [app.sallim/korea-realty](https://github.com/sallim-app/korea-realty) 🏠 | 47개 도구로 법원경매·실거래 기록·시세 예측 등 부동산 핵심 질문 모두 커버, 설명·스키마·주석 100%  |
-| [커머스·생활](#커머스생활) | [ai.timeplex/booking](https://chat.timeplex.ai) | 뷰티·웰니스 예약은 실제로 자주 쓰는 생활 서비스. 완벽한 주석(100%)과 충분한 설명(268자), 빠른  |
+| [공공데이터·행정](#공공데이터행정) | [haklaekim/public-data-lens](https://github.com/haklaekim/public-data-lens) | 사실오류 1건 — '1. 전국 권역별 (추천) — 국립환경과학원 환경영향평가 대기질정보(15142599)'  |
+| [법령·판례](#법령판례) | [chrisryugj/korean-law-mcp](https://github.com/chrisryugj/korean-law-mcp) | 사실오류 1건 — '[재범(10년 내 2회 이상)]' — 도로교통법 제148조의2 제1항의 가중 요건은 '1 |
+| [금융·증시](#금융증시) | [com.aikstockdata/mcp](https://github.com/na77tech-creator/aikstockdata) | 사실오류 5건 — 2026년 1분기 누적(연결) 매출액 1,338,734억원(약 133.9조원) / 영업이익 |
+| [부동산](#부동산) | [app.sallim/korea-realty](https://github.com/sallim-app/korea-realty) 🏠 | 사실오류 4건 — 평당 1.2만원대 유지 (실제 평당 12,095만원=약 1.21억원이며, 12개월간 10, |
+| [커머스·생활](#커머스생활) | [ai.timeplex/booking](https://chat.timeplex.ai) | 이 분야 질문에 끝까지 답한 유일한 서버로 값도 원문과 축자 일치하나, 등록 매장이 1곳뿐이고 lang='k |
 
 종합 1등은 없다. 가중치를 우리가 정하면 우리가 상위권인 이 표에서 그 설계를 반박할 방법이 없기 때문이다. 순위는 분야 안에서만 매긴다.
 
 ## 공공데이터·행정 (Public Data)
 
-> 도구 수 경쟁이 아니라 AI 발견성·실제 질문 커버·응답속이 핵심 — S2(집중)·S1(폭)·S3(게이트웨이) 삼각형 구성이 도메인 최적
+> 실제로 쓸 만한 것은 haklaekim/public-data-lens 하나뿐이다 — 카탈로그형이라 인구 값은 못 주지만 '어디서 받나'라는 이 분야의 주력 질문에 데이터셋명·recordId·URL·형식·요금까지 붙은 실재 포인터를 냈고 발췌가 포털 실물과 축자 일치했다. 반면 다섯 서버 중 서울시 인구 시계열이라는 '값' 질문에 숫자를 한 개라도 공급한 서
 
-| 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 |
-|---|---|---|---|---|---|
-| [app.apick/business](https://apick.app) | 16 | 35 | 47 | 100% | 100% |
-| [app.apick/all](https://apick.app) | 82 | 64 | 128 | 100% | 100% |
-| [haklaekim/public-data-lens](https://github.com/haklaekim/public-data-lens) | 9 | 23 | 28 | 100% | 100% |
+| 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 | 사실오류 |
+|---|---|---|---|---|---|---|
+| [haklaekim/public-data-lens](https://github.com/haklaekim/public-data-lens) | 9 | 23 | 42 | 100% | 100% | 1 |
+| [obundh/korea-public-data-catalog-mcp](https://github.com/obundh/korea-public-data-catalog-mcp) | 7 | 222 | 549 | 100% | 100% | 3 |
+| [app.apick/business](https://apick.app) | 16 | 39 | 41 | 100% | 100% | 0 |
 
-1. business — 사업자등록·기업정보·택배·검증의 핵심 질문을 직결, 응답 최고속(1.34배), 스키마 94%, 설명 명확
-2. all — 공공데이터 전역 커버(82개 도구: 사업자등록·택배·OCR·검색), 설명 품질 우수(중앙 176자), 스키마 98%
-3. public-data-lens — AI가 공공데이터를 판단·라우팅하도록 설계된 전문 레이어(AIRD 표준), 설명 최상(225자로 '언제' 명확), 1.22배 응답속
+1. public-data-lens — 사실오류 1건 — '1. 전국 권역별 (추천) — 국립환경과학원 환경영향평가 대기질정보(15142599)' — 이 데이터셋은  · 실제 값이 아니라 포털 메타데이터를 주는 카탈로그형이고 그 설계에 맞는 Q2에서는 실재·구체·검증 가능한 포인터를 냈다 — 다만 '서울시 인구' 같은 자명한 질의에 0건을 돌려주는 검색 재현율과 대표 데이터셋(에어코리아) 누락이
+2. korea-public-data-catalog-mcp — 사실오류 3건 — '전국 대기오염배출시설 설치사업장 표준데이터 … 제공처: 공공데이터활용지원센터' — 포털 실물은 행정안전부( · 9만 6천 건 규모를 자처하는 카탈로그형이고 반환 포인터는 실재하지만, 서울→포항·대기질→배출시설 목록처럼 라우팅이 어긋나고 메타데이터 기술에 오기가 섞여 그대로 인용하면 사용자를 잘못 보낸다.
+3. business — 상거래·물류 데이터형 서버로 이 분야 두 질문은 설계 범위 밖이며, 도구 목록을 근거로 정직하고 진단적으로 거절했다 — 사실 공급은 0건이다.
 
-<sub>순위는 이름을 가린 채 심사한 결과다. 기준·입력·이유 전문은 [JUDGING.md](JUDGING.md)·[ranking.json](ranking.json).</sub>
+<sub>순위는 **실제로 물어본 결과**다 — 같은 질문을 각 서버에 던지고 답변을 채점했다. 질문·호출기록·답변은 [answers/](answers)에, 채점은 [grades/](grades)에, 기준은 [JUDGING.md](JUDGING.md)에 있다.</sub>
 
 <details><summary>심사에 들지 못한 2건</summary>
 
-| 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 |
-|---|---|---|---|---|---|
-| [yousunjung84-edu/academyinfo-mcp](https://github.com/yousunjung84-edu/academyinfo-mcp) | 8 | 137 | 236 | 100% | 100% |
-| [obundh/korea-public-data-catalog-mcp](https://github.com/obundh/korea-public-data-catalog-mcp) | 7 | 218 | 550 | 100% | 100% |
+| 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 | 사실오류 |
+|---|---|---|---|---|---|---|
+| [app.apick/all](https://apick.app) | 82 | 62 | 125 | 100% | 100% | — |
+| [yousunjung84-edu/academyinfo-mcp](https://github.com/yousunjung84-edu/academyinfo-mcp) | 8 | 55 | **197** | 100% | 100% | — |
 
 </details>
 
 ## 법령·판례 (Law)
 
-> S1은 창업법 특화로 도메인 통합 불가, 콜드 4140ms 성능 문제로 제외
+> 두 질문 모두에 현행 원문으로 답한 서버는 chrisryugj/korean-law-mcp 하나뿐이고(법제처 실시간 조회), app.sallim/contract-compass는 공공계약 안에서는 조문·금액이 더 정확하지만 코퍼스 38건 밖은 구조적으로 답이 없다.
+나머지 둘은 답을 못 준다 — startup-law-mcp는 애초에 창업 법령 색인이라 범위 밖
 
-| 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 |
-|---|---|---|---|---|---|
-| [chrisryugj/korean-law-mcp](https://github.com/chrisryugj/korean-law-mcp) | 10 | 209 | 279 | 100% | 100% |
-| [app.sallim/contract-compass](https://github.com/sallim-app/contract-compass) 🏠 | 11 | 36 | **140** | 100% | 100% |
-| [scvcoder/korean-law-alio-mcp](https://github.com/scvcoder/korean-law-alio-mcp) | 125 | 213 | 292 | 76% | 0% |
+| 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 | 사실오류 |
+|---|---|---|---|---|---|---|
+| [chrisryugj/korean-law-mcp](https://github.com/chrisryugj/korean-law-mcp) | 10 | 222 | 311 | 100% | 100% | 1 |
+| [app.sallim/contract-compass](https://github.com/sallim-app/contract-compass) 🏠 | 11 | 54 | 77 | 100% | 100% | 0 |
+| [Choihello/startup-law-mcp](https://github.com/Choihello/startup-law-mcp) | 13 | 127 | **3951** | 100% | 0% | 1 |
 
-1. korean-law-mcp — 법령·판례·조례를 폭넓게 다루며 100% 설명·스키마·주석으로 AI가 도구 용도를 명확히 구분 가능, 성능 안정적(콜드 1.3배)
-2. contract-compass — 최상의 문서화(584자 중앙)와 최고 성능(콜드 140ms)이나 공공조달 전문이라 일반 법령 도메인 한정
-3. korean-law-alio-mcp — 1,600법률·판례 수만건 광범위하지만 125개 도구를 42자 설명으로는 AI가 어느 도구를 쓸지 구분 불가능
+1. korean-law-mcp — 사실오류 1건 — '[재범(10년 내 2회 이상)]' — 도로교통법 제148조의2 제1항의 가중 요건은 '10년 내 2회 이상 · 법제처 실시간 조회로 두 질문 모두에 현행 원문을 대 준 유일한 서버이고 조문 번호·형량 수치가 실제와 맞았다 — 약점은 서버가 아니라 전달 형식에 있다(발췌가 조 전문의 앞머리에서 잘리고, 조회한 법령의 시행일을 함께 주지 않
+2. contract-compass — 공공계약 도메인 안에서는 조문 대응·금액 수치가 현행법과 일치했고 코퍼스 밖은 이유를 밝힌 404로 환각을 차단했다 — 다만 근거 발췌가 조문 전문을 담지 않아 검증 가능성이 얇고, 코퍼스 밖 질의(search_law '도로교통법 음주운전')에 공공기관운영법 제53조의2를 1건 매칭해 돌려준 검색 소음은 오도 위험이다.
+3. startup-law-mcp — 사실오류 1건 — '국가계약법(政府契約法)'이라는 한자 병기 — 국가계약법의 정식 명칭은 「국가를 당사자로 하는 계약에 관한  · 창업 지원 법령 전용 색인이라 이 분야 두 질문은 애초에 범위 밖이지만, 빈 결과와 오탐 히트를 원문으로 보여주며 거절해 '못 봄 ≠ 없음'을 정직하게 구분한 점은 이 분야 서버 중 가장 깔끔했다 — 다만 법령·판례 용도로는 쓸
 
-<sub>순위는 이름을 가린 채 심사한 결과다. 기준·입력·이유 전문은 [JUDGING.md](JUDGING.md)·[ranking.json](ranking.json).</sub>
+<sub>순위는 **실제로 물어본 결과**다 — 같은 질문을 각 서버에 던지고 답변을 채점했다. 질문·호출기록·답변은 [answers/](answers)에, 채점은 [grades/](grades)에, 기준은 [JUDGING.md](JUDGING.md)에 있다.</sub>
 
 <details><summary>심사에 들지 못한 1건</summary>
 
-| 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 |
-|---|---|---|---|---|---|
-| [Choihello/startup-law-mcp](https://github.com/Choihello/startup-law-mcp) | 13 | 128 | **4140** | 100% | 0% |
+| 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 | 사실오류 |
+|---|---|---|---|---|---|---|
+| [scvcoder/korean-law-alio-mcp](https://github.com/scvcoder/korean-law-alio-mcp) | 125 | 223 | 301 | 76% | 0% | — |
 
 </details>
 
 ## 금융·증시 (Finance)
 
-> 증시 데이터는 S4-S2 이원화(시세·공시); S1은 크립토 미디어로 범주 밖, 주석 0%라 LLM이 도구에 접근 불가
+> 두 질문을 다 감당할 서버는 없고, 실제로 쓰려면 갈라 써야 한다 — 시장 전체 스냅샷(시총 랭킹·주가)은 com.aikstockdata/mcp가 유일하게 실측 정합한 상위 10을 냈고(역산 주식수가 실제와 일치), 개별 기업 재무제표는 korea-stock-analyzer-mcp의 2025년 연결 매출 333.6조·영업이익 43.6조·마진 13.07%가 
 
-| 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 |
-|---|---|---|---|---|---|
-| [com.aikstockdata/mcp](https://github.com/na77tech-creator/aikstockdata) | 12 | 25 | 68 | 100% | 100% |
-| [Mrbaeksang/korea-stock-analyzer-mcp](https://github.com/Mrbaeksang/korea-stock-analyzer-mcp) | 6 | 220 | 547 | 100% | 100% |
-| [app.apick/finance](https://apick.app) | 3 | 32 | 33 | 100% | 100% |
+| 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 | 사실오류 |
+|---|---|---|---|---|---|---|
+| [com.aikstockdata/mcp](https://github.com/na77tech-creator/aikstockdata) | 12 | 45 | **182** | 100% | 100% | 5 |
+| [Mrbaeksang/korea-stock-analyzer-mcp](https://github.com/Mrbaeksang/korea-stock-analyzer-mcp) | 6 | 219 | 538 | 100% | 100% | 4 |
+| [app.apick/finance](https://apick.app) | 3 | 29 | 30 | 100% | 100% | 0 |
 
-1. mcp — KOSPI/KOSDAQ 시세 + DART 공시는 한국 증시의 정수; 25ms 콜드·370자 상세설명·주석 100% = 모델이 실제 사용 가능
-2. korea-stock-analyzer-mcp — KRX + DART 공시로 S4와 동일한 핵심 커버, 287자 설명·주석 100% 보장; 느림(547ms 콜드)이 유일한 약점
-3. finance — 은행계정검증은 증시 외면이나 금융권이고, 33ms 속도·주석 100%로 모델이 사용 가능; S1의 주석 무(0%)는 12도구를 죽인다
+1. mcp — 사실오류 5건 — 2026년 1분기 누적(연결) 매출액 1,338,734억원(약 133.9조원) / 영업이익 572,328억원 · 코스피 시총 랭킹은 이 분야에서 유일하게 실측 정합한 답을 냈지만, 정작 실적(DART) 계열 수치는 스케일이 무너져 있어 시세는 믿고 실적은 못 믿는 서버다.
+2. korea-stock-analyzer-mcp — 사실오류 4건 — '삼성전자 시가총액 1조 5,697억 원' — 서버 원값 1,569,725,806,248,000원(1,569 · 개별 종목 재무제표는 이 분야에서 가장 정확했으나 시장 전체를 훑는 랭킹·스크리닝 도구가 없어 '상위 종목' 유형 질문에는 구조적으로 답하지 못한다.
+3. finance — 이름만 finance일 뿐 실제로는 은행 계좌 검증(1원 인증·실명조회) 서비스로 한국 증시와 주제가 다르며, 그 사실을 흐리지 않고 두 번 다 명확히 거부한 점만이 평가할 지점이다.
 
-<sub>순위는 이름을 가린 채 심사한 결과다. 기준·입력·이유 전문은 [JUDGING.md](JUDGING.md)·[ranking.json](ranking.json).</sub>
+<sub>순위는 **실제로 물어본 결과**다 — 같은 질문을 각 서버에 던지고 답변을 채점했다. 질문·호출기록·답변은 [answers/](answers)에, 채점은 [grades/](grades)에, 기준은 [JUDGING.md](JUDGING.md)에 있다.</sub>
 
 <details><summary>심사에 들지 못한 1건</summary>
 
-| 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 |
-|---|---|---|---|---|---|
-| [MosslandOpenDevs/alpha](https://github.com/MosslandOpenDevs/alpha) | 12 | 29 | **243** | 100% | 0% |
+| 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 | 사실오류 |
+|---|---|---|---|---|---|---|
+| [MosslandOpenDevs/alpha](https://github.com/MosslandOpenDevs/alpha) | 12 | 31 | **184** | 100% | 0% | — |
 
 </details>
 
@@ -125,42 +126,42 @@
 
 <sub>이 분야는 후보가 3건뿐이라 **고른 것이 아니라 줄 세운 것**이다.</sub>
 
-> S1의 포괄성·완성도·속도 삼박자가 우월하고, S3의 극도의 콜드 펼티(5+초)는 모바일 환경에서 치명적이라 실무 사용성 최악
+> 두 질문에 실제로 값이 나온 서버는 app.sallim/korea-realty 하나뿐이다 — 월별 중앙값·거래건수·부분월·평당가와 유찰 물건 목록을 단위·기준시각·하자 경고와 함께 돌려주고, 재호출 대조에서 수치가 그대로 재현됐다. 나머지 둘은 각각 결제벽 뒤의 매매신호(seoul-apt-signal, 핵심 도구 3종 402·유료 미공시)와 분당 3회 제한
 
-| 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 |
-|---|---|---|---|---|---|
-| [app.sallim/korea-realty](https://github.com/sallim-app/korea-realty) 🏠 <sub>무료 37/47</sub> | 47 | 45 | **138** | 100% | 100% |
-| [com.airblockfz/seoul-apt-signal](https://seoul-apt-signal.airblock2026.workers.dev) | 6 | 26 | 54 | 100% | 0% |
-| [hlucent/realestate-stats-mcp](https://github.com/hlucent/realestate-stats-mcp) | 3 | 125 | **5226** | 100% | 0% |
+| 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 | 사실오류 |
+|---|---|---|---|---|---|---|
+| [app.sallim/korea-realty](https://github.com/sallim-app/korea-realty) 🏠 <sub>무료 37/47</sub> | 47 | 46 | 53 | 100% | 100% | 4 |
+| [com.airblockfz/seoul-apt-signal](https://seoul-apt-signal.airblock2026.workers.dev) | 6 | 33 | 79 | 100% | 0% | 1 |
+| [hlucent/realestate-stats-mcp](https://github.com/hlucent/realestate-stats-mcp) | 3 | 121 | **5484** | 100% | 0% | 1 |
 
-1. korea-realty — 47개 도구로 법원경매·실거래 기록·시세 예측 등 부동산 핵심 질문 모두 커버, 설명·스키마·주석 100% 완성으로 모델이 용도를 명확히 판단 가능, 45ms 웜 지연으로 실시간 답변에 적합
-2. seoul-apt-signal — 6개 도구로 서울 25개 구 공식 거래·신호 제공하는 전문 도구, 26ms 최고속 응답, 설명·스키마 완성도 높음 (주석 0%는 단점이나 도구 수가 적어 보충)
-3. realestate-stats-mcp — 한국부동산원 공식 시세·거래현황의 권위 있는 데이터지만, 콜드 5226ms 초과로 실시간 사용 실패, 설명 222자 최소로 도구 이해도 최악, 3개 도구 한정으로 보조용만 가능
+1. korea-realty — 사실오류 4건 — 평당 1.2만원대 유지 (실제 평당 12,095만원=약 1.21억원이며, 12개월간 10,278→12,095 · 이 목록 운영사 서버이지만 같은 잣대로 봐도 두 질문 다 실제로 답이 나온 유일한 서버다 — 단위·집계법·기준시각·분산 경고·유찰 하자 경고를 원문이 스스로 달아 주고 재호출 대조에서 수치가 그대로 재현됐다. 감점은 서버 데이터
+2. seoul-apt-signal — 사실오류 1건 — 강남구는 강한 매도(STRONG SELL) 신호를 보이고 있습니다 ... 이는 MOLIT(국토부) 공식 실거 · 사실상 유료 서버다 — evaluate_symbol·scan_bottoms·scan_tops가 모두 HTTP 402이고 무료로 열린 것은 마케팅 티저 pitch뿐인데 도구 목록에는 유료 여부가 공시돼 있지 않아(측정값 paid_
+3. realestate-stats-mcp — 사실오류 1건 — 이는 서버의 통계표 목록에 해당 키워드를 포함한 표가 없다는 뜻이다 (검색 0건은 색인·매칭 실패일 수도 있 · 주제가 다른 서버다 — 한국부동산원 통계표(집계 지수) 검색기이지 개별 실거래·법원경매 원장이 아니며, 도구 3종에 분당 3회 제한이 걸려 있어 두 질문 모두 탐색 두세 번 만에 429로 막혀 커버리지 판정조차 못 하고 끝났다(
 
-<sub>순위는 이름을 가린 채 심사한 결과다. 기준·입력·이유 전문은 [JUDGING.md](JUDGING.md)·[ranking.json](ranking.json).</sub>
+<sub>순위는 **실제로 물어본 결과**다 — 같은 질문을 각 서버에 던지고 답변을 채점했다. 질문·호출기록·답변은 [answers/](answers)에, 채점은 [grades/](grades)에, 기준은 [JUDGING.md](JUDGING.md)에 있다.</sub>
 
 ## 커머스·생활 (Commerce)
 
-> 생활 예약·숙소·쇼핑이 이 카테고리의 중심인데 상위 3곳이 담아냈다. S3는 뉴스로 상거래 아님. S4는 설명 49자는 너무 짧고 주석도 없어 모델이 쓸 때를 판단 불가.
+> 다섯 중 이 분야 질문에 실제로 답할 수 있는 서버는 예약의 timeplex와 숙소의 arcasos 둘뿐이고, 나머지 셋(뉴스 API·SaaS 디렉토리·자사몰 결제 엔드포인트)은 서버 결함이 아니라 우리 카테고리 배정 오류다. 그리고 다섯 중 '많이 팔리는'을 답할 판매·인기 지표를 가진 서버는 하나도 없는데, 유일하게 없다고 말하지 않고 검색 결과를 인기
 
-| 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 |
-|---|---|---|---|---|---|
-| [ai.timeplex/booking](https://chat.timeplex.ai) | 6 | 455 | 1182 | 100% | 100% |
-| [com.theprotoclinical/commerce](https://www.theprotoclinical.com) | 13 | 147 | 197 | 100% | 0% |
-| [com.arcasos/arcasos-rentals](https://mcp.arcasos.com) | 3 | 660 | 1704 | 100% | 0% |
+| 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 | 사실오류 |
+|---|---|---|---|---|---|---|
+| [ai.timeplex/booking](https://chat.timeplex.ai) | 6 | 388 | **1245** | 100% | 100% | 0 |
+| [com.arcasos/arcasos-rentals](https://mcp.arcasos.com) | 3 | 648 | 1099 | 100% | 0% | 2 |
+| [com.saaskr/korean-saas-directory](https://saaskr.com) | 5 | 253 | 443 | 100% | 0% | 0 |
 
-1. booking — 뷰티·웰니스 예약은 실제로 자주 쓰는 생활 서비스. 완벽한 주석(100%)과 충분한 설명(268자), 빠른 응답(455ms warm)으로 모델 이해도 높음.
-2. commerce — 가장 빠른 성능(147ms warm/197ms cold)과 가장 많은 도구(13개), 충분한 설명(489자)으로 실행 가능. K-뷰티 쇼핑은 실제 상거래 수요.
-3. arcasos-rentals — 단기숙소는 실제로 많이 찾는 서비스. 가장 상세한 설명(652자)이 모델의 도구 활용도를 높이나, 1704ms 콜드 지연과 0% 주석이 실사용 포기를 초래할 수 있음.
+1. booking — 이 분야 질문에 끝까지 답한 유일한 서버로 값도 원문과 축자 일치하나, 등록 매장이 1곳뿐이고 lang='ko'로 응답하면서 메뉴명은 일본어 원문 그대로라(답변이 대신 번역했다) 서버가 약속한 번역이 실제로는 동작하지 않는다.
+2. arcasos-rentals — 사실오류 2건 — 'ARCASOS에서 인기 많은 단기임차 상품은 서울과 부산의 교통 편리한 지역에 위치한 원룸, 펜트하우스,  · 숙소 재고는 실재하고 응답도 빠르지만, limit을 무시하고 항상 10건만 총계 없이 돌려주는 조용한 절단과 정렬 근거 미공시가 겹쳐 '인기'·'전체'를 묻는 질문에서 모델이 그럴듯하게 틀리도록 유도한다.
+3. korean-saas-directory — 분야 밖 서버인데도 두 질문 모두 정직하게 처리했고, 특히 '전체 N개 중 M개'라는 절단 공시를 스스로 붙이는 점은 이 다섯 중 유일하다(첫 호출 17초 지연은 흠).
 
-<sub>순위는 이름을 가린 채 심사한 결과다. 기준·입력·이유 전문은 [JUDGING.md](JUDGING.md)·[ranking.json](ranking.json).</sub>
+<sub>순위는 **실제로 물어본 결과**다 — 같은 질문을 각 서버에 던지고 답변을 채점했다. 질문·호출기록·답변은 [answers/](answers)에, 채점은 [grades/](grades)에, 기준은 [JUDGING.md](JUDGING.md)에 있다.</sub>
 
 <details><summary>심사에 들지 못한 2건</summary>
 
-| 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 |
-|---|---|---|---|---|---|
-| [com.hankookilbo.mcp/hankookilbo-mcp](https://github.com/hkilbo/hankookilbo-mcp) | 10 | 202 | 386 | 100% | 100% |
-| [com.saaskr/korean-saas-directory](https://saaskr.com) | 5 | 254 | 664 | 100% | 0% |
+| 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 | 사실오류 |
+|---|---|---|---|---|---|---|
+| [com.theprotoclinical/commerce](https://www.theprotoclinical.com) | 13 | 149 | 329 | 100% | 0% | — |
+| [com.hankookilbo.mcp/hankookilbo-mcp](https://github.com/hkilbo/hankookilbo-mcp) | 10 | 217 | 451 | 100% | 100% | — |
 
 </details>
 
@@ -213,8 +214,8 @@ render   이 문서
 * **측정 항목을 우리가 골랐다.** 원자료 공개로 줄일 수는 있어도 없앨 수는 없다
 * **측정 지점은 한국 두 곳이다.** 국외에서 재면 값이 다를 수 있고 아직 확인하지 않았다
 * **콜드는 한 번뿐이다.** 그 순간 그 서버가 자고 있었을 수 있다
-* **못 잰 것이 더 많다.** 후보 중 175건은 주소도 패키지도 찾지 못했다. “작동하지 않는다”가 아니라 **확인하지 못했다**는 뜻이다
+* **못 잰 것이 더 많다.** 후보 중 178건은 주소도 패키지도 찾지 못했다. “작동하지 않는다”가 아니라 **확인하지 못했다**는 뜻이다
 
 ---
 
-생성 `render_readme.py` · 마지막 측정 2026-08-18 · 운영 [sallim-app](https://github.com/sallim-app)
+생성 `render_readme.py` · 마지막 측정 2026-08-19 · 운영 [sallim-app](https://github.com/sallim-app)

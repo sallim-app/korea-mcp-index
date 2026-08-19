@@ -61,7 +61,7 @@ def q(rec: dict, key: str, default="—"):
     return ((rec.get("remote") or {}).get("quality") or {}).get(key, default)
 
 
-def row(rec: dict, en=False) -> str:
+def row(rec: dict, en=False, err_of: dict | None = None) -> str:
     rm = rec["remote"]
     mark = " 🏠" if rec["name"].startswith(OURS) else ""
     warm, cold = rm.get("warm_ms"), rm.get("cold_ms")
@@ -70,7 +70,8 @@ def row(rec: dict, en=False) -> str:
     paid = f" <sub>무료 {pd.get('free')}/{pd.get('total')}</sub>" if pd.get("disclosed") else ""
     return (f"| {link(rec)}{mark}{paid} | {rm.get('tool_count') or '—'} | {warm or '—'} | "
             f"{emph(str(cold)) if slow else (cold or '—')} | "
-            f"{q(rec, 'described_pct')}% | {q(rec, 'annotated_pct')}% |")
+            f"{q(rec, 'described_pct')}% | {q(rec, 'annotated_pct')}% | "
+            f"{(err_of or {}).get(rec['name'], '—')} |")
 
 
 def head(en=False) -> list[str]:
@@ -78,9 +79,11 @@ def head(en=False) -> list[str]:
     # 21줄 전부 `—`였고, `무료/전체`는 스스로 공시하는 서버가 우리뿐이라 20/21이 `—`였다.
     # **빈 열은 정보가 아니라 소음이고, 그것을 설명하는 범례는 독자의 첫 화면을 잡아먹는다.**
     # 유료 공시는 각주로 내린다.
-    return ["| 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 |" if not en else
-            "| Server | Tools | Warm | Cold | Desc | Annot |",
-            "|---|---|---|---|---|---|"]
+    # `사실오류`를 표에 낸다. 순위 위쪽에 있다고 흠이 가려지면 안 된다 — 1위 서버에도
+    # 오류가 있으면 그것이 먼저 보여야 한다(2026-08-19: 실제 답변 채점 도입).
+    return ["| 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 | 사실오류 |" if not en else
+            "| Server | Tools | Warm | Cold | Desc | Annot | Errors |",
+            "|---|---|---|---|---|---|---|"]
 
 
 def dedupe_by_endpoint(items: list) -> tuple[list, int]:
@@ -178,11 +181,14 @@ def main() -> int:
     except OSError:
         rk = {}
     rank_of = {}          # name → (순위, 이유)
+    err_of = {}           # name → 채점에서 나온 사실오류 건수
     cat_note = {}         # 분야 → 총평
     for v in rk.values():
         cat_note[v["category"]] = v.get("note", "")
         for t in v["top"]:
             rank_of[t["name"]] = (t["rank"], t.get("why", ""))
+            if t.get("사실오류") is not None:
+                err_of[t["name"]] = t["사실오류"]
 
     items, merged = dedupe_by_endpoint(d["items"])
     for it in items:
@@ -307,22 +313,23 @@ def main() -> int:
         top = judged
         out.extend(head(en))
         for r in (top or rest[:3] if not judged else top):
-            A(row(r, en))
+            A(row(r, en, err_of))
         A("")
         if judged:
             for r in judged:
                 rank, why = rank_of[r["name"]]
                 A(f"{rank}. {r['name'].split('/')[-1]} — {why}")
             A("")
-            A("<sub>순위는 이름을 가린 채 심사한 결과다. 기준·입력·이유 전문은 "
-              "[JUDGING.md](JUDGING.md)·[ranking.json](ranking.json).</sub>")
+            A("<sub>순위는 **실제로 물어본 결과**다 — 같은 질문을 각 서버에 던지고 "
+              "답변을 채점했다. 질문·호출기록·답변은 [answers/](answers)에, 채점은 "
+              "[grades/](grades)에, 기준은 [JUDGING.md](JUDGING.md)에 있다.</sub>")
             A("")
         if judged and rest:
             A("<details><summary>" + f"심사에 들지 못한 {len(rest)}건" + "</summary>")
             A("")
             out.extend(head(en))
             for r in rest:
-                A(row(r, en))
+                A(row(r, en, err_of))
             A("")
             A("</details>")
             A("")
