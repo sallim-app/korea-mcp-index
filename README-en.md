@@ -50,28 +50,28 @@ Other lists tell you a server exists. This one tells you whether it **works righ
 
 ## 공공데이터·행정
 
+<sub>이 분야는 후보가 3건뿐이라 **고른 것이 아니라 줄 세운 것**이다.</sub>
+
 > 실제로 쓸 만한 것은 haklaekim/public-data-lens 하나뿐이다 — 카탈로그형이라 인구 값은 못 주지만 '어디서 받나'라는 이 분야의 주력 질문에 데이터셋명·recordId·URL·형식·요금까지 붙은 실재 포인터를 냈고 발췌가 포털 실물과 축자 일치했다. 반면 다섯 서버 중 서울시 인구 시계열이라는 '값' 질문에 숫자를 한 개라도 공급한 서
 
 | Server | Tools | Warm | Cold | Desc | Annot | Errors |
 |---|---|---|---|---|---|---|
-| [haklaekim/public-data-lens](https://github.com/haklaekim/public-data-lens) | 9 | 23 | 42 | 100% | 100% | 1 |
-| [obundh/korea-public-data-catalog-mcp](https://github.com/obundh/korea-public-data-catalog-mcp) | 7 | 222 | 549 | 100% | 100% | 3 |
-| [app.apick/business](https://apick.app) | 16 | 39 | 41 | 100% | 100% | 0 |
+| [haklaekim/public-data-lens](https://github.com/haklaekim/public-data-lens)<br><sub>카탈로그형 — 값이 아니라 데이터셋 위치를 준다</sub> | 9 | 23 | 42 | 100% | 100% | 1 |
+| [obundh/korea-public-data-catalog-mcp](https://github.com/obundh/korea-public-data-catalog-mcp)<br><sub>카탈로그형 — 값이 아니라 데이터셋 위치를 준다</sub> | 7 | 222 | 549 | 100% | 100% | 3 |
+| [app.apick/all](https://apick.app)<br><sub>전 도구가 API 키 게이트라 종류(데이터형/카탈로그형)조차 확인할 수 없었다</sub> | 82 | 62 | 125 | 100% | 100% | 0 |
 
 1. public-data-lens — 사실오류 1건 — '1. 전국 권역별 (추천) — 국립환경과학원 환경영향평가 대기질정보(15142599)' — 이 데이터셋은  · 실제 값이 아니라 포털 메타데이터를 주는 카탈로그형이고 그 설계에 맞는 Q2에서는 실재·구체·검증 가능한 포인터를 냈다 — 다만 '서울시 인구' 같은 자명한 질의에 0건을 돌려주는 검색 재현율과 대표 데이터셋(에어코리아) 누락이
 2. korea-public-data-catalog-mcp — 사실오류 3건 — '전국 대기오염배출시설 설치사업장 표준데이터 … 제공처: 공공데이터활용지원센터' — 포털 실물은 행정안전부( · 9만 6천 건 규모를 자처하는 카탈로그형이고 반환 포인터는 실재하지만, 서울→포항·대기질→배출시설 목록처럼 라우팅이 어긋나고 메타데이터 기술에 오기가 섞여 그대로 인용하면 사용자를 잘못 보낸다.
-3. business — 상거래·물류 데이터형 서버로 이 분야 두 질문은 설계 범위 밖이며, 도구 목록을 근거로 정직하고 진단적으로 거절했다 — 사실 공급은 0건이다.
+3. all — 전 도구가 API 키 게이트라 무가입 상태에서는 종류(데이터형/카탈로그형)조차 확인할 수 없었고, 이 분야 질문에 공급한 사실은 0건이다.
 
 <sub>순위는 **실제로 물어본 결과**다 — 같은 질문을 각 서버에 던지고 답변을 채점했다. 질문·호출기록·답변은 [answers/](answers)에, 채점은 [grades/](grades)에, 기준은 [JUDGING.md](JUDGING.md)에 있다.</sub>
 
-<details><summary>심사에 들지 못한 2건</summary>
+**분야 교정 2건** — 이 분야 검색어에 걸려 수집됐지만 **불러 보니 다른 것을 하는** 서버다. 남의 분야 질문으로 매긴 등수는 그 서버를 잰 값이 아니라서 순위에서 뺐다. 지우지는 않는다 — 찾는 사람이 있다.
 
-| Server | Tools | Warm | Cold | Desc | Annot | Errors |
-|---|---|---|---|---|---|---|
-| [app.apick/all](https://apick.app) | 82 | 62 | 125 | 100% | 100% | — |
-| [yousunjung84-edu/academyinfo-mcp](https://github.com/yousunjung84-edu/academyinfo-mcp) | 8 | 55 | **197** | 100% | 100% | — |
-
-</details>
+| 서버 | 실제 분야 | 채점자가 확인한 것 |
+|---|---|---|
+| [app.apick/business](https://apick.app) | 커머스·생활 | 상거래·물류 데이터형 서버로 이 분야 두 질문은 설계 범위 밖이며 |
+| [yousunjung84-edu/academyinfo-mcp](https://github.com/yousunjung84-edu/academyinfo-mcp) | 교육·문화 | 이름과 달리 학원이 아니라 대학알리미 기반 고등교육 통계 서버로, 공공데이터·행정 분야와는 주제가 다르며 |
 
 ## 법령·판례
 
@@ -100,27 +100,26 @@ Other lists tell you a server exists. This one tells you whether it **works righ
 
 ## 금융·증시
 
+<sub>이 분야는 후보가 2건뿐이라 **고른 것이 아니라 줄 세운 것**이다.</sub>
+
 > 두 질문을 다 감당할 서버는 없고, 실제로 쓰려면 갈라 써야 한다 — 시장 전체 스냅샷(시총 랭킹·주가)은 com.aikstockdata/mcp가 유일하게 실측 정합한 상위 10을 냈고(역산 주식수가 실제와 일치), 개별 기업 재무제표는 korea-stock-analyzer-mcp의 2025년 연결 매출 333.6조·영업이익 43.6조·마진 13.07%가 
 
 | Server | Tools | Warm | Cold | Desc | Annot | Errors |
 |---|---|---|---|---|---|---|
 | [com.aikstockdata/mcp](https://github.com/na77tech-creator/aikstockdata) | 12 | 45 | **182** | 100% | 100% | 5 |
 | [Mrbaeksang/korea-stock-analyzer-mcp](https://github.com/Mrbaeksang/korea-stock-analyzer-mcp) | 6 | 219 | 538 | 100% | 100% | 4 |
-| [app.apick/finance](https://apick.app) | 3 | 29 | 30 | 100% | 100% | 0 |
 
 1. mcp — 사실오류 5건 — 2026년 1분기 누적(연결) 매출액 1,338,734억원(약 133.9조원) / 영업이익 572,328억원 · 코스피 시총 랭킹은 이 분야에서 유일하게 실측 정합한 답을 냈지만, 정작 실적(DART) 계열 수치는 스케일이 무너져 있어 시세는 믿고 실적은 못 믿는 서버다.
 2. korea-stock-analyzer-mcp — 사실오류 4건 — '삼성전자 시가총액 1조 5,697억 원' — 서버 원값 1,569,725,806,248,000원(1,569 · 개별 종목 재무제표는 이 분야에서 가장 정확했으나 시장 전체를 훑는 랭킹·스크리닝 도구가 없어 '상위 종목' 유형 질문에는 구조적으로 답하지 못한다.
-3. finance — 이름만 finance일 뿐 실제로는 은행 계좌 검증(1원 인증·실명조회) 서비스로 한국 증시와 주제가 다르며, 그 사실을 흐리지 않고 두 번 다 명확히 거부한 점만이 평가할 지점이다.
 
 <sub>순위는 **실제로 물어본 결과**다 — 같은 질문을 각 서버에 던지고 답변을 채점했다. 질문·호출기록·답변은 [answers/](answers)에, 채점은 [grades/](grades)에, 기준은 [JUDGING.md](JUDGING.md)에 있다.</sub>
 
-<details><summary>심사에 들지 못한 1건</summary>
+**분야 교정 2건** — 이 분야 검색어에 걸려 수집됐지만 **불러 보니 다른 것을 하는** 서버다. 남의 분야 질문으로 매긴 등수는 그 서버를 잰 값이 아니라서 순위에서 뺐다. 지우지는 않는다 — 찾는 사람이 있다.
 
-| Server | Tools | Warm | Cold | Desc | Annot | Errors |
-|---|---|---|---|---|---|---|
-| [MosslandOpenDevs/alpha](https://github.com/MosslandOpenDevs/alpha) | 12 | 31 | **184** | 100% | 0% | — |
-
-</details>
+| 서버 | 실제 분야 | 채점자가 확인한 것 |
+|---|---|---|
+| [MosslandOpenDevs/alpha](https://github.com/MosslandOpenDevs/alpha) | 미디어·뉴스 | 한국 크립토·매크로 뉴스 알파 서버로 증시와 주제가 다르며 |
+| [app.apick/finance](https://apick.app) | 핀테크·인증 | 이름만 finance일 뿐 실제로는 은행 계좌 검증(1원 인증·실명조회) 서비스로 한국 증시와 주제가 다르며 |
 
 ## 부동산
 
@@ -131,8 +130,8 @@ Other lists tell you a server exists. This one tells you whether it **works righ
 | Server | Tools | Warm | Cold | Desc | Annot | Errors |
 |---|---|---|---|---|---|---|
 | [app.sallim/korea-realty](https://github.com/sallim-app/korea-realty) 🏠 <sub>무료 37/47</sub> | 47 | 46 | 53 | 100% | 100% | 4 |
-| [com.airblockfz/seoul-apt-signal](https://seoul-apt-signal.airblock2026.workers.dev) | 6 | 33 | 79 | 100% | 0% | 1 |
-| [hlucent/realestate-stats-mcp](https://github.com/hlucent/realestate-stats-mcp) | 3 | 121 | **5484** | 100% | 0% | 1 |
+| [com.airblockfz/seoul-apt-signal](https://seoul-apt-signal.airblock2026.workers.dev)<br><sub>실거래가가 아니라 산식 미공개 매매신호. 분석 도구는 HTTP 402(사실상 유료)</sub> | 6 | 33 | 79 | 100% | 0% | 1 |
+| [hlucent/realestate-stats-mcp](https://github.com/hlucent/realestate-stats-mcp)<br><sub>개별 실거래가 아니라 한국부동산원 집계 통계표. 분당 3회 제한</sub> | 3 | 121 | **5484** | 100% | 0% | 1 |
 
 1. korea-realty — 사실오류 4건 — 평당 1.2만원대 유지 (실제 평당 12,095만원=약 1.21억원이며, 12개월간 10,278→12,095 · 이 목록 운영사 서버이지만 같은 잣대로 봐도 두 질문 다 실제로 답이 나온 유일한 서버다 — 단위·집계법·기준시각·분산 경고·유찰 하자 경고를 원문이 스스로 달아 주고 재호출 대조에서 수치가 그대로 재현됐다. 감점은 서버 데이터
 2. seoul-apt-signal — 사실오류 1건 — 강남구는 강한 매도(STRONG SELL) 신호를 보이고 있습니다 ... 이는 MOLIT(국토부) 공식 실거 · 사실상 유료 서버다 — evaluate_symbol·scan_bottoms·scan_tops가 모두 HTTP 402이고 무료로 열린 것은 마케팅 티저 pitch뿐인데 도구 목록에는 유료 여부가 공시돼 있지 않아(측정값 paid_
@@ -142,28 +141,28 @@ Other lists tell you a server exists. This one tells you whether it **works righ
 
 ## 커머스·생활
 
+<sub>이 분야는 후보가 3건뿐이라 **고른 것이 아니라 줄 세운 것**이다.</sub>
+
 > 다섯 중 이 분야 질문에 실제로 답할 수 있는 서버는 예약의 timeplex와 숙소의 arcasos 둘뿐이고, 나머지 셋(뉴스 API·SaaS 디렉토리·자사몰 결제 엔드포인트)은 서버 결함이 아니라 우리 카테고리 배정 오류다. 그리고 다섯 중 '많이 팔리는'을 답할 판매·인기 지표를 가진 서버는 하나도 없는데, 유일하게 없다고 말하지 않고 검색 결과를 인기
 
 | Server | Tools | Warm | Cold | Desc | Annot | Errors |
 |---|---|---|---|---|---|---|
-| [ai.timeplex/booking](https://chat.timeplex.ai) | 6 | 388 | **1245** | 100% | 100% | 0 |
-| [com.arcasos/arcasos-rentals](https://mcp.arcasos.com) | 3 | 648 | 1099 | 100% | 0% | 2 |
-| [com.saaskr/korean-saas-directory](https://saaskr.com) | 5 | 253 | 443 | 100% | 0% | 0 |
+| [ai.timeplex/booking](https://chat.timeplex.ai)<br><sub>뷰티·웰니스 예약. 등록 매장 1곳</sub> | 6 | 388 | **1245** | 100% | 100% | 0 |
+| [com.arcasos/arcasos-rentals](https://mcp.arcasos.com)<br><sub>주 단위 단기임차. 총계 미공시로 항상 10건에서 조용히 잘린다</sub> | 3 | 648 | 1099 | 100% | 0% | 2 |
+| [com.theprotoclinical/commerce](https://www.theprotoclinical.com)<br><sub>특정 Shopify 스토어 한 곳의 결제 엔드포인트(UCP)</sub> | 13 | 149 | 329 | 100% | 0% | 2 |
 
 1. booking — 이 분야 질문에 끝까지 답한 유일한 서버로 값도 원문과 축자 일치하나, 등록 매장이 1곳뿐이고 lang='ko'로 응답하면서 메뉴명은 일본어 원문 그대로라(답변이 대신 번역했다) 서버가 약속한 번역이 실제로는 동작하지 않는다.
 2. arcasos-rentals — 사실오류 2건 — 'ARCASOS에서 인기 많은 단기임차 상품은 서울과 부산의 교통 편리한 지역에 위치한 원룸, 펜트하우스,  · 숙소 재고는 실재하고 응답도 빠르지만, limit을 무시하고 항상 10건만 총계 없이 돌려주는 조용한 절단과 정렬 근거 미공시가 겹쳐 '인기'·'전체'를 묻는 질문에서 모델이 그럴듯하게 틀리도록 유도한다.
-3. korean-saas-directory — 분야 밖 서버인데도 두 질문 모두 정직하게 처리했고, 특히 '전체 N개 중 M개'라는 절단 공시를 스스로 붙이는 점은 이 다섯 중 유일하다(첫 호출 17초 지연은 흠).
+3. commerce — 사실오류 2건 — 'Shopify UCP(Universal Commerce Platform)' — UCP는 Universal  · 자사몰 결제 에이전트라 두 질문 다 범위 밖인 데다, 프로필 URI 없이는 카탈로그 조회가 전부 422로 막혀(continue_url이 yxcs11-ry.myshopify.com 개발 스토어를 가리킨다) 익명 AI 클라이언트로는
 
 <sub>순위는 **실제로 물어본 결과**다 — 같은 질문을 각 서버에 던지고 답변을 채점했다. 질문·호출기록·답변은 [answers/](answers)에, 채점은 [grades/](grades)에, 기준은 [JUDGING.md](JUDGING.md)에 있다.</sub>
 
-<details><summary>심사에 들지 못한 2건</summary>
+**분야 교정 2건** — 이 분야 검색어에 걸려 수집됐지만 **불러 보니 다른 것을 하는** 서버다. 남의 분야 질문으로 매긴 등수는 그 서버를 잰 값이 아니라서 순위에서 뺐다. 지우지는 않는다 — 찾는 사람이 있다.
 
-| Server | Tools | Warm | Cold | Desc | Annot | Errors |
-|---|---|---|---|---|---|---|
-| [com.theprotoclinical/commerce](https://www.theprotoclinical.com) | 13 | 149 | 329 | 100% | 0% | — |
-| [com.hankookilbo.mcp/hankookilbo-mcp](https://github.com/hkilbo/hankookilbo-mcp) | 10 | 217 | 451 | 100% | 100% | — |
-
-</details>
+| 서버 | 실제 분야 | 채점자가 확인한 것 |
+|---|---|---|
+| [com.hankookilbo.mcp/hankookilbo-mcp](https://github.com/hkilbo/hankookilbo-mcp) | 미디어·뉴스 | 상품·예약과는 무관한 미디어 서버다. |
+| [com.saaskr/korean-saas-directory](https://saaskr.com) | 디렉토리·개발자도구 | 상품 판매나 예약을 하는 곳이 아니다. |
 
 ## 표기
 
@@ -171,6 +170,7 @@ Other lists tell you a server exists. This one tells you whether it **works righ
 * **웜 / 콜드** — 연달아 부를 때 / 첫 호출(ms). 서버리스는 첫 호출에 기동 시간이 붙는다. 콜드가 웜의 3배를 넘으면 굵게 표시한다
 * **설명 / 주석** — 도구에 설명이 붙은 비율 / `readOnlyHint` 같은 주석이 붙은 비율. **둘 다 없으면 모델이 그 도구를 언제 어떻게 쓸지 모른다** — 데이터가 정확해도 답에 도달하지 못한다
 * 이름 옆 <sub>무료 N/M</sub> — 서버가 유료 게이트를 **스스로 공시**할 때만 붙는다. 없다고 무료라는 뜻이 아니다 — 밖에서는 판정할 수 없다
+* 이름 밑 작은 글씨 — 불러 보고 알게 된 **그 서버의 성질**. 카탈로그형은 값이 아니라 데이터셋 위치를 주고, 집계 통계표는 개별 거래를 주지 않는다. 몰라서 헛짚는 자리라 표에 낸다
 * 🏠 — 이 목록의 운영자가 만든 서버
 
 ## 측정 못 함

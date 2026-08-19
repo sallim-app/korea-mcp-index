@@ -68,7 +68,9 @@ def test_categories_exist_and_top3_is_capped():
             continue
         if not any(block.startswith(c) for c in ranked_cats):
             continue
-        head = block.split("<details>")[0]
+        # `분야 교정` 표도 순위표가 아니다 — 순위에서 **뺀** 것을 싣는 구역이라
+        # 여기까지 3줄로 자르면 뺀 사실 자체가 사라진다.
+        head = block.split("<details>")[0].split("**분야 교정")[0]
         rows = [ln for ln in head.splitlines() if ln.startswith("| [") or ln.startswith("| ")]
         rows = [r for r in rows if "](" in r]
         assert len(rows) <= 3, f"Top 3를 넘김({len(rows)}): {block[:40]}"
@@ -150,3 +152,52 @@ def test_no_all_empty_columns():
     for idx, name in enumerate(cols):
         vals = {r.split("|")[idx + 1].strip() for r in body}
         assert vals != {"—"}, f"'{name}' 열이 전부 비었다 — 열을 빼거나 각주로 내려라"
+
+
+# ── 분야 교정 (2026-08-19) ────────────────────────────────────────────────
+# 수집 검색어가 정한 분야가 실호출로 틀렸음이 드러난 서버들. 남의 분야 질문으로 매긴
+# 등수는 그 서버를 잰 값이 아니라 우리 수집기의 오분류다 — 순위에서 빼고 따로 싣는다.
+
+def test_misfiled_quotes_are_verbatim_from_grades():
+    """교정 근거가 **채점 파일에 실제로 있는 문장**인가 — 우리가 지어낸 판정이면 안 된다."""
+    from observed import MISFILED
+    for name, (was, _now, why) in MISFILED.items():
+        f = ROOT / "grades" / f"{was}.json"
+        assert f.exists(), f"{name}: 채점 파일 없음 {f}"
+        blob = f.read_text(encoding="utf-8")
+        assert json.dumps(why, ensure_ascii=False)[1:-1] in blob, \
+            f"{name}: 근거가 grades/{was}.json에 없다 — {why[:40]}"
+
+
+def test_misfiled_target_category_is_known():
+    """교정된 분야가 우리가 렌더할 수 있는 분야인가 — 아니면 다음 회차에 사라진다."""
+    import render_readme
+    from observed import MISFILED
+    for name, (_was, now, _why) in MISFILED.items():
+        assert now in render_readme.CATS, f"{name}: 모르는 분야 {now}"
+
+
+def test_misfiled_never_ranked():
+    """오분류 서버가 순위에 남아 있지 않은가 — 남으면 오심을 그대로 게시한다."""
+    from observed import MISFILED
+    for v in RANKING["items"].values():
+        ranked = {t["name"] for t in v["top"]} | set(v.get("전체순위") or [])
+        assert not (ranked & set(MISFILED)), \
+            f"{v['category']}: 오분류가 순위에 있다 {ranked & set(MISFILED)}"
+
+
+def test_misfiled_disclosed_not_deleted():
+    """뺀 서버가 README에 그대로 살아 있는가 — 조용히 빼면 독자가 영영 못 본다."""
+    from observed import MISFILED
+    live = {r["name"] for r in MEASURED["items"]
+            if (r.get("remote") or {}).get("reachable") and (r["remote"].get("tool_count") or 0)}
+    for name in MISFILED:
+        if name in live:
+            assert name in README, f"{name}: 순위에서 빼놓고 README에서도 사라졌다"
+
+
+def test_scope_notes_have_no_broken_table_cells():
+    """범위 공시가 표 칸을 깨뜨리지 않는가 — `|`가 들어가면 열이 밀린다."""
+    from observed import SCOPE
+    for name, note in SCOPE.items():
+        assert "|" not in note, f"{name}: 범위 공시에 파이프 문자"

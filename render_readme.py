@@ -17,13 +17,17 @@ import re
 import sys
 from datetime import UTC, datetime
 
+from observed import MISFILED, SCOPE
+
 OURS = ("app.sallim/", "sallim-app/")
 CATS = ["공공데이터·행정", "법령·판례", "금융·증시", "부동산", "세금·재정", "지도·주소",
-        "날씨·환경", "교통·이동", "의료·복지", "교육·문화", "한국어·언어", "커머스·생활", "기타"]
+        "날씨·환경", "교통·이동", "의료·복지", "교육·문화", "한국어·언어", "커머스·생활",
+        "미디어·뉴스", "핀테크·인증", "디렉토리·개발자도구", "기타"]
 CAT_EN = {"공공데이터·행정": "Public Data", "법령·판례": "Law", "금융·증시": "Finance",
           "부동산": "Real Estate", "세금·재정": "Tax", "지도·주소": "Maps", "날씨·환경": "Weather",
           "교통·이동": "Transit", "의료·복지": "Health", "교육·문화": "Education",
-          "한국어·언어": "Korean NLP", "커머스·생활": "Commerce", "기타": "Other"}
+          "한국어·언어": "Korean NLP", "커머스·생활": "Commerce", "미디어·뉴스": "Media",
+          "핀테크·인증": "Fintech", "디렉토리·개발자도구": "Directory", "기타": "Other"}
 
 # 닫는 `**` 앞이 문장부호이고 뒤가 글자면 CommonMark가 강조를 닫지 않는다.
 # `**"지금 되냐"**를` 이 형태로 실제로 깨져서 게시됐다(2026-08-19).
@@ -68,7 +72,11 @@ def row(rec: dict, en=False, err_of: dict | None = None) -> str:
     slow = cold and warm and cold > warm * 3
     pd = rec.get("paid_disclosure") or {}
     paid = f" <sub>무료 {pd.get('free')}/{pd.get('total')}</sub>" if pd.get("disclosed") else ""
-    return (f"| {link(rec)}{mark}{paid} | {rm.get('tool_count') or '—'} | {warm or '—'} | "
+    # **무엇을 주는 서버인지**를 이름 밑에 붙인다. 카탈로그형에게 값을 묻거나 집계
+    # 통계표에서 개별 실거래를 찾는 것은 서버 탓이 아닌데, 표만 보면 그걸 알 수 없다.
+    sc = SCOPE.get(rec["name"])
+    scope = f"<br><sub>{sc}</sub>" if sc else ""
+    return (f"| {link(rec)}{mark}{paid}{scope} | {rm.get('tool_count') or '—'} | {warm or '—'} | "
             f"{emph(str(cold)) if slow else (cold or '—')} | "
             f"{q(rec, 'described_pct')}% | {q(rec, 'annotated_pct')}% | "
             f"{(err_of or {}).get(rec['name'], '—')} |")
@@ -291,6 +299,10 @@ def main() -> int:
     # ── 분야별 ──
     for c in cats_live:
         group = [r for r in live if cls.get(r["name"], {}).get("category") == c]
+        # **잘못 넣은 것을 순위에서 뺀다**(observed.py). 뉴스 서버에게 상품을 묻고
+        # 못 답했다고 등수를 내리면, 잰 것은 그 서버가 아니라 우리 수집기의 오분류다.
+        mis = [r for r in group if r["name"] in MISFILED]
+        group = [r for r in group if r not in mis]
         judged = [r for r in group if r["name"] in rank_of]
         judged.sort(key=lambda r: rank_of[r["name"]][0])
         rest = sorted([r for r in group if r["name"] not in rank_of],
@@ -333,6 +345,17 @@ def main() -> int:
             A("")
             A("</details>")
             A("")
+        if mis:
+            A(f"{emph(f'분야 교정 {len(mis)}건')} — 이 분야 검색어에 걸려 수집됐지만 "
+              "**불러 보니 다른 것을 하는** 서버다. 남의 분야 질문으로 매긴 등수는 그 서버를 "
+              "잰 값이 아니라서 순위에서 뺐다. 지우지는 않는다 — 찾는 사람이 있다.")
+            A("")
+            A("| 서버 | 실제 분야 | 채점자가 확인한 것 |")
+            A("|---|---|---|")
+            for r in sorted(mis, key=lambda x: x["name"]):
+                _, now, why = MISFILED[r["name"]]
+                A(f"| {link(r)} | {now} | {why} |")
+            A("")
 
     # ── 표기 ──
     A("## 표기")
@@ -344,6 +367,9 @@ def main() -> int:
       "**둘 다 없으면 모델이 그 도구를 언제 어떻게 쓸지 모른다** — 데이터가 정확해도 답에 도달하지 못한다")
     A("* 이름 옆 <sub>무료 N/M</sub> — 서버가 유료 게이트를 **스스로 공시**할 때만 붙는다. "
       "없다고 무료라는 뜻이 아니다 — 밖에서는 판정할 수 없다")
+    A("* 이름 밑 작은 글씨 — 불러 보고 알게 된 **그 서버의 성질**. "
+      "카탈로그형은 값이 아니라 데이터셋 위치를 주고, 집계 통계표는 개별 거래를 주지 않는다. "
+      "몰라서 헛짚는 자리라 표에 낸다")
     A("* 🏠 — 이 목록의 운영자가 만든 서버")
     A("")
 

@@ -46,9 +46,9 @@
      ]
     },
     {
-     "name": "app.apick/business",
+     "name": "app.apick/all",
      "rank": 3,
-     "why": "상거래·물류 데이터형 서버로 이 분야 두 질문은 설계 범위 밖이며, 도구 목록을 근거로 정직하고 진단적으로 거절했다 — 사실 공급은 0건이다.",
+     "why": "전 도구가 API 키 게이트라 무가입 상태에서는 종류(데이터형/카탈로그형)조차 확인할 수 없었고, 이 분야 질문에 공급한 사실은 0건이다.",
      "사실오류": 0,
      "점수": [
       {
@@ -61,7 +61,7 @@
        "q": 2,
        "정확성": null,
        "근거성": null,
-       "완결성": 2
+       "완결성": 1
       }
      ]
     }
@@ -69,9 +69,19 @@
    "전체순위": [
     "haklaekim/public-data-lens",
     "obundh/korea-public-data-catalog-mcp",
-    "app.apick/business",
-    "yousunjung84-edu/academyinfo-mcp",
     "app.apick/all"
+   ],
+   "분야교정": [
+    {
+     "name": "app.apick/business",
+     "실제분야": "커머스·생활",
+     "근거": "상거래·물류 데이터형 서버로 이 분야 두 질문은 설계 범위 밖이며"
+    },
+    {
+     "name": "yousunjung84-edu/academyinfo-mcp",
+     "실제분야": "교육·문화",
+     "근거": "이름과 달리 학원이 아니라 대학알리미 기반 고등교육 통계 서버로, 공공데이터·행정 분야와는 주제가 다르며"
+    }
    ],
    "note": "실제로 쓸 만한 것은 haklaekim/public-data-lens 하나뿐이다 — 카탈로그형이라 인구 값은 못 주지만 '어디서 받나'라는 이 분야의 주력 질문에 데이터셋명·recordId·URL·형식·요금까지 붙은 실재 포인터를 냈고 발췌가 포털 실물과 축자 일치했다. 반면 다섯 서버 중 서울시 인구 시계열이라는 '값' 질문에 숫자를 한 개라도 공급한 서",
    "candidates": 5,
@@ -120,33 +130,23 @@
        "완결성": 1
       }
      ]
-    },
-    {
-     "name": "app.apick/finance",
-     "rank": 3,
-     "why": "이름만 finance일 뿐 실제로는 은행 계좌 검증(1원 인증·실명조회) 서비스로 한국 증시와 주제가 다르며, 그 사실을 흐리지 않고 두 번 다 명확히 거부한 점만이 평가할 지점이다.",
-     "사실오류": 0,
-     "점수": [
-      {
-       "q": 1,
-       "정확성": null,
-       "근거성": null,
-       "완결성": 2
-      },
-      {
-       "q": 2,
-       "정확성": null,
-       "근거성": null,
-       "완결성": 2
-      }
-     ]
     }
    ],
    "전체순위": [
     "com.aikstockdata/mcp",
-    "Mrbaeksang/korea-stock-analyzer-mcp",
-    "app.apick/finance",
-    "MosslandOpenDevs/alpha"
+    "Mrbaeksang/korea-stock-analyzer-mcp"
+   ],
+   "분야교정": [
+    {
+     "name": "app.apick/finance",
+     "실제분야": "핀테크·인증",
+     "근거": "이름만 finance일 뿐 실제로는 은행 계좌 검증(1원 인증·실명조회) 서비스로 한국 증시와 주제가 다르며"
+    },
+    {
+     "name": "MosslandOpenDevs/alpha",
+     "실제분야": "미디어·뉴스",
+     "근거": "한국 크립토·매크로 뉴스 알파 서버로 증시와 주제가 다르며"
+    }
    ],
    "note": "두 질문을 다 감당할 서버는 없고, 실제로 쓰려면 갈라 써야 한다 — 시장 전체 스냅샷(시총 랭킹·주가)은 com.aikstockdata/mcp가 유일하게 실측 정합한 상위 10을 냈고(역산 주식수가 실제와 일치), 개별 기업 재무제표는 korea-stock-analyzer-mcp의 2025년 연결 매출 333.6조·영업이익 43.6조·마진 13.07%가 ",
    "candidates": 4,
@@ -223,6 +223,7 @@
     "Choihello/startup-law-mcp",
     "scvcoder/korean-law-alio-mcp"
    ],
+   "분야교정": [],
    "note": "두 질문 모두에 현행 원문으로 답한 서버는 chrisryugj/korean-law-mcp 하나뿐이고(법제처 실시간 조회), app.sallim/contract-compass는 공공계약 안에서는 조문·금액이 더 정확하지만 코퍼스 38건 밖은 구조적으로 답이 없다.\n나머지 둘은 답을 못 준다 — startup-law-mcp는 애초에 창업 법령 색인이라 범위 밖",
    "candidates": 4,
    "by": "opus(실제 질문·답변 채점)",
@@ -297,6 +298,7 @@
     "com.airblockfz/seoul-apt-signal",
     "hlucent/realestate-stats-mcp"
    ],
+   "분야교정": [],
    "note": "두 질문에 실제로 값이 나온 서버는 app.sallim/korea-realty 하나뿐이다 — 월별 중앙값·거래건수·부분월·평당가와 유찰 물건 목록을 단위·기준시각·하자 경고와 함께 돌려주고, 재호출 대조에서 수치가 그대로 재현됐다. 나머지 둘은 각각 결제벽 뒤의 매매신호(seoul-apt-signal, 핵심 도구 3종 402·유료 미공시)와 분당 3회 제한",
    "candidates": 3,
    "by": "opus(실제 질문·답변 채점)",
@@ -346,10 +348,10 @@
      ]
     },
     {
-     "name": "com.saaskr/korean-saas-directory",
+     "name": "com.theprotoclinical/commerce",
      "rank": 3,
-     "why": "분야 밖 서버인데도 두 질문 모두 정직하게 처리했고, 특히 '전체 N개 중 M개'라는 절단 공시를 스스로 붙이는 점은 이 다섯 중 유일하다(첫 호출 17초 지연은 흠).",
-     "사실오류": 0,
+     "why": "사실오류 2건 — 'Shopify UCP(Universal Commerce Platform)' — UCP는 Universal  · 자사몰 결제 에이전트라 두 질문 다 범위 밖인 데다, 프로필 URI 없이는 카탈로그 조회가 전부 422로 막혀(continue_url이 yxcs11-ry.myshopify.com 개발 스토어를 가리킨다) 익명 AI 클라이언트로는",
+     "사실오류": 2,
      "점수": [
       {
        "q": 1,
@@ -359,8 +361,8 @@
       },
       {
        "q": 2,
-       "정확성": 2,
-       "근거성": 1,
+       "정확성": null,
+       "근거성": null,
        "완결성": 2
       }
      ]
@@ -369,9 +371,19 @@
    "전체순위": [
     "ai.timeplex/booking",
     "com.arcasos/arcasos-rentals",
-    "com.saaskr/korean-saas-directory",
-    "com.hankookilbo.mcp/hankookilbo-mcp",
     "com.theprotoclinical/commerce"
+   ],
+   "분야교정": [
+    {
+     "name": "com.saaskr/korean-saas-directory",
+     "실제분야": "디렉토리·개발자도구",
+     "근거": "상품 판매나 예약을 하는 곳이 아니다."
+    },
+    {
+     "name": "com.hankookilbo.mcp/hankookilbo-mcp",
+     "실제분야": "미디어·뉴스",
+     "근거": "상품·예약과는 무관한 미디어 서버다."
+    }
    ],
    "note": "다섯 중 이 분야 질문에 실제로 답할 수 있는 서버는 예약의 timeplex와 숙소의 arcasos 둘뿐이고, 나머지 셋(뉴스 API·SaaS 디렉토리·자사몰 결제 엔드포인트)은 서버 결함이 아니라 우리 카테고리 배정 오류다. 그리고 다섯 중 '많이 팔리는'을 답할 판매·인기 지표를 가진 서버는 하나도 없는데, 유일하게 없다고 말하지 않고 검색 결과를 인기",
    "candidates": 5,

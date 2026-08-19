@@ -12,9 +12,16 @@ API 키 오류로 죽어 사실을 한 줄도 못 줬고, 부동산 2위는 실�
 
 `why`는 채점자의 총평을 쓰되, 사실오류가 있으면 **그것을 먼저 적는다** — 독자가 다른
 데서 못 얻는 정보가 그것이고, 순위 위쪽에 있다고 흠이 가려지면 안 된다.
+
+**분야가 틀린 서버는 순위에서 뺀다**(2026-08-19, `observed.py`). 뉴스 서버에게 상품
+질문을 던지고 못 답했다고 순위를 내리는 것은 그 서버를 잰 것이 아니라 우리 수집기의
+오분류를 그 서버 탓으로 돌린 것이다. 뺀 것은 감추지 않고 `분야교정`에 남겨 README가
+「분야 교정」 구역으로 싣는다.
 """
 import json
 import pathlib
+
+from observed import MISFILED
 
 
 def main() -> int:
@@ -25,11 +32,16 @@ def main() -> int:
             continue
         cat = d["category"]
         by = {s["server"]: s for s in d["servers"]}
-        top = []
-        for rank, name in enumerate(d.get("권장순위") or [], 1):
+        top, moved = [], []
+        for name in d.get("권장순위") or []:
             s = by.get(name)
             if not s:
                 continue
+            if name in MISFILED:
+                moved.append({"name": name, "실제분야": MISFILED[name][1],
+                              "근거": MISFILED[name][2]})
+                continue
+            rank = len(top) + 1
             errs = [e for q in s["questions"] for e in (q.get("사실오류") or [])]
             why = s.get("총평", "")
             if errs:
@@ -42,6 +54,7 @@ def main() -> int:
             continue
         items[f"graded:{cat}"] = {
             "category": cat, "top": top[:3], "전체순위": [t["name"] for t in top],
+            "분야교정": moved,
             "note": d.get("분야_총평", "")[:200], "candidates": len(d["servers"]),
             "by": "opus(실제 질문·답변 채점)", "순위_근거": d.get("순위_근거", "")[:200]}
 
@@ -56,7 +69,8 @@ def main() -> int:
     for v in items.values():
         errs = sum(t["사실오류"] for t in v["top"])
         print(f"  {v['category']:<14} {' › '.join(t['name'].split('/')[-1][:20] for t in v['top'])}"
-              f"   (상위3 사실오류 {errs}건)")
+              f"   (상위3 사실오류 {errs}건"
+              + (f" · 분야교정 {len(v['분야교정'])}건 제외" if v["분야교정"] else "") + ")")
     return 0
 
 
