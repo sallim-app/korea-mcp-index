@@ -165,9 +165,11 @@ def axis3(tools: list | None) -> dict:
     elif b["ambiguous"]:
         sig, why = "ambiguous", (f"판정형 동사는 있으나 단일 필드 검증일 수 있다: "
                                  f"{', '.join(b['ambiguous'][:4])} — 사람·심사가 봐야 한다")
-    elif len(b["action"]) * 2 >= len(names):
+    elif len(b["action"]) * 2 > len(names):
         # **과반을 요구한다.** 3종 중 1종이 상태 변경형인 서버를 '상태 변경 위주'라 부르면
         # 그것도 근거 없이 깎는 것이다(app.apick/finance 1/3이 그렇게 잡혔다).
+        # `>=`가 아니라 `>`다 — 정확히 반이면 과반이 아니다. 처음 `>=`로 썼다가 이종
+        # 교차검증(codex, 2026-08-21)이 잡았다: 2종 중 1종짜리가 '과반'으로 게시된다.
         sig, why = "action_heavy", f"도구 과반이 상태 변경형({len(b['action'])}/{len(names)}종)"
     else:
         # **"전부 조회형"이라고 쓰지 않는다.** app.apick/finance는 3종 중 1종이 상태 변경형이고

@@ -62,6 +62,14 @@ def test_commerce_server_is_action_heavy():
     assert value_add.axis3(tools)["signal"] == "action_heavy"
 
 
+def test_exactly_half_action_is_not_majority():
+    """정확히 반은 과반이 아니다 — `>=`로 쓰면 2종 중 1종짜리가 '과반'으로 게시된다."""
+    a = value_add.axis3([_t("create_order"), _t("get_price")])
+    assert a["signal"] != "action_heavy"
+    assert value_add.axis3([_t("create_order"), _t("cancel_order"), _t("get_price")]
+                           )["signal"] == "action_heavy"
+
+
 def test_action_heavy_needs_majority():
     """3종 중 1종이 상태 변경형인 서버를 '상태 변경 위주'라 부르는 것도 근거 없이 깎는 것이다."""
     a = value_add.axis3([_t("transfer_1won"), _t("account_realname"), _t("bank_code")])
@@ -129,14 +137,32 @@ def test_axis3_never_changes_keep_drop():
     assert "axis3" not in filter_candidates.classify(item)
 
 
-def test_published_filtered_discloses_axis3_boundary():
-    """게시본이 축③의 경계를 스스로 말하는가 — unknown 건수와 '이름만 봤다'를 공시한다."""
-    f = ROOT / "candidates_filtered.json"
-    if not f.exists():
-        return
-    b = " ".join(json.loads(f.read_text(encoding="utf-8")).get("boundaries", []))
+def test_pipeline_discloses_axis3_boundary(tmp_path, monkeypatch):
+    """산출물이 축③의 경계를 스스로 말하는가 — unknown 건수와 '떨어뜨리지 않는다'를 공시한다.
+
+    **게시본 파일을 읽어서 검사하지 않는다.** 처음엔 `candidates_filtered.json`을 열어
+    boundaries를 봤는데, 그 파일은 gitignore 대상이면서 옛 버전이 추적돼 있어 **내 작업
+    트리에서만 통과하는 테스트**였다(codex 교차검증 2026-08-21이 잡았다: 깨끗한 체크아웃에서
+    실패한다). 7MB 산출물을 커밋해 통과시키는 것은 저장소가 export_candidates.py로 피하려던
+    바로 그 이력 오염이다. 그래서 **코드 경로를 돌려** 공시를 검사한다.
+    """
+    src = tmp_path / "in.json"
+    src.write_text(json.dumps({"boundaries": [], "items": [
+        {"name": "someone/korea-law-mcp", "description": "한국 법령 조회 MCP"},
+        {"name": "other/kr-stats-mcp", "description": "한국 통계 조회"}]}), encoding="utf-8")
+    out = tmp_path / "out.json"
+    monkeypatch.chdir(ROOT)   # schemas/tools.json을 실제 경로에서 읽게 둔다
+    monkeypatch.setattr("sys.argv", ["filter_candidates.py", "--input", str(src),
+                                     "--output", str(out)])
+    assert filter_candidates.main() == 0
+    d = json.loads(out.read_text(encoding="utf-8"))
+    b = " ".join(d["boundaries"])
     assert "축③" in b and "파생이 없다는 뜻이 아니다" in b
     assert "후보를 떨어뜨리지 않는다" in b
+    assert "원천이 이미 주는지는 대조하지 않았다" in b
+    # 라벨은 붙었고, 판정은 축①②가 정했다
+    assert all("axis3" in i for i in d["items"])
+    assert d["buckets"]["keep"] == 2
 
 
 # 6. 판정값이 원자료와 어긋나지 않는다
