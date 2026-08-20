@@ -68,16 +68,25 @@ def tool_specs(tools: list) -> list:
 
     지금까지 tools 배열을 받아 집계(_tool_quality)만 내고 **버렸다**. 그래서 "도구 47종"까지
     재놓고 정작 그 도구를 부를 수 없었다 — 어떤 인자가 필요한지 모르니까(2026-08-19).
-    설명 본문은 크므로 뺀다. 필요한 것은 이름·필수 인자·읽기전용 여부 셋이다.
+    설명은 **앞 200자만** 남긴다. 처음엔 통째로 뺐는데(2026-08-19) 축③(조인·계산을 주는가,
+    value_add.py)이 도구 이름만 보고 판정하게 됐다. 이름은 관례라 `check_price_adjustment`
+    (룰 계산)와 `check_email_valid`(단일 필드 조회)가 안 갈린다 — 그 둘을 가르는 문장이
+    설명에 있는데 우리가 버렸다. 전문이 아니라 앞부분만 남기면 크기는 유지되고 판정 근거는
+    돌아온다. **이미 수집된 schemas/tools.json에는 설명이 없다** — 다음 주간 측정 회차부터
+    채워지고, 그때까지 축③은 이름만 본 판정임을 값으로 공시한다(`desc_captured`).
     """
     out = []
     for t in tools:
         sch = t.get("inputSchema") or {}
         ann = t.get("annotations") or {}
+        d = (t.get("description") or "").strip()
         out.append({"name": t.get("name"),
                     "required": list(sch.get("required") or []),
                     "props": list((sch.get("properties") or {}).keys())[:12],
-                    "read_only": bool(ann.get("readOnlyHint"))})
+                    "read_only": bool(ann.get("readOnlyHint")),
+                    "desc": d[:200],
+                    # 조용히 자르지 않는다 — 잘랐으면 잘랐다고 값으로 말한다(기치 ②)
+                    **({"desc_truncated": True} if len(d) > 200 else {})})
     return out
 
 
@@ -491,7 +500,7 @@ def main() -> int:
         sp = (r.get("remote") or {}).pop("specs", None)
         if sp:
             specs[r["name"]] = sp
-    json.dump({"note": "호출에 필요한 최소 스키마(이름·필수인자·읽기전용). probe_quality.py가 읽는다.",
+    json.dump({"note": "호출에 필요한 최소 스키마(이름·필수인자·읽기전용·설명 앞 200자). probe_quality.py(호출)와 value_add.py(축③ 판정)가 읽는다.",
                "items": specs}, open("schemas/tools.json", "w", encoding="utf-8"),
               ensure_ascii=False, indent=1)
 

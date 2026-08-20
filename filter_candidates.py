@@ -10,15 +10,22 @@
   drop   — 제외 신호가 명확한 것(프레임워크·클라이언트·조직 프로필 등). 사유를 남긴다
   review — 애매한 것. **사람이 봐야 한다.** 이 통을 0으로 만들려고 기준을 억지로 넓히지 마라.
 
-판정 축 2개(기치 3절: "많은 데이터가 아니라 좋은 데이터"):
+판정 축 3개(기치 3절: "많은 데이터가 아니라 좋은 데이터"):
   ① 한국 관련성 — 한국의 데이터·제도·서비스를 다루는가
   ② 데이터 제공형 — AI에게 **사실을 주는가**. 프레임워크·클라이언트·자동화 도구는 우리 주제가 아니다
+  ③ 조인·계산·판정 — 원천도 웹검색도 못 주는 것을 주는가(D-2026W34-21의 선정 기준)
+
+**축③은 keep/drop을 바꾸지 않는다.** 라벨만 붙인다(`value_add.py`가 그 이유를 길게 적어
+뒀다 — 요지는 도구 목록을 본 서버가 233건 중 25건뿐이고, 못 본 208건을 이 축으로 떨어뜨리면
+"못 봄"을 "없음"으로 게시하게 된다는 것이다). 남은 판단은 블라인드 심사 레인(D-2026W34-25).
 
 실행: python3 filter_candidates.py   →  candidates_filtered.json + 커버리지 표
 """
 import argparse
 import json
 import re
+
+import value_add
 
 KR = ["korea", "korean", "한국", "대한민국", "molit", "국토부", "kosis", "법제처",
       "krx", "dart", "공공데이터", "naver", "네이버", "kakao", "카카오", "seoul", "서울",
@@ -111,11 +118,16 @@ def main() -> int:
     ap.add_argument("--output", default="candidates_filtered.json")
     a = ap.parse_args()
     raw = json.load(open(a.input, encoding="utf-8"))
+    specs = value_add.load_specs()
     out, buckets = [], {"keep": 0, "drop": 0, "review": 0}
+    a3: dict[str, int] = {}
     for it in raw["items"]:
         c = classify(it)
         buckets[c["verdict"]] += 1
-        out.append({**it, **c, "slug": slug(it["name"])})
+        # 축③ — 도구 목록이 있는 서버만 실측 라벨, 나머지는 unknown(0이 아니다)
+        ax = value_add.axis3(specs.get(it["name"]))
+        a3[ax["signal"]] = a3.get(ax["signal"], 0) + 1
+        out.append({**it, **c, "slug": slug(it["name"]), "axis3": ax})
 
     merged: dict[str, list] = {}
     for o in out:
@@ -125,12 +137,23 @@ def main() -> int:
     json.dump({"buckets": buckets, "dupe_slugs": dupes,
                "boundaries": raw.get("boundaries", []) + [
                    "슬러그 병합은 마지막 경로 조각 휴리스틱이다 — 동명이인을 합칠 수 있다",
-                   "keep/drop 판정은 이름·설명 문자열만 본다. 실제 도구 목록은 안 봤다(다음 단계=실호출)"],
+                   "keep/drop 판정(축①②)은 이름·설명 문자열만 본다 — 도구 목록을 안 본다",
+                   f"축③(조인·계산)은 도구 목록을 본 {sum(1 for o in out if o['axis3']['signal'] != 'unknown')}건만 "
+                   f"라벨했다. 나머지 {a3.get('unknown', 0)}건은 unknown이며 **파생이 없다는 뜻이 아니다**",
+                   "축③은 도구 **이름**의 동사류를 본다. 그 계산을 원천이 이미 주는지는 대조하지 않았다 "
+                   "— 분야별 원천을 우리가 전부 모르기 때문이다(공시 대상)",
+                   "축③은 후보를 떨어뜨리지 않는다 — keep/drop은 축①②만으로 결정된다"],
                "items": out},
               open(a.output, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 
     print(f"입력 {len(out)}건 → keep {buckets['keep']} · review {buckets['review']} · drop {buckets['drop']}")
     print(f"슬러그 중복 {len(dupes)}건(레지스트리↔GitHub 같은 서버로 추정)")
+    order = ["derived", "ambiguous", "action_heavy", "retrieval_only", "unknown"]
+    print("축③ 라벨: " + " · ".join(f"{k} {a3[k]}" for k in order if k in a3)
+          + f"  (도구 목록을 본 것 {sum(v for k, v in a3.items() if k != 'unknown')}건 — "
+            f"이 축은 keep/drop을 바꾸지 않는다)")
+    keep3 = [o for o in out if o["verdict"] == "keep" and o["axis3"]["signal"] == "derived"]
+    print(f"keep 중 축③ derived {len(keep3)}건 — 목록의 첫 화면 후보")
     print("\n■ keep 상위 (한국 데이터 MCP 후보)")
     for o in sorted([x for x in out if x["verdict"] == "keep"],
                     key=lambda x: -(x.get("stars") or 0))[:18]:
