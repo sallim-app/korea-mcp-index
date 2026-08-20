@@ -345,3 +345,40 @@ def test_server_names_are_identifiable():
     assert names, "순위 줄을 못 찾았다"
     vague = [n for n in names if "/" not in n or len(n) < 6]
     assert not vague, f"어느 서버인지 알 수 없는 이름: {vague}"
+
+
+# ── 측정일 (2026-08-21, T-2026W34-109) ─────────────────────────────────────
+# 게시본이 "마지막 측정 {오늘}"을 `datetime.now()`로 찍고 있었다. 재측정 없이 문서만 다시
+# 뽑아도 측정일이 소리 없이 밀리는 구조라, 남의 목록에서 우리가 잡아내는 종류의 부정직
+# 공시를 우리가 하고 있었다. 이제 잰 쪽이 박은 날짜만 게시한다 — 그것을 여기에 박는다.
+
+def test_measured_at_존재하고_ISO_날짜다():
+    ts = MEASURED.get("measured_at")
+    assert ts, "measured.json에 measured_at이 없다 — 렌더가 오늘 날짜로 때우게 된다"
+    assert re.fullmatch(r"\d{4}-\d{2}-\d{2}", ts), ts
+
+
+def test_게시된_측정일이_원자료와_같다():
+    """README·DOWN에 적힌 측정일은 전부 measured_at이어야 한다(렌더 날짜 금지)."""
+    ts = MEASURED["measured_at"]
+    for label, md in (("README.md", README), ("DOWN.md", DOWN)):
+        found = set(re.findall(r"\d{4}-\d{2}-\d{2}(?= 기준| 측정 시점| 그 순간)", md))
+        assert found, f"{label}에 측정일 문구가 없다"
+        assert found == {ts}, f"{label} 측정일 {found} != measured_at {ts}"
+
+
+def test_패키지축_재측정일은_응답_측정일과_섞지_않는다():
+    """--repair-packages는 원격을 안 두드린다 — 같은 날짜로 합치면 하나가 거짓말이 된다."""
+    pkg = MEASURED.get("repackaged_at")
+    if not pkg or pkg == MEASURED["measured_at"]:
+        return
+    assert f"마지막 측정 {MEASURED['measured_at']}" in README
+    assert f"패키지 축 재측정 {pkg}" in README
+
+
+def test_렌더는_measured_at_없으면_멈춘다():
+    """오늘 날짜로 때우는 폴백이 되살아나지 않게."""
+    src = (ROOT / "render_readme.py").read_text(encoding="utf-8")
+    body = "\n".join(ln for ln in src.splitlines() if not ln.lstrip().startswith("#"))
+    assert "datetime.now" not in body, "렌더가 다시 현재 시각을 측정일로 쓰고 있다"
+    assert 'd.get("measured_at")' in body

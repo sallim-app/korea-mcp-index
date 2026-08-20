@@ -29,6 +29,7 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
+from datetime import datetime, timedelta, timezone
 
 # 같은 명단을 두 번 적지 않는다 — 추출 쪽이 정본이고 측정 쪽은 그물이다.
 from enrich import NOT_A_SERVER_PKG
@@ -37,6 +38,18 @@ UA = "sallim-mcp-index/0.1 (+https://github.com/sallim-app; measuring MCP availa
 TIMEOUT = 15
 MAX_BODY = 8 * 1024 * 1024   # 폭주 방어 상한. 걸리면 숨기지 않고 공시한다.
 PAUSE = 1.0
+
+# 측정 시점은 **잰 날**이지 문서를 뽑은 날이 아니다 (2026-08-21, T-2026W34-109).
+# 종전에는 render_readme.py가 `datetime.now()`를 "마지막 측정"으로 게시했다 — 재측정 없이
+# 문서만 다시 뽑아도 게시된 측정일이 소리 없이 오늘로 밀렸다. 남의 목록에서 우리가 잡아내는
+# 종류의 부정직 공시라 산출물에 날짜를 박고 렌더는 그것만 읽게 한다.
+# 시각대는 KST — 측정 지점이 한국이고 README도 그렇게 밝힌다(UTC로 찍으면 새벽 런이 하루 밀린다).
+KST = timezone(timedelta(hours=9))
+
+
+def measured_today() -> str:
+    """측정을 수행한 날(KST, YYYY-MM-DD)."""
+    return datetime.now(KST).strftime("%Y-%m-%d")
 
 
 def _post_jsonrpc(url: str, method: str) -> dict:
@@ -418,6 +431,9 @@ def repair_packages() -> int:
             r["package"] = after
             changed.append((r["name"], before, after))
         time.sleep(0.2)
+    # 원격 서버를 안 두드린 런이므로 `measured_at`(응답 측정일)은 **건드리지 않는다** —
+    # 여기서 같이 밀면 패키지 파서만 고치고도 "응답을 오늘 쟀다"고 게시하게 된다.
+    d["repackaged_at"] = measured_today()
     json.dump(d, open("measured.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print(f"패키지 축 재측정 — 바뀐 항목 {len(changed)}건")
     for name, b, a2 in changed:
@@ -506,6 +522,7 @@ def main() -> int:
 
     json.dump({"measured": len(out), "unmeasurable": len(notes), "boundaries": notes,
                "criteria_note": "항목은 D-2026W34-22로 결과 보기 전에 고정됐다. 사후 변경 금지.",
+               "measured_at": measured_today(),
                "items": out}, open("measured.json", "w", encoding="utf-8"),
               ensure_ascii=False, indent=1)
 

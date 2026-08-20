@@ -254,4 +254,4 @@ render   이 문서
 
 ---
 
-생성 `render_readme.py` · 마지막 측정 2026-08-19 · 운영 [sallim-app](https://github.com/sallim-app)
+생성 `render_readme.py` · 마지막 측정 2026-08-19 · 패키지 축 재측정 2026-08-20 · 운영 [sallim-app](https://github.com/sallim-app)

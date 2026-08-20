@@ -15,7 +15,6 @@ import argparse
 import json
 import re
 import sys
-from datetime import UTC, datetime
 
 from observed import MISFILED, SCOPE
 
@@ -269,7 +268,18 @@ def main() -> int:
     unmeasured = [r for r in live if not (r["remote"].get("tool_count") or 0)]
     live = [r for r in live if r not in unmeasured]
 
-    ts = datetime.now(UTC).strftime("%Y-%m-%d")
+    # 2026-08-21(T-2026W34-109): 여기가 `datetime.now(UTC)`였다 — **재측정 없이 문서만 다시
+    # 뽑아도 게시된 "마지막 측정"이 오늘로 밀렸다.** 게시본이 08-19라 적힌 채 원자료는 08-20인
+    # 어긋남도 그래서 났다. 이제 잰 쪽(measure.py)이 산출물에 박은 날짜만 읽는다. 없으면 오늘로
+    # 때우지 않고 **멈춘다** — 모르는 날짜를 지어내느니 렌더가 실패하는 편이 정직하다(fail-closed).
+    ts = d.get("measured_at")
+    if not ts:
+        print("생성 중단 — measured.json에 `measured_at`이 없다. "
+              "`python3 measure.py`로 다시 재거나 실제 측정일을 채워 넣어라 "
+              "(렌더 날짜를 측정일로 게시하지 않는다).", file=sys.stderr)
+        return 1
+    # 패키지 축만 다시 잰 회차는 응답 측정일과 다르다 — 합치면 둘 중 하나가 거짓말이 된다.
+    pkg_ts = d.get("repackaged_at")
     pct = round(100 * len(dead) / max(len(rem), 1))
     out: list[str] = []
     A = out.append
@@ -583,8 +593,9 @@ def main() -> int:
     A("")
     A("---")
     A("")
-    A(f"생성 `render_readme.py` · 마지막 측정 {ts} · "
-      f"운영 [sallim-app](https://github.com/sallim-app)")
+    A(f"생성 `render_readme.py` · 마지막 측정 {ts}"
+      + (f" · 패키지 축 재측정 {pkg_ts}" if pkg_ts and pkg_ts != ts else "")
+      + " · 운영 [sallim-app](https://github.com/sallim-app)")
 
     if not en:
         write_down(dead, ts)
