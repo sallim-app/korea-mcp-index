@@ -12,8 +12,16 @@
   installable  패키지가 실제로 배포돼 있나(npm/PyPI). 저장소만 있고 설치 못 하는 것이 많다.
   alive        저장소 최종 푸시·archived.
 
-**우리가 불리한 항목도 같이 싣는다**(D-2026W34-22 ②): self_hostable — 원격 전용인 우리
-서버는 여기서 진다. 유리한 축만 재면 그 순위는 광고지 판정이 아니다.
+**우리가 불리한 항목도 같이 싣는다**(D-2026W34-22 ②, PROTOCOL.md ②):
+  self_hosting  남이 자기 것으로 띄울 수 있나 — packaged / source_only / unknown
+  license       GitHub이 인정한 SPDX. 저장소를 못 읽으면 '없음'이 아니라 '못 봄'이다
+  paid_disclosed 유료 게이트를 스스로 공시하나 — 지금 공시하는 서버는 우리뿐이다
+유리한 축만 재면 그 순위는 광고지 판정이 아니다. 축은 **결과를 보기 전에** PROTOCOL.md에
+고정했고, 게시된 축과 그 문서가 어긋나면 tests/test_trust_protocol.py가 실패한다.
+
+  `self_hostable`은 2026-08-21에 `self_hosting`으로 교체됐다 — 이름은 셀프호스팅인데
+  실제로 재던 것은 "레지스트리에 배포 패키지가 선언돼 있나"였다. 옛 필드는 남의 재계산이
+  깨지지 않게 남겨 두되 뜻이 달랐다는 주석을 값 옆에 박는다(개정 이력=PROTOCOL.md).
 
 예의: 서버당 `tools/list` 1회, 사이에 간격을 두고, User-Agent로 우리를 밝힌다. 남의 서버를
 두드리는 일이니 정체를 숨기지 않는다(기치 3절 상생).
@@ -32,6 +40,7 @@ import urllib.request
 from datetime import datetime, timedelta, timezone
 
 # 같은 명단을 두 번 적지 않는다 — 추출 쪽이 정본이고 측정 쪽은 그물이다.
+import enrich
 from enrich import NOT_A_SERVER_PKG
 
 UA = "sallim-mcp-index/0.1 (+https://github.com/sallim-app; measuring MCP availability)"
@@ -442,15 +451,95 @@ def repair_packages() -> int:
     return 0
 
 
+def measure_license(repo_url: str, token: str | None) -> dict:
+    """저장소가 실제로 **오픈소스인가** — GitHub이 인정한 라이선스(SPDX)로만 판정한다.
+
+    `저장소 주소가 있다`를 오픈소스로 계상하지 않는다. 비공개·삭제(404)와 라이선스 없음
+    (= 기본값 All rights reserved)은 서로 다른 사실이고, 둘 다 "오픈소스"가 아니다.
+    """
+    repo = (repo_url or "").removeprefix("https://github.com/").strip("/")
+    if not repo or repo.count("/") != 1:
+        return {"license": None, "repo": None, "why": "GitHub 저장소 주소가 없어 못 쟀다"}
+    if not token:
+        return {"license": None, "repo": repo, "why": "토큰 없이 조회하지 않았다"}
+    d = enrich._api(f"/repos/{repo}", token)
+    err = d.get("_err") if isinstance(d, dict) else "bad"
+    if err:
+        # 404는 **비공개이거나 지워졌다**는 뜻이다. "오픈소스 아님"으로 단정하지 않는다.
+        return {"license": None, "repo": repo, "public": None,
+                "why": f"저장소를 못 읽었다({err}) — 비공개·삭제·이름 변경 중 하나"}
+    spdx = ((d.get("license") or {}).get("spdx_id") or "").strip()
+    if spdx in ("", "NOASSERTION"):
+        spdx = None
+    return {"license": spdx, "repo": repo, "public": not d.get("private", False),
+            "why": "" if spdx else "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"}
+
+
+def self_hosting_state(rec: dict) -> tuple[str, str]:
+    """셀프호스팅 축 — **이름과 뜻이 어긋나지 않게** 3상태로 적는다.
+
+    2026-08-21(T-2026W34-110) 교정. 종전 `self_hostable = bool(packages) or None`은 실제로는
+    "레지스트리에 배포 패키지가 선언돼 있나"였는데 이름은 셀프호스팅이라 읽혔다. 그 정의로는
+    **소스가 공개된 서버가 셀프호스팅 불가로 게시된다** — 우리 서버 둘이 정확히 그 자리였고,
+    교정 결과 우리 위치는 좋아지지 않고 나빠졌다(아래 `source_only`의 단서를 함께 싣기 때문).
+    """
+    pkg = rec.get("package") or {}
+    if pkg.get("installable") is True:
+        return "packaged", "배포판을 설치해 자기 것으로 띄울 수 있다"
+    oss = rec.get("open_source") or {}
+    if oss.get("license"):
+        return "source_only", f"배포판은 없고 소스만 공개({oss['license']}) — 띄우려면 직접 빌드해야 한다"
+    if oss.get("public"):
+        return "source_only", "배포판은 없고 소스만 공개(라이선스 없음) — 법적으로 재사용이 열려 있지 않다"
+    return "unknown", "배포판도 공개 소스도 확인하지 못했다 — 불가가 아니라 미확인이다"
+
+
+def measure_axes() -> int:
+    """우리가 지는 항목(D-2026W34-22 ②)을 실제로 재서 measured.json에 넣는다.
+
+    원격 서버를 두드리지 않는 런이므로 `measured_at`은 건드리지 않는다 —
+    같이 밀면 "응답을 오늘 쟀다"고 게시하게 된다(패키지 축에서 배운 것).
+    """
+    token = enrich.github_token()
+    d = json.load(open("measured.json", encoding="utf-8"))
+    seen: dict[str, dict] = {}
+    for i, r in enumerate(d["items"], 1):
+        url = r.get("repo_url") or ""
+        if url not in seen:
+            seen[url] = measure_license(url, token)
+            time.sleep(0.1)
+        r["open_source"] = dict(seen[url])
+        state, why = self_hosting_state(r)
+        r["self_hosting"] = {"state": state, "why": why}
+        # 옛 필드는 남긴다 — 지우면 이 값을 읽던 남의 재계산이 조용히 깨진다.
+        # 다만 뜻이 달랐다는 것을 값 옆에 박아 둔다.
+        r["self_hostable_note"] = "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+        if i % 25 == 0:
+            print(f"  … {i}/{len(d['items'])}")
+    d["axes_at"] = measured_today()
+    json.dump(d, open("measured.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+
+    lic = collections.Counter(r["open_source"].get("license") or "없음/못읽음" for r in d["items"])
+    st = collections.Counter(r["self_hosting"]["state"] for r in d["items"])
+    print(f"\n불리 축 측정 {len(d['items'])}건 (저장소 {len(seen)}개 조회)")
+    print("  셀프호스팅:", dict(st))
+    print("  라이선스 상위:", dict(lic.most_common(6)))
+    return 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--bucket", default="keep")
     ap.add_argument("--repair-packages", action="store_true",
                     help="measured.json의 패키지 축만 재측정(원격 서버 미접촉)")
+    ap.add_argument("--measure-axes", action="store_true",
+                    help="우리가 지는 항목(오픈소스·셀프호스팅)만 재측정(원격 서버 미접촉)")
     a = ap.parse_args()
     if a.repair_packages:
         return repair_packages()
+    if a.measure_axes:
+        return measure_axes()
 
     src = json.load(open("candidates_filtered.json", encoding="utf-8"))
     items = [i for i in src["items"] if i["verdict"] == a.bucket]
@@ -521,7 +610,8 @@ def main() -> int:
               ensure_ascii=False, indent=1)
 
     json.dump({"measured": len(out), "unmeasurable": len(notes), "boundaries": notes,
-               "criteria_note": "항목은 D-2026W34-22로 결과 보기 전에 고정됐다. 사후 변경 금지.",
+               "criteria_note": "항목은 결과를 보기 전에 PROTOCOL.md에 고정됐다. "
+                                "사후 변경 금지 — 바꾼 적이 있으면 그 개정 이력도 거기 있다.",
                "measured_at": measured_today(),
                "items": out}, open("measured.json", "w", encoding="utf-8"),
               ensure_ascii=False, indent=1)
