@@ -4,15 +4,15 @@
 
 > We actually connect to every Korean data MCP server, measure it, and publish the numbers.
 
-Other lists tell you a server exists. This one tells you whether it **works right now**. As of 2026-08-19, 25 of 55 (45%) did not respond.
+Other lists tell you a server exists. This one tells you whether it **works right now**. As of 2026-08-24, 28 of 58 (48%) did not respond.
 
 | | |
 |---|---|
-| 비교 가능한 서버 | **21**건 |
-| 응답했으나 못 잼(키 필요·규격 이탈) | 7건 |
-| 응답 없음 | 25건 → [DOWN.md](DOWN.md) |
+| 비교 가능한 서버 | **19**건 |
+| 응답했으나 못 잼(키 필요·규격 이탈) | 9건 |
+| 응답 없음 | 28건 → [DOWN.md](DOWN.md) |
 | 주제 밖(데이터 제공형 아님) | 2건 |
-| 설치형(원격 주소 없음) | 배포 확인 **54**건 · 배포판 없음 68건 · 이름을 못 읽어 미측정 28건 |
+| 설치형(원격 주소 없음) | 배포 확인 **54**건 · 배포판 없음 73건 · 이름을 못 읽어 미측정 6건 |
 
 * [왜 만드나](#왜-만드나)
 * [한눈에](#한눈에)
@@ -46,11 +46,11 @@ Other lists tell you a server exists. This one tells you whether it **works righ
 
 | 분야 | 1위 | 사실오류 | 왜 이것이 1위인가 |
 |---|---|---|---|
-| [공공데이터·행정](#공공데이터행정) | [haklaekim/public-data-lens](https://github.com/haklaekim/public-data-lens) | 1건 | 실제 값이 아니라 포털 메타데이터를 주는 카탈로그형이고 그 설계에 맞는 Q2에서는 실재·구체·검증 가능한 포인터를 냈다 — 다만 '서울시 인구' 같은 자명한 질의에 0건을 돌려주는 검색 재현율과… |
+| [공공데이터·행정](#공공데이터행정) | [hike-lab/public-data-lens](https://github.com/hike-lab/public-data-lens) | 1건 | 실제 값이 아니라 포털 메타데이터를 주는 카탈로그형이고 그 설계에 맞는 Q2에서는 실재·구체·검증 가능한 포인터를 냈다 — 다만 '서울시 인구' 같은 자명한 질의에 0건을 돌려주는 검색 재현율과… |
 | [법령·판례](#법령판례) | [chrisryugj/korean-law-mcp](https://github.com/chrisryugj/korean-law-mcp) | 1건 | 법제처 실시간 조회로 두 질문 모두에 현행 원문을 대 준 유일한 서버이고 조문 번호·형량 수치가 실제와 맞았다 — 약점은 서버가 아니라 전달 형식에 있다… |
 | [금융·증시](#금융증시) | [com.aikstockdata/mcp](https://github.com/na77tech-creator/aikstockdata) | 5건 | 코스피 시총 랭킹은 이 분야에서 유일하게 실측 정합한 답을 냈지만, 정작 실적(DART) 계열 수치는 스케일이 무너져 있어 시세는 믿고 실적은 못 믿는 서버다. |
 | [부동산](#부동산) | [app.sallim/korea-realty](https://github.com/sallim-app/korea-realty) 🏠 | 4건 | 이 목록 운영사 서버이지만 같은 잣대로 봐도 두 질문 다 실제로 답이 나온 유일한 서버다 — 단위·집계법·기준시각·분산 경고·유찰 하자 경고를 원문이 스스로 달아 주고 재호출 대조에서 수치가… |
-| [커머스·생활](#커머스생활) | [ai.timeplex/booking](https://chat.timeplex.ai) | 0건 | 이 분야 질문에 끝까지 답한 유일한 서버로 값도 원문과 축자 일치하나, 등록 매장이 1곳뿐이고 lang='ko'로 응답하면서 메뉴명은 일본어 원문 그대로라(답변이 대신 번역했다) 서버가 약속한… |
+| [커머스·생활](#커머스생활) | [ai.timeplex/booking](https://timeplex.ai) | 0건 | 이 분야 질문에 끝까지 답한 유일한 서버로 값도 원문과 축자 일치하나, 등록 매장이 1곳뿐이고 lang='ko'로 응답하면서 메뉴명은 일본어 원문 그대로라(답변이 대신 번역했다) 서버가 약속한… |
 
 종합 1등은 없다. 가중치를 우리가 정하면 우리가 상위권인 이 표에서 그 설계를 반박할 방법이 없기 때문이다. 순위는 분야 안에서만 매긴다.
 
@@ -60,9 +60,9 @@ Other lists tell you a server exists. This one tells you whether it **works righ
 
 | 축 | 이 목록 전체 | 운영자(🏠) |
 |---|---|---|
-| 셀프호스팅 | 배포판 확인 66건 · 소스만 148건 · 미확인 16건 | **소스만** — 그리고 클론해도 답이 안 나온다 |
-| 오픈소스 | MIT 108건, Apache-2.0 13건, ISC 1건, AGPL-3.0 1건 · 라이선스 확인 못 함 107건 | MIT — **이 축에서는 우리가 지지 않는다** |
-| 무료 한도 | 스스로 공시한 서버 1건 | 그 1건이 우리다 — 도구 47종 중 **10종 유료** |
+| 셀프호스팅 | 배포판 확인 67건 · 소스만 157건 · 미확인 17건 | **소스만** — 그리고 클론해도 답이 안 나온다 |
+| 오픈소스 | MIT 112건, Apache-2.0 13건, ISC 1건, AGPL-3.0 1건 · 라이선스 확인 못 함 114건 | MIT — **이 축에서는 우리가 지지 않는다** |
+| 무료 한도 | 스스로 공시한 서버 1건 | 그 1건이 우리다 — 도구 51종 중 **10종 유료** |
 
 * **셀프호스팅은 우리가 제일 나쁘다.** 우리 저장소는 MIT로 열려 있지만 도구들이 우리 비공개 데이터 API를 부르므로 [클론해서 띄우면 거의 다 실패한다](https://github.com/sallim-app/korea-realty) — 우리 README가 먼저 적어 둔 것이고, 여기서도 적는다. 축의 값(`source_only`)보다 실질이 나쁘다
 * **`소스만`은 “띄우면 같은 답이 나온다”가 아니다.** 코드가 공개돼 있다는 뜻일 뿐이고, 남의 서버도 우리처럼 자기 데이터에 묶여 있을 수 있다 — 그건 우리가 재지 않았다
@@ -73,7 +73,7 @@ Other lists tell you a server exists. This one tells you whether it **works righ
 
 ## 공공데이터·행정
 
-<sub>이 분야는 후보가 3건뿐이라 **고른 것이 아니라 줄 세운 것**이다.</sub>
+<sub>이 분야는 후보가 2건뿐이라 **고른 것이 아니라 줄 세운 것**이다.</sub>
 
 > 실제로 쓸 만한 것은 haklaekim/public-data-lens 하나뿐이다 — 카탈로그형이라 인구 값은 못 주지만 '어디서 받나'라는 이 분야의 주력 질문에 데이터셋명·recordId·URL·형식·요금까지 붙은 실재 포인터를 냈고 발췌가 포털 실물과 축자 일치했다.
 
@@ -81,13 +81,13 @@ Other lists tell you a server exists. This one tells you whether it **works righ
 
 | Server | Tools | Warm | Cold | Desc | Annot | Errors |
 |---|---|---|---|---|---|---|
-| [haklaekim/public-data-lens](https://github.com/haklaekim/public-data-lens)<br><sub>카탈로그형 — 값이 아니라 데이터셋 위치를 준다</sub> | 9 | 23 | 42 | 100% | 100% | 1 |
-| [obundh/korea-public-data-catalog-mcp](https://github.com/obundh/korea-public-data-catalog-mcp)<br><sub>카탈로그형 — 값이 아니라 데이터셋 위치를 준다</sub> | 7 | 222 | 549 | 100% | 100% | 3 |
-| [app.apick/all](https://apick.app)<br><sub>전 도구가 API 키 게이트라 종류(데이터형/카탈로그형)조차 확인할 수 없었다</sub> | 82 | 62 | 125 | 100% | 100% | 0 |
+| [hike-lab/public-data-lens](https://github.com/hike-lab/public-data-lens)<br><sub>카탈로그형 — 값이 아니라 데이터셋 위치를 준다</sub><br><sub>Repo moved `haklaekim/public-data-lens` → `hike-lab/public-data-lens` — same endpoint, rank carried over from the old name</sub> | 9 | 23 | 35 | 100% | 100% | 1 |
+| [app.apick/all](https://apick.app/dev_guide/mcp)<br><sub>전 도구가 API 키 게이트라 종류(데이터형/카탈로그형)조차 확인할 수 없었다</sub> | 80 | 51 | 114 | 100% | 100% | 0 |
 
-1. **haklaekim/public-data-lens** — 실제 값이 아니라 포털 메타데이터를 주는 카탈로그형이고 그 설계에 맞는 Q2에서는 실재·구체·검증 가능한 포인터를 냈다 — 다만 '서울시 인구' 같은 자명한 질의에 0건을 돌려주는 검색 재현율과 대표 데이터셋(에어코리아) 누락이 약점이다.
-2. **obundh/korea-public-data-catalog-mcp** — 9만 6천 건 규모를 자처하는 카탈로그형이고 반환 포인터는 실재하지만, 서울→포항·대기질→배출시설 목록처럼 라우팅이 어긋나고 메타데이터 기술에 오기가 섞여 그대로 인용하면 사용자를 잘못 보낸다.
+1. **hike-lab/public-data-lens** — 실제 값이 아니라 포털 메타데이터를 주는 카탈로그형이고 그 설계에 맞는 Q2에서는 실재·구체·검증 가능한 포인터를 냈다 — 다만 '서울시 인구' 같은 자명한 질의에 0건을 돌려주는 검색 재현율과 대표 데이터셋(에어코리아) 누락이 약점이다.
 3. **apick/all** — 전 도구가 API 키 게이트라 무가입 상태에서는 종류(데이터형/카탈로그형)조차 확인할 수 없었고, 이 분야 질문에 공급한 사실은 0건이다.
+
+<sub>**빠진 등수** — 지난 채점 회차의 2위 obundh/korea-public-data-catalog-mcp(이번 주 응답 없음([DOWN.md](DOWN.md))). 순위는 매월 1일에만 다시 매기므로 그때까지 번호는 그대로 둔다 — 빈자리를 위로 당기면 재채점 없이 등수가 오른 것처럼 보인다.</sub>
 
 <sub>순위는 **실제로 물어본 결과**다 — 같은 질문을 각 서버에 던지고 답변을 채점했다. 이 회차는 서버당 **1회**만 물었다 — **재현성은 재지 않았다**(다시 물으면 등수가 갈릴 수 있다). 다음 채점 회차부터 3회로 잰다. 질문·호출기록·답변은 [answers/](answers)에, 채점은 [grades/](grades)에, 기준은 [JUDGING.md](JUDGING.md)에 있다.</sub>
 
@@ -95,7 +95,7 @@ Other lists tell you a server exists. This one tells you whether it **works righ
 
 | 서버 | 실제 분야 | 채점자가 확인한 것 |
 |---|---|---|
-| [app.apick/business](https://apick.app) | 커머스·생활 | “상거래·물류 데이터형 서버로 이 분야 두 질문은 설계 범위 밖이며…” |
+| [app.apick/business](https://apick.app/dev_guide/mcp) | 커머스·생활 | “상거래·물류 데이터형 서버로 이 분야 두 질문은 설계 범위 밖이며…” |
 | [yousunjung84-edu/academyinfo-mcp](https://github.com/yousunjung84-edu/academyinfo-mcp) | 교육·문화 | “이름과 달리 학원이 아니라 대학알리미 기반 고등교육 통계 서버로, 공공데이터·행정 분야와는 주제가 다르며…” |
 
 ## 법령·판례
@@ -104,9 +104,9 @@ Other lists tell you a server exists. This one tells you whether it **works righ
 
 | Server | Tools | Warm | Cold | Desc | Annot | Errors |
 |---|---|---|---|---|---|---|
-| [chrisryugj/korean-law-mcp](https://github.com/chrisryugj/korean-law-mcp) | 10 | 222 | 311 | 100% | 100% | 1 |
-| [app.sallim/contract-compass](https://github.com/sallim-app/contract-compass) 🏠 | 11 | 54 | 77 | 100% | 100% | 0 |
-| [Choihello/startup-law-mcp](https://github.com/Choihello/startup-law-mcp) | 13 | 127 | **3951** | 100% | 0% | 1 |
+| [chrisryugj/korean-law-mcp](https://github.com/chrisryugj/korean-law-mcp) | 10 | 207 | 282 | 100% | 100% | 1 |
+| [app.sallim/contract-compass](https://github.com/sallim-app/contract-compass) 🏠 | 11 | 47 | 137 | 100% | 100% | 0 |
+| [Choihello/startup-law-mcp](https://github.com/Choihello/startup-law-mcp) | 13 | 129 | **4255** | 100% | 0% | 1 |
 
 1. **chrisryugj/korean-law-mcp** — 법제처 실시간 조회로 두 질문 모두에 현행 원문을 대 준 유일한 서버이고 조문 번호·형량 수치가 실제와 맞았다 — 약점은 서버가 아니라 전달 형식에 있다(발췌가 조 전문의 앞머리에서 잘리고, 조회한 법령의 시행일을 함께 주지 않아 '지금'이라는 물음에 최신성을 증명하지 못한다).
 2. **sallim/contract-compass** — 공공계약 도메인 안에서는 조문 대응·금액 수치가 현행법과 일치했고 코퍼스 밖은 이유를 밝힌 404로 환각을 차단했다 — 다만 근거 발췌가 조문 전문을 담지 않아 검증 가능성이 얇고, 코퍼스 밖 질의(search_law '도로교통법 음주운전')에 공공기관운영법 제53조의2를 1건 매칭해 돌려준 검색 소음은 오도 위험이다.
@@ -118,7 +118,7 @@ Other lists tell you a server exists. This one tells you whether it **works righ
 
 | Server | Tools | Warm | Cold | Desc | Annot | Errors |
 |---|---|---|---|---|---|---|
-| [scvcoder/korean-law-alio-mcp](https://github.com/scvcoder/korean-law-alio-mcp) | 125 | 223 | 301 | 76% | 0% | — |
+| [scvcoder/korean-law-alio-mcp](https://github.com/scvcoder/korean-law-alio-mcp) | 125 | 221 | 304 | 76% | 0% | — |
 
 </details>
 
@@ -132,8 +132,8 @@ Other lists tell you a server exists. This one tells you whether it **works righ
 
 | Server | Tools | Warm | Cold | Desc | Annot | Errors |
 |---|---|---|---|---|---|---|
-| [com.aikstockdata/mcp](https://github.com/na77tech-creator/aikstockdata) | 12 | 45 | **182** | 100% | 100% | 5 |
-| [Mrbaeksang/korea-stock-analyzer-mcp](https://github.com/Mrbaeksang/korea-stock-analyzer-mcp) | 6 | 219 | 538 | 100% | 100% | 4 |
+| [com.aikstockdata/mcp](https://github.com/na77tech-creator/aikstockdata) | 12 | 25 | **114** | 100% | 100% | 5 |
+| [Mrbaeksang/korea-stock-analyzer-mcp](https://github.com/Mrbaeksang/korea-stock-analyzer-mcp) | 6 | 214 | 525 | 100% | 100% | 4 |
 
 1. **aikstockdata/mcp** — 코스피 시총 랭킹은 이 분야에서 유일하게 실측 정합한 답을 냈지만, 정작 실적(DART) 계열 수치는 스케일이 무너져 있어 시세는 믿고 실적은 못 믿는 서버다.
 2. **Mrbaeksang/korea-stock-analyzer-mcp** — 개별 종목 재무제표는 이 분야에서 가장 정확했으나 시장 전체를 훑는 랭킹·스크리닝 도구가 없어 '상위 종목' 유형 질문에는 구조적으로 답하지 못한다.
@@ -145,23 +145,23 @@ Other lists tell you a server exists. This one tells you whether it **works righ
 | 서버 | 실제 분야 | 채점자가 확인한 것 |
 |---|---|---|
 | [MosslandOpenDevs/alpha](https://github.com/MosslandOpenDevs/alpha) | 미디어·뉴스 | “한국 크립토·매크로 뉴스 알파 서버로 증시와 주제가 다르며…” |
-| [app.apick/finance](https://apick.app) | 핀테크·인증 | “이름만 finance일 뿐 실제로는 은행 계좌 검증(1원 인증·실명조회) 서비스로 한국 증시와 주제가 다르며…” |
+| [app.apick/finance](https://apick.app/dev_guide/mcp) | 핀테크·인증 | “이름만 finance일 뿐 실제로는 은행 계좌 검증(1원 인증·실명조회) 서비스로 한국 증시와 주제가 다르며…” |
 
 ## 부동산
 
-<sub>이 분야는 후보가 3건뿐이라 **고른 것이 아니라 줄 세운 것**이다.</sub>
+<sub>이 분야는 후보가 2건뿐이라 **고른 것이 아니라 줄 세운 것**이다.</sub>
 
 > 두 질문에 실제로 값이 나온 서버는 app.sallim/korea-realty 하나뿐이다 — 월별 중앙값·거래건수·부분월·평당가와 유찰 물건 목록을 단위·기준시각·하자 경고와 함께 돌려주고, 재호출 대조에서 수치가 그대로 재현됐다. 나머지 둘은 각각 결제벽 뒤의 매매신호(seoul-apt-signal, 핵심 도구 3종 402·유료 미공시)와 분당 3회 제한에 막힌 통계표 검색기(realestate-stats-mcp)라 실거래가·경매 어느 쪽도 채우지 못했다.
 
 | Server | Tools | Warm | Cold | Desc | Annot | Errors |
 |---|---|---|---|---|---|---|
-| [app.sallim/korea-realty](https://github.com/sallim-app/korea-realty) 🏠 <sub>무료 37/47</sub> | 47 | 46 | 53 | 100% | 100% | 4 |
-| [com.airblockfz/seoul-apt-signal](https://seoul-apt-signal.airblock2026.workers.dev)<br><sub>실거래가가 아니라 산식 미공개 매매신호. 분석 도구는 HTTP 402(사실상 유료)</sub> | 6 | 33 | 79 | 100% | 0% | 1 |
-| [hlucent/realestate-stats-mcp](https://github.com/hlucent/realestate-stats-mcp)<br><sub>개별 실거래가 아니라 한국부동산원 집계 통계표. 분당 3회 제한</sub> | 3 | 121 | **5484** | 100% | 0% | 1 |
+| [app.sallim/korea-realty](https://github.com/sallim-app/korea-realty) 🏠 <sub>무료 41/51</sub> | 51 | 43 | 86 | 100% | 100% | 4 |
+| [com.airblockfz/seoul-apt-signal](https://airblockfz.com)<br><sub>실거래가가 아니라 산식 미공개 매매신호. 분석 도구는 HTTP 402(사실상 유료)</sub> | 6 | 121 | 174 | 100% | 0% | 1 |
 
 1. **sallim/korea-realty** — 이 목록 운영사 서버이지만 같은 잣대로 봐도 두 질문 다 실제로 답이 나온 유일한 서버다 — 단위·집계법·기준시각·분산 경고·유찰 하자 경고를 원문이 스스로 달아 주고 재호출 대조에서 수치가 그대로 재현됐다. 감점은 서버 데이터가 아니라 옮겨 적는 과정의 자릿수·단위 실수 네 건이고(서버는 min_bid_display·억원 표기를 이미 제공했다), 서버 쪽 흠은 '(유)갈현상가'가 usage_name='아파트'로 분류돼 있는 원천 라벨 문제와 무료 30콜/일 한도다.
 2. **airblockfz/seoul-apt-signal** — 사실상 유료 서버다 — evaluate_symbol·scan_bottoms·scan_tops가 모두 HTTP 402이고 무료로 열린 것은 마케팅 티저 pitch뿐인데 도구 목록에는 유료 여부가 공시돼 있지 않아(측정값 paid_disclosure=false) 모델이 결제벽을 미리 알 방법이 없으며, 그나마 나오는 것도 실거래가가 아니라 산식 미공개 매매신호라 이 분야 두 질문 중 어느 쪽도 채우지 못한다.
-3. **hlucent/realestate-stats-mcp** — 주제가 다른 서버다 — 한국부동산원 통계표(집계 지수) 검색기이지 개별 실거래·법원경매 원장이 아니며, 도구 3종에 분당 3회 제한이 걸려 있어 두 질문 모두 탐색 두세 번 만에 429로 막혀 커버리지 판정조차 못 하고 끝났다(유료는 아니고 콜드 5.5초).
+
+<sub>**빠진 등수** — 지난 채점 회차의 3위 hlucent/realestate-stats-mcp(이번 주 응답 없음([DOWN.md](DOWN.md))). 순위는 매월 1일에만 다시 매기므로 그때까지 번호는 그대로 둔다 — 빈자리를 위로 당기면 재채점 없이 등수가 오른 것처럼 보인다.</sub>
 
 <sub>순위는 **실제로 물어본 결과**다 — 같은 질문을 각 서버에 던지고 답변을 채점했다. 이 회차는 서버당 **1회**만 물었다 — **재현성은 재지 않았다**(다시 물으면 등수가 갈릴 수 있다). 다음 채점 회차부터 3회로 잰다. 질문·호출기록·답변은 [answers/](answers)에, 채점은 [grades/](grades)에, 기준은 [JUDGING.md](JUDGING.md)에 있다.</sub>
 
@@ -175,9 +175,9 @@ Other lists tell you a server exists. This one tells you whether it **works righ
 
 | Server | Tools | Warm | Cold | Desc | Annot | Errors |
 |---|---|---|---|---|---|---|
-| [ai.timeplex/booking](https://chat.timeplex.ai)<br><sub>뷰티·웰니스 예약. 등록 매장 1곳</sub> | 6 | 388 | **1245** | 100% | 100% | 0 |
-| [com.arcasos/arcasos-rentals](https://mcp.arcasos.com)<br><sub>주 단위 단기임차. 총계 미공시로 항상 10건에서 조용히 잘린다</sub> | 3 | 648 | 1099 | 100% | 0% | 2 |
-| [com.theprotoclinical/commerce](https://www.theprotoclinical.com)<br><sub>특정 Shopify 스토어 한 곳의 결제 엔드포인트(UCP)</sub> | 13 | 149 | 329 | 100% | 0% | 2 |
+| [ai.timeplex/booking](https://timeplex.ai)<br><sub>뷰티·웰니스 예약. 등록 매장 1곳</sub> | 5 | 405 | **1284** | 100% | 100% | 0 |
+| [com.arcasos/arcasos-rentals](https://arcasos.com)<br><sub>주 단위 단기임차. 총계 미공시로 항상 10건에서 조용히 잘린다</sub> | 3 | 664 | 1216 | 100% | 0% | 2 |
+| [com.theprotoclinical/commerce](https://www.theprotoclinical.com/)<br><sub>특정 Shopify 스토어 한 곳의 결제 엔드포인트(UCP)</sub> | 13 | 161 | 451 | 100% | 0% | 2 |
 
 1. **timeplex/booking** — 이 분야 질문에 끝까지 답한 유일한 서버로 값도 원문과 축자 일치하나, 등록 매장이 1곳뿐이고 lang='ko'로 응답하면서 메뉴명은 일본어 원문 그대로라(답변이 대신 번역했다) 서버가 약속한 번역이 실제로는 동작하지 않는다.
 2. **arcasos/arcasos-rentals** — 숙소 재고는 실재하고 응답도 빠르지만, limit을 무시하고 항상 10건만 총계 없이 돌려주는 조용한 절단과 정렬 근거 미공시가 겹쳐 '인기'·'전체'를 묻는 질문에서 모델이 그럴듯하게 틀리도록 유도한다.
@@ -190,7 +190,7 @@ Other lists tell you a server exists. This one tells you whether it **works righ
 | 서버 | 실제 분야 | 채점자가 확인한 것 |
 |---|---|---|
 | [com.hankookilbo.mcp/hankookilbo-mcp](https://github.com/hkilbo/hankookilbo-mcp) | 미디어·뉴스 | “상품·예약과는 무관한 미디어 서버다.” |
-| [com.saaskr/korean-saas-directory](https://saaskr.com) | 디렉토리·개발자도구 | “상품 판매나 예약을 하는 곳이 아니다.” |
+| [com.saaskr/korean-saas-directory](https://saaskr.com/mcp) | 디렉토리·개발자도구 | “상품 판매나 예약을 하는 곳이 아니다.” |
 
 ## 표기
 
@@ -204,14 +204,16 @@ Other lists tell you a server exists. This one tells you whether it **works righ
 
 ## 측정 못 함
 
-응답은 했지만 **비교할 값을 얻지 못한 7건.** 지우지 않고 여기 둔다 — “없다”가 아니라 **“우리가 못 봤다”**이기 때문이다. 대부분 도구 목록을 보는 데도 키를 요구한다. 키가 있으면 잘 도는 서버일 수 있다.
+응답은 했지만 **비교할 값을 얻지 못한 9건.** 지우지 않고 여기 둔다 — “없다”가 아니라 **“우리가 못 봤다”**이기 때문이다. 대부분 도구 목록을 보는 데도 키를 요구한다. 키가 있으면 잘 도는 서버일 수 있다.
 
 | 서버 | 증상 |
 |---|---|
 | [MarcoYou/open-proxy-mcp](https://github.com/MarcoYou/open-proxy-mcp) | 인증 필요 — 키 없이는 도구 목록도 못 본다 |
+| [ai.heyyumi/heyyumi](https://heyyumi.ai/mcp) | 인증 필요 — 키 없이는 도구 목록도 못 본다 |
 | [com.beauticslab/mcp](https://github.com/websfactory/beauticslab-mcp) | 인증 필요 — 키 없이는 도구 목록도 못 본다 |
-| [com.boltena/erp](https://app.boltena.com) | 인증 필요 — 키 없이는 도구 목록도 못 본다 |
-| [com.empresskorea/kbeauty-agent-commons](https://empresskorea.com) | 인증 필요 — 키 없이는 도구 목록도 못 본다 |
+| [com.boltena/erp](https://boltena.com/ai) | 인증 필요 — 키 없이는 도구 목록도 못 본다 |
+| [com.empresskorea/kbeauty-agent-commons](https://empresskorea.com/kb-agent-network/) | 인증 필요 — 키 없이는 도구 목록도 못 본다 |
+| [com.koreastockcheck/mcp](https://koreastockcheck.com) | 인증 필요 — 키 없이는 도구 목록도 못 본다 |
 | [io.github.accentist/buyking-mcp](https://github.com/accentist/buyking-mcp) | 200이지만 tools/list 응답을 못 읽었다 — 규격 이탈 의심 |
 | [jeonghwanko/coffee-price-mcp](https://github.com/jeonghwanko/coffee-price-mcp) | 인증 필요 — 키 없이는 도구 목록도 못 본다 |
 | [seolcoding/korean-stat-mcp](https://github.com/seolcoding/korean-stat-mcp) | 인증 필요 — 키 없이는 도구 목록도 못 본다 |
@@ -226,7 +228,7 @@ Other lists tell you a server exists. This one tells you whether it **works righ
 
 ## 고쳤다면 다시 잰다
 
-이 표의 값은 **2026-08-19 그 순간의 기록**이다. 고쳤다면 [이슈](https://github.com/sallim-app/korea-mcp-index/issues)로 알려 달라 — 다음 회차에 다시 잰다. 경쟁 서비스여도 받는다.
+이 표의 값은 **2026-08-24 그 순간의 기록**이다. 고쳤다면 [이슈](https://github.com/sallim-app/korea-mcp-index/issues)로 알려 달라 — 다음 회차에 다시 잰다. 경쟁 서비스여도 받는다.
 
 **우리가 먼저 다시 두드리지는 않는다.** 바뀐 게 없는 서버를 주기적으로 재호출하는 것은 새 정보가 아니라 남의 서버에 지우는 부하다. 그래서 두드리는 대신 신호를 받는다.
 
@@ -267,7 +269,7 @@ render   이 문서
 * **측정 항목을 우리가 골랐다.** 원자료 공개로 줄일 수는 있어도 없앨 수는 없다 — 무엇을 고정했고 무엇을 언제 왜 바꿨는지는 [PROTOCOL.md](PROTOCOL.md)에 있다. **결과를 본 뒤에 바꾼 적이 한 번 있고**, 그 건도 거기 적어 두었다
 * **측정 지점은 한국 두 곳이다.** 국외에서 재면 값이 다를 수 있고 아직 확인하지 않았다
 * **콜드는 한 번뿐이다.** 그 순간 그 서버가 자고 있었을 수 있다
-* **못 잰 것이 더 많다.** 후보 중 25건은 주소도 패키지도 찾지 못했다. “작동하지 않는다”가 아니라 **확인하지 못했다**는 뜻이다 — 그 밖에 54건은 배포 패키지는 확인했으나 원격 주소가 없어 응답을 못 쟀다
+* **못 잰 것이 더 많다.** 후보 중 50건은 주소도 패키지도 찾지 못했다. “작동하지 않는다”가 아니라 **확인하지 못했다**는 뜻이다 — 그 밖에 54건은 배포 패키지는 확인했으나 원격 주소가 없어 응답을 못 쟀다
 
 ---
 
@@ -277,4 +279,4 @@ render   이 문서
 
 ---
 
-생성 `render_readme.py` · 마지막 측정 2026-08-19 · 패키지 축 재측정 2026-08-20 · 운영 [sallim-app](https://github.com/sallim-app)
+생성 `render_readme.py` · 마지막 측정 2026-08-24 · 운영 [sallim-app](https://github.com/sallim-app)

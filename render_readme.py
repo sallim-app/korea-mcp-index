@@ -17,7 +17,7 @@ import json
 import re
 import sys
 
-from observed import MISFILED, SCOPE
+from observed import MISFILED, RENAMED, SCOPE
 
 OURS = ("app.sallim/", "sallim-app/")
 CATS = ["공공데이터·행정", "법령·판례", "금융·증시", "부동산", "세금·재정", "지도·주소",
@@ -124,6 +124,16 @@ def row(rec: dict, en=False, err_of: dict | None = None) -> str:
     # 통계표에서 개별 실거래를 찾는 것은 서버 탓이 아닌데, 표만 보면 그걸 알 수 없다.
     sc = SCOPE.get(rec["name"])
     scope = f"<br><sub>{sc}</sub>" if sc else ""
+    # **개명을 숨기지 않는다.** 등수는 옛 이름으로 받은 것이고, 독자가 채점 근거
+    # (grades/·아래 총평)에서 만나는 이름도 옛 이름이다. 조용히 이어 붙이면
+    # 그 등수가 이 저장소에서 측정된 것처럼 읽힌다.
+    rn = RENAMED.get(rec["name"])
+    if rn:
+        scope += (f"<br><sub>저장소가 `{rn}` → `{rec['name']}`로 옮겨졌다 — "
+                  f"주소가 같아 같은 서버로 이었고, 등수는 옛 이름으로 받은 것이다</sub>"
+                  if not en else
+                  f"<br><sub>Repo moved `{rn}` → `{rec['name']}` — same endpoint, "
+                  f"rank carried over from the old name</sub>")
     return (f"| {link(rec)}{mark}{paid}{scope} | {rm.get('tool_count') or '—'} | {warm or '—'} | "
             f"{emph(str(cold)) if slow else (cold or '—')} | "
             f"{q(rec, 'described_pct')}% | {q(rec, 'annotated_pct')}% | "
@@ -211,7 +221,14 @@ def write_down(dead: list, ts: str) -> None:
         for r in group:
             rm = r["remote"]
             why = rm.get("why") or f"HTTP {rm.get('http')}"
-            o.append(f"| {link(r)} | {why[:60]} | `{(rm.get('url') or '')[:60]}` |")
+            # **주소는 자르지 않는다**(2026-08-24). 이 표의 주장은 "이 주소가 응답하지
+            # 않았다"인데, 60자에서 잘린 주소는 우리가 부른 주소가 아니다 — 운영자는
+            # 무엇을 고쳐야 할지 못 보고, 독자는 우리가 애초에 엉뚱한 데를 두드린 것인지
+            # 확인할 수 없다. 남의 제품에 사망 선고를 하는 표에서 근거를 잘라 싣는 셈이다.
+            # 실측: `…up.railway.` `…hf.sp`처럼 도메인 한가운데서 끊긴 채 게시돼 있었다.
+            # 증상 쪽은 2026-08-19에 도입한 clip()으로 통일한다(여기만 `[:60]`이 남아
+            # `Name or service not know`로 단어 중간에서 끊겼다).
+            o.append(f"| {link(r)} | {clip(why, 80)} | `{rm.get('url') or ''}` |")
         o.append("")
     o.append("---")
     o.append("")
@@ -247,6 +264,21 @@ def main() -> int:
             rank_of[t["name"]] = (t["rank"], t.get("why", ""))
             if t.get("사실오류") is not None:
                 err_of[t["name"]] = t["사실오류"]
+    # **개명한 서버의 등수를 잇는다**(observed.RENAMED). 채점은 옛 이름으로 받았고
+    # 측정은 새 이름으로 하므로, 잇지 않으면 그 분야 1위가 표에서 통째로 사라진다 —
+    # 서버가 나빠져서가 아니라 저장소 주인이 바뀌어서. 그건 측정이 아니라 우리 착오다.
+    for _new, _old in RENAMED.items():
+        if _old in rank_of and _new not in rank_of:
+            rank_of[_new] = rank_of[_old]
+        if _old in err_of and _new not in err_of:
+            err_of[_new] = err_of[_old]
+    # 분야별 **채점된 명단**을 따로 들고 있는다. 가동은 매주·순위는 매월이라 두 명단은
+    # 어긋나게 되어 있다 — 채점 뒤에 죽거나 이름이 바뀐 서버가 표에서 그냥 사라지면
+    # 순위가 "1. … 3. …"처럼 이가 빠진 채 게시된다. 빠진 자리를 설명하려고 남긴다.
+    graded_of: dict[str, list[tuple[int, str]]] = {}
+    for v in rk.values():
+        graded_of.setdefault(v["category"], []).extend(
+            (t["rank"], t["name"]) for t in v["top"])
 
     items, merged = dedupe_by_endpoint(d["items"])
     for it in items:
@@ -281,6 +313,17 @@ def main() -> int:
         return 1
     # 패키지 축만 다시 잰 회차는 응답 측정일과 다르다 — 합치면 둘 중 하나가 거짓말이 된다.
     pkg_ts = d.get("repackaged_at")
+    # 2026-08-24: 같은 fail-closed를 **우리가 지는 축**에도 건다. `measure.py`(축 없이)는
+    # measured.json을 처음부터 다시 쓰므로 `--measure-axes`를 빠뜨린 회차는 open_source·
+    # self_hosting이 통째로 빈다. 그런데 렌더는 그걸 0으로 세어 **"배포판 확인 0건 ·
+    # 라이선스 확인 못 함 241건"**을 게시했다 — 남의 저장소 241개에 대한 거짓 주장이고,
+    # PROTOCOL.md가 "회차마다" 재기로 고정한 축이 조용히 사라진 것이다. 0건은 측정 결과처럼
+    # 보이기 때문에 아무도 안 멈춘다. 그래서 멈춘다.
+    if not d.get("axes_at") or not any(i.get("open_source") for i in d["items"]):
+        print("생성 중단 — 우리가 지는 축(오픈소스·셀프호스팅)이 measured.json에 없다. "
+              "`python3 measure.py --measure-axes`를 돌려라. 빈 축을 0건으로 게시하면 "
+              "남의 저장소를 '라이선스 없음'으로 낙인찍는다(PROTOCOL.md ②).", file=sys.stderr)
+        return 1
     pct = round(100 * len(dead) / max(len(rem), 1))
     out: list[str] = []
     A = out.append
@@ -476,6 +519,25 @@ def main() -> int:
                 rank, why = rank_of[r["name"]]
                 A(f"{rank}. **{disp(r['name'])}** — {clip(why, 300)}")
             A("")
+            # **빠진 등수를 설명한다.** 채점(매월) 뒤에 죽거나 후보에서 빠진 서버는
+            # 이번 주 표에 없다. 아무 말 없이 빼면 독자는 이 빠진 번호를 렌더 버그로
+            # 읽거나, 더 나쁘게는 우리가 불리한 항목을 지운 것으로 읽는다.
+            here = {r["name"] for r in judged} | {r["name"] for r in mis}
+            here |= {RENAMED[n] for n in here if n in RENAMED}
+            gone = [(rk_, n) for rk_, n in sorted(set(graded_of.get(c, [])))
+                    if n not in here]
+            if gone:
+                bits = []
+                for rk_, n in gone:
+                    why_gone = ("이번 주 응답 없음([DOWN.md](DOWN.md))"
+                                if n in {x["name"] for x in dead}
+                                else "이번 주 후보에서 빠졌다")
+                    bits.append(f"{rk_}위 {disp(n)}({why_gone})")
+                A(f"<sub>{emph('빠진 등수')} — 지난 채점 회차의 "
+                  + " · ".join(bits)
+                  + ". 순위는 매월 1일에만 다시 매기므로 그때까지 번호는 그대로 둔다 —"
+                    " 빈자리를 위로 당기면 재채점 없이 등수가 오른 것처럼 보인다.</sub>")
+                A("")
             # **몇 번 물었는지를 순위 옆에 적는다.** 1회짜리 순위는 서버의 성질과
             # 모델의 주사위를 구별하지 못한다(variance/ 실측: 4개 자리 중 2곳 등급 갈림).
             # 적지 않으면 독자는 그 등수가 한 번의 주사위인지 모른다.

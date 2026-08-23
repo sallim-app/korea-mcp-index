@@ -91,25 +91,72 @@ def test_no_private_or_personal_paths():
 
 # ── 순위 신뢰 회귀 (2026-08-19, "순위가 신뢰가 안 가는데?") ──────────────────
 
+# **채점 명단과 이번 주 명단은 어긋나게 되어 있다.** 가동은 매주, 순위는 매월 1일이다
+# (README「어떻게 재나」). 그 사이에 채점받은 서버가 죽거나 이름이 바뀌면 이번 주 표에는
+# 없다 — 그건 결함이 아니라 이 제품의 설계다. 2026-08-24 첫 주간 회차에서 실제로 둘 다
+# 일어났다(obundh 404 · haklaekim→hike-lab 개명).
+#
+# 그래서 아래 세 검사는 "채점된 전원이 표에 있다"를 요구하지 않는다. 대신 **사라진 것은
+# 반드시 설명돼 있어야 한다**를 요구한다 — 조용히 빠지는 것이 진짜 결함이기 때문이다.
+def _shown_as(name: str) -> str:
+    """채점 당시 이름 → 이번 주 표에 실린 이름(개명 반영)."""
+    from observed import RENAMED
+    back = {old: new for new, old in RENAMED.items()}
+    return back.get(name, name)
+
+
+def _accounted_for(name: str) -> bool:
+    """표에 없다면, 없는 이유가 게시본에 적혀 있는가."""
+    shown = _shown_as(name)
+    if shown in README:
+        return True
+    # 무응답으로 빠졌으면 DOWN.md에, 그 외 사유면 「빠진 등수」 줄에 적혀 있어야 한다.
+    return name in DOWN or f"위 {name}(" in README or f"위 {shown}(" in README
+
+
 def test_judged_servers_all_have_tools():
-    """심사 대상에 도구 0건이 섞이면 안 된다 — 지표가 비어 비교가 성립하지 않는다."""
+    """심사 대상에 도구 0건이 섞이면 안 된다 — 지표가 비어 비교가 성립하지 않는다.
+
+    이번 주 표에 남아 있는 서버에 한한다. 채점 뒤 죽은 서버까지 요구하면 이 검사는
+    "지난달 명단이 이번 주에도 전원 살아 있어야 한다"가 되는데, 그건 참일 수 없다.
+    """
     m = {i["name"]: i for i in MEASURED["items"]}
     for v in RANKING["items"].values():
         for t in v["top"]:
-            rm = (m.get(t["name"]) or {}).get("remote") or {}
+            cur = m.get(_shown_as(t["name"]))
+            if cur is None:
+                assert _accounted_for(t["name"]), \
+                    f"{t['name']}이 설명 없이 표에서 사라졌다"
+                continue
+            rm = cur.get("remote") or {}
+            if not (rm.get("reachable")):
+                assert _accounted_for(t["name"]), \
+                    f"{t['name']}이 무응답인데 그 사실이 게시본에 없다"
+                continue
             assert rm.get("tool_count"), f"{t['name']}은 도구 0건인데 심사됐다"
 
 
 def test_table_order_matches_the_judgement():
     """표의 순서가 심사 순위와 같아야 한다 — 다르면 순위를 표기만 하고 안 지킨 것이다."""
     for v in RANKING["items"].values():
-        names = [t["name"].split("/")[-1] for t in sorted(v["top"], key=lambda x: x["rank"])]
         block = re.split(r"^## ", README, flags=re.M)
         block = [b for b in block if b.startswith(v["category"])]
         if not block:
             continue
-        pos = [block[0].find(n) for n in names]
-        assert all(p >= 0 for p in pos), f"{v['category']}: 표에 없는 심사 항목"
+        # **표 줄만 본다.** 블록 전체를 문자열로 훑으면 「빠진 등수」 공시에 적힌
+        # 이름까지 "표에 있다"로 세어, 사라진 서버가 순서 위반으로 둔갑한다.
+        rows = "\n".join(ln for ln in block[0].splitlines() if ln.startswith("| ["))
+        pos, kept = [], 0
+        for t in sorted(v["top"], key=lambda x: x["rank"]):
+            n = _shown_as(t["name"]).split("/")[-1]
+            p = rows.find(n)
+            if p < 0:
+                assert _accounted_for(t["name"]), \
+                    f"{v['category']}: {t['name']}이 설명 없이 표에서 사라졌다"
+                continue
+            kept += 1
+            pos.append(p)
+        assert kept, f"{v['category']}: 채점된 서버가 표에 하나도 안 남았다"
         assert pos == sorted(pos), f"{v['category']}: 표 순서가 심사 순위와 다름"
 
 
@@ -118,7 +165,10 @@ def test_every_ranked_server_shows_its_reason():
     for v in RANKING["items"].values():
         for t in v["top"]:
             assert t["why"].strip(), f"{t['name']}에 심사 이유가 없다"
-            assert t["why"][:20] in README, f"{t['name']}의 이유가 README에 안 실렸다"
+            if t["why"][:20] in README:
+                continue
+            assert _accounted_for(t["name"]), \
+                f"{t['name']}의 이유가 README에 없고 사라진 사유도 없다"
 
 
 def test_unmeasurable_servers_are_not_ranked():
@@ -382,3 +432,67 @@ def test_렌더는_measured_at_없으면_멈춘다():
     body = "\n".join(ln for ln in src.splitlines() if not ln.lstrip().startswith("#"))
     assert "datetime.now" not in body, "렌더가 다시 현재 시각을 측정일로 쓰고 있다"
     assert 'd.get("measured_at")' in body
+
+
+# ── 2026-08-24 주간 회차에서 실제로 잡힌 것들 ──────────────────────────────
+
+def test_losing_axes_are_actually_measured():
+    """**우리가 지는 축이 비어 있으면 게시하면 안 된다**(PROTOCOL.md ②).
+
+    실사고 2026-08-24: 주간 회차 명령표에 `measure.py --measure-axes`가 빠져 있었다.
+    `measure.py`는 measured.json을 처음부터 다시 쓰므로 축이 통째로 사라졌는데, 렌더는
+    그 빈 값을 0으로 세어 **「배포판 확인 0건 · 라이선스 확인 못 함 241건」**을 뽑았다.
+    남의 저장소 241개를 '라이선스 없음'으로 낙인찍는 문장이고, 0건은 측정 결과처럼
+    보이기 때문에 아무도 안 멈춘다. 값이 아니라 **존재**를 검사한다.
+    """
+    assert MEASURED.get("axes_at"), "measured.json에 axes_at이 없다 — --measure-axes를 안 돌렸다"
+    n = sum(1 for i in MEASURED["items"] if i.get("open_source"))
+    assert n, "open_source 축이 한 건도 없다 — 빈 축을 0건으로 게시하려던 참이다"
+    assert "라이선스 확인 못 함 0건" not in README
+
+
+def test_down_addresses_are_not_truncated():
+    """**무응답 표의 주소를 자르지 않는다.**
+
+    이 표의 주장은 "이 주소가 응답하지 않았다"인데, 잘린 주소는 우리가 부른 주소가
+    아니다. 실측 2026-08-24: `…up.railway.` `…hf.sp`처럼 도메인 한가운데서 끊긴 채
+    게시돼 있었다 — 운영자는 무엇을 고칠지 못 보고, 독자는 우리가 애초에 엉뚱한 데를
+    두드린 것인지 확인할 수 없다.
+    """
+    urls = re.findall(r"\| `(https?://[^`]*)` \|", DOWN)
+    assert urls, "DOWN.md에서 주소 칸을 못 찾았다 — 표 구조가 바뀌었다"
+    for u in urls:
+        real = {(i.get("remote") or {}).get("url") for i in MEASURED["items"]}
+        assert u in real, f"게시된 주소가 측정한 주소와 다르다(절단 의심): {u}"
+
+
+def test_renamed_servers_keep_their_rank_and_say_so():
+    """**개명은 죽음이 아니다** — 그리고 조용히 이어 붙이지도 않는다.
+
+    실사고 2026-08-24: haklaekim/public-data-lens가 GitHub 404가 되고
+    hike-lab/public-data-lens가 나타났다(리디렉트 없음). 같은 주소를 부르는 같은
+    서버인데 이름으로 키를 잡는 순위·범위 공시가 전부 끊겨, 그 분야 1위가 표에서
+    사라질 뻔했다. 서버가 나빠져서가 아니라 우리 잣대가 이름에 묶여 있어서다.
+    """
+    from observed import RENAMED
+    for new, old in RENAMED.items():
+        if new not in README:
+            continue
+        assert f"`{old}` → `{new}`" in README, f"{new}의 개명 사실이 공시되지 않았다"
+        # 옛 이름이 순위에 있었으면 새 이름이 그 자리를 이어받아야 한다.
+        ranked_old = any(t["name"] == old
+                         for v in RANKING["items"].values() for t in v["top"])
+        if ranked_old:
+            assert re.search(rf"^\d+\. \*\*{re.escape(new)}\*\*", README, re.M), \
+                f"{new}가 등수를 잇지 못했다"
+
+
+def test_this_index_does_not_list_itself():
+    """이 목록 자신은 후보가 아니다.
+
+    실측 2026-08-24: 저장소를 공개한 다음 주, GitHub 검색('mcp 한국')이 우리 색인
+    저장소를 잡아 keep으로 올렸다. 원격도 패키지도 없으니 "가동 여부를 못 쟀다"로
+    실려, 목록이 자기 자신을 미측정 서버로 게시하게 된다.
+    """
+    names = {i["name"] for i in MEASURED["items"]}
+    assert "sallim-app/korea-mcp-index" not in names

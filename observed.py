@@ -72,11 +72,41 @@ SCOPE: dict[str, str] = {
 }
 
 
+# 저장소가 옮겨간 것 — **같은 서버다**. 새 이름 → 옛 이름 (2026-08-24).
+#
+# 순위(ranking.json)·범위 공시(SCOPE)·분야 교정(MISFILED)은 전부 **이름**을 키로 붙는다.
+# 이름이 바뀐 것을 모르면 그 서버는 "지난주에 죽고 이번 주에 새로 태어난" 것으로 게시된다 —
+# 실제로 받아 둔 등수가 통째로 사라지고, 독자는 1위가 없어진 분야를 본다. 우리 잣대가
+# 흔들린 것을 남의 서버가 바뀐 것처럼 싣는 자리라 조용히 넘기면 안 된다.
+#
+# **같은 서버라는 근거는 이름이 아니라 주소다.** 이름만 닮은 다른 서버를 여기 적으면
+# 남이 받은 등수를 엉뚱한 서버에 옮겨 붙이게 된다 — 주소가 같을 때만 적는다.
+RENAMED: dict[str, str] = {
+    # haklaekim/public-data-lens → hike-lab/public-data-lens.
+    # 근거 ①: 두 저장소의 README가 같은 커넥터를 선언한다
+    #        (https://service.datahub.kr/projects/public-data-lens/mcp).
+    # 근거 ②: 2026-08-19 측정본에서 두 이름의 remote.url이 같았다(그때는 둘 다 후보라
+    #        주소 중복 제거가 합쳤고, 살아남은 이름이 haklaekim 쪽이라 등수도 거기 붙었다).
+    # 근거 ③: 옛 경로는 GitHub 404이고 **리디렉트가 없다** — 그래서 자동으로는 못 잇는다.
+    "hike-lab/public-data-lens": "haklaekim/public-data-lens",
+}
+
+# 이름만 바뀐 서버가 옛 이름으로 받아 둔 공시를 그대로 잇는다. 손으로 두 번 적지 않는다 —
+# 한쪽만 고치면 표와 근거가 어긋나고, 그 어긋남은 조용하다.
+for _new, _old in RENAMED.items():
+    if _old in SCOPE and _new not in SCOPE:
+        SCOPE[_new] = SCOPE[_old]
+    if _old in MISFILED and _new not in MISFILED:
+        MISFILED[_new] = MISFILED[_old]
+
+
 def misfiled_in(category: str) -> dict[str, tuple[str, str, str]]:
     return {k: v for k, v in MISFILED.items() if v[0] == category}
 
 
 if __name__ == "__main__":
-    print(f"분야 교정 {len(MISFILED)}건 · 범위 공시 {len(SCOPE)}건")
+    print(f"분야 교정 {len(MISFILED)}건 · 범위 공시 {len(SCOPE)}건 · 개명 {len(RENAMED)}건")
     for n, (was, now, why) in MISFILED.items():
         print(f"  {n:<42} {was} → {now}")
+    for n, o in RENAMED.items():
+        print(f"  개명 {o} → {n}")

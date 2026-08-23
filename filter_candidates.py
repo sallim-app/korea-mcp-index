@@ -91,6 +91,13 @@ def classify(item: dict) -> dict:
     # 저장소 자체가 MCP 서버가 아닌 것 — 이름으로 확실히 걸리는 것만
     if name.endswith("/.github") or re.search(r"awesome[-_]", name, re.I):
         return {"verdict": "drop", "why": "MCP 서버가 아니다(조직 프로필·목록 저장소)", "kr": kr, "data": data}
+    # **이 목록 자신은 후보가 아니다.** 2026-08-24 실측: 저장소를 공개한 다음 주 회차에
+    # GitHub 검색('mcp 한국')이 우리 색인 저장소를 잡아 keep으로 올렸다. 원격도 패키지도
+    # 없으니 "가동 여부를 못 쟀다"로 실려, 목록이 자기 자신을 미측정 서버로 게시하게 된다.
+    # 이름 하나만 막는다 — 우리 **서버**(korea-realty·contract-compass)는 후보가 맞고,
+    # 여기서 넓게 막으면 우리를 순위에서 빼는 것이 되어 PROTOCOL.md와 어긋난다.
+    if name == "sallim-app/korea-mcp-index":
+        return {"verdict": "drop", "why": "MCP 서버가 아니다(이 목록 자신)", "kr": kr, "data": data}
     if not kr:
         return {"verdict": "drop", "why": "한국 관련 신호 0 — 검색어에 우연히 걸림", "kr": kr, "data": data}
     if nod and not data:
