@@ -727,8 +727,14 @@ def server_page(ctx, rec) -> None:
     os_ = rec.get("open_source") or {}
     shh = rec.get("self_hosting") or {}
     pkg = rec.get("package") or {}
+    lic_caveat = ("" if os_.get("license") else
+                  ' <span class="sub">이 판정의 근거는 GitHub이 알려주는 라이선스 필드 '
+                  '하나다 — 파일 이름이 표준과 다르거나 전문을 손봤거나 하위 폴더에 있으면 '
+                  '거기서 빈칸이 나온다. <strong>“오픈소스가 아니다”가 아니라 “우리가 확인 '
+                  '못 했다”</strong>이고, 아니라면 알려 달라.</span>')
     ax = [("라이선스", (e(os_.get("license")) if os_.get("license") else "확인 못 함")
-           + (f' <span class="sub">{e(os_.get("why"))}</span>' if os_.get("why") else "")),
+           + (f' <span class="sub">{e(os_.get("why"))}</span>' if os_.get("why") else "")
+           + lic_caveat),
           ("셀프호스팅", {"packaged": "배포판 확인", "source_only": "소스만",
                        "unknown": "미확인"}.get(shh.get("state"), e(shh.get("state") or "—"))
            + (f' <span class="sub">{e(shh.get("why"))}</span>' if shh.get("why") else ""))]
@@ -1041,6 +1047,23 @@ def build_down(ctx) -> None:
       f'<p>고쳤거나 우리가 주소를 잘못 짚었다면 <a href="{REPO}/issues">이슈</a>로 알려 달라. '
       '다음 회차에 다시 잰다.</p>')
     pg.w(*dead_breakdown(ctx))
+    # **개인별로 흩어 놓으면 원인을 놓친다.** 명단의 절반 이상이 몇 개 무료 호스팅에
+    # 몰려 있는데, 그 콜드스타트는 우리 타임아웃(15초)보다 길 수 있다(fresh-eyes 2026-08-29).
+    hosts = collections.Counter()
+    for r in dead:
+        u = r["remote"].get("url") or ""
+        for h in ("server.smithery.ai", "up.railway.app", "onrender.com", "fly.dev",
+                  "hf.space", "vercel.app"):
+            if h in u:
+                hosts[h] += 1
+    top = [(h, n) for h, n in hosts.most_common() if n >= 2]
+    if top:
+        W(f'<p><strong>이 명단은 사람별로 흩어져 보이지만 실제로는 몇 개 플랫폼에 몰려 '
+          f'있다</strong> — {len(dead)}건 중 {sum(n for _h, n in top)}건이 '
+          + " · ".join(f"<code>{e(h)}</code> {n}건" for h, n in top)
+          + '이다. 무료 티어의 콜드스타트가 우리 타임아웃(15초)보다 길 수 있고, 플랫폼이 '
+            '앞단에서 통째로 끊었을 수도 있다. <strong>개인의 서버가 나빠서라고 읽지 '
+            '마라.</strong></p>')
     pg.w(*client_limits(ctx))
     strong = [r for r in dead if r.get("addr_registered")]
     weak = [r for r in dead if r not in strong]
@@ -1117,6 +1140,10 @@ def build_selfhosted(ctx) -> None:
       '<p class="sub"><strong><code>확인 못 함</code>을 “오픈소스 아님”으로 읽지 말라.</strong> '
       '저장소가 비공개거나 지워졌거나 이름이 바뀐 것도 여기 들어온다. 다만 공개 저장소인데 '
       '라이선스 파일이 없는 것은 기본값이 저작권 전부 유보라 실제로 가져다 쓸 수 없다.</p>',
+      '<p class="sub"><strong><code>배포판 없음</code>은 “우리가 그 이름으로 npm·PyPI를 '
+      '조회했더니 없더라”는 뜻이다.</strong> 다른 이름으로 냈거나 컨테이너(ghcr 등)로 '
+      '배포했으면 우리 조회 경로(npm·PyPI 둘뿐)에는 안 잡힌다 — 그건 그 저장소의 결함이 '
+      '아니라 우리 조회 범위의 한계다.</p>',
       '<p class="sub"><strong>패키지는 <em>이름</em>으로 맞춘다.</strong> 저장소가 배포판을 '
       '선언하지 않으면 우리는 이름으로 찾는데, 이름은 겹친다 — 그래서 남의 패키지가 붙을 수 '
       '있다. 우리가 기계로 잡을 수 있는 경우(MCP 공개보다 앞선 배포일)는 「매칭 의심」으로 '
