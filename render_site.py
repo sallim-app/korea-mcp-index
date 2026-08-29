@@ -44,6 +44,18 @@ def e(x) -> str:
     return html.escape("" if x is None else str(x), quote=True)
 
 
+def jsonld(obj) -> str:
+    """`<script>` 안에 넣을 JSON. **남의 서버 이름·URL이 그대로 들어오는 자리다.**
+
+    `json.dumps`는 `<`·`>`를 그대로 내보내므로, 값에 `</script>`가 섞이면 태그를 탈출해
+    저장형 XSS가 된다(codex 교차검증 2026-08-29). 우리가 수집하는 이름·URL은 남의 저장소
+    README에서 온 것이라 우리 손을 거치지 않는다 — 신뢰할 근거가 없다.
+    JSON 문자열 안의 `\u003c` 는 같은 값으로 파싱되므로 구조화데이터는 그대로 읽힌다.
+    """
+    return (json.dumps(obj, ensure_ascii=False, separators=(",", ":"))
+            .replace("<", "\\u003c").replace(">", "\\u003e").replace("&", "\\u0026"))
+
+
 def slug(name: str) -> str:
     """서버 이름 → URL 조각. 충돌하면 그 자리에서 멈춘다(조용히 덮어쓰면 남의 페이지가 사라진다)."""
     s = re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
@@ -119,7 +131,18 @@ p{margin:.7rem 0}
 .card{background:var(--raised);border:1px solid var(--line);border-radius:12px;
 padding:.9rem 1.1rem;margin:1rem 0}
 .tw{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:1rem 0;border:1px solid var(--line);
-border-radius:12px;background:var(--raised)}
+border-radius:12px;background:var(--raised);
+background-image:linear-gradient(to right,var(--raised),transparent 12px),
+linear-gradient(to left,var(--raised),transparent 12px),
+linear-gradient(to right,rgba(0,0,0,.10),transparent 10px),
+linear-gradient(to left,rgba(0,0,0,.10),transparent 10px);
+background-position:0 0,100% 0,0 0,100% 0;background-repeat:no-repeat;
+background-size:26px 100%,26px 100%,10px 100%,10px 100%;
+background-attachment:local,local,scroll,scroll}
+.tw:focus-visible{outline:2px solid #0e8fa6;outline-offset:2px}
+.tw::before{content:"← 좌우로 넘겨서 보세요";display:none;font-size:.78rem;color:var(--ink3);
+padding:.4rem .7rem 0}
+@media (max-width:640px){.tw::before{display:block}}
 table{border-collapse:collapse;width:100%;font-size:.9rem}
 th,td{text-align:left;padding:.55rem .7rem;border-bottom:1px solid var(--line);vertical-align:top}
 th{background:var(--sunken);font-weight:600;white-space:nowrap;font-size:.84rem;color:var(--ink2)}
@@ -204,9 +227,7 @@ class Page:
              f'<link rel="alternate" type="text/plain" href="{e(s.url_of("llms.txt"))}">',
              f'<style>{CSS}</style>']
         for j in ld:
-            o.append('<script type="application/ld+json">'
-                     + json.dumps(j, ensure_ascii=False, separators=(",", ":"))
-                     + '</script>')
+            o.append('<script type="application/ld+json">' + jsonld(j) + '</script>')
         o += ['</head>', '<body>', '<div class="wrap">']
         if self.crumbs:
             o.append('<nav class="crumb">'
@@ -219,8 +240,12 @@ class Page:
               f'<a href="{REPO}/blob/main/axes.csv">axes.csv</a> · '
               f'<a href="{REPO}/blob/main/PROTOCOL.md">신뢰 규약</a></p>',
               f'<p>{s.date_footer}</p>',
-              '<p>코드·문서·우리가 만든 측정값은 MIT. 응답 발췌는 각 서버 운영자의 것이고 '
-              '측정 근거로 인용했을 뿐이다 — 내려 달라고 하면 내린다.</p>',
+              '<p>코드·문서·우리가 만든 측정값은 MIT. <strong>응답 발췌</strong>는 각 서버 '
+              '운영자의 것이고 측정 근거로 인용했을 뿐이다 — 내려 달라고 하면 내린다.</p>',
+              f'<p><strong>등재 자체에 대한 이의도 같은 창구로 받는다</strong>'
+              f'(<a href="{REPO}/issues">이슈</a>). 값이 틀렸으면 고치고, 우리가 잘못 짚은 '
+              f'것이면 뺀다. 다만 “고쳤으니 등수를 올려 달라”는 다음 채점 회차에 전원 '
+              f'동시에만 반영한다 — 우리도 예외가 아니다.</p>',
               '</footer>', '</div>', '</body>', '</html>']
         return "\n".join(o) + "\n"
 
@@ -321,7 +346,7 @@ def measure_row(ctx, rec) -> str:
 
 
 def measure_table(ctx, rows) -> list[str]:
-    return (['<div class="tw"><table>',
+    return (['<div class="tw" tabindex="0" role="region" aria-label="측정값 표"><table>',
              '<thead><tr><th>서버</th><th>도구</th><th>웜 ms</th><th>콜드 ms</th>'
              '<th>설명</th><th>주석</th><th>사실오류</th></tr></thead><tbody>']
             + [measure_row(ctx, r) for r in rows]
@@ -349,6 +374,72 @@ def legend(ctx) -> list[str]:
             f'<a href="{REPO}/blob/main/PROTOCOL.md">신뢰 규약</a>에 있다</li>', '</ul>']
 
 
+# 여러 서버가 함께 쓰는 공용 게이트웨이. 여기서 나온 오류는 그 주소를 등록한 개인·팀의
+# 결함이 아닐 수 있다 — 401은 게이트웨이의 것이지 그 저장소의 것이 아니다.
+SHARED_GATEWAYS = ("playmcp.kakao.com", "server.smithery.ai", "glama.ai", "mcp.so",
+                   "mcp.pipedream.net")
+
+
+def gateway_of(rec: dict) -> str:
+    url = ((rec.get("remote") or {}).get("url") or "")
+    return next((g for g in SHARED_GATEWAYS if g in url), "")
+
+
+def client_limits(ctx, heading=True) -> list[str]:
+    """**우리 두드리개가 못 하는 것**을 남의 결함 옆에 같이 적는다.
+
+    fresh-eyes 검수(2026-08-29)가 잡은 자리다. `tools/list`에 200이 안 온 28건 중 22건은
+    HTTP 상태코드를 돌려줬다 — 서버는 살아 있었고 우리 부르는 방식이 안 맞았을 수 있다.
+    그 가능성을 안 적으면 "응답 없음"은 관측이 아니라 남의 제품에 대한 판정이 된다.
+    코드로 확인한 한계만 적는다(추정 금지).
+    """
+    o = ["<h2 id=\"한계\">우리 두드리개가 못 하는 것</h2>"] if heading else []
+    o += ['<div class="card">',
+          '<p><strong>“응답 없음”은 그 서버의 판정이 아니라 <em>우리 호출의 결과</em>다.</strong> '
+          '우리 클라이언트는 아래를 못 한다 — 코드로 확인한 것만 적는다. 이 중 하나에 걸린 '
+          '서버는 <strong>살아 있는데 우리 명단에 올라 있을 수 있다.</strong></p>',
+          '<ul>',
+          '<li><strong><code>initialize</code> 핸드셰이크를 하지 않는다.</strong> 세션을 열지 '
+          '않고 <code>tools/list</code>를 바로 보낸다 — Streamable HTTP 규격을 지키는 서버가 '
+          '여기에 <strong>HTTP 400을 주는 것은 정상 동작</strong>이다</li>',
+          '<li><strong>POST + 307 리다이렉트를 따라가지 않는다.</strong> 파이썬 표준 '
+          'urllib이 POST에서 안 따라간다 — 서버는 옮긴 자리를 알려준 것이다</li>',
+          '<li><strong>SSE(GET)를 시도하지 않는다.</strong> POST 고정이라 SSE 엔드포인트는 '
+          '<strong>405를 주는 것이 맞다</strong></li>',
+          '<li><strong>4xx는 재시도하지 않는다.</strong> 재시도는 연결 실패·5xx일 때만이라, '
+          '아래 명단의 상당수는 <strong>단 한 번 부른 결과</strong>다</li>',
+          '<li><strong>서버가 보낸 오류 본문을 저장하지 않는다.</strong> 그쪽 해명을 '
+          '버리고 상태코드만 남겼다</li>',
+          '</ul>',
+          '<p class="sub">고칠 것은 이 목록이 아니라 우리 두드리개다 — 다음 회차 과제로 '
+          '올려 두었다. 그 전까지 아래 숫자는 <strong>이 한계를 포함한 값</strong>으로 '
+          '읽어야 한다.</p>',
+          '</div>']
+    return o
+
+
+def dead_breakdown(ctx) -> list[str]:
+    """무응답 명단의 정체를 숫자로 편다 — 22건이 상태코드를 돌려줬다는 사실을 숨기지 않는다."""
+    dead = ctx["dead"]
+    codes = collections.Counter(r["remote"].get("http") for r in dead)
+    answered = sum(v for k, v in codes.items() if k)
+    silent = codes.get(None, 0)
+    reg = [r for r in dead if r.get("addr_registered")]
+    bits = " · ".join(f"HTTP {k} {v}건" for k, v in sorted(codes.items(), key=lambda x: -x[1])
+                      if k)
+    return ['<div class="tw" tabindex="0" role="region" aria-label="가로로 스크롤되는 표"><table><tbody>',
+            f'<tr><td>상태코드를 돌려준 것</td><td class="n"><strong>{answered}건</strong> '
+            f'<span class="sub">{bits}</span></td></tr>',
+            f'<tr><td>정말 아무 응답이 없던 것</td><td class="n">{silent}건 '
+            f'<span class="sub">연결 실패·타임아웃</span></td></tr>',
+            f'<tr><td>관리자가 레지스트리에 <strong>등록한</strong> 주소</td>'
+            f'<td class="n">{len(reg)}건</td></tr>',
+            f'<tr><td>우리가 README에서 <strong>추정한</strong> 주소</td>'
+            f'<td class="n">{len(dead) - len(reg)}건 <span class="sub">우리가 주소를 잘못 '
+            f'짚었을 수 있다</span></td></tr>',
+            '</tbody></table></div>']
+
+
 def loses_section(ctx) -> list[str]:
     """우리가 지는 항목. 위치가 규약이다 — 순위 바로 밑, 한계 절로 미루지 않는다."""
     items = ctx["items"]
@@ -362,7 +453,7 @@ def loses_section(ctx) -> list[str]:
          '불리한 축을 같이 잰다 — 무엇을 잴지는 결과를 보기 전에 '
          f'<a href="{REPO}/blob/main/PROTOCOL.md">신뢰 규약</a>에 고정했고, 여기서 뺄 수 없게 '
          '회귀 테스트로 묶어 두었다.</p>',
-         '<div class="tw"><table><thead><tr><th>축</th><th>이 목록 전체</th>'
+         '<div class="tw" tabindex="0" role="region" aria-label="가로로 스크롤되는 표"><table><thead><tr><th>축</th><th>이 목록 전체</th>'
          '<th>운영자(살림)</th></tr></thead><tbody>',
          f'<tr><td>셀프호스팅</td><td>배포판 확인 {sh["packaged"]}건 · 소스만 '
          f'{sh["source_only"]}건 · 미확인 {sh["unknown"]}건</td>'
@@ -459,7 +550,7 @@ def cat_block(ctx, c, full=True) -> list[str]:
         o.append(f'<p><strong>분야 교정 {len(mis)}건</strong> — 이 분야 검색어에 걸려 수집됐지만 '
                  '<strong>불러 보니 다른 것을 하는</strong> 서버다. 남의 분야 질문으로 매긴 등수는 '
                  '그 서버를 잰 값이 아니라서 순위에서 뺐다. 지우지는 않는다 — 찾는 사람이 있다.</p>')
-        o.append('<div class="tw"><table><thead><tr><th>서버</th><th>실제 분야</th>'
+        o.append('<div class="tw" tabindex="0" role="region" aria-label="가로로 스크롤되는 표"><table><thead><tr><th>서버</th><th>실제 분야</th>'
                  '<th>채점자가 확인한 것</th></tr></thead><tbody>')
         for r in sorted(mis, key=lambda x: x["name"]):
             _, now, why = MISFILED[r["name"]]
@@ -475,7 +566,11 @@ def server_page(ctx, rec) -> None:
     site, cls = ctx["site"], ctx["cls"]
     name = rec["name"]
     nm = disp(name)
-    cat = (cls.get(name) or {}).get("category")
+    # **분야 교정된 서버는 실제 분야로 적는다**(codex 교차검증 2026-08-29). 종전엔 수집기가
+    # 잘못 넣은 분야를 제목·breadcrumb·설명·구조화데이터에 그대로 썼다 — 순위에서는 뺐다고
+    # 써 놓고 정체는 틀린 채로 게시한 셈이라, 그 서버를 찾는 사람을 계속 잘못 보낸다.
+    misfiled = MISFILED.get(name)
+    cat = misfiled[1] if misfiled else (cls.get(name) or {}).get("category")
     rm = rec.get("remote") or {}
     ours = name.startswith(OURS)
     reachable = bool(rm.get("reachable"))
@@ -487,10 +582,21 @@ def server_page(ctx, rec) -> None:
     elif reachable:
         state = f"{ts} 측정에서 응답은 했지만 도구 목록을 얻지 못했다"
     elif rm:
-        state = f"{ts} 측정에서 우리가 부른 주소가 응답하지 않았다"
+        state = (f"{ts} 측정에서 우리가 부른 주소가 "
+                 + (f"HTTP {rm.get('http')}를 돌려줬다(도구 목록은 못 받았다)"
+                    if rm.get("http") else "응답하지 않았다"))
     else:
         state = "원격 주소가 없어 가동을 재지 못했다"
-    desc = f"{nm} — {cat or '분야 미상'} MCP 서버. {state}. 측정값·근거 전부 공개."
+    caveat = ""
+    if rm and not reachable:
+        caveat = (" 이것은 그 서버의 판정이 아니라 우리 호출의 결과다 — "
+                  + ("우리가 README에서 추정한 주소이고, " if not rec.get("addr_registered")
+                     else "")
+                  + "우리 클라이언트는 initialize 핸드셰이크·307 추적·SSE를 못 한다.")
+    if gateway_of(rec):
+        caveat += (f" 이 주소는 여러 서버가 함께 쓰는 공용 게이트웨이"
+                   f"({gateway_of(rec)})다.")
+    desc = f"{nm} — {cat or '분야 미상'} MCP 서버. {state}.{caveat} 측정값·근거 전부 공개."
 
     pg = Page(site, ctx["page_of"][name], f"{nm} — 한국 데이터 MCP 실측", desc,
               crumbs=[("한국 데이터 MCP 실측 목록", "index")]
@@ -505,6 +611,11 @@ def server_page(ctx, rec) -> None:
               priority="0.6")
     W = pg.w
     W(f'<h1>{e(nm)}</h1>')
+    if nm != name:
+        W(f'<p class="sub">정본 이름 <code>{e(name)}</code> '
+          f'<span class="sub">(기계용 <a href="{e(site.url_of("index.json"))}">index.json</a>· '
+          f'<a href="{e(site.url_of("llms.txt"))}">llms.txt</a>가 쓰는 키다 — 표에 짧게 적은 '
+          f'이름과 같은 서버다)</span></p>')
     tags = [f'<span class="tag">{e(cat)}</span>'] if cat else []
     tags.append('<span class="tag ok">응답함</span>' if reachable
                 else ('<span class="tag bad">응답 없음</span>' if rm
@@ -514,6 +625,13 @@ def server_page(ctx, rec) -> None:
     W('<p>' + " ".join(tags) + '</p>')
     W(f'<p class="lede">{e(state)}. 이 페이지의 값은 <strong>그 순간의 기록</strong>이고, '
       f'판정이 아니라 관측이다.</p>')
+    if gateway_of(rec):
+        W(f'<div class="card"><p><strong>우리가 부른 주소는 여러 서버가 함께 쓰는 공용 '
+          f'게이트웨이({e(gateway_of(rec))})다.</strong> 여기서 나온 오류는 게이트웨이의 '
+          f'것이지 이 저장소의 결함이 아닐 수 있다 — 우리가 그 둘을 갈라 재지 못했다.</p>'
+          f'</div>')
+    if rm and not reachable:
+        pg.w(*client_limits(ctx, heading=False))
     if ours:
         W('<div class="card"><p><strong>이해충돌 공시.</strong> 이 서버는 이 목록을 만든 곳이 '
           '운영한다. 무엇을 잴지 고른 것도 우리다 — 원자료를 다 공개해도 그 편향은 안 없어진다. '
@@ -553,6 +671,10 @@ def server_page(ctx, rec) -> None:
 
     # ── 순위·채점 ──
     rk = ctx["rank_of"].get(name)
+    if rk and misfiled:
+        # 무효로 본 등수를 「순위와 채점」으로 내면 한 페이지가 서로 모순된 판정을 게시한다.
+        # 아래 「분야 교정」 절에서 그 등수의 정체와 함께 적는다.
+        rk = None
     if rk:
         rank, why = rk
         err = ctx["err_of"].get(name)
@@ -585,14 +707,21 @@ def server_page(ctx, rec) -> None:
              '다시 물으면 등수가 갈릴 수 있다.')
           + f' 질문·호출기록·답변은 <a href="{REPO}/tree/main/answers">answers/</a>, 채점 전문은 '
             f'<a href="{REPO}/tree/main/grades">grades/</a>에 있다.</p>')
-    if name in MISFILED:
-        _, real, why = MISFILED[name]
+    if misfiled:
+        collected, real, why = misfiled
         tail = "…" if not why.rstrip().endswith("다.") else ""
+        old_rank = ctx["rank_of"].get(name)
         W('<h2>분야 교정</h2>',
-          f'<p>이 서버는 <strong>{e(real)}</strong>이다. 우리 수집기가 다른 분야 검색어로 '
-          f'잡아 그 분야 질문으로 채점했는데, 그렇게 매긴 등수는 이 서버를 잰 값이 아니라서 '
-          f'순위에서 뺐다. <strong>지우지 않는 이유는 찾는 사람이 있어서다.</strong></p>',
-          f'<blockquote>“{e(why.rstrip())}{tail}” <span class="sub">— 채점자</span></blockquote>')
+          f'<p>이 서버는 <strong>{e(real)}</strong>이다. 우리 수집기가 '
+          f'<strong>{e(collected)}</strong> 검색어로 잡아 그 분야 질문으로 채점했는데, '
+          f'그렇게 매긴 등수는 이 서버를 잰 값이 아니라서 순위에서 뺐다. '
+          f'<strong>지우지 않는 이유는 찾는 사람이 있어서다.</strong></p>')
+        if old_rank:
+            W(f'<p class="sub">참고로 그때 받은 등수는 {e(collected)} 분야 '
+              f'{old_rank[0]}위였다 — <strong>이 서버의 성적이 아니다.</strong> 남의 분야 '
+              f'질문에 못 답했다고 매긴 번호라, 이 페이지 어디에서도 현재 등수로 쓰지 '
+              f'않는다.</p>')
+        W(f'<blockquote>“{e(why.rstrip())}{tail}” <span class="sub">— 채점자</span></blockquote>')
 
     # ── 축 ──
     os_ = rec.get("open_source") or {}
@@ -629,7 +758,11 @@ def server_page(ctx, rec) -> None:
     # ── 경계 공시 (기치 ②) ──
     unknowns = ["이 서버가 주는 <strong>값이 맞는지</strong>는 채점한 분야의 질문 두 개 밖에서는 "
                 "재지 않았다"]
-    if not rk:
+    if not rk and misfiled:
+        unknowns.append("<strong>이 서버의 분야로는 아직 채점하지 않았다</strong> — 받은 "
+                        "채점은 우리가 잘못 넣은 분야의 질문이었고, 그건 이 서버를 잰 값이 "
+                        "아니다")
+    elif not rk:
         unknowns.append("<strong>답변 품질을 채점하지 않았다</strong> — 표에 도구·지연만 있는 "
                         "것은 못 재서이지 나빠서가 아니다")
     if shh.get("state") == "source_only":
@@ -668,9 +801,18 @@ def build_index(ctx) -> None:
     site = ctx["site"]
     ts, rem, dead, live = ctx["ts"], ctx["rem"], ctx["dead"], ctx["live"]
     pct = round(100 * len(dead) / max(len(rem), 1))
+    reg_all = [r for r in rem if r.get("addr_registered")]
+    reg_dead = [r for r in dead if r.get("addr_registered")]
+    reg_pct = round(100 * len(reg_dead) / max(len(reg_all), 1))
+    answered = sum(1 for r in dead if r["remote"].get("http"))
+    # **헤드라인에 caveat을 넣는다**(fresh-eyes 2026-08-29). 종전엔 48%만 meta·og·JSON-LD에
+    # 실리고 "추정 주소였다"는 한 클릭 안쪽에만 있었다 — 검색·AI가 물어가는 문장에는 caveat이
+    # 한 글자도 없었다. 그 48%에는 우리가 주소를 잘못 짚었을 수 있는 건이 섞여 있다.
     desc = (f"한국의 데이터를 다루는 MCP 서버를 직접 붙여서 잰 목록. {ts} 기준 주소를 확인한 "
-            f"{len(rem)}건 중 {len(dead)}건({pct}%)이 응답하지 않았다. 도구 수·응답 지연·설명 "
-            f"비율과 실제 질문 채점 결과를 분야별로 공개한다.")
+            f"{len(rem)}건 중 {len(dead)}건이 우리 호출에 도구 목록을 주지 않았다 — 다만 그중 "
+            f"{answered}건은 HTTP 상태코드를 돌려줬고, 관리자가 직접 등록한 주소만 세면 "
+            f"{len(reg_dead)}/{len(reg_all)}({reg_pct}%)다. 도구 수·응답 지연·설명 비율과 "
+            f"실제 질문 채점 결과를 분야별로 공개한다.")
     pg = Page(site, "index", "한국 데이터 MCP 실측 목록 — 지금 되는 서버가 어디까지인가",
               desc, changefreq="weekly", priority="1.0",
               jsonld={"@context": "https://schema.org", "@type": "Dataset",
@@ -693,11 +835,18 @@ def build_index(ctx) -> None:
                            "contentUrl": site.url_of("index.json")}]})
     W = pg.w
     W('<h1>한국 데이터 MCP — 실측 목록</h1>')
-    W('<p class="lede">한국의 데이터를 AI에게 주는 MCP 서버를 <strong>직접 붙여서 재고</strong> '
-      '그 값을 공개한다.</p>')
+    W('<p class="lede">한국의 데이터를 AI에게 주는 <strong>MCP</strong>(Model Context '
+      'Protocol — AI가 바깥 데이터·도구를 부르는 규격) 서버를 '
+      '<strong>직접 붙여서 재고</strong> 그 값을 공개한다.</p>')
     W(f'<p>다른 목록은 “있다”를 말한다. 이 목록은 <strong>지금 되냐</strong>를 잰다. '
       f'{e(ts)} 기준 주소를 확인한 {len(rem)}건 중 '
-      f'<strong>{len(dead)}건({pct}%)이 응답하지 않았다</strong>.</p>')
+      f'<strong>{len(dead)}건({pct}%)이 우리 호출에 도구 목록을 주지 않았다</strong>.</p>',
+      f'<p>그 {len(dead)}건을 그대로 “죽었다”로 읽으면 안 된다 — '
+      f'<strong>{answered}건은 HTTP 상태코드를 돌려줬고</strong>(서버는 살아 있었다), '
+      f'{len(dead) - len(reg_dead)}건은 우리가 README에서 <strong>추정한</strong> 주소였다. '
+      f'관리자가 레지스트리에 직접 등록한 주소만 세면 '
+      f'<strong>{len(reg_dead)}/{len(reg_all)}({reg_pct}%)</strong>다. '
+      f'<a href="{e(site.url_of("down"))}">그 명단과 상태코드 분해</a>를 그대로 공개한다.</p>')
     W(f'<p class="meta">가동 측정일 <strong>{e(ts)}</strong> ({ctx["ts_ago"]}) · '
       f'이 페이지 생성 {e(ctx["today"].isoformat())}'
       + (f' · 패키지 축 재측정 {e(ctx["pkg_ts"])}' if ctx["pkg_ts"] and ctx["pkg_ts"] != ts else "")
@@ -708,7 +857,7 @@ def build_index(ctx) -> None:
     ipub = [r for r in inst if (r.get("package") or {}).get("installable") is True]
     inone = [r for r in inst if (r.get("package") or {}).get("installable") is False]
     iunk = [r for r in inst if (r.get("package") or {}).get("installable") is None]
-    W('<div class="tw"><table><tbody>',
+    W('<div class="tw" tabindex="0" role="region" aria-label="가로로 스크롤되는 표"><table><tbody>',
       f'<tr><td>비교 가능한 서버</td><td class="n"><strong>{len(live)}</strong>건</td></tr>',
       f'<tr><td>응답했으나 못 잼(키 필요·규격 이탈)</td>'
       f'<td class="n">{len(ctx["unmeasured"])}건</td></tr>',
@@ -719,7 +868,16 @@ def build_index(ctx) -> None:
         W(f'<tr><td>설치형(원격 주소 없음)</td><td class="n">'
           f'<a href="{e(site.url_of("self-hosted"))}">배포 확인 {len(ipub)}건 · '
           f'배포판 없음 {len(inone)}건 · 이름을 못 읽어 미측정 {len(iunk)}건</a></td></tr>')
-    W('</tbody></table></div>')
+    # **총계를 적는다**(fresh-eyes 2026-08-29). 종전엔 58과 133만 있어서, 후보 241건 중
+    # 50건이 아무 설명 없이 사라졌다 — 우리가 남의 목록에서 잡아내는 종류의 은닉이다.
+    nothing = [r for r in ctx["items"] if not r.get("remote") and not r.get("package")]
+    W(f'<tr><td>주소도 패키지도 못 찾음</td><td class="n">{len(nothing)}건 '
+      f'<span class="sub">“작동하지 않는다”가 아니라 <strong>확인하지 못했다</strong></span>'
+      f'</td></tr>',
+      f'<tr><td><strong>후보 전체</strong></td>'
+      f'<td class="n"><strong>{len(ctx["items"])}건</strong> '
+      f'<span class="sub">{len(ctx["rem"])} + {len(inst)} + {len(nothing)}</span></td></tr>',
+      '</tbody></table></div>')
 
     W('<h2 id="왜">왜 만드나</h2>',
       '<p><strong>AI가 좋은 MCP를 못 찾는다.</strong> 한국 MCP 스토어들은 대부분 AI가 읽을 수 '
@@ -739,10 +897,12 @@ def build_index(ctx) -> None:
       f'<a href="{REPO}/blob/main/PROTOCOL.md">신뢰 규약</a>에 고정해 두었고, 바꾼 적이 있으면 '
       '그 이력도 거기 있다 — <strong>한 번 있다.</strong></p>')
 
+    pg.w(*client_limits(ctx))
+    pg.w(*dead_breakdown(ctx))
     W('<h2 id="한눈에">한눈에</h2>',
       '<p>분야마다 1위 하나씩. 아래 각 분야의 채점 결과와 <strong>같은 값에서 나온다</strong> — '
       '여기와 본문이 어긋날 수 없다.</p>',
-      '<div class="tw"><table><thead><tr><th>분야</th><th>1위</th><th>사실오류</th>'
+      '<div class="tw" tabindex="0" role="region" aria-label="가로로 스크롤되는 표"><table><thead><tr><th>분야</th><th>1위</th><th>사실오류</th>'
       '<th>왜 이것이 1위인가</th></tr></thead><tbody>')
     for c in ctx["cats_live"]:
         winner = next((r for r in live
@@ -754,8 +914,12 @@ def build_index(ctx) -> None:
         n_err = ctx["err_of"].get(winner["name"])
         W(f'<tr><td><a href="{e(site.url_of(ctx["cat_page"][c]))}">{e(c)}</a></td>'
           f'<td>{name_link(ctx, winner)}</td>'
-          f'<td class="n">{(str(n_err) + "건") if n_err else "0건"}</td>'
-          f'<td>{e(clip(why, 110))}</td></tr>')
+          f'<td class="n">{"—" if n_err is None else f"{n_err}건"}</td>'
+          # **자르지 않는다**(fresh-eyes 2026-08-29). `clip(why,110)`은 기계적이지만
+          # 총평의 길이가 서버마다 달라서, 우리 행은 41%만 보이고(남은 107자가 전부 칭찬,
+          # 잘린 156자가 전부 감점) 남의 행은 82~100%가 보였다. 화면 효과는
+          # "우리 행만 순수 칭찬"이다. 표가 길어지는 대가로 편향을 없앤다.
+          f'<td>{e(why)}</td></tr>')
     W('</tbody></table></div>',
       '<p>종합 1등은 없다. 가중치를 우리가 정하면 우리가 상위권인 이 표에서 그 설계를 반박할 '
       '방법이 없기 때문이다. 순위는 분야 안에서만 매긴다.</p>')
@@ -777,10 +941,23 @@ def build_index(ctx) -> None:
           '지우지 않고 여기 둔다 — “없다”가 아니라 <strong>“우리가 못 봤다”</strong>이기 '
           '때문이다. 대부분 도구 목록을 보는 데도 키를 요구한다. 키가 있으면 잘 도는 서버일 수 '
           '있다.</p>',
-          '<div class="tw"><table><thead><tr><th>서버</th><th>증상</th></tr></thead><tbody>')
+          '<div class="tw" tabindex="0" role="region" aria-label="가로로 스크롤되는 표"><table><thead><tr><th>서버</th><th>증상</th></tr></thead><tbody>')
         for r in sorted(ctx["unmeasured"], key=lambda x: x["name"]):
             why = (r["remote"].get("why") or "").strip() or f'HTTP {r["remote"].get("http")}'
             W(f'<tr><td>{name_link(ctx, r)}</td><td>{e(clip(why, 90))}</td></tr>')
+        W('</tbody></table></div>')
+
+    if ctx["off"]:
+        W('<h2 id="주제-밖">주제 밖</h2>',
+          f'<p>응답은 했지만 <strong>한국 데이터를 주는 서버가 아니라고 분류한 '
+          f'{len(ctx["off"])}건.</strong> 이 목록의 주제가 아니라서 순위에 넣지 않았다 — '
+          f'조용히 버리지 않고 이름과 함께 남긴다. <strong>분류가 틀렸으면 알려 달라.</strong>'
+          f'</p>',
+          '<div class="tw" tabindex="0" role="region" aria-label="주제 밖 서버 표"><table>'
+          '<thead><tr><th>서버</th><th>우리 분류기가 본 것</th></tr></thead><tbody>')
+        for r in sorted(ctx["off"], key=lambda x: x["name"]):
+            W(f'<tr><td>{name_link(ctx, r)}</td>'
+              f'<td>{e((ctx["cls"].get(r["name"]) or {}).get("why") or "—")}</td></tr>')
         W('</tbody></table></div>')
 
     W('<h2 id="넣으려면">우리 목록에 넣으려면</h2>',
@@ -830,7 +1007,8 @@ def build_category(ctx, c) -> None:
                            "url": site.url_of(ctx["page_of"][r["name"]])}
                           for r in sorted([r for r in ctx["live"]
                                            if ctx["cls"].get(r["name"], {}).get("category") == c
-                                           and r["name"] in ctx["rank_of"]],
+                                           and r["name"] in ctx["rank_of"]
+                                           and r["name"] not in MISFILED],
                                           key=lambda r: ctx["rank_of"][r["name"]][0])]})
     pg.w(f'<h1>{e(c)} — 한국 MCP 서버 실측</h1>',
          f'<p class="meta">가동 측정일 <strong>{e(ctx["ts"])}</strong> ({ctx["ts_ago"]}) · '
@@ -845,20 +1023,25 @@ def build_category(ctx, c) -> None:
 
 def build_down(ctx) -> None:
     site, dead, ts = ctx["site"], ctx["dead"], ctx["ts"]
-    desc = (f"{ts} 측정에서 tools/list에 응답하지 않은 한국 MCP 서버 {len(dead)}건. "
-            "폐기 판정이 아니라 관측 기록이다 — 일시적 장애일 수 있고, 우리가 주소를 잘못 "
-            "짚었을 수도 있다.")
-    pg = Page(site, "down", "응답하지 않는 한국 MCP 서버 — 실측 기록", desc,
-              crumbs=[("한국 데이터 MCP 실측 목록", "index"), ("응답 없음", "down")],
+    answered = sum(1 for r in dead if r["remote"].get("http"))
+    desc = (f"{ts} 측정에서 우리 호출에 도구 목록을 주지 않은 한국 MCP 서버 {len(dead)}건. "
+            f"그중 {answered}건은 HTTP 상태코드를 돌려줬다 — 폐기 판정이 아니라 관측 기록이고, "
+            "우리 클라이언트의 한계이거나 우리가 주소를 잘못 짚은 것일 수 있다.")
+    pg = Page(site, "down", "도구 목록을 못 받은 한국 MCP 서버 — 상태코드까지 공개", desc,
+              crumbs=[("한국 데이터 MCP 실측 목록", "index"), ("도구 목록 못 받음", "down")],
               priority="0.6")
     W = pg.w
-    W(f'<h1>응답하지 않는 서버 {len(dead)}건</h1>',
-      f'<p class="lede">{e(ts)} 측정 시점에 <code>tools/list</code>에 응답하지 않은 목록. '
-      '<strong>폐기 판정이 아니라 관측 기록이다</strong> — 일시적 장애일 수 있다.</p>',
+    W(f'<h1>도구 목록을 못 받은 서버 {len(dead)}건</h1>',
+      f'<p class="lede">{e(ts)} 측정에서 우리가 <code>tools/list</code>를 보냈을 때 도구 '
+      f'목록이 오지 않은 목록. <strong>폐기 판정이 아니라 관측 기록이다</strong> — '
+      f'그중 <strong>{answered}건은 HTTP 상태코드를 돌려줬다</strong>. 서버는 살아 있었고 '
+      f'우리 부르는 방식이 그 서버와 안 맞았을 수 있다.</p>',
       f'<p class="meta">측정일 {e(ts)} ({ctx["ts_ago"]}) · 이 페이지 생성 '
       f'{e(ctx["today"].isoformat())}</p>',
       f'<p>고쳤거나 우리가 주소를 잘못 짚었다면 <a href="{REPO}/issues">이슈</a>로 알려 달라. '
       '다음 회차에 다시 잰다.</p>')
+    pg.w(*dead_breakdown(ctx))
+    pg.w(*client_limits(ctx))
     strong = [r for r in dead if r.get("addr_registered")]
     weak = [r for r in dead if r not in strong]
     for title, group, note in (
@@ -870,12 +1053,23 @@ def build_down(ctx) -> None:
         if not group:
             continue
         W(f'<h2>{e(title)} — {len(group)}건</h2>', f'<p>{note}</p>',
-          '<div class="tw"><table><thead><tr><th>서버</th><th>증상</th><th>우리가 부른 주소</th>'
+          '<div class="tw" tabindex="0" role="region" aria-label="가로로 스크롤되는 표"><table><thead><tr><th>서버</th><th>증상</th><th>우리가 부른 주소</th>'
           '</tr></thead><tbody>')
         for r in sorted(group, key=lambda x: x["name"]):
             rm = r["remote"]
             why = rm.get("why") or f'HTTP {rm.get("http")}'
-            W(f'<tr><td>{name_link(ctx, r)}</td><td>{e(clip(why, 80))}</td>'
+            # 상태코드가 우리 한계 때문일 수 있는 경우를 그 줄에서 바로 밝힌다.
+            hint = {400: "세션을 안 열고 tools/list를 보낸 우리 탓일 수 있다",
+                    405: "SSE 자리에 POST를 보낸 우리 탓일 수 있다",
+                    307: "서버가 옮긴 자리를 알려줬는데 우리가 안 따라갔다",
+                    503: "그 순간 자고 있었을 수 있다"}.get(rm.get("http"), "")
+            gw = gateway_of(r)
+            if gw:
+                hint = (hint + " · " if hint else "") + f"공용 게이트웨이({gw})의 응답이다"
+            W(f'<tr><td>{name_link(ctx, r)}</td>'
+              f'<td>{e(clip(why, 80))}'
+              + (f'<br><span class="sub">{e(hint)}</span>' if hint else "")
+              + f'{"<br><span class=\'sub\'>재시도 없이 한 번만 불렀다</span>" if r["remote"].get("retried") is False else ""}</td>'
               f'<td><code>{e(rm.get("url") or "")}</code></td></tr>')
         W('</tbody></table></div>')
     W(f'<nav class="nav"><a href="{e(site.url_of("index"))}">← 전체 목록</a></nav>')
@@ -896,7 +1090,7 @@ def build_selfhosted(ctx) -> None:
       '패키지·라이선스)을 잰다.</p>',
       f'<p class="meta">패키지 축 측정일 {e(ctx["pkg_ts"] or ctx["axes_ts"])} · 라이선스 축 '
       f'{e(ctx["axes_ts"])} · 이 페이지 생성 {e(ctx["today"].isoformat())}</p>',
-      '<div class="tw"><table><thead><tr><th>서버</th><th>배포 패키지</th><th>최근 배포</th>'
+      '<div class="tw" tabindex="0" role="region" aria-label="가로로 스크롤되는 표"><table><thead><tr><th>서버</th><th>배포 패키지</th><th>최근 배포</th>'
       '<th>라이선스</th><th>★</th></tr></thead><tbody>')
     def k(r):
         p = r.get("package") or {}
@@ -942,7 +1136,7 @@ def build_method(ctx) -> None:
               priority="0.7")
     W = pg.w
     W('<h1>어떻게 재나</h1>',
-      '<div class="tw"><table><thead><tr><th>단계</th><th>하는 일</th><th>주기</th></tr></thead>'
+      '<div class="tw" tabindex="0" role="region" aria-label="가로로 스크롤되는 표"><table><thead><tr><th>단계</th><th>하는 일</th><th>주기</th></tr></thead>'
       '<tbody>',
       '<tr><td>collect</td><td>공식 레지스트리 전수 + GitHub 검색 + mcpmoa 공개 API</td>'
       '<td>—</td></tr>',
@@ -958,8 +1152,12 @@ def build_method(ctx) -> None:
       '</tbody></table></div>',
       '<p><strong>가동은 매주, 순위는 매월 1일</strong>에 다시 잰다. 서버가 안 바뀌면 채점 결과도 '
       '안 바뀌는데 매주 재호출하는 것은 새 정보가 아니라 남의 서버에 지우는 부하다.</p>',
-      '<p>두드릴 때는 <code>tools/list</code> 3회(콜드 1 + 웜 2), 사이에 간격을 두고, '
-      'User-Agent로 우리를 밝힌다.</p>',
+      '<p>두드릴 때는 <code>tools/list</code>를 보내고, <strong>200이 온 서버에 한해</strong> '
+      '간격을 두고 2회 더 불러 웜을 잰다(콜드 1 + 웜 2). User-Agent로 우리를 밝힌다.</p>',
+      '<p><strong>200이 안 온 서버는 그렇지 않다.</strong> 재시도는 연결 실패·5xx일 때만 '
+      '1회이고, 4xx는 <strong>한 번 부른 결과가 그대로 명단에 오른다</strong>. 종전에 이 '
+      '자리에 “3회”라고만 적어 두었는데, 실패한 서버에는 사실이 아니었다 — '
+      'fresh-eyes 검수가 잡아 고쳤다(2026-08-29).</p>',
       f'<p><strong>가동 지표는 돌리면 같은 값이 나온다</strong> — 원자료가 '
       f'<a href="{REPO}/blob/main/measured.json">measured.json</a>에 있다. '
       f'<strong>순위는 그렇지 않다</strong> — 채점이 모델 판단이라 같은 입력에도 흔들린다. '
@@ -969,6 +1167,7 @@ def build_method(ctx) -> None:
     no_addr_no_pkg = [r for r in items if not r.get("remote") and not r.get("package")]
     pkg_only = [r for r in items
                 if not r.get("remote") and (r.get("package") or {}).get("installable") is True]
+    pg.w(*client_limits(ctx))
     W('<h2>믿으면 안 되는 부분</h2>', '<ul>',
       '<li><strong>정확성은 분야마다 질문 두 개로만 봤다.</strong> 그 두 문항이 그 분야를 '
       '대표한다는 보장은 없다. 질문은 공개돼 있으니 더 나은 질문을 알려 달라</li>',
@@ -1003,19 +1202,33 @@ def build_machine(ctx) -> None:
     """기계가 읽는 표면. 사람 페이지와 **같은 값**이어야 한다 — 따로 쓰면 따로 썩는다."""
     site, ts = ctx["site"], ctx["ts"]
     rows = []
+    # **counts가 배열에서 재현돼야 한다**(fresh-eyes 2026-08-29). 종전엔 「주제 밖」 2건이
+    # 아무 표시 없이 섞여 있어서, 기계가 배열로 세면 comparable 20·unmeasurable 10이
+    # 나오는데 counts는 19·9였다. 총계 검사가 통과하는 종류의 조용한 어긋남이다.
+    bucket_of = {}
+    for name_, b in [(r["name"], "comparable") for r in ctx["live"]] \
+            + [(r["name"], "off_topic") for r in ctx["off"]] \
+            + [(r["name"], "unmeasurable") for r in ctx["unmeasured"]] \
+            + [(r["name"], "unreachable") for r in ctx["dead"]]:
+        bucket_of[name_] = b
     # 사람 페이지에서 순위표에 실제로 서 있는 서버. **여기 없는데 등수만 있는 줄**은
     # 지난 채점 회차의 등수를 이번 회차 판정처럼 보이게 한다 — codex 교차검증이 잡은
     # 자리다(2026-08-29). 등수를 지우지는 않는다(빈자리를 위로 당기지 않는 규약과 같다).
     # 대신 **그 등수가 어느 회차 것이고 왜 지금 순위표에 없는지**를 같은 줄에 적는다.
-    ranked_now = {r["name"] for r in ctx["live"] if r["name"] in ctx["rank_of"]}
+    ranked_now = {r["name"] for r in ctx["live"]
+                  if r["name"] in ctx["rank_of"] and r["name"] not in MISFILED}
     for r in ctx["live"] + ctx["unmeasured"] + ctx["dead"] + ctx["off"]:
         rm = r.get("remote") or {}
         rk = ctx["rank_of"].get(r["name"])
         stale = bool(rk) and r["name"] not in ranked_now
         rows.append({
             "name": r["name"],
+            "bucket": bucket_of[r["name"]],
             "page": site.url_of(ctx["page_of"][r["name"]]),
-            "category": (ctx["cls"].get(r["name"]) or {}).get("category"),
+            "category": (MISFILED[r["name"]][1] if r["name"] in MISFILED
+                         else (ctx["cls"].get(r["name"]) or {}).get("category")),
+            "category_corrected_from": (MISFILED[r["name"]][0]
+                                        if r["name"] in MISFILED else None),
             "repo_url": r.get("repo_url"),
             "endpoint": rm.get("url"),
             "endpoint_source": "registry" if r.get("addr_registered") else "readme_guess",
@@ -1030,7 +1243,11 @@ def build_machine(ctx) -> None:
             "rank_graded_as": (RENAMED.get(r["name"]) if rk else None),
             "rank_is_current": (None if not rk else not stale),
             "rank_note": (None if not stale else
-                          ("지난 채점 회차의 등수다 — 이번 회차엔 응답하지 않아 사람용 "
+                          (f"이 등수는 무효다 — 우리 수집기가 '{MISFILED[r['name']][0]}' 분야로 "
+                           f"잘못 넣어 그 분야 질문으로 채점한 결과이고, 실제 분야는 "
+                           f"'{MISFILED[r['name']][1]}'이다. 이 서버를 잰 값이 아니다"
+                           if r["name"] in MISFILED else
+                           "지난 채점 회차의 등수다 — 이번 회차엔 응답하지 않아 사람용 "
                            "순위표에서는 빠져 있다. 다시 채점하기 전까지 번호는 그대로 둔다"
                            if not rm.get("reachable") else
                            "지난 채점 회차의 등수다 — 이번 회차엔 비교 가능한 값을 얻지 못해 "
@@ -1041,6 +1258,9 @@ def build_machine(ctx) -> None:
             "package_match_suspect": pkg_suspect(r) or None,
             "operated_by_us": r["name"].startswith(OURS),
             "symptom": (rm.get("why") or None) if not rm.get("reachable") else None,
+            "http_status": rm.get("http"),
+            "retried": rm.get("retried"),
+            "shared_gateway": gateway_of(r) or None,
         })
     rows.sort(key=lambda x: (x["category"] or "힣", x["rank_in_category"] or 99, x["name"]))
     doc = {
@@ -1054,7 +1274,14 @@ def build_machine(ctx) -> None:
         "generated_at": ctx["today"].isoformat(),
         "boundaries": [
             "측정일은 잰 날이다 — 이 파일을 만든 날(generated_at)과 다르다.",
-            "reachable=false 는 폐기 판정이 아니라 그 시점의 관측이다.",
+            "reachable=false 는 폐기 판정이 아니라 그 시점의 관측이고, **우리 호출의 결과**다 "
+            "— http_status 가 있는 줄은 서버가 살아서 상태코드를 돌려준 것이다. "
+            "client_limits 를 먼저 읽어라.",
+            "retried=false 는 단 한 번 부른 결과라는 뜻이다.",
+            "shared_gateway 가 있으면 그 오류는 공용 게이트웨이의 것이지 그 저장소의 결함이 "
+            "아닐 수 있다 — 우리가 둘을 갈라 재지 못했다.",
+            "counts 는 servers 배열의 bucket 으로 재현된다. install_only·"
+            "no_address_no_package 는 배열 밖이다(가동을 못 쟀다).",
             "endpoint_source=readme_guess 는 우리가 주소를 잘못 짚었을 수 있다는 뜻이다.",
             "rank_in_category 는 지표 가중합이 아니라 실제 질문 답변을 모델이 채점한 결과이고, "
             "같은 입력에도 흔들린다.",
@@ -1073,7 +1300,19 @@ def build_machine(ctx) -> None:
         ],
         "counts": {"comparable": len(ctx["live"]), "unmeasurable": len(ctx["unmeasured"]),
                    "unreachable": len(ctx["dead"]), "off_topic": len(ctx["off"]),
-                   "install_only": len(ctx["inst"])},
+                   "install_only": len(ctx["inst"]),
+                   "no_address_no_package": len([r for r in ctx["items"]
+                                                 if not r.get("remote")
+                                                 and not r.get("package")]),
+                   "candidates_total": len(ctx["items"])},
+        "client_limits": [
+            "initialize 핸드셰이크를 하지 않는다 — 규격을 지키는 서버가 HTTP 400을 주는 것이 "
+            "정상 동작이다",
+            "POST + 307 리다이렉트를 따라가지 않는다",
+            "SSE(GET)를 시도하지 않는다 — POST 고정이라 SSE 엔드포인트는 405를 준다",
+            "4xx는 재시도하지 않는다(재시도는 연결 실패·5xx일 때만 1회)",
+            "서버가 보낸 오류 본문을 저장하지 않는다 — 상태코드만 남겼다",
+        ],
         "servers": rows,
     }
     site.extra.append(("index.json", json.dumps(doc, ensure_ascii=False, indent=1) + "\n"))
@@ -1097,11 +1336,19 @@ def build_machine(ctx) -> None:
                         key=lambda r: ctx["rank_of"].get(r["name"], (99, ""))[0]):
             rk = ctx["rank_of"].get(r["name"])
             tag = f"{rk[0]}위" if rk else "미채점"
+            ep = (r.get("remote") or {}).get("url") or ""
             lines.append(f"- [{r['name']}]({site.url_of(ctx['page_of'][r['name']])}): {tag} · "
                          f"도구 {(r.get('remote') or {}).get('tool_count') or '—'}종 · "
-                         f"{ts} 측정")
+                         f"{ts} 측정" + (f" · 엔드포인트 {ep}" if ep else ""))
         lines.append("")
+    answered = sum(1 for r in ctx["dead"] if r["remote"].get("http"))
+    reg_dead = [r for r in ctx["dead"] if r.get("addr_registered")]
     lines += ["## 경계", "",
+              f"- 도구 목록을 못 받은 {len(ctx['dead'])}건 중 {answered}건은 HTTP 상태코드를 "
+              f"돌려줬다 — 서버는 살아 있었다. 관리자가 직접 등록한 주소만 세면 "
+              f"{len(reg_dead)}건이고, 나머지는 우리가 README에서 **추정**한 주소다.",
+              "- 우리 클라이언트는 initialize 핸드셰이크·POST 307 추적·SSE(GET)를 못 하고, "
+              "4xx를 재시도하지 않는다. 그 한계에 걸린 서버가 명단에 섞여 있다.",
               "- 못 봄은 없음이 아니다. 재지 못한 축은 재지 못했다고 적는다.",
               "- 순위는 모델 채점이라 같은 입력에도 흔들린다. 가동 지표는 재현된다.",
               "- 이 목록을 만든 곳도 여기에 서버를 운영한다 — 축을 고른 것도 같은 곳이다.",
@@ -1110,7 +1357,10 @@ def build_machine(ctx) -> None:
 
     urls = []
     for pg in site.pages:
-        urls.append(f"<url><loc>{e(pg.url)}</loc><lastmod>{ts}</lastmod>"
+        # lastmod는 **이 문서가 마지막으로 바뀐 날**이다. 측정일을 쓰면 문서를 고쳐도
+        # 크롤러에겐 안 바뀐 것으로 보인다(측정일은 본문에 따로 적혀 있다).
+        urls.append(f"<url><loc>{e(pg.url)}</loc>"
+                    f"<lastmod>{ctx['today'].isoformat()}</lastmod>"
                     f"<changefreq>{pg.changefreq}</changefreq>"
                     f"<priority>{pg.priority}</priority></url>")
     site.extra.append(("sitemap.xml",
