@@ -11,3 +11,8 @@ judge/in_*.txt
 judge/in_*.txt
 schemas/
 probes.prev/
+
+# 생성물 — `python3 render_site.py`로 언제든 다시 나온다. 커밋하면 모든 diff가
+# 49만 줄이 되어 이종 교차검증(predeploy)이 타임아웃으로 죽는다(2026-08-29 실측 rc=124).
+site/
+.wrangler/

@@ -20,6 +20,9 @@ import sys
 from observed import MISFILED, RENAMED, SCOPE
 
 OURS = ("app.sallim/", "sallim-app/")
+# 웹판(2026-08-29). 저장소 README는 검색엔진이 사실상 안 읽는다 — 그래서 같은 원자료에서
+# 정적 HTML을 따로 뽑아 발행한다(`render_site.py`). 두 문서는 **같은 함수의 두 출력**이다.
+SITE = "https://mcp-index.sallim.app"
 CATS = ["공공데이터·행정", "법령·판례", "금융·증시", "부동산", "세금·재정", "지도·주소",
         "날씨·환경", "교통·이동", "의료·복지", "교육·문화", "한국어·언어", "커머스·생활",
         "미디어·뉴스", "핀테크·인증", "디렉토리·개발자도구", "기타"]
@@ -342,6 +345,12 @@ def main() -> int:
       if not en else
       f"Other lists tell you a server exists. This one tells you whether it {emph('works right now')}. "
       f"As of {ts}, {len(dead)} of {len(rem)} ({pct}%) did not respond.")
+    A("")
+    A(f"> **웹판** <{SITE}> — 같은 값을 분야별·서버별 주소로 갈라 놓았다. "
+      f"기계가 읽을 것은 [index.json]({SITE}/index.json)·[llms.txt]({SITE}/llms.txt)."
+      if not en else
+      f"> **Web edition** <{SITE}> — same numbers, one URL per category and per server. "
+      f"Machine-readable: [index.json]({SITE}/index.json) · [llms.txt]({SITE}/llms.txt).")
     A("")
     A("| | |")
     A("|---|---|")
@@ -722,7 +731,7 @@ def main() -> int:
     A("")
     A("---")
     A("")
-    A(f"생성 `render_readme.py` · 마지막 측정 {ts}"
+    A(f"생성 `render_readme.py` · 웹판 <{SITE}> · 마지막 측정 {ts}"
       + (f" · 패키지 축 재측정 {pkg_ts}" if pkg_ts and pkg_ts != ts else "")
       + " · 운영 [sallim-app](https://github.com/sallim-app)")
 

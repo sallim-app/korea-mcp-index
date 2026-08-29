@@ -6,6 +6,8 @@
 
 다른 목록은 “있다”를 말한다. 이 목록은 **지금 되냐**를 잰다. 2026-08-24 기준 주소를 확인한 58건 중 **28건(48%)이 응답하지 않았다**.
 
+> **웹판** <https://mcp-index.sallim.app> — 같은 값을 분야별·서버별 주소로 갈라 놓았다. 기계가 읽을 것은 [index.json](https://mcp-index.sallim.app/index.json)·[llms.txt](https://mcp-index.sallim.app/llms.txt).
+
 | | |
 |---|---|
 | 비교 가능한 서버 | **19**건 |
@@ -279,4 +281,4 @@ render   이 문서
 
 ---
 
-생성 `render_readme.py` · 마지막 측정 2026-08-24 · 운영 [sallim-app](https://github.com/sallim-app)
+생성 `render_readme.py` · 웹판 <https://mcp-index.sallim.app> · 마지막 측정 2026-08-24 · 운영 [sallim-app](https://github.com/sallim-app)

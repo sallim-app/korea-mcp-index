@@ -6,6 +6,8 @@
 
 Other lists tell you a server exists. This one tells you whether it **works right now**. As of 2026-08-24, 28 of 58 (48%) did not respond.
 
+> **Web edition** <https://mcp-index.sallim.app> — same numbers, one URL per category and per server. Machine-readable: [index.json](https://mcp-index.sallim.app/index.json) · [llms.txt](https://mcp-index.sallim.app/llms.txt).
+
 | | |
 |---|---|
 | 비교 가능한 서버 | **19**건 |
@@ -279,4 +281,4 @@ render   이 문서
 
 ---
 
-생성 `render_readme.py` · 마지막 측정 2026-08-24 · 운영 [sallim-app](https://github.com/sallim-app)
+생성 `render_readme.py` · 웹판 <https://mcp-index.sallim.app> · 마지막 측정 2026-08-24 · 운영 [sallim-app](https://github.com/sallim-app)
