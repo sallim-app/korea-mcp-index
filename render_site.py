@@ -500,8 +500,11 @@ def cat_block(ctx, c, full=True) -> list[str]:
                   key=lambda r: -(r["remote"].get("tool_count") or 0))
     o: list[str] = []
     if not judged:
-        o.append(f'<p>후보가 {len(group)}건뿐이라 순위를 매기지 않았다. '
-                 f'3개 중 3개를 고르는 것은 순위가 아니라 목록이다.</p>')
+        _n = len(group)
+        o.append(f'<p>후보가 {_n}건뿐이라 순위를 매기지 않았다. '
+                 + ('이 분야에서 응답한 서버가 하나라 비교할 상대가 없다.</p>'
+                    if _n == 1 else
+                    f'{_n}개 중 {_n}개를 고르는 것은 순위가 아니라 목록이다.</p>'))
     else:
         if len(group) <= 3:
             o.append(f'<p class="sub">이 분야는 후보가 {len(group)}건뿐이라 '

@@ -14,6 +14,8 @@
 import collections
 import json
 
+from observed import fix_repo_url
+
 
 def best_repo(items: list) -> dict[str, str]:
     """엔드포인트별로 가장 나은 저장소 주소. 조직 경로를 우선한다."""
@@ -43,6 +45,12 @@ def main() -> int:
                 i["repo_url"] = better
                 rewritten += 1
             break
+        # 옮겨간 저장소 경로를 현재 경로로 고친다(observed.MOVED_REPO). 옛 경로는 지금
+        # 없는 곳을 가리키고, 우리 옛 개인 계정 경로가 공개본에 실리는 통로이기도 했다.
+        moved = fix_repo_url(i.get("repo_url"))
+        if moved != i.get("repo_url"):
+            i["repo_url"] = moved
+            rewritten += 1
 
     keep = [i for i in items if i["verdict"] in ("keep", "review")]
     drops = collections.Counter(i["why"][:60] for i in items if i["verdict"] == "drop")
@@ -91,6 +99,10 @@ def main() -> int:
         better = pick.get(ep)
         if better and better != i.get("repo_url"):
             i["repo_url"] = better
+            mfix += 1
+        moved = fix_repo_url(i.get("repo_url"))
+        if moved != i.get("repo_url"):
+            i["repo_url"] = moved
             mfix += 1
     json.dump(m, open("measured.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 

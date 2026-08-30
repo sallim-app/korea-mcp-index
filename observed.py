@@ -89,6 +89,18 @@ RENAMED: dict[str, str] = {
     #        주소 중복 제거가 합쳤고, 살아남은 이름이 haklaekim 쪽이라 등수도 거기 붙었다).
     # 근거 ③: 옛 경로는 GitHub 404이고 **리디렉트가 없다** — 그래서 자동으로는 못 잇는다.
     "hike-lab/public-data-lens": "haklaekim/public-data-lens",
+    # yousunjung84-edu/academyinfo-mcp → io.github.yousunjung84-edu/academyinfo (2026-08-31).
+    # **저장소가 옮겨간 것이 아니라 표시 이름의 출처가 바뀐 것이다.** 이번 회차에 레지스트리
+    # 전수 스윕이 제대로 돌면서(version=latest) 이 서버의 레지스트리 등록이 처음 보였고,
+    # 병합에서 레지스트리 이름이 GitHub 경로를 대체했다.
+    # 근거 ①: 레지스트리 항목이 선언한 `repository.url`이 옛 이름 그 자체다
+    #        (https://github.com/yousunjung84-edu/academyinfo-mcp) — 이름이 아니라 그 서버가
+    #        스스로 가리킨 곳이라 주소 근거와 같은 무게다.
+    # 근거 ②: 우리 병합이 두 원천을 한 후보로 합쳤다(sources = github + registry).
+    # 잇지 않으면 MISFILED(분야 교정)가 옛 이름에만 붙어 있어 **채점자가 확인한 "실제로는
+    # 교육·문화 서버다"가 표에서 통째로 사라진다** — 그러면 이 서버는 공공데이터·행정
+    # 질문으로 매겨진 판정만 남긴 채 다시 그 분야에 서게 된다.
+    "io.github.yousunjung84-edu/academyinfo": "yousunjung84-edu/academyinfo-mcp",
 }
 
 # 이름만 바뀐 서버가 옛 이름으로 받아 둔 공시를 그대로 잇는다. 손으로 두 번 적지 않는다 —
@@ -102,6 +114,32 @@ for _new, _old in RENAMED.items():
 
 def misfiled_in(category: str) -> dict[str, tuple[str, str, str]]:
     return {k: v for k, v in MISFILED.items() if v[0] == category}
+
+
+
+# 저장소가 옮겨간 경로 — **GitHub은 301로 이어 주지만 우리 산출물은 안 이어 준다.**
+#
+# 계기(2026-08-31): 레지스트리 전수 스윕이 제대로 돌자 우리가 옛날에 등록해 둔
+# `build.naru/contract-compass`가 보였다. 그 등록의 `repository.url`이 **이전 개인 계정
+# 경로**여서, 무응답 표에 그 경로가 그대로 실릴 뻔했다(회귀 `test_no_private_or_personal_paths`가
+# 막았다). 옛 경로는 GitHub API가 `Moved Permanently`로 답한다 — 즉 저장소는 조직으로
+# 옮겨갔고, 옛 경로를 그대로 싣는 것은 **지금 없는 곳을 가리키는 것**이다.
+#
+# 링크만 갈아 끼우는 것이지 무응답 사실을 지우는 게 아니다. 우리 옛 주소가 죽었다는 것은
+# 우리에게 불리한 사실이고 그대로 게시한다(PROTOCOL.md ②).
+MOVED_REPO: dict[str, str] = {
+    "kwenhwang/contract-compass": "sallim-app/contract-compass",
+}
+
+
+def fix_repo_url(url: str | None) -> str | None:
+    """옮겨간 저장소 경로를 현재 경로로 고친다. 모르는 주소는 그대로 돌려준다."""
+    if not url:
+        return url
+    for old, new in MOVED_REPO.items():
+        if f"github.com/{old}" in url:
+            return url.replace(f"github.com/{old}", f"github.com/{new}")
+    return url
 
 
 if __name__ == "__main__":

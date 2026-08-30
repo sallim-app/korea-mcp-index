@@ -37,7 +37,9 @@ REGISTRY = "https://registry.modelcontextprotocol.io/v0/servers"
 MCPMOA = "https://mcpmoa.com/api/v1/servers.json"
 GITHUB = "https://api.github.com/search/repositories"
 PAGE = 100
-MAX_PAGES = 400   # 12,000건까지. 상한에 걸리면 숨기지 않고 공시한다.
+# 서버당 1행(version=latest) 기준 실측 259페이지에서 커서가 소진된다. 상한은 폭주 방지용
+# 여유값이고, 걸리면 숨기지 않고 `truncated`로 공시한다.
+MAX_PAGES = 400
 
 # ASCII만 걸린다(레지스트리 한글 미지원 실측). 한글 전용 항목은 3차가 맡는다.
 REGISTRY_TERMS = ["korea", "korean", "kr-", "molit", "kosis", "naver", "kakao",
@@ -65,6 +67,66 @@ def _get(url: str, token: str | None = None, tries: int = 3):
     raise RuntimeError("unreachable")
 
 
+def merge_sources(*groups: dict) -> dict:
+    """원천들을 한 명단으로 합친다 — **주소가 신원이고 저장소는 거처다**.
+
+    함수로 떼어 둔 이유: 이 규칙이 틀리면 남의 서버가 표에서 조용히 사라지거나
+    한 서버가 두 줄로 실린다. 둘 다 실제로 일어났으므로 회귀가 직접 태운다
+    (`tests/test_registry_sweep.py`).
+    """
+    # 이름으로는 절대 안 합쳐진다 — 레지스트리 이름 규칙(app.sallim/…)과 GitHub
+    # 경로(sallim-app/…)가 달라 실측 겹침이 0건이다. 그래서 주소와 저장소로 합친다:
+    # **주소가 같으면 무조건 같은 서버**이고, 저장소가 같은 것은 **주소가 어긋나지 않을 때만**
+    # 같은 서버다(아래 두 주석이 각각의 근거와 실사고를 든다).
+    merged: dict = {}
+    by_repo: dict = {}
+    for d in [d for g in groups for d in g.values()]:
+        ru = (d.get("repo_url") or "").rstrip("/").lower()
+        # **엔드포인트가 같으면 같은 서버다.** 저장소가 달라도(레지스트리 등록 저장소 vs
+        # 소스 저장소) 같은 주소를 부르면 하나로 센다 — 2026-08-18 실측: 우리 서버가
+        # korea-realty와 realty-mcp 두 줄로 실려 도구 47종이 중복 계상됐다.
+        eps = [(r.get("url") or "").split("?")[0].rstrip("/").lower()
+               for r in (d.get("remotes") or []) if r.get("url")]
+        # **같은 저장소라고 같은 서버는 아니다**(2026-08-31 실측). 한 저장소에서 여러 서버를
+        # 발행하는 곳이 있다 — `lead788/apick-mcp` 하나가 `app.apick/{ai,all,business,finance,
+        # identity,ocr,vision,convert,web}` 9개를 내고, 주소가 `/mcp/ai`·`/mcp/all`처럼 전부
+        # 다르며 도구 수도 80·16·3으로 제각각이다. 저장소만 보고 합치면 그 9개가 한 줄이 되고
+        # **지난주 도구 80개로 게시·채점했던 `app.apick/all`이 표에서 그냥 사라진다.**
+        # 이 규칙의 근거는 처음부터 "엔드포인트가 같으면 같은 서버"였다 — 저장소는 코드가 있는
+        # 곳이지 돌아가는 서버의 신원이 아니다. 그래서 **주소가 서로 다르면 저장소가 같아도
+        # 합치지 않는다**(양쪽 다 주소를 밝혔을 때만 갈라진다 — 한쪽이 아직 주소가 없는
+        # 레지스트리↔GitHub 병합은 그대로 살려야 한다).
+        key = None
+        for e in eps:
+            key = key or by_repo.get("ep:" + e)
+        if key is None and ru:
+            cand = by_repo.get(ru)
+            if cand is not None:
+                prev_eps = {(r.get("url") or "").split("?")[0].rstrip("/").lower()
+                            for r in (merged[cand].get("remotes") or []) if r.get("url")}
+                if not (eps and prev_eps and prev_eps.isdisjoint(eps)):
+                    key = cand
+        if key:
+            tgt = merged[key]
+            tgt["sources"] |= d["sources"]
+            tgt["terms"] |= d["terms"]
+            tgt["categories"] = tgt.get("categories", set()) | d.get("categories", set())
+            for f in ("stars", "pushed", "archived", "packages", "remotes"):
+                if f in d and f not in tgt:
+                    tgt[f] = d[f]
+            continue
+        merged[d["name"]] = d
+        if ru:
+            by_repo[ru] = d["name"]
+        for e in eps:
+            by_repo.setdefault("ep:" + e, d["name"])
+    for d in merged.values():
+        d["sources"] = sorted(d["sources"])
+        d["terms"] = sorted(d["terms"])
+        d["categories"] = sorted(d.get("categories") or [])
+    return merged
+
+
 def from_registry() -> tuple[dict, list]:
     """공식 레지스트리 **전수 스윕**.
 
@@ -73,11 +135,23 @@ def from_registry() -> tuple[dict, list]:
     `search=korean`에 안 잡히고 `search=contract`에만 잡혔다. 즉 이름에 한국 단어가 없는
     한국 서버는 검색어를 아무리 늘려도 **구조적으로** 못 본다.
     전체가 수천 건 규모라 커서로 다 넘길 수 있으니, 받아서 우리가 거른다.
+
+    **`version=latest`가 없으면 전수 스윕이 전수가 아니다**(2026-08-31 실측). 기본 응답은
+    서버 1개당 **발행한 판마다 한 줄**이라, 페이지를 옛 판으로 채우고 상한에서 끊긴다 —
+    40,000행(400페이지)을 받고도 고유 이름은 12,463개였고 커서가 남아 있었다. `version=latest`를
+    붙이면 서버당 1행이 되어 **259페이지에서 커서가 소진되고 25,829개**가 나온다. 즉 종전
+    스윕은 레지스트리의 48%만 보고 있었다.
+
+    이 결함은 조용하다 — `truncated` 공시가 정직하게 떠 있었으므로 아무도 멈추지 않았고,
+    대신 **지난주에 실었던 서버가 이번 주 표에서 그냥 사라졌다**(`app.apick/all`, 지난주 도구
+    80개로 게시). 레지스트리에 그대로 살아 있는데 우리가 못 본 것이다. 경계를 공시하는 것과
+    경계를 넓힐 수 있는데 안 넓히는 것은 다르다(기치 ②: 못 봄 != 없음).
     """
     found, notes = {}, []
     cursor, pages = None, 0
     while pages < MAX_PAGES:
-        q = {"limit": PAGE}
+        # version=latest — 서버당 1행. 빼면 옛 판이 페이지를 먹어 뒤쪽을 못 본다(위 docstring).
+        q = {"limit": PAGE, "version": "latest"}
         if cursor:
             q["cursor"] = cursor
         try:
@@ -189,38 +263,7 @@ def main() -> int:
     moa, n3 = from_mcpmoa()
     notes = n1 + n2 + n3
 
-    # repo_url이 같으면 같은 서버다 — 레지스트리 이름 규칙(app.sallim/…)과 GitHub
-    # 경로(sallim-app/…)가 달라 이름으로는 절대 안 합쳐진다(실측 겹침 0건).
-    merged: dict = {}
-    by_repo: dict = {}
-    for d in list(reg.values()) + list(gh.values()) + list(moa.values()):
-        ru = (d.get("repo_url") or "").rstrip("/").lower()
-        # **엔드포인트가 같으면 같은 서버다.** 저장소가 달라도(레지스트리 등록 저장소 vs
-        # 소스 저장소) 같은 주소를 부르면 하나로 센다 — 2026-08-18 실측: 우리 서버가
-        # korea-realty와 realty-mcp 두 줄로 실려 도구 47종이 중복 계상됐다.
-        eps = [(r.get("url") or "").split("?")[0].rstrip("/").lower()
-               for r in (d.get("remotes") or []) if r.get("url")]
-        key = by_repo.get(ru) if ru else None
-        for e in eps:
-            key = key or by_repo.get("ep:" + e)
-        if key:
-            tgt = merged[key]
-            tgt["sources"] |= d["sources"]
-            tgt["terms"] |= d["terms"]
-            tgt["categories"] = tgt.get("categories", set()) | d.get("categories", set())
-            for f in ("stars", "pushed", "archived", "packages", "remotes"):
-                if f in d and f not in tgt:
-                    tgt[f] = d[f]
-            continue
-        merged[d["name"]] = d
-        if ru:
-            by_repo[ru] = d["name"]
-        for e in eps:
-            by_repo.setdefault("ep:" + e, d["name"])
-    for d in merged.values():
-        d["sources"] = sorted(d["sources"])
-        d["terms"] = sorted(d["terms"])
-        d["categories"] = sorted(d.get("categories") or [])
+    merged = merge_sources(reg, gh, moa)
 
     json.dump({"generated_note": "재실행 가능. sources·terms로 어느 원천이 잡았는지 추적된다.",
                "boundaries": notes, "count": len(merged),

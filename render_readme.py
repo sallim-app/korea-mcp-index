@@ -116,6 +116,27 @@ def q(rec: dict, key: str, default="—"):
     return ((rec.get("remote") or {}).get("quality") or {}).get(key, default)
 
 
+def renamed_note(name: str, en: bool, ranked: bool) -> str:
+    """**개명을 숨기지 않는다.** 조용히 이어 붙이면 그 판정이 새 이름으로 측정된 것처럼 읽힌다.
+
+    독자가 채점 근거(grades/·총평)와 「분야 교정」에서 만나는 이름은 **옛 이름**이다.
+    그래서 이었다는 사실을 그 서버가 나오는 자리마다 적는다 — 등수를 받은 서버뿐 아니라
+    분야 교정만 붙은 서버도 마찬가지다(2026-08-31: academyinfo가 그 자리에서 빠졌다).
+
+    표현이 중립인 이유: 개명에는 **저장소 이전**(public-data-lens)과 **표기 출처 변경**
+    (레지스트리 이름이 GitHub 경로를 대체 — academyinfo)이 섞여 있다. "저장소가 옮겨졌다"로
+    통일하면 후자에 대해 사실이 아닌 것을 적게 된다.
+    """
+    rn = RENAMED.get(name)
+    if not rn:
+        return ""
+    if en:
+        tail = "; the rank was earned under the old name" if ranked else ""
+        return f"<br><sub>Previously listed as `{rn}` → `{name}` — same server{tail}</sub>"
+    tail = "고, 등수는 옛 이름으로 받은 것이다" if ranked else "다"
+    return f"<br><sub>지난 회차 표기 `{rn}` → `{name}` — 같은 서버로 이었{tail}</sub>"
+
+
 def row(rec: dict, en=False, err_of: dict | None = None) -> str:
     rm = rec["remote"]
     mark = " 🏠" if rec["name"].startswith(OURS) else ""
@@ -127,16 +148,7 @@ def row(rec: dict, en=False, err_of: dict | None = None) -> str:
     # 통계표에서 개별 실거래를 찾는 것은 서버 탓이 아닌데, 표만 보면 그걸 알 수 없다.
     sc = SCOPE.get(rec["name"])
     scope = f"<br><sub>{sc}</sub>" if sc else ""
-    # **개명을 숨기지 않는다.** 등수는 옛 이름으로 받은 것이고, 독자가 채점 근거
-    # (grades/·아래 총평)에서 만나는 이름도 옛 이름이다. 조용히 이어 붙이면
-    # 그 등수가 이 저장소에서 측정된 것처럼 읽힌다.
-    rn = RENAMED.get(rec["name"])
-    if rn:
-        scope += (f"<br><sub>저장소가 `{rn}` → `{rec['name']}`로 옮겨졌다 — "
-                  f"주소가 같아 같은 서버로 이었고, 등수는 옛 이름으로 받은 것이다</sub>"
-                  if not en else
-                  f"<br><sub>Repo moved `{rn}` → `{rec['name']}` — same endpoint, "
-                  f"rank carried over from the old name</sub>")
+    scope += renamed_note(rec["name"], en, ranked=True)
     return (f"| {link(rec)}{mark}{paid}{scope} | {rm.get('tool_count') or '—'} | {warm or '—'} | "
             f"{emph(str(cold)) if slow else (cold or '—')} | "
             f"{q(rec, 'described_pct')}% | {q(rec, 'annotated_pct')}% | "
@@ -499,8 +511,14 @@ def main() -> int:
         A("")
         if not judged:
             # 후보가 적어 심사하지 않은 분야 — "Top 3"라고 쓰면 실제보다 두껍게 읽힌다.
-            A(f"후보가 {len(group)}건뿐이라 순위를 매기지 않았다. "
-              f"3개 중 3개를 고르는 것은 순위가 아니라 목록이다.")
+            # **문구가 건수를 따라가야 한다**(2026-08-31): "3개 중 3개"가 고정 문구라
+            # 1건짜리 분야에서 "후보가 1건뿐인데 3개 중 3개"라는 자기모순이 나갔다.
+            # 이번 회차에 레지스트리를 다 보면서 1~2건짜리 분야가 4개 생겨 그만큼 드러났다.
+            n = len(group)
+            A(f"후보가 {n}건뿐이라 순위를 매기지 않았다. "
+              + ("이 분야에서 응답한 서버가 하나라 비교할 상대가 없다."
+                 if n == 1 else
+                 f"{n}개 중 {n}개를 고르는 것은 순위가 아니라 목록이다."))
             A("")
         else:
             if len(group) <= 3:
@@ -582,7 +600,8 @@ def main() -> int:
                 # 고쳐 쓰면 축자성이 깨지므로(회귀가 grades/와 대조한다) 고치지 않고
                 # **발췌임을 보이게** 따옴표와 말줄임으로 감싼다.
                 tail = "…" if not why.rstrip().endswith("다.") else ""
-                A(f"| {link(r)} | {now} | “{why.rstrip()}{tail}” |")
+                A(f"| {link(r)}{renamed_note(r['name'], en, ranked=False)} | {now} | "
+                  f"“{why.rstrip()}{tail}” |")
             A("")
 
     # ── 표기 ──
