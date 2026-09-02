@@ -1,6 +1,6 @@
 {
  "note": "분류 캐시. 키=sha256(name|description) 앞 12자. 내용이 안 바뀌면 재호출하지 않는다. 판정자=Haiku 서브에이전트, 폴백=키워드(by 필드로 구분).",
- "model": "claude-haiku-4-5",
+ "model": "claude-haiku (분류)",
  "items": {
   "ba690b85df6c": {
    "name": "042Jason/kosis-mcp",

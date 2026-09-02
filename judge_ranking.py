@@ -133,7 +133,7 @@ def merge() -> int:
         added += 1
     json.dump({"note": "분야별 블라인드 심사 결과. 키=sha256(분야|프롬프트|입력). "
                        "입력이 안 바뀌면 재호출하지 않는다. 심사 기준 전문은 JUDGING.md.",
-               "model": "claude-haiku-4-5", "min_candidates": MIN_CANDIDATES, "items": cache},
+               "model": "claude-haiku (블라인드 심사)", "min_candidates": MIN_CANDIDATES, "items": cache},
               open("ranking.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print(f"ranking.json — 분야 {added}개 반영, 누적 {len(cache)}개")
     return 0
