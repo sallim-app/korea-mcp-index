@@ -489,3 +489,55 @@ def test_no_wellknown_mcp_json_is_published():
         r, out = build(tmp)
         assert r.returncode == 0, r.stderr
         assert not (out / ".well-known" / "mcp.json").exists()
+
+
+def test_retired_verdict_wording_is_gone_from_every_rendered_page():
+    """**우리가 못 본 것을 남의 사망으로 적는 문구가 게시본 어디에도 없다** (T-2026W35-119 후속).
+
+    2026-09-03 실사고: 판정 어휘를 세 갈래(살아있음 확인/확인 못 함/죽음 확인)로 갈랐고
+    목록·서버 상세·DOWN.md·README까지 전부 옮겼는데, **순위표 밑 '빠진 등수' 각주 한
+    줄만** `render_site.py`에 손으로 박힌 "이번 주 응답 없음"으로 남아 있었다. 렌더된
+    site/ 4곳에 그대로 실렸고, 그중 하나는 실제 판정이 `확인 못 함`인 서버였다 —
+    고치러 온 결함을 게시본 다른 자리에서 계속 저지르고 있었다.
+
+    한 곳을 고치는 대신 **게시본 전수**를 본다. 어휘가 또 늘거나 새 페이지가 생겨도
+    같은 문장이 되살아나면 여기서 걸린다.
+    """
+    retired = ["응답 없음", "응답하지 않는 서버", "무응답"]
+    with tempfile.TemporaryDirectory() as tmp:
+        r, out = build(tmp)
+        assert r.returncode == 0, r.stderr
+        pages = sorted(p for p in out.rglob("*") if p.suffix in {".html", ".json", ".txt", ".md"})
+        assert len(pages) > 20, f"게시본을 {len(pages)}개만 찾았다 — 이 검사가 조용히 통과한다"
+        hits = []
+        for p in pages:
+            t = p.read_text(encoding="utf-8", errors="replace")
+            for bad in retired:
+                if bad in t:
+                    hits.append(f"{p.relative_to(out)}: '{bad}'")
+        assert not hits, (
+            "폐기한 판정 어휘가 게시본에 남아 있다 — 우리가 못 본 것을 남의 사망으로 "
+            "공시하는 자리다:\n  " + "\n  ".join(hits)
+        )
+
+
+def test_missing_rank_footnote_separates_unverified_from_down():
+    """'빠진 등수' 각주가 확인 못 함과 죽음 확인을 **갈라서** 적는다.
+
+    한 어휘로 뭉치면 (a) 확인 못 함을 사망으로 올리거나 (b) 사망을 확인 못 함으로
+    낮춘다. 둘 다 게시본이 원자료보다 덜 정확해지는 것이다.
+    """
+    from measure import STATUS_LABEL
+
+    with tempfile.TemporaryDirectory() as tmp:
+        r, out = build(tmp)
+        assert r.returncode == 0, r.stderr
+        joined = "\n".join(p.read_text(encoding="utf-8", errors="replace")
+                           for p in out.rglob("*.html"))
+        notes = re.findall(r"빠진 등수.{0,400}", joined, re.S)
+        if not notes:
+            return  # 이번 회차엔 빠진 등수가 없다 — 없는 것을 지어내 검사하지 않는다
+        blob = "\n".join(notes)
+        assert STATUS_LABEL["unverified"] in blob or STATUS_LABEL["down"] in blob, (
+            "빠진 등수 각주가 판정 어휘를 쓰지 않는다 — 손으로 박은 문구로 되돌아갔다:\n" + blob[:400]
+        )

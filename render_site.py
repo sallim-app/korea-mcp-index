@@ -552,8 +552,18 @@ def cat_block(ctx, c, full=True) -> list[str]:
         if gone:
             bits = []
             for rk_, n in gone:
-                why_gone = ("이번 주 응답 없음" if n in ctx["dead_names"]
-                            else "이번 주 후보에서 빠졌다")
+                # **여기서도 어휘를 지킨다** (2026-09-03, T-2026W35-119 후속).
+                # 종전엔 "이번 주 응답 없음"이 손으로 박혀 있었다 — 어휘 전환이
+                # 목록·상세·DOWN.md·README까지 갔는데 이 각주만 안 따라와,
+                # 우리가 못 본 것을 남의 사망으로 적는 문장이 **순위표 밑에**
+                # 그대로 남아 있었다(실측: 렌더된 site/ 4곳). 상태를 다시 쓰지 말고
+                # 판정에서 파생한다 — 죽음 확인과 확인 못 함은 다른 값이다.
+                if n in ctx["down_names"]:
+                    why_gone = f'이번 주 {STATUS_LABEL["down"]}'
+                elif n in ctx["dead_names"]:
+                    why_gone = f'이번 주 {STATUS_LABEL["unverified"]}'
+                else:
+                    why_gone = "이번 주 후보에서 빠졌다"
                 bits.append(f"{rk_}위 {e(disp(n))}({why_gone})")
             o.append('<p class="sub"><strong>빠진 등수</strong> — 지난 채점 회차의 '
                      + " · ".join(bits)
@@ -1603,7 +1613,8 @@ def main() -> int:
            "inst": inst, "unmeasured": unmeasured, "cls": cls, "rank_of": rank_of,
            "err_of": err_of, "cat_note": cat_note, "cat_runs": cat_runs,
            "graded_of": graded_of, "cats_live": cats_live, "page_of": page_of,
-           "cat_page": cat_page, "dead_names": {r["name"] for r in dead}, "ts": ts,
+           "cat_page": cat_page, "dead_names": {r["name"] for r in dead},
+           "down_names": {r["name"] for r in downs}, "ts": ts,
            "today": today, "ts_ago": ago(ts, today), "axes_ts": d.get("axes_at"),
            "pkg_ts": d.get("repackaged_at"), "graded": graded_at()}
     site.date_footer = (
