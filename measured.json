@@ -1,5 +1,5 @@
 {
- "measured": 277,
+ "measured": 274,
  "unmeasurable": 50,
  "boundaries": [
   "50seok/kr-public-data-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
@@ -54,7 +54,7 @@
   "zephiris21/news-mcp-crawler: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)"
  ],
  "criteria_note": "항목은 결과를 보기 전에 PROTOCOL.md에 고정됐다. 사후 변경 금지 — 바꾼 적이 있으면 그 개정 이력도 거기 있다.",
- "measured_at": "2026-08-31",
+ "measured_at": "2026-09-03",
  "items": [
   {
    "name": "2geonhyup/dart-mcp",
@@ -320,13 +320,22 @@
    "remote": {
     "url": "https://startup-law-mcp.fly.dev/mcp",
     "http": 200,
-    "cold_ms": 3947,
-    "latency_ms": 135,
+    "cold_ms": 136,
+    "latency_ms": 128,
     "retried": false,
-    "warm_ms": 135,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "startup-law",
+    "warm_ms": 128,
+    "status": "live",
+    "status_label": "살아있음 확인",
     "reachable": true,
     "needs_key": false,
     "tool_count": 13,
+    "why": "",
     "quality": {
      "described_pct": 100,
      "desc_median": 233,
@@ -335,7 +344,6 @@
      "annotated_pct": 0,
      "readonly_pct": 0
     },
-    "why": "",
     "url_source": "readme"
    },
    "paid_disclosure": {
@@ -391,11 +399,21 @@
    "remote": {
     "url": "https://korea-stats-mcp-yxup.vercel.app/mcp",
     "http": 404,
-    "cold_ms": 35,
-    "latency_ms": 35,
+    "cold_ms": 264,
+    "latency_ms": 264,
     "retried": false,
+    "transports_tried": [
+     "streamable-http",
+     "sse"
+    ],
+    "transport": null,
+    "status": "unverified",
+    "status_label": "확인 못 함",
     "reachable": false,
     "why": "HTTP 404",
+    "status_note": "전송 방식이 안 맞았을 수 있다 — 규격을 지키는 서버도 이 코드를 준다",
+    "sse_why": "HTTP 404",
+    "error_body": "{\"error\": {\"code\": \"404\", \"message\": \"The deployment could not be found on Vercel.\"}}",
     "url_source": "readme"
    },
    "package": {
@@ -636,14 +654,14 @@
    "package": null,
    "self_hostable": null,
    "open_source": {
-    "license": "MIT",
+    "license": null,
     "repo": "JungHoonGhae/gongctl",
-    "public": true,
-    "why": ""
+    "public": null,
+    "why": "저장소를 못 읽었다(404) — 비공개·삭제·이름 변경 중 하나"
    },
    "self_hosting": {
-    "state": "source_only",
-    "why": "배포판은 없고 소스만 공개(MIT) — 띄우려면 직접 빌드해야 한다"
+    "state": "unknown",
+    "why": "배포판도 공개 소스도 확인하지 못했다 — 불가가 아니라 미확인이다"
    },
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
@@ -742,9 +760,15 @@
    "remote": {
     "url": "https://open-proxy-mcp.fly.dev/mcp",
     "http": 401,
-    "cold_ms": 214,
-    "latency_ms": 214,
+    "cold_ms": 219,
+    "latency_ms": 219,
     "retried": false,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "status": "live",
+    "status_label": "살아있음 확인",
     "reachable": true,
     "needs_key": true,
     "tool_count": null,
@@ -785,13 +809,22 @@
    "remote": {
     "url": "https://alpha.moss.land/api/mcp",
     "http": 200,
-    "cold_ms": 567,
-    "latency_ms": 30,
+    "cold_ms": 27,
+    "latency_ms": 31,
     "retried": false,
-    "warm_ms": 30,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "alpha-by-mossland",
+    "warm_ms": 31,
+    "status": "live",
+    "status_label": "살아있음 확인",
     "reachable": true,
     "needs_key": false,
     "tool_count": 12,
+    "why": "",
     "quality": {
      "described_pct": 100,
      "desc_median": 57,
@@ -800,7 +833,6 @@
      "annotated_pct": 0,
      "readonly_pct": 0
     },
-    "why": "",
     "url_source": "readme"
    },
    "paid_disclosure": {
@@ -839,13 +871,22 @@
    "remote": {
     "url": "https://korea-stock-analyzer-mcp-production.up.railway.app/mcp",
     "http": 200,
-    "cold_ms": 545,
-    "latency_ms": 427,
+    "cold_ms": 221,
+    "latency_ms": 215,
     "retried": false,
-    "warm_ms": 427,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "korea-stock-mcp",
+    "warm_ms": 215,
+    "status": "live",
+    "status_label": "살아있음 확인",
     "reachable": true,
     "needs_key": false,
     "tool_count": 6,
+    "why": "",
     "quality": {
      "described_pct": 100,
      "desc_median": 287,
@@ -854,7 +895,6 @@
      "annotated_pct": 100,
      "readonly_pct": 100
     },
-    "why": "",
     "url_source": "readme"
    },
    "paid_disclosure": {
@@ -1391,13 +1431,35 @@
    ],
    "remote": {
     "url": "https://supershopping-mcp.atdev.ai/mcp",
-    "http": 400,
-    "cold_ms": 190,
-    "latency_ms": 190,
+    "http": 200,
+    "cold_ms": 45,
+    "latency_ms": 44,
     "retried": false,
-    "reachable": false,
-    "why": "HTTP 400",
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "supershopping",
+    "warm_ms": 44,
+    "status": "live",
+    "status_label": "살아있음 확인",
+    "reachable": true,
+    "needs_key": false,
+    "tool_count": 8,
+    "why": "",
+    "quality": {
+     "described_pct": 100,
+     "desc_median": 311,
+     "input_schema_pct": 100,
+     "output_schema_pct": 88,
+     "annotated_pct": 100,
+     "readonly_pct": 88
+    },
     "url_source": "registry"
+   },
+   "paid_disclosure": {
+    "disclosed": false
    },
    "package": null,
    "self_hostable": null,
@@ -1425,9 +1487,15 @@
    "remote": {
     "url": "https://mcp.heyyumi.ai",
     "http": 401,
-    "cold_ms": 902,
-    "latency_ms": 902,
+    "cold_ms": 538,
+    "latency_ms": 538,
     "retried": false,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "status": "live",
+    "status_label": "살아있음 확인",
     "reachable": true,
     "needs_key": true,
     "tool_count": null,
@@ -1462,13 +1530,22 @@
    "remote": {
     "url": "https://hotker.ai/mcp",
     "http": 200,
-    "cold_ms": 184,
-    "latency_ms": 39,
+    "cold_ms": 186,
+    "latency_ms": 60,
     "retried": false,
-    "warm_ms": 39,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "hotker_public",
+    "warm_ms": 60,
+    "status": "live",
+    "status_label": "살아있음 확인",
     "reachable": true,
     "needs_key": false,
     "tool_count": 6,
+    "why": "",
     "quality": {
      "described_pct": 100,
      "desc_median": 63,
@@ -1477,7 +1554,6 @@
      "annotated_pct": 0,
      "readonly_pct": 0
     },
-    "why": "",
     "url_source": "registry"
    },
    "paid_disclosure": {
@@ -1510,11 +1586,21 @@
    "remote": {
     "url": "https://server.smithery.ai/@alphago2580/naramarketmcp/mcp",
     "http": 404,
-    "cold_ms": 569,
-    "latency_ms": 569,
+    "cold_ms": 567,
+    "latency_ms": 567,
     "retried": false,
+    "transports_tried": [
+     "streamable-http",
+     "sse"
+    ],
+    "transport": null,
+    "status": "unverified",
+    "status_label": "확인 못 함",
     "reachable": false,
     "why": "HTTP 404",
+    "status_note": "전송 방식이 안 맞았을 수 있다 — 규격을 지키는 서버도 이 코드를 준다",
+    "sse_why": "HTTP 404",
+    "error_body": "Server not found",
     "url_source": "registry"
    },
    "package": null,
@@ -1543,11 +1629,21 @@
    "remote": {
     "url": "https://server.smithery.ai/@hjsh200219/pharminfo-mcp/mcp",
     "http": 404,
-    "cold_ms": 424,
-    "latency_ms": 424,
+    "cold_ms": 404,
+    "latency_ms": 404,
     "retried": false,
+    "transports_tried": [
+     "streamable-http",
+     "sse"
+    ],
+    "transport": null,
+    "status": "unverified",
+    "status_label": "확인 못 함",
     "reachable": false,
     "why": "HTTP 404",
+    "status_note": "전송 방식이 안 맞았을 수 있다 — 규격을 지키는 서버도 이 코드를 준다",
+    "sse_why": "HTTP 404",
+    "error_body": "Server not found",
     "url_source": "registry"
    },
    "package": null,
@@ -1578,11 +1674,21 @@
    "remote": {
     "url": "https://server.smithery.ai/@isnow890/data4library-mcp/mcp",
     "http": 404,
-    "cold_ms": 431,
-    "latency_ms": 431,
+    "cold_ms": 543,
+    "latency_ms": 543,
     "retried": false,
+    "transports_tried": [
+     "streamable-http",
+     "sse"
+    ],
+    "transport": null,
+    "status": "unverified",
+    "status_label": "확인 못 함",
     "reachable": false,
     "why": "HTTP 404",
+    "status_note": "전송 방식이 안 맞았을 수 있다 — 규격을 지키는 서버도 이 코드를 준다",
+    "sse_why": "HTTP 404",
+    "error_body": "Server not found",
     "url_source": "registry"
    },
    "package": null,
@@ -1613,11 +1719,21 @@
    "remote": {
     "url": "https://server.smithery.ai/@jjlabsio/korea-stock-mcp/mcp",
     "http": 404,
-    "cold_ms": 414,
-    "latency_ms": 414,
+    "cold_ms": 409,
+    "latency_ms": 409,
     "retried": false,
+    "transports_tried": [
+     "streamable-http",
+     "sse"
+    ],
+    "transport": null,
+    "status": "unverified",
+    "status_label": "확인 못 함",
     "reachable": false,
     "why": "HTTP 404",
+    "status_note": "전송 방식이 안 맞았을 수 있다 — 규격을 지키는 서버도 이 코드를 준다",
+    "sse_why": "HTTP 404",
+    "error_body": "Server not found",
     "url_source": "registry"
    },
    "package": null,
@@ -1646,13 +1762,22 @@
    "remote": {
     "url": "https://chat.timeplex.ai/mcp",
     "http": 200,
-    "cold_ms": 996,
-    "latency_ms": 724,
+    "cold_ms": 725,
+    "latency_ms": 397,
     "retried": false,
-    "warm_ms": 724,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "timeplex-booking",
+    "warm_ms": 397,
+    "status": "live",
+    "status_label": "살아있음 확인",
     "reachable": true,
     "needs_key": false,
     "tool_count": 5,
+    "why": "",
     "quality": {
      "described_pct": 100,
      "desc_median": 690,
@@ -1661,7 +1786,6 @@
      "annotated_pct": 100,
      "readonly_pct": 80
     },
-    "why": "",
     "url_source": "registry"
    },
    "paid_disclosure": {
@@ -1747,8 +1871,8 @@
     "type": "pypi",
     "id": "dart-risk-mcp",
     "installable": true,
-    "last_publish": "2026-08-16",
-    "version": "1.12.0"
+    "last_publish": "2026-09-03",
+    "version": "1.22.0"
    },
    "self_hostable": true,
    "open_source": {
@@ -1799,22 +1923,30 @@
    "remote": {
     "url": "https://apick.app/mcp/all",
     "http": 200,
-    "cold_ms": 136,
-    "latency_ms": 58,
+    "cold_ms": 71,
+    "latency_ms": 65,
     "retried": false,
-    "warm_ms": 58,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "app.apick/all",
+    "warm_ms": 65,
+    "status": "live",
+    "status_label": "살아있음 확인",
     "reachable": true,
     "needs_key": false,
-    "tool_count": 78,
+    "tool_count": 83,
+    "why": "",
     "quality": {
      "described_pct": 100,
-     "desc_median": 176,
-     "input_schema_pct": 97,
+     "desc_median": 173,
+     "input_schema_pct": 98,
      "output_schema_pct": 0,
      "annotated_pct": 100,
-     "readonly_pct": 96
+     "readonly_pct": 92
     },
-    "why": "",
     "url_source": "registry"
    },
    "paid_disclosure": {
@@ -1824,8 +1956,8 @@
     "type": "npm",
     "id": "apick-mcp",
     "installable": true,
-    "last_publish": "2026-08-29",
-    "version": "2.0.0"
+    "last_publish": "2026-09-01",
+    "version": "2.2.0"
    },
    "self_hostable": true,
    "open_source": {
@@ -1852,13 +1984,22 @@
    "remote": {
     "url": "https://apick.app/mcp/business",
     "http": 200,
-    "cold_ms": 39,
-    "latency_ms": 35,
+    "cold_ms": 52,
+    "latency_ms": 39,
     "retried": false,
-    "warm_ms": 35,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "app.apick/business",
+    "warm_ms": 39,
+    "status": "live",
+    "status_label": "살아있음 확인",
     "reachable": true,
     "needs_key": false,
     "tool_count": 16,
+    "why": "",
     "quality": {
      "described_pct": 100,
      "desc_median": 177,
@@ -1867,7 +2008,6 @@
      "annotated_pct": 100,
      "readonly_pct": 88
     },
-    "why": "",
     "url_source": "registry"
    },
    "paid_disclosure": {
@@ -1899,13 +2039,22 @@
    "remote": {
     "url": "https://apick.app/mcp/finance",
     "http": 200,
-    "cold_ms": 33,
-    "latency_ms": 27,
+    "cold_ms": 32,
+    "latency_ms": 32,
     "retried": false,
-    "warm_ms": 27,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "app.apick/finance",
+    "warm_ms": 32,
+    "status": "live",
+    "status_label": "살아있음 확인",
     "reachable": true,
     "needs_key": false,
     "tool_count": 3,
+    "why": "",
     "quality": {
      "described_pct": 100,
      "desc_median": 155,
@@ -1914,7 +2063,6 @@
      "annotated_pct": 100,
      "readonly_pct": 67
     },
-    "why": "",
     "url_source": "registry"
    },
    "paid_disclosure": {
@@ -1947,22 +2095,30 @@
    "remote": {
     "url": "https://contract.sallim.app/mcp?via=official",
     "http": 200,
-    "cold_ms": 65,
-    "latency_ms": 33,
+    "cold_ms": 68,
+    "latency_ms": 48,
     "retried": false,
-    "warm_ms": 33,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "contract-compass",
+    "warm_ms": 48,
+    "status": "live",
+    "status_label": "살아있음 확인",
     "reachable": true,
     "needs_key": false,
     "tool_count": 11,
+    "why": "",
     "quality": {
      "described_pct": 100,
-     "desc_median": 1299,
+     "desc_median": 1357,
      "input_schema_pct": 100,
      "output_schema_pct": 0,
      "annotated_pct": 100,
      "readonly_pct": 91
     },
-    "why": "",
     "url_source": "registry"
    },
    "paid_disclosure": {
@@ -1980,7 +2136,10 @@
     "state": "source_only",
     "why": "배포판은 없고 소스만 공개(MIT) — 띄우려면 직접 빌드해야 한다"
    },
-   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다",
+   "also_known_as": [
+    "build.naru/contract-compass"
+   ]
   },
   {
    "name": "app.sallim/korea-realty",
@@ -1995,28 +2154,36 @@
    "remote": {
     "url": "https://realty.sallim.app/mcp?via=official",
     "http": 200,
-    "cold_ms": 61,
-    "latency_ms": 48,
+    "cold_ms": 148,
+    "latency_ms": 95,
     "retried": false,
-    "warm_ms": 48,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "realty_mcp",
+    "warm_ms": 95,
+    "status": "live",
+    "status_label": "살아있음 확인",
     "reachable": true,
     "needs_key": false,
-    "tool_count": 51,
+    "tool_count": 52,
+    "why": "",
     "quality": {
      "described_pct": 100,
-     "desc_median": 683,
+     "desc_median": 686,
      "input_schema_pct": 100,
      "output_schema_pct": 0,
      "annotated_pct": 100,
      "readonly_pct": 98
     },
-    "why": "",
     "url_source": "registry"
    },
    "paid_disclosure": {
     "disclosed": true,
-    "total": 51,
-    "free": 41,
+    "total": 52,
+    "free": 42,
     "paid": 10
    },
    "package": null,
@@ -2045,11 +2212,18 @@
    "remote": {
     "url": "https://inv-kr.wishpool.app/mcp",
     "http": null,
-    "cold_ms": 74,
-    "latency_ms": 74,
+    "cold_ms": 90,
+    "latency_ms": 90,
     "retried": true,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": null,
+    "status": "down",
+    "status_label": "죽음 확인",
     "reachable": false,
     "why": "URLError: <urlopen error [Errno -2] Name or service not known>",
+    "status_note": "DNS에 그 이름이 없다 — 호스트가 사라졌다",
     "url_source": "registry"
    },
    "package": null,
@@ -2137,13 +2311,22 @@
    "remote": {
     "url": "https://bootpay-docs-mcp.rupy1014.workers.dev/mcp",
     "http": 200,
-    "cold_ms": 199,
-    "latency_ms": 38,
+    "cold_ms": 263,
+    "latency_ms": 62,
     "retried": false,
-    "warm_ms": 38,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "Bootpay Developer Docs",
+    "warm_ms": 62,
+    "status": "live",
+    "status_label": "살아있음 확인",
     "reachable": true,
     "needs_key": false,
     "tool_count": 9,
+    "why": "",
     "quality": {
      "described_pct": 100,
      "desc_median": 111,
@@ -2152,7 +2335,6 @@
      "annotated_pct": 0,
      "readonly_pct": 0
     },
-    "why": "",
     "url_source": "readme"
    },
    "paid_disclosure": {
@@ -2169,39 +2351,6 @@
    "self_hosting": {
     "state": "source_only",
     "why": "배포판은 없고 소스만 공개(라이선스 없음) — 법적으로 재사용이 열려 있지 않다"
-   },
-   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
-  },
-  {
-   "name": "build.naru/contract-compass",
-   "repo_url": "https://github.com/sallim-app/contract-compass",
-   "stars": null,
-   "pushed": null,
-   "archived": null,
-   "sources": [
-    "registry"
-   ],
-   "remote": {
-    "url": "https://contract.naru.build/mcp",
-    "http": 308,
-    "cold_ms": 170,
-    "latency_ms": 170,
-    "retried": false,
-    "reachable": false,
-    "why": "HTTP 308",
-    "url_source": "registry"
-   },
-   "package": null,
-   "self_hostable": null,
-   "open_source": {
-    "license": "MIT",
-    "repo": "kwenhwang/contract-compass",
-    "public": true,
-    "why": ""
-   },
-   "self_hosting": {
-    "state": "source_only",
-    "why": "배포판은 없고 소스만 공개(MIT) — 띄우려면 직접 빌드해야 한다"
    },
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
@@ -2376,11 +2525,18 @@
    "remote": {
     "url": "https://archhub-mcp.fly.dev/mcp",
     "http": null,
-    "cold_ms": 5195,
-    "latency_ms": 5195,
+    "cold_ms": 5228,
+    "latency_ms": 5228,
     "retried": true,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": null,
+    "status": "unverified",
+    "status_label": "확인 못 함",
     "reachable": false,
     "why": "URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)>",
+    "status_note": "우리 호출로는 확인이 안 됐다 — 죽었다는 뜻이 아니다",
     "url_source": "readme"
    },
    "package": {
@@ -2446,13 +2602,22 @@
    "remote": {
     "url": "https://korean-law-mcp.fly.dev/mcp",
     "http": 200,
-    "cold_ms": 293,
-    "latency_ms": 206,
-    "retried": false,
-    "warm_ms": 206,
+    "cold_ms": 1628,
+    "latency_ms": 3846,
+    "retried": true,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "korean-law",
+    "warm_ms": 3846,
+    "status": "live",
+    "status_label": "살아있음 확인",
     "reachable": true,
     "needs_key": false,
     "tool_count": 10,
+    "why": "",
     "quality": {
      "described_pct": 100,
      "desc_median": 215,
@@ -2461,7 +2626,6 @@
      "annotated_pct": 100,
      "readonly_pct": 100
     },
-    "why": "",
     "url_source": "readme"
    },
    "paid_disclosure": {
@@ -2587,22 +2751,30 @@
    "remote": {
     "url": "https://mcp.aikstockdata.com/mcp",
     "http": 200,
-    "cold_ms": 77,
-    "latency_ms": 24,
+    "cold_ms": 33,
+    "latency_ms": 31,
     "retried": false,
-    "warm_ms": 24,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "aikstockdata-mcp",
+    "warm_ms": 31,
+    "status": "live",
+    "status_label": "살아있음 확인",
     "reachable": true,
     "needs_key": false,
     "tool_count": 12,
+    "why": "",
     "quality": {
      "described_pct": 100,
-     "desc_median": 370,
+     "desc_median": 452,
      "input_schema_pct": 75,
      "output_schema_pct": 0,
      "annotated_pct": 100,
      "readonly_pct": 100
     },
-    "why": "",
     "url_source": "registry"
    },
    "paid_disclosure": {
@@ -2611,14 +2783,14 @@
    "package": null,
    "self_hostable": null,
    "open_source": {
-    "license": "MIT",
+    "license": null,
     "repo": "na77tech-creator/aikstockdata",
-    "public": true,
-    "why": ""
+    "public": null,
+    "why": "저장소를 못 읽었다(404) — 비공개·삭제·이름 변경 중 하나"
    },
    "self_hosting": {
-    "state": "source_only",
-    "why": "배포판은 없고 소스만 공개(MIT) — 띄우려면 직접 빌드해야 한다"
+    "state": "unknown",
+    "why": "배포판도 공개 소스도 확인하지 못했다 — 불가가 아니라 미확인이다"
    },
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
@@ -2634,13 +2806,22 @@
    "remote": {
     "url": "https://seoul-apt-signal.airblock2026.workers.dev/mcp",
     "http": 200,
-    "cold_ms": 60,
-    "latency_ms": 37,
+    "cold_ms": 128,
+    "latency_ms": 31,
     "retried": false,
-    "warm_ms": 37,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2024-11-05",
+    "server_name": "seoul-apt-signal",
+    "warm_ms": 31,
+    "status": "live",
+    "status_label": "살아있음 확인",
     "reachable": true,
     "needs_key": false,
     "tool_count": 6,
+    "why": "",
     "quality": {
      "described_pct": 100,
      "desc_median": 494,
@@ -2649,7 +2830,6 @@
      "annotated_pct": 0,
      "readonly_pct": 0
     },
-    "why": "",
     "url_source": "registry"
    },
    "paid_disclosure": {
@@ -2680,13 +2860,22 @@
    "remote": {
     "url": "https://mcp.arcasos.com",
     "http": 200,
-    "cold_ms": 949,
-    "latency_ms": 650,
+    "cold_ms": 674,
+    "latency_ms": 679,
     "retried": false,
-    "warm_ms": 650,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "arcasos-rentals",
+    "warm_ms": 679,
+    "status": "live",
+    "status_label": "살아있음 확인",
     "reachable": true,
     "needs_key": false,
     "tool_count": 3,
+    "why": "",
     "quality": {
      "described_pct": 100,
      "desc_median": 652,
@@ -2695,7 +2884,6 @@
      "annotated_pct": 0,
      "readonly_pct": 0
     },
-    "why": "",
     "url_source": "registry"
    },
    "paid_disclosure": {
@@ -2726,9 +2914,15 @@
    "remote": {
     "url": "https://mcp.beauticslab.com/mcp",
     "http": 401,
-    "cold_ms": 158,
-    "latency_ms": 158,
+    "cold_ms": 183,
+    "latency_ms": 183,
     "retried": false,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "status": "live",
+    "status_label": "살아있음 확인",
     "reachable": true,
     "needs_key": true,
     "tool_count": null,
@@ -2764,9 +2958,15 @@
    "remote": {
     "url": "https://app.boltena.com/api/ext/mcp",
     "http": 401,
-    "cold_ms": 70,
-    "latency_ms": 70,
+    "cold_ms": 62,
+    "latency_ms": 62,
     "retried": false,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "status": "live",
+    "status_label": "살아있음 확인",
     "reachable": true,
     "needs_key": true,
     "tool_count": null,
@@ -2801,9 +3001,15 @@
    "remote": {
     "url": "https://empresskorea.com/kb-agent-network/mcp",
     "http": 403,
-    "cold_ms": 390,
-    "latency_ms": 390,
+    "cold_ms": 634,
+    "latency_ms": 634,
     "retried": false,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "status": "live",
+    "status_label": "살아있음 확인",
     "reachable": true,
     "needs_key": true,
     "tool_count": null,
@@ -2868,13 +3074,22 @@
    "remote": {
     "url": "https://mcp.hankookilbo.com/mcp",
     "http": 200,
-    "cold_ms": 512,
-    "latency_ms": 217,
+    "cold_ms": 221,
+    "latency_ms": 216,
     "retried": false,
-    "warm_ms": 217,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "한국일보 뉴스 (Hankookilbo)",
+    "warm_ms": 216,
+    "status": "live",
+    "status_label": "살아있음 확인",
     "reachable": true,
     "needs_key": false,
     "tool_count": 10,
+    "why": "",
     "quality": {
      "described_pct": 100,
      "desc_median": 200,
@@ -2883,7 +3098,6 @@
      "annotated_pct": 100,
      "readonly_pct": 100
     },
-    "why": "",
     "url_source": "registry"
    },
    "paid_disclosure": {
@@ -2915,9 +3129,15 @@
    "remote": {
     "url": "https://mcp.koreastockcheck.com/mcp/{api_key}",
     "http": 401,
-    "cold_ms": 82,
-    "latency_ms": 82,
+    "cold_ms": 140,
+    "latency_ms": 140,
     "retried": false,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "status": "live",
+    "status_label": "살아있음 확인",
     "reachable": true,
     "needs_key": true,
     "tool_count": null,
@@ -2953,13 +3173,22 @@
    "remote": {
     "url": "https://saaskr.com/api/mcp",
     "http": 200,
-    "cold_ms": 953,
-    "latency_ms": 322,
+    "cold_ms": 340,
+    "latency_ms": 488,
     "retried": false,
-    "warm_ms": 322,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "saaskr",
+    "warm_ms": 488,
+    "status": "live",
+    "status_label": "살아있음 확인",
     "reachable": true,
     "needs_key": false,
     "tool_count": 5,
+    "why": "",
     "quality": {
      "described_pct": 100,
      "desc_median": 49,
@@ -2968,7 +3197,6 @@
      "annotated_pct": 0,
      "readonly_pct": 0
     },
-    "why": "",
     "url_source": "registry"
    },
    "paid_disclosure": {
@@ -2999,13 +3227,22 @@
    "remote": {
     "url": "https://www.theprotoclinical.com/api/ucp/mcp",
     "http": 200,
-    "cold_ms": 519,
-    "latency_ms": 158,
+    "cold_ms": 167,
+    "latency_ms": 160,
     "retried": false,
-    "warm_ms": 158,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "universal-commerce",
+    "warm_ms": 160,
+    "status": "live",
+    "status_label": "살아있음 확인",
     "reachable": true,
     "needs_key": false,
     "tool_count": 13,
+    "why": "",
     "quality": {
      "described_pct": 100,
      "desc_median": 489,
@@ -3014,7 +3251,6 @@
      "annotated_pct": 0,
      "readonly_pct": 0
     },
-    "why": "",
     "url_source": "registry"
    },
    "paid_disclosure": {
@@ -3045,11 +3281,21 @@
    "remote": {
     "url": "https://whooing.com/mcp",
     "http": 404,
-    "cold_ms": 325,
-    "latency_ms": 325,
+    "cold_ms": 187,
+    "latency_ms": 187,
     "retried": false,
+    "transports_tried": [
+     "streamable-http",
+     "sse"
+    ],
+    "transport": null,
+    "status": "unverified",
+    "status_label": "확인 못 함",
     "reachable": false,
     "why": "HTTP 404",
+    "status_note": "전송 방식이 안 맞았을 수 있다 — 규격을 지키는 서버도 이 코드를 준다",
+    "sse_why": "HTTP 404",
+    "error_body": "<!DOCTYPE html>\n<html lang=\"\"  class=\"overflow-x-hidden\">\n\t<head>\n\t\t<meta charset=\"utf-8\">\n\t\t<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\t\t<meta name=\"robots\" content=\"noindex, nofollow\" />\n\t\t<title>404 Not found - whooing.com</title>\n\n\t\t<link href=\"https://static.whooing.com/assets/js/bootstrap-no-hover.min.css?v=3\" ",
     "url_source": "registry"
    },
    "package": null,
@@ -3152,14 +3398,37 @@
     "github"
    ],
    "remote": {
-    "url": "https://dartpoint.ai/mcp-sse/mcp",
-    "http": 307,
-    "cold_ms": 290,
-    "latency_ms": 290,
+    "url": "https://dartpoint.ai/mcp-sse/mcp/",
+    "http": 200,
+    "cold_ms": 27,
+    "latency_ms": 26,
     "retried": false,
-    "reachable": false,
-    "why": "HTTP 307",
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "redirected_from": "https://dartpoint.ai/mcp-sse/mcp",
+    "protocol_version": "2025-06-18",
+    "server_name": "DartPoint AI MCP Server",
+    "warm_ms": 26,
+    "status": "live",
+    "status_label": "살아있음 확인",
+    "reachable": true,
+    "needs_key": false,
+    "tool_count": 37,
+    "why": "",
+    "quality": {
+     "described_pct": 100,
+     "desc_median": 192,
+     "input_schema_pct": 100,
+     "output_schema_pct": 0,
+     "annotated_pct": 0,
+     "readonly_pct": 0
+    },
     "url_source": "readme"
+   },
+   "paid_disclosure": {
+    "disclosed": false
    },
    "package": null,
    "self_hostable": null,
@@ -3298,13 +3567,33 @@
    ],
    "remote": {
     "url": "https://eddmpython-dartlab.hf.space/mcp/sse",
-    "http": 405,
-    "cold_ms": 715,
-    "latency_ms": 715,
+    "http": 200,
+    "cold_ms": 581,
+    "latency_ms": 581,
     "retried": false,
-    "reachable": false,
-    "why": "HTTP 405",
+    "transports_tried": [
+     "streamable-http",
+     "sse"
+    ],
+    "transport": "sse",
+    "status": "live",
+    "status_label": "살아있음 확인",
+    "reachable": true,
+    "needs_key": false,
+    "tool_count": 26,
+    "why": "",
+    "quality": {
+     "described_pct": 100,
+     "desc_median": 62,
+     "input_schema_pct": 100,
+     "output_schema_pct": 0,
+     "annotated_pct": 0,
+     "readonly_pct": 0
+    },
     "url_source": "readme"
+   },
+   "paid_disclosure": {
+    "disclosed": false
    },
    "package": {
     "type": "npm",
@@ -3368,21 +3657,29 @@
     "url": "https://reevl.co.kr/api/mcp",
     "http": 200,
     "cold_ms": 42,
-    "latency_ms": 29,
+    "latency_ms": 39,
     "retried": false,
-    "warm_ms": 29,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "reevl",
+    "warm_ms": 39,
+    "status": "live",
+    "status_label": "살아있음 확인",
     "reachable": true,
     "needs_key": false,
-    "tool_count": 4,
+    "tool_count": 7,
+    "why": "",
     "quality": {
      "described_pct": 100,
-     "desc_median": 155,
-     "input_schema_pct": 100,
+     "desc_median": 415,
+     "input_schema_pct": 86,
      "output_schema_pct": 100,
      "annotated_pct": 100,
      "readonly_pct": 100
     },
-    "why": "",
     "url_source": "readme"
    },
    "paid_disclosure": {
@@ -3714,13 +4011,22 @@
    "remote": {
     "url": "https://service.datahub.kr/projects/public-data-lens/mcp",
     "http": 200,
-    "cold_ms": 41,
+    "cold_ms": 27,
     "latency_ms": 27,
     "retried": false,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "datanav",
     "warm_ms": 27,
+    "status": "live",
+    "status_label": "살아있음 확인",
     "reachable": true,
     "needs_key": false,
     "tool_count": 9,
+    "why": "",
     "quality": {
      "described_pct": 100,
      "desc_median": 225,
@@ -3729,7 +4035,6 @@
      "annotated_pct": 100,
      "readonly_pct": 100
     },
-    "why": "",
     "url_source": "readme"
    },
    "paid_disclosure": {
@@ -3760,13 +4065,35 @@
    ],
    "remote": {
     "url": "https://public-data.up.railway.app/mcp",
-    "http": 400,
-    "cold_ms": 704,
-    "latency_ms": 704,
+    "http": 200,
+    "cold_ms": 863,
+    "latency_ms": 521,
     "retried": false,
-    "reachable": false,
-    "why": "HTTP 400",
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "public-data",
+    "warm_ms": 521,
+    "status": "live",
+    "status_label": "살아있음 확인",
+    "reachable": true,
+    "needs_key": false,
+    "tool_count": 19,
+    "why": "",
+    "quality": {
+     "described_pct": 100,
+     "desc_median": 261,
+     "input_schema_pct": 100,
+     "output_schema_pct": 100,
+     "annotated_pct": 100,
+     "readonly_pct": 100
+    },
     "url_source": "readme"
+   },
+   "paid_disclosure": {
+    "disclosed": false
    },
    "package": {
     "type": "npm",
@@ -3800,11 +4127,18 @@
    "remote": {
     "url": "https://realestate-stats-mcp.fly.dev/mcp",
     "http": null,
-    "cold_ms": 73,
-    "latency_ms": 73,
+    "cold_ms": 75,
+    "latency_ms": 75,
     "retried": true,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": null,
+    "status": "down",
+    "status_label": "죽음 확인",
     "reachable": false,
     "why": "URLError: <urlopen error [Errno -2] Name or service not known>",
+    "status_note": "DNS에 그 이름이 없다 — 호스트가 사라졌다",
     "url_source": "readme"
    },
    "package": null,
@@ -3833,11 +4167,18 @@
    "remote": {
     "url": "https://safemap-uv-index-mcp.fly.dev/mcp",
     "http": null,
-    "cold_ms": 76,
-    "latency_ms": 76,
+    "cold_ms": 74,
+    "latency_ms": 74,
     "retried": true,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": null,
+    "status": "down",
+    "status_label": "죽음 확인",
     "reachable": false,
     "why": "URLError: <urlopen error [Errno -2] Name or service not known>",
+    "status_note": "DNS에 그 이름이 없다 — 호스트가 사라졌다",
     "url_source": "readme"
    },
    "package": null,
@@ -3896,11 +4237,21 @@
    "remote": {
     "url": "https://immortal0900-real-estate-location-analyzer-mcp.hf.space/gradio_api/mcp/sse",
     "http": 404,
-    "cold_ms": 725,
-    "latency_ms": 725,
+    "cold_ms": 852,
+    "latency_ms": 852,
     "retried": false,
+    "transports_tried": [
+     "streamable-http",
+     "sse"
+    ],
+    "transport": null,
+    "status": "unverified",
+    "status_label": "확인 못 함",
     "reachable": false,
     "why": "HTTP 404",
+    "status_note": "전송 방식이 안 맞았을 수 있다 — 규격을 지키는 서버도 이 코드를 준다",
+    "sse_why": "HTTP 404",
+    "error_body": "{\"detail\":\"Not Found\"}",
     "url_source": "readme"
    },
    "package": null,
@@ -4008,13 +4359,22 @@
    "remote": {
     "url": "https://aidc-ai.io/api/mcp",
     "http": 200,
-    "cold_ms": 854,
-    "latency_ms": 226,
+    "cold_ms": 597,
+    "latency_ms": 126,
     "retried": false,
-    "warm_ms": 226,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "aidc-design-engine",
+    "warm_ms": 126,
+    "status": "live",
+    "status_label": "살아있음 확인",
     "reachable": true,
     "needs_key": false,
     "tool_count": 7,
+    "why": "",
     "quality": {
      "described_pct": 100,
      "desc_median": 106,
@@ -4023,7 +4383,6 @@
      "annotated_pct": 0,
      "readonly_pct": 0
     },
-    "why": "",
     "url_source": "registry"
    },
    "paid_disclosure": {
@@ -4054,13 +4413,22 @@
    "remote": {
     "url": "https://kr-groundtruth-mcp.vercel.app/api/mcp",
     "http": 200,
-    "cold_ms": 837,
-    "latency_ms": 235,
+    "cold_ms": 483,
+    "latency_ms": 234,
     "retried": false,
-    "warm_ms": 235,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "kr-groundtruth-mcp",
+    "warm_ms": 234,
+    "status": "live",
+    "status_label": "살아있음 확인",
     "reachable": true,
     "needs_key": false,
     "tool_count": 8,
+    "why": "",
     "quality": {
      "described_pct": 100,
      "desc_median": 161,
@@ -4069,7 +4437,6 @@
      "annotated_pct": 100,
      "readonly_pct": 100
     },
-    "why": "",
     "url_source": "registry"
    },
    "paid_disclosure": {
@@ -4130,11 +4497,18 @@
    "remote": {
     "url": "https://hawker-gateway.fly.dev/mcp/kr-apt-trades",
     "http": null,
-    "cold_ms": 5186,
-    "latency_ms": 5186,
+    "cold_ms": 5191,
+    "latency_ms": 5191,
     "retried": true,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": null,
+    "status": "unverified",
+    "status_label": "확인 못 함",
     "reachable": false,
     "why": "URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)>",
+    "status_note": "우리 호출로는 확인이 안 됐다 — 죽었다는 뜻이 아니다",
     "url_source": "registry"
    },
    "package": null,
@@ -4162,11 +4536,18 @@
    "remote": {
     "url": "https://hawker-gateway.fly.dev/mcp/kr-district-codes",
     "http": null,
-    "cold_ms": 5115,
-    "latency_ms": 5115,
+    "cold_ms": 5133,
+    "latency_ms": 5133,
     "retried": true,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": null,
+    "status": "unverified",
+    "status_label": "확인 못 함",
     "reachable": false,
     "why": "URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)>",
+    "status_note": "우리 호출로는 확인이 안 됐다 — 죽었다는 뜻이 아니다",
     "url_source": "registry"
    },
    "package": null,
@@ -4281,13 +4662,35 @@
    ],
    "remote": {
     "url": "https://korean-agriculture-mcp.onrender.com/mcp",
-    "http": 503,
-    "cold_ms": 248,
-    "latency_ms": 248,
-    "retried": true,
-    "reachable": false,
-    "why": "HTTP 503",
+    "http": 200,
+    "cold_ms": 413,
+    "latency_ms": 169,
+    "retried": false,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "Korean Agriculture Market",
+    "warm_ms": 169,
+    "status": "live",
+    "status_label": "살아있음 확인",
+    "reachable": true,
+    "needs_key": false,
+    "tool_count": 6,
+    "why": "",
+    "quality": {
+     "described_pct": 100,
+     "desc_median": 199,
+     "input_schema_pct": 100,
+     "output_schema_pct": 100,
+     "annotated_pct": 0,
+     "readonly_pct": 0
+    },
     "url_source": "registry"
+   },
+   "paid_disclosure": {
+    "disclosed": false
    },
    "package": null,
    "self_hostable": null,
@@ -4315,13 +4718,35 @@
    ],
    "remote": {
     "url": "https://korean-public-data-mcp.onrender.com/mcp",
-    "http": 503,
-    "cold_ms": 456,
-    "latency_ms": 456,
-    "retried": true,
-    "reachable": false,
-    "why": "HTTP 503",
+    "http": 200,
+    "cold_ms": 177,
+    "latency_ms": 164,
+    "retried": false,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "Korean Public Data",
+    "warm_ms": 164,
+    "status": "live",
+    "status_label": "살아있음 확인",
+    "reachable": true,
+    "needs_key": false,
+    "tool_count": 6,
+    "why": "",
+    "quality": {
+     "described_pct": 100,
+     "desc_median": 205,
+     "input_schema_pct": 83,
+     "output_schema_pct": 100,
+     "annotated_pct": 0,
+     "readonly_pct": 0
+    },
     "url_source": "registry"
+   },
+   "paid_disclosure": {
+    "disclosed": false
    },
    "package": null,
    "self_hostable": null,
@@ -4349,13 +4774,35 @@
    ],
    "remote": {
     "url": "https://korean-stock-mcp.onrender.com/mcp",
-    "http": 503,
-    "cold_ms": 418,
-    "latency_ms": 418,
-    "retried": true,
-    "reachable": false,
-    "why": "HTTP 503",
+    "http": 200,
+    "cold_ms": 542,
+    "latency_ms": 172,
+    "retried": false,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "Korean Stock Market",
+    "warm_ms": 172,
+    "status": "live",
+    "status_label": "살아있음 확인",
+    "reachable": true,
+    "needs_key": false,
+    "tool_count": 7,
+    "why": "",
+    "quality": {
+     "described_pct": 100,
+     "desc_median": 238,
+     "input_schema_pct": 86,
+     "output_schema_pct": 100,
+     "annotated_pct": 0,
+     "readonly_pct": 0
+    },
     "url_source": "registry"
+   },
+   "paid_disclosure": {
+    "disclosed": false
    },
    "package": null,
    "self_hostable": null,
@@ -4383,11 +4830,21 @@
    "remote": {
     "url": "https://jp-data-api-production.up.railway.app/mcp",
     "http": 404,
-    "cold_ms": 898,
-    "latency_ms": 898,
+    "cold_ms": 731,
+    "latency_ms": 731,
     "retried": false,
+    "transports_tried": [
+     "streamable-http",
+     "sse"
+    ],
+    "transport": null,
+    "status": "unverified",
+    "status_label": "확인 못 함",
     "reachable": false,
     "why": "HTTP 404",
+    "status_note": "전송 방식이 안 맞았을 수 있다 — 규격을 지키는 서버도 이 코드를 준다",
+    "sse_why": "HTTP 404",
+    "error_body": "{\"status\":\"error\",\"code\":404,\"message\":\"Application not found\",\"request_id\":\"Qmxm3BQoRvCMdU9Ln6XIxQ\"}",
     "url_source": "registry"
    },
    "package": null,
@@ -4565,13 +5022,22 @@
    "remote": {
     "url": "https://korea-flight.kimnchai.com/mcp",
     "http": 200,
-    "cold_ms": 84,
-    "latency_ms": 35,
+    "cold_ms": 37,
+    "latency_ms": 43,
     "retried": false,
-    "warm_ms": 35,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "korea-flight-status",
+    "warm_ms": 43,
+    "status": "live",
+    "status_label": "살아있음 확인",
     "reachable": true,
     "needs_key": false,
     "tool_count": 8,
+    "why": "",
     "quality": {
      "described_pct": 100,
      "desc_median": 739,
@@ -4580,7 +5046,6 @@
      "annotated_pct": 100,
      "readonly_pct": 100
     },
-    "why": "",
     "url_source": "registry"
    },
    "paid_disclosure": {
@@ -4610,13 +5075,35 @@
    ],
    "remote": {
     "url": "https://mcp.finlab.finance/mcp",
-    "http": 400,
-    "cold_ms": 181,
-    "latency_ms": 181,
+    "http": 200,
+    "cold_ms": 456,
+    "latency_ms": 43,
     "retried": false,
-    "reachable": false,
-    "why": "HTTP 400",
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "FinLab",
+    "warm_ms": 43,
+    "status": "live",
+    "status_label": "살아있음 확인",
+    "reachable": true,
+    "needs_key": false,
+    "tool_count": 6,
+    "why": "",
+    "quality": {
+     "described_pct": 100,
+     "desc_median": 118,
+     "input_schema_pct": 50,
+     "output_schema_pct": 0,
+     "annotated_pct": 0,
+     "readonly_pct": 0
+    },
     "url_source": "registry"
+   },
+   "paid_disclosure": {
+    "disclosed": false
    },
    "package": null,
    "self_hostable": null,
@@ -4644,13 +5131,22 @@
    "remote": {
     "url": "https://api.lazy-mac.com/govdata-korea/mcp",
     "http": 200,
-    "cold_ms": 177,
-    "latency_ms": 104,
+    "cold_ms": 168,
+    "latency_ms": 120,
     "retried": false,
-    "warm_ms": 104,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2024-11-05",
+    "server_name": "govdata-korea",
+    "warm_ms": 120,
+    "status": "live",
+    "status_label": "살아있음 확인",
     "reachable": true,
     "needs_key": false,
     "tool_count": 6,
+    "why": "",
     "quality": {
      "described_pct": 100,
      "desc_median": 90,
@@ -4659,7 +5155,6 @@
      "annotated_pct": 0,
      "readonly_pct": 0
     },
-    "why": "",
     "url_source": "registry"
    },
    "paid_disclosure": {
@@ -4691,9 +5186,15 @@
    "remote": {
     "url": "https://notonlystock.com/korea/mcp",
     "http": 401,
-    "cold_ms": 82,
-    "latency_ms": 82,
+    "cold_ms": 113,
+    "latency_ms": 113,
     "retried": false,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "status": "live",
+    "status_label": "살아있음 확인",
     "reachable": true,
     "needs_key": true,
     "tool_count": null,
@@ -4735,13 +5236,22 @@
    "remote": {
     "url": "https://kdata-gate.vercel.app/mcp",
     "http": 200,
-    "cold_ms": 418,
-    "latency_ms": 231,
+    "cold_ms": 692,
+    "latency_ms": 267,
     "retried": false,
-    "warm_ms": 231,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "kdata-gate",
+    "warm_ms": 267,
+    "status": "live",
+    "status_label": "살아있음 확인",
     "reachable": true,
     "needs_key": false,
     "tool_count": 26,
+    "why": "",
     "quality": {
      "described_pct": 100,
      "desc_median": 137,
@@ -4750,7 +5260,6 @@
      "annotated_pct": 0,
      "readonly_pct": 0
     },
-    "why": "",
     "url_source": "registry"
    },
    "paid_disclosure": {
@@ -4813,9 +5322,15 @@
    "remote": {
     "url": "https://factbat.com/mcp",
     "http": 401,
-    "cold_ms": 63,
-    "latency_ms": 63,
+    "cold_ms": 69,
+    "latency_ms": 69,
     "retried": false,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "status": "live",
+    "status_label": "살아있음 확인",
     "reachable": true,
     "needs_key": true,
     "tool_count": null,
@@ -4850,13 +5365,22 @@
    "remote": {
     "url": "https://mcp.namu.ai.kr/mcp",
     "http": 200,
-    "cold_ms": 38,
+    "cold_ms": 21,
     "latency_ms": 22,
     "retried": false,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "seoul-tourism",
     "warm_ms": 22,
+    "status": "live",
+    "status_label": "살아있음 확인",
     "reachable": true,
     "needs_key": false,
     "tool_count": 3,
+    "why": "",
     "quality": {
      "described_pct": 100,
      "desc_median": 95,
@@ -4865,7 +5389,6 @@
      "annotated_pct": 100,
      "readonly_pct": 100
     },
-    "why": "",
     "url_source": "registry"
    },
    "paid_disclosure": {
@@ -5020,13 +5543,22 @@
    "remote": {
     "url": "https://gateway.pipeworx.io/dart-kr/mcp",
     "http": 200,
-    "cold_ms": 1536,
-    "latency_ms": 30,
+    "cold_ms": 56,
+    "latency_ms": 1433,
     "retried": false,
-    "warm_ms": 30,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "pipeworx-gateway",
+    "warm_ms": 1433,
+    "status": "live",
+    "status_label": "살아있음 확인",
     "reachable": true,
     "needs_key": false,
     "tool_count": 36,
+    "why": "",
     "quality": {
      "described_pct": 100,
      "desc_median": 703,
@@ -5035,7 +5567,6 @@
      "annotated_pct": 100,
      "readonly_pct": 86
     },
-    "why": "",
     "url_source": "registry"
    },
    "paid_disclosure": {
@@ -5067,13 +5598,22 @@
    "remote": {
     "url": "https://gateway.pipeworx.io/ecos-kr/mcp",
     "http": 200,
-    "cold_ms": 932,
-    "latency_ms": 38,
+    "cold_ms": 45,
+    "latency_ms": 39,
     "retried": false,
-    "warm_ms": 38,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "pipeworx-gateway",
+    "warm_ms": 39,
+    "status": "live",
+    "status_label": "살아있음 확인",
     "reachable": true,
     "needs_key": false,
     "tool_count": 35,
+    "why": "",
     "quality": {
      "described_pct": 100,
      "desc_median": 703,
@@ -5082,7 +5622,6 @@
      "annotated_pct": 100,
      "readonly_pct": 86
     },
-    "why": "",
     "url_source": "registry"
    },
    "paid_disclosure": {
@@ -5114,13 +5653,22 @@
    "remote": {
     "url": "https://gateway.pipeworx.io/pub-dev/mcp",
     "http": 200,
-    "cold_ms": 88,
-    "latency_ms": 28,
+    "cold_ms": 37,
+    "latency_ms": 52,
     "retried": false,
-    "warm_ms": 28,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "pipeworx-gateway",
+    "warm_ms": 52,
+    "status": "live",
+    "status_label": "살아있음 확인",
     "reachable": true,
     "needs_key": false,
     "tool_count": 35,
+    "why": "",
     "quality": {
      "described_pct": 100,
      "desc_median": 703,
@@ -5129,7 +5677,6 @@
      "annotated_pct": 100,
      "readonly_pct": 86
     },
-    "why": "",
     "url_source": "registry"
    },
    "paid_disclosure": {
@@ -5430,13 +5977,35 @@
    ],
    "remote": {
     "url": "https://mcp.koreanpulse.dev/mcp",
-    "http": 400,
-    "cold_ms": 66,
-    "latency_ms": 66,
+    "http": 200,
+    "cold_ms": 42,
+    "latency_ms": 42,
     "retried": false,
-    "reachable": false,
-    "why": "HTTP 400",
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "koreanpulse",
+    "warm_ms": 42,
+    "status": "live",
+    "status_label": "살아있음 확인",
+    "reachable": true,
+    "needs_key": false,
+    "tool_count": 7,
+    "why": "",
+    "quality": {
+     "described_pct": 100,
+     "desc_median": 671,
+     "input_schema_pct": 86,
+     "output_schema_pct": 100,
+     "annotated_pct": 100,
+     "readonly_pct": 100
+    },
     "url_source": "registry"
+   },
+   "paid_disclosure": {
+    "disclosed": false
    },
    "package": null,
    "self_hostable": null,
@@ -5557,13 +6126,22 @@
    "remote": {
     "url": "https://academyinfo-mcp-433006350023.asia-northeast3.run.app/mcp",
     "http": 200,
-    "cold_ms": 300,
-    "latency_ms": 54,
+    "cold_ms": 54,
+    "latency_ms": 60,
     "retried": false,
-    "warm_ms": 54,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "academyinfo-mcp",
+    "warm_ms": 60,
+    "status": "live",
+    "status_label": "살아있음 확인",
     "reachable": true,
     "needs_key": false,
     "tool_count": 8,
+    "why": "",
     "quality": {
      "described_pct": 100,
      "desc_median": 71,
@@ -5572,7 +6150,6 @@
      "annotated_pct": 100,
      "readonly_pct": 100
     },
-    "why": "",
     "url_source": "registry"
    },
    "paid_disclosure": {
@@ -5780,9 +6357,15 @@
    "remote": {
     "url": "https://coffee.pryzm.gg/coffee/mcp",
     "http": 403,
-    "cold_ms": 61,
-    "latency_ms": 61,
+    "cold_ms": 455,
+    "latency_ms": 455,
     "retried": false,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "status": "live",
+    "status_label": "살아있음 확인",
     "reachable": true,
     "needs_key": true,
     "tool_count": null,
@@ -5823,9 +6406,15 @@
    "remote": {
     "url": "https://playmcp.kakao.com/mcp",
     "http": 401,
-    "cold_ms": 64,
-    "latency_ms": 64,
+    "cold_ms": 48,
+    "latency_ms": 48,
     "retried": false,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "status": "live",
+    "status_label": "살아있음 확인",
     "reachable": true,
     "needs_key": true,
     "tool_count": null,
@@ -6487,13 +7076,35 @@
    ],
    "remote": {
     "url": "https://stock-data-mcp-production.up.railway.app/mcp",
-    "http": 400,
-    "cold_ms": 714,
-    "latency_ms": 714,
+    "http": 200,
+    "cold_ms": 468,
+    "latency_ms": 507,
     "retried": false,
-    "reachable": false,
-    "why": "HTTP 400",
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "Korean Stock Data",
+    "warm_ms": 507,
+    "status": "live",
+    "status_label": "살아있음 확인",
+    "reachable": true,
+    "needs_key": false,
+    "tool_count": 42,
+    "why": "",
+    "quality": {
+     "described_pct": 100,
+     "desc_median": 124,
+     "input_schema_pct": 90,
+     "output_schema_pct": 100,
+     "annotated_pct": 0,
+     "readonly_pct": 0
+    },
     "url_source": "readme"
+   },
+   "paid_disclosure": {
+    "disclosed": false
    },
    "package": {
     "type": "pypi",
@@ -6551,13 +7162,22 @@
    "remote": {
     "url": "https://softbowl.co.kr/mcp/sbchart2.do",
     "http": 200,
-    "cold_ms": 32,
-    "latency_ms": 26,
+    "cold_ms": 22,
+    "latency_ms": 23,
     "retried": false,
-    "warm_ms": 26,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "softbowl-mcp-server (sbchart)",
+    "warm_ms": 23,
+    "status": "live",
+    "status_label": "살아있음 확인",
     "reachable": true,
     "needs_key": false,
     "tool_count": 4,
+    "why": "",
     "quality": {
      "described_pct": 100,
      "desc_median": 359,
@@ -6566,7 +7186,6 @@
      "annotated_pct": 0,
      "readonly_pct": 0
     },
-    "why": "",
     "url_source": "registry"
    },
    "paid_disclosure": {
@@ -6597,13 +7216,22 @@
    "remote": {
     "url": "https://softbowl.co.kr/mcp/sbgrid3.do",
     "http": 200,
-    "cold_ms": 24,
-    "latency_ms": 22,
+    "cold_ms": 26,
+    "latency_ms": 25,
     "retried": false,
-    "warm_ms": 22,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "softbowl-mcp-server (sbgrid)",
+    "warm_ms": 25,
+    "status": "live",
+    "status_label": "살아있음 확인",
     "reachable": true,
     "needs_key": false,
     "tool_count": 4,
+    "why": "",
     "quality": {
      "described_pct": 100,
      "desc_median": 324,
@@ -6612,7 +7240,6 @@
      "annotated_pct": 0,
      "readonly_pct": 0
     },
-    "why": "",
     "url_source": "registry"
    },
    "paid_disclosure": {
@@ -6643,22 +7270,30 @@
    "remote": {
     "url": "https://mydart.eocpa.kr/mcp",
     "http": 200,
-    "cold_ms": 240,
-    "latency_ms": 200,
-    "retried": false,
-    "warm_ms": 200,
+    "cold_ms": 217,
+    "latency_ms": 207,
+    "retried": true,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "mydart-mcp",
+    "warm_ms": 207,
+    "status": "live",
+    "status_label": "살아있음 확인",
     "reachable": true,
     "needs_key": false,
     "tool_count": 16,
+    "why": "",
     "quality": {
      "described_pct": 100,
-     "desc_median": 1018,
+     "desc_median": 1017,
      "input_schema_pct": 100,
      "output_schema_pct": 0,
      "annotated_pct": 100,
      "readonly_pct": 100
     },
-    "why": "",
     "url_source": "registry"
    },
    "paid_disclosure": {
@@ -6689,9 +7324,15 @@
    "remote": {
     "url": "https://mcp.gronox.kr/mcp",
     "http": 401,
-    "cold_ms": 63,
-    "latency_ms": 63,
+    "cold_ms": 101,
+    "latency_ms": 101,
     "retried": false,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "status": "live",
+    "status_label": "살아있음 확인",
     "reachable": true,
     "needs_key": true,
     "tool_count": null,
@@ -6704,14 +7345,14 @@
    "package": null,
    "self_hostable": null,
    "open_source": {
-    "license": null,
+    "license": "MIT",
     "repo": "Jakechj/finbridge-mcp",
     "public": true,
-    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
+    "why": ""
    },
    "self_hosting": {
     "state": "source_only",
-    "why": "배포판은 없고 소스만 공개(라이선스 없음) — 법적으로 재사용이 열려 있지 않다"
+    "why": "배포판은 없고 소스만 공개(MIT) — 띄우려면 직접 빌드해야 한다"
    },
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
@@ -6727,13 +7368,22 @@
    "remote": {
     "url": "https://ibtcc.kr/api/mcp",
     "http": 200,
-    "cold_ms": 1093,
-    "latency_ms": 242,
+    "cold_ms": 718,
+    "latency_ms": 667,
     "retried": false,
-    "warm_ms": 242,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "ibtcc-competition",
+    "warm_ms": 667,
+    "status": "live",
+    "status_label": "살아있음 확인",
     "reachable": true,
     "needs_key": false,
     "tool_count": 1,
+    "why": "",
     "quality": {
      "described_pct": 100,
      "desc_median": 97,
@@ -6742,7 +7392,6 @@
      "annotated_pct": 0,
      "readonly_pct": 0
     },
-    "why": "",
     "url_source": "registry"
    },
    "paid_disclosure": {
@@ -6774,13 +7423,21 @@
    "remote": {
     "url": "https://mcp.wandsol.kr/mcp",
     "http": 401,
-    "cold_ms": 46,
-    "latency_ms": 46,
+    "cold_ms": 51,
+    "latency_ms": 51,
     "retried": false,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "patsol",
+    "status": "live",
+    "status_label": "살아있음 확인",
     "reachable": true,
     "needs_key": true,
     "tool_count": null,
-    "why": "인증 필요 — 키 없이는 도구 목록도 못 본다",
+    "why": "핸드셰이크는 됐지만 도구 목록에 키가 필요하다",
     "url_source": "registry"
    },
    "paid_disclosure": {
@@ -7073,11 +7730,21 @@
    "remote": {
     "url": "https://kosis-mcp-70b9.onrender.com/mcp",
     "http": 400,
-    "cold_ms": 4132,
-    "latency_ms": 4132,
+    "cold_ms": 4167,
+    "latency_ms": 4167,
     "retried": true,
+    "transports_tried": [
+     "streamable-http",
+     "sse"
+    ],
+    "transport": null,
+    "status": "unverified",
+    "status_label": "확인 못 함",
     "reachable": false,
     "why": "HTTP 400",
+    "status_note": "전송 방식이 안 맞았을 수 있다 — 규격을 지키는 서버도 이 코드를 준다",
+    "sse_why": "HTTP 405",
+    "error_body": "{\"jsonrpc\":\"2.0\",\"error\":{\"code\":-32602,\"message\":\"Missing KOSIS API key. Provide X-Kosis-Api-Key header or ?oc= query parameter.\"},\"id\":null}",
     "url_source": "readme"
    },
    "package": {
@@ -7435,13 +8102,33 @@
    ],
    "remote": {
     "url": "https://health.autotaxsystem.co.kr/mcp",
-    "http": 405,
-    "cold_ms": 29,
-    "latency_ms": 29,
+    "http": 200,
+    "cold_ms": 21,
+    "latency_ms": 21,
     "retried": false,
-    "reachable": false,
-    "why": "HTTP 405",
+    "transports_tried": [
+     "streamable-http",
+     "sse"
+    ],
+    "transport": "sse",
+    "status": "live",
+    "status_label": "살아있음 확인",
+    "reachable": true,
+    "needs_key": false,
+    "tool_count": 12,
+    "why": "",
+    "quality": {
+     "described_pct": 100,
+     "desc_median": 119,
+     "input_schema_pct": 75,
+     "output_schema_pct": 0,
+     "annotated_pct": 0,
+     "readonly_pct": 0
+    },
     "url_source": "readme"
+   },
+   "paid_disclosure": {
+    "disclosed": false
    },
    "package": null,
    "self_hostable": null,
@@ -7529,11 +8216,21 @@
    "remote": {
     "url": "https://korea-public-data-catalog-mcp-production.up.railway.app/mcp",
     "http": 404,
-    "cold_ms": 552,
-    "latency_ms": 552,
+    "cold_ms": 532,
+    "latency_ms": 532,
     "retried": false,
+    "transports_tried": [
+     "streamable-http",
+     "sse"
+    ],
+    "transport": null,
+    "status": "unverified",
+    "status_label": "확인 못 함",
     "reachable": false,
     "why": "HTTP 404",
+    "status_note": "전송 방식이 안 맞았을 수 있다 — 규격을 지키는 서버도 이 코드를 준다",
+    "sse_why": "HTTP 404",
+    "error_body": "{\"status\":\"error\",\"code\":404,\"message\":\"Application not found\",\"request_id\":\"V2q6kK65S_GfL41sVOLIQQ\"}",
     "url_source": "readme"
    },
    "package": {
@@ -7714,22 +8411,30 @@
    "remote": {
     "url": "https://medicalaialliance.org/api/mcp",
     "http": 200,
-    "cold_ms": 1095,
-    "latency_ms": 618,
+    "cold_ms": 391,
+    "latency_ms": 234,
     "retried": false,
-    "warm_ms": 618,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "MAA Intelligence",
+    "warm_ms": 234,
+    "status": "live",
+    "status_label": "살아있음 확인",
     "reachable": true,
     "needs_key": false,
-    "tool_count": 4,
+    "tool_count": 5,
+    "why": "",
     "quality": {
      "described_pct": 100,
      "desc_median": 310,
-     "input_schema_pct": 75,
+     "input_schema_pct": 80,
      "output_schema_pct": 0,
      "annotated_pct": 0,
      "readonly_pct": 0
     },
-    "why": "",
     "url_source": "registry"
    },
    "paid_disclosure": {
@@ -7879,13 +8584,22 @@
    "remote": {
     "url": "https://korean-law-alio-mcp.fly.dev/mcp",
     "http": 200,
-    "cold_ms": 321,
-    "latency_ms": 225,
+    "cold_ms": 255,
+    "latency_ms": 240,
     "retried": false,
-    "warm_ms": 225,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "korean-law-alio",
+    "warm_ms": 240,
+    "status": "live",
+    "status_label": "살아있음 확인",
     "reachable": true,
     "needs_key": false,
     "tool_count": 125,
+    "why": "",
     "quality": {
      "described_pct": 76,
      "desc_median": 42,
@@ -7894,7 +8608,6 @@
      "annotated_pct": 0,
      "readonly_pct": 0
     },
-    "why": "",
     "url_source": "readme"
    },
    "paid_disclosure": {
@@ -7962,9 +8675,15 @@
    "remote": {
     "url": "https://korean-stat-mcp.seolcoding.com/mcp",
     "http": 401,
-    "cold_ms": 236,
-    "latency_ms": 236,
+    "cold_ms": 252,
+    "latency_ms": 252,
     "retried": false,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "status": "live",
+    "status_label": "살아있음 확인",
     "reachable": true,
     "needs_key": true,
     "tool_count": null,
@@ -8066,11 +8785,21 @@
    "remote": {
     "url": "https://electronics-price-mcp.jinhyuk9714.workers.dev/mcp",
     "http": 404,
-    "cold_ms": 51,
-    "latency_ms": 51,
+    "cold_ms": 75,
+    "latency_ms": 75,
     "retried": false,
+    "transports_tried": [
+     "streamable-http",
+     "sse"
+    ],
+    "transport": null,
+    "status": "unverified",
+    "status_label": "확인 못 함",
     "reachable": false,
     "why": "HTTP 404",
+    "status_note": "전송 방식이 안 맞았을 수 있다 — 규격을 지키는 서버도 이 코드를 준다",
+    "sse_why": "HTTP 404",
+    "error_body": "{\"type\":\"https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-1xxx-errors/\",\"title\":\"Error 1042: Cloudflare Error\",\"status\":404,\"detail\":\"No Workers script was found for this host on workers.dev.\",\"instance\":\"a35301b3beecaa69\",\"error_code\":1042,\"error_name\":\"workers_dev_script_not_found\",\"error_category\":\"worker\",\"ray_id\":\"a35301b3beecaa69\",\"timestamp\":\"2026-09-03",
     "url_source": "readme"
    },
    "package": {
@@ -8852,6 +9581,30 @@
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   }
  ],
- "repackaged_at": "2026-08-31",
- "axes_at": "2026-08-31"
+ "repackaged_at": "2026-09-03",
+ "axes_at": "2026-09-03",
+ "merged_endpoints": [
+  {
+   "kept": "app.sallim/contract-compass",
+   "endpoint": "https://contract.sallim.app/mcp?via=official",
+   "merged": [
+    "build.naru/contract-compass"
+   ]
+  },
+  {
+   "kept": "chrisryugj/korean-law-mcp",
+   "endpoint": "https://korean-law-mcp.fly.dev/mcp",
+   "merged": [
+    "kang-aco/korean-law"
+   ]
+  },
+  {
+   "kept": "exclusiveyon-a11y/reevl-plugins",
+   "endpoint": "https://reevl.co.kr/api/mcp",
+   "merged": [
+    "kr.co.reevl/reevl-mcp"
+   ]
+  }
+ ],
+ "merge_note": "같은 엔드포인트를 가리키는 항목 3건을 한 줄로 합쳤다. 합친 이름은 버리지 않고 그 줄의 `also_known_as`에 남긴다 — `measured`는 합친 뒤의 줄 수이고, 후보 총수가 아니다. 리다이렉트를 따라가면 서로 다르게 적혀 있던 주소가 같은 곳으로 밝혀질 수 있어 이 수는 회차마다 달라진다."
 }
