@@ -29,7 +29,7 @@ OURS = ("app.sallim/", "sallim-app/")
 # 축을 늘릴 때는 PROTOCOL.md 개정 이력과 같이 늘린다.
 COLUMNS = [
     "name", "category", "ours", "repo_url",
-    "reachable", "needs_key", "tool_count", "warm_ms", "cold_ms",
+    "status", "reachable", "needs_key", "tool_count", "warm_ms", "cold_ms",
     "described_pct", "desc_median", "input_schema_pct", "output_schema_pct",
     "annotated_pct", "readonly_pct",
     "self_hosting", "license", "repo_public",
@@ -69,6 +69,11 @@ def rows():
             "category": (cls.get(r["name"]) or {}).get("category", ""),
             "ours": int(r["name"].startswith(OURS)),
             "repo_url": r.get("repo_url", ""),
+            # **세 갈래 판정**(2026-09-03, T-2026W35-119). `reachable`은 두 갈래라
+            # "확인 못 함"을 "응답 없음"으로 접어 넣을 수밖에 없었다 — 남의 서버를 우리
+            # 클라이언트의 한계로 죽었다고 공시한 자리가 정확히 여기다. `status`가 정본이고
+            # `reachable`은 남의 재계산이 깨지지 않게 남기는 파생값(= status가 live인가)이다.
+            "status": rm.get("status", "") if rm else "",
             "reachable": "" if not rm else int(bool(rm.get("reachable"))),
             "needs_key": "" if not rm else int(bool(rm.get("needs_key"))),
             "tool_count": rm.get("tool_count", ""),
@@ -129,14 +134,20 @@ def verify(d, items) -> int:
     items_dd, _ = render_readme.dedupe_by_endpoint([dict(r) for r in d["items"]])
     rem = [r for r in items_dd if r.get("remote")]
     dead = [r for r in rem if not r["remote"].get("reachable")]
+    downs = [r for r in dead if render_readme.status_of(r) == "down"]
     bad = []
 
-    m = re.search(r"확인한 (\d+)건 중 \*\*(\d+)건\((\d+)%\)이 응답하지 않았다", md)
+    # **세 갈래 머리 문장을 검사한다**(2026-09-03, T-2026W35-119). 종전 검사는
+    # "M건이 응답하지 않았다" 한 숫자만 봤고, 그 문장이 우리 두드리개의 한계를 남의
+    # 사망으로 옮겨 적던 바로 그 문장이다. 재현 검사가 옛 문장을 요구하면 어휘를
+    # 고치는 순간 검사가 빨개진다 — 그래서 검사도 같이 옮긴다.
+    m = re.search(r"확인한 (\d+)건 중 \*\*(\d+)건이 살아있음 확인\*\*, "
+                  r"(\d+)건은 \*\*확인 못 함\*\*, (\d+)건만 \*\*죽음 확인\*\*", md)
     if not m:
-        bad.append("README에서 '주소를 확인한 N건 중 M건' 문장을 못 찾았다")
+        bad.append("README에서 '확인한 N건 중 … 살아있음/확인 못 함/죽음 확인' 문장을 못 찾았다")
     else:
-        got = (int(m.group(1)), int(m.group(2)), int(m.group(3)))
-        exp = (len(rem), len(dead), round(100 * len(dead) / max(len(rem), 1)))
+        got = tuple(int(m.group(i)) for i in (1, 2, 3, 4))
+        exp = (len(rem), len(rem) - len(dead), len(dead) - len(downs), len(downs))
         if got != exp:
             bad.append(f"머리 문장 {got} ≠ 원자료 {exp}")
 
@@ -149,7 +160,8 @@ def verify(d, items) -> int:
         print("✗", b, file=sys.stderr)
     if bad:
         return 1
-    print(f"✓ 게시본 머릿수가 원자료에서 재현된다 (원격 {len(rem)}건 · 무응답 {len(dead)}건)")
+    print(f"✓ 게시본 머릿수가 원자료에서 재현된다 (원격 {len(rem)}건 · "
+          f"확인 못 함 {len(dead) - len(downs)}건 · 죽음 확인 {len(downs)}건)")
     return 0
 
 

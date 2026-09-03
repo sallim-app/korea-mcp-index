@@ -34,7 +34,17 @@ import subprocess
 import sys
 
 from observed import MISFILED, RENAMED, SCOPE
-from render_readme import CAT_EN, CATS, OURS, clip, dedupe_by_endpoint, disp, q
+from render_readme import (
+    CAT_EN,
+    CATS,
+    OURS,
+    STATUS_LABEL,
+    clip,
+    dedupe_by_endpoint,
+    disp,
+    q,
+    status_of,
+)
 
 REPO = "https://github.com/sallim-app/korea-mcp-index"
 
@@ -386,34 +396,47 @@ def gateway_of(rec: dict) -> str:
 
 
 def client_limits(ctx, heading=True) -> list[str]:
-    """**우리 두드리개가 못 하는 것**을 남의 결함 옆에 같이 적는다.
+    """**우리 두드리개가 무엇을 하고 무엇을 못 하는지**를 남의 결함 옆에 같이 적는다.
 
     fresh-eyes 검수(2026-08-29)가 잡은 자리다. `tools/list`에 200이 안 온 28건 중 22건은
-    HTTP 상태코드를 돌려줬다 — 서버는 살아 있었고 우리 부르는 방식이 안 맞았을 수 있다.
-    그 가능성을 안 적으면 "응답 없음"은 관측이 아니라 남의 제품에 대한 판정이 된다.
-    코드로 확인한 한계만 적는다(추정 금지).
+    HTTP 상태코드를 돌려줬다 — 서버는 살아 있었고 우리 부르는 방식이 안 맞았다.
+    2026-09-03(T-2026W35-119)에 그 넷을 고쳤다. **고쳤다는 사실도 값으로 적는다** —
+    이 문단이 옛 한계를 계속 말하면 남의 서버가 부당하게 계속 의심받는다.
     """
-    o = ["<h2 id=\"한계\">우리 두드리개가 못 하는 것</h2>"] if heading else []
+    o = ["<h2 id=\"한계\">우리 두드리개가 하는 것과 못 하는 것</h2>"] if heading else []
     o += ['<div class="card">',
-          '<p><strong>“응답 없음”은 그 서버의 판정이 아니라 <em>우리 호출의 결과</em>다.</strong> '
-          '우리 클라이언트는 아래를 못 한다 — 코드로 확인한 것만 적는다. 이 중 하나에 걸린 '
-          '서버는 <strong>살아 있는데 우리 명단에 올라 있을 수 있다.</strong></p>',
+          '<p><strong>“확인 못 함”은 그 서버의 판정이 아니라 <em>우리 호출의 결과</em>다.</strong> '
+          '2026-09-03에 두드리개를 MCP 규격에 맞췄다 — 그전까지 이 명단에는 '
+          '<strong>살아 있는데 우리가 규격을 못 지켜 거절당한 서버</strong>가 섞여 있었다.</p>',
+          '<p><strong>지금 하는 것</strong></p>',
           '<ul>',
-          '<li><strong><code>initialize</code> 핸드셰이크를 하지 않는다.</strong> 세션을 열지 '
-          '않고 <code>tools/list</code>를 바로 보낸다 — Streamable HTTP 규격을 지키는 서버가 '
-          '여기에 <strong>HTTP 400을 주는 것은 정상 동작</strong>이다</li>',
-          '<li><strong>POST + 307 리다이렉트를 따라가지 않는다.</strong> 파이썬 표준 '
-          'urllib이 POST에서 안 따라간다 — 서버는 옮긴 자리를 알려준 것이다</li>',
-          '<li><strong>SSE(GET)를 시도하지 않는다.</strong> POST 고정이라 SSE 엔드포인트는 '
-          '<strong>405를 주는 것이 맞다</strong></li>',
-          '<li><strong>4xx는 재시도하지 않는다.</strong> 재시도는 연결 실패·5xx일 때만이라, '
-          '아래 명단의 상당수는 <strong>단 한 번 부른 결과</strong>다</li>',
-          '<li><strong>서버가 보낸 오류 본문을 저장하지 않는다.</strong> 그쪽 해명을 '
-          '버리고 상태코드만 남겼다</li>',
+          '<li><code>initialize</code> JSON-RPC + <code>notifications/initialized</code> '
+          '핸드셰이크를 먼저 하고, 서버가 준 <code>Mcp-Session-Id</code>·협상된 '
+          '<code>MCP-Protocol-Version</code>을 이어 쓴다</li>',
+          '<li>POST의 307·308 리다이렉트를 <strong>method와 본문을 보존한 채</strong> '
+          '따라간다(파이썬 표준 urllib은 안 따라간다)</li>',
+          '<li>Streamable HTTP가 안 되면 구 HTTP+SSE 전송(GET + '
+          '<code>Accept: text/event-stream</code> → <code>endpoint</code> 이벤트)으로 '
+          '한 번 더 물어본다</li>',
+          '<li><strong>4xx를 사망으로 읽지 않는다</strong> — 400·404·405·406·415는 '
+          '전송 방식이 틀렸다는 신호라 다른 전송으로 재시도한다. 연결 실패·5xx는 '
+          '같은 전송으로 1회 재시도한다</li>',
+          '<li>서버가 보낸 오류 본문을 버리지 않고 원자료에 남긴다</li>',
           '</ul>',
-          '<p class="sub">고칠 것은 이 목록이 아니라 우리 두드리개다 — 다음 회차 과제로 '
-          '올려 두었다. 그 전까지 아래 숫자는 <strong>이 한계를 포함한 값</strong>으로 '
-          '읽어야 한다.</p>',
+          '<p><strong>그래도 못 하는 것</strong> — 코드로 확인한 것만 적는다.</p>',
+          '<ul>',
+          '<li>OAuth·API 키가 필요한 서버는 인증을 못 한다(401/403은 '
+          '<strong>살아있음의 증거</strong>로 읽되 도구 목록은 못 본다)</li>',
+          '<li>stdio 전송만 지원하는 서버는 원격으로 잴 수 없다</li>',
+          '<li>무료 티어의 콜드스타트가 우리 타임아웃보다 길면 못 본다</li>',
+          '<li>측정 지점이 한국 한 곳이다 — 지역 차단·지연은 못 가른다</li>',
+          '</ul>',
+          '<p class="sub"><strong>그래서 어휘를 셋으로 가른다</strong>: '
+          f'<em>{STATUS_LABEL["live"]}</em>(MCP 응답을 실제로 받았다) · '
+          f'<em>{STATUS_LABEL["unverified"]}</em>(우리 호출로 확인이 안 됐다 — '
+          '<strong>죽었다는 뜻이 아니다</strong>) · '
+          f'<em>{STATUS_LABEL["down"]}</em>(DNS 미해결·연결 거부처럼 호스트가 없다는 '
+          '직접 증거가 있을 때만).</p>',
           '</div>']
     return o
 
@@ -584,10 +607,14 @@ def server_page(ctx, rec) -> None:
         state = f"{ts} 측정에서 응답했고 도구 {tools}종을 공개한다"
     elif reachable:
         state = f"{ts} 측정에서 응답은 했지만 도구 목록을 얻지 못했다"
+    elif rm and status_of(rec) == "down":
+        state = (f"{ts} 측정에서 이 주소는 {STATUS_LABEL['down']} — "
+                 + str(rm.get("why") or "호스트가 없다"))
     elif rm:
-        state = (f"{ts} 측정에서 우리가 부른 주소가 "
-                 + (f"HTTP {rm.get('http')}를 돌려줬다(도구 목록은 못 받았다)"
-                    if rm.get("http") else "응답하지 않았다"))
+        state = (f"{ts} 측정에서 {STATUS_LABEL['unverified']}(우리 호출로 확인 실패). "
+                 + (f"우리가 부른 주소가 HTTP {rm.get('http')}를 돌려줬다"
+                    if rm.get("http") else "응답이 오지 않았다")
+                 + " — 이 서버가 죽었다는 뜻이 아니다")
     else:
         state = "원격 주소가 없어 가동을 재지 못했다"
     caveat = ""
@@ -595,7 +622,7 @@ def server_page(ctx, rec) -> None:
         caveat = (" 이것은 그 서버의 판정이 아니라 우리 호출의 결과다 — "
                   + ("우리가 README에서 추정한 주소이고, " if not rec.get("addr_registered")
                      else "")
-                  + "우리 클라이언트는 initialize 핸드셰이크·307 추적·SSE를 못 한다.")
+                  + "'확인 못 함'은 사망이 아니다.")
     if gateway_of(rec):
         caveat += (f" 이 주소는 여러 서버가 함께 쓰는 공용 게이트웨이"
                    f"({gateway_of(rec)})다.")
@@ -620,9 +647,17 @@ def server_page(ctx, rec) -> None:
           f'<a href="{e(site.url_of("llms.txt"))}">llms.txt</a>가 쓰는 키다 — 표에 짧게 적은 '
           f'이름과 같은 서버다)</span></p>')
     tags = [f'<span class="tag">{e(cat)}</span>'] if cat else []
-    tags.append('<span class="tag ok">응답함</span>' if reachable
-                else ('<span class="tag bad">응답 없음</span>' if rm
-                      else '<span class="tag">가동 미측정</span>'))
+    # **세 갈래 어휘**(T-2026W35-119): 살아있음 확인 / 확인 못 함 / 죽음 확인.
+    # 'bad' 색은 죽음 확인에만 준다 — 우리가 못 본 것을 빨갛게 칠하면 그것이 판정이 된다.
+    if reachable:
+        tags.append(f'<span class="tag ok">{STATUS_LABEL["live"]}</span>')
+    elif not rm:
+        tags.append('<span class="tag">가동 미측정</span>')
+    elif status_of(rec) == "down":
+        tags.append(f'<span class="tag bad">{STATUS_LABEL["down"]}</span>')
+    else:
+        tags.append(f'<span class="tag">{STATUS_LABEL["unverified"]} '
+                    f'<span class="sub">(사망 아님)</span></span>')
     if ours:
         tags.append('<span class="tag ours">이 목록의 운영자가 만든 서버</span>')
     W('<p>' + " ".join(tags) + '</p>')
@@ -851,7 +886,9 @@ def build_index(ctx) -> None:
       f'{e(ts)} 기준 주소를 확인한 {len(rem)}건 중 '
       f'<strong>{len(dead)}건({pct}%)이 우리 호출에 도구 목록을 주지 않았다</strong>.</p>',
       f'<p>그 {len(dead)}건을 그대로 “죽었다”로 읽으면 안 된다 — '
-      f'<strong>{answered}건은 HTTP 상태코드를 돌려줬고</strong>(서버는 살아 있었다), '
+      f'<strong>{len(ctx["downs"])}건만 {e(STATUS_LABEL["down"])}</strong>이고 나머지 '
+      f'{len(ctx["unver"])}건은 <strong>{e(STATUS_LABEL["unverified"])}</strong>다. '
+      f'<strong>{answered}건은 HTTP 상태코드를 돌려줬고</strong>(서버는 응답했다), '
       f'{len(dead) - len(reg_dead)}건은 우리가 README에서 <strong>추정한</strong> 주소였다. '
       f'관리자가 레지스트리에 직접 등록한 주소만 세면 '
       f'<strong>{len(reg_dead)}/{len(reg_all)}({reg_pct}%)</strong>다. '
@@ -870,8 +907,12 @@ def build_index(ctx) -> None:
       f'<tr><td>비교 가능한 서버</td><td class="n"><strong>{len(live)}</strong>건</td></tr>',
       f'<tr><td>응답했으나 못 잼(키 필요·규격 이탈)</td>'
       f'<td class="n">{len(ctx["unmeasured"])}건</td></tr>',
-      f'<tr><td>응답 없음</td><td class="n">'
-      f'<a href="{e(site.url_of("down"))}">{len(dead)}건</a></td></tr>',
+      f'<tr><td>{e(STATUS_LABEL["unverified"])} '
+      f'<span class="sub">(우리 호출로 확인 실패 — 사망 아님)</span></td><td class="n">'
+      f'<a href="{e(site.url_of("down"))}">{len(ctx["unver"])}건</a></td></tr>',
+      f'<tr><td>{e(STATUS_LABEL["down"])} '
+      f'<span class="sub">(DNS 미해결·연결 거부)</span></td><td class="n">'
+      f'<a href="{e(site.url_of("down"))}">{len(ctx["downs"])}건</a></td></tr>',
       f'<tr><td>주제 밖(데이터 제공형 아님)</td><td class="n">{len(ctx["off"])}건</td></tr>')
     if inst:
         W(f'<tr><td>설치형(원격 주소 없음)</td><td class="n">'
@@ -1032,19 +1073,25 @@ def build_category(ctx, c) -> None:
 
 def build_down(ctx) -> None:
     site, dead, ts = ctx["site"], ctx["dead"], ctx["ts"]
+    downs, unver = ctx["downs"], ctx["unver"]
     answered = sum(1 for r in dead if r["remote"].get("http"))
-    desc = (f"{ts} 측정에서 우리 호출에 도구 목록을 주지 않은 한국 MCP 서버 {len(dead)}건. "
-            f"그중 {answered}건은 HTTP 상태코드를 돌려줬다 — 폐기 판정이 아니라 관측 기록이고, "
-            "우리 클라이언트의 한계이거나 우리가 주소를 잘못 짚은 것일 수 있다.")
-    pg = Page(site, "down", "도구 목록을 못 받은 한국 MCP 서버 — 상태코드까지 공개", desc,
-              crumbs=[("한국 데이터 MCP 실측 목록", "index"), ("도구 목록 못 받음", "down")],
+    desc = (f"{ts} 측정에서 우리가 가동을 확인하지 못한 한국 MCP 서버 {len(dead)}건 — "
+            f"{len(unver)}건은 '확인 못 함'이고 {len(downs)}건만 '죽음 확인'이다. "
+            f"확인 못 함 중 {answered}건은 HTTP 상태코드를 돌려줬다(서버는 응답했다). "
+            "사망 명단이 아니다 — 우리 클라이언트의 한계이거나 우리가 주소를 잘못 짚은 것일 수 있다.")
+    pg = Page(site, "down", "가동을 확인하지 못한 한국 MCP 서버 — 확인 못 함과 죽음 확인을 갈라 싣는다",
+              desc,
+              crumbs=[("한국 데이터 MCP 실측 목록", "index"), ("가동 확인 못 함", "down")],
               priority="0.6")
     W = pg.w
-    W(f'<h1>도구 목록을 못 받은 서버 {len(dead)}건</h1>',
-      f'<p class="lede">{e(ts)} 측정에서 우리가 <code>tools/list</code>를 보냈을 때 도구 '
-      f'목록이 오지 않은 목록. <strong>폐기 판정이 아니라 관측 기록이다</strong> — '
-      f'그중 <strong>{answered}건은 HTTP 상태코드를 돌려줬다</strong>. 서버는 살아 있었고 '
-      f'우리 부르는 방식이 그 서버와 안 맞았을 수 있다.</p>',
+    W(f'<h1>가동을 확인하지 못한 서버 {len(dead)}건</h1>',
+      f'<p class="lede">{e(ts)} 측정에서 우리가 살아있음을 확인하지 못한 목록. '
+      f'<strong>사망 명단이 아니다</strong> — <strong>{len(unver)}건은 '
+      f'{e(STATUS_LABEL["unverified"])}</strong>(우리 호출로 확인이 안 됐다는 뜻이고, '
+      f'그중 {answered}건은 HTTP 상태코드를 돌려줬다)이고, '
+      f'<strong>{len(downs)}건만 {e(STATUS_LABEL["down"])}</strong>다 — '
+      f'DNS에 이름이 없거나 연결이 거부된, 우리 클라이언트 규격과 무관한 신호가 있을 때만 '
+      f'붙이는 값이다.</p>',
       f'<p class="meta">측정일 {e(ts)} ({ctx["ts_ago"]}) · 이 페이지 생성 '
       f'{e(ctx["today"].isoformat())}</p>',
       f'<p>고쳤거나 우리가 주소를 잘못 짚었다면 <a href="{REPO}/issues">이슈</a>로 알려 달라. '
@@ -1068,12 +1115,16 @@ def build_down(ctx) -> None:
             '앞단에서 통째로 끊었을 수도 있다. <strong>개인의 서버가 나빠서라고 읽지 '
             '마라.</strong></p>')
     pg.w(*client_limits(ctx))
-    strong = [r for r in dead if r.get("addr_registered")]
-    weak = [r for r in dead if r not in strong]
+    strong = [r for r in unver if r.get("addr_registered")]
+    weak = [r for r in unver if r not in strong]
     for title, group, note in (
-            ("등록된 주소가 응답하지 않음", strong,
-             "관리자가 공식 레지스트리에 <strong>직접 등록한</strong> 주소다. 주장이 강하다."),
-            ("추정 주소가 응답하지 않음", weak,
+            (f"{STATUS_LABEL['down']} — 호스트가 없다", downs,
+             "이 절만 <strong>우리가 사망을 주장하는 것</strong>이다. 근거는 DNS 미해결·"
+             "연결 거부처럼 우리 클라이언트의 규격 준수 여부와 무관한 신호뿐이다."),
+            (f"{STATUS_LABEL['unverified']} — 등록된 주소", strong,
+             "관리자가 공식 레지스트리에 <strong>직접 등록한</strong> 주소다. 주장이 강하지만 "
+             "<strong>그래도 사망 판정이 아니다</strong> — 우리가 확인하지 못했다는 뜻이다."),
+            (f"{STATUS_LABEL['unverified']} — 추정 주소", weak,
              "우리가 README에서 뽑은 <strong>추정</strong> 주소다. <strong>우리가 주소를 잘못 "
              "짚었을 수 있다</strong> — 그 서버가 죽었다는 뜻으로 읽지 마라.")):
         if not group:
@@ -1239,7 +1290,7 @@ def build_machine(ctx) -> None:
     for name_, b in [(r["name"], "comparable") for r in ctx["live"]] \
             + [(r["name"], "off_topic") for r in ctx["off"]] \
             + [(r["name"], "unmeasurable") for r in ctx["unmeasured"]] \
-            + [(r["name"], "unreachable") for r in ctx["dead"]]:
+            + [(r["name"], status_of(r)) for r in ctx["dead"]]:
         bucket_of[name_] = b
     # 사람 페이지에서 순위표에 실제로 서 있는 서버. **여기 없는데 등수만 있는 줄**은
     # 지난 채점 회차의 등수를 이번 회차 판정처럼 보이게 한다 — codex 교차검증이 잡은
@@ -1263,6 +1314,9 @@ def build_machine(ctx) -> None:
             "endpoint": rm.get("url"),
             "endpoint_source": "registry" if r.get("addr_registered") else "readme_guess",
             "measured_at": ts,
+            # 세 갈래가 정본이고 reachable은 파생값이다(T-2026W35-119).
+            "status": status_of(r),
+            "status_label": STATUS_LABEL[status_of(r)],
             "reachable": bool(rm.get("reachable")),
             "tool_count": rm.get("tool_count"),
             "warm_ms": rm.get("warm_ms"), "cold_ms": rm.get("cold_ms"),
@@ -1288,6 +1342,9 @@ def build_machine(ctx) -> None:
             "package_match_suspect": pkg_suspect(r) or None,
             "operated_by_us": r["name"].startswith(OURS),
             "symptom": (rm.get("why") or None) if not rm.get("reachable") else None,
+            "status_note": rm.get("status_note"),
+            "transport": rm.get("transport"),
+            "transports_tried": rm.get("transports_tried"),
             "http_status": rm.get("http"),
             "retried": rm.get("retried"),
             "shared_gateway": gateway_of(r) or None,
@@ -1304,13 +1361,17 @@ def build_machine(ctx) -> None:
         "generated_at": ctx["today"].isoformat(),
         "boundaries": [
             "측정일은 잰 날이다 — 이 파일을 만든 날(generated_at)과 다르다.",
-            "reachable=false 는 폐기 판정이 아니라 그 시점의 관측이고, **우리 호출의 결과**다 "
-            "— http_status 가 있는 줄은 서버가 살아서 상태코드를 돌려준 것이다. "
-            "client_limits 를 먼저 읽어라.",
+            "status 가 정본이고 reachable 은 그 파생값(status=='live')이다. "
+            "status='unverified' 는 폐기 판정이 아니라 **우리 호출로 확인이 안 됐다**는 뜻이고, "
+            "http_status 가 있는 줄은 서버가 살아서 상태코드를 돌려준 것이다. "
+            "status='down' 만 사망 주장이고 근거는 DNS 미해결·연결 거부뿐이다. "
+            "status_vocabulary 와 client_limits 를 먼저 읽어라.",
             "retried=false 는 단 한 번 부른 결과라는 뜻이다.",
             "shared_gateway 가 있으면 그 오류는 공용 게이트웨이의 것이지 그 저장소의 결함이 "
             "아닐 수 있다 — 우리가 둘을 갈라 재지 못했다.",
-            "counts 는 servers 배열의 bucket 으로 재현된다. install_only·"
+            "counts 는 servers 배열의 bucket 으로 재현된다(bucket 은 comparable·"
+            "unmeasurable·off_topic·unverified·down 다섯 중 하나이고 unreachable 은 "
+            "unverified+down 의 옛 합계다). install_only·"
             "no_address_no_package 는 배열 밖이다(가동을 못 쟀다).",
             "endpoint_source=readme_guess 는 우리가 주소를 잘못 짚었을 수 있다는 뜻이다.",
             "rank_in_category 는 지표 가중합이 아니라 실제 질문 답변을 모델이 채점한 결과이고, "
@@ -1329,19 +1390,33 @@ def build_machine(ctx) -> None:
             + site.url_of("self-hosted"),
         ],
         "counts": {"comparable": len(ctx["live"]), "unmeasurable": len(ctx["unmeasured"]),
-                   "unreachable": len(ctx["dead"]), "off_topic": len(ctx["off"]),
+                   # `unreachable`은 옛 이름이라 남기되(남의 재계산이 읽는다) 세 갈래를 같이 낸다.
+                   "unreachable": len(ctx["dead"]),
+                   "unverified": len(ctx["unver"]), "down": len(ctx["downs"]),
+                   "off_topic": len(ctx["off"]),
                    "install_only": len(ctx["inst"]),
                    "no_address_no_package": len([r for r in ctx["items"]
                                                  if not r.get("remote")
                                                  and not r.get("package")]),
                    "candidates_total": len(ctx["items"])},
+        "status_vocabulary": {
+            "live": "살아있음 확인 — MCP 응답을 실제로 받았다",
+            "unverified": "확인 못 함 — 우리 호출로 확인이 안 됐다. 죽었다는 뜻이 아니다",
+            "down": "죽음 확인 — DNS 미해결·연결 거부처럼 호스트가 없다는 직접 증거가 있다",
+        },
+        "client_does": [
+            "initialize + notifications/initialized 핸드셰이크를 하고 Mcp-Session-Id·"
+            "MCP-Protocol-Version을 이어 쓴다",
+            "POST의 307·308을 method·본문 보존한 채 따라간다",
+            "Streamable HTTP가 안 되면 구 HTTP+SSE 전송(GET)으로 한 번 더 물어본다",
+            "4xx를 사망으로 읽지 않는다 — 다른 전송으로 재시도한다",
+            "서버가 보낸 오류 본문을 원자료에 남긴다",
+        ],
         "client_limits": [
-            "initialize 핸드셰이크를 하지 않는다 — 규격을 지키는 서버가 HTTP 400을 주는 것이 "
-            "정상 동작이다",
-            "POST + 307 리다이렉트를 따라가지 않는다",
-            "SSE(GET)를 시도하지 않는다 — POST 고정이라 SSE 엔드포인트는 405를 준다",
-            "4xx는 재시도하지 않는다(재시도는 연결 실패·5xx일 때만 1회)",
-            "서버가 보낸 오류 본문을 저장하지 않는다 — 상태코드만 남겼다",
+            "OAuth·API 키가 필요한 서버는 인증을 못 한다(401/403은 살아있음의 증거로 읽는다)",
+            "stdio 전송만 지원하는 서버는 원격으로 잴 수 없다",
+            "무료 티어 콜드스타트가 타임아웃보다 길면 못 본다",
+            "측정 지점이 한국 한 곳이다 — 지역 차단·지연을 못 가른다",
         ],
         "servers": rows,
     }
@@ -1354,8 +1429,9 @@ def build_machine(ctx) -> None:
              f"- [전체 목록]({site.url_of('index')}): 분야별 순위와 측정값",
              f"- [기계용 JSON]({site.url_of('index.json')}): 같은 값의 구조화본",
              f"- [어떻게 재나 · 믿으면 안 되는 부분]({site.url_of('method')})",
-             f"- [응답하지 않는 서버]({site.url_of('down')}): {len(ctx['dead'])}건 — 폐기 판정이 "
-             "아니라 관측 기록",
+             f"- [가동 확인 못 한 서버]({site.url_of('down')}): 확인 못 함 "
+             f"{len(ctx['unver'])}건 · 죽음 확인 {len(ctx['downs'])}건 — "
+             "확인 못 함은 사망이 아니다",
              f"- [설치형]({site.url_of('self-hosted')}): {len(ctx['inst'])}건 — 가동을 재지 못했다",
              f"- [원자료 저장소]({REPO})", "", "## 분야별", ""]
     for c in ctx["cats_live"]:
@@ -1374,11 +1450,14 @@ def build_machine(ctx) -> None:
     answered = sum(1 for r in ctx["dead"] if r["remote"].get("http"))
     reg_dead = [r for r in ctx["dead"] if r.get("addr_registered")]
     lines += ["## 경계", "",
-              f"- 도구 목록을 못 받은 {len(ctx['dead'])}건 중 {answered}건은 HTTP 상태코드를 "
-              f"돌려줬다 — 서버는 살아 있었다. 관리자가 직접 등록한 주소만 세면 "
-              f"{len(reg_dead)}건이고, 나머지는 우리가 README에서 **추정**한 주소다.",
-              "- 우리 클라이언트는 initialize 핸드셰이크·POST 307 추적·SSE(GET)를 못 하고, "
-              "4xx를 재시도하지 않는다. 그 한계에 걸린 서버가 명단에 섞여 있다.",
+              f"- 가동 확인 못 한 {len(ctx['dead'])}건 중 {len(ctx['downs'])}건만 "
+              f"'죽음 확인'이고 {len(ctx['unver'])}건은 '확인 못 함'이다. "
+              f"그중 {answered}건은 HTTP 상태코드를 돌려줬다 — 서버는 응답했다. "
+              f"관리자가 직접 등록한 주소만 세면 {len(reg_dead)}건이고, 나머지는 우리가 "
+              "README에서 **추정**한 주소다.",
+              "- 우리 두드리개는 initialize 핸드셰이크·307/308 추적·구 SSE 전송을 하고 "
+              "4xx를 다른 전송으로 재시도한다(2026-09-03 수리). 그래도 OAuth 인증·stdio "
+              "전송·긴 콜드스타트는 못 본다 — 그래서 '확인 못 함'이지 '사망'이 아니다.",
               "- 못 봄은 없음이 아니다. 재지 못한 축은 재지 못했다고 적는다.",
               "- 순위는 모델 채점이라 같은 입력에도 흔들린다. 가동 지표는 재현된다.",
               "- 이 목록을 만든 곳도 여기에 서버를 운영한다 — 축을 고른 것도 같은 곳이다.",
@@ -1515,7 +1594,12 @@ def main() -> int:
         page_of[r["name"]] = f"servers/{s}"
     cat_page = {c: f"category/{slug(CAT_EN.get(c, c))}" for c in cats_live}
 
+    # **세 갈래**(2026-09-03, T-2026W35-119) — `dead`라는 이름 하나가 "확인 못 함"과
+    # "죽음 확인"을 한 덩이로 묶어 게시하고 있었다. 이름은 남기되 갈라서 싣는다.
+    downs = [r for r in dead if status_of(r) == "down"]
+    unver = [r for r in dead if r not in downs]
     ctx = {"site": site, "items": items, "live": live, "dead": dead, "off": off, "rem": rem,
+           "downs": downs, "unver": unver,
            "inst": inst, "unmeasured": unmeasured, "cls": cls, "rank_of": rank_of,
            "err_of": err_of, "cat_note": cat_note, "cat_runs": cat_runs,
            "graded_of": graded_of, "cats_live": cats_live, "page_of": page_of,

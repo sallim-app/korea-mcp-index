@@ -39,6 +39,33 @@ BROKEN_EMPH = re.compile(r'[)\]}"\'.,!?:;][*]{2}[0-9A-Za-z가-힣]')
 DOUBLE_EMPH = re.compile(r'\*{4,}')
 
 
+# ── 판정 어휘 세 갈래 (2026-09-03, T-2026W35-119) ───────────────────────────
+# **두드려서 못 받은 것을 '죽음'이라 쓰지 않는다.** 종전 산출물은 `reachable=False`를
+# 통째로 "응답 없음"으로 게시했고, 그 명단에는 우리 두드리개가 MCP 규격(initialize
+# 핸드셰이크·307 추적·SSE 전송)을 안 지켜서 거절당한 서버가 섞여 있었다 — 남의 제품에
+# 우리 결함으로 사망 선고를 한 셈이다. 어휘를 셋으로 가른다.
+#   live       살아있음 확인 — MCP 응답을 실제로 받았다
+#   unverified 확인 못 함   — 우리 호출로 확인이 안 됐다. **죽었다는 뜻이 아니다**
+#   down       죽음 확인    — 호스트가 없다는 직접 증거(DNS 미해결·연결 거부)가 있다
+# 라벨 정본은 measure.STATUS_LABEL이고 tests/test_mcp_probe.py가 둘이 어긋나면 실패한다.
+STATUS_LABEL = {"live": "살아있음 확인", "unverified": "확인 못 함", "down": "죽음 확인"}
+_DOWN_SIGNS = ("Name or service not known", "nodename nor servname",
+               "Temporary failure in name resolution", "No address associated",
+               "Connection refused", "ConnectionRefusedError")
+
+
+def status_of(rec: dict) -> str:
+    """레코드의 세 갈래 판정. 옛 회차 원자료(`status` 없음)도 안전하게 읽는다."""
+    rm = rec.get("remote") or {}
+    st = rm.get("status")
+    if st in STATUS_LABEL:
+        return st
+    if rm.get("reachable"):
+        return "live"
+    why = f'{rm.get("why") or ""} {rm.get("error") or ""}'
+    return "down" if any(x in why for x in _DOWN_SIGNS) else "unverified"
+
+
 def emph(text: str) -> str:
     """강조를 만드는 유일한 경로. 끝 문장부호는 강조 **밖으로** 밀어낸다."""
     t = text.rstrip()
@@ -209,19 +236,30 @@ def write_down(dead: list, ts: str) -> None:
     잘못 짚었을 수 있다 — 남의 제품에 사망 선고를 하는 자리라 그 구분을 지운 채 실으면 안 된다.
     """
     o: list[str] = []
-    o.append("# 응답하지 않는 서버")
+    o.append("# 확인하지 못한 서버")
     o.append("")
-    o.append(f"{ts} 측정 시점에 `tools/list`에 응답하지 않은 목록. "
-             "**폐기 판정이 아니라 관측 기록이다** — 일시적 장애일 수 있다.")
+    o.append(f"{ts} 측정에서 **우리가 살아있음을 확인하지 못한** 목록. "
+             "**사망 명단이 아니다** — 확인 못 함(unverified)과 죽음 확인(down)은 다른 값이고, "
+             "이 문서는 그 둘을 갈라 싣는다.")
+    o.append("")
+    o.append("`죽음 확인`은 호스트가 없다는 직접 증거(DNS에 이름 없음·연결 거부)가 있을 때만 "
+             "붙인다. 그 밖의 전부 — 4xx·5xx·타임아웃·TLS 오류 — 는 `확인 못 함`이다. "
+             "우리 두드리개가 못 본 것을 남의 사망으로 적지 않기 위해서다.")
     o.append("")
     o.append("고쳤거나 우리가 주소를 잘못 짚었다면 이슈로 알려 달라. 다음 회차에 다시 잰다.")
     o.append("")
-    strong = [r for r in dead if r.get("addr_registered")]
-    weak = [r for r in dead if r not in strong]
+    downs = [r for r in dead if status_of(r) == "down"]
+    unver = [r for r in dead if r not in downs]
+    strong = [r for r in unver if r.get("addr_registered")]
+    weak = [r for r in unver if r not in strong]
     for title, group, note in (
-            ("등록된 주소가 응답하지 않음", strong,
-             "관리자가 공식 레지스트리에 **직접 등록한** 주소다. 주장이 강하다."),
-            ("추정 주소가 응답하지 않음", weak,
+            ("죽음 확인 — 호스트가 없다", downs,
+             "이 줄만 **우리가 사망을 주장하는 것**이다. 근거는 DNS 미해결·연결 거부처럼 "
+             "우리 클라이언트 규격과 무관한 신호뿐이다."),
+            ("확인 못 함 — 등록된 주소", strong,
+             "관리자가 공식 레지스트리에 **직접 등록한** 주소다. 주장이 강하지만 "
+             "**그래도 사망 판정이 아니다** — 우리가 확인하지 못했다는 뜻이다."),
+            ("확인 못 함 — 추정 주소", weak,
              "우리가 README에서 뽑은 **추정** 주소다. **우리가 주소를 잘못 짚었을 수 있다** — "
              "그 서버가 죽었다는 뜻으로 읽지 마라."),
     ):
@@ -231,8 +269,8 @@ def write_down(dead: list, ts: str) -> None:
         o.append("")
         o.append(note)
         o.append("")
-        o.append("| 서버 | 증상 | 주소 |")
-        o.append("|---|---|---|")
+        o.append("| 서버 | 판정 | 증상 | 주소 |")
+        o.append("|---|---|---|---|")
         for r in group:
             rm = r["remote"]
             why = rm.get("why") or f"HTTP {rm.get('http')}"
@@ -243,7 +281,8 @@ def write_down(dead: list, ts: str) -> None:
             # 실측: `…up.railway.` `…hf.sp`처럼 도메인 한가운데서 끊긴 채 게시돼 있었다.
             # 증상 쪽은 2026-08-19에 도입한 clip()으로 통일한다(여기만 `[:60]`이 남아
             # `Name or service not know`로 단어 중간에서 끊겼다).
-            o.append(f"| {link(r)} | {clip(why, 80)} | `{rm.get('url') or ''}` |")
+            o.append(f"| {link(r)} | {STATUS_LABEL[status_of(r)]} | {clip(why, 80)} | "
+                     f"`{rm.get('url') or ''}` |")
         o.append("")
     o.append("---")
     o.append("")
@@ -339,7 +378,6 @@ def main() -> int:
               "`python3 measure.py --measure-axes`를 돌려라. 빈 축을 0건으로 게시하면 "
               "남의 저장소를 '라이선스 없음'으로 낙인찍는다(PROTOCOL.md ②).", file=sys.stderr)
         return 1
-    pct = round(100 * len(dead) / max(len(rem), 1))
     out: list[str] = []
     A = out.append
 
@@ -352,11 +390,22 @@ def main() -> int:
       if not en else
       "> We actually connect to every Korean data MCP server, measure it, and publish the numbers.")
     A("")
+    # **셋을 갈라 적는다**(2026-09-03, T-2026W35-119). "응답하지 않았다"는 두 갈래
+    # 어휘였고, 그 한 단어가 우리 두드리개의 한계를 남의 사망으로 옮겨 적었다.
+    n_down = len([r for r in dead if status_of(r) == "down"])
+    n_unver = len(dead) - n_down
+    # **살아있음 = 주소를 확인한 것 중 죽지 않은 전부**다. 아래 표의 「비교 가능」은
+    # 주제 밖·키 필요를 뺀 부분집합이라 이 자리에 쓰면 재현 검사와 어긋난다.
+    n_live = len(rem) - len(dead)
     A(f"다른 목록은 “있다”를 말한다. 이 목록은 {emph('지금 되냐')}를 잰다. "
-      f"{ts} 기준 주소를 확인한 {len(rem)}건 중 {emph(f'{len(dead)}건({pct}%)이 응답하지 않았다')}."
+      f"{ts} 기준 주소를 확인한 {len(rem)}건 중 {emph(f'{n_live}건이 살아있음 확인')}, "
+      f"{n_unver}건은 {emph('확인 못 함')}, {n_down}건만 {emph('죽음 확인')}이다. "
+      f"확인 못 함은 사망이 아니다 — 우리가 못 본 것과 그쪽이 없는 것은 다르다."
       if not en else
       f"Other lists tell you a server exists. This one tells you whether it {emph('works right now')}. "
-      f"As of {ts}, {len(dead)} of {len(rem)} ({pct}%) did not respond.")
+      f"As of {ts}, of {len(rem)} addresses probed, {n_live} were "
+      f"{emph('confirmed live')}, {n_unver} {emph('unverified')}, and only {n_down} "
+      f"{emph('confirmed down')}. Unverified is not dead — it means we could not confirm it.")
     A("")
     A(f"> **웹판** <{SITE}> — 같은 값을 분야별·서버별 주소로 갈라 놓았다. "
       f"기계가 읽을 것은 [index.json]({SITE}/index.json)·[llms.txt]({SITE}/llms.txt)."
@@ -368,7 +417,9 @@ def main() -> int:
     A("|---|---|")
     A(f"| 비교 가능한 서버 | {emph(str(len(live)))}건 |")
     A(f"| 응답했으나 못 잼(키 필요·규격 이탈) | {len(unmeasured)}건 |")
-    A(f"| 응답 없음 | {len(dead)}건 → [DOWN.md](DOWN.md) |")
+    A(f"| 확인 못 함(우리 호출로 확인 실패 — {emph('사망 아님')}) | "
+      f"{n_unver}건 → [DOWN.md](DOWN.md) |")
+    A(f"| 죽음 확인(DNS 미해결·연결 거부) | {n_down}건 → [DOWN.md](DOWN.md) |")
     A(f"| 주제 밖(데이터 제공형 아님) | {len(off)}건 |")
     # 2026-08-20(T-2026W34-107): **설치형은 이 표에 자리가 없었다.** 원격 주소가 없는 서버는
     # `tools/list`로 잴 수 없어 측정 항목 `installable`을 재 두고도 게시하지 않았고(소비처 0),
@@ -556,7 +607,7 @@ def main() -> int:
             if gone:
                 bits = []
                 for rk_, n in gone:
-                    why_gone = ("이번 주 응답 없음([DOWN.md](DOWN.md))"
+                    why_gone = ("이번 주 가동 확인 못 함([DOWN.md](DOWN.md))"
                                 if n in {x["name"] for x in dead}
                                 else "이번 주 후보에서 빠졌다")
                     bits.append(f"{rk_}위 {disp(n)}({why_gone})")
@@ -763,7 +814,7 @@ def main() -> int:
         print(f"생성 중단 — 깨지는 강조 {len(bad)}건: {bad[:3]}", file=sys.stderr)
         return 1
     open("README-en.md" if en else "README.md", "w", encoding="utf-8").write(text)
-    print(f"{'README-en' if en else 'README'}.md — 응답 {len(live)} · 무응답 {len(dead)} · "
+    print(f"{'README-en' if en else 'README'}.md — 살아있음 {len(live)} · 확인못함/죽음 {len(dead)} · "
           f"주제밖 {len(off)} · 분야 {len(cats_live)}개 · 병합 {merged}")
     return 0
 

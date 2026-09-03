@@ -328,19 +328,24 @@ def test_negative_claims_ship_with_our_client_limits():
     fresh-eyes 검수(2026-08-29)가 잡은 자리다. `tools/list` 200을 못 받은 28건 중 22건은
     HTTP 상태코드를 돌려줬다 — 서버는 살아 있었고 우리 호출 방식이 안 맞았을 수 있다.
     그 사실 없이 "응답 없음"만 내면 관측이 아니라 판정이 된다.
+
+    2026-09-03(T-2026W35-119)에 두드리개를 규격에 맞춰 고쳤다. 그래서 화면은 이제 두 가지를
+    같이 실어야 한다 — **무엇을 하는가**(client_does)와 **그래도 못 하는 것**(client_limits).
     """
     with tempfile.TemporaryDirectory() as tmp:
         r, out = build(tmp)
         assert r.returncode == 0, r.stderr
         m = json.loads((out / "index.json").read_text(encoding="utf-8"))
         assert m["client_limits"], "기계 표면에 한계 공시가 없다"
-        assert any("initialize" in x for x in m["client_limits"])
+        assert m["client_does"], "무엇을 하는지 공시가 없다 — 한계만 적으면 옛 명단이 계속 의심받는다"
+        assert any("initialize" in x for x in m["client_does"])
+        assert m["status_vocabulary"]["unverified"].startswith("확인 못 함")
         for page in ("index.html", "down.html", "method.html"):
             body = (out / page).read_text(encoding="utf-8")
             assert "initialize" in body, page
             assert "우리 두드리개가 못 하는 것" in body or "못 하는 것" in body, page
         # 부정 판정을 실은 상세 페이지에도 붙어야 한다
-        dead = [s for s in m["servers"] if s["bucket"] == "unreachable"]
+        dead = [s for s in m["servers"] if s["bucket"] in ("unverified", "down")]
         assert dead
         for s in dead:
             body = (out / "servers" / (s["page"].rsplit("/", 1)[1] + ".html")).read_text(
@@ -369,8 +374,10 @@ def test_counts_reproduce_from_the_servers_array():
         assert r.returncode == 0, r.stderr
         m = json.loads((out / "index.json").read_text(encoding="utf-8"))
         got = collections.Counter(s["bucket"] for s in m["servers"])
-        for k in ("comparable", "unmeasurable", "unreachable", "off_topic"):
+        for k in ("comparable", "unmeasurable", "unverified", "down", "off_topic"):
             assert got[k] == m["counts"][k], (k, got[k], m["counts"][k])
+        # `unreachable`은 옛 이름으로 남은 합계다 — 남의 재계산이 읽으므로 어긋나면 안 된다.
+        assert m["counts"]["unreachable"] == got["unverified"] + got["down"]
         c = m["counts"]
         assert (len(m["servers"]) + c["install_only"] + c["no_address_no_package"]
                 == c["candidates_total"])
@@ -401,7 +408,10 @@ def test_boundaries_are_published_not_hidden():
         assert "확인 못 함" in b or "오픈소스 아님" in b
         assert any(s["endpoint_source"] == "readme_guess" for s in m["servers"])
         down = (out / "down.html").read_text(encoding="utf-8")
-        assert "폐기 판정이 아니라 관측 기록" in down
+        # **어휘가 세 갈래인가**(T-2026W35-119). 우리가 못 본 것을 남의 사망으로 게시하지 않는다.
+        assert "사망 명단이 아니다" in down
+        assert "확인 못 함" in down and "죽음 확인" in down
+        assert "응답 없음" not in down, "여전히 '응답 없음'으로 게시한다"
 
 
 def test_index_plumbing_canonical_sitemap_robots():

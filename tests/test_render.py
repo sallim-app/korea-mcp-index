@@ -412,7 +412,7 @@ def test_게시된_측정일이_원자료와_같다():
     """README·DOWN에 적힌 측정일은 전부 measured_at이어야 한다(렌더 날짜 금지)."""
     ts = MEASURED["measured_at"]
     for label, md in (("README.md", README), ("DOWN.md", DOWN)):
-        found = set(re.findall(r"\d{4}-\d{2}-\d{2}(?= 기준| 측정 시점| 그 순간)", md))
+        found = set(re.findall(r"\d{4}-\d{2}-\d{2}(?= 기준| 측정 시점| 측정에서| 그 순간)", md))
         assert found, f"{label}에 측정일 문구가 없다"
         assert found == {ts}, f"{label} 측정일 {found} != measured_at {ts}"
 

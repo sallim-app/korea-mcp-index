@@ -61,28 +61,123 @@ def measured_today() -> str:
     return datetime.now(KST).strftime("%Y-%m-%d")
 
 
-def _post_jsonrpc(url: str, method: str) -> dict:
-    body = json.dumps({"jsonrpc": "2.0", "id": 1, "method": method, "params": {}}).encode()
-    req = urllib.request.Request(url, data=body, headers={
-        "Content-Type": "application/json",
-        "Accept": "application/json, text/event-stream",
-        "User-Agent": UA})
-    t0 = time.monotonic()
+# ── MCP 전송 규격을 지키는 두드리개 ─────────────────────────────────────────
+# 2026-09-03, T-2026W35-119. **종전 두드리개는 세션도 열지 않고 `tools/list`를 생짜로
+# 던졌다.** 그래서 규격을 지키는 서버가 우리를 거절한 것을 우리는 "응답 없음"으로 적어
+# 대외로 공시했다 — 우리가 못 본 것을 남의 사망으로 옮겨 적은 것이고, 기치 ②(못 봄 ≠ 없음)를
+# 우리가 정확히 어긴 자리다. fresh-eyes 검수 2026-08-29가 짚었고 넷을 고쳤다.
+#
+#   ① `initialize` + `notifications/initialized` 핸드셰이크를 먼저 한다
+#   ② POST 307/308을 method·body를 보존한 채 따라간다 — 파이썬 urllib은 POST에서 안 따라간다
+#   ③ 구 HTTP+SSE 전송(GET + `Accept: text/event-stream` → `endpoint` 이벤트)을 시도한다
+#   ④ 4xx를 사망으로 읽지 않는다 — 405·406·415·400은 **전송 방식이 틀렸다**는 신호다
+#
+# 규격 정본 = modelcontextprotocol.io/specification/2025-11-25 의 basic/lifecycle ·
+# basic/transports (context7 조회 2026-09-03). 추측으로 쓰지 않았다.
+PROTOCOL_VERSION = "2025-06-18"   # 서버가 다른 버전을 내밀면 그쪽으로 맞춘다
+CLIENT_NAME = "sallim-mcp-index"
+CLIENT_VERSION = "0.2"
+REDIRECT_CODES = (301, 302, 303, 307, 308)
+MAX_REDIRECTS = 4
+# **전송 방식이 틀렸다는 신호이지 서버가 죽었다는 신호가 아니다.** 이 코드들을 보면
+# 다른 전송으로 한 번 더 물어본다.
+TRANSPORT_MISMATCH = (400, 404, 405, 406, 415, 501)
+SSE_TIMEOUT = 8
+SSE_READ_MAX = 64 * 1024
+
+# ── 판정 어휘 — 세 갈래 (T-2026W35-119) ────────────────────────────────────
+# 두드려서 못 받은 것을 '죽음'이라 쓰지 않는다. 우리가 못 본 것과 그쪽이 없는 것은 다르다.
+LIVE = "live"              # 살아있음 확인 — MCP 응답을 실제로 받았다
+UNVERIFIED = "unverified"  # 확인 못 함 — 우리 호출로는 확인이 안 됐다. 죽었다는 뜻이 아니다
+DOWN = "down"              # 죽음 확인 — 호스트 자체가 없다는 직접 증거가 있다
+STATUS_LABEL = {LIVE: "살아있음 확인", UNVERIFIED: "확인 못 함", DOWN: "죽음 확인"}
+# '죽음 확인'을 붙일 자격이 있는 증거는 이것뿐이다 — 이름이 DNS에 없거나, 포트가 연결을
+# 거부했거나. 타임아웃·TLS 오류·4xx·5xx는 전부 '확인 못 함'이다(우리 쪽일 수 있다).
+DOWN_SIGNS = ("Name or service not known", "nodename nor servname",
+              "Temporary failure in name resolution", "No address associated",
+              "Connection refused", "ConnectionRefusedError")
+
+
+def _down_evidence(err: str) -> str:
+    """이 오류가 '죽음 확인'을 붙일 자격이 있나. 있으면 사유를, 없으면 빈 문자열."""
+    if not err:
+        return ""
+    if any(s in err for s in DOWN_SIGNS[:4]):
+        return "DNS에 그 이름이 없다 — 호스트가 사라졌다"
+    if any(s in err for s in DOWN_SIGNS[4:]):
+        return "연결이 거부됐다 — 그 포트에 아무것도 없다"
+    return ""
+
+
+def _request(url: str, *, method: str = "POST", body: bytes | None = None,
+             headers: dict | None = None, timeout: int = TIMEOUT, _depth: int = 0,
+             _t0: float | None = None) -> dict:
+    """한 번의 HTTP. **리다이렉트를 직접 따라간다.**
+
+    파이썬 urllib의 기본 리다이렉트 핸들러는 POST에 대해 307·308을 따라가지 않고
+    HTTPError로 올린다. 종전 코드는 그 예외를 그대로 받아 `HTTP 307`을 증상으로 적었다 —
+    서버는 "옮긴 자리는 여기"라고 정확히 알려준 것인데 우리가 안 간 것이다(실측:
+    contract.naru.build는 308, dartpoint.ai는 307).
+    """
+    t0 = _t0 if _t0 is not None else time.monotonic()
+    hdrs = {"User-Agent": UA, **(headers or {})}
+    req = urllib.request.Request(url, data=body, headers=hdrs, method=method)
     try:
-        with urllib.request.urlopen(req, timeout=TIMEOUT) as r:
+        with urllib.request.urlopen(req, timeout=timeout) as r:
             # **자르지 않는다.** 20,000자로 자르던 초판은 도구 설명이 긴 서버(우리 것 포함)의
             # JSON을 반토막 내고 파싱에 실패해 "도구 ?개"로 보고했다 — 우리가 제품에서 금지하는
             # 조용한 절단을 측정기가 저지른 것이다(2026-08-18, 우리 서버 대조로 발견).
             # 상한은 폭주 방어용으로만 두고, 걸리면 값으로 공시한다.
             raw = r.read(MAX_BODY + 1).decode("utf-8", "replace")
             return {"status": r.status, "ms": int((time.monotonic() - t0) * 1000),
-                    "raw": raw, "body_truncated": len(raw) > MAX_BODY}
+                    "raw": raw, "url": url,
+                    "headers": {k.lower(): v for k, v in r.headers.items()},
+                    "body_truncated": len(raw) > MAX_BODY}
     except urllib.error.HTTPError as e:
+        hh = {k.lower(): v for k, v in (e.headers or {}).items()}
+        raw = e.read().decode("utf-8", "replace")[:2000]
+        loc = hh.get("location")
+        if e.code in REDIRECT_CODES and loc and _depth < MAX_REDIRECTS:
+            nxt = urllib.parse.urljoin(url, loc)
+            # 303만 GET으로 바꾼다(규격). 307·308은 method·body 보존이 규격 요구사항이고
+            # 301·302도 MCP 엔드포인트에서는 보존하는 편이 옳다 — 브라우저 관행을 따라
+            # GET으로 바꾸면 POST-only 엔드포인트에서 405를 받는다.
+            out = _request(nxt, method=("GET" if e.code == 303 else method),
+                           body=(None if e.code == 303 else body),
+                           headers=headers, timeout=timeout, _depth=_depth + 1, _t0=t0)
+            out["redirected_from"] = url
+            out["redirect_code"] = e.code
+            return out
         return {"status": e.code, "ms": int((time.monotonic() - t0) * 1000),
-                "raw": e.read().decode("utf-8", "replace")[:800]}
+                # **그쪽 해명을 버리지 않는다.** 종전엔 상태코드만 남기고 서버가 보낸 오류
+                # 본문을 버렸다 — 400의 사유가 그 안에 있는데도.
+                "raw": raw, "url": url, "headers": hh}
     except (urllib.error.URLError, socket.timeout, OSError) as e:
         return {"status": None, "ms": int((time.monotonic() - t0) * 1000),
-                "error": f"{type(e).__name__}: {e}"[:120]}
+                "raw": "", "url": url, "headers": {},
+                "error": f"{type(e).__name__}: {e}"[:160]}
+
+
+def _jsonrpc(url: str, payload: dict, *, session: str | None = None,
+             protocol: str | None = None, timeout: int = TIMEOUT) -> dict:
+    """Streamable HTTP POST 한 방. 규격이 요구하는 헤더를 전부 붙인다."""
+    hdrs = {"Content-Type": "application/json",
+            "Accept": "application/json, text/event-stream"}
+    if session:
+        hdrs["Mcp-Session-Id"] = session
+    if protocol:
+        hdrs["MCP-Protocol-Version"] = protocol
+    return _request(url, method="POST", body=json.dumps(payload).encode(),
+                    headers=hdrs, timeout=timeout)
+
+
+def _post_jsonrpc(url: str, method: str) -> dict:
+    """세션 없이 메서드 하나만 던지는 옛 경로. **규격 미준수라 회귀 대조용으로만 남긴다.**
+
+    지우지 않는 이유는 고친 두드리개가 실제로 더 많이 살려내는지를 같은 코드에서
+    대조할 수 있어야 하기 때문이다(tests/test_mcp_probe.py).
+    """
+    return _jsonrpc(url, {"jsonrpc": "2.0", "id": 1, "method": method, "params": {}})
 
 
 def tool_specs(tools: list) -> list:
@@ -154,72 +249,294 @@ def _tool_quality(tools: list) -> dict:
     }
 
 
-def _tools_from(raw: str) -> list | None:
-    """SSE(`data: {...}`)와 순수 JSON 둘 다 받는다. **목록을 그대로 돌려준다** —
-    개수만 세고 버리면 품질 지표를 다시 받으러 가야 한다(남의 서버에 두 번 묻는 셈)."""
-    for chunk in ([raw] + [ln[5:].strip() for ln in raw.splitlines() if ln.startswith("data:")]):
+def _rpc_messages(raw: str) -> list:
+    """SSE(`data: {...}`)와 순수 JSON 둘 다에서 JSON-RPC 메시지를 뽑는다."""
+    out = []
+    for chunk in ([raw] + [ln[5:].strip() for ln in raw.splitlines()
+                           if ln.startswith("data:")]):
         try:
             d = json.loads(chunk)
         except (ValueError, TypeError):
             continue
+        if isinstance(d, dict):
+            out.append(d)
+    return out
+
+
+def _rpc_result(raw: str) -> dict | None:
+    """`result`가 든 첫 메시지. 없으면 None(= JSON-RPC 응답을 못 읽었다)."""
+    for d in _rpc_messages(raw):
+        if isinstance(d.get("result"), dict):
+            return d["result"]
+    return None
+
+
+def _tools_from(raw: str) -> list | None:
+    """`tools/list` 응답에서 도구 배열을 꺼낸다. **목록을 그대로 돌려준다** —
+    개수만 세고 버리면 품질 지표를 다시 받으러 가야 한다(남의 서버에 두 번 묻는 셈)."""
+    for d in _rpc_messages(raw):
         tools = ((d.get("result") or {}).get("tools"))
         if isinstance(tools, list):
             return tools
     return None
 
 
-def measure_remote(url: str) -> dict:
-    """한 번만 재면 콜드 스타트를 재게 된다.
+def _handshake(url: str) -> tuple[dict | None, dict]:
+    """`initialize` → `notifications/initialized`. `(세션정보, 원응답)`.
 
-    실측 2026-08-18: `gateway.pipeworx.io/dart-kr`가 1회 측정에서 2,057ms였는데
-    연달아 부르니 57ms였다(36배). 서버리스(Workers·Render)는 첫 호출이 기동 시간을
-    포함하므로 1회 값으로 순위를 매기면 **느린 서버가 아니라 안 쓰이는 서버**를 벌주게 된다.
-    그렇다고 콜드를 버리면 안 된다 — 처음 붙는 사용자에겐 그게 실제 체감이다.
-    그래서 **둘 다 싣는다**: cold_ms(첫 호출) · warm_ms(이후 최소).
-
-    측정 지점 편향도 확인했다(사장님 지적): 우리 서버를 우리 서버에서 재면 유리하지 않냐 —
-    naru·quant 두 지점 대조 결과 우리 서버 79ms vs 64ms로 **오히려 quant가 빨랐다**.
-    다만 두 지점 다 우리 것이고 같은 클라우드라 **국외 지점 편향은 여전히 미확인**이다.
+    **이것이 없으면 규격을 지키는 서버는 우리를 거절한다.** 실측 2026-09-03:
+    mcp.finlab.finance는 생짜 `tools/list`에 HTTP 400을 주고, 같은 주소가 `initialize`에는
+    200 + serverInfo를 준다. 우리는 그 400을 "응답 없음"으로 공시하고 있었다.
     """
-    r = _post_jsonrpc(url, "tools/list")
-    # **1회 실패로 남의 서버를 죽었다고 공표하지 않는다.** 실측 2026-08-18: mydart가
-    # 15초 타임아웃으로 무응답 판정됐는데 직후 재시도에서 208ms로 정상이었다. 이 목록의
-    # "무응답" 줄은 남의 제품에 대한 공개 주장이므로 오판 비용이 우리 쪽 비용보다 크다.
+    r = _jsonrpc(url, {"jsonrpc": "2.0", "id": 1, "method": "initialize",
+                       "params": {"protocolVersion": PROTOCOL_VERSION,
+                                  "capabilities": {},
+                                  "clientInfo": {"name": CLIENT_NAME,
+                                                 "version": CLIENT_VERSION}}})
+    if r.get("status") not in (200, 202):
+        return None, r
+    res = _rpc_result(r.get("raw") or "")
+    if res is None:
+        return None, r
+    # 리다이렉트를 따라갔으면 **이어지는 요청도 옮긴 자리로** 보낸다. 세션은 그쪽에 있다.
+    sess = {"endpoint": r.get("url") or url,
+            "session_id": (r.get("headers") or {}).get("mcp-session-id"),
+            "protocol": res.get("protocolVersion") or PROTOCOL_VERSION,
+            "server_info": res.get("serverInfo") or {}}
+    # 규격상 초기화 완료 통지가 뒤따라야 세션이 열린다. 응답은 202(본문 없음)가 정상이라
+    # 결과를 판정에 쓰지 않는다 — 실패해도 tools/list를 시도해 본다.
+    _jsonrpc(sess["endpoint"],
+             {"jsonrpc": "2.0", "method": "notifications/initialized"},
+             session=sess["session_id"], protocol=sess["protocol"])
+    return sess, r
+
+
+def _probe_streamable(url: str) -> dict:
+    """현행 Streamable HTTP 전송으로 두드린다. 핸드셰이크 → tools/list."""
+    sess, r0 = _handshake(url)
+    base = {"transport": "streamable-http", "http": r0.get("status"),
+            "ms": r0.get("ms"), "raw": r0.get("raw") or "",
+            "error": r0.get("error"), "url": r0.get("url") or url,
+            "redirected_from": r0.get("redirected_from"),
+            "body_truncated": r0.get("body_truncated")}
+    if sess is None:
+        # 인증 벽은 **살아있음의 증거다** — 키가 없어 도구 목록을 못 볼 뿐이다.
+        if r0.get("status") in (401, 403):
+            return {**base, "ok": True, "needs_key": True, "tool_count": None,
+                    "why": "인증 필요 — 키 없이는 도구 목록도 못 본다"}
+        return {**base, "ok": False}
+    t = _jsonrpc(sess["endpoint"], {"jsonrpc": "2.0", "id": 2, "method": "tools/list",
+                                    "params": {}},
+                 session=sess["session_id"], protocol=sess["protocol"])
+    base.update({"http": t.get("status"), "ms": t.get("ms"),
+                 "raw": t.get("raw") or "", "session": sess,
+                 "body_truncated": t.get("body_truncated")})
+    if t.get("status") in (401, 403):
+        return {**base, "ok": True, "needs_key": True, "tool_count": None,
+                "why": "핸드셰이크는 됐지만 도구 목록에 키가 필요하다"}
+    tools = _tools_from(t.get("raw") or "") if t.get("status") == 200 else None
+    if tools is None:
+        # **핸드셰이크가 됐다는 것만으로 이미 살아있음이 확인됐다.** 도구 목록을 못 얻은 것은
+        # 별개의 미확인이고, 서버 사망의 근거가 아니다.
+        why = ("응답이 상한을 넘어 잘렸다 — 도구 수 미확인(측정기 한계, 서버 문제 아님)"
+               if t.get("body_truncated") else
+               f"initialize는 됐는데 tools/list를 못 읽었다(HTTP {t.get('status')})")
+        return {**base, "ok": True, "needs_key": False, "tool_count": None, "why": why}
+    return {**base, "ok": True, "needs_key": False, "tool_count": len(tools),
+            "tools": tools, "why": "" if tools else "도구 0개 — 껍데기"}
+
+
+def _sse_open(url: str) -> tuple:
+    """구 HTTP+SSE 전송: GET으로 스트림을 열고 `endpoint` 이벤트를 받는다.
+
+    `(열린 스트림, 메시지 보낼 주소, 원응답)`. 규격상 이 전송의 서버는 **POST를 405로
+    거절하는 것이 정상**이다 — 종전 두드리개는 그 405를 사망으로 적었다.
+    """
+    t0 = time.monotonic()
+    req = urllib.request.Request(url, method="GET", headers={
+        "Accept": "text/event-stream", "Cache-Control": "no-store", "User-Agent": UA})
+    try:
+        r = urllib.request.urlopen(req, timeout=SSE_TIMEOUT)
+    except urllib.error.HTTPError as e:
+        return None, None, {"status": e.code, "ms": int((time.monotonic() - t0) * 1000),
+                            "raw": e.read().decode("utf-8", "replace")[:800]}
+    except (urllib.error.URLError, socket.timeout, OSError) as e:
+        return None, None, {"status": None, "ms": int((time.monotonic() - t0) * 1000),
+                            "error": f"{type(e).__name__}: {e}"[:160]}
+    ms = int((time.monotonic() - t0) * 1000)
+    if "text/event-stream" not in (r.headers.get("Content-Type") or ""):
+        r.close()
+        return None, None, {"status": r.status, "ms": ms, "raw": "",
+                            "why": "GET은 200인데 SSE 스트림이 아니다"}
+    ev, data, read = None, [], 0
+    while read < SSE_READ_MAX:
+        try:
+            line = r.readline()
+        except OSError:
+            break
+        if not line:
+            break
+        read += len(line)
+        s = line.decode("utf-8", "replace").rstrip("\r\n")
+        if s.startswith("event:"):
+            ev = s[6:].strip()
+        elif s.startswith("data:"):
+            data.append(s[5:].strip())
+        elif not s:
+            if ev == "endpoint" and data:
+                return r, urllib.parse.urljoin(url, data[0]), {"status": 200, "ms": ms}
+            ev, data = None, []
+    r.close()
+    return None, None, {"status": 200, "ms": ms, "raw": "",
+                        "why": "SSE는 열렸지만 endpoint 이벤트가 오지 않았다"}
+
+
+def _sse_wait(stream, want_id: int) -> dict | None:
+    """열린 SSE 스트림에서 `id`가 맞는 JSON-RPC 응답을 기다린다."""
+    deadline = time.monotonic() + SSE_TIMEOUT
+    data, read = [], 0
+    while time.monotonic() < deadline and read < SSE_READ_MAX:
+        try:
+            line = stream.readline()
+        except OSError:
+            break
+        if not line:
+            break
+        read += len(line)
+        s = line.decode("utf-8", "replace").rstrip("\r\n")
+        if s.startswith("data:"):
+            data.append(s[5:].strip())
+        elif not s and data:
+            try:
+                m = json.loads("".join(data))
+            except (ValueError, TypeError):
+                m = None
+            data = []
+            if isinstance(m, dict) and m.get("id") == want_id:
+                return m
+    return None
+
+
+def _probe_legacy_sse(url: str) -> dict:
+    """구 HTTP+SSE 전송으로 두드린다. 응답은 POST 본문이 아니라 GET 스트림으로 온다."""
+    stream, endpoint, r = _sse_open(url)
+    base = {"transport": "sse", "http": r.get("status"), "ms": r.get("ms"),
+            "raw": r.get("raw") or "", "error": r.get("error"), "url": url}
+    if endpoint is None:
+        return {**base, "ok": False, "why": r.get("why") or ""}
+    try:
+        _jsonrpc(endpoint, {"jsonrpc": "2.0", "id": 1, "method": "initialize",
+                            "params": {"protocolVersion": PROTOCOL_VERSION,
+                                       "capabilities": {},
+                                       "clientInfo": {"name": CLIENT_NAME,
+                                                      "version": CLIENT_VERSION}}})
+        init = _sse_wait(stream, 1)
+        if init is None:
+            return {**base, "ok": False,
+                    "why": "SSE endpoint는 받았는데 initialize 응답이 오지 않았다"}
+        _jsonrpc(endpoint, {"jsonrpc": "2.0", "method": "notifications/initialized"})
+        _jsonrpc(endpoint, {"jsonrpc": "2.0", "id": 2, "method": "tools/list",
+                            "params": {}})
+        msg = _sse_wait(stream, 2)
+        tools = ((msg or {}).get("result") or {}).get("tools")
+        if not isinstance(tools, list):
+            return {**base, "ok": True, "needs_key": False, "tool_count": None,
+                    "why": "구 SSE 전송으로 핸드셰이크는 됐는데 tools/list를 못 읽었다"}
+        return {**base, "ok": True, "needs_key": False, "tool_count": len(tools),
+                "tools": tools, "why": "" if tools else "도구 0개 — 껍데기"}
+    finally:
+        try:
+            stream.close()
+        except OSError:
+            pass
+
+
+def measure_remote(url: str) -> dict:
+    """한 서버를 두드려 **세 갈래 판정**을 낸다 — 살아있음 확인 / 확인 못 함 / 죽음 확인.
+
+    한 번만 재면 콜드 스타트를 재게 된다. 실측 2026-08-18:
+    `gateway.pipeworx.io/dart-kr`가 1회 측정에서 2,057ms였는데 연달아 부르니 57ms였다(36배).
+    서버리스(Workers·Render)는 첫 호출이 기동 시간을 포함하므로 1회 값으로 순위를 매기면
+    **느린 서버가 아니라 안 쓰이는 서버**를 벌주게 된다. 그래서 둘 다 싣는다.
+
+    **1회 실패로 남의 서버를 죽었다고 공표하지 않는다**(2026-08-18 mydart: 15초 타임아웃
+    무응답 판정 직후 재시도에서 208ms). 여기에 2026-09-03 하나를 더한다 — **전송 방식이
+    안 맞아 못 본 것도 남의 사망이 아니다.** 4xx는 다른 전송으로 한 번 더 물어보고,
+    그래도 못 보면 '죽음'이 아니라 '확인 못 함'으로 적는다(T-2026W35-119).
+    """
+    tried = []
+    r = _probe_streamable(url)
+    tried.append("streamable-http")
     retried = False
-    if r.get("status") is None or (r.get("status") or 0) >= 500:
+    # 연결 실패·5xx는 일시 장애일 수 있다 — 같은 전송으로 한 번 더.
+    if not r["ok"] and (r.get("http") is None or (r.get("http") or 0) >= 500):
         time.sleep(3)
-        r2 = _post_jsonrpc(url, "tools/list")
         retried = True
-        if r2.get("status") == 200 or ("error" not in r2 and r.get("status") is None):
+        r2 = _probe_streamable(url)
+        if r2["ok"] or r2.get("http") is not None:
             r = r2
-    out = {"url": url, "http": r.get("status"), "cold_ms": r["ms"], "latency_ms": r["ms"],
-           "retried": retried}
-    if r.get("status") == 200:
+    # **4xx는 전송이 틀렸다는 신호다.** 구 HTTP+SSE 전송으로 한 번 더 물어본다.
+    if not r["ok"] and r.get("http") in TRANSPORT_MISMATCH:
+        time.sleep(0.5)
+        s = _probe_legacy_sse(url)
+        tried.append("sse")
+        if s["ok"]:
+            r = s
+        else:
+            r = {**r, "sse_why": s.get("why") or s.get("error") or f"HTTP {s.get('http')}"}
+
+    out = {"url": r.get("url") or url, "http": r.get("http"),
+           "cold_ms": r.get("ms"), "latency_ms": r.get("ms"),
+           "retried": retried, "transports_tried": tried,
+           "transport": r["transport"] if r["ok"] else None}
+    if r.get("redirected_from"):
+        out["redirected_from"] = r["redirected_from"]
+    sess = r.get("session") or {}
+    if sess.get("protocol"):
+        out["protocol_version"] = sess["protocol"]
+    if (sess.get("server_info") or {}).get("name"):
+        out["server_name"] = sess["server_info"]["name"]
+
+    if not r["ok"]:
+        why = (r.get("why") or "").strip()
+        if r.get("error"):
+            evid = _down_evidence(r["error"])
+            status = DOWN if evid else UNVERIFIED
+            why = why or r["error"]
+            note = evid or "우리 호출로는 확인이 안 됐다 — 죽었다는 뜻이 아니다"
+        else:
+            status = UNVERIFIED
+            why = why or f"HTTP {r.get('http')}"
+            note = ("전송 방식이 안 맞았을 수 있다 — 규격을 지키는 서버도 이 코드를 준다"
+                    if r.get("http") in TRANSPORT_MISMATCH else
+                    "우리 호출로는 확인이 안 됐다 — 죽었다는 뜻이 아니다")
+        return {**out, "status": status, "status_label": STATUS_LABEL[status],
+                "reachable": False, "why": why, "status_note": note,
+                **({"sse_why": r["sse_why"]} if r.get("sse_why") else {}),
+                **({"error_body": r["raw"][:400]} if r.get("raw") else {})}
+
+    # 살아있음 확인 — 웜은 같은 세션으로 이어 부른다(핸드셰이크를 매번 새로 하지 않는다).
+    if r.get("tool_count") is not None and sess.get("endpoint"):
         warm = []
         for _ in range(2):
             time.sleep(0.4)
-            w = _post_jsonrpc(url, "tools/list")
+            w = _jsonrpc(sess["endpoint"],
+                         {"jsonrpc": "2.0", "id": 3, "method": "tools/list", "params": {}},
+                         session=sess.get("session_id"), protocol=sess.get("protocol"))
             if w.get("status") == 200:
                 warm.append(w["ms"])
         if warm:
             out["warm_ms"] = min(warm)
             out["latency_ms"] = min(warm)
-    if "error" in r:
-        return {**out, "reachable": False, "why": r["error"]}
-    if r["status"] in (401, 403):
-        return {**out, "reachable": True, "needs_key": True, "tool_count": None,
-                "why": "인증 필요 — 키 없이는 도구 목록도 못 본다"}
-    if r["status"] != 200:
-        return {**out, "reachable": False, "why": f"HTTP {r['status']}"}
-    tools = _tools_from(r["raw"])
-    n = None if tools is None else len(tools)
-    if n is None:
-        why = ("응답이 상한을 넘어 잘렸다 — 도구 수 미확인(측정기 한계, 서버 문제 아님)"
-               if r.get("body_truncated") else "200이지만 tools/list 응답을 못 읽었다 — 규격 이탈 의심")
-        return {**out, "reachable": True, "needs_key": False, "tool_count": None, "why": why}
-    return {**out, "reachable": True, "needs_key": False, "tool_count": n,
-            "quality": _tool_quality(tools), "specs": tool_specs(tools),
-            "why": "" if n else "도구 0개 — 껍데기"}
+
+    live = {**out, "status": LIVE, "status_label": STATUS_LABEL[LIVE], "reachable": True,
+            "needs_key": bool(r.get("needs_key")), "tool_count": r.get("tool_count"),
+            "why": r.get("why") or ""}
+    tools = r.get("tools")
+    if isinstance(tools, list):
+        live["quality"] = _tool_quality(tools)
+        live["specs"] = tool_specs(tools)
+    return live
 
 
 # **주소의 출처가 판정의 강도를 정한다** (2026-08-19, T-2026W34-107).
