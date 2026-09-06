@@ -23,6 +23,8 @@ import time
 import urllib.error
 import urllib.request
 
+import tokens
+
 UA = "sallim-mcp-index/0.1 (+https://github.com/sallim-app)"
 # **배지 이미지가 엔드포인트로 둔갑한다.** 2026-08-18 실측: korean-law-mcp(★2,476)의
 # 엔드포인트로 `https://img.shields.io/badge/MCP`가 잡혔고 이미지라 200이 떠서
@@ -224,12 +226,13 @@ def enrich(repo: str, token: str) -> dict:
 
 
 def github_token() -> str | None:
-    """토큰 1곳에서만 읽는다 — measure.py의 패키지 축 재측정도 같은 경로를 쓴다."""
-    for line in open("/data/secrets/github-sallim.env", encoding="utf-8"):
-        line = line.strip()
-        if line.startswith("GITHUB_TOKEN="):
-            return line.split("=", 1)[1].strip()
-    return None
+    """토큰 1곳에서만 읽는다 — measure.py의 패키지 축 재측정도 같은 경로를 쓴다.
+
+    보관 위치는 tokens.py가 배선에서 찾는다 — 공개 저장소인 이 소스에 시크릿 경로를
+    박지 않기 위해서다(T-2026W34-199). 못 찾으면 None이고, 호출부는 종전처럼 인증 없이
+    돈다(GitHub 익명 60회/시).
+    """
+    return tokens.token("GITHUB_TOKEN")
 
 
 def main() -> int:

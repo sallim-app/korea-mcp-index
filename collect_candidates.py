@@ -23,6 +23,8 @@ import urllib.error
 import urllib.parse
 import urllib.request
 
+import tokens
+
 from categories import queries
 
 UA = "sallim-mcp-index/0.1 (+https://github.com/sallim-app; building a measured MCP index)"
@@ -246,17 +248,10 @@ def main() -> int:
     # sallim-app/realty-mcp(private=True)가 keep에 올라 공개 목록에 실릴 뻔했다.
     # 코드에서 걸러도 되지만, 애초에 못 보는 자격을 쓰는 쪽이 안전하다. 아래 private
     # 배제는 그래도 남겨 둔다(자격이 바뀌어도 막히도록).
-    token = None
-    for path in ("/data/secrets/github-sallim-classic.env", "/data/secrets/github-sallim.env"):
-        try:
-            for line in open(path, encoding="utf-8"):
-                line = line.strip()
-                if line.startswith("GITHUB_TOKEN="):
-                    token = line.split("=", 1)[1].strip()
-            if token:
-                break
-        except OSError:
-            continue
+    # 경로는 소스에 박지 않는다 — 공개 저장소에 시크릿 보관 규칙을 싣지 않기 위해서다
+    # (T-2026W34-199). 배선은 tokens.py가 본다. **키 이름이 위 fail-closed를 지킨다**:
+    # 보강기(enrich)의 조직 자격 `GITHUB_TOKEN`과 다른 이름이라 섞일 수 없다.
+    token = tokens.token("GITHUB_TOKEN_PUBLIC")
 
     reg, n1 = from_registry()
     gh, n2 = from_github(token)
