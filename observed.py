@@ -15,7 +15,8 @@
 조용히 빼면 독자는 그 서버를 영영 못 본다.
 
 각 항목의 `근거`는 `grades/<분야>.json`에 실제로 들어 있는 문장이다 —
-`tests/test_observed.py`가 축자 대조로 검증한다. 우리가 지어낸 판정이 아니다.
+`tests/test_render.py::test_misfiled_quotes_are_verbatim_from_grades`가
+축자 대조로 검증한다. 우리가 지어낸 판정이 아니다.
 """
 
 # 서버 → (수집된 분야, 실제 분야, 채점자 원문 발췌)
