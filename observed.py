@@ -101,6 +101,17 @@ RENAMED: dict[str, str] = {
     # 교육·문화 서버다"가 표에서 통째로 사라진다** — 그러면 이 서버는 공공데이터·행정
     # 질문으로 매겨진 판정만 남긴 채 다시 그 분야에 서게 된다.
     "io.github.yousunjung84-edu/academyinfo": "yousunjung84-edu/academyinfo-mcp",
+    # exclusiveyon-a11y/reevl-plugins → kr.co.reevl/reevl-mcp (2026-09-07).
+    # **저장소가 사라졌고 레지스트리 이름만 남았다.** 지난주 표에서 이 서버는 GitHub 이름으로
+    # 실려 있었고 레지스트리 이름은 그 줄의 `also_known_as`에 접혀 있었는데, 이번 주에
+    # GitHub 쪽이 404가 되면서 남은 이름이 뒤바뀌었다.
+    # 근거 ①: 두 주 모두 remote.url이 `https://reevl.co.kr/api/mcp`로 **같다** — 이 표의
+    #        개명 판정 기준이 이름이 아니라 주소인 이유가 여기다.
+    # 근거 ②: 지난주 측정본의 `also_known_as`가 두 이름을 이미 한 줄로 묶어 두었다.
+    # 근거 ③: 옛 경로는 GitHub API 404(비공개·삭제·개명 중 하나이지 "없다"가 아니다).
+    # 잇지 않으면 이 서버는 "지난주에 죽고 이번 주에 새로 태어난" 것으로 읽힌다 —
+    # 실제로는 주소도 도구 7개도 그대로다.
+    "kr.co.reevl/reevl-mcp": "exclusiveyon-a11y/reevl-plugins",
 }
 
 # 이름만 바뀐 서버가 옛 이름으로 받아 둔 공시를 그대로 잇는다. 손으로 두 번 적지 않는다 —

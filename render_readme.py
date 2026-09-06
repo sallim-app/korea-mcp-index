@@ -164,7 +164,7 @@ def renamed_note(name: str, en: bool, ranked: bool) -> str:
     return f"<br><sub>지난 회차 표기 `{rn}` → `{name}` — 같은 서버로 이었{tail}</sub>"
 
 
-def row(rec: dict, en=False, err_of: dict | None = None) -> str:
+def row(rec: dict, en=False, err_of: dict | None = None, ranked: bool = False) -> str:
     rm = rec["remote"]
     mark = " 🏠" if rec["name"].startswith(OURS) else ""
     warm, cold = rm.get("warm_ms"), rm.get("cold_ms")
@@ -175,7 +175,10 @@ def row(rec: dict, en=False, err_of: dict | None = None) -> str:
     # 통계표에서 개별 실거래를 찾는 것은 서버 탓이 아닌데, 표만 보면 그걸 알 수 없다.
     sc = SCOPE.get(rec["name"])
     scope = f"<br><sub>{sc}</sub>" if sc else ""
-    scope += renamed_note(rec["name"], en, ranked=True)
+    # **등수를 안 받은 서버에 "등수는 옛 이름으로 받았다"를 붙이면 안 된다.** 종전엔
+    # 여기가 `ranked=True` 고정이라, 채점 안 된 줄에도 없는 등수를 있다고 적었다
+    # (2026-09-07 `kr.co.reevl/reevl-mcp`를 이으면서 드러났다 — 이 서버는 등수가 없다).
+    scope += renamed_note(rec["name"], en, ranked=ranked)
     return (f"| {link(rec)}{mark}{paid}{scope} | {rm.get('tool_count') or '—'} | {warm or '—'} | "
             f"{emph(str(cold)) if slow else (cold or '—')} | "
             f"{q(rec, 'described_pct')}% | {q(rec, 'annotated_pct')}% | "
@@ -590,7 +593,7 @@ def main() -> int:
         top = judged
         out.extend(head(en))
         for r in (top or rest[:3] if not judged else top):
-            A(row(r, en, err_of))
+            A(row(r, en, err_of, ranked=r["name"] in rank_of))
         A("")
         if judged:
             for r in judged:
@@ -634,7 +637,7 @@ def main() -> int:
             A("")
             out.extend(head(en))
             for r in rest:
-                A(row(r, en, err_of))
+                A(row(r, en, err_of, ranked=r["name"] in rank_of))
             A("")
             A("</details>")
             A("")

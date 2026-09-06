@@ -16,6 +16,7 @@ README = (ROOT / "README.md").read_text(encoding="utf-8")
 DOWN = (ROOT / "DOWN.md").read_text(encoding="utf-8")
 MEASURED = json.loads((ROOT / "measured.json").read_text(encoding="utf-8"))
 RANKING = json.loads((ROOT / "ranking.json").read_text(encoding="utf-8"))
+EN = (ROOT / "README-en.md").read_text(encoding="utf-8")
 
 # 닫는 `**` 앞이 문장부호이고 뒤가 글자면 CommonMark가 강조를 닫지 않는다.
 BROKEN_EMPH = re.compile(r'[)\]}"\'.,!?:;][*]{2}[0-9A-Za-z가-힣]')
@@ -496,3 +497,31 @@ def test_this_index_does_not_list_itself():
     """
     names = {i["name"] for i in MEASURED["items"]}
     assert "sallim-app/korea-mcp-index" not in names
+
+
+def test_rename_note_does_not_invent_a_rank():
+    """개명 각주가 **없는 등수를 있다고 적으면 안 된다** (2026-09-07).
+
+    계기: `row()`가 `renamed_note(..., ranked=True)`로 **고정**돼 있었다. 등수를 받은
+    서버(public-data-lens)에서는 참이라 아무도 못 봤는데, 채점 안 된 서버를 개명 명단에
+    잇는 순간 거짓이 된다 — `kr.co.reevl/reevl-mcp`는 등수가 없는데 각주가
+    "등수는 옛 이름으로 받은 것이다"라고 적었다.
+
+    조용한 고장이다: 각주 한 줄이고, 표의 숫자는 하나도 안 틀린다. 그런데 이 목록이
+    파는 것이 "우리가 실제로 잰 것만 적는다"라서, 재지도 않은 등수를 적는 것은
+    숫자가 틀린 것보다 나쁘다.
+    """
+    from observed import RENAMED
+    ranked_names = {t["name"] for v in RANKING["items"].values() for t in v["top"]}
+    for new, old in RENAMED.items():
+        for text, clause in ((README, "등수는 옛 이름으로 받은 것이다"),
+                             (EN, "the rank was earned under the old name")):
+            note = re.search(rf"`{re.escape(old)}` → `{re.escape(new)}`[^<]*", text)
+            if not note:
+                continue
+            has = clause in note.group(0)
+            want = new in ranked_names or old in ranked_names
+            assert has is want, (
+                f"{new}: 개명 각주의 등수 문구 {has} (기대 {want}) — "
+                "채점받지 않은 서버에 등수를 적고 있다"
+            )

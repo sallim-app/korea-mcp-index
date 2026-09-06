@@ -1,6 +1,6 @@
 # 확인하지 못한 서버
 
-2026-09-03 측정에서 **우리가 살아있음을 확인하지 못한** 목록. **사망 명단이 아니다** — 확인 못 함(unverified)과 죽음 확인(down)은 다른 값이고, 이 문서는 그 둘을 갈라 싣는다.
+2026-09-07 측정에서 **우리가 살아있음을 확인하지 못한** 목록. **사망 명단이 아니다** — 확인 못 함(unverified)과 죽음 확인(down)은 다른 값이고, 이 문서는 그 둘을 갈라 싣는다.
 
 `죽음 확인`은 호스트가 없다는 직접 증거(DNS에 이름 없음·연결 거부)가 있을 때만 붙인다. 그 밖의 전부 — 4xx·5xx·타임아웃·TLS 오류 — 는 `확인 못 함`이다. 우리 두드리개가 못 본 것을 남의 사망으로 적지 않기 위해서다.
 
@@ -31,7 +31,7 @@
 | [io.github.HyosikPark/kr-district-codes](https://hawker-gateway.fly.dev) | 확인 못 함 | URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in… | `https://hawker-gateway.fly.dev/mcp/kr-district-codes` |
 | [io.github.a-mashiro-art/jp-data](https://jp-data-api-production.up.railway.app) | 확인 못 함 | HTTP 404 | `https://jp-data-api-production.up.railway.app/mcp` |
 
-## 확인 못 함 — 추정 주소 — 6건
+## 확인 못 함 — 추정 주소 — 7건
 
 우리가 README에서 뽑은 **추정** 주소다. **우리가 주소를 잘못 짚었을 수 있다** — 그 서버가 죽었다는 뜻으로 읽지 마라.
 
@@ -43,6 +43,7 @@
 | [lucidwatper/Kosis-mcp](https://github.com/lucidwatper/Kosis-mcp) | 확인 못 함 | HTTP 400 | `https://kosis-mcp-70b9.onrender.com/mcp` |
 | [obundh/korea-public-data-catalog-mcp](https://github.com/obundh/korea-public-data-catalog-mcp) | 확인 못 함 | HTTP 404 | `https://korea-public-data-catalog-mcp-production.up.railway.app/mcp` |
 | [sjh9714/electronics-price-mcp](https://github.com/sjh9714/electronics-price-mcp) | 확인 못 함 | HTTP 404 | `https://electronics-price-mcp.jinhyuk9714.workers.dev/mcp` |
+| [taxwoong/nts-tax-mcp](https://github.com/taxwoong/nts-tax-mcp) | 확인 못 함 | HTTP 404 | `https://web-production-10fe2.up.railway.app/mcp` |
 
 ---
 

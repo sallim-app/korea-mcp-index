@@ -44,9 +44,12 @@ NOT_DATA = ["framework", "boilerplate", "template", "starter", "scaffold", "all-
 
 
 # 부분문자열로 찾으면 반드시 오탐이 나는 짧은 약어들. 여기 있는 것만 단어 경계를 건다.
+# `molit` 추가(2026-09-07): **de**molit**ion**이 국토교통부로 잡혔다 — 시카고 철거업체
+# (`com.salvagesignal/salvage-signal`)와 영국 철거견적 서버(`uk.co.demolitionquotes/site`)가
+# 공개 원자료에 "한국 관련은 맞으나…"로 실려 있었다. 경계를 걸면 실제 MOLIT 3건은 그대로 남는다.
 # **전부에 경계를 걸면 반대편 오탐이 난다** — `data`에 경계를 걸었더니 govdata·opendata가
 # 데이터형 신호를 잃고 review로 떨어졌다(2026-08-18 실측). 경계는 필요한 곳에만.
-AMBIGUOUS = {"dart", "krx", "kma", "kr-", "kospi", "kosdaq"}
+AMBIGUOUS = {"dart", "krx", "kma", "kr-", "kospi", "kosdaq", "molit"}
 
 
 def _hit(text: str, words: list) -> list:
@@ -69,9 +72,39 @@ def _hit(text: str, words: list) -> list:
 
 HANGUL = re.compile(r"[가-힣]")
 
+# **언어 목록 안의 `한국어`는 번역 지원 표시이지 한국 데이터 신호가 아니다** (2026-09-07).
+#
+# 계기: 러시아 데이터 서버 `saymon-agent/payforapi`(EGRUL/INN 조회·러시아우편 추적)가
+# 설명 맨 끝의 "🌏 EN/中文/日本語/한국어" 하나로 keep까지 올라와, **한국 MCP 실측 목록에
+# 「기타」 구역이 통째로 생기며 게시됐다.** 남의 서버를 우리가 다루지도 않는 목록에 싣는 것은
+# 조용한 오탐이 아니라 목록 범위에 대한 공개 거짓말이다(기치 ②).
+#
+# **좁게 막는다.** 다른 언어 이름과 구분자로 잇닿은 `한국어`만 신호에서 뺀다 —
+# "한국어 맞춤법 교정 MCP"처럼 진짜 한국어를 다루는 서버는 그대로 한국 신호로 남는다.
+# 실측 2026-09-07: 설명에 `한국어`가 든 후보 23건 중 이 규칙에 걸리는 것은 2건뿐이고
+# (payforapi · androidZzT/harness-engineering-practice) 둘 다 한국 데이터 서버가 아니다.
+_LANG_NAME = (
+    r"(?:EN|KO|JA|ZH|English|Korean|Japanese|Chinese|Espa(?:ñ|n)ol|Fran(?:ç|c)ais|Deutsch|"
+    r"Portugu(?:ê|e)s|Italiano|Русский|中文|简体中文|繁體中文|日本語|Tiếng Việt|ภาษาไทย)"
+)
+LOCALE_LIST = re.compile(
+    rf"(?:{_LANG_NAME}\s*[/,|·・]\s*한국어)|(?:한국어\s*[/,|·・]\s*{_LANG_NAME})", re.I
+)
+
+
+def strip_locale_list(text: str) -> str:
+    """언어 목록 자리의 `한국어`만 지운다. 나머지 글자는 건드리지 않는다."""
+    prev = None
+    while prev != text:
+        prev = text
+        text = LOCALE_LIST.sub(lambda m: m.group(0).replace("한국어", " "), text)
+    return text
+
 
 def classify(item: dict) -> dict:
     name, desc = item["name"], item.get("description") or ""
+    # 한국 신호를 세기 전에 **언어 목록 자리의 `한국어`**를 뺀다(LOCALE_LIST 주석 참조).
+    desc = strip_locale_list(desc)
     blob = f"{name} {desc}"
     kr, data, nod = _hit(blob, KR), _hit(blob, DATA), _hit(blob, NOT_DATA)
     # **한글로 쓰였다는 것 자체가 한국 신호다.** 2026-08-18 실측: 우리 계약나침반이

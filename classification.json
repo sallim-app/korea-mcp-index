@@ -128,13 +128,6 @@
    "why": "data.go.kr API 래퍼",
    "by": "llm:haiku"
   },
-  "9744c758250d": {
-   "name": "Dayoooun/korea-stats-mcp",
-   "category": "공공데이터·행정",
-   "is_data_provider": true,
-   "why": "KOSIS 통계 조회",
-   "by": "llm:haiku"
-  },
   "a14d67fe24b9": {
    "name": "Demian-Yim/playmcp-guide",
    "category": "기타",
@@ -653,13 +646,6 @@
    "why": "법령 통합 검색",
    "by": "llm:haiku"
   },
-  "02697c1fb462": {
-   "name": "app.apick/all",
-   "category": "공공데이터·행정",
-   "is_data_provider": true,
-   "why": "APICK 다목적 API",
-   "by": "llm:haiku"
-  },
   "2dc8afd72a52": {
    "name": "app.apick/business",
    "category": "공공데이터·행정",
@@ -700,13 +686,6 @@
    "category": "법령·판례",
    "is_data_provider": true,
    "why": "공공계약 법령 검색",
-   "by": "llm:haiku"
-  },
-  "79def775b3a2": {
-   "name": "app.sallim/korea-realty",
-   "category": "부동산",
-   "is_data_provider": true,
-   "why": "법원경매·실거래 데이터 제공",
    "by": "llm:haiku"
   },
   "eb99d045fbec": {
@@ -926,13 +905,6 @@
    "why": "웹 접근성 점검 도구",
    "by": "llm:haiku"
   },
-  "95d6b5212967": {
-   "name": "com.aikstockdata/mcp",
-   "category": "금융·증시",
-   "is_data_provider": true,
-   "why": "주가·공시 데이터",
-   "by": "llm:haiku"
-  },
   "5e4baf5dcaa0": {
    "name": "com.airblockfz/seoul-apt-signal",
    "category": "부동산",
@@ -952,13 +924,6 @@
    "category": "커머스·생활",
    "is_data_provider": true,
    "why": "단기임차 검색 제공",
-   "by": "llm:haiku"
-  },
-  "79ee729a7b99": {
-   "name": "com.beauticslab/mcp",
-   "category": "커머스·생활",
-   "is_data_provider": true,
-   "why": "화장품 검색 데이터",
    "by": "llm:haiku"
   },
   "91a16ffb9fe4": {
@@ -989,13 +954,6 @@
    "why": "주문제작 가격 데이터",
    "by": "llm:haiku"
   },
-  "c777ca916472": {
-   "name": "com.hankookilbo.mcp/hankookilbo-mcp",
-   "category": "커머스·생활",
-   "is_data_provider": true,
-   "why": "뉴스 메타데이터 제공",
-   "by": "llm:haiku"
-  },
   "a20c5c3e56d6": {
    "name": "com.kimchi-sushi/agent-mcp",
    "category": "커머스·생활",
@@ -1008,13 +966,6 @@
    "category": "커머스·생활",
    "is_data_provider": true,
    "why": "SaaS 비교 데이터",
-   "by": "llm:haiku"
-  },
-  "9b248045a1d1": {
-   "name": "com.salvagesignal/salvage-signal",
-   "category": "공공데이터·행정",
-   "is_data_provider": true,
-   "why": "철거 허가 데이터",
    "by": "llm:haiku"
   },
   "d154bf9074b2": {
@@ -1451,13 +1402,6 @@
    "why": "한국 크리에이터용 AI 도구",
    "by": "llm:haiku"
   },
-  "1cf223a37a8c": {
-   "name": "io.github.MongLong0214/stockmatrix-mcp",
-   "category": "금융·증시",
-   "is_data_provider": true,
-   "why": "주식 테마 라이프사이클",
-   "by": "llm:haiku"
-  },
   "a45b2d6d2bb8": {
    "name": "io.github.PJW2004/job-search",
    "category": "커머스·생활",
@@ -1519,13 +1463,6 @@
    "category": "커머스·생활",
    "is_data_provider": true,
    "why": "여행사 정보 조회",
-   "by": "llm:haiku"
-  },
-  "4085577e05e4": {
-   "name": "io.github.bakyang2/kr-crypto-intelligence",
-   "category": "금융·증시",
-   "is_data_provider": true,
-   "why": "암호화폐 시장 데이터",
    "by": "llm:haiku"
   },
   "b66dba80e21f": {
@@ -2690,13 +2627,6 @@
    "why": "통합메일 클라이언트 도구",
    "by": "llm:haiku"
   },
-  "83fb5123843b": {
-   "name": "yousunjung84-edu/academyinfo-mcp",
-   "category": "공공데이터·행정",
-   "is_data_provider": true,
-   "why": "대학정보공시 지표조회",
-   "by": "llm:haiku"
-  },
   "7515598f15c9": {
    "name": "yt010108/kr-gov-job-mcp",
    "category": "공공데이터·행정",
@@ -2753,25 +2683,11 @@
    "why": "의약품, 식품정보, DUR 공공 데이터 조회",
    "by": "llm:haiku"
   },
-  "37d2b707c928": {
-   "name": "GeeYun086/korea-public-data-mcp",
-   "category": "공공데이터·행정",
-   "is_data_provider": true,
-   "why": "공공데이터 조회",
-   "by": "llm:haiku"
-  },
   "1dac2121d800": {
    "name": "a2a-mcp-multiagent-study/Ticker-Score-Agent",
    "category": "금융·증시",
    "is_data_provider": true,
    "why": "주식점수산출",
-   "by": "llm:haiku"
-  },
-  "4723ef83c7bf": {
-   "name": "ai.heyyumi/heyyumi",
-   "category": "커머스·생활",
-   "is_data_provider": true,
-   "why": "맛집 추천 예약",
    "by": "llm:haiku"
   },
   "bf5a54a1581e": {
@@ -2886,13 +2802,6 @@
    "why": "뉴스기사조회",
    "by": "llm:haiku"
   },
-  "03af67a713bb": {
-   "name": "zisu17/korean-taxlaw-mcp",
-   "category": "세금·재정",
-   "is_data_provider": true,
-   "why": "세법정보조회",
-   "by": "llm:haiku"
-  },
   "091e1e67b16c": {
    "name": "50seok/kr-public-data-mcp",
    "category": "날씨·환경",
@@ -2956,25 +2865,11 @@
    "why": "핫딜·가격 정보 검색",
    "by": "llm:haiku"
   },
-  "d4361322fd05": {
-   "name": "altarry-prog/chaekiji-mcp",
-   "category": "교육·문화",
-   "is_data_provider": false,
-   "why": "도서관 상호대차 자동화",
-   "by": "llm:haiku"
-  },
   "a636afb55a1b": {
    "name": "antisdream/skn29-3rd-4team",
    "category": "한국어·언어",
    "is_data_provider": false,
    "why": "한국어 작명 생성",
-   "by": "llm:haiku"
-  },
-  "0031191bf939": {
-   "name": "archi.den/den_archi_mcp",
-   "category": "공공데이터·행정",
-   "is_data_provider": true,
-   "why": "한국 건축기준 코드",
    "by": "llm:haiku"
   },
   "0d9f6c27e4fa": {
@@ -3038,13 +2933,6 @@
    "category": "공공데이터·행정",
    "is_data_provider": true,
    "why": "공휴일 조회",
-   "by": "llm:haiku"
-  },
-  "8bed1029af9b": {
-   "name": "io.github.Wonderfulian/kbv-server",
-   "category": "핀테크·인증",
-   "is_data_provider": true,
-   "why": "사업자등록 검증",
    "by": "llm:haiku"
   },
   "f9ace7d1f523": {
@@ -3124,13 +3012,6 @@
    "why": "학교 급식·시간표 조회",
    "by": "llm:haiku"
   },
-  "e911c3e0bb63": {
-   "name": "taxwoong/nts-tax-mcp",
-   "category": "세금·재정",
-   "is_data_provider": true,
-   "why": "세법 조회",
-   "by": "llm:haiku"
-  },
   "5a89134cac22": {
    "name": "tjrgus0320/news-crawler-mcp",
    "category": "미디어·뉴스",
@@ -3160,25 +3041,11 @@
    "why": "세법 해석례 검색",
    "by": "llm:haiku"
   },
-  "9a9efd348be1": {
-   "name": "ai.heyyumi/heyyumi",
-   "category": "커머스·생활",
-   "is_data_provider": true,
-   "why": "서울/제주 여행지 검색",
-   "by": "llm:haiku"
-  },
   "f0ed660e8ddb": {
    "name": "app.sallim/korea-realty",
    "category": "부동산",
    "is_data_provider": true,
    "why": "부동산 경매·MOLIT 조회",
-   "by": "llm:haiku"
-  },
-  "06baccccae76": {
-   "name": "archi.den/den_archi_mcp",
-   "category": "교육·문화",
-   "is_data_provider": false,
-   "why": "한국 건축·시공 학습자료",
    "by": "llm:haiku"
   },
   "185f7d3b7345": {
@@ -3713,13 +3580,6 @@
    "why": "DART 기업공시 도구",
    "by": "llm:haiku"
   },
-  "e36019d7da74": {
-   "name": "kr.gronox/finbridge",
-   "category": "금융·증시",
-   "is_data_provider": true,
-   "why": "한국·미국 시장 데이터",
-   "by": "llm:haiku"
-  },
   "9c572f0a2f0c": {
    "name": "kr.ibtcc/competition-ratio",
    "category": "공공데이터·행정",
@@ -3746,6 +3606,181 @@
    "category": "의료·복지",
    "is_data_provider": true,
    "why": "한국 의료·바이오 기업",
+   "by": "llm:haiku"
+  },
+  "d4d8e54fe02e": {
+   "name": "Lee-seunghyeon2/graduation-project",
+   "category": "한국어·언어",
+   "is_data_provider": false,
+   "why": "한국어 프롬프트 개선 도구",
+   "by": "llm:haiku"
+  },
+  "6a4ad0c8a702": {
+   "name": "SkillfulBasher1/construct-cm-bridge",
+   "category": "법령·판례",
+   "is_data_provider": true,
+   "why": "법령·KCSC 법령 데이터",
+   "by": "llm:haiku"
+  },
+  "4439be22d256": {
+   "name": "ai.heyyumi/heyyumi",
+   "category": "커머스·생활",
+   "is_data_provider": true,
+   "why": "서울/제주 여행지 검색",
+   "by": "llm:haiku(이전 회차 판정 유지 — 설명만 바뀌어 키만 갱신)"
+  },
+  "6cbacf1358c6": {
+   "name": "ai.seldons/korea-business-trade",
+   "category": "세금·재정",
+   "is_data_provider": true,
+   "why": "국세청·공정위 레지스트리",
+   "by": "llm:haiku"
+  },
+  "d3e8f97e6a49": {
+   "name": "altarry-prog/chaekiji-mcp",
+   "category": "교육·문화",
+   "is_data_provider": false,
+   "why": "도서관 상호대차 자동화",
+   "by": "llm:haiku(이전 회차 판정 유지 — 설명만 바뀌어 키만 갱신)"
+  },
+  "fec217e0c126": {
+   "name": "app.apick/all",
+   "category": "공공데이터·행정",
+   "is_data_provider": true,
+   "why": "APICK 다목적 API",
+   "by": "llm:haiku(이전 회차 판정 유지 — 설명만 바뀌어 키만 갱신)"
+  },
+  "255037f09877": {
+   "name": "app.wonbuddhism/scripture",
+   "category": "교육·문화",
+   "is_data_provider": true,
+   "why": "원불교 교서 4969절 원문",
+   "by": "llm:haiku"
+  },
+  "77ebf9050345": {
+   "name": "archi.den/den_archi_mcp",
+   "category": "교육·문화",
+   "is_data_provider": false,
+   "why": "한국 건축·시공 학습자료",
+   "by": "llm:haiku(이전 회차 판정 유지 — 설명만 바뀌어 키만 갱신)"
+  },
+  "b003703969cb": {
+   "name": "ctahoon55/taxlaw-mcp",
+   "category": "세금·재정",
+   "is_data_provider": true,
+   "why": "국세청 예규 법령 본문",
+   "by": "llm:haiku"
+  },
+  "6c6d6bf265ac": {
+   "name": "gigaminkyu/korean-law-mcp",
+   "category": "법령·판례",
+   "is_data_provider": true,
+   "why": "법령·판례 원문 데이터",
+   "by": "llm:haiku"
+  },
+  "bf244dc21205": {
+   "name": "gigaminkyu/mcp-rank",
+   "category": "디렉토리·개발자도구",
+   "is_data_provider": false,
+   "why": "MCP 순위 정적 사이트",
+   "by": "llm:haiku"
+  },
+  "e07197193f28": {
+   "name": "io.github.Mobiss11/daepak-mcp",
+   "category": "금융·증시",
+   "is_data_provider": true,
+   "why": "암호·미국·한국 시장 데이터",
+   "by": "llm:haiku"
+  },
+  "f2bd51c61e8f": {
+   "name": "io.github.Wonderfulian/kbv-server",
+   "category": "핀테크·인증",
+   "is_data_provider": true,
+   "why": "사업자등록 검증",
+   "by": "llm:haiku(이전 회차 판정 유지 — 설명만 바뀌어 키만 갱신)"
+  },
+  "987ac140af3a": {
+   "name": "io.github.Yuni9959/wrapguard-mcp",
+   "category": "한국어·언어",
+   "is_data_provider": false,
+   "why": "줄바꿈 감지 유틸리티",
+   "by": "llm:haiku"
+  },
+  "7f6fc8d7dd6a": {
+   "name": "io.github.heubme2020/datasinking",
+   "category": "금융·증시",
+   "is_data_provider": true,
+   "why": "기업 금융보고서 원문, 뉴스 아님",
+   "by": "llm:haiku"
+  },
+  "0711b905fc61": {
+   "name": "io.github.richard-kim-79/jejusns",
+   "category": "공공데이터·행정",
+   "is_data_provider": true,
+   "why": "제주 다영역 지역공공정보",
+   "by": "llm:haiku"
+  },
+  "ec5a6b577bc9": {
+   "name": "jjonghyun41/kasb-accounting-mcp",
+   "category": "세금·재정",
+   "is_data_provider": true,
+   "why": "K-IFRS 회계기준 데이터",
+   "by": "llm:haiku"
+  },
+  "a7d0524c3e87": {
+   "name": "kaicot/kaic-kinder-info",
+   "category": "교육·문화",
+   "is_data_provider": true,
+   "why": "교육부 유치원알리미 검색",
+   "by": "llm:haiku"
+  },
+  "e62f2f8b4053": {
+   "name": "kjs369369/law-mcp-prompts-biz",
+   "category": "디렉토리·개발자도구",
+   "is_data_provider": false,
+   "why": "법령 실무 프롬프트 모음",
+   "by": "llm:haiku"
+  },
+  "f38e8f2f3d98": {
+   "name": "kr.gronox/finbridge",
+   "category": "금융·증시",
+   "is_data_provider": true,
+   "why": "한국·미국 시장 데이터",
+   "by": "llm:haiku(이전 회차 판정 유지 — 설명만 바뀌어 키만 갱신)"
+  },
+  "f352a6ac9eb7": {
+   "name": "saymon-agent/payforapi",
+   "category": "기타",
+   "is_data_provider": true,
+   "why": "러시아 데이터, 한국 무관",
+   "by": "llm:haiku"
+  },
+  "77b36b7ca8ce": {
+   "name": "taxwoong/labor-mcp",
+   "category": "법령·판례",
+   "is_data_provider": true,
+   "why": "한국 노동법 법령",
+   "by": "llm:haiku"
+  },
+  "f24772e7f461": {
+   "name": "taxwoong/nts-tax-mcp",
+   "category": "세금·재정",
+   "is_data_provider": true,
+   "why": "세법 조회",
+   "by": "llm:haiku(이전 회차 판정 유지 — 설명만 바뀌어 키만 갱신)"
+  },
+  "6a087e35202c": {
+   "name": "uk.co.demolitionquotes/site",
+   "category": "기타",
+   "is_data_provider": false,
+   "why": "영국 해체 서비스, 대상 무관",
+   "by": "llm:haiku"
+  },
+  "c2bfce189c0e": {
+   "name": "yachom/fin-multi-agent-advisor",
+   "category": "금융·증시",
+   "is_data_provider": false,
+   "why": "금융 멀티 에이전트 프레임워크",
    "by": "llm:haiku"
   }
  }

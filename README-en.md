@@ -4,18 +4,18 @@
 
 > We actually connect to every Korean data MCP server, measure it, and publish the numbers.
 
-Other lists tell you a server exists. This one tells you whether it **works right now**. As of 2026-09-03, of 77 addresses probed, 60 were **confirmed live**, 14 **unverified**, and only 3 **confirmed down**. Unverified is not dead — it means we could not confirm it.
+Other lists tell you a server exists. This one tells you whether it **works right now**. As of 2026-09-07, of 79 addresses probed, 61 were **confirmed live**, 15 **unverified**, and only 3 **confirmed down**. Unverified is not dead — it means we could not confirm it.
 
 > **Web edition** <https://mcp-index.sallim.app> — same numbers, one URL per category and per server. Machine-readable: [index.json](https://mcp-index.sallim.app/index.json) · [llms.txt](https://mcp-index.sallim.app/llms.txt).
 
 | | |
 |---|---|
-| 비교 가능한 서버 | **42**건 |
-| 응답했으나 못 잼(키 필요·규격 이탈) | 12건 |
-| 확인 못 함(우리 호출로 확인 실패 — **사망 아님**) | 14건 → [DOWN.md](DOWN.md) |
+| 비교 가능한 서버 | **44**건 |
+| 응답했으나 못 잼(키 필요·규격 이탈) | 11건 |
+| 확인 못 함(우리 호출로 확인 실패 — **사망 아님**) | 15건 → [DOWN.md](DOWN.md) |
 | 죽음 확인(DNS 미해결·연결 거부) | 3건 → [DOWN.md](DOWN.md) |
 | 주제 밖(데이터 제공형 아님) | 6건 |
-| 설치형(원격 주소 없음) | 배포 확인 **62**건 · 배포판 없음 72건 · 이름을 못 읽어 미측정 13건 |
+| 설치형(원격 주소 없음) | 배포 확인 **65**건 · 배포판 없음 73건 · 이름을 못 읽어 미측정 13건 |
 
 * [왜 만드나](#왜-만드나)
 * [한눈에](#한눈에)
@@ -68,8 +68,8 @@ Other lists tell you a server exists. This one tells you whether it **works righ
 
 | 축 | 이 목록 전체 | 운영자(🏠) |
 |---|---|---|
-| 셀프호스팅 | 배포판 확인 72건 · 소스만 173건 · 미확인 29건 | **소스만** — 그리고 클론해도 답이 안 나온다 |
-| 오픈소스 | MIT 124건, Apache-2.0 13건, ISC 1건, AGPL-3.0 1건 · 라이선스 확인 못 함 135건 | MIT — **이 축에서는 우리가 지지 않는다** |
+| 셀프호스팅 | 배포판 확인 75건 · 소스만 178건 · 미확인 29건 | **소스만** — 그리고 클론해도 답이 안 나온다 |
+| 오픈소스 | MIT 129건, Apache-2.0 13건, ISC 1건, AGPL-3.0 1건 · 라이선스 확인 못 함 138건 | MIT — **이 축에서는 우리가 지지 않는다** |
 | 무료 한도 | 스스로 공시한 서버 1건 | 그 1건이 우리다 — 도구 52종 중 **10종 유료** |
 
 * **셀프호스팅은 우리가 제일 나쁘다.** 우리 저장소는 MIT로 열려 있지만 도구들이 우리 비공개 데이터 API를 부르므로 [클론해서 띄우면 거의 다 실패한다](https://github.com/sallim-app/korea-realty) — 우리 README가 먼저 적어 둔 것이고, 여기서도 적는다. 축의 값(`source_only`)보다 실질이 나쁘다
@@ -87,8 +87,8 @@ Other lists tell you a server exists. This one tells you whether it **works righ
 
 | Server | Tools | Warm | Cold | Desc | Annot | Errors |
 |---|---|---|---|---|---|---|
-| [hike-lab/public-data-lens](https://github.com/hike-lab/public-data-lens)<br><sub>카탈로그형 — 값이 아니라 데이터셋 위치를 준다</sub><br><sub>Previously listed as `haklaekim/public-data-lens` → `hike-lab/public-data-lens` — same server; the rank was earned under the old name</sub> | 9 | 27 | 27 | 100% | 100% | 1 |
-| [app.apick/all](https://github.com/lead788/apick-mcp)<br><sub>전 도구가 API 키 게이트라 종류(데이터형/카탈로그형)조차 확인할 수 없었다</sub> | 83 | 65 | 71 | 100% | 100% | 0 |
+| [hike-lab/public-data-lens](https://github.com/hike-lab/public-data-lens)<br><sub>카탈로그형 — 값이 아니라 데이터셋 위치를 준다</sub><br><sub>Previously listed as `haklaekim/public-data-lens` → `hike-lab/public-data-lens` — same server; the rank was earned under the old name</sub> | 9 | 25 | 31 | 100% | 100% | 1 |
+| [app.apick/all](https://github.com/lead788/apick-mcp)<br><sub>전 도구가 API 키 게이트라 종류(데이터형/카탈로그형)조차 확인할 수 없었다</sub> | 88 | 55 | 44 | 100% | 100% | 0 |
 
 1. **hike-lab/public-data-lens** — 실제 값이 아니라 포털 메타데이터를 주는 카탈로그형이고 그 설계에 맞는 Q2에서는 실재·구체·검증 가능한 포인터를 냈다 — 다만 '서울시 인구' 같은 자명한 질의에 0건을 돌려주는 검색 재현율과 대표 데이터셋(에어코리아) 누락이 약점이다.
 3. **apick/all** — 전 도구가 API 키 게이트라 무가입 상태에서는 종류(데이터형/카탈로그형)조차 확인할 수 없었고, 이 분야 질문에 공급한 사실은 0건이다.
@@ -97,20 +97,21 @@ Other lists tell you a server exists. This one tells you whether it **works righ
 
 <sub>순위는 **실제로 물어본 결과**다 — 같은 질문을 각 서버에 던지고 답변을 채점했다. 이 회차는 서버당 **1회**만 물었다 — **재현성은 재지 않았다**(다시 물으면 등수가 갈릴 수 있다). 다음 채점 회차부터 3회로 잰다. 질문·호출기록·답변은 [answers/](answers)에, 채점은 [grades/](grades)에, 기준은 [JUDGING.md](JUDGING.md)에 있다.</sub>
 
-<details><summary>채점하지 않은 10건</summary>
+<details><summary>채점하지 않은 11건</summary>
 
 | Server | Tools | Warm | Cold | Desc | Annot | Errors |
 |---|---|---|---|---|---|---|
-| [io.github.pipeworx-io/dart-kr](https://github.com/pipeworx-io/mcp-dart-kr) | 36 | 1433 | 56 | 100% | 100% | — |
-| [io.github.pipeworx-io/ecos-kr](https://github.com/pipeworx-io/mcp-ecos-kr) | 35 | 39 | 45 | 100% | 100% | — |
-| [io.github.loved0543-dotcom/kdata-gate](https://github.com/loved0543-dotcom/kdata-gate-mcp) | 26 | 267 | 692 | 100% | 0% | — |
-| [hjsh200219/korea-public-data-mcp](https://github.com/hjsh200219/korea-public-data-mcp) | 19 | 521 | 863 | 100% | 100% | — |
-| [kr.eocpa/mydart](https://eocpa.kr/mydart) | 16 | 207 | 217 | 100% | 100% | — |
-| [io.github.ChloePark85/kr-groundtruth](https://kr-groundtruth-mcp.vercel.app) | 8 | 234 | 483 | 100% | 100% | — |
-| [io.github.SongT-50/korean-agriculture-mcp](https://github.com/SongT-50/korean-agriculture-mcp) | 6 | 169 | 413 | 100% | 0% | — |
-| [io.github.SongT-50/korean-public-data-mcp](https://github.com/SongT-50/korean-public-data-mcp) | 6 | 164 | 177 | 100% | 0% | — |
-| [io.github.lazymac2x/govdata-korea](https://github.com/lazymac2x/govdata-korea-api) | 6 | 120 | 168 | 100% | 0% | — |
-| [kr.ibtcc/competition-ratio](https://github.com/jojunho74/hometest) | 1 | 667 | 718 | 100% | 0% | — |
+| [io.github.pipeworx-io/dart-kr](https://github.com/pipeworx-io/mcp-dart-kr) | 36 | 34 | 49 | 100% | 100% | — |
+| [io.github.pipeworx-io/ecos-kr](https://github.com/pipeworx-io/mcp-ecos-kr) | 35 | 41 | 37 | 100% | 100% | — |
+| [io.github.loved0543-dotcom/kdata-gate](https://github.com/loved0543-dotcom/kdata-gate-mcp) | 26 | 235 | 367 | 100% | 0% | — |
+| [hjsh200219/korea-public-data-mcp](https://github.com/hjsh200219/korea-public-data-mcp) | 19 | 542 | 521 | 100% | 100% | — |
+| [io.github.richard-kim-79/jejusns](https://jejusns.com) | 16 | 752 | 972 | 100% | 0% | — |
+| [kr.eocpa/mydart](https://eocpa.kr/mydart) | 16 | 195 | 196 | 100% | 100% | — |
+| [io.github.ChloePark85/kr-groundtruth](https://kr-groundtruth-mcp.vercel.app) | 8 | 353 | 236 | 100% | 100% | — |
+| [io.github.SongT-50/korean-agriculture-mcp](https://github.com/SongT-50/korean-agriculture-mcp) | 6 | 176 | 159 | 100% | 0% | — |
+| [io.github.SongT-50/korean-public-data-mcp](https://github.com/SongT-50/korean-public-data-mcp) | 6 | 166 | 172 | 100% | 0% | — |
+| [io.github.lazymac2x/govdata-korea](https://github.com/lazymac2x/govdata-korea-api) | 6 | 108 | 98 | 100% | 0% | — |
+| [kr.ibtcc/competition-ratio](https://github.com/jojunho74/hometest) | 1 | 237 | 389 | 100% | 0% | — |
 
 </details>
 
@@ -126,9 +127,9 @@ Other lists tell you a server exists. This one tells you whether it **works righ
 
 | Server | Tools | Warm | Cold | Desc | Annot | Errors |
 |---|---|---|---|---|---|---|
-| [chrisryugj/korean-law-mcp](https://github.com/chrisryugj/korean-law-mcp) | 10 | 3846 | 1628 | 100% | 100% | 1 |
-| [app.sallim/contract-compass](https://github.com/sallim-app/contract-compass) 🏠 | 11 | 48 | 68 | 100% | 100% | 0 |
-| [Choihello/startup-law-mcp](https://github.com/Choihello/startup-law-mcp) | 13 | 128 | 136 | 100% | 0% | 1 |
+| [chrisryugj/korean-law-mcp](https://github.com/chrisryugj/korean-law-mcp) | 10 | 196 | 217 | 100% | 100% | 1 |
+| [app.sallim/contract-compass](https://github.com/sallim-app/contract-compass) 🏠 | 11 | 32 | 49 | 100% | 100% | 0 |
+| [Choihello/startup-law-mcp](https://github.com/Choihello/startup-law-mcp) | 13 | 126 | 135 | 100% | 0% | 1 |
 
 1. **chrisryugj/korean-law-mcp** — 법제처 실시간 조회로 두 질문 모두에 현행 원문을 대 준 유일한 서버이고 조문 번호·형량 수치가 실제와 맞았다 — 약점은 서버가 아니라 전달 형식에 있다(발췌가 조 전문의 앞머리에서 잘리고, 조회한 법령의 시행일을 함께 주지 않아 '지금'이라는 물음에 최신성을 증명하지 못한다).
 2. **sallim/contract-compass** — 공공계약 도메인 안에서는 조문 대응·금액 수치가 현행법과 일치했고 코퍼스 밖은 이유를 밝힌 404로 환각을 차단했다 — 다만 근거 발췌가 조문 전문을 담지 않아 검증 가능성이 얇고, 코퍼스 밖 질의(search_law '도로교통법 음주운전')에 공공기관운영법 제53조의2를 1건 매칭해 돌려준 검색 소음은 오도 위험이다.
@@ -140,7 +141,7 @@ Other lists tell you a server exists. This one tells you whether it **works righ
 
 | Server | Tools | Warm | Cold | Desc | Annot | Errors |
 |---|---|---|---|---|---|---|
-| [scvcoder/korean-law-alio-mcp](https://github.com/scvcoder/korean-law-alio-mcp) | 125 | 240 | 255 | 76% | 0% | — |
+| [scvcoder/korean-law-alio-mcp](https://github.com/scvcoder/korean-law-alio-mcp) | 125 | 212 | 228 | 76% | 0% | — |
 
 </details>
 
@@ -152,24 +153,25 @@ Other lists tell you a server exists. This one tells you whether it **works righ
 
 | Server | Tools | Warm | Cold | Desc | Annot | Errors |
 |---|---|---|---|---|---|---|
-| [com.aikstockdata/mcp](https://github.com/na77tech-creator/aikstockdata) | 12 | 31 | 33 | 100% | 100% | 5 |
-| [Mrbaeksang/korea-stock-analyzer-mcp](https://github.com/Mrbaeksang/korea-stock-analyzer-mcp) | 6 | 215 | 221 | 100% | 100% | 4 |
+| [com.aikstockdata/mcp](https://github.com/na77tech-creator/aikstockdata) | 12 | 26 | 67 | 100% | 100% | 5 |
+| [Mrbaeksang/korea-stock-analyzer-mcp](https://github.com/Mrbaeksang/korea-stock-analyzer-mcp) | 6 | 237 | 219 | 100% | 100% | 4 |
 
 1. **aikstockdata/mcp** — 코스피 시총 랭킹은 이 분야에서 유일하게 실측 정합한 답을 냈지만, 정작 실적(DART) 계열 수치는 스케일이 무너져 있어 시세는 믿고 실적은 못 믿는 서버다.
 2. **Mrbaeksang/korea-stock-analyzer-mcp** — 개별 종목 재무제표는 이 분야에서 가장 정확했으나 시장 전체를 훑는 랭킹·스크리닝 도구가 없어 '상위 종목' 유형 질문에는 구조적으로 답하지 못한다.
 
 <sub>순위는 **실제로 물어본 결과**다 — 같은 질문을 각 서버에 던지고 답변을 채점했다. 이 회차는 서버당 **1회**만 물었다 — **재현성은 재지 않았다**(다시 물으면 등수가 갈릴 수 있다). 다음 채점 회차부터 3회로 잰다. 질문·호출기록·답변은 [answers/](answers)에, 채점은 [grades/](grades)에, 기준은 [JUDGING.md](JUDGING.md)에 있다.</sub>
 
-<details><summary>채점하지 않은 6건</summary>
+<details><summary>채점하지 않은 7건</summary>
 
 | Server | Tools | Warm | Cold | Desc | Annot | Errors |
 |---|---|---|---|---|---|---|
-| [kmgvv23/stock-data-mcp](https://github.com/kmgvv23/stock-data-mcp) | 42 | 507 | 468 | 100% | 0% | — |
-| [dartpointai/dartpoint-mcp](https://github.com/dartpointai/dartpoint-mcp) | 37 | 26 | 27 | 100% | 0% | — |
+| [kmgvv23/stock-data-mcp](https://github.com/kmgvv23/stock-data-mcp) | 42 | 496 | 690 | 100% | 0% | — |
+| [dartpointai/dartpoint-mcp](https://github.com/dartpointai/dartpoint-mcp) | 37 | 24 | 23 | 100% | 0% | — |
+| [kr.gronox/finbridge](https://github.com/Jakechj/finbridge-mcp) | 37 | 83 | 91 | 100% | 100% | — |
 | [eddmpython/dartlab](https://github.com/eddmpython/dartlab) | 26 | — | 581 | 100% | 0% | — |
-| [bootpay/bootpay-mcp](https://github.com/bootpay/bootpay-mcp) | 9 | 62 | **263** | 100% | 0% | — |
-| [io.github.SongT-50/korean-stock-mcp](https://github.com/SongT-50/korean-stock-mcp) | 7 | 172 | **542** | 100% | 0% | — |
-| [io.github.whdrnr2583-cmd/koreanpulse](https://github.com/whdrnr2583-cmd/koreanpulse) | 7 | 42 | 42 | 100% | 100% | — |
+| [bootpay/bootpay-mcp](https://github.com/bootpay/bootpay-mcp) | 9 | 32 | 30 | 100% | 0% | — |
+| [io.github.SongT-50/korean-stock-mcp](https://github.com/SongT-50/korean-stock-mcp) | 7 | 170 | 156 | 100% | 0% | — |
+| [io.github.whdrnr2583-cmd/koreanpulse](https://github.com/whdrnr2583-cmd/koreanpulse) | 7 | 38 | 40 | 100% | 100% | — |
 
 </details>
 
@@ -188,8 +190,8 @@ Other lists tell you a server exists. This one tells you whether it **works righ
 
 | Server | Tools | Warm | Cold | Desc | Annot | Errors |
 |---|---|---|---|---|---|---|
-| [app.sallim/korea-realty](https://github.com/sallim-app/korea-realty) 🏠 <sub>무료 42/52</sub> | 52 | 95 | 148 | 100% | 100% | 4 |
-| [com.airblockfz/seoul-apt-signal](https://airblockfz.com)<br><sub>실거래가가 아니라 산식 미공개 매매신호. 분석 도구는 HTTP 402(사실상 유료)</sub> | 6 | 31 | **128** | 100% | 0% | 1 |
+| [app.sallim/korea-realty](https://github.com/sallim-app/korea-realty) 🏠 <sub>무료 42/52</sub> | 52 | 49 | 51 | 100% | 100% | 4 |
+| [com.airblockfz/seoul-apt-signal](https://airblockfz.com)<br><sub>실거래가가 아니라 산식 미공개 매매신호. 분석 도구는 HTTP 402(사실상 유료)</sub> | 6 | 29 | **179** | 100% | 0% | 1 |
 
 1. **sallim/korea-realty** — 이 목록 운영사 서버이지만 같은 잣대로 봐도 두 질문 다 실제로 답이 나온 유일한 서버다 — 단위·집계법·기준시각·분산 경고·유찰 하자 경고를 원문이 스스로 달아 주고 재호출 대조에서 수치가 그대로 재현됐다. 감점은 서버 데이터가 아니라 옮겨 적는 과정의 자릿수·단위 실수 네 건이고(서버는 min_bid_display·억원 표기를 이미 제공했다), 서버 쪽 흠은 '(유)갈현상가'가 usage_name='아파트'로 분류돼 있는 원천 라벨 문제와 무료 30콜/일 한도다.
 2. **airblockfz/seoul-apt-signal** — 사실상 유료 서버다 — evaluate_symbol·scan_bottoms·scan_tops가 모두 HTTP 402이고 무료로 열린 것은 마케팅 티저 pitch뿐인데 도구 목록에는 유료 여부가 공시돼 있지 않아(측정값 paid_disclosure=false) 모델이 결제벽을 미리 알 방법이 없으며, 그나마 나오는 것도 실거래가가 아니라 산식 미공개 매매신호라 이 분야 두 질문 중 어느 쪽도 채우지 못한다.
@@ -202,7 +204,7 @@ Other lists tell you a server exists. This one tells you whether it **works righ
 
 | Server | Tools | Warm | Cold | Desc | Annot | Errors |
 |---|---|---|---|---|---|---|
-| [exclusiveyon-a11y/reevl-plugins](https://github.com/exclusiveyon-a11y/reevl-plugins) | 7 | 39 | 42 | 100% | 100% | — |
+| [kr.co.reevl/reevl-mcp](https://reevl.co.kr/mcp)<br><sub>Previously listed as `exclusiveyon-a11y/reevl-plugins` → `kr.co.reevl/reevl-mcp` — same server</sub> | 7 | 31 | 46 | 100% | 100% | — |
 
 </details>
 
@@ -212,7 +214,7 @@ Other lists tell you a server exists. This one tells you whether it **works righ
 
 | Server | Tools | Warm | Cold | Desc | Annot | Errors |
 |---|---|---|---|---|---|---|
-| [io.github.namuaix/seoul-tourism](https://mcp.namu.ai.kr) | 3 | 22 | 21 | 100% | 100% | — |
+| [io.github.namuaix/seoul-tourism](https://mcp.namu.ai.kr) | 3 | 19 | 18 | 100% | 100% | — |
 
 ## 교통·이동
 
@@ -220,7 +222,7 @@ Other lists tell you a server exists. This one tells you whether it **works righ
 
 | Server | Tools | Warm | Cold | Desc | Annot | Errors |
 |---|---|---|---|---|---|---|
-| [io.github.kimnchai/korea-flight-mcp](https://korea-flight.kimnchai.com) | 8 | 43 | 37 | 100% | 100% | — |
+| [io.github.kimnchai/korea-flight-mcp](https://korea-flight.kimnchai.com) | 8 | 41 | 38 | 100% | 100% | — |
 
 ## 의료·복지
 
@@ -228,8 +230,8 @@ Other lists tell you a server exists. This one tells you whether it **works righ
 
 | Server | Tools | Warm | Cold | Desc | Annot | Errors |
 |---|---|---|---|---|---|---|
-| [nokelan/health-fee-mcp](https://github.com/nokelan/health-fee-mcp) | 12 | — | 21 | 100% | 0% | — |
-| [org.medicalaialliance/intelligence](https://github.com/austinpw-cloud/maa-website) | 5 | 234 | 391 | 100% | 0% | — |
+| [nokelan/health-fee-mcp](https://github.com/nokelan/health-fee-mcp) | 12 | — | 42 | 100% | 0% | — |
+| [org.medicalaialliance/intelligence](https://github.com/austinpw-cloud/maa-website) | 5 | 401 | 372 | 100% | 0% | — |
 
 ## 교육·문화
 
@@ -252,9 +254,9 @@ Other lists tell you a server exists. This one tells you whether it **works righ
 
 | Server | Tools | Warm | Cold | Desc | Annot | Errors |
 |---|---|---|---|---|---|---|
-| [ai.timeplex/booking](https://timeplex.ai)<br><sub>뷰티·웰니스 예약. 등록 매장 1곳</sub> | 5 | 397 | 725 | 100% | 100% | 0 |
-| [com.arcasos/arcasos-rentals](https://arcasos.com)<br><sub>주 단위 단기임차. 총계 미공시로 항상 10건에서 조용히 잘린다</sub> | 3 | 679 | 674 | 100% | 0% | 2 |
-| [com.theprotoclinical/commerce](https://www.theprotoclinical.com/)<br><sub>특정 Shopify 스토어 한 곳의 결제 엔드포인트(UCP)</sub> | 13 | 160 | 167 | 100% | 0% | 2 |
+| [ai.timeplex/booking](https://timeplex.ai)<br><sub>뷰티·웰니스 예약. 등록 매장 1곳</sub> | 5 | 395 | 408 | 100% | 100% | 0 |
+| [com.arcasos/arcasos-rentals](https://arcasos.com)<br><sub>주 단위 단기임차. 총계 미공시로 항상 10건에서 조용히 잘린다</sub> | 3 | 685 | 659 | 100% | 0% | 2 |
+| [com.theprotoclinical/commerce](https://www.theprotoclinical.com/)<br><sub>특정 Shopify 스토어 한 곳의 결제 엔드포인트(UCP)</sub> | 13 | 164 | 153 | 100% | 0% | 2 |
 
 1. **timeplex/booking** — 이 분야 질문에 끝까지 답한 유일한 서버로 값도 원문과 축자 일치하나, 등록 매장이 1곳뿐이고 lang='ko'로 응답하면서 메뉴명은 일본어 원문 그대로라(답변이 대신 번역했다) 서버가 약속한 번역이 실제로는 동작하지 않는다.
 2. **arcasos/arcasos-rentals** — 숙소 재고는 실재하고 응답도 빠르지만, limit을 무시하고 항상 10건만 총계 없이 돌려주는 조용한 절단과 정렬 근거 미공시가 겹쳐 '인기'·'전체'를 묻는 질문에서 모델이 그럴듯하게 틀리도록 유도한다.
@@ -266,8 +268,8 @@ Other lists tell you a server exists. This one tells you whether it **works righ
 
 | Server | Tools | Warm | Cold | Desc | Annot | Errors |
 |---|---|---|---|---|---|---|
-| [ai.atdev/supershopping](https://github.com/alex-hoyeol-choi/headless-commerce) | 8 | 44 | 45 | 100% | 100% | — |
-| [ai.hotker/hotker](https://github.com/c2bcom10-ship-it/hotker) | 6 | 60 | **186** | 100% | 0% | — |
+| [ai.atdev/supershopping](https://github.com/alex-hoyeol-choi/headless-commerce) | 8 | 40 | 44 | 100% | 100% | — |
+| [ai.hotker/hotker](https://github.com/c2bcom10-ship-it/hotker) | 6 | 44 | 36 | 100% | 0% | — |
 
 </details>
 
@@ -302,12 +304,12 @@ Other lists tell you a server exists. This one tells you whether it **works righ
 
 ## 측정 못 함
 
-응답은 했지만 **비교할 값을 얻지 못한 12건.** 지우지 않고 여기 둔다 — “없다”가 아니라 **“우리가 못 봤다”**이기 때문이다. 대부분 도구 목록을 보는 데도 키를 요구한다. 키가 있으면 잘 도는 서버일 수 있다.
+응답은 했지만 **비교할 값을 얻지 못한 11건.** 지우지 않고 여기 둔다 — “없다”가 아니라 **“우리가 못 봤다”**이기 때문이다. 대부분 도구 목록을 보는 데도 키를 요구한다. 키가 있으면 잘 도는 서버일 수 있다.
 
 | 서버 | 증상 |
 |---|---|
 | [MarcoYou/open-proxy-mcp](https://github.com/MarcoYou/open-proxy-mcp) | 인증 필요 — 키 없이는 도구 목록도 못 본다 |
-| [ai.heyyumi/heyyumi](https://heyyumi.ai/mcp) | 인증 필요 — 키 없이는 도구 목록도 못 본다 |
+| [ai.heyyumi/heyyumi](https://github.com/hmp-dev/heyyumi-mcp) | 인증 필요 — 키 없이는 도구 목록도 못 본다 |
 | [com.beauticslab/mcp](https://github.com/websfactory/beauticslab-mcp) | 인증 필요 — 키 없이는 도구 목록도 못 본다 |
 | [com.boltena/erp](https://boltena.com/ai) | 인증 필요 — 키 없이는 도구 목록도 못 본다 |
 | [com.empresskorea/kbeauty-agent-commons](https://empresskorea.com/kb-agent-network/) | 인증 필요 — 키 없이는 도구 목록도 못 본다 |
@@ -315,7 +317,6 @@ Other lists tell you a server exists. This one tells you whether it **works righ
 | [io.github.lichtsalz/korea-data](https://github.com/lichtsalz/korea-data) | 인증 필요 — 키 없이는 도구 목록도 못 본다 |
 | [io.github.namen-ceo/factbat-public-record-locator](https://factbat.com/finder?src=mcp-pulsemcp) | 인증 필요 — 키 없이는 도구 목록도 못 본다 |
 | [jeonghwanko/coffee-price-mcp](https://github.com/jeonghwanko/coffee-price-mcp) | 인증 필요 — 키 없이는 도구 목록도 못 본다 |
-| [kr.gronox/finbridge](https://github.com/Jakechj/finbridge-mcp) | 인증 필요 — 키 없이는 도구 목록도 못 본다 |
 | [kr.wandsol/patent-search](https://mcp.wandsol.kr) | 핸드셰이크는 됐지만 도구 목록에 키가 필요하다 |
 | [seolcoding/korean-stat-mcp](https://github.com/seolcoding/korean-stat-mcp) | 인증 필요 — 키 없이는 도구 목록도 못 본다 |
 
@@ -329,7 +330,7 @@ Other lists tell you a server exists. This one tells you whether it **works righ
 
 ## 고쳤다면 다시 잰다
 
-이 표의 값은 **2026-09-03 그 순간의 기록**이다. 고쳤다면 [이슈](https://github.com/sallim-app/korea-mcp-index/issues)로 알려 달라 — 다음 회차에 다시 잰다. 경쟁 서비스여도 받는다.
+이 표의 값은 **2026-09-07 그 순간의 기록**이다. 고쳤다면 [이슈](https://github.com/sallim-app/korea-mcp-index/issues)로 알려 달라 — 다음 회차에 다시 잰다. 경쟁 서비스여도 받는다.
 
 **우리가 먼저 다시 두드리지는 않는다.** 바뀐 게 없는 서버를 주기적으로 재호출하는 것은 새 정보가 아니라 남의 서버에 지우는 부하다. 그래서 두드리는 대신 신호를 받는다.
 
@@ -370,7 +371,7 @@ render   이 문서
 * **측정 항목을 우리가 골랐다.** 원자료 공개로 줄일 수는 있어도 없앨 수는 없다 — 무엇을 고정했고 무엇을 언제 왜 바꿨는지는 [PROTOCOL.md](PROTOCOL.md)에 있다. **결과를 본 뒤에 바꾼 적이 한 번 있고**, 그 건도 거기 적어 두었다
 * **측정 지점은 한국 두 곳이다.** 국외에서 재면 값이 다를 수 있고 아직 확인하지 않았다
 * **콜드는 한 번뿐이다.** 그 순간 그 서버가 자고 있었을 수 있다
-* **못 잰 것이 더 많다.** 후보 중 50건은 주소도 패키지도 찾지 못했다. “작동하지 않는다”가 아니라 **확인하지 못했다**는 뜻이다 — 그 밖에 62건은 배포 패키지는 확인했으나 원격 주소가 없어 응답을 못 쟀다
+* **못 잰 것이 더 많다.** 후보 중 52건은 주소도 패키지도 찾지 못했다. “작동하지 않는다”가 아니라 **확인하지 못했다**는 뜻이다 — 그 밖에 65건은 배포 패키지는 확인했으나 원격 주소가 없어 응답을 못 쟀다
 
 ---
 
@@ -380,4 +381,4 @@ render   이 문서
 
 ---
 
-생성 `render_readme.py` · 웹판 <https://mcp-index.sallim.app> · 마지막 측정 2026-09-03 · 운영 [sallim-app](https://github.com/sallim-app)
+생성 `render_readme.py` · 웹판 <https://mcp-index.sallim.app> · 마지막 측정 2026-09-07 · 운영 [sallim-app](https://github.com/sallim-app)
