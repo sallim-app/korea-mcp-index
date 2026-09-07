@@ -53,8 +53,19 @@ def test_renders_and_body_is_in_the_html():
         r, out = build(tmp)
         assert r.returncode == 0, r.stderr
         idx = (out / "index.html").read_text(encoding="utf-8")
-        assert "<script" not in idx.replace('<script type="application/ld+json">', ""), \
-            "구조화데이터 말고 실행 스크립트가 있다 — 본문을 JS로 그리면 크롤러가 못 읽는다"
+        # 계약은 "스크립트가 한 줄도 없다"가 아니라 **본문을 JS가 그리지 않는다**이다.
+        # 2026-09-07에 <head>로 계측·의견 수집 스크립트 두 줄이 들어왔다(둘 다 defer라
+        # 본문 렌더를 막지도, 본문을 그리지도 않는다) — 그래서 검사 대상을 </head> 뒤로
+        # 좁힌다. 좁히지 않으면 이 회귀가 그 두 줄만 보고 빨개져, 정작 막아야 할
+        # "본문을 클라이언트에서 그리는 것"을 아무도 안 보게 된다.
+        body = idx.split("</head>", 1)[1]
+        assert "<script" not in body, \
+            "본문에 실행 스크립트가 있다 — 본문을 JS로 그리면 크롤러가 못 읽는다"
+        head = idx.split("</head>", 1)[0]
+        assert "<script" not in head.replace('<script type="application/ld+json">', "") \
+            .replace('<script defer src="https://sallim.app/_a/script.js"', "") \
+            .replace('<script defer src="https://sallim.app/_f/feedback-widget.js"', ""), \
+            "<head>에 예상 밖의 스크립트가 늘었다 — 늘릴 때 이 목록도 같이 고쳐라"
         m = json.loads((out / "index.json").read_text(encoding="utf-8"))
         named = [s for s in m["servers"] if s["name"] in idx or
                  s["name"].split("/")[-1] in idx]
@@ -541,3 +552,32 @@ def test_missing_rank_footnote_separates_unverified_from_down():
         assert STATUS_LABEL["unverified"] in blob or STATUS_LABEL["down"] in blob, (
             "빠진 등수 각주가 판정 어휘를 쓰지 않는다 — 손으로 박은 문구로 되돌아갔다:\n" + blob[:400]
         )
+
+
+def test_every_page_carries_analytics_and_feedback():
+    """계측·의견 수집은 **전 페이지**에 붙는다(2026-09-07, T-2026W37-44).
+
+    이 사이트는 페이지가 90개가 넘고 전부 생성물이다. 한 자리(`HEAD_SCRIPTS`)에서만
+    붙이는 이유가 이것인데, 새 페이지 종류를 그 자리를 안 거치고 만들면 그 페이지만
+    조용히 계측 밖으로 나간다 — 방문자 수가 "줄었다"로 보이지 "안 재고 있다"로는
+    안 보인다. 그 침묵을 여기서 소리로 바꾼다.
+
+    슬러그도 함께 고정한다: 위젯은 `data-service`가 계약(^[a-z0-9][a-z0-9_-]{1,23}$)을
+    어기면 **아무 표시 없이 스스로 꺼진다** — 태그만 보고는 절대 안 잡히는 고장이다.
+    """
+    with tempfile.TemporaryDirectory() as tmp:
+        r, out = build(tmp)
+        assert r.returncode == 0, r.stderr
+        pages = sorted(out.rglob("*.html"))
+        assert len(pages) >= 40, f"페이지 {len(pages)}개 — 렌더가 깨졌다"
+        for f in pages:
+            t = f.read_text(encoding="utf-8")
+            assert 'src="https://sallim.app/_a/script.js"' in t, f"계측 태그 없음: {f}"
+            assert 'src="https://sallim.app/_f/feedback-widget.js"' in t, f"위젯 태그 없음: {f}"
+            m = re.search(r'data-service="([^"]*)"', t)
+            assert m and re.fullmatch(r"[a-z0-9][a-z0-9_-]{1,23}", m.group(1)), \
+                f"data-service가 슬러그 계약 위반 → 위젯이 조용히 비활성: {f} {m and m.group(1)!r}"
+            wid = re.search(r'data-website-id="([^"]*)"', t)
+            assert wid and re.fullmatch(
+                r"[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+                wid.group(1)), f"website-id가 uuid가 아니다: {f}"

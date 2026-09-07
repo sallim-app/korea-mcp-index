@@ -48,6 +48,28 @@ from render_readme import (
 
 REPO = "https://github.com/sallim-app/korea-mcp-index"
 
+# 페이지마다 붙는 두 개의 <script>. **여기 한 자리에만 둔다** — 페이지가 90개가 넘어
+# 손으로 붙이면 다음 회차에 새로 생긴 페이지만 조용히 빠진다.
+#
+# ① 방문 계측(umami, 쿠키 없음) ② 의견 수집 위젯.
+# 둘 다 `sallim.app`의 동일 등록가능도메인 프록시(`/_a/`·`/_f/`)로 부른다. 다른 도메인을
+# 직접 부르면 이 사이트가 방문자에게 **서드파티 트래커**로 보여 브라우저 추적방지
+# (Safari ITP·Brave·uBO)에 잘리고, 그러면 계측은 "0명"이 아니라 "샌 값"이 된다.
+# 두 스크립트 다 수신 주소를 자기 `src`의 디렉토리에서 유도하므로(umami는 `/api/send`,
+# 위젯은 `/feedback`) 여기만 프록시로 바꾸면 전송도 같은 오리진으로 따라간다.
+# 이 사이트는 정적 배포라 자기 오리진엔 `/_a/`·`/_f/`가 없다 — 그래서 절대 URL이다.
+#
+# `defer`인 이유: 본문은 초기 HTML에 다 들어 있어야 한다(tests/test_site.py ①).
+# 이 두 줄이 본문 렌더를 막으면 그 계약이 깨진다.
+ANALYTICS_ID = "94178403-e119-4f6f-971e-96592e05c4f5"   # umami website-id(공개값)
+FEEDBACK_SERVICE = "mcp-index-kr"                       # 의견 집계 축 슬러그
+HEAD_SCRIPTS = (
+    f'<script defer src="https://sallim.app/_a/script.js"'
+    f' data-website-id="{ANALYTICS_ID}"></script>'
+    f'<script defer src="https://sallim.app/_f/feedback-widget.js"'
+    f' data-service="{FEEDBACK_SERVICE}"></script>'
+)
+
 
 def e(x) -> str:
     """HTML 이스케이프. 남의 서버 이름·채점자 문장이 그대로 들어오는 자리라 예외 없이 통과시킨다."""
@@ -238,6 +260,7 @@ class Page:
              f'<style>{CSS}</style>']
         for j in ld:
             o.append('<script type="application/ld+json">' + jsonld(j) + '</script>')
+        o.append(HEAD_SCRIPTS)
         o += ['</head>', '<body>', '<div class="wrap">']
         if self.crumbs:
             o.append('<nav class="crumb">'
@@ -1504,6 +1527,7 @@ def build_machine(ctx) -> None:
                        '<meta name="viewport" content="width=device-width,initial-scale=1">\n'
                        '<title>없는 주소 — 한국 데이터 MCP 실측 목록</title>\n'
                        '<meta name="robots" content="noindex,follow">\n'
+                       f'{HEAD_SCRIPTS}\n'
                        f'<style>{CSS}</style>\n</head>\n<body><div class="wrap">\n'
                        '<h1>여기엔 아무것도 없다</h1>\n'
                        '<p class="lede">주소가 바뀌었거나 오타일 수 있다. '
