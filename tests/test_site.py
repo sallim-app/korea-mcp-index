@@ -390,10 +390,20 @@ def test_counts_reproduce_from_the_servers_array():
         # `unreachable`은 옛 이름으로 남은 합계다 — 남의 재계산이 읽으므로 어긋나면 안 된다.
         assert m["counts"]["unreachable"] == got["unverified"] + got["down"]
         c = m["counts"]
+        # **`candidates_total`은 잰 줄 수가 아니다**(2026-09-14, T-2026W38-18). 종전엔
+        # 이 자리가 `measured_population`과 같아야 통과했고, 그래서 한 번도 두드리지 않은
+        # 후보가 게시본 어디에도 없다는 사실을 이 회귀가 오히려 고정하고 있었다.
         assert (len(m["servers"]) + c["install_only"] + c["no_address_no_package"]
-                == c["candidates_total"])
+                == c["measured_population"])
+        # **완화하지 않는다**(codex 2026-09-14): `>=`로 두면 후보가 통째로 새도 통과한다.
+        # 행 수(measured_population)가 아니라 **이름 수**(measured_candidates)로 더한다.
+        assert c["candidates_total"] == c["measured_candidates"] + c["not_measured"]
+        assert c["measured_population"] <= c["measured_candidates"]
+        assert c["not_measured_but_data_provider"] <= c["not_measured"]
         idx = (out / "index.html").read_text(encoding="utf-8")
-        assert str(c["candidates_total"]) in idx, "총계가 사람 화면에 없다"
+        assert str(c["measured_population"]) in idx, "잰 건수가 사람 화면에 없다"
+        assert str(c["candidates_total"]) in idx, "후보 총수가 사람 화면에 없다"
+        assert str(c["not_measured"]) in idx, "안 잰 건수가 사람 화면에 없다"
 
 
 def test_tables_are_reachable_by_keyboard():

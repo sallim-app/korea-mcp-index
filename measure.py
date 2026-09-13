@@ -33,6 +33,7 @@ import collections
 import json
 import re
 import socket
+import sys
 import time
 import urllib.error
 import urllib.parse
@@ -41,6 +42,7 @@ from datetime import datetime, timedelta, timezone
 
 # 같은 명단을 두 번 적지 않는다 — 추출 쪽이 정본이고 측정 쪽은 그물이다.
 import enrich
+import population
 from enrich import NOT_A_SERVER_PKG
 
 UA = "sallim-mcp-index/0.1 (+https://github.com/sallim-app; measuring MCP availability)"
@@ -859,7 +861,27 @@ def main() -> int:
         return measure_axes()
 
     src = json.load(open("candidates_filtered.json", encoding="utf-8"))
-    items = [i for i in src["items"] if i["verdict"] == a.bucket]
+    # **모집단은 판정기 둘을 다 읽는다**(2026-09-14, T-2026W38-18). 종전엔 키워드 판정기의
+    # `keep`만 쟀다 — 그래서 그 판정기가 `review`로 미룬 것 중 **우리 LLM 분류기가 데이터
+    # 제공형이라고 판정한 105건**(KOSIS·DART·특허청·법령, 그리고 우리 `korea-stay`)이
+    # 통째로 측정 밖에 있는데 게시본은 그 모집단을 「후보 전체」라고 적었다. 승격 규칙과
+    # 그 근거는 `population.py`에 있고, 안 잰 것은 이제 게시본이 명단으로 싣는다.
+    # **분류가 없으면 멈춘다**(fail-closed, codex 교차검증 2026-09-14). 경고만 찍고 keep만
+    # 재면 이 커밋이 고치러 온 누락이 그대로 재발하는데, measured.json은 **처음부터 다시
+    # 쓰이므로** 좁아진 모집단이 조용히 게시본이 된다. 렌더가 축 결손에 걸어 둔 것과 같은
+    # 문턱이다 — 모르는 채로 재느니 회차가 멈추는 편이 정직하다.
+    try:
+        cls = population.load_classification()
+    except OSError:
+        print("측정 중단 — classification.json이 없다. 승격 없이 keep만 재면 LLM 분류기가 "
+              "데이터 제공형이라 한 후보가 통째로 빠진 채 measured.json을 덮어쓴다. "
+              "분류 단계를 먼저 돌려라(진단용이면 --bucket review 처럼 통을 지정하라).",
+              file=sys.stderr)
+        return 1
+    items = population.measurable(src["items"], cls, a.bucket)
+    prom = len(items) - sum(1 for i in src["items"] if i["verdict"] == a.bucket)
+    print(f"측정 모집단 {len(items)}건 = {a.bucket} "
+          f"{len(items) - prom}건 + 분류기 승격 {prom}건(review인데 데이터 제공형)")
     if a.limit:
         items = items[:a.limit]
 

@@ -33,6 +33,7 @@ import shutil
 import subprocess
 import sys
 
+import population
 from observed import MISFILED, RENAMED, SCOPE
 from render_readme import (
     CAT_EN,
@@ -957,10 +958,57 @@ def build_index(ctx) -> None:
     W(f'<tr><td>주소도 패키지도 못 찾음</td><td class="n">{len(nothing)}건 '
       f'<span class="sub">“작동하지 않는다”가 아니라 <strong>확인하지 못했다</strong></span>'
       f'</td></tr>',
-      f'<tr><td><strong>후보 전체</strong></td>'
-      f'<td class="n"><strong>{len(ctx["items"])}건</strong> '
-      f'<span class="sub">{len(ctx["rem"])} + {len(inst)} + {len(nothing)}</span></td></tr>',
-      '</tbody></table></div>')
+      f'<tr><td><strong>이번 회차 측정 모집단</strong> '
+      f'<span class="sub">(위 줄 전부 — {len(nothing)}건은 주소가 없어 두드리지 못했다)'
+      f'</span></td>'
+      f'<td class="n"><strong>'
+      f'{len(ctx["pop"]["measured"]) if ctx["pop"] else len(ctx["items"])}</strong>건 '
+      f'<span class="sub">{len(ctx["rem"])} + {len(inst)} + {len(nothing)} = '
+      f'{len(ctx["items"])}줄</span></td></tr>')
+    # **여기가 종전에 「후보 전체」라고 적혀 있던 자리다**(2026-09-14, T-2026W38-18).
+    # 잰 것의 합계를 후보의 합계로 적었으니, 키워드 판정기가 `review`로 미뤄 한 번도
+    # 두드리지 않은 서버는 이 표에 자리가 없었다 — 그중 우리 LLM 분류기가 데이터
+    # 제공형이라 한 것까지 통째로.
+    pop = ctx["pop"]
+    if pop:
+        # **"안 잰 것"은 통 이름이 아니라 measured.json에 그 이름이 있는가로 가른다** —
+        # 승격이 적용된 회차엔 이 표가 스스로 0으로 줄어야 한다(population.summary 주석).
+        # **수가 맞아떨어져야 한다**(codex 2026-09-14). 잰 줄 수(282)는 같은 주소를 합친
+        # 뒤의 행 수라 후보 이름 수(284)와 다르다 — 둘을 같은 자리에 쓰면 282+218≠502가 된다.
+        merged = len(pop["measured"]) - len(ctx["items"])
+        sub = f'{len(pop["measured"])} + {len(pop["not_measured"])}'
+        if merged > 0:
+            sub += (f' <span class="sub">(잰 {len(pop["measured"])}건은 같은 주소 '
+                    f'{merged}건을 합쳐 {len(ctx["items"])}줄로 실린다)</span>')
+        W(f'<tr><td><strong>재지 않은 후보</strong> '
+          f'<span class="sub">(한 번도 두드리지 않음)</span></td>'
+          f'<td class="n"><a href="{e(site.url_of("not-measured"))}">'
+          f'<strong>{len(pop["not_measured"])}건</strong></a>'
+          + (f' <span class="sub">그중 <strong>{len(pop["promoted"])}건</strong>은 '
+             f'우리 LLM 분류기가 데이터 제공형이라 했다</span>' if pop["promoted"] else '')
+          + '</td></tr>',
+          f'<tr><td><strong>후보 전체</strong></td>'
+          f'<td class="n"><strong>{pop["total"]}건</strong> '
+          f'<span class="sub">{sub}</span></td></tr>')
+    W('</tbody></table></div>')
+    if pop and pop["promoted"]:
+        why_deferred = (
+            '이름·설명 문자열만 보는 키워드 판정기가 “데이터 제공형 신호가 없다”며 '
+            '<code>review</code>로 미뤄 뒀기 때문이다'
+            if len(pop["promoted_review"]) == len(pop["promoted"]) else
+            f'{len(pop["promoted_review"])}건은 키워드 판정기가 <code>review</code>로 '
+            f'미뤘고, {len(pop["promoted_keep"])}건은 <code>keep</code>인데도 이번 회차에 '
+            f'두드리지 못한 것이다')
+        W(f'<p><strong>잰 것이 후보의 전부가 아니다.</strong> 한국 관련성까지 통과한 후보 '
+          f'{pop["total"]}건 중 <strong>{len(pop["not_measured"])}건은 '
+          f'한 번도 두드리지 않았다</strong> — {why_deferred}. '
+          f'그중 <strong>{len(pop["promoted"])}건은 우리 LLM 분류기가 데이터 '
+          f'제공형이라고 판정한 것</strong>이고, '
+          f'<a href="{e(site.url_of("not-measured"))}">그 명단을 그대로 공개한다</a>. '
+          + (f'다음 회차부터 그중 {len(pop["promoted_review"])}건이 측정 모집단에 '
+             f'<strong>새로</strong> 들어간다.' if pop["promoted_review"] else '')
+          + (f' 나머지 {len(pop["promoted_keep"])}건은 이미 모집단이고 이번 회차에만 '
+             f'못 두드린 것이다.' if pop["promoted_keep"] else '') + '</p>')
 
     W('<h2 id="왜">왜 만드나</h2>',
       '<p><strong>AI가 좋은 MCP를 못 찾는다.</strong> 한국 MCP 스토어들은 대부분 AI가 읽을 수 '
@@ -1241,6 +1289,144 @@ def build_selfhosted(ctx) -> None:
       f'<nav class="nav"><a href="{e(site.url_of("index"))}">← 전체 목록</a></nav>')
 
 
+def verdict_mix(items) -> str:
+    """이 묶음이 어느 통에서 왔는지 한 구절로. **박아 쓰지 않는다**(codex 2026-09-14).
+
+    `review`만 있으면 "키워드 판정기가 보류한", `keep`이 섞이면 그 수까지 적는다 —
+    부분 측정(`--limit`)·회차 불일치면 `keep`인데 안 잰 줄이 생기고, 그때 "미뤘다"는
+    그 줄에 대해 거짓이다.
+    """
+    n_rev = sum(1 for i in items if i.get("verdict") == "review")
+    n_keep = sum(1 for i in items if i.get("verdict") == "keep")
+    if n_keep and n_rev:
+        return (f'{n_rev}건은 키워드 판정기가 <code>review</code>로 보류했고 '
+                f'{n_keep}건은 <code>keep</code>인데도 이번 회차에 두드리지 못한 것이다')
+    if n_keep:
+        return f'{n_keep}건 전부 <code>keep</code>인데 이번 회차에 두드리지 못한 것이다'
+    return '전부 키워드 판정기가 <code>review</code>로 보류한 것이다'
+
+
+def build_not_measured(ctx) -> None:
+    """**재지 않은 후보** — 조용히 버리지 않는다(기치 ②, T-2026W38-18).
+
+    이 페이지가 없던 동안 게시본은 잰 것의 합계를 「후보 전체」라고 적었다. 안 잰 것은
+    수로도 안 나왔고 명단으로는 더더욱 안 나왔다 — 우리가 남의 목록에서 잡아내는 종류의
+    은닉이다. 수를 고치는 것보다 **명단을 내놓는 것**이 값이라 이름을 그대로 싣는다.
+    """
+    site, pop = ctx["site"], ctx["pop"]
+    if not pop:
+        return
+    prom, off = pop["promoted"], pop["review_off"]
+    desc = (f"한국 관련성까지 통과했으나 이번 회차에 두드리지 않은 MCP 서버 "
+            f"{len(pop['not_measured'])}건의 전체 명단과 그 사유. 그중 {len(prom)}건은 우리 "
+            f"LLM 분류기가 데이터 제공형이라고 판정했다"
+            + (f" — 그 {len(pop['promoted_review'])}건은 다음 회차부터 측정 모집단에 "
+               f"새로 들어간다." if pop["promoted_review"] else "."))
+    pg = Page(site, "not-measured", "재지 않은 후보 — 측정 모집단 밖의 한국 MCP 명단",
+              desc, crumbs=[("한국 데이터 MCP 실측 목록", "index"),
+                            ("재지 않은 후보", "not-measured")], priority="0.6")
+    W = pg.w
+    # **문구를 값에서 뽑는다**(codex 교차검증 2026-09-14). 종전 초안은 "다음 회차부터
+    # 측정"과 우리 서버 이름을 **박아** 뒀다 — 승격분을 실제로 잰 회차에도 나머지 미측정
+    # 후보 때문에 이 페이지는 계속 생성되므로, 고친 다음 날부터 페이지가 거짓말을 한다.
+    ours = [i["name"] for i in prom
+            if i["name"].startswith("app.sallim/")
+            or "sallim-app/" in (i.get("repo_url") or "")]
+    W(f'<h1>재지 않은 후보 {len(pop["not_measured"])}건</h1>',
+      '<p class="lede">한국 관련성까지는 통과했지만 <strong>한 번도 두드리지 않은</strong> '
+      '서버다. 가동·도구 수·지연이 이 목록에 없는 이유는 그 서버들이 안 돼서가 아니라 '
+      '<strong>우리가 안 쟀기 때문</strong>이다.</p>')
+    if prom:
+        W('<p><strong>판정기가 둘이고, 둘이 어긋난 자리가 여기다.</strong> ① 이름·설명의 '
+          '문자열만 보는 키워드 판정기(<code>filter_candidates.py</code>)는 '
+          '<code>keep</code>/<code>review</code>/<code>drop</code> 셋으로 가르는데, '
+          '<code>review</code>는 “주제가 아니다”가 아니라 <strong>“문자열로는 판정이 '
+          '안 된다”</strong>는 보류다. 그런데 측정은 <code>keep</code>만 읽었다. '
+          '② 분류 단계의 LLM 판정기는 같은 항목들에 이미 <code>is_data_provider</code>를 '
+          f'붙여 뒀고, 그중 <strong>{len(prom)}건을 데이터 제공형이라고 판정</strong>했다.</p>',
+          f'<p><strong>{len(prom)}건이 측정 밖에 있는데 표는 그 모집단을 「후보 전체」라고 '
+          f'적고 있었다</strong>(2026-09-14 수정). {verdict_mix(prom)} — '
+          + (f'다음 회차부터 그 {len(pop["promoted_review"])}건이 측정 모집단에 '
+             f'<strong>새로</strong> 들어간다. ' if pop["promoted_review"] else '')
+          + (f'나머지 {len(pop["promoted_keep"])}건은 이미 모집단이고 이번 회차에만 '
+             f'못 두드린 것이다. ' if pop["promoted_keep"] else '')
+          + '그때까지 안 잰 것은 안 쟀다고 이 자리에 적어 둔다.'
+          + (f' <strong>여기 우리 서버도 {len(ours)}건 있다</strong>'
+             f'(<code>{e(", ".join(ours))}</code>): 빠진 것이 남의 서버만이었다면 유리한 '
+             f'누락이었겠지만, 그렇더라도 결함은 같다.' if ours else '') + '</p>')
+    else:
+        W('<p><strong>우리 LLM 분류기가 데이터 제공형이라 한 것은 이번 회차에 전부 '
+          f'쟀다.</strong> 남은 {len(off)}건은 LLM 분류기가 "데이터 제공형이 아니다"라고 '
+          f'판정한 것이고'
+          + (f', {len(pop["unclassified"])}건은 <strong>아직 판정이 없다</strong>'
+             if pop["unclassified"] else '')
+          + ' — 판정은 한 겹뿐이므로 그래도 이름을 남긴다.</p>')
+    W(
+      f'<p class="meta">이 명단은 가동 측정 {e(ctx["ts"])} 회차의 후보 판정에서 나왔다 · '
+      f'페이지 생성 '
+      f'{e(ctx["today"].isoformat())} · 원자료 '
+      f'<a href="{REPO}/blob/main/candidates.json">candidates.json</a> · '
+      f'<a href="{REPO}/blob/main/classification.json">classification.json</a></p>')
+
+    if prom:
+        W(f'<h2 id="쟀어야">우리 분류기가 데이터 제공형이라 한 {len(prom)}건</h2>',
+          '<p>이 표의 「LLM 분류기가 본 것」은 <strong>측정값이 아니라 설명 한 줄을 읽은 '
+          '판정</strong>이다. 실제로 되는지는 다음 회차에 두드려 봐야 안다.</p>',
+          '<div class="tw" tabindex="0" role="region" aria-label="가로로 스크롤되는 표">'
+          '<table><thead><tr><th>서버</th><th>분야</th><th>LLM 분류기가 본 것</th>'
+          '<th>키워드 판정기</th></tr></thead><tbody>')
+        for i in prom:
+            c = pop["cls"].get(i["name"]) or {}
+            url = i.get("repo_url") or ""
+            nm = (f'<a href="{e(url)}" rel="noopener">{e(i["name"])}</a>' if url
+                  else e(i["name"]))
+            if i["name"].startswith("app.sallim/") or "sallim-app/" in url:
+                nm += ' <span class="tag">🏠 운영자</span>'
+            # **통 이름을 같이 적는다** — 같은 통에 `keep`이 섞일 수 있고(부분 측정·회차
+            # 불일치), 그때 "키워드 판정기가 미뤘다"만 쓰면 그 줄이 거짓이 된다.
+            W(f'<tr><td>{nm}</td><td>{e(c.get("category") or "—")}</td>'
+              f'<td>{e(c.get("why") or "—")}</td>'
+              f'<td><code>{e(i.get("verdict") or "?")}</code> '
+              f'<span class="sub">{e(clip(i.get("why") or "—", 52))}</span></td></tr>')
+        W('</tbody></table></div>')
+
+    W(f'<h2 id="주제밖">LLM 분류기가 데이터 제공형이 아니라고 한 {len(off)}건</h2>',
+      f'<p>키워드 판정기 쪽은 “주제 밖”이라고 판정한 적이 없다 — {verdict_mix(off)}. '
+      f'판정을 내린 것은 LLM 분류기 쪽 하나다. 안 재는 것이 맞다고 보지만 판단 근거가 '
+      f'한 겹뿐이라 이름을 남긴다 — <strong>분류가 틀렸으면 알려 달라.</strong></p>',
+      '<div class="tw" tabindex="0" role="region" aria-label="가로로 스크롤되는 표">'
+      '<table><thead><tr><th>서버</th><th>LLM 분류기가 본 것</th></tr></thead><tbody>')
+    for i in sorted(off, key=lambda x: x["name"]):
+        c = pop["cls"].get(i["name"]) or {}
+        url = i.get("repo_url") or ""
+        nm = (f'<a href="{e(url)}" rel="noopener">{e(i["name"])}</a>' if url
+              else e(i["name"]))
+        W(f'<tr><td>{nm}</td><td>{e(c.get("why") or "—")}</td></tr>')
+    W('</tbody></table></div>')
+    if pop["unclassified"]:
+        # **수만 적으면 그것이 조용한 증발이다**(codex 2026-09-14). 「전체 명단」이라 써 놓고
+        # 두 표 어디에도 없는 줄이 생기면, 이 페이지가 고치러 온 결함을 그대로 반복한다.
+        W(f'<h2 id="분류없음">분류가 아직 없는 {len(pop["unclassified"])}건</h2>',
+          '<p>분류 단계가 아직 안 본 것이다 — <strong>"데이터 제공형이 아니다"가 아니라 '
+          '"모른다"</strong>다. 모르는 것을 데이터 제공형으로 읽으면 모집단이 조용히 '
+          '넓어지므로 승격하지 않고, 대신 이름을 여기 둔다.</p>',
+          '<div class="tw" tabindex="0" role="region" aria-label="가로로 스크롤되는 표">'
+          '<table><thead><tr><th>서버</th><th>키워드 판정기</th></tr></thead><tbody>')
+        for i in pop["unclassified"]:
+            url = i.get("repo_url") or ""
+            nm = (f'<a href="{e(url)}" rel="noopener">{e(i["name"])}</a>' if url
+                  else e(i["name"]))
+            W(f'<tr><td>{nm}</td><td><code>{e(i.get("verdict") or "?")}</code> '
+              f'<span class="sub">{e(clip(i.get("why") or "—", 52))}</span></td></tr>')
+        W('</tbody></table></div>')
+    W('<p class="sub"><strong>이 페이지에 있다고 나쁜 서버가 아니다.</strong> 여기 실린 '
+      '것은 그 서버에 대한 측정값이 아니라 <strong>우리 판정기 두 개가 그것을 어떻게 '
+      '읽었는가</strong>이다. 자기 서버가 잘못 실렸으면 이슈로 알려 달라 — 다음 회차에 '
+      '고친다.</p>',
+      f'<nav class="nav"><a href="{e(site.url_of("index"))}">← 전체 목록</a> '
+      f'<a href="{e(site.url_of("method"))}">어떻게 재나</a></nav>')
+
+
 def build_method(ctx) -> None:
     site, ts, items = ctx["site"], ctx["ts"], ctx["items"]
     desc = ("이 목록을 어떻게 재는지와 믿으면 안 되는 부분 — 수집·측정·질문·채점 절차, 재현되는 "
@@ -1421,6 +1607,20 @@ def build_machine(ctx) -> None:
             "같은 곳이다.",
             f"원격 주소가 없어 가동을 재지 못한 서버 {len(ctx['inst'])}건은 이 배열에 없다: "
             + site.url_of("self-hosted"),
+            (f"candidates_total({ctx['pop']['total'] if ctx['pop'] else len(ctx['items'])}) "
+             f"는 measured_candidates({len(ctx['pop']['measured']) if ctx['pop'] else 0}) + "
+             f"not_measured({len(ctx['pop']['not_measured']) if ctx['pop'] else 0}) 이다. "
+             f"measured_population({len(ctx['items'])})은 같은 주소를 합친 뒤의 **행 수**라 "
+             f"후보 이름 수보다 작을 수 있다. **한 번도 두드리지 않은** 후보 "
+             f"{len(ctx['pop']['not_measured']) if ctx['pop'] else 0}건이 있고"
+             + (f"(그중 {len(ctx['pop']['promoted_review'])}건은 키워드 판정기가 review로 "
+                f"보류, {len(ctx['pop']['promoted_keep'])}건은 keep인데 미측정)"
+                if ctx['pop'] and ctx['pop']['promoted'] else "")
+             + f", 그중 {len(ctx['pop']['promoted']) if ctx['pop'] else 0}건은 우리 LLM "
+             f"분류기가 데이터 제공형이라고 판정했다(명단 "
+             + site.url_of("not-measured") + "). "
+             f"2026-09-14 이전 회차의 이 필드는 잰 줄 수였다 — 그때는 이 차이가 "
+             f"게시본 어디에도 없었다."),
         ],
         "counts": {"comparable": len(ctx["live"]), "unmeasurable": len(ctx["unmeasured"]),
                    # `unreachable`은 옛 이름이라 남기되(남의 재계산이 읽는다) 세 갈래를 같이 낸다.
@@ -1431,7 +1631,19 @@ def build_machine(ctx) -> None:
                    "no_address_no_package": len([r for r in ctx["items"]
                                                  if not r.get("remote")
                                                  and not r.get("package")]),
-                   "candidates_total": len(ctx["items"])},
+                   # **`candidates_total`이 재는 것을 후보로 적고 있었다**(2026-09-14,
+                   # T-2026W38-18). 값을 고치고, 잰 모집단은 이름을 따로 준다 — 키를
+                   # 지우면 남의 재계산이 깨지고, 그대로 두면 계속 거짓말한다.
+                   # `measured_population`은 **행 수**(같은 주소를 합친 뒤)이고
+                   # `measured_candidates`는 **후보 이름 수**다. 둘을 섞으면
+                   # measured + not_measured != candidates_total 이 된다(codex 2026-09-14).
+                   "measured_population": len(ctx["items"]),
+                   "measured_candidates": len(ctx["pop"]["measured"]) if ctx["pop"] else None,
+                   "not_measured": len(ctx["pop"]["not_measured"]) if ctx["pop"] else None,
+                   "not_measured_but_data_provider": (
+                       len(ctx["pop"]["promoted"]) if ctx["pop"] else None),
+                   "candidates_total": (ctx["pop"]["total"] if ctx["pop"]
+                                        else len(ctx["items"]))},
         "status_vocabulary": {
             "live": "살아있음 확인 — MCP 응답을 실제로 받았다",
             "unverified": "확인 못 함 — 우리 호출로 확인이 안 됐다. 죽었다는 뜻이 아니다",
@@ -1558,6 +1770,10 @@ def main() -> int:
     d = json.load(open("measured.json", encoding="utf-8"))
     cls = {v["name"]: v for v in json.load(open("classification.json",
                                                encoding="utf-8"))["items"].values()}
+    # **잰 것 옆에 안 잰 것을 같은 표에 싣는다**(2026-09-14, T-2026W38-18) — 키워드 판정기가
+    # `review`로 미룬 것 중 우리 LLM 분류기가 데이터 제공형이라 한 건이 측정 밖에 있는데
+    # 이 표는 그 모집단을 「후보 전체」라고 적고 있었다. 근거·명단은 population.py.
+    pop = population.summary()
     try:
         src = {i["name"]: i for i in json.load(open("candidates_filtered.json",
                                                     encoding="utf-8"))["items"]}
@@ -1633,6 +1849,7 @@ def main() -> int:
     downs = [r for r in dead if status_of(r) == "down"]
     unver = [r for r in dead if r not in downs]
     ctx = {"site": site, "items": items, "live": live, "dead": dead, "off": off, "rem": rem,
+           "pop": pop,
            "downs": downs, "unver": unver,
            "inst": inst, "unmeasured": unmeasured, "cls": cls, "rank_of": rank_of,
            "err_of": err_of, "cat_note": cat_note, "cat_runs": cat_runs,
@@ -1655,6 +1872,7 @@ def main() -> int:
         server_page(ctx, r)
     build_down(ctx)
     build_selfhosted(ctx)
+    build_not_measured(ctx)
     build_method(ctx)
     build_machine(ctx)
     try:

@@ -17,6 +17,7 @@ import json
 import re
 import sys
 
+import population
 from observed import MISFILED, RENAMED, SCOPE
 
 OURS = ("app.sallim/", "sallim-app/")
@@ -301,6 +302,8 @@ def main() -> int:
 
     d = json.load(open("measured.json", encoding="utf-8"))
     cls = {v["name"]: v for v in json.load(open("classification.json", encoding="utf-8"))["items"].values()}
+    # **안 잰 것을 잰 것 옆에 싣는다**(2026-09-14, T-2026W38-18) — 근거·명단은 population.py.
+    pop = population.summary()
     try:
         src = {i["name"]: i for i in json.load(open("candidates_filtered.json", encoding="utf-8"))["items"]}
     except OSError:
@@ -436,6 +439,23 @@ def main() -> int:
     if inst:
         A(f"| 설치형(원격 주소 없음) | 배포 확인 {emph(str(len(ipub)))}건 · "
           f"배포판 없음 {len(inone)}건 · 이름을 못 읽어 미측정 {len(iunk)}건 |")
+    # **잰 것의 합계를 후보의 합계로 적지 않는다**(2026-09-14, T-2026W38-18). 키워드
+    # 판정기가 `review`로 미룬 후보는 한 번도 두드리지 않았고, 그중에는 우리 LLM
+    # 분류기가 데이터 제공형이라 판정한 것도 있다 — 그 차이를 표 안에 값으로 둔다.
+    if pop:
+        no_addr_no_pkg_row = [r for r in items
+                              if not r.get("remote") and not r.get("package")]
+        A(f"| {emph('이번 회차 측정 모집단')}(위 줄 전부 — "
+          f"{len(no_addr_no_pkg_row)}건은 주소가 없어 두드리지 못했다) | "
+          f"{len(pop['measured'])}건"
+          + (f" — 같은 주소 {len(pop['measured']) - len(items)}건을 합쳐 {len(items)}줄로 "
+             f"실린다" if len(pop['measured']) != len(items) else "") + " |")
+        n_prom = len(pop["promoted"])
+        A(f"| {emph('재지 않은 후보')}(한 번도 두드리지 않음) | "
+          f"{len(pop['not_measured'])}건"
+          + (f" — 그중 {emph(f'{n_prom}건')}은 우리 LLM 분류기가 데이터 제공형이라 했다"
+             if n_prom else "") + " |")
+        A(f"| {emph('후보 전체')} | {pop['total']}건 |")
     A("")
 
     # ── 목차 ──
@@ -793,6 +813,32 @@ def main() -> int:
     A(f"* **못 잰 것이 더 많다.** 후보 중 {len(no_addr_no_pkg)}건은 주소도 패키지도 찾지 "
       "못했다. “작동하지 않는다”가 아니라 **확인하지 못했다**는 뜻이다"
       f"{f' — 그 밖에 {len(pkg_only)}건은 배포 패키지는 확인했으나 원격 주소가 없어 응답을 못 쟀다' if pkg_only else ''}")
+    # **판정기가 둘인데 모집단은 하나만 읽었다**(2026-09-14, T-2026W38-18). 이 절이 또
+    # 저지르고 있던 종류의 누락이라 여기에 값으로 박는다 — 자세한 명단은 웹판에.
+    if pop and pop["promoted"]:
+        ours = [i["name"] for i in pop["promoted"]
+                if i["name"].startswith("app.sallim/")
+                or "sallim-app/" in (i.get("repo_url") or "")]
+        # 사유는 값에서 뽑는다 — 같은 통에 `keep`이 섞이면 "미뤘다"가 거짓이 된다.
+        why_deferred = ("이름·설명 문자열만 보는 키워드 판정기가 `review`로 미뤘고 "
+                        "측정은 그 판정기의 `keep`만 읽었기 때문이다"
+                        if len(pop["promoted_review"]) == len(pop["promoted"]) else
+                        f"{len(pop['promoted_review'])}건은 키워드 판정기가 `review`로 "
+                        f"미뤘고 {len(pop['promoted_keep'])}건은 `keep`인데도 이번 회차에 "
+                        f"두드리지 못한 것이다")
+        A(f"* **후보를 전부 두드리지도 않았다.** 한국 관련성까지 통과한 후보 "
+          f"{pop['total']}건 중 **{len(pop['not_measured'])}건은 한 번도 "
+          f"두드리지 않았다** — {why_deferred}. 그중 "
+          f"**{len(pop['promoted'])}건은 우리 LLM 분류기가 데이터 제공형이라고 판정한 "
+          f"것**이다(KOSIS·DART·특허청·법령"
+          f"{f', 그리고 우리 서버 `{ours[0]}`' if ours else ''}). "
+          f"[그 명단]({SITE}/not-measured) — "
+          + (f"그중 {len(pop['promoted_review'])}건은 다음 회차부터 측정 모집단에 "
+             f"**새로** 넣는다. " if pop["promoted_review"] else "")
+          + (f"{len(pop['promoted_keep'])}건은 이미 모집단이고 이번 회차에만 못 두드렸다. "
+             if pop["promoted_keep"] else "")
+          + f"**2026-09-14 이전 게시본은 이 차이를 적지 않고 잰 것의 합계를 "
+          f"「후보 전체」라고 적었다**")
     A("")
     A("---")
     A("")
