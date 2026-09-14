@@ -23,6 +23,7 @@ import urllib.error
 import urllib.parse
 import urllib.request
 
+import carryover
 import tokens
 
 from categories import queries
@@ -260,13 +261,31 @@ def main() -> int:
 
     merged = merge_sources(reg, gh, moa)
 
+    # **4층: 우리 자신의 게시 이력**(2026-09-14, T-2026W38-309). 위 세 원천은 매 회차
+    # 세상을 새로 긁으므로, 별 0~2개짜리 서버는 GitHub 검색 상위 100건 밖으로 밀리는
+    # 것만으로 우리 표에서 사라진다 — 실제로 지난주 게시본 3건이 **살아 있는 채로**
+    # 사라졌다. 한 번 실은 서버는 원장에 남고, 안 잡히면 후보로 되살려 다시 판정받는다.
+    # 면제하는 것은 판정이 아니라 침묵뿐이다(carryover.py docstring).
+    today = time.strftime("%Y-%m-%d")
+    ledger = carryover.load()
+    carried, cnotes = carryover.carry_forward(ledger, list(merged.values()),
+                                              day=today, token=token)
+    carryover.save(ledger)
+    for it in carried:
+        merged.setdefault(it["name"], it)
+    notes += cnotes
+
     json.dump({"generated_note": "재실행 가능. sources·terms로 어느 원천이 잡았는지 추적된다.",
                "boundaries": notes, "count": len(merged),
                "items": sorted(merged.values(), key=lambda x: x["name"])},
               open("candidates_raw.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 
-    print(f"레지스트리(전수) {len(reg)} · GitHub {len(gh)} · mcpmoa {len(moa)} · 합집합 {len(merged)}건")
-    print(f"repo_url로 병합해 {len(reg) + len(gh) - len(merged)}건이 합쳐졌다")
+    print(f"레지스트리(전수) {len(reg)} · GitHub {len(gh)} · mcpmoa {len(moa)} · "
+          f"게시이력 이어받기 {len(carried)} · 합집합 {len(merged)}건")
+    # **원천을 더할 때 한 층을 빠뜨리면 이 수가 항상 그만큼 틀린다**(codex 2026-09-15:
+    # 종전 식은 mcpmoa를 빼고 세고 있었다). 네 층 전부를 더한다.
+    print(f"repo_url로 병합해 "
+          f"{len(reg) + len(gh) + len(moa) + len(carried) - len(merged)}건이 합쳐졌다")
     import collections
     cov = collections.Counter(c for d in merged.values() for c in (d.get("categories") or []))
     print("\n■ 분야별 수확 (분야가 검색어를 낳는다)")

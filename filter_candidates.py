@@ -123,6 +123,16 @@ def strip_locale_list(text: str) -> str:
 
 def classify(item: dict) -> dict:
     name, desc = item["name"], item.get("description") or ""
+    # **설명을 못 읽은 이어받기 줄을 `drop`으로 읽지 않는다**(2026-09-15, T-2026W38-309).
+    # 게시 이력으로 되살린 줄인데 저장소가 404(비공개 전환 포함)면 설명이 빈 문자열로
+    # 온다. 그 상태로 판정하면 이름에 한국 단어가 없는 서버가 **신호 0**으로 떨어지는데,
+    # 그건 그 서버에 대한 판정이 아니라 **우리가 입력을 못 구했다는 사실**이다
+    # (실측: `haklaekim/public-data-lens` — 한국 공공데이터 카탈로그 서버다).
+    # 없는 근거로 내리는 판정이 `drop`이면 이어받기가 스스로를 무효로 만든다.
+    if item.get("carryover") and not desc.strip():
+        return {"verdict": "review",
+                "why": "게시 이력은 있으나 설명을 못 읽어 자동 판정 불가 — 사람이 봐야 한다",
+                "kr": [], "data": []}
     # 한국 신호를 세기 전에 **언어 목록 자리의 `한국어`**를 뺀다(LOCALE_LIST 주석 참조).
     desc = strip_locale_list(desc)
     # 타임존 식별자 자리의 `seoul`도 같은 이유로 신호가 아니다 — 이름에도 붙으므로

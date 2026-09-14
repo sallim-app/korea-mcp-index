@@ -94,7 +94,12 @@ def summary(candidates: str = CANDIDATES, classification: str = CLASSIFICATION,
         cls = load_classification(classification)
     except OSError:
         return None
-    items = src.get("items") or []
+    # **`candidates.json`의 items가 곧 모집단은 아니다**(codex 교차검증 2026-09-15).
+    # 게시 이력을 이어받은 줄은 `drop`이어도 이름째로 실린다(`export_candidates.py` —
+    # 한 번 게시한 서버가 drop 통의 건수로만 남으면 또 조용히 사라지기 때문이다).
+    # 그 줄까지 여기서 세면 **"한국 관련성은 통과했는데 안 잰 것"에 주제 밖이라 판정된
+    # 줄이 섞여** 거짓 라벨이 되고 후보 총계도 부푼다. 통은 판정으로 가른다.
+    items = [i for i in (src.get("items") or []) if i.get("verdict") in ("keep", "review")]
     done = measured_names(measured)
     not_measured = sorted((i for i in items if i["name"] not in done),
                           key=lambda i: i["name"])

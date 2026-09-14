@@ -14,6 +14,7 @@
 import collections
 import json
 
+import carryover
 from observed import fix_repo_url
 
 
@@ -91,15 +92,23 @@ def main() -> int:
             i["repo_url"] = moved
             rewritten += 1
 
-    keep = [i for i in items if i["verdict"] in ("keep", "review")]
-    drops = collections.Counter(i["why"][:60] for i in items if i["verdict"] == "drop")
+    # **게시 이력으로 이어받은 줄은 drop이어도 이름째로 싣는다**(T-2026W38-309).
+    # drop 통을 사유별 건수로만 싣는 것은 3만 건을 간추리기 위한 타협인데, 한 번 게시한
+    # 서버가 그 통에 들어가면 독자 입장에서는 **또 조용히 사라진 것**이다. 이어받기가
+    # 막으려는 침묵이 바로 그것이라, 이 줄들만은 판정 사유를 붙여 예외로 남긴다.
+    keep = [i for i in items
+            if i["verdict"] in ("keep", "review") or i.get("carryover")]
+    drops = collections.Counter(i["why"][:60] for i in items
+                                if i["verdict"] == "drop" and not i.get("carryover"))
     out = {
-        "note": ("판정 원자료(간추림). keep·review는 판정 사유째로, drop은 사유별 건수만 싣는다. "
+        "note": ("판정 원자료(간추림). keep·review는 판정 사유째로, drop은 사유별 건수만 싣는다"
+                 "(단 게시 이력을 이어받은 줄은 drop이어도 이름째로 싣는다). "
                  "전체가 필요하면 collect_candidates.py부터 직접 돌려라 — 같은 입력이면 같은 결과다."),
         "buckets": d["buckets"], "boundaries": d.get("boundaries", []),
         "drop_reasons": [{"why": w, "n": n} for w, n in drops.most_common()],
         "items": [{k: i.get(k) for k in ("name", "repo_url", "verdict", "why", "categories",
-                                         "sources", "stars", "pushed", "kr_domains")} for i in keep],
+                                         "sources", "stars", "pushed", "kr_domains",
+                                         "carryover")} for i in keep],
     }
     json.dump(out, open("candidates.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 
@@ -149,6 +158,12 @@ def main() -> int:
             mfix += 1
     json.dump(m, open("measured.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 
+    # **게시한 그 자리에서 게시 이력을 적는다**(T-2026W38-309). 다른 곳에 적으면 언젠가
+    # 한쪽만 돌아 원장이 게시본보다 뒤처지고, 그때부터 이어받기는 조용히 덜 이어받는다.
+    ledger = carryover.load()
+    n_new = carryover.record(ledger, m)
+    carryover.save(ledger)
+
     # **공개 표를 여기서 다시 편다.** axes.csv는 measured.json의 함수인데, 문서화된 실행
     # 순서가 `recompute.py` → `export_candidates.py`라 이 병합이 axes.csv 뒤에 일어난다.
     # 합칠 것이 0건인 회차에는 그 어긋남이 안 보이고(8/31이 그랬다), 1건이라도 생기면
@@ -158,7 +173,9 @@ def main() -> int:
     _d, _items = recompute.rows()
     recompute.write_csv(_items)
 
-    print(f"candidates.json — keep+review {len(keep)}건 · drop 사유 {len(drops)}종 · 주소 교정 {rewritten}건")
+    print(f"published_history.json — 게시 이력 {len(ledger['items'])}건(신규 {n_new}건)")
+    print(f"candidates.json — keep+review+이어받기 {len(keep)}건 · "
+          f"drop 사유 {len(drops)}종 · 주소 교정 {rewritten}건")
     print(f"measured.json  — 주소 교정 {mfix}건 · 이번 런에서 합친 중복 {dropped}건 · "
           f"합쳐진 이름 누계 {n_merged}건 · 기록한 줄 {len(dedup)}건")
     return 0

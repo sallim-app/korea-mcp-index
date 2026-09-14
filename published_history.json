@@ -1,0 +1,4307 @@
+{
+ "note": "게시 이력 원장 — 우리가 한 번이라도 게시한 서버. 이후 회차의 수집 원천에 안 잡히면 후보로 이어받는다(carryover.py). 은퇴는 실측 근거가 있을 때만 적는다.",
+ "items": {
+  "2geonhyup/dart-mcp": {
+   "name": "2geonhyup/dart-mcp",
+   "repo_url": "https://github.com/2geonhyup/dart-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "AI-Dico/korea-law-mcp-public": {
+   "name": "AI-Dico/korea-law-mcp-public",
+   "repo_url": "https://github.com/AI-Dico/korea-law-mcp-public",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "AgentBridge-Lab/korea-space-support-mcp": {
+   "name": "AgentBridge-Lab/korea-space-support-mcp",
+   "repo_url": "https://github.com/AgentBridge-Lab/korea-space-support-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "Anna-Jeong-MS/mcp-opendart": {
+   "name": "Anna-Jeong-MS/mcp-opendart",
+   "repo_url": "https://github.com/Anna-Jeong-MS/mcp-opendart",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "Atrani-Labs/visitkorea-tour-mcp": {
+   "name": "Atrani-Labs/visitkorea-tour-mcp",
+   "repo_url": "https://github.com/Atrani-Labs/visitkorea-tour-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "BewitchSK/apartment-price-mcp": {
+   "name": "BewitchSK/apartment-price-mcp",
+   "repo_url": "https://github.com/BewitchSK/apartment-price-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "CNI-KaeSoon/public-rules-mcp": {
+   "name": "CNI-KaeSoon/public-rules-mcp",
+   "repo_url": "https://github.com/CNI-KaeSoon/public-rules-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "ChangooLee/mcp-kr-legislation": {
+   "name": "ChangooLee/mcp-kr-legislation",
+   "repo_url": "https://github.com/ChangooLee/mcp-kr-legislation",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "Choihello/startup-law-mcp": {
+   "name": "Choihello/startup-law-mcp",
+   "repo_url": "https://github.com/Choihello/startup-law-mcp",
+   "last_remote": "https://startup-law-mcp.fly.dev/mcp",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "DatagokrGit/data-go-kr-mcp": {
+   "name": "DatagokrGit/data-go-kr-mcp",
+   "repo_url": "https://github.com/DatagokrGit/data-go-kr-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "Dayoooun/korea-stats-mcp": {
+   "name": "Dayoooun/korea-stats-mcp",
+   "repo_url": "https://github.com/Dayoooun/korea-stats-mcp",
+   "last_remote": "https://korea-stats-mcp.vercel.app/mcp",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "DwvN-Lee/fAInancial-agent": {
+   "name": "DwvN-Lee/fAInancial-agent",
+   "repo_url": "https://github.com/DwvN-Lee/fAInancial-agent",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "Hoodess/naver-mail-mcp-basic": {
+   "name": "Hoodess/naver-mail-mcp-basic",
+   "repo_url": "https://github.com/Hoodess/naver-mail-mcp-basic",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "JIKIHY/kosha-mcp": {
+   "name": "JIKIHY/kosha-mcp",
+   "repo_url": "https://github.com/JIKIHY/kosha-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "JIN-Z-pop/korea-ets-mcp": {
+   "name": "JIN-Z-pop/korea-ets-mcp",
+   "repo_url": "https://github.com/JIN-Z-pop/korea-ets-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-08-24",
+   "rounds": 2,
+   "retired": null,
+   "renamed_to": null
+  },
+  "JTech-CO/kr-apartment-market-skill": {
+   "name": "JTech-CO/kr-apartment-market-skill",
+   "repo_url": "https://github.com/JTech-CO/kr-apartment-market-skill",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "Jaeminyx-Stoa/pydbsec": {
+   "name": "Jaeminyx-Stoa/pydbsec",
+   "repo_url": "https://github.com/Jaeminyx-Stoa/pydbsec",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "Johnhyeon/dartlens-mcp": {
+   "name": "Johnhyeon/dartlens-mcp",
+   "repo_url": "https://github.com/Johnhyeon/dartlens-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "JungHoonGhae/gongctl": {
+   "name": "JungHoonGhae/gongctl",
+   "repo_url": "https://github.com/JungHoonGhae/gongctl",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-03",
+   "rounds": 4,
+   "retired": null,
+   "renamed_to": null
+  },
+  "JungHoonGhae/k-vote-cli": {
+   "name": "JungHoonGhae/k-vote-cli",
+   "repo_url": "https://github.com/JungHoonGhae/k-vote-cli",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "Kinuk97/mcp-get-weather": {
+   "name": "Kinuk97/mcp-get-weather",
+   "repo_url": "https://github.com/Kinuk97/mcp-get-weather",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "Koomook/data-go-mcp-servers": {
+   "name": "Koomook/data-go-mcp-servers",
+   "repo_url": "https://github.com/Koomook/data-go-mcp-servers",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "MarcoYou/open-proxy-mcp": {
+   "name": "MarcoYou/open-proxy-mcp",
+   "repo_url": "https://github.com/MarcoYou/open-proxy-mcp",
+   "last_remote": "https://open-proxy-mcp.fly.dev/mcp",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "MosslandOpenDevs/alpha": {
+   "name": "MosslandOpenDevs/alpha",
+   "repo_url": "https://github.com/MosslandOpenDevs/alpha",
+   "last_remote": "https://alpha.moss.land/api/mcp",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "Mrbaeksang/korea-stock-analyzer-mcp": {
+   "name": "Mrbaeksang/korea-stock-analyzer-mcp",
+   "repo_url": "https://github.com/Mrbaeksang/korea-stock-analyzer-mcp",
+   "last_remote": "https://korea-stock-analyzer-mcp-production.up.railway.app/mcp",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "N0WST4NDUP/openlaw-mcp-server": {
+   "name": "N0WST4NDUP/openlaw-mcp-server",
+   "repo_url": "https://github.com/N0WST4NDUP/openlaw-mcp-server",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "NSLC7779/dk-korea-health-mcp": {
+   "name": "NSLC7779/dk-korea-health-mcp",
+   "repo_url": "https://github.com/NSLC7779/dk-korea-health-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "Nicegomting/PyGenAI": {
+   "name": "Nicegomting/PyGenAI",
+   "repo_url": "https://github.com/Nicegomting/PyGenAI",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "NotNull92/korea-unipass-mcp": {
+   "name": "NotNull92/korea-unipass-mcp",
+   "repo_url": "https://github.com/NotNull92/korea-unipass-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "OldTemple91/korea-filings-api": {
+   "name": "OldTemple91/korea-filings-api",
+   "repo_url": "https://github.com/OldTemple91/korea-filings-api",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "OneVth/danbooru-tag-rag-mcp": {
+   "name": "OneVth/danbooru-tag-rag-mcp",
+   "repo_url": "https://github.com/OneVth/danbooru-tag-rag-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "Park3min/yr-weather-mcp": {
+   "name": "Park3min/yr-weather-mcp",
+   "repo_url": "https://github.com/Park3min/yr-weather-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "RealYoungk/opendart_mcp": {
+   "name": "RealYoungk/opendart_mcp",
+   "repo_url": "https://github.com/RealYoungk/opendart_mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "Sedong-Choi/jangbogo-mcp": {
+   "name": "Sedong-Choi/jangbogo-mcp",
+   "repo_url": "https://github.com/Sedong-Choi/jangbogo-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "Sedong-Choi/kakao-mcp": {
+   "name": "Sedong-Choi/kakao-mcp",
+   "repo_url": "https://github.com/Sedong-Choi/kakao-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "SeoNaRu/lexguard-mcp": {
+   "name": "SeoNaRu/lexguard-mcp",
+   "repo_url": "https://github.com/SeoNaRu/lexguard-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "Seonh0/naver-land-mcp": {
+   "name": "Seonh0/naver-land-mcp",
+   "repo_url": "https://github.com/Seonh0/naver-land-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "SinGonKim/korean-med-mcp": {
+   "name": "SinGonKim/korean-med-mcp",
+   "repo_url": "https://github.com/SinGonKim/korean-med-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "TanTenTin/kakao-docs-mcp": {
+   "name": "TanTenTin/kakao-docs-mcp",
+   "repo_url": "https://github.com/TanTenTin/kakao-docs-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "TheNaham/koreafood-mcp": {
+   "name": "TheNaham/koreafood-mcp",
+   "repo_url": "https://github.com/TheNaham/koreafood-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-07",
+   "rounds": 5,
+   "retired": null,
+   "renamed_to": null
+  },
+  "aesthetic-legalism5470/korean-dart-mcp": {
+   "name": "aesthetic-legalism5470/korean-dart-mcp",
+   "repo_url": "https://github.com/aesthetic-legalism5470/korean-dart-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "agent504330-ux/mcp-korean-stock": {
+   "name": "agent504330-ux/mcp-korean-stock",
+   "repo_url": "https://github.com/agent504330-ux/mcp-korean-stock",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "ai.atdev/supershopping": {
+   "name": "ai.atdev/supershopping",
+   "repo_url": "https://github.com/alex-hoyeol-choi/headless-commerce",
+   "last_remote": "https://supershopping-mcp.atdev.ai/mcp",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "ai.smithery/alphago2580-naramarketmcp": {
+   "name": "ai.smithery/alphago2580-naramarketmcp",
+   "repo_url": "https://github.com/alphago2580/naramarketmcp",
+   "last_remote": "https://server.smithery.ai/@alphago2580/naramarketmcp/mcp",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "ai.smithery/hjsh200219-pharminfo-mcp": {
+   "name": "ai.smithery/hjsh200219-pharminfo-mcp",
+   "repo_url": "https://github.com/hjsh200219/pharminfo-mcp",
+   "last_remote": "https://server.smithery.ai/@hjsh200219/pharminfo-mcp/mcp",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "ai.smithery/isnow890-data4library-mcp": {
+   "name": "ai.smithery/isnow890-data4library-mcp",
+   "repo_url": "https://github.com/isnow890/data4library-mcp",
+   "last_remote": "https://server.smithery.ai/@isnow890/data4library-mcp/mcp",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "ai.smithery/jjlabsio-korea-stock-mcp": {
+   "name": "ai.smithery/jjlabsio-korea-stock-mcp",
+   "repo_url": "https://github.com/jjlabsio/korea-stock-mcp",
+   "last_remote": "https://server.smithery.ai/@jjlabsio/korea-stock-mcp/mcp",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "ai.timeplex/booking": {
+   "name": "ai.timeplex/booking",
+   "repo_url": "",
+   "last_remote": "https://chat.timeplex.ai/mcp",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "alice840126-ship-it/korean-law-mcp-setup": {
+   "name": "alice840126-ship-it/korean-law-mcp-setup",
+   "repo_url": "https://github.com/alice840126-ship-it/korean-law-mcp-setup",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "alphago2580/naver_searchad_mcp": {
+   "name": "alphago2580/naver_searchad_mcp",
+   "repo_url": "https://github.com/alphago2580/naver_searchad_mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "anboyu-alt/dart-risk-mcp": {
+   "name": "anboyu-alt/dart-risk-mcp",
+   "repo_url": "https://github.com/anboyu-alt/dart-risk-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "app.apick/all": {
+   "name": "app.apick/all",
+   "repo_url": "https://github.com/lead788/apick-mcp",
+   "last_remote": "https://apick.app/mcp/all",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "app.apick/business": {
+   "name": "app.apick/business",
+   "repo_url": "https://github.com/lead788/apick-mcp",
+   "last_remote": "https://apick.app/mcp/business",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "app.apick/finance": {
+   "name": "app.apick/finance",
+   "repo_url": "https://github.com/lead788/apick-mcp",
+   "last_remote": "https://apick.app/mcp/finance",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "app.sallim/contract-compass": {
+   "name": "app.sallim/contract-compass",
+   "repo_url": "https://github.com/sallim-app/contract-compass",
+   "last_remote": "https://contract.sallim.app/mcp?via=official",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "app.sallim/korea-realty": {
+   "name": "app.sallim/korea-realty",
+   "repo_url": "https://github.com/sallim-app/korea-realty",
+   "last_remote": "https://realty.sallim.app/mcp?via=official",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "app.wishpool/korea-invoice-mcp": {
+   "name": "app.wishpool/korea-invoice-mcp",
+   "repo_url": "https://github.com/junter1989k-ai/korea-invoice-mcp",
+   "last_remote": "https://inv-kr.wishpool.app/mcp",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "bb4rjfl/weathersafetyos-mcp": {
+   "name": "bb4rjfl/weathersafetyos-mcp",
+   "repo_url": "https://github.com/bb4rjfl/weathersafetyos-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "bong-u/mcp-server-kakao-map": {
+   "name": "bong-u/mcp-server-kakao-map",
+   "repo_url": "https://github.com/bong-u/mcp-server-kakao-map",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "bootpay/bootpay-mcp": {
+   "name": "bootpay/bootpay-mcp",
+   "repo_url": "https://github.com/bootpay/bootpay-mcp",
+   "last_remote": "https://bootpay-docs-mcp.rupy1014.workers.dev/mcp",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "burlesquer/coupang-mcp": {
+   "name": "burlesquer/coupang-mcp",
+   "repo_url": "https://github.com/burlesquer/coupang-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "byungjunjang/litigation-writer": {
+   "name": "byungjunjang/litigation-writer",
+   "repo_url": "https://github.com/byungjunjang/litigation-writer",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "capitalparser/kreports-dart-mcp": {
+   "name": "capitalparser/kreports-dart-mcp",
+   "repo_url": "https://github.com/capitalparser/kreports-dart-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "capitalparser/public-data-opportunity-mcp": {
+   "name": "capitalparser/public-data-opportunity-mcp",
+   "repo_url": "https://github.com/capitalparser/public-data-opportunity-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "cdsassj00/korean-law-ai-chatbot": {
+   "name": "cdsassj00/korean-law-ai-chatbot",
+   "repo_url": "https://github.com/cdsassj00/korean-law-ai-chatbot",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "choihyeokbin/kakao-real-estate-mcp": {
+   "name": "choihyeokbin/kakao-real-estate-mcp",
+   "repo_url": "https://github.com/choihyeokbin/kakao-real-estate-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-03",
+   "rounds": 4,
+   "retired": null,
+   "renamed_to": null
+  },
+  "chrisryugj/archhub-mcp": {
+   "name": "chrisryugj/archhub-mcp",
+   "repo_url": "https://github.com/chrisryugj/archhub-mcp",
+   "last_remote": "https://archhub-mcp.fly.dev/mcp",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "chrisryugj/korean-dart-mcp": {
+   "name": "chrisryugj/korean-dart-mcp",
+   "repo_url": "https://github.com/chrisryugj/korean-dart-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "chrisryugj/korean-law-mcp": {
+   "name": "chrisryugj/korean-law-mcp",
+   "repo_url": "https://github.com/chrisryugj/korean-law-mcp",
+   "last_remote": "https://korean-law-mcp.fly.dev/mcp",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "chrisryugj/korean-patent-mcp": {
+   "name": "chrisryugj/korean-patent-mcp",
+   "repo_url": "https://github.com/chrisryugj/korean-patent-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "chrisryugj/schoolinfo-mcp": {
+   "name": "chrisryugj/schoolinfo-mcp",
+   "repo_url": "https://github.com/chrisryugj/schoolinfo-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "civilian7/korean-people-persona": {
+   "name": "civilian7/korean-people-persona",
+   "repo_url": "https://github.com/civilian7/korean-people-persona",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "com.aikstockdata/mcp": {
+   "name": "com.aikstockdata/mcp",
+   "repo_url": "https://github.com/na77tech-creator/aikstockdata",
+   "last_remote": "https://mcp.aikstockdata.com/mcp",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "com.airblockfz/seoul-apt-signal": {
+   "name": "com.airblockfz/seoul-apt-signal",
+   "repo_url": "",
+   "last_remote": "https://seoul-apt-signal.airblock2026.workers.dev/mcp",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "com.arcasos/arcasos-rentals": {
+   "name": "com.arcasos/arcasos-rentals",
+   "repo_url": "",
+   "last_remote": "https://mcp.arcasos.com",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "com.beauticslab/mcp": {
+   "name": "com.beauticslab/mcp",
+   "repo_url": "https://github.com/websfactory/beauticslab-mcp",
+   "last_remote": "https://mcp.beauticslab.com/mcp",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "com.boltena/erp": {
+   "name": "com.boltena/erp",
+   "repo_url": "",
+   "last_remote": "https://app.boltena.com/api/ext/mcp",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "com.empresskorea/kbeauty-agent-commons": {
+   "name": "com.empresskorea/kbeauty-agent-commons",
+   "repo_url": "",
+   "last_remote": "https://empresskorea.com/kb-agent-network/mcp",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "com.goldpopcon/openapi-mcp": {
+   "name": "com.goldpopcon/openapi-mcp",
+   "repo_url": "https://github.com/keumbang/goldpopcon-openapi-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "com.hankookilbo.mcp/hankookilbo-mcp": {
+   "name": "com.hankookilbo.mcp/hankookilbo-mcp",
+   "repo_url": "https://github.com/hkilbo/hankookilbo-mcp",
+   "last_remote": "https://mcp.hankookilbo.com/mcp",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "com.saaskr/korean-saas-directory": {
+   "name": "com.saaskr/korean-saas-directory",
+   "repo_url": "",
+   "last_remote": "https://saaskr.com/api/mcp",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "com.theprotoclinical/commerce": {
+   "name": "com.theprotoclinical/commerce",
+   "repo_url": "",
+   "last_remote": "https://www.theprotoclinical.com/api/ucp/mcp",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "constant94-dev/public-data-mcp-server": {
+   "name": "constant94-dev/public-data-mcp-server",
+   "repo_url": "https://github.com/constant94-dev/public-data-mcp-server",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "daehyub71/smart-korean-legal-platform": {
+   "name": "daehyub71/smart-korean-legal-platform",
+   "repo_url": "https://github.com/daehyub71/smart-korean-legal-platform",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "dartpointai/dartpoint-mcp": {
+   "name": "dartpointai/dartpoint-mcp",
+   "repo_url": "https://github.com/dartpointai/dartpoint-mcp",
+   "last_remote": "https://dartpoint.ai/mcp-sse/mcp/",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "dikehomme/kr-law-mcp": {
+   "name": "dikehomme/kr-law-mcp",
+   "repo_url": "https://github.com/dikehomme/kr-law-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "dolseom/gongsi-mcp": {
+   "name": "dolseom/gongsi-mcp",
+   "repo_url": "https://github.com/dolseom/gongsi-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "dongkyucho17/krx-etf-mcp": {
+   "name": "dongkyucho17/krx-etf-mcp",
+   "repo_url": "https://github.com/dongkyucho17/krx-etf-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "eastminnn/stock-mate-mcp": {
+   "name": "eastminnn/stock-mate-mcp",
+   "repo_url": "https://github.com/eastminnn/stock-mate-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "eddmpython/dartlab": {
+   "name": "eddmpython/dartlab",
+   "repo_url": "https://github.com/eddmpython/dartlab",
+   "last_remote": "https://eddmpython-dartlab.hf.space/mcp/sse",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "eu.ansvar/south-korea-law-mcp": {
+   "name": "eu.ansvar/south-korea-law-mcp",
+   "repo_url": "https://github.com/Ansvar-Systems/south-korea-law-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "farmbit-mdk/korea-market-data-mcp": {
+   "name": "farmbit-mdk/korea-market-data-mcp",
+   "repo_url": "https://github.com/farmbit-mdk/korea-market-data-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "fieldcure/fieldcure-mcp-publicdata": {
+   "name": "fieldcure/fieldcure-mcp-publicdata",
+   "repo_url": "https://github.com/fieldcure/fieldcure-mcp-publicdata",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-08-24",
+   "rounds": 2,
+   "retired": null,
+   "renamed_to": null
+  },
+  "finalchild/law-mcp": {
+   "name": "finalchild/law-mcp",
+   "repo_url": "https://github.com/finalchild/law-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "flytothesky23/obsidian-korean-dart-codex": {
+   "name": "flytothesky23/obsidian-korean-dart-codex",
+   "repo_url": "https://github.com/flytothesky23/obsidian-korean-dart-codex",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "geonwoo-jeong/japanese-law-mcp": {
+   "name": "geonwoo-jeong/japanese-law-mcp",
+   "repo_url": "https://github.com/geonwoo-jeong/japanese-law-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "ghga20-ui/eval-bank": {
+   "name": "ghga20-ui/eval-bank",
+   "repo_url": "https://github.com/ghga20-ui/eval-bank",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "giovinazo/alio-mcp": {
+   "name": "giovinazo/alio-mcp",
+   "repo_url": "https://github.com/giovinazo/alio-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "giovinazo/ic-dev-advisor": {
+   "name": "giovinazo/ic-dev-advisor",
+   "repo_url": "https://github.com/giovinazo/ic-dev-advisor",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "guinnessNet/maipharm-domae-mcp": {
+   "name": "guinnessNet/maipharm-domae-mcp",
+   "repo_url": "https://github.com/guinnessNet/maipharm-domae-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "gws8820/shippingtracker": {
+   "name": "gws8820/shippingtracker",
+   "repo_url": "https://github.com/gws8820/shippingtracker",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "haklaekim/public-data-lens": {
+   "name": "haklaekim/public-data-lens",
+   "repo_url": "https://github.com/haklaekim/public-data-lens",
+   "last_remote": "https://service.datahub.kr/projects/public-data-lens/mcp",
+   "first_published": "2026-08-19",
+   "last_published": "2026-08-19",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "herrozim-ship-it/yureong": {
+   "name": "herrozim-ship-it/yureong",
+   "repo_url": "https://github.com/herrozim-ship-it/yureong",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "hike-lab/public-data-lens": {
+   "name": "hike-lab/public-data-lens",
+   "repo_url": "https://github.com/hike-lab/public-data-lens",
+   "last_remote": "https://service.datahub.kr/projects/public-data-lens/mcp",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "hjsh200219/korea-public-data-mcp": {
+   "name": "hjsh200219/korea-public-data-mcp",
+   "repo_url": "https://github.com/hjsh200219/korea-public-data-mcp",
+   "last_remote": "https://public-data.up.railway.app/mcp",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "hlucent/realestate-stats-mcp": {
+   "name": "hlucent/realestate-stats-mcp",
+   "repo_url": "https://github.com/hlucent/realestate-stats-mcp",
+   "last_remote": "https://realestate-stats-mcp.fly.dev/mcp",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "hmmhmmhm/daiso-mcp": {
+   "name": "hmmhmmhm/daiso-mcp",
+   "repo_url": "https://github.com/hmmhmmhm/daiso-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "hwain-hwang/Real-Estate-Location-Analyzer_MCP": {
+   "name": "hwain-hwang/Real-Estate-Location-Analyzer_MCP",
+   "repo_url": "https://github.com/hwain-hwang/Real-Estate-Location-Analyzer_MCP",
+   "last_remote": "https://immortal0900-real-estate-location-analyzer-mcp.hf.space/gradio_api/mcp/sse",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-07",
+   "rounds": 5,
+   "retired": null,
+   "renamed_to": null
+  },
+  "hypn4/opendart-fss-mcp": {
+   "name": "hypn4/opendart-fss-mcp",
+   "repo_url": "https://github.com/hypn4/opendart-fss-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "iiacjay/dart-briefing-mcp": {
+   "name": "iiacjay/dart-briefing-mcp",
+   "repo_url": "https://github.com/iiacjay/dart-briefing-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "insung8150/AgentWebSearch-MCP": {
+   "name": "insung8150/AgentWebSearch-MCP",
+   "repo_url": "https://github.com/insung8150/AgentWebSearch-MCP",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.aidc-ai/design-engine": {
+   "name": "io.aidc-ai/design-engine",
+   "repo_url": "",
+   "last_remote": "https://aidc-ai.io/api/mcp",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.DeepSearch-Common/korean-stocks": {
+   "name": "io.github.DeepSearch-Common/korean-stocks",
+   "repo_url": "https://github.com/deepsearch-hq/deepsearch-x402.git",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.LJaysk/kr-dart-events": {
+   "name": "io.github.LJaysk/kr-dart-events",
+   "repo_url": "https://github.com/LJaysk/kr-dart-events",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.PJW2004/job-search": {
+   "name": "io.github.PJW2004/job-search",
+   "repo_url": "https://github.com/PJW2004/career-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.SongT-50/korean-agriculture-mcp": {
+   "name": "io.github.SongT-50/korean-agriculture-mcp",
+   "repo_url": "https://github.com/SongT-50/korean-agriculture-mcp",
+   "last_remote": "https://korean-agriculture-mcp.onrender.com/mcp",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.SongT-50/korean-public-data-mcp": {
+   "name": "io.github.SongT-50/korean-public-data-mcp",
+   "repo_url": "https://github.com/SongT-50/korean-public-data-mcp",
+   "last_remote": "https://korean-public-data-mcp.onrender.com/mcp",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.SongT-50/korean-stock-mcp": {
+   "name": "io.github.SongT-50/korean-stock-mcp",
+   "repo_url": "https://github.com/SongT-50/korean-stock-mcp",
+   "last_remote": "https://korean-stock-mcp.onrender.com/mcp",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.a-mashiro-art/jp-data": {
+   "name": "io.github.a-mashiro-art/jp-data",
+   "repo_url": "",
+   "last_remote": "https://jp-data-api-production.up.railway.app/mcp",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.accentist/buyking-mcp": {
+   "name": "io.github.accentist/buyking-mcp",
+   "repo_url": "https://github.com/accentist/buyking-mcp",
+   "last_remote": "https://buyking.saleplaza.com/.well-known/mcp",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.aidc2026ai-melon/aidc-mcp-server": {
+   "name": "io.github.aidc2026ai-melon/aidc-mcp-server",
+   "repo_url": "https://github.com/aidc2026ai-melon/aidc-ai-io",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-08-24",
+   "rounds": 2,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.bakyang2/kr-crypto-intelligence": {
+   "name": "io.github.bakyang2/kr-crypto-intelligence",
+   "repo_url": "https://github.com/bakyang2/kr-crypto-intelligence",
+   "last_remote": "https://mcp.printmoneylab.com/mcp",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 3,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.choiyounggi/korea-data-mcp": {
+   "name": "io.github.choiyounggi/korea-data-mcp",
+   "repo_url": "https://github.com/choiyounggi/korea-data-suite",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "java-jaydev/kiwoom-mcp": {
+   "name": "java-jaydev/kiwoom-mcp",
+   "repo_url": "https://github.com/java-jaydev/kiwoom-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "java-jaydev/toss-invest-mcp": {
+   "name": "java-jaydev/toss-invest-mcp",
+   "repo_url": "https://github.com/java-jaydev/toss-invest-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "jayjodev/vivory-mcp": {
+   "name": "jayjodev/vivory-mcp",
+   "repo_url": "https://github.com/jayjodev/vivory-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-08-24",
+   "rounds": 2,
+   "retired": null,
+   "renamed_to": null
+  },
+  "jaykim429/korea-statistic-MCP-cginside": {
+   "name": "jaykim429/korea-statistic-MCP-cginside",
+   "repo_url": "https://github.com/jaykim429/korea-statistic-MCP-cginside",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "jcyeom/pubdata-insight-mcp": {
+   "name": "jcyeom/pubdata-insight-mcp",
+   "repo_url": "https://github.com/jcyeom/pubdata-insight-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "jennifer76cha/nemc-law-search": {
+   "name": "jennifer76cha/nemc-law-search",
+   "repo_url": "https://github.com/jennifer76cha/nemc-law-search",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "jeonghwanko/coffee-price-mcp": {
+   "name": "jeonghwanko/coffee-price-mcp",
+   "repo_url": "https://github.com/jeonghwanko/coffee-price-mcp",
+   "last_remote": "https://coffee.pryzm.gg/coffee/mcp",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "jeongmk522-netizen/smishing-stop-mcp": {
+   "name": "jeongmk522-netizen/smishing-stop-mcp",
+   "repo_url": "https://github.com/jeongmk522-netizen/smishing-stop-mcp",
+   "last_remote": "https://playmcp.kakao.com/mcp",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "jeonjeon12/jeonse-ansim-mcp": {
+   "name": "jeonjeon12/jeonse-ansim-mcp",
+   "repo_url": "https://github.com/jeonjeon12/jeonse-ansim-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "jhchoi-ptech/data-go-kr-mcp": {
+   "name": "jhchoi-ptech/data-go-kr-mcp",
+   "repo_url": "https://github.com/jhchoi-ptech/data-go-kr-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "jinmyungjong/korean-law-mcp": {
+   "name": "jinmyungjong/korean-law-mcp",
+   "repo_url": "https://github.com/jinmyungjong/korean-law-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "jinny-han/data.go.kr-water-api-mcp": {
+   "name": "jinny-han/data.go.kr-water-api-mcp",
+   "repo_url": "https://github.com/jinny-han/data.go.kr-water-api-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "jkf87/weather-mcp": {
+   "name": "jkf87/weather-mcp",
+   "repo_url": "https://github.com/jkf87/weather-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "josanku/wehome-insight": {
+   "name": "josanku/wehome-insight",
+   "repo_url": "https://github.com/josanku/wehome-insight",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-07",
+   "rounds": 5,
+   "retired": null,
+   "renamed_to": null
+  },
+  "jshsakura/oc-korea-weather-time-mcp": {
+   "name": "jshsakura/oc-korea-weather-time-mcp",
+   "repo_url": "https://github.com/jshsakura/oc-korea-weather-time-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "juhyunchoi-mech/korean-law-mcp": {
+   "name": "juhyunchoi-mech/korean-law-mcp",
+   "repo_url": "https://github.com/juhyunchoi-mech/korean-law-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "junghan0611/zotero-config": {
+   "name": "junghan0611/zotero-config",
+   "repo_url": "https://github.com/junghan0611/zotero-config",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "justcoding-ys/mcp-opendart": {
+   "name": "justcoding-ys/mcp-opendart",
+   "repo_url": "https://github.com/justcoding-ys/mcp-opendart",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "jwgo/lemory": {
+   "name": "jwgo/lemory",
+   "repo_url": "https://github.com/jwgo/lemory",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "k08200/korea-mcp-suite": {
+   "name": "k08200/korea-mcp-suite",
+   "repo_url": "https://github.com/k08200/korea-mcp-suite",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "k821209/smartfarm-mcp": {
+   "name": "k821209/smartfarm-mcp",
+   "repo_url": "https://github.com/k821209/smartfarm-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "kang-aco/korean-law": {
+   "name": "kang-aco/korean-law",
+   "repo_url": "https://github.com/chrisryugj/korean-law-mcp",
+   "last_remote": "https://korean-law-mcp.fly.dev/mcp",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "keonho-kim/OpenDart-mcp": {
+   "name": "keonho-kim/OpenDart-mcp",
+   "repo_url": "https://github.com/keonho-kim/OpenDart-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "kim-go-chon/dart-notes-mcp": {
+   "name": "kim-go-chon/dart-notes-mcp",
+   "repo_url": "https://github.com/kim-go-chon/dart-notes-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "kimduksoo/naver-land-mcp": {
+   "name": "kimduksoo/naver-land-mcp",
+   "repo_url": "https://github.com/kimduksoo/naver-land-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "kimju1416/naver-land-mcp": {
+   "name": "kimju1416/naver-land-mcp",
+   "repo_url": "https://github.com/kimju1416/naver-land-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "kimju1416/realestate-mcp": {
+   "name": "kimju1416/realestate-mcp",
+   "repo_url": "https://github.com/kimju1416/realestate-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "kimlawtech/korean-certified-mail": {
+   "name": "kimlawtech/korean-certified-mail",
+   "repo_url": "https://github.com/kimlawtech/korean-certified-mail",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "kimlawtech/korean-contracts": {
+   "name": "kimlawtech/korean-contracts",
+   "repo_url": "https://github.com/kimlawtech/korean-contracts",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "kknas1/consumer-dispute-mcp": {
+   "name": "kknas1/consumer-dispute-mcp",
+   "repo_url": "https://github.com/kknas1/consumer-dispute-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "kmgvv23/stock-data-mcp": {
+   "name": "kmgvv23/stock-data-mcp",
+   "repo_url": "https://github.com/kmgvv23/stock-data-mcp",
+   "last_remote": "https://stock-data-mcp-production.up.railway.app/mcp",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "kokogo100/ragalgo-mcp-server": {
+   "name": "kokogo100/ragalgo-mcp-server",
+   "repo_url": "https://github.com/kokogo100/ragalgo-mcp-server",
+   "last_remote": "https://ragalgo-service-production.up.railway.app/sse",
+   "first_published": "2026-08-19",
+   "last_published": "2026-08-24",
+   "rounds": 2,
+   "retired": null,
+   "renamed_to": null
+  },
+  "koy4648/McpServer": {
+   "name": "koy4648/McpServer",
+   "repo_url": "https://github.com/koy4648/McpServer",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "kyo504/krx-cli": {
+   "name": "kyo504/krx-cli",
+   "repo_url": "https://github.com/kyo504/krx-cli",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "la1av1a/hospital-fee-mcp": {
+   "name": "la1av1a/hospital-fee-mcp",
+   "repo_url": "https://github.com/la1av1a/hospital-fee-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "lapiogga/caseLaw": {
+   "name": "lapiogga/caseLaw",
+   "repo_url": "https://github.com/lapiogga/caseLaw",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "leadbrain/korean-data-mcp": {
+   "name": "leadbrain/korean-data-mcp",
+   "repo_url": "https://github.com/leadbrain/korean-data-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-07",
+   "rounds": 5,
+   "retired": null,
+   "renamed_to": null
+  },
+  "leejaew/visitkorea-medicaltourism-mcp": {
+   "name": "leejaew/visitkorea-medicaltourism-mcp",
+   "repo_url": "https://github.com/leejaew/visitkorea-medicaltourism-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "legalize-kr/agent-skills": {
+   "name": "legalize-kr/agent-skills",
+   "repo_url": "https://github.com/legalize-kr/agent-skills",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "legalize-kr/cli-tools": {
+   "name": "legalize-kr/cli-tools",
+   "repo_url": "https://github.com/legalize-kr/cli-tools",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "leokim90/gov-data-mcp": {
+   "name": "leokim90/gov-data-mcp",
+   "repo_url": "https://github.com/leokim90/gov-data-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "lesstif/Rovo-forge-law-mcp-app": {
+   "name": "lesstif/Rovo-forge-law-mcp-app",
+   "repo_url": "https://github.com/lesstif/Rovo-forge-law-mcp-app",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "lovelyquality/korail-mcp": {
+   "name": "lovelyquality/korail-mcp",
+   "repo_url": "https://github.com/lovelyquality/korail-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-08-24",
+   "rounds": 2,
+   "retired": null,
+   "renamed_to": null
+  },
+  "lucidwatper/Kosis-mcp": {
+   "name": "lucidwatper/Kosis-mcp",
+   "repo_url": "https://github.com/lucidwatper/Kosis-mcp",
+   "last_remote": "https://kosis-mcp-70b9.onrender.com/mcp",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "millet04/krx-stock-mcp": {
+   "name": "millet04/krx-stock-mcp",
+   "repo_url": "https://github.com/millet04/krx-stock-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "mindm1ner/gyogwon-mcp": {
+   "name": "mindm1ner/gyogwon-mcp",
+   "repo_url": "https://github.com/mindm1ner/gyogwon-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "mkkim2102/finance-mcp-server-ko": {
+   "name": "mkkim2102/finance-mcp-server-ko",
+   "repo_url": "https://github.com/mkkim2102/finance-mcp-server-ko",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "moby-11c/opendart_mcp": {
+   "name": "moby-11c/opendart_mcp",
+   "repo_url": "https://github.com/moby-11c/opendart_mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "molpass/mcp-weather": {
+   "name": "molpass/mcp-weather",
+   "repo_url": "https://github.com/molpass/mcp-weather",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "nagyeop/kosis_mcp": {
+   "name": "nagyeop/kosis_mcp",
+   "repo_url": "https://github.com/nagyeop/kosis_mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "nds12345-ko/sgis-mcp": {
+   "name": "nds12345-ko/sgis-mcp",
+   "repo_url": "https://github.com/nds12345-ko/sgis-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "nerin81-netizen/arxiv-daily-mcp": {
+   "name": "nerin81-netizen/arxiv-daily-mcp",
+   "repo_url": "https://github.com/nerin81-netizen/arxiv-daily-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "ngwoon/korea-realestate-mcp": {
+   "name": "ngwoon/korea-realestate-mcp",
+   "repo_url": "https://github.com/ngwoon/korea-realestate-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "nine-hundred/naramarket-mcp": {
+   "name": "nine-hundred/naramarket-mcp",
+   "repo_url": "https://github.com/nine-hundred/naramarket-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "nodeul99-dev/dart_basic_mcp": {
+   "name": "nodeul99-dev/dart_basic_mcp",
+   "repo_url": "https://github.com/nodeul99-dev/dart_basic_mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "nokelan/KoreanLawMCP": {
+   "name": "nokelan/KoreanLawMCP",
+   "repo_url": "https://github.com/nokelan/KoreanLawMCP",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "nokelan/health-fee-mcp": {
+   "name": "nokelan/health-fee-mcp",
+   "repo_url": "https://github.com/nokelan/health-fee-mcp",
+   "last_remote": "https://health.autotaxsystem.co.kr/mcp",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "ntriq/lawink-mcp": {
+   "name": "ntriq/lawink-mcp",
+   "repo_url": "https://github.com/ntriq/lawink-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "nuri428/mcp_kipris": {
+   "name": "nuri428/mcp_kipris",
+   "repo_url": "https://github.com/nuri428/mcp_kipris",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "obundh/korea-public-data-catalog-mcp": {
+   "name": "obundh/korea-public-data-catalog-mcp",
+   "repo_url": "https://github.com/obundh/korea-public-data-catalog-mcp",
+   "last_remote": "https://korea-public-data-catalog-mcp-production.up.railway.app/mcp",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "ohhan777/korea_weather": {
+   "name": "ohhan777/korea_weather",
+   "repo_url": "https://github.com/ohhan777/korea_weather",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "okdoittttt/ko-stock-mcp": {
+   "name": "okdoittttt/ko-stock-mcp",
+   "repo_url": "https://github.com/okdoittttt/ko-stock-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "open-play-ground/datago-mcp": {
+   "name": "open-play-ground/datago-mcp",
+   "repo_url": "https://github.com/open-play-ground/datago-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "opendata-kr/core": {
+   "name": "opendata-kr/core",
+   "repo_url": "https://github.com/opendata-kr/core",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "opendata-kr/narajangteo-bid-mcp": {
+   "name": "opendata-kr/narajangteo-bid-mcp",
+   "repo_url": "https://github.com/opendata-kr/narajangteo-bid-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-08-24",
+   "rounds": 2,
+   "retired": null,
+   "renamed_to": null
+  },
+  "opendata-kr/narajangteo-corpinfo-mcp": {
+   "name": "opendata-kr/narajangteo-corpinfo-mcp",
+   "repo_url": "https://github.com/opendata-kr/narajangteo-corpinfo-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-08-24",
+   "rounds": 2,
+   "retired": null,
+   "renamed_to": null
+  },
+  "opendata-kr/narajangteo-opening-mcp": {
+   "name": "opendata-kr/narajangteo-opening-mcp",
+   "repo_url": "https://github.com/opendata-kr/narajangteo-opening-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-08-24",
+   "rounds": 2,
+   "retired": null,
+   "renamed_to": null
+  },
+  "opendata-kr/narajangteo-prespec-mcp": {
+   "name": "opendata-kr/narajangteo-prespec-mcp",
+   "repo_url": "https://github.com/opendata-kr/narajangteo-prespec-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-08-24",
+   "rounds": 2,
+   "retired": null,
+   "renamed_to": null
+  },
+  "openpharma-org/asia-filings-mcp-server": {
+   "name": "openpharma-org/asia-filings-mcp-server",
+   "repo_url": "https://github.com/openpharma-org/asia-filings-mcp-server",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "pinnaclesoft-ko/be-node-seoul-data-mcp": {
+   "name": "pinnaclesoft-ko/be-node-seoul-data-mcp",
+   "repo_url": "https://github.com/pinnaclesoft-ko/be-node-seoul-data-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "procpalee/OpenDART-MCP-Server": {
+   "name": "procpalee/OpenDART-MCP-Server",
+   "repo_url": "https://github.com/procpalee/OpenDART-MCP-Server",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "ratelworks/agent-quality-oss": {
+   "name": "ratelworks/agent-quality-oss",
+   "repo_url": "https://github.com/ratelworks/agent-quality-oss",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "redoxnet/mcp-lsopenapi": {
+   "name": "redoxnet/mcp-lsopenapi",
+   "repo_url": "https://github.com/redoxnet/mcp-lsopenapi",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-08-24",
+   "rounds": 2,
+   "retired": null,
+   "renamed_to": null
+  },
+  "sallim-app/contract-compass": {
+   "name": "sallim-app/contract-compass",
+   "repo_url": "https://github.com/sallim-app/contract-compass",
+   "last_remote": "https://contract.sallim.app/mcp",
+   "first_published": "2026-08-19",
+   "last_published": "2026-08-24",
+   "rounds": 2,
+   "retired": null,
+   "renamed_to": null
+  },
+  "scvcoder/korean-law-alio-mcp": {
+   "name": "scvcoder/korean-law-alio-mcp",
+   "repo_url": "https://github.com/scvcoder/korean-law-alio-mcp",
+   "last_remote": "https://korean-law-alio-mcp.fly.dev/mcp",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "seo-jinseok/korean-law-mcp": {
+   "name": "seo-jinseok/korean-law-mcp",
+   "repo_url": "https://github.com/seo-jinseok/korean-law-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "seolcoding/korean-stat-mcp": {
+   "name": "seolcoding/korean-stat-mcp",
+   "repo_url": "https://github.com/seolcoding/korean-stat-mcp",
+   "last_remote": "https://korean-stat-mcp.seolcoding.com/mcp",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "shwi-project/stocklens-mcp": {
+   "name": "shwi-project/stocklens-mcp",
+   "repo_url": "https://github.com/shwi-project/stocklens-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "simonsez9510/kosis-mcp": {
+   "name": "simonsez9510/kosis-mcp",
+   "repo_url": "https://github.com/simonsez9510/kosis-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "sjh9714/electronics-price-mcp": {
+   "name": "sjh9714/electronics-price-mcp",
+   "repo_url": "https://github.com/sjh9714/electronics-price-mcp",
+   "last_remote": "https://electronics-price-mcp.jinhyuk9714.workers.dev/mcp",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "slowdevv-shinnoah/naver-searchad-mcp": {
+   "name": "slowdevv-shinnoah/naver-searchad-mcp",
+   "repo_url": "https://github.com/slowdevv-shinnoah/naver-searchad-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "smilemin07/korean-rnd-regs-mcp": {
+   "name": "smilemin07/korean-rnd-regs-mcp",
+   "repo_url": "https://github.com/smilemin07/korean-rnd-regs-mcp",
+   "last_remote": "https://mcp.rndmanagers.org/mcp",
+   "first_published": "2026-08-19",
+   "last_published": "2026-08-24",
+   "rounds": 2,
+   "retired": null,
+   "renamed_to": null
+  },
+  "snaiws/DART-mcp-server": {
+   "name": "snaiws/DART-mcp-server",
+   "repo_url": "https://github.com/snaiws/DART-mcp-server",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "sodam-ai/Langent-MCP_One-Click_Kit": {
+   "name": "sodam-ai/Langent-MCP_One-Click_Kit",
+   "repo_url": "https://github.com/sodam-ai/Langent-MCP_One-Click_Kit",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "sonmeggy/korean-engineering-mcp": {
+   "name": "sonmeggy/korean-engineering-mcp",
+   "repo_url": "https://github.com/sonmeggy/korean-engineering-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "spoyodevelop/korean-weather-mcp": {
+   "name": "spoyodevelop/korean-weather-mcp",
+   "repo_url": "https://github.com/spoyodevelop/korean-weather-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "ssuksak/cheongyak-rag-mcp": {
+   "name": "ssuksak/cheongyak-rag-mcp",
+   "repo_url": "https://github.com/ssuksak/cheongyak-rag-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "syleedlabs/deal-locator-mcp": {
+   "name": "syleedlabs/deal-locator-mcp",
+   "repo_url": "https://github.com/syleedlabs/deal-locator-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "tae0y/real-estate-mcp": {
+   "name": "tae0y/real-estate-mcp",
+   "repo_url": "https://github.com/tae0y/real-estate-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "techkwon/teacher-guard": {
+   "name": "techkwon/teacher-guard",
+   "repo_url": "https://github.com/techkwon/teacher-guard",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "tlee0818/data-go-kr-realestate-mcp": {
+   "name": "tlee0818/data-go-kr-realestate-mcp",
+   "repo_url": "https://github.com/tlee0818/data-go-kr-realestate-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "uju777/coupang-mcp": {
+   "name": "uju777/coupang-mcp",
+   "repo_url": "https://github.com/uju777/coupang-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "updown256/kosis-mcp": {
+   "name": "updown256/kosis-mcp",
+   "repo_url": "https://github.com/updown256/kosis-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "uscaidev/galpi-korean-law-mcp": {
+   "name": "uscaidev/galpi-korean-law-mcp",
+   "repo_url": "https://github.com/uscaidev/galpi-korean-law-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "vertical-mcp/dart-mcp": {
+   "name": "vertical-mcp/dart-mcp",
+   "repo_url": "https://github.com/vertical-mcp/dart-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "whdrnr2583-cmd/koreanpulse": {
+   "name": "whdrnr2583-cmd/koreanpulse",
+   "repo_url": "https://github.com/whdrnr2583-cmd/koreanpulse",
+   "last_remote": "https://mcp.koreanpulse.dev/mcp",
+   "first_published": "2026-08-19",
+   "last_published": "2026-08-24",
+   "rounds": 2,
+   "retired": null,
+   "renamed_to": null
+  },
+  "wintenboy/law-ontology-mcp": {
+   "name": "wintenboy/law-ontology-mcp",
+   "repo_url": "https://github.com/wintenboy/law-ontology-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "woongaro/korean-law-mcp": {
+   "name": "woongaro/korean-law-mcp",
+   "repo_url": "https://github.com/woongaro/korean-law-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "worker-ants/korea-weather-mcp": {
+   "name": "worker-ants/korea-weather-mcp",
+   "repo_url": "https://github.com/worker-ants/korea-weather-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "wowzoo/korea-weather-mcp": {
+   "name": "wowzoo/korea-weather-mcp",
+   "repo_url": "https://github.com/wowzoo/korea-weather-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-08-24",
+   "rounds": 2,
+   "retired": null,
+   "renamed_to": null
+  },
+  "yesetr8/korea-law-mcp-public": {
+   "name": "yesetr8/korea-law-mcp-public",
+   "repo_url": "https://github.com/yesetr8/korea-law-mcp-public",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "yjhann33-design/korea-stock-insight-mcp": {
+   "name": "yjhann33-design/korea-stock-insight-mcp",
+   "repo_url": "https://github.com/yjhann33-design/korea-stock-insight-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-08-24",
+   "rounds": 2,
+   "retired": null,
+   "renamed_to": null
+  },
+  "yonghwan1106/korea-health-mcp": {
+   "name": "yonghwan1106/korea-health-mcp",
+   "repo_url": "https://github.com/yonghwan1106/korea-health-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "yonghwan1106/mcportal": {
+   "name": "yonghwan1106/mcportal",
+   "repo_url": "https://github.com/yonghwan1106/mcportal",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-08-24",
+   "rounds": 2,
+   "retired": null,
+   "renamed_to": null
+  },
+  "yonghwan86/narajangteo-searcher": {
+   "name": "yonghwan86/narajangteo-searcher",
+   "repo_url": "https://github.com/yonghwan86/narajangteo-searcher",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "yoonstudio/invest-stock-app": {
+   "name": "yoonstudio/invest-stock-app",
+   "repo_url": "https://github.com/yoonstudio/invest-stock-app",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "youngs75/kor-legal-mcp": {
+   "name": "youngs75/kor-legal-mcp",
+   "repo_url": "https://github.com/youngs75/kor-legal-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "yousunjung84-edu/academyinfo-mcp": {
+   "name": "yousunjung84-edu/academyinfo-mcp",
+   "repo_url": "https://github.com/yousunjung84-edu/academyinfo-mcp",
+   "last_remote": "https://academyinfo-mcp-433006350023.asia-northeast3.run.app/mcp",
+   "first_published": "2026-08-19",
+   "last_published": "2026-08-24",
+   "rounds": 2,
+   "retired": null,
+   "renamed_to": null
+  },
+  "yunkee-lee/mcp-naver-maps": {
+   "name": "yunkee-lee/mcp-naver-maps",
+   "repo_url": "https://github.com/yunkee-lee/mcp-naver-maps",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "zxc8661/safety-health-chemical-mcp": {
+   "name": "zxc8661/safety-health-chemical-mcp",
+   "repo_url": "https://github.com/zxc8661/safety-health-chemical-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-19",
+   "last_published": "2026-09-14",
+   "rounds": 6,
+   "retired": null,
+   "renamed_to": null
+  },
+  "GeeYun086/korea-public-data-mcp": {
+   "name": "GeeYun086/korea-public-data-mcp",
+   "repo_url": "https://github.com/GeeYun086/korea-public-data-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-24",
+   "last_published": "2026-09-14",
+   "rounds": 5,
+   "retired": null,
+   "renamed_to": null
+  },
+  "a2a-mcp-multiagent-study/Ticker-Score-Agent": {
+   "name": "a2a-mcp-multiagent-study/Ticker-Score-Agent",
+   "repo_url": "https://github.com/a2a-mcp-multiagent-study/Ticker-Score-Agent",
+   "last_remote": "",
+   "first_published": "2026-08-24",
+   "last_published": "2026-09-14",
+   "rounds": 5,
+   "retired": null,
+   "renamed_to": null
+  },
+  "ai.heyyumi/heyyumi": {
+   "name": "ai.heyyumi/heyyumi",
+   "repo_url": "https://github.com/hmp-dev/heyyumi-mcp",
+   "last_remote": "https://mcp.heyyumi.ai",
+   "first_published": "2026-08-24",
+   "last_published": "2026-09-14",
+   "rounds": 5,
+   "retired": null,
+   "renamed_to": null
+  },
+  "com.koreastockcheck/mcp": {
+   "name": "com.koreastockcheck/mcp",
+   "repo_url": "https://github.com/koreastockcheck/mcp",
+   "last_remote": "https://mcp.koreastockcheck.com/mcp/{api_key}",
+   "first_published": "2026-08-24",
+   "last_published": "2026-09-14",
+   "rounds": 5,
+   "retired": null,
+   "renamed_to": null
+  },
+  "daehyub71/onbid-mcp": {
+   "name": "daehyub71/onbid-mcp",
+   "repo_url": "https://github.com/daehyub71/onbid-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-24",
+   "last_published": "2026-09-14",
+   "rounds": 5,
+   "retired": null,
+   "renamed_to": null
+  },
+  "hlucent/safemap-uv-index-mcp": {
+   "name": "hlucent/safemap-uv-index-mcp",
+   "repo_url": "https://github.com/hlucent/safemap-uv-index-mcp",
+   "last_remote": "https://safemap-uv-index-mcp.fly.dev/mcp",
+   "first_published": "2026-08-24",
+   "last_published": "2026-09-14",
+   "rounds": 5,
+   "retired": null,
+   "renamed_to": null
+  },
+  "hmgthb/ai-pb-agent-portfolio": {
+   "name": "hmgthb/ai-pb-agent-portfolio",
+   "repo_url": "https://github.com/hmgthb/ai-pb-agent-portfolio",
+   "last_remote": "",
+   "first_published": "2026-08-24",
+   "last_published": "2026-09-14",
+   "rounds": 3,
+   "retired": null,
+   "renamed_to": null
+  },
+  "kjs369369/law-mcp-prompts20": {
+   "name": "kjs369369/law-mcp-prompts20",
+   "repo_url": "https://github.com/kjs369369/law-mcp-prompts20",
+   "last_remote": "",
+   "first_published": "2026-08-24",
+   "last_published": "2026-09-14",
+   "rounds": 5,
+   "retired": null,
+   "renamed_to": null
+  },
+  "socialkim/korea-onegov-mcp": {
+   "name": "socialkim/korea-onegov-mcp",
+   "repo_url": "https://github.com/socialkim/korea-onegov-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-24",
+   "last_published": "2026-09-14",
+   "rounds": 5,
+   "retired": null,
+   "renamed_to": null
+  },
+  "zephiris21/news-mcp-crawler": {
+   "name": "zephiris21/news-mcp-crawler",
+   "repo_url": "https://github.com/zephiris21/news-mcp-crawler",
+   "last_remote": "",
+   "first_published": "2026-08-24",
+   "last_published": "2026-09-14",
+   "rounds": 5,
+   "retired": null,
+   "renamed_to": null
+  },
+  "zisu17/korean-taxlaw-mcp": {
+   "name": "zisu17/korean-taxlaw-mcp",
+   "repo_url": "https://github.com/zisu17/korean-taxlaw-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-24",
+   "last_published": "2026-09-14",
+   "rounds": 5,
+   "retired": null,
+   "renamed_to": null
+  },
+  "50seok/kr-public-data-mcp": {
+   "name": "50seok/kr-public-data-mcp",
+   "repo_url": "https://github.com/50seok/kr-public-data-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-31",
+   "last_published": "2026-09-14",
+   "rounds": 4,
+   "retired": null,
+   "renamed_to": null
+  },
+  "ai.hotker/hotker": {
+   "name": "ai.hotker/hotker",
+   "repo_url": "https://github.com/c2bcom10-ship-it/hotker",
+   "last_remote": "https://hotker.ai/mcp",
+   "first_published": "2026-08-31",
+   "last_published": "2026-09-14",
+   "rounds": 4,
+   "retired": null,
+   "renamed_to": null
+  },
+  "antisdream/skn29-3rd-4team": {
+   "name": "antisdream/skn29-3rd-4team",
+   "repo_url": "https://github.com/antisdream/skn29-3rd-4team",
+   "last_remote": "",
+   "first_published": "2026-08-31",
+   "last_published": "2026-09-14",
+   "rounds": 4,
+   "retired": null,
+   "renamed_to": null
+  },
+  "build.naru/contract-compass": {
+   "name": "build.naru/contract-compass",
+   "repo_url": "https://github.com/sallim-app/contract-compass",
+   "last_remote": "https://contract.sallim.app/mcp?via=official",
+   "first_published": "2026-08-31",
+   "last_published": "2026-09-14",
+   "rounds": 4,
+   "retired": null,
+   "renamed_to": null
+  },
+  "com.whooing/whooing": {
+   "name": "com.whooing/whooing",
+   "repo_url": "",
+   "last_remote": "https://whooing.com/mcp",
+   "first_published": "2026-08-31",
+   "last_published": "2026-09-14",
+   "rounds": 4,
+   "retired": null,
+   "renamed_to": null
+  },
+  "exclusiveyon-a11y/reevl-plugins": {
+   "name": "exclusiveyon-a11y/reevl-plugins",
+   "repo_url": "https://github.com/exclusiveyon-a11y/reevl-plugins",
+   "last_remote": "https://reevl.co.kr/api/mcp",
+   "first_published": "2026-08-31",
+   "last_published": "2026-09-03",
+   "rounds": 2,
+   "retired": null,
+   "renamed_to": null
+  },
+  "kr.co.reevl/reevl-mcp": {
+   "name": "kr.co.reevl/reevl-mcp",
+   "repo_url": "https://github.com/exclusiveyon-a11y/reevl-plugins",
+   "last_remote": "https://reevl.co.kr/api/mcp",
+   "first_published": "2026-08-31",
+   "last_published": "2026-09-14",
+   "rounds": 4,
+   "retired": null,
+   "renamed_to": null
+  },
+  "giovinazo/open-law": {
+   "name": "giovinazo/open-law",
+   "repo_url": "https://github.com/giovinazo/open-law",
+   "last_remote": "",
+   "first_published": "2026-08-31",
+   "last_published": "2026-09-14",
+   "rounds": 4,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.ChloePark85/kr-groundtruth": {
+   "name": "io.github.ChloePark85/kr-groundtruth",
+   "repo_url": "",
+   "last_remote": "https://kr-groundtruth-mcp.vercel.app/api/mcp",
+   "first_published": "2026-08-31",
+   "last_published": "2026-09-14",
+   "rounds": 4,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.HyosikPark/kr-apt-trades": {
+   "name": "io.github.HyosikPark/kr-apt-trades",
+   "repo_url": "",
+   "last_remote": "https://hawker-gateway.fly.dev/mcp/kr-apt-trades",
+   "first_published": "2026-08-31",
+   "last_published": "2026-09-14",
+   "rounds": 4,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.HyosikPark/kr-district-codes": {
+   "name": "io.github.HyosikPark/kr-district-codes",
+   "repo_url": "",
+   "last_remote": "https://hawker-gateway.fly.dev/mcp/kr-district-codes",
+   "first_published": "2026-08-31",
+   "last_published": "2026-09-14",
+   "rounds": 4,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.MongLong0214/stockmatrix-mcp": {
+   "name": "io.github.MongLong0214/stockmatrix-mcp",
+   "repo_url": "https://github.com/MongLong0214/stock-ai-newsletter",
+   "last_remote": "",
+   "first_published": "2026-08-31",
+   "last_published": "2026-09-14",
+   "rounds": 4,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.do-droid/seoul-essentials": {
+   "name": "io.github.do-droid/seoul-essentials",
+   "repo_url": "https://github.com/do-droid/seoul-essentials",
+   "last_remote": "",
+   "first_published": "2026-08-31",
+   "last_published": "2026-09-14",
+   "rounds": 4,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.fieldcure/publicdata-kr": {
+   "name": "io.github.fieldcure/publicdata-kr",
+   "repo_url": "https://github.com/fieldcure/fieldcure-mcp-publicdata",
+   "last_remote": "",
+   "first_published": "2026-08-31",
+   "last_published": "2026-09-14",
+   "rounds": 4,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.juh5ng/k-data-mcp": {
+   "name": "io.github.juh5ng/k-data-mcp",
+   "repo_url": "https://github.com/juh5ng/k-data-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-31",
+   "last_published": "2026-09-14",
+   "rounds": 4,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.kimnchai/korea-flight-mcp": {
+   "name": "io.github.kimnchai/korea-flight-mcp",
+   "repo_url": "",
+   "last_remote": "https://korea-flight.kimnchai.com/mcp",
+   "first_published": "2026-08-31",
+   "last_published": "2026-09-14",
+   "rounds": 4,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.koreal6803/finlab-ai": {
+   "name": "io.github.koreal6803/finlab-ai",
+   "repo_url": "https://github.com/koreal6803/finlab-ai",
+   "last_remote": "https://mcp.finlab.finance/mcp",
+   "first_published": "2026-08-31",
+   "last_published": "2026-09-14",
+   "rounds": 4,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.lazymac2x/govdata-korea": {
+   "name": "io.github.lazymac2x/govdata-korea",
+   "repo_url": "https://github.com/lazymac2x/govdata-korea-api",
+   "last_remote": "https://api.lazy-mac.com/govdata-korea/mcp",
+   "first_published": "2026-08-31",
+   "last_published": "2026-09-14",
+   "rounds": 4,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.lichtsalz/korea-data": {
+   "name": "io.github.lichtsalz/korea-data",
+   "repo_url": "https://github.com/lichtsalz/korea-data",
+   "last_remote": "https://notonlystock.com/korea/mcp",
+   "first_published": "2026-08-31",
+   "last_published": "2026-09-14",
+   "rounds": 4,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.loved0543-dotcom/kdata-gate": {
+   "name": "io.github.loved0543-dotcom/kdata-gate",
+   "repo_url": "https://github.com/loved0543-dotcom/kdata-gate-mcp",
+   "last_remote": "https://kdata-gate.vercel.app/mcp",
+   "first_published": "2026-08-31",
+   "last_published": "2026-09-14",
+   "rounds": 4,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.lovelyquality/korail-mcp": {
+   "name": "io.github.lovelyquality/korail-mcp",
+   "repo_url": "https://github.com/lovelyquality/korail-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-31",
+   "last_published": "2026-09-14",
+   "rounds": 4,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.namen-ceo/factbat-public-record-locator": {
+   "name": "io.github.namen-ceo/factbat-public-record-locator",
+   "repo_url": "",
+   "last_remote": "https://factbat.com/mcp",
+   "first_published": "2026-08-31",
+   "last_published": "2026-09-14",
+   "rounds": 4,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.namuaix/seoul-tourism": {
+   "name": "io.github.namuaix/seoul-tourism",
+   "repo_url": "",
+   "last_remote": "https://mcp.namu.ai.kr/mcp",
+   "first_published": "2026-08-31",
+   "last_published": "2026-09-14",
+   "rounds": 4,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.opendata-kr/narajangteo-bid-mcp": {
+   "name": "io.github.opendata-kr/narajangteo-bid-mcp",
+   "repo_url": "https://github.com/opendata-kr/narajangteo-bid-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-31",
+   "last_published": "2026-09-14",
+   "rounds": 4,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.opendata-kr/narajangteo-corpinfo": {
+   "name": "io.github.opendata-kr/narajangteo-corpinfo",
+   "repo_url": "https://github.com/opendata-kr/narajangteo-corpinfo-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-31",
+   "last_published": "2026-09-14",
+   "rounds": 4,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.opendata-kr/narajangteo-opening": {
+   "name": "io.github.opendata-kr/narajangteo-opening",
+   "repo_url": "https://github.com/opendata-kr/narajangteo-opening-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-31",
+   "last_published": "2026-09-14",
+   "rounds": 4,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.opendata-kr/narajangteo-prespec-mcp": {
+   "name": "io.github.opendata-kr/narajangteo-prespec-mcp",
+   "repo_url": "https://github.com/opendata-kr/narajangteo-prespec-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-31",
+   "last_published": "2026-09-14",
+   "rounds": 4,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.pipeworx-io/dart-kr": {
+   "name": "io.github.pipeworx-io/dart-kr",
+   "repo_url": "https://github.com/pipeworx-io/mcp-dart-kr",
+   "last_remote": "https://gateway.pipeworx.io/dart-kr/mcp",
+   "first_published": "2026-08-31",
+   "last_published": "2026-09-14",
+   "rounds": 4,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.pipeworx-io/ecos-kr": {
+   "name": "io.github.pipeworx-io/ecos-kr",
+   "repo_url": "https://github.com/pipeworx-io/mcp-ecos-kr",
+   "last_remote": "https://gateway.pipeworx.io/ecos-kr/mcp",
+   "first_published": "2026-08-31",
+   "last_published": "2026-09-14",
+   "rounds": 4,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.pipeworx-io/pub-dev": {
+   "name": "io.github.pipeworx-io/pub-dev",
+   "repo_url": "https://github.com/pipeworx-io/mcp-pub-dev",
+   "last_remote": "https://gateway.pipeworx.io/pub-dev/mcp",
+   "first_published": "2026-08-31",
+   "last_published": "2026-09-14",
+   "rounds": 4,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.rubato103/kci-openapi-mcp": {
+   "name": "io.github.rubato103/kci-openapi-mcp",
+   "repo_url": "https://github.com/rubato103/KCI_openAPI",
+   "last_remote": "",
+   "first_published": "2026-08-31",
+   "last_published": "2026-09-14",
+   "rounds": 4,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.rubato103/nl-openapi-mcp": {
+   "name": "io.github.rubato103/nl-openapi-mcp",
+   "repo_url": "https://github.com/rubato103/nl-openapi-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-31",
+   "last_published": "2026-09-14",
+   "rounds": 4,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.rubatoyd/kci-openapi-mcp": {
+   "name": "io.github.rubatoyd/kci-openapi-mcp",
+   "repo_url": "https://github.com/rubatoyd/KCI_openAPI",
+   "last_remote": "",
+   "first_published": "2026-08-31",
+   "last_published": "2026-09-14",
+   "rounds": 4,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.rubatoyd/nl-openapi-mcp": {
+   "name": "io.github.rubatoyd/nl-openapi-mcp",
+   "repo_url": "https://github.com/rubatoyd/nl-openapi-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-31",
+   "last_published": "2026-09-14",
+   "rounds": 4,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.semorehq/mcp-commerce": {
+   "name": "io.github.semorehq/mcp-commerce",
+   "repo_url": "https://github.com/semorehq/mcp-commerce",
+   "last_remote": "",
+   "first_published": "2026-08-31",
+   "last_published": "2026-09-14",
+   "rounds": 4,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.sharebook-kr/pykrx-mcp": {
+   "name": "io.github.sharebook-kr/pykrx-mcp",
+   "repo_url": "https://github.com/sharebook-kr/pykrx-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-31",
+   "last_published": "2026-09-14",
+   "rounds": 4,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.smilemin07/korean-rnd-regs-mcp": {
+   "name": "io.github.smilemin07/korean-rnd-regs-mcp",
+   "repo_url": "https://github.com/smilemin07/korean-rnd-regs-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-31",
+   "last_published": "2026-09-14",
+   "rounds": 4,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.ssd7830-cmyk/korean-firefighter-law-mcp": {
+   "name": "io.github.ssd7830-cmyk/korean-firefighter-law-mcp",
+   "repo_url": "https://github.com/ssd7830-cmyk/korean-firefighter-law-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-31",
+   "last_published": "2026-09-14",
+   "rounds": 4,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.standardbeagle/dart-query": {
+   "name": "io.github.standardbeagle/dart-query",
+   "repo_url": "https://github.com/standardbeagle/dart-query",
+   "last_remote": "",
+   "first_published": "2026-08-31",
+   "last_published": "2026-09-14",
+   "rounds": 4,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.whdrnr2583-cmd/koreanpulse": {
+   "name": "io.github.whdrnr2583-cmd/koreanpulse",
+   "repo_url": "https://github.com/whdrnr2583-cmd/koreanpulse",
+   "last_remote": "https://mcp.koreanpulse.dev/mcp",
+   "first_published": "2026-08-31",
+   "last_published": "2026-09-14",
+   "rounds": 4,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.wujinkim/korea-business-verify": {
+   "name": "io.github.wujinkim/korea-business-verify",
+   "repo_url": "https://github.com/wujinkim/korea-business-verify",
+   "last_remote": "",
+   "first_published": "2026-08-31",
+   "last_published": "2026-09-14",
+   "rounds": 4,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.yjhann33-design/korea-stock-insight-mcp": {
+   "name": "io.github.yjhann33-design/korea-stock-insight-mcp",
+   "repo_url": "https://github.com/yjhann33-design/korea-stock-insight-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-31",
+   "last_published": "2026-09-14",
+   "rounds": 4,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.yonghwan1106/mcportal": {
+   "name": "io.github.yonghwan1106/mcportal",
+   "repo_url": "https://github.com/yonghwan1106/mcportal",
+   "last_remote": "",
+   "first_published": "2026-08-31",
+   "last_published": "2026-09-14",
+   "rounds": 4,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.yousunjung84-edu/academyinfo": {
+   "name": "io.github.yousunjung84-edu/academyinfo",
+   "repo_url": "https://github.com/yousunjung84-edu/academyinfo-mcp",
+   "last_remote": "https://academyinfo-mcp-433006350023.asia-northeast3.run.app/mcp",
+   "first_published": "2026-08-31",
+   "last_published": "2026-09-14",
+   "rounds": 4,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.yujiseok/public-official-mcp-server": {
+   "name": "io.github.yujiseok/public-official-mcp-server",
+   "repo_url": "https://github.com/yujiseok/public-official-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-31",
+   "last_published": "2026-09-14",
+   "rounds": 4,
+   "retired": null,
+   "renamed_to": null
+  },
+  "juhyeon-im/PyNps_MCP2607": {
+   "name": "juhyeon-im/PyNps_MCP2607",
+   "repo_url": "https://github.com/juhyeon-im/PyNps_MCP2607",
+   "last_remote": "",
+   "first_published": "2026-08-31",
+   "last_published": "2026-09-14",
+   "rounds": 4,
+   "retired": null,
+   "renamed_to": null
+  },
+  "kr.co.softbowl/sbchart2": {
+   "name": "kr.co.softbowl/sbchart2",
+   "repo_url": "",
+   "last_remote": "https://softbowl.co.kr/mcp/sbchart2.do",
+   "first_published": "2026-08-31",
+   "last_published": "2026-09-14",
+   "rounds": 4,
+   "retired": null,
+   "renamed_to": null
+  },
+  "kr.co.softbowl/sbgrid3": {
+   "name": "kr.co.softbowl/sbgrid3",
+   "repo_url": "",
+   "last_remote": "https://softbowl.co.kr/mcp/sbgrid3.do",
+   "first_published": "2026-08-31",
+   "last_published": "2026-09-14",
+   "rounds": 4,
+   "retired": null,
+   "renamed_to": null
+  },
+  "kr.eocpa/mydart": {
+   "name": "kr.eocpa/mydart",
+   "repo_url": "",
+   "last_remote": "https://mydart.eocpa.kr/mcp",
+   "first_published": "2026-08-31",
+   "last_published": "2026-09-14",
+   "rounds": 4,
+   "retired": null,
+   "renamed_to": null
+  },
+  "kr.gronox/finbridge": {
+   "name": "kr.gronox/finbridge",
+   "repo_url": "https://github.com/Jakechj/finbridge-mcp",
+   "last_remote": "https://mcp.gronox.kr/mcp",
+   "first_published": "2026-08-31",
+   "last_published": "2026-09-14",
+   "rounds": 4,
+   "retired": null,
+   "renamed_to": null
+  },
+  "kr.ibtcc/competition-ratio": {
+   "name": "kr.ibtcc/competition-ratio",
+   "repo_url": "https://github.com/jojunho74/hometest",
+   "last_remote": "https://ibtcc.kr/api/mcp",
+   "first_published": "2026-08-31",
+   "last_published": "2026-09-14",
+   "rounds": 4,
+   "retired": null,
+   "renamed_to": null
+  },
+  "kr.wandsol/patent-search": {
+   "name": "kr.wandsol/patent-search",
+   "repo_url": "",
+   "last_remote": "https://mcp.wandsol.kr/mcp",
+   "first_published": "2026-08-31",
+   "last_published": "2026-09-14",
+   "rounds": 4,
+   "retired": null,
+   "renamed_to": null
+  },
+  "org.medicalaialliance/intelligence": {
+   "name": "org.medicalaialliance/intelligence",
+   "repo_url": "https://github.com/austinpw-cloud/maa-website",
+   "last_remote": "https://medicalaialliance.org/api/mcp",
+   "first_published": "2026-08-31",
+   "last_published": "2026-09-14",
+   "rounds": 4,
+   "retired": null,
+   "renamed_to": null
+  },
+  "rubatoyd/kakao-book-mcp": {
+   "name": "rubatoyd/kakao-book-mcp",
+   "repo_url": "https://github.com/rubatoyd/kakao-book-mcp",
+   "last_remote": "",
+   "first_published": "2026-08-31",
+   "last_published": "2026-09-14",
+   "rounds": 4,
+   "retired": null,
+   "renamed_to": null
+  },
+  "SkillfulBasher1/construct-cm-bridge": {
+   "name": "SkillfulBasher1/construct-cm-bridge",
+   "repo_url": "https://github.com/SkillfulBasher1/construct-cm-bridge",
+   "last_remote": "",
+   "first_published": "2026-09-07",
+   "last_published": "2026-09-14",
+   "rounds": 2,
+   "retired": null,
+   "renamed_to": null
+  },
+  "ctahoon55/taxlaw-mcp": {
+   "name": "ctahoon55/taxlaw-mcp",
+   "repo_url": "https://github.com/ctahoon55/taxlaw-mcp",
+   "last_remote": "",
+   "first_published": "2026-09-07",
+   "last_published": "2026-09-14",
+   "rounds": 2,
+   "retired": null,
+   "renamed_to": null
+  },
+  "gigaminkyu/korean-law-mcp": {
+   "name": "gigaminkyu/korean-law-mcp",
+   "repo_url": "https://github.com/gigaminkyu/korean-law-mcp",
+   "last_remote": "",
+   "first_published": "2026-09-07",
+   "last_published": "2026-09-14",
+   "rounds": 2,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.heubme2020/datasinking": {
+   "name": "io.github.heubme2020/datasinking",
+   "repo_url": "https://github.com/heubme2020/datasinking",
+   "last_remote": "",
+   "first_published": "2026-09-07",
+   "last_published": "2026-09-14",
+   "rounds": 2,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.richard-kim-79/jejusns": {
+   "name": "io.github.richard-kim-79/jejusns",
+   "repo_url": "",
+   "last_remote": "https://jejusns.com/mcp",
+   "first_published": "2026-09-07",
+   "last_published": "2026-09-14",
+   "rounds": 2,
+   "retired": null,
+   "renamed_to": null
+  },
+  "jjonghyun41/kasb-accounting-mcp": {
+   "name": "jjonghyun41/kasb-accounting-mcp",
+   "repo_url": "https://github.com/jjonghyun41/kasb-accounting-mcp",
+   "last_remote": "",
+   "first_published": "2026-09-07",
+   "last_published": "2026-09-14",
+   "rounds": 2,
+   "retired": null,
+   "renamed_to": null
+  },
+  "kaicot/kaic-kinder-info": {
+   "name": "kaicot/kaic-kinder-info",
+   "repo_url": "https://github.com/kaicot/kaic-kinder-info",
+   "last_remote": "",
+   "first_published": "2026-09-07",
+   "last_published": "2026-09-14",
+   "rounds": 2,
+   "retired": null,
+   "renamed_to": null
+  },
+  "kjs369369/law-mcp-prompts-biz": {
+   "name": "kjs369369/law-mcp-prompts-biz",
+   "repo_url": "https://github.com/kjs369369/law-mcp-prompts-biz",
+   "last_remote": "",
+   "first_published": "2026-09-07",
+   "last_published": "2026-09-14",
+   "rounds": 2,
+   "retired": null,
+   "renamed_to": null
+  },
+  "taxwoong/nts-tax-mcp": {
+   "name": "taxwoong/nts-tax-mcp",
+   "repo_url": "https://github.com/taxwoong/nts-tax-mcp",
+   "last_remote": "https://web-production-10fe2.up.railway.app/mcp",
+   "first_published": "2026-09-07",
+   "last_published": "2026-09-14",
+   "rounds": 2,
+   "retired": null,
+   "renamed_to": null
+  },
+  "042Jason/kosis-mcp": {
+   "name": "042Jason/kosis-mcp",
+   "repo_url": "https://github.com/042Jason/kosis-mcp",
+   "last_remote": "https://kosis-mcp-production.up.railway.app/mcp",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "4thIS/hackathon_mjc_mcp": {
+   "name": "4thIS/hackathon_mjc_mcp",
+   "repo_url": "https://github.com/4thIS/hackathon_mjc_mcp",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "DrFirstLee/korea-stock-mcp": {
+   "name": "DrFirstLee/korea-stock-mcp",
+   "repo_url": "https://github.com/DrFirstLee/korea-stock-mcp",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "GyeongHoKim/naeryeo": {
+   "name": "GyeongHoKim/naeryeo",
+   "repo_url": "https://github.com/GyeongHoKim/naeryeo",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "HaChanho/passfit": {
+   "name": "HaChanho/passfit",
+   "repo_url": "https://github.com/HaChanho/passfit",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "JeongSeongMok/tossinvest-openapi-mcp": {
+   "name": "JeongSeongMok/tossinvest-openapi-mcp",
+   "repo_url": "https://github.com/JeongSeongMok/tossinvest-openapi-mcp",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "JunbeomL22/dart-krx-mcp": {
+   "name": "JunbeomL22/dart-krx-mcp",
+   "repo_url": "https://github.com/JunbeomL22/dart-krx-mcp",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "MarcoYou/open-esg-korea": {
+   "name": "MarcoYou/open-esg-korea",
+   "repo_url": "https://github.com/MarcoYou/open-esg-korea",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "MikeVenge/krx-dart-mcp": {
+   "name": "MikeVenge/krx-dart-mcp",
+   "repo_url": "https://github.com/MikeVenge/krx-dart-mcp",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "Noah3521/coupang-sourcing": {
+   "name": "Noah3521/coupang-sourcing",
+   "repo_url": "https://github.com/Noah3521/coupang-sourcing",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "RealYoungk/openkrx-mcp": {
+   "name": "RealYoungk/openkrx-mcp",
+   "repo_url": "https://github.com/RealYoungk/openkrx-mcp",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "SeoNaRu/korean-law-mcp": {
+   "name": "SeoNaRu/korean-law-mcp",
+   "repo_url": "https://github.com/SeoNaRu/korean-law-mcp",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "SonAIengine/ku-portal-mcp": {
+   "name": "SonAIengine/ku-portal-mcp",
+   "repo_url": "https://github.com/SonAIengine/ku-portal-mcp",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "Tech-curator/korean-patent-mcp": {
+   "name": "Tech-curator/korean-patent-mcp",
+   "repo_url": "https://github.com/Tech-curator/korean-patent-mcp",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "UrbanWatcherKr/korean-land-mcp": {
+   "name": "UrbanWatcherKr/korean-land-mcp",
+   "repo_url": "https://github.com/UrbanWatcherKr/korean-land-mcp",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "afrontend/dongnelibrary-mcp-server": {
+   "name": "afrontend/dongnelibrary-mcp-server",
+   "repo_url": "https://github.com/afrontend/dongnelibrary-mcp-server",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "ai.seldons/korea-business-trade": {
+   "name": "ai.seldons/korea-business-trade",
+   "repo_url": "",
+   "last_remote": "https://mcp.seldons.ai/mcp",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "aibridge-leo/tradingview-mcp-aibridge": {
+   "name": "aibridge-leo/tradingview-mcp-aibridge",
+   "repo_url": "https://github.com/aibridge-leo/tradingview-mcp-aibridge",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "antryu/kolaw": {
+   "name": "antryu/kolaw",
+   "repo_url": "https://github.com/antryu/kolaw",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "app.sallim/korea-stay": {
+   "name": "app.sallim/korea-stay",
+   "repo_url": "",
+   "last_remote": "https://stay.sallim.app/mcp?via=official",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "app.wonbuddhism/scripture": {
+   "name": "app.wonbuddhism/scripture",
+   "repo_url": "",
+   "last_remote": "https://scripture.wonbuddhism.app/api/mcp",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "arapodcho/mcp_server_neis_api": {
+   "name": "arapodcho/mcp_server_neis_api",
+   "repo_url": "https://github.com/arapodcho/mcp_server_neis_api",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "bhyunco/korea-holiday-mcp": {
+   "name": "bhyunco/korea-holiday-mcp",
+   "repo_url": "https://github.com/bhyunco/korea-holiday-mcp",
+   "last_remote": "https://korea-holiday-mcp.vercel.app/api/mcp",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "billy-baek/ansimtalk": {
+   "name": "billy-baek/ansimtalk",
+   "repo_url": "https://github.com/billy-baek/ansimtalk",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "blottosicei/here-now-er-mcp": {
+   "name": "blottosicei/here-now-er-mcp",
+   "repo_url": "https://github.com/blottosicei/here-now-er-mcp",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "blueming85/busan-contract-mcp": {
+   "name": "blueming85/busan-contract-mcp",
+   "repo_url": "https://github.com/blueming85/busan-contract-mcp",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "buenosiempre-cmd/kr-univ-rule-mcp": {
+   "name": "buenosiempre-cmd/kr-univ-rule-mcp",
+   "repo_url": "https://github.com/buenosiempre-cmd/kr-univ-rule-mcp",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "changgi/open-go-kr-archive": {
+   "name": "changgi/open-go-kr-archive",
+   "repo_url": "https://github.com/changgi/open-go-kr-archive",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "choyeonkyu/mcp-ai-agent": {
+   "name": "choyeonkyu/mcp-ai-agent",
+   "repo_url": "https://github.com/choyeonkyu/mcp-ai-agent",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "chromato99/krx-rule-mcp": {
+   "name": "chromato99/krx-rule-mcp",
+   "repo_url": "https://github.com/chromato99/krx-rule-mcp",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "clayop/korean-university-regulation-mcp": {
+   "name": "clayop/korean-university-regulation-mcp",
+   "repo_url": "https://github.com/clayop/korean-university-regulation-mcp",
+   "last_remote": "https://korean-university-regulation-mcp.clayop.workers.dev/mcp",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "com.airblockfz/stock-signal-kr": {
+   "name": "com.airblockfz/stock-signal-kr",
+   "repo_url": "",
+   "last_remote": "https://stock-signal-kr.airblock2026.workers.dev/mcp",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "com.goodsaegim/goodsaegim": {
+   "name": "com.goodsaegim/goodsaegim",
+   "repo_url": "",
+   "last_remote": "https://www.goodsaegim.com/api/mcp",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "com.kimchi-sushi/agent-mcp": {
+   "name": "com.kimchi-sushi/agent-mcp",
+   "repo_url": "",
+   "last_remote": "https://kimchi-sushi.com/mcp",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "com.nmjib/nmjib": {
+   "name": "com.nmjib/nmjib",
+   "repo_url": "https://github.com/Deall-International/nmjib-mcp",
+   "last_remote": "https://nmjib.com/api/mcp",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "com.seoapi/naverbot": {
+   "name": "com.seoapi/naverbot",
+   "repo_url": "",
+   "last_remote": "https://naverbot.seoapi.com/mcp",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "com.thenextgennexus/global-equities-screener-mcp": {
+   "name": "com.thenextgennexus/global-equities-screener-mcp",
+   "repo_url": "",
+   "last_remote": "https://nexgendata-mcp-proxy.steve-corbeil.workers.dev/global-equities-screener-mcp/mcp",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "coyaSONG/kra-mcp": {
+   "name": "coyaSONG/kra-mcp",
+   "repo_url": "https://github.com/coyaSONG/kra-mcp",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "dahlia/ko-stdict-mcp": {
+   "name": "dahlia/ko-stdict-mcp",
+   "repo_url": "https://github.com/dahlia/ko-stdict-mcp",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "datagokr-dev/datagokr": {
+   "name": "datagokr-dev/datagokr",
+   "repo_url": "https://github.com/datagokr-dev/datagokr",
+   "last_remote": "https://datagokr.dev/mcp",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "dodopd/kosis-mcp": {
+   "name": "dodopd/kosis-mcp",
+   "repo_url": "https://github.com/dodopd/kosis-mcp",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "dongkyucho17/onbid-mcp": {
+   "name": "dongkyucho17/onbid-mcp",
+   "repo_url": "https://github.com/dongkyucho17/onbid-mcp",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "eastho20/korea-stock-mcp-vercel": {
+   "name": "eastho20/korea-stock-mcp-vercel",
+   "repo_url": "https://github.com/eastho20/korea-stock-mcp-vercel",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "edward-kim-dev/kr-pc-deals-mcp": {
+   "name": "edward-kim-dev/kr-pc-deals-mcp",
+   "repo_url": "https://github.com/edward-kim-dev/kr-pc-deals-mcp",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "emceeKim/korea-finance-mcp": {
+   "name": "emceeKim/korea-finance-mcp",
+   "repo_url": "https://github.com/emceeKim/korea-finance-mcp",
+   "last_remote": "https://korea-finance-mcp-divine-hillside-8872.fly.dev/mcp",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "epoko77-ai/korean-bill-debate-mcp": {
+   "name": "epoko77-ai/korean-bill-debate-mcp",
+   "repo_url": "https://github.com/epoko77-ai/korean-bill-debate-mcp",
+   "last_remote": "https://korean-bill-debate-mcp.vercel.app/mcp",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "handbell-H/mcp-kakao_map_mobility": {
+   "name": "handbell-H/mcp-kakao_map_mobility",
+   "repo_url": "https://github.com/handbell-H/mcp-kakao_map_mobility",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "harimkang/mcp-korea-tourism-api": {
+   "name": "harimkang/mcp-korea-tourism-api",
+   "repo_url": "https://github.com/harimkang/mcp-korea-tourism-api",
+   "last_remote": "https://pypi.org/project/mcp",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "hichang4u/data-go-mcp-servers": {
+   "name": "hichang4u/data-go-mcp-servers",
+   "repo_url": "https://github.com/hichang4u/data-go-mcp-servers",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "hlucent/airkorea-realtime-mcp": {
+   "name": "hlucent/airkorea-realtime-mcp",
+   "repo_url": "https://github.com/hlucent/airkorea-realtime-mcp",
+   "last_remote": "https://airkorea-realtime-mcp.fly.dev/mcp",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "hwain-ai/Real-Estate-Location-Analyzer_MCP": {
+   "name": "hwain-ai/Real-Estate-Location-Analyzer_MCP",
+   "repo_url": "https://github.com/hwain-ai/Real-Estate-Location-Analyzer_MCP",
+   "last_remote": "https://immortal0900-real-estate-location-analyzer-mcp.hf.space/gradio_api/mcp/sse",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "hypn4/tossinvest-mcp": {
+   "name": "hypn4/tossinvest-mcp",
+   "repo_url": "https://github.com/hypn4/tossinvest-mcp",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "iiacjay/incheon-airport-mcp": {
+   "name": "iiacjay/incheon-airport-mcp",
+   "repo_url": "https://github.com/iiacjay/incheon-airport-mcp",
+   "last_remote": "https://incheon-airport-mcp-production.up.railway.app/mcp",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.BK927/overwatch-aio": {
+   "name": "io.github.BK927/overwatch-aio",
+   "repo_url": "https://github.com/BK927/overwatch-aio",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.CSOAI-ORG/korea-ai-basic-act-mcp": {
+   "name": "io.github.CSOAI-ORG/korea-ai-basic-act-mcp",
+   "repo_url": "https://github.com/CSOAI-ORG/korea-ai-basic-act-mcp",
+   "last_remote": "https://api.meok.ai/v1/governance/korea-ai-basic-act",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.HyosikPark/kr-holidays": {
+   "name": "io.github.HyosikPark/kr-holidays",
+   "repo_url": "",
+   "last_remote": "https://hawker-gateway.fly.dev/mcp/kr-holidays",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.Mobiss11/daepak-mcp": {
+   "name": "io.github.Mobiss11/daepak-mcp",
+   "repo_url": "https://github.com/Mobiss11/daepak-mcp",
+   "last_remote": "https://daepak.com/mcp",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.SongT-50/korean-news-mcp": {
+   "name": "io.github.SongT-50/korean-news-mcp",
+   "repo_url": "https://github.com/SongT-50/korean-news-mcp",
+   "last_remote": "https://korean-news-mcp.onrender.com/mcp",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.Wonderfulian/kbv-server": {
+   "name": "io.github.Wonderfulian/kbv-server",
+   "repo_url": "https://github.com/Wonderfulian/kbv-server",
+   "last_remote": "https://kbv-server-f7vfitmlkq-du.a.run.app/mcp",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.aminpiano/nara-tour": {
+   "name": "io.github.aminpiano/nara-tour",
+   "repo_url": "https://github.com/aminpiano/naratour-mvp",
+   "last_remote": "https://mcp.nara-tour.com/mcp",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.bubilife1202/crossfin": {
+   "name": "io.github.bubilife1202/crossfin",
+   "repo_url": "https://github.com/bubilife1202/crossfin",
+   "last_remote": "https://crossfin.dev/api/mcp",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.do-droid/busan-essentials": {
+   "name": "io.github.do-droid/busan-essentials",
+   "repo_url": "https://github.com/do-droid/busan-essentials",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.gejyn14/kiwoom-mcp": {
+   "name": "io.github.gejyn14/kiwoom-mcp",
+   "repo_url": "https://github.com/gejyn14/kiwoom-plugin",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.java-jaydev/naver-mybox-mcp": {
+   "name": "io.github.java-jaydev/naver-mybox-mcp",
+   "repo_url": "https://github.com/java-jaydev/naver-mybox-mcp",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.minsooparkk/korea-tax-law-mcp": {
+   "name": "io.github.minsooparkk/korea-tax-law-mcp",
+   "repo_url": "https://github.com/minsooparkk/korea-tax-law-mcp",
+   "last_remote": "https://mcp.taxjarvis.com/mcp",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.peter120525-cmd/lawmadi-os": {
+   "name": "io.github.peter120525-cmd/lawmadi-os",
+   "repo_url": "",
+   "last_remote": "https://lawmadi.com/mcp",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.redoxnet/lsopenapi": {
+   "name": "io.github.redoxnet/lsopenapi",
+   "repo_url": "https://github.com/redoxnet/mcp-lsopenapi",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.rubatoyd/kosis-openapi-mcp": {
+   "name": "io.github.rubatoyd/kosis-openapi-mcp",
+   "repo_url": "https://github.com/rubatoyd/kosis-openapi-mcp",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.rubatoyd/na-openapi-mcp": {
+   "name": "io.github.rubatoyd/na-openapi-mcp",
+   "repo_url": "https://github.com/rubatoyd/na-openapi-mcp",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.sadri-dridi/tz-asia-seoul": {
+   "name": "io.github.sadri-dridi/tz-asia-seoul",
+   "repo_url": "https://github.com/sadri-dridi/named-mcp-utilities",
+   "last_remote": "https://agent-observatory-sensor.nolimit-observatory.workers.dev/s/tz-asia-seoul/mcp",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.sean-park-funda/korea-data-mcp": {
+   "name": "io.github.sean-park-funda/korea-data-mcp",
+   "repo_url": "https://github.com/sean-park-funda/korea-data-mcp",
+   "last_remote": "https://korea-data-mcp.picks-site.workers.dev/mcp",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "io.github.sean-park-funda/korea-ocean-mcp": {
+   "name": "io.github.sean-park-funda/korea-ocean-mcp",
+   "repo_url": "https://github.com/sean-park-funda/korea-ocean-mcp",
+   "last_remote": "https://korea-ocean-mcp.picks-site.workers.dev/mcp",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "jang236/etf-analyzer": {
+   "name": "jang236/etf-analyzer",
+   "repo_url": "https://github.com/jang236/etf-analyzer",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "jcahn99/gis-accessibility-mcp": {
+   "name": "jcahn99/gis-accessibility-mcp",
+   "repo_url": "https://github.com/jcahn99/gis-accessibility-mcp",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "jinjukimink/subway-congestion-mcp": {
+   "name": "jinjukimink/subway-congestion-mcp",
+   "repo_url": "https://github.com/jinjukimink/subway-congestion-mcp",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "jinny-han/industrial-complex-api-mcp": {
+   "name": "jinny-han/industrial-complex-api-mcp",
+   "repo_url": "https://github.com/jinny-han/industrial-complex-api-mcp",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "jinny-han/vworld-api-mcp": {
+   "name": "jinny-han/vworld-api-mcp",
+   "repo_url": "https://github.com/jinny-han/vworld-api-mcp",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "jjmcpa93-design/g2b-bid-mcp": {
+   "name": "jjmcpa93-design/g2b-bid-mcp",
+   "repo_url": "https://github.com/jjmcpa93-design/g2b-bid-mcp",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "jo73089622-pixel/gyeongbuk-arch-law-mcp": {
+   "name": "jo73089622-pixel/gyeongbuk-arch-law-mcp",
+   "repo_url": "https://github.com/jo73089622-pixel/gyeongbuk-arch-law-mcp",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "justcoding-ys/mcp-naver-news": {
+   "name": "justcoding-ys/mcp-naver-news",
+   "repo_url": "https://github.com/justcoding-ys/mcp-naver-news",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "kebong-3/seogu-mcp": {
+   "name": "kebong-3/seogu-mcp",
+   "repo_url": "https://github.com/kebong-3/seogu-mcp",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "kendrick-na/segeum-matjip": {
+   "name": "kendrick-na/segeum-matjip",
+   "repo_url": "https://github.com/kendrick-na/segeum-matjip",
+   "last_remote": "https://.../mcp",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "kkhwan1/KONEPS_sionlab": {
+   "name": "kkhwan1/KONEPS_sionlab",
+   "repo_url": "https://github.com/kkhwan1/KONEPS_sionlab",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "kmjm231/korea-scholar-mcp": {
+   "name": "kmjm231/korea-scholar-mcp",
+   "repo_url": "https://github.com/kmjm231/korea-scholar-mcp",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "koreainvestment/koreainvestment-mcp": {
+   "name": "koreainvestment/koreainvestment-mcp",
+   "repo_url": "https://github.com/koreainvestment/koreainvestment-mcp",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "kr.eocpa/myfss": {
+   "name": "kr.eocpa/myfss",
+   "repo_url": "",
+   "last_remote": "https://myfss.eocpa.kr/mcp",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "kr.eocpa/mykifrs": {
+   "name": "kr.eocpa/mykifrs",
+   "repo_url": "",
+   "last_remote": "https://mykifrs.eocpa.kr/mcp",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "kr.maedong/maedong": {
+   "name": "kr.maedong/maedong",
+   "repo_url": "",
+   "last_remote": "https://maedong.kr/mcp",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "mindm1ner/bangbang-mcp": {
+   "name": "mindm1ner/bangbang-mcp",
+   "repo_url": "https://github.com/mindm1ner/bangbang-mcp",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "mogoon/evcharger-mcp-kc": {
+   "name": "mogoon/evcharger-mcp-kc",
+   "repo_url": "https://github.com/mogoon/evcharger-mcp-kc",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "molpass/mcp-newsfeed": {
+   "name": "molpass/mcp-newsfeed",
+   "repo_url": "https://github.com/molpass/mcp-newsfeed",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "mongle250129/korea-life-mcp": {
+   "name": "mongle250129/korea-life-mcp",
+   "repo_url": "https://github.com/mongle250129/korea-life-mcp",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "oksure/bible-ko-mcp": {
+   "name": "oksure/bible-ko-mcp",
+   "repo_url": "https://github.com/oksure/bible-ko-mcp",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "one.aisa/seo-serp-other-engines": {
+   "name": "one.aisa/seo-serp-other-engines",
+   "repo_url": "",
+   "last_remote": "https://mcp.aisa.one/seo-serp-other-engines/mcp",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "pchuri/korean-capital-gains-tax-mcp": {
+   "name": "pchuri/korean-capital-gains-tax-mcp",
+   "repo_url": "https://github.com/pchuri/korean-capital-gains-tax-mcp",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "peppermint1231/stock-screener-mcp": {
+   "name": "peppermint1231/stock-screener-mcp",
+   "repo_url": "https://github.com/peppermint1231/stock-screener-mcp",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "pianovirus/kfda-mcp": {
+   "name": "pianovirus/kfda-mcp",
+   "repo_url": "https://github.com/pianovirus/kfda-mcp",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "pjookim/mcp-visit-korea": {
+   "name": "pjookim/mcp-visit-korea",
+   "repo_url": "https://github.com/pjookim/mcp-visit-korea",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "pollmap/luxon-sangkwon-mcp": {
+   "name": "pollmap/luxon-sangkwon-mcp",
+   "repo_url": "https://github.com/pollmap/luxon-sangkwon-mcp",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "prscsl/llm-mcp-weekly": {
+   "name": "prscsl/llm-mcp-weekly",
+   "repo_url": "https://github.com/prscsl/llm-mcp-weekly",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "qbong1010/kosis-qbong-mcp": {
+   "name": "qbong1010/kosis-qbong-mcp",
+   "repo_url": "https://github.com/qbong1010/kosis-qbong-mcp",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "reallygood83/sbinfo": {
+   "name": "reallygood83/sbinfo",
+   "repo_url": "https://github.com/reallygood83/sbinfo",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "rubatoyd/law-openapi-mcp": {
+   "name": "rubatoyd/law-openapi-mcp",
+   "repo_url": "https://github.com/rubatoyd/law-openapi-mcp",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "scvcoder/korean-privacy-law-mcp": {
+   "name": "scvcoder/korean-privacy-law-mcp",
+   "repo_url": "https://github.com/scvcoder/korean-privacy-law-mcp",
+   "last_remote": "https://scvcoder-korean-privacy-law-mcp.hf.space/mcp",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "site.star365/data": {
+   "name": "site.star365/data",
+   "repo_url": "",
+   "last_remote": "https://data.star365.site/mcp",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "site.star365/hq": {
+   "name": "site.star365/hq",
+   "repo_url": "",
+   "last_remote": "https://mcp.star365.site/mcp",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "songhwangcross-svg/krx-mcp-server": {
+   "name": "songhwangcross-svg/krx-mcp-server",
+   "repo_url": "https://github.com/songhwangcross-svg/krx-mcp-server",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "sound0-07/stdict-korean-mcp-server": {
+   "name": "sound0-07/stdict-korean-mcp-server",
+   "repo_url": "https://github.com/sound0-07/stdict-korean-mcp-server",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "ssol-park/booking-checker-mcp": {
+   "name": "ssol-park/booking-checker-mcp",
+   "repo_url": "https://github.com/ssol-park/booking-checker-mcp",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "swansong80-afk/neis-mcp": {
+   "name": "swansong80-afk/neis-mcp",
+   "repo_url": "https://github.com/swansong80-afk/neis-mcp",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "taxwoong/labor-mcp": {
+   "name": "taxwoong/labor-mcp",
+   "repo_url": "https://github.com/taxwoong/labor-mcp",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "tenacl/koreandict-mcp-server": {
+   "name": "tenacl/koreandict-mcp-server",
+   "repo_url": "https://github.com/tenacl/koreandict-mcp-server",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "tjrgus0320/news-crawler-mcp": {
+   "name": "tjrgus0320/news-crawler-mcp",
+   "repo_url": "https://github.com/tjrgus0320/news-crawler-mcp",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "websfactory/dongtori-mcp": {
+   "name": "websfactory/dongtori-mcp",
+   "repo_url": "https://github.com/websfactory/dongtori-mcp",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "whtjdgns2121-dot/seoul-accessible-transit-mcp": {
+   "name": "whtjdgns2121-dot/seoul-accessible-transit-mcp",
+   "repo_url": "https://github.com/whtjdgns2121-dot/seoul-accessible-transit-mcp",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "wnduq8/kr-mkt-mcp": {
+   "name": "wnduq8/kr-mkt-mcp",
+   "repo_url": "https://github.com/wnduq8/kr-mkt-mcp",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "yang7021lo/giniz-news": {
+   "name": "yang7021lo/giniz-news",
+   "repo_url": "https://github.com/yang7021lo/giniz-news",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "yonghwan1106/korea-culture-mcp": {
+   "name": "yonghwan1106/korea-culture-mcp",
+   "repo_url": "https://github.com/yonghwan1106/korea-culture-mcp",
+   "last_remote": "https://korea-culture-mcp.vercel.app/mcp",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "yt010108/kr-gov-job-mcp": {
+   "name": "yt010108/kr-gov-job-mcp",
+   "repo_url": "https://github.com/yt010108/kr-gov-job-mcp",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "yuneunmi814-cmyk/legal-navigator-mcp": {
+   "name": "yuneunmi814-cmyk/legal-navigator-mcp",
+   "repo_url": "https://github.com/yuneunmi814-cmyk/legal-navigator-mcp",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "yuneunmi814-cmyk/sinmungo-mcp": {
+   "name": "yuneunmi814-cmyk/sinmungo-mcp",
+   "repo_url": "https://github.com/yuneunmi814-cmyk/sinmungo-mcp",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "yunkee-lee/mcp-kakao-local": {
+   "name": "yunkee-lee/mcp-kakao-local",
+   "repo_url": "https://github.com/yunkee-lee/mcp-kakao-local",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  },
+  "zzjiho/kr-medicine-mcp": {
+   "name": "zzjiho/kr-medicine-mcp",
+   "repo_url": "https://github.com/zzjiho/kr-medicine-mcp",
+   "last_remote": "",
+   "first_published": "2026-09-14",
+   "last_published": "2026-09-14",
+   "rounds": 1,
+   "retired": null,
+   "renamed_to": null
+  }
+ },
+ "count": 430,
+ "retired_count": 0
+}
