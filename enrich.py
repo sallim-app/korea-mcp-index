@@ -42,7 +42,9 @@ SKIP_HOST = re.compile(
     r"mcpservers\.org|antigravity\.google|home-assistant\.io|huggingface\.co|"
     r"cursor\.com|claude\.ai|openai\.com|/docs/|"
     # README가 "여기에 당신 주소를" 로 남겨 둔 자리 — 실제로 xxxx.ngrok.io를 두드렸다.
-    r"//(?:xxx+|yyy+|host|domain)[\w-]*\.", re.I)
+    # 우리말 자리표시자도 같은 것이다(2026-09-14, `내도메인.vercel.app`). measure.py의
+    # PLACEHOLDER와 짝이고, 회귀가 두 그물을 같은 주소로 함께 두드린다.
+    r"//(?:xxx+|yyy+|host|domain|내도메인|내서버|도메인|당신|예시)[\w-]*\.", re.I)
 RE_ENDPOINT = re.compile(r"https://[\w.-]+(?::\d+)?(?:/[\w./-]*)?/(?:mcp|sse)\b", re.I)
 # 2026-08-20(T-2026W34-107): **첫 토큰이 패키지명이라는 가정이 틀렸다.**
 #   `pip install -r requirements.txt` → `-r`을, `uvx --from git+…` → `--from`을 패키지명으로

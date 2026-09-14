@@ -123,20 +123,32 @@ def test_the_disclosure_shrinks_itself_once_we_actually_measure_them():
     """
     import tempfile
 
-    now = population.summary(str(ROOT / "candidates.json"),
-                             str(ROOT / "classification.json"),
-                             str(ROOT / "measured.json"))
-    assert now["promoted"], "지금 회차엔 승격 대상이 있어야 이 회귀가 의미가 있다"
-    m = json.loads((ROOT / "measured.json").read_text(encoding="utf-8"))
-    m["items"] = m["items"] + [{"name": i["name"]} for i in now["promoted"]]
-    with tempfile.NamedTemporaryFile("w", suffix=".json", encoding="utf-8",
-                                     delete=False) as f:
-        json.dump(m, f, ensure_ascii=False)
-        fake = f.name
-    after = population.summary(str(ROOT / "candidates.json"),
-                               str(ROOT / "classification.json"), fake)
-    assert after["promoted"] == [], "다 재고도 '재지 않았다'고 적는다"
-    assert len(after["not_measured"]) == len(now["not_measured"]) - len(now["promoted"])
+    # **살아 있는 회차 상태에 기대지 않는다(2026-09-14).** 초판은 `assert now["promoted"]`로
+    # "지금 승격 대상이 있어야 한다"를 전제로 걸었는데, 승격이 실제로 적용된 첫 회차가
+    # 그 전제를 스스로 없애 이 회귀가 빨개졌다 — 성질이 깨진 것이 아니라 성질이 지켜진
+    # 것인데도 울었다. 그래서 두 방향을 **합성 입력**으로 태운다: 몇 줄을 안 잰 것으로
+    # 만들면 공시에 나타나야 하고, 도로 재면 0으로 줄어야 한다.
+    def summary_with(measured_items):
+        m = {"items": measured_items}
+        with tempfile.NamedTemporaryFile("w", suffix=".json", encoding="utf-8",
+                                         delete=False) as f:
+            json.dump(m, f, ensure_ascii=False)
+        return population.summary(str(ROOT / "candidates.json"),
+                                  str(ROOT / "classification.json"), f.name)
+
+    full = json.loads((ROOT / "measured.json").read_text(encoding="utf-8"))["items"]
+    cls = population.load_classification(str(ROOT / "classification.json"))
+    dropped = [r for r in full if population.is_data_provider(cls, r["name"])][:3]
+    assert dropped, "데이터 제공형으로 잰 줄이 하나도 없다 — 표본을 못 만든다"
+    names = {r["name"] for r in dropped}
+
+    before = summary_with([r for r in full if r["name"] not in names])
+    assert {i["name"] for i in before["promoted"]} >= names, \
+        "안 잰 데이터 제공형이 공시에 안 나타난다 — 못 본 것을 없는 것으로 적는 자리다"
+    after = summary_with(full)
+    assert not (names & {i["name"] for i in after["promoted"]}), \
+        "다 재고도 '재지 않았다'고 적는다"
+    assert len(after["not_measured"]) == len(before["not_measured"]) - len(names)
 
 
 def test_every_unmeasured_candidate_has_a_row_not_just_a_count():

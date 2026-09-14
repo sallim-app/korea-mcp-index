@@ -92,6 +92,26 @@ LOCALE_LIST = re.compile(
 )
 
 
+# **타임존 식별자 안의 `seoul`은 한국 데이터 신호가 아니다** (2026-09-14).
+#
+# 계기: `io.github.sadri-dridi/tz-asia-seoul`("Current local time in Asia/Seoul.")이
+# 모집단까지 올라와 게시본 「기타」 구역 두 줄 중 하나로 실렸다. 그 등록은 한 사람이
+# 저장소 하나(`named-mcp-utilities`)와 워커 하나로 레지스트리에 **수백 건을 살포한**
+# 범용 유틸리티 묶음의 알파벳 한 조각이다 — 실측 2026-09-14: 같은 운영자 등록에
+# `abs-ok`(절댓값 부호) · `acre-to-m2` · `adler32-ok` · `accept-lang-ok` …가 줄줄이 있고
+# 엔드포인트 호스트도 전부 같다. 한국 신호는 타임존 표기 `Asia/Seoul` 하나뿐이었다.
+#
+# **좁게 막는다.** IANA 타임존 식별자와 그 슬러그(`asia/seoul`·`asia-seoul`·`tz-asia-seoul`)
+# 자리의 `seoul`만 신호에서 뺀다 — "서울 실거래가"·"Seoul subway arrivals"처럼 진짜 서울
+# 데이터를 다루는 서버는 `seoul`이 그 자리 밖에 있으므로 그대로 한국 신호로 남는다.
+TZ_ID = re.compile(r"(?:^|[\s\-_/(\[])(?:tz[-_])?asia[-_/]seoul\b", re.I)
+
+
+def strip_tz_id(text: str) -> str:
+    """타임존 식별자 자리의 `Asia/Seoul`만 지운다(위 TZ_ID 주석 참조)."""
+    return TZ_ID.sub(" ", text)
+
+
 def strip_locale_list(text: str) -> str:
     """언어 목록 자리의 `한국어`만 지운다. 나머지 글자는 건드리지 않는다."""
     prev = None
@@ -105,7 +125,9 @@ def classify(item: dict) -> dict:
     name, desc = item["name"], item.get("description") or ""
     # 한국 신호를 세기 전에 **언어 목록 자리의 `한국어`**를 뺀다(LOCALE_LIST 주석 참조).
     desc = strip_locale_list(desc)
-    blob = f"{name} {desc}"
+    # 타임존 식별자 자리의 `seoul`도 같은 이유로 신호가 아니다 — 이름에도 붙으므로
+    # (`…/tz-asia-seoul`) 설명만이 아니라 합친 문자열에서 뺀다.
+    blob = strip_tz_id(f"{name} {desc}")
     kr, data, nod = _hit(blob, KR), _hit(blob, DATA), _hit(blob, NOT_DATA)
     # **한글로 쓰였다는 것 자체가 한국 신호다.** 2026-08-18 실측: 우리 계약나침반이
     # "계약나침반 — 공공계약 방법 결정 도우미(국가계약법·지방계약법 룰엔진)"라는 순한글

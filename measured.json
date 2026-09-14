@@ -1,24 +1,34 @@
 {
- "measured": 282,
- "unmeasurable": 52,
+ "measured": 402,
+ "unmeasurable": 77,
  "boundaries": [
+  "4thIS/hackathon_mjc_mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
   "50seok/kr-public-data-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
   "CNI-KaeSoon/public-rules-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
   "DatagokrGit/data-go-kr-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "JunbeomL22/dart-krx-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
   "JungHoonGhae/k-vote-cli: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "MikeVenge/krx-dart-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
   "N0WST4NDUP/openlaw-mcp-server: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
   "Nicegomting/PyGenAI: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
   "RealYoungk/opendart_mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
   "a2a-mcp-multiagent-study/Ticker-Score-Agent: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "afrontend/dongnelibrary-mcp-server: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
   "agent504330-ux/mcp-korean-stock: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
   "alice840126-ship-it/korean-law-mcp-setup: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
   "antisdream/skn29-3rd-4team: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "arapodcho/mcp_server_neis_api: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "blueming85/busan-contract-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "buenosiempre-cmd/kr-univ-rule-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
   "byungjunjang/litigation-writer: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
   "capitalparser/kreports-dart-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
   "cdsassj00/korean-law-ai-chatbot: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "chromato99/krx-rule-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
   "civilian7/korean-people-persona: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
   "constant94-dev/public-data-mcp-server: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
   "daehyub71/smart-korean-legal-platform: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "dahlia/ko-stdict-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "dongkyucho17/onbid-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
   "eastminnn/stock-mate-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
   "finalchild/law-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
   "geonwoo-jeong/japanese-law-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
@@ -28,36 +38,106 @@
   "hmgthb/ai-pb-agent-portfolio: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
   "iiacjay/dart-briefing-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
   "insung8150/AgentWebSearch-MCP: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "jang236/etf-analyzer: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
   "java-jaydev/toss-invest-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "jcahn99/gis-accessibility-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
   "jeonjeon12/jeonse-ansim-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
   "jhchoi-ptech/data-go-kr-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
   "jinmyungjong/korean-law-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "jinny-han/industrial-complex-api-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "jjmcpa93-design/g2b-bid-mcp: README의 placeholder 주소(https://내도메인.vercel.app/api/mcp)라 **측정 대상에서 뺐다** — 이 서버가 안 된다는 뜻이 아니라 우리가 이 서버의 주소를 모른다는 뜻이다",
   "jjonghyun41/kasb-accounting-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
-  "josanku/wehome-insight: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
   "juhyeon-im/PyNps_MCP2607: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
   "junghan0611/zotero-config: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
   "k821209/smartfarm-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "kebong-3/seogu-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
   "kimlawtech/korean-certified-mail: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
   "kimlawtech/korean-contracts: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
   "kjs369369/law-mcp-prompts-biz: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
   "kjs369369/law-mcp-prompts20: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "kkhwan1/KONEPS_sionlab: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
   "koy4648/McpServer: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
   "la1av1a/hospital-fee-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "mindm1ner/bangbang-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
   "mindm1ner/gyogwon-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
   "moby-11c/opendart_mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
   "nine-hundred/naramarket-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
   "nodeul99-dev/dart_basic_mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
   "nokelan/KoreanLawMCP: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "peppermint1231/stock-screener-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "pollmap/luxon-sangkwon-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "prscsl/llm-mcp-weekly: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
   "snaiws/DART-mcp-server: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
   "sodam-ai/Langent-MCP_One-Click_Kit: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "songhwangcross-svg/krx-mcp-server: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
   "spoyodevelop/korean-weather-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "swansong80-afk/neis-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "taxwoong/labor-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
   "techkwon/teacher-guard: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
   "uju777/coupang-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "websfactory/dongtori-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "whtjdgns2121-dot/seoul-accessible-transit-mcp: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
+  "yang7021lo/giniz-news: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)",
   "zephiris21/news-mcp-crawler: 원격 주소도 배포 패키지도 없어 **가동 여부를 못 쟀다**(레지스트리 미등록)"
  ],
  "criteria_note": "항목은 결과를 보기 전에 PROTOCOL.md에 고정됐다. 사후 변경 금지 — 바꾼 적이 있으면 그 개정 이력도 거기 있다.",
- "measured_at": "2026-09-07",
+ "measured_at": "2026-09-14",
  "items": [
+  {
+   "name": "042Jason/kosis-mcp",
+   "repo_url": "https://github.com/042Jason/kosis-mcp",
+   "stars": 1,
+   "pushed": "2026-05-19",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": {
+    "url": "https://kosis-mcp-production.up.railway.app/mcp",
+    "http": 200,
+    "cold_ms": 452,
+    "latency_ms": 470,
+    "retried": false,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "kosis-mcp",
+    "warm_ms": 470,
+    "status": "live",
+    "status_label": "살아있음 확인",
+    "reachable": true,
+    "needs_key": false,
+    "tool_count": 6,
+    "why": "",
+    "quality": {
+     "described_pct": 100,
+     "desc_median": 697,
+     "input_schema_pct": 100,
+     "output_schema_pct": 100,
+     "annotated_pct": 0,
+     "readonly_pct": 0
+    },
+    "url_source": "readme"
+   },
+   "paid_disclosure": {
+    "disclosed": false
+   },
+   "package": null,
+   "self_hostable": null,
+   "open_source": {
+    "license": null,
+    "repo": "042Jason/kosis-mcp",
+    "public": true,
+    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(라이선스 없음) — 법적으로 재사용이 열려 있지 않다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
   {
    "name": "2geonhyup/dart-mcp",
    "repo_url": "https://github.com/2geonhyup/dart-mcp",
@@ -85,6 +165,30 @@
    "self_hosting": {
     "state": "packaged",
     "why": "배포판을 설치해 자기 것으로 띄울 수 있다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "4thIS/hackathon_mjc_mcp",
+   "repo_url": "https://github.com/4thIS/hackathon_mjc_mcp",
+   "stars": 0,
+   "pushed": "2026-08-07",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null,
+   "open_source": {
+    "license": null,
+    "repo": "4thIS/hackathon_mjc_mcp",
+    "public": true,
+    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(라이선스 없음) — 법적으로 재사용이 열려 있지 않다"
    },
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
@@ -314,7 +418,7 @@
    "name": "Choihello/startup-law-mcp",
    "repo_url": "https://github.com/Choihello/startup-law-mcp",
    "stars": 1,
-   "pushed": "2026-08-30",
+   "pushed": "2026-09-06",
    "archived": false,
    "sources": [
     "github"
@@ -322,8 +426,8 @@
    "remote": {
     "url": "https://startup-law-mcp.fly.dev/mcp",
     "http": 200,
-    "cold_ms": 135,
-    "latency_ms": 126,
+    "cold_ms": 134,
+    "latency_ms": 122,
     "retried": false,
     "transports_tried": [
      "streamable-http"
@@ -331,7 +435,7 @@
     "transport": "streamable-http",
     "protocol_version": "2025-06-18",
     "server_name": "startup-law",
-    "warm_ms": 126,
+    "warm_ms": 122,
     "status": "live",
     "status_label": "살아있음 확인",
     "reachable": true,
@@ -393,30 +497,42 @@
    "name": "Dayoooun/korea-stats-mcp",
    "repo_url": "https://github.com/Dayoooun/korea-stats-mcp",
    "stars": 16,
-   "pushed": "2026-08-29",
+   "pushed": "2026-09-10",
    "archived": false,
    "sources": [
     "github"
    ],
    "remote": {
-    "url": "https://korea-stats-mcp-yxup.vercel.app/mcp",
-    "http": 404,
-    "cold_ms": 184,
-    "latency_ms": 184,
+    "url": "https://korea-stats-mcp.vercel.app/mcp",
+    "http": 200,
+    "cold_ms": 427,
+    "latency_ms": 193,
     "retried": false,
     "transports_tried": [
-     "streamable-http",
-     "sse"
+     "streamable-http"
     ],
-    "transport": null,
-    "status": "unverified",
-    "status_label": "확인 못 함",
-    "reachable": false,
-    "why": "HTTP 404",
-    "status_note": "전송 방식이 안 맞았을 수 있다 — 규격을 지키는 서버도 이 코드를 준다",
-    "sse_why": "HTTP 404",
-    "error_body": "{\"error\": {\"code\": \"404\", \"message\": \"The deployment could not be found on Vercel.\"}}",
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "korea-stats-mcp",
+    "warm_ms": 193,
+    "status": "live",
+    "status_label": "살아있음 확인",
+    "reachable": true,
+    "needs_key": false,
+    "tool_count": 14,
+    "why": "",
+    "quality": {
+     "described_pct": 100,
+     "desc_median": 89,
+     "input_schema_pct": 79,
+     "output_schema_pct": 0,
+     "annotated_pct": 0,
+     "readonly_pct": 0
+    },
     "url_source": "readme"
+   },
+   "paid_disclosure": {
+    "disclosed": false
    },
    "package": {
     "type": "npm",
@@ -431,6 +547,36 @@
     "repo": "Dayoooun/korea-stats-mcp",
     "public": true,
     "why": ""
+   },
+   "self_hosting": {
+    "state": "packaged",
+    "why": "배포판을 설치해 자기 것으로 띄울 수 있다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "DrFirstLee/korea-stock-mcp",
+   "repo_url": "https://github.com/DrFirstLee/korea-stock-mcp",
+   "stars": 3,
+   "pushed": "2026-06-05",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": {
+    "type": "npm",
+    "id": "@drfirst/korea-stock-mcp",
+    "installable": true,
+    "last_publish": "2026-06-05",
+    "version": "1.0.5"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": null,
+    "repo": "DrFirstLee/korea-stock-mcp",
+    "public": true,
+    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
    },
    "self_hosting": {
     "state": "packaged",
@@ -487,6 +633,64 @@
    "open_source": {
     "license": null,
     "repo": "GeeYun086/korea-public-data-mcp",
+    "public": true,
+    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(라이선스 없음) — 법적으로 재사용이 열려 있지 않다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "GyeongHoKim/naeryeo",
+   "repo_url": "https://github.com/GyeongHoKim/naeryeo",
+   "stars": 3,
+   "pushed": "2026-08-10",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": {
+    "type": "npm",
+    "id": "naeryeo-tooling",
+    "installable": false,
+    "why": "레지스트리에 없다(설치 불가)"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": "MIT",
+    "repo": "GyeongHoKim/naeryeo",
+    "public": true,
+    "why": ""
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(MIT) — 띄우려면 직접 빌드해야 한다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "HaChanho/passfit",
+   "repo_url": "https://github.com/HaChanho/passfit",
+   "stars": 0,
+   "pushed": "2026-07-11",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": {
+    "type": "pypi",
+    "id": "passfit",
+    "installable": false,
+    "why": "레지스트리에 없다(설치 불가)"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": null,
+    "repo": "HaChanho/passfit",
     "public": true,
     "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
    },
@@ -614,6 +818,36 @@
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
   {
+   "name": "JeongSeongMok/tossinvest-openapi-mcp",
+   "repo_url": "https://github.com/JeongSeongMok/tossinvest-openapi-mcp",
+   "stars": 2,
+   "pushed": "2026-06-10",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": {
+    "type": "npm",
+    "id": "tossinvest-openapi-mcp",
+    "installable": true,
+    "last_publish": "2026-06-04",
+    "version": "0.1.1"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": "MIT",
+    "repo": "JeongSeongMok/tossinvest-openapi-mcp",
+    "public": true,
+    "why": ""
+   },
+   "self_hosting": {
+    "state": "packaged",
+    "why": "배포판을 설치해 자기 것으로 띄울 수 있다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
    "name": "Johnhyeon/dartlens-mcp",
    "repo_url": "https://github.com/Johnhyeon/dartlens-mcp",
    "stars": 1,
@@ -640,6 +874,30 @@
    "self_hosting": {
     "state": "packaged",
     "why": "배포판을 설치해 자기 것으로 띄울 수 있다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "JunbeomL22/dart-krx-mcp",
+   "repo_url": "https://github.com/JunbeomL22/dart-krx-mcp",
+   "stars": 0,
+   "pushed": "2026-03-22",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null,
+   "open_source": {
+    "license": null,
+    "repo": "JunbeomL22/dart-krx-mcp",
+    "public": true,
+    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(라이선스 없음) — 법적으로 재사용이 열려 있지 않다"
    },
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
@@ -699,7 +957,7 @@
   {
    "name": "Koomook/data-go-mcp-servers",
    "repo_url": "https://github.com/Koomook/data-go-mcp-servers",
-   "stars": 299,
+   "stars": 305,
    "pushed": "2025-09-16",
    "archived": false,
    "sources": [
@@ -727,10 +985,39 @@
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
   {
+   "name": "MarcoYou/open-esg-korea",
+   "repo_url": "https://github.com/MarcoYou/open-esg-korea",
+   "stars": 4,
+   "pushed": "2026-09-11",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": {
+    "type": "pypi",
+    "id": "open-esg-korea",
+    "installable": false,
+    "why": "레지스트리에 없다(설치 불가)"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": "Apache-2.0",
+    "repo": "MarcoYou/open-esg-korea",
+    "public": true,
+    "why": ""
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(Apache-2.0) — 띄우려면 직접 빌드해야 한다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
    "name": "MarcoYou/open-proxy-mcp",
    "repo_url": "https://github.com/MarcoYou/open-proxy-mcp",
-   "stars": 26,
-   "pushed": "2026-09-06",
+   "stars": 29,
+   "pushed": "2026-09-11",
    "archived": false,
    "sources": [
     "github"
@@ -738,8 +1025,8 @@
    "remote": {
     "url": "https://open-proxy-mcp.fly.dev/mcp",
     "http": 401,
-    "cold_ms": 182,
-    "latency_ms": 182,
+    "cold_ms": 180,
+    "latency_ms": 180,
     "retried": false,
     "transports_tried": [
      "streamable-http"
@@ -776,10 +1063,34 @@
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
   {
+   "name": "MikeVenge/krx-dart-mcp",
+   "repo_url": "https://github.com/MikeVenge/krx-dart-mcp",
+   "stars": 0,
+   "pushed": "2026-03-26",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null,
+   "open_source": {
+    "license": null,
+    "repo": "MikeVenge/krx-dart-mcp",
+    "public": true,
+    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(라이선스 없음) — 법적으로 재사용이 열려 있지 않다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
    "name": "MosslandOpenDevs/alpha",
    "repo_url": "https://github.com/MosslandOpenDevs/alpha",
    "stars": 2,
-   "pushed": "2026-09-02",
+   "pushed": "2026-09-12",
    "archived": false,
    "sources": [
     "github"
@@ -787,8 +1098,8 @@
    "remote": {
     "url": "https://alpha.moss.land/api/mcp",
     "http": 200,
-    "cold_ms": 28,
-    "latency_ms": 31,
+    "cold_ms": 34,
+    "latency_ms": 29,
     "retried": false,
     "transports_tried": [
      "streamable-http"
@@ -796,7 +1107,7 @@
     "transport": "streamable-http",
     "protocol_version": "2025-06-18",
     "server_name": "alpha-by-mossland",
-    "warm_ms": 31,
+    "warm_ms": 29,
     "status": "live",
     "status_label": "살아있음 확인",
     "reachable": true,
@@ -849,8 +1160,8 @@
    "remote": {
     "url": "https://korea-stock-analyzer-mcp-production.up.railway.app/mcp",
     "http": 200,
-    "cold_ms": 219,
-    "latency_ms": 237,
+    "cold_ms": 541,
+    "latency_ms": 216,
     "retried": false,
     "transports_tried": [
      "streamable-http"
@@ -858,7 +1169,7 @@
     "transport": "streamable-http",
     "protocol_version": "2025-06-18",
     "server_name": "korea-stock-mcp",
-    "warm_ms": 237,
+    "warm_ms": 216,
     "status": "live",
     "status_label": "살아있음 확인",
     "reachable": true,
@@ -954,7 +1265,7 @@
    "name": "Nicegomting/PyGenAI",
    "repo_url": "https://github.com/Nicegomting/PyGenAI",
    "stars": 0,
-   "pushed": "2025-10-24",
+   "pushed": "2026-09-11",
    "archived": false,
    "sources": [
     "github"
@@ -971,6 +1282,35 @@
    "self_hosting": {
     "state": "source_only",
     "why": "배포판은 없고 소스만 공개(MIT) — 띄우려면 직접 빌드해야 한다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "Noah3521/coupang-sourcing",
+   "repo_url": "https://github.com/Noah3521/coupang-sourcing",
+   "stars": 0,
+   "pushed": "2026-06-09",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": {
+    "type": "pypi",
+    "id": "coupang-sourcing",
+    "installable": false,
+    "why": "레지스트리에 없다(설치 불가)"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": null,
+    "repo": "Noah3521/coupang-sourcing",
+    "public": true,
+    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(라이선스 없음) — 법적으로 재사용이 열려 있지 않다"
    },
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
@@ -1008,7 +1348,7 @@
    "name": "OldTemple91/korea-filings-api",
    "repo_url": "https://github.com/OldTemple91/korea-filings-api",
    "stars": 0,
-   "pushed": "2026-07-30",
+   "pushed": "2026-09-11",
    "archived": false,
    "sources": [
     "github"
@@ -1018,8 +1358,8 @@
     "type": "pypi",
     "id": "koreafilings",
     "installable": true,
-    "last_publish": "2026-07-23",
-    "version": "0.3.3"
+    "last_publish": "2026-09-09",
+    "version": "0.3.4"
    },
    "self_hostable": true,
    "open_source": {
@@ -1117,6 +1457,36 @@
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
   {
+   "name": "RealYoungk/openkrx-mcp",
+   "repo_url": "https://github.com/RealYoungk/openkrx-mcp",
+   "stars": 1,
+   "pushed": "2026-02-20",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": {
+    "type": "pypi",
+    "id": "openkrx-mcp",
+    "installable": true,
+    "last_publish": "2026-02-20",
+    "version": "0.1.1"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": null,
+    "repo": "RealYoungk/openkrx-mcp",
+    "public": true,
+    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
+   },
+   "self_hosting": {
+    "state": "packaged",
+    "why": "배포판을 설치해 자기 것으로 띄울 수 있다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
    "name": "Sedong-Choi/jangbogo-mcp",
    "repo_url": "https://github.com/Sedong-Choi/jangbogo-mcp",
    "stars": 0,
@@ -1176,6 +1546,37 @@
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
   {
+   "name": "SeoNaRu/korean-law-mcp",
+   "repo_url": "https://github.com/SeoNaRu/korean-law-mcp",
+   "stars": 74,
+   "pushed": "2026-01-20",
+   "archived": false,
+   "sources": [
+    "github",
+    "mcpmoa"
+   ],
+   "remote": null,
+   "package": {
+    "type": "pypi",
+    "id": "korean-law-mcp",
+    "installable": true,
+    "last_publish": "2025-12-15",
+    "version": "0.4.4"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": null,
+    "repo": "SeoNaRu/korean-law-mcp",
+    "public": true,
+    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
+   },
+   "self_hosting": {
+    "state": "packaged",
+    "why": "배포판을 설치해 자기 것으로 띄울 수 있다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
    "name": "SeoNaRu/lexguard-mcp",
    "repo_url": "https://github.com/SeoNaRu/lexguard-mcp",
    "stars": 130,
@@ -1207,7 +1608,7 @@
   {
    "name": "Seonh0/naver-land-mcp",
    "repo_url": "https://github.com/Seonh0/naver-land-mcp",
-   "stars": 5,
+   "stars": 7,
    "pushed": "2026-04-17",
    "archived": false,
    "sources": [
@@ -1266,7 +1667,7 @@
    "name": "SkillfulBasher1/construct-cm-bridge",
    "repo_url": "https://github.com/SkillfulBasher1/construct-cm-bridge",
    "stars": 0,
-   "pushed": "2026-09-05",
+   "pushed": "2026-09-11",
    "archived": false,
    "sources": [
     "github"
@@ -1288,6 +1689,37 @@
    "self_hosting": {
     "state": "source_only",
     "why": "배포판은 없고 소스만 공개(라이선스 없음) — 법적으로 재사용이 열려 있지 않다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "SonAIengine/ku-portal-mcp",
+   "repo_url": "https://github.com/SonAIengine/ku-portal-mcp",
+   "stars": 13,
+   "pushed": "2026-08-12",
+   "archived": false,
+   "sources": [
+    "github",
+    "mcpmoa"
+   ],
+   "remote": null,
+   "package": {
+    "type": "pypi",
+    "id": "ku-portal-mcp",
+    "installable": true,
+    "last_publish": "2026-08-12",
+    "version": "0.19.0"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": "MIT",
+    "repo": "SonAIengine/ku-portal-mcp",
+    "public": true,
+    "why": ""
+   },
+   "self_hosting": {
+    "state": "packaged",
+    "why": "배포판을 설치해 자기 것으로 띄울 수 있다"
    },
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
@@ -1321,10 +1753,39 @@
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
   {
-   "name": "TheNaham/koreafood-mcp",
-   "repo_url": "https://github.com/TheNaham/koreafood-mcp",
-   "stars": 1,
-   "pushed": "2026-06-12",
+   "name": "Tech-curator/korean-patent-mcp",
+   "repo_url": "https://github.com/Tech-curator/korean-patent-mcp",
+   "stars": 2,
+   "pushed": "2025-12-16",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": {
+    "type": "pypi",
+    "id": "korean-patent-mcp",
+    "installable": false,
+    "why": "레지스트리에 없다(설치 불가)"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": "MIT",
+    "repo": "Tech-curator/korean-patent-mcp",
+    "public": true,
+    "why": ""
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(MIT) — 띄우려면 직접 빌드해야 한다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "UrbanWatcherKr/korean-land-mcp",
+   "repo_url": "https://github.com/UrbanWatcherKr/korean-land-mcp",
+   "stars": 18,
+   "pushed": "2026-04-21",
    "archived": false,
    "sources": [
     "github"
@@ -1332,20 +1793,20 @@
    "remote": null,
    "package": {
     "type": "npm",
-    "id": "koreafood-mcp",
+    "id": "korean-land-mcp",
     "installable": false,
     "why": "레지스트리에 없다(설치 불가)"
    },
    "self_hostable": true,
    "open_source": {
-    "license": null,
-    "repo": "TheNaham/koreafood-mcp",
+    "license": "MIT",
+    "repo": "UrbanWatcherKr/korean-land-mcp",
     "public": true,
-    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
+    "why": ""
    },
    "self_hosting": {
     "state": "source_only",
-    "why": "배포판은 없고 소스만 공개(라이선스 없음) — 법적으로 재사용이 열려 있지 않다"
+    "why": "배포판은 없고 소스만 공개(MIT) — 띄우려면 직접 빌드해야 한다"
    },
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
@@ -1377,7 +1838,7 @@
    "name": "aesthetic-legalism5470/korean-dart-mcp",
    "repo_url": "https://github.com/aesthetic-legalism5470/korean-dart-mcp",
    "stars": 3,
-   "pushed": "2026-09-06",
+   "pushed": "2026-09-13",
    "archived": false,
    "sources": [
     "github"
@@ -1400,6 +1861,30 @@
    "self_hosting": {
     "state": "packaged",
     "why": "배포판을 설치해 자기 것으로 띄울 수 있다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "afrontend/dongnelibrary-mcp-server",
+   "repo_url": "https://github.com/afrontend/dongnelibrary-mcp-server",
+   "stars": 0,
+   "pushed": "2026-01-10",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null,
+   "open_source": {
+    "license": "MIT",
+    "repo": "afrontend/dongnelibrary-mcp-server",
+    "public": true,
+    "why": ""
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(MIT) — 띄우려면 직접 빌드해야 한다"
    },
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
@@ -1439,8 +1924,8 @@
    "remote": {
     "url": "https://supershopping-mcp.atdev.ai/mcp",
     "http": 200,
-    "cold_ms": 44,
-    "latency_ms": 40,
+    "cold_ms": 46,
+    "latency_ms": 41,
     "retried": false,
     "transports_tried": [
      "streamable-http"
@@ -1448,7 +1933,7 @@
     "transport": "streamable-http",
     "protocol_version": "2025-06-18",
     "server_name": "supershopping",
-    "warm_ms": 40,
+    "warm_ms": 41,
     "status": "live",
     "status_label": "살아있음 확인",
     "reachable": true,
@@ -1494,8 +1979,8 @@
    "remote": {
     "url": "https://mcp.heyyumi.ai",
     "http": 401,
-    "cold_ms": 309,
-    "latency_ms": 309,
+    "cold_ms": 336,
+    "latency_ms": 336,
     "retried": false,
     "transports_tried": [
      "streamable-http"
@@ -1538,8 +2023,8 @@
    "remote": {
     "url": "https://hotker.ai/mcp",
     "http": 200,
-    "cold_ms": 36,
-    "latency_ms": 44,
+    "cold_ms": 41,
+    "latency_ms": 38,
     "retried": false,
     "transports_tried": [
      "streamable-http"
@@ -1547,7 +2032,7 @@
     "transport": "streamable-http",
     "protocol_version": "2025-06-18",
     "server_name": "hotker_public",
-    "warm_ms": 44,
+    "warm_ms": 38,
     "status": "live",
     "status_label": "살아있음 확인",
     "reachable": true,
@@ -1582,6 +2067,51 @@
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
   {
+   "name": "ai.seldons/korea-business-trade",
+   "repo_url": "",
+   "stars": null,
+   "pushed": null,
+   "archived": null,
+   "sources": [
+    "registry"
+   ],
+   "remote": {
+    "url": "https://mcp.seldons.ai/mcp",
+    "http": 400,
+    "cold_ms": 22,
+    "latency_ms": 22,
+    "retried": false,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "seldons",
+    "status": "live",
+    "status_label": "살아있음 확인",
+    "reachable": true,
+    "needs_key": false,
+    "tool_count": null,
+    "why": "initialize는 됐는데 tools/list를 못 읽었다(HTTP 400)",
+    "url_source": "registry"
+   },
+   "paid_disclosure": {
+    "disclosed": false
+   },
+   "package": null,
+   "self_hostable": null,
+   "open_source": {
+    "license": null,
+    "repo": null,
+    "why": "GitHub 저장소 주소가 없어 못 쟀다"
+   },
+   "self_hosting": {
+    "state": "unknown",
+    "why": "배포판도 공개 소스도 확인하지 못했다 — 불가가 아니라 미확인이다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
    "name": "ai.smithery/alphago2580-naramarketmcp",
    "repo_url": "https://github.com/alphago2580/naramarketmcp",
    "stars": 4,
@@ -1594,8 +2124,8 @@
    "remote": {
     "url": "https://server.smithery.ai/@alphago2580/naramarketmcp/mcp",
     "http": 404,
-    "cold_ms": 562,
-    "latency_ms": 562,
+    "cold_ms": 453,
+    "latency_ms": 453,
     "retried": false,
     "transports_tried": [
      "streamable-http",
@@ -1637,8 +2167,8 @@
    "remote": {
     "url": "https://server.smithery.ai/@hjsh200219/pharminfo-mcp/mcp",
     "http": 404,
-    "cold_ms": 420,
-    "latency_ms": 420,
+    "cold_ms": 411,
+    "latency_ms": 411,
     "retried": false,
     "transports_tried": [
      "streamable-http",
@@ -1681,8 +2211,8 @@
    "remote": {
     "url": "https://server.smithery.ai/@isnow890/data4library-mcp/mcp",
     "http": 404,
-    "cold_ms": 407,
-    "latency_ms": 407,
+    "cold_ms": 396,
+    "latency_ms": 396,
     "retried": false,
     "transports_tried": [
      "streamable-http",
@@ -1715,8 +2245,8 @@
   {
    "name": "ai.smithery/jjlabsio-korea-stock-mcp",
    "repo_url": "https://github.com/jjlabsio/korea-stock-mcp",
-   "stars": 175,
-   "pushed": "2026-09-03",
+   "stars": 176,
+   "pushed": "2026-09-10",
    "archived": false,
    "sources": [
     "github",
@@ -1726,8 +2256,8 @@
    "remote": {
     "url": "https://server.smithery.ai/@jjlabsio/korea-stock-mcp/mcp",
     "http": 404,
-    "cold_ms": 406,
-    "latency_ms": 406,
+    "cold_ms": 398,
+    "latency_ms": 398,
     "retried": false,
     "transports_tried": [
      "streamable-http",
@@ -1769,8 +2299,8 @@
    "remote": {
     "url": "https://chat.timeplex.ai/mcp",
     "http": 200,
-    "cold_ms": 408,
-    "latency_ms": 395,
+    "cold_ms": 399,
+    "latency_ms": 416,
     "retried": false,
     "transports_tried": [
      "streamable-http"
@@ -1778,7 +2308,7 @@
     "transport": "streamable-http",
     "protocol_version": "2025-06-18",
     "server_name": "timeplex-booking",
-    "warm_ms": 395,
+    "warm_ms": 416,
     "status": "live",
     "status_label": "살아있음 확인",
     "reachable": true,
@@ -1808,6 +2338,35 @@
    "self_hosting": {
     "state": "unknown",
     "why": "배포판도 공개 소스도 확인하지 못했다 — 불가가 아니라 미확인이다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "aibridge-leo/tradingview-mcp-aibridge",
+   "repo_url": "https://github.com/aibridge-leo/tradingview-mcp-aibridge",
+   "stars": 4,
+   "pushed": "2026-04-23",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": {
+    "type": "npm",
+    "id": "tradingview-mcp-aibridge",
+    "installable": false,
+    "why": "레지스트리에 없다(설치 불가)"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": null,
+    "repo": "aibridge-leo/tradingview-mcp-aibridge",
+    "public": true,
+    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(라이선스 없음) — 법적으로 재사용이 열려 있지 않다"
    },
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
@@ -1868,7 +2427,7 @@
    "name": "anboyu-alt/dart-risk-mcp",
    "repo_url": "https://github.com/anboyu-alt/dart-risk-mcp",
    "stars": 1,
-   "pushed": "2026-09-03",
+   "pushed": "2026-09-13",
    "archived": false,
    "sources": [
     "github"
@@ -1878,8 +2437,8 @@
     "type": "pypi",
     "id": "dart-risk-mcp",
     "installable": true,
-    "last_publish": "2026-09-03",
-    "version": "1.22.1"
+    "last_publish": "2026-09-13",
+    "version": "1.28.0"
    },
    "self_hostable": true,
    "open_source": {
@@ -1919,6 +2478,35 @@
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
   {
+   "name": "antryu/kolaw",
+   "repo_url": "https://github.com/antryu/kolaw",
+   "stars": 2,
+   "pushed": "2026-05-19",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": {
+    "type": "pypi",
+    "id": "kolaw",
+    "installable": false,
+    "why": "레지스트리에 없다(설치 불가)"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": null,
+    "repo": "antryu/kolaw",
+    "public": true,
+    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(라이선스 없음) — 법적으로 재사용이 열려 있지 않다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
    "name": "app.apick/all",
    "repo_url": "https://github.com/lead788/apick-mcp",
    "stars": null,
@@ -1930,8 +2518,8 @@
    "remote": {
     "url": "https://apick.app/mcp/all",
     "http": 200,
-    "cold_ms": 44,
-    "latency_ms": 55,
+    "cold_ms": 103,
+    "latency_ms": 66,
     "retried": false,
     "transports_tried": [
      "streamable-http"
@@ -1939,20 +2527,20 @@
     "transport": "streamable-http",
     "protocol_version": "2025-06-18",
     "server_name": "app.apick/all",
-    "warm_ms": 55,
+    "warm_ms": 66,
     "status": "live",
     "status_label": "살아있음 확인",
     "reachable": true,
     "needs_key": false,
-    "tool_count": 88,
+    "tool_count": 97,
     "why": "",
     "quality": {
      "described_pct": 100,
-     "desc_median": 172,
+     "desc_median": 173,
      "input_schema_pct": 98,
      "output_schema_pct": 0,
      "annotated_pct": 100,
-     "readonly_pct": 89
+     "readonly_pct": 86
     },
     "url_source": "registry"
    },
@@ -1963,8 +2551,8 @@
     "type": "npm",
     "id": "apick-mcp",
     "installable": true,
-    "last_publish": "2026-09-04",
-    "version": "3.0.0"
+    "last_publish": "2026-09-13",
+    "version": "3.2.1"
    },
    "self_hostable": true,
    "open_source": {
@@ -1992,7 +2580,7 @@
     "url": "https://apick.app/mcp/business",
     "http": 200,
     "cold_ms": 33,
-    "latency_ms": 32,
+    "latency_ms": 36,
     "retried": false,
     "transports_tried": [
      "streamable-http"
@@ -2000,7 +2588,7 @@
     "transport": "streamable-http",
     "protocol_version": "2025-06-18",
     "server_name": "app.apick/business",
-    "warm_ms": 32,
+    "warm_ms": 36,
     "status": "live",
     "status_label": "살아있음 확인",
     "reachable": true,
@@ -2046,8 +2634,8 @@
    "remote": {
     "url": "https://apick.app/mcp/finance",
     "http": 200,
-    "cold_ms": 27,
-    "latency_ms": 34,
+    "cold_ms": 32,
+    "latency_ms": 29,
     "retried": false,
     "transports_tried": [
      "streamable-http"
@@ -2055,7 +2643,7 @@
     "transport": "streamable-http",
     "protocol_version": "2025-06-18",
     "server_name": "app.apick/finance",
-    "warm_ms": 34,
+    "warm_ms": 29,
     "status": "live",
     "status_label": "살아있음 확인",
     "reachable": true,
@@ -2102,8 +2690,8 @@
    "remote": {
     "url": "https://contract.sallim.app/mcp?via=official",
     "http": 200,
-    "cold_ms": 49,
-    "latency_ms": 32,
+    "cold_ms": 33,
+    "latency_ms": 33,
     "retried": false,
     "transports_tried": [
      "streamable-http"
@@ -2111,7 +2699,7 @@
     "transport": "streamable-http",
     "protocol_version": "2025-06-18",
     "server_name": "contract-compass",
-    "warm_ms": 32,
+    "warm_ms": 33,
     "status": "live",
     "status_label": "살아있음 확인",
     "reachable": true,
@@ -2120,7 +2708,7 @@
     "why": "",
     "quality": {
      "described_pct": 100,
-     "desc_median": 1357,
+     "desc_median": 1851,
      "input_schema_pct": 100,
      "output_schema_pct": 0,
      "annotated_pct": 100,
@@ -2161,8 +2749,8 @@
    "remote": {
     "url": "https://realty.sallim.app/mcp?via=official",
     "http": 200,
-    "cold_ms": 51,
-    "latency_ms": 49,
+    "cold_ms": 59,
+    "latency_ms": 47,
     "retried": false,
     "transports_tried": [
      "streamable-http"
@@ -2170,7 +2758,7 @@
     "transport": "streamable-http",
     "protocol_version": "2025-06-18",
     "server_name": "realty_mcp",
-    "warm_ms": 49,
+    "warm_ms": 47,
     "status": "live",
     "status_label": "살아있음 확인",
     "reachable": true,
@@ -2179,7 +2767,7 @@
     "why": "",
     "quality": {
      "described_pct": 100,
-     "desc_median": 686,
+     "desc_median": 729,
      "input_schema_pct": 100,
      "output_schema_pct": 0,
      "annotated_pct": 100,
@@ -2208,6 +2796,60 @@
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
   {
+   "name": "app.sallim/korea-stay",
+   "repo_url": "",
+   "stars": null,
+   "pushed": null,
+   "archived": null,
+   "sources": [
+    "registry"
+   ],
+   "remote": {
+    "url": "https://stay.sallim.app/mcp?via=official",
+    "http": 200,
+    "cold_ms": 43,
+    "latency_ms": 29,
+    "retried": false,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "stay_mcp",
+    "warm_ms": 29,
+    "status": "live",
+    "status_label": "살아있음 확인",
+    "reachable": true,
+    "needs_key": false,
+    "tool_count": 4,
+    "why": "",
+    "quality": {
+     "described_pct": 100,
+     "desc_median": 147,
+     "input_schema_pct": 100,
+     "output_schema_pct": 100,
+     "annotated_pct": 100,
+     "readonly_pct": 75
+    },
+    "url_source": "registry"
+   },
+   "paid_disclosure": {
+    "disclosed": false
+   },
+   "package": null,
+   "self_hostable": null,
+   "open_source": {
+    "license": null,
+    "repo": null,
+    "why": "GitHub 저장소 주소가 없어 못 쟀다"
+   },
+   "self_hosting": {
+    "state": "unknown",
+    "why": "배포판도 공개 소스도 확인하지 못했다 — 불가가 아니라 미확인이다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
    "name": "app.wishpool/korea-invoice-mcp",
    "repo_url": "https://github.com/junter1989k-ai/korea-invoice-mcp",
    "stars": null,
@@ -2219,8 +2861,8 @@
    "remote": {
     "url": "https://inv-kr.wishpool.app/mcp",
     "http": null,
-    "cold_ms": 46,
-    "latency_ms": 46,
+    "cold_ms": 81,
+    "latency_ms": 81,
     "retried": true,
     "transports_tried": [
      "streamable-http"
@@ -2248,6 +2890,84 @@
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
   {
+   "name": "app.wonbuddhism/scripture",
+   "repo_url": "",
+   "stars": null,
+   "pushed": null,
+   "archived": null,
+   "sources": [
+    "registry"
+   ],
+   "remote": {
+    "url": "https://scripture.wonbuddhism.app/api/mcp",
+    "http": 200,
+    "cold_ms": 296,
+    "latency_ms": 53,
+    "retried": false,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "scripture",
+    "warm_ms": 53,
+    "status": "live",
+    "status_label": "살아있음 확인",
+    "reachable": true,
+    "needs_key": false,
+    "tool_count": 7,
+    "why": "",
+    "quality": {
+     "described_pct": 100,
+     "desc_median": 75,
+     "input_schema_pct": 86,
+     "output_schema_pct": 0,
+     "annotated_pct": 100,
+     "readonly_pct": 100
+    },
+    "url_source": "registry"
+   },
+   "paid_disclosure": {
+    "disclosed": false
+   },
+   "package": null,
+   "self_hostable": null,
+   "open_source": {
+    "license": null,
+    "repo": null,
+    "why": "GitHub 저장소 주소가 없어 못 쟀다"
+   },
+   "self_hosting": {
+    "state": "unknown",
+    "why": "배포판도 공개 소스도 확인하지 못했다 — 불가가 아니라 미확인이다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "arapodcho/mcp_server_neis_api",
+   "repo_url": "https://github.com/arapodcho/mcp_server_neis_api",
+   "stars": 0,
+   "pushed": "2025-11-27",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null,
+   "open_source": {
+    "license": "MIT",
+    "repo": "arapodcho/mcp_server_neis_api",
+    "public": true,
+    "why": ""
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(MIT) — 띄우려면 직접 빌드해야 한다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
    "name": "bb4rjfl/weathersafetyos-mcp",
    "repo_url": "https://github.com/bb4rjfl/weathersafetyos-mcp",
    "stars": 0,
@@ -2267,6 +2987,148 @@
    "open_source": {
     "license": null,
     "repo": "bb4rjfl/weathersafetyos-mcp",
+    "public": true,
+    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(라이선스 없음) — 법적으로 재사용이 열려 있지 않다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "bhyunco/korea-holiday-mcp",
+   "repo_url": "https://github.com/bhyunco/korea-holiday-mcp",
+   "stars": 0,
+   "pushed": "2026-08-28",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": {
+    "url": "https://korea-holiday-mcp.vercel.app/api/mcp",
+    "http": 200,
+    "cold_ms": 240,
+    "latency_ms": 227,
+    "retried": false,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "korea-holiday-mcp",
+    "warm_ms": 227,
+    "status": "live",
+    "status_label": "살아있음 확인",
+    "reachable": true,
+    "needs_key": false,
+    "tool_count": 6,
+    "why": "",
+    "quality": {
+     "described_pct": 100,
+     "desc_median": 79,
+     "input_schema_pct": 100,
+     "output_schema_pct": 0,
+     "annotated_pct": 0,
+     "readonly_pct": 0
+    },
+    "url_source": "readme"
+   },
+   "paid_disclosure": {
+    "disclosed": false
+   },
+   "package": {
+    "type": "npm",
+    "id": "korea-holiday-mcp",
+    "installable": false,
+    "why": "레지스트리에 없다(설치 불가)"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": "MIT",
+    "repo": "bhyunco/korea-holiday-mcp",
+    "public": true,
+    "why": ""
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(MIT) — 띄우려면 직접 빌드해야 한다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "billy-baek/ansimtalk",
+   "repo_url": "https://github.com/billy-baek/ansimtalk",
+   "stars": 0,
+   "pushed": "2026-07-13",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": {
+    "type": "npm",
+    "id": "ansimtalk-mcp",
+    "installable": false,
+    "why": "레지스트리에 없다(설치 불가)"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": null,
+    "repo": "billy-baek/ansimtalk",
+    "public": true,
+    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(라이선스 없음) — 법적으로 재사용이 열려 있지 않다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "blottosicei/here-now-er-mcp",
+   "repo_url": "https://github.com/blottosicei/here-now-er-mcp",
+   "stars": 0,
+   "pushed": "2026-07-09",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": {
+    "type": "npm",
+    "id": "here-now-er-mcp",
+    "installable": false,
+    "why": "레지스트리에 없다(설치 불가)"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": null,
+    "repo": "blottosicei/here-now-er-mcp",
+    "public": true,
+    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(라이선스 없음) — 법적으로 재사용이 열려 있지 않다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "blueming85/busan-contract-mcp",
+   "repo_url": "https://github.com/blueming85/busan-contract-mcp",
+   "stars": 0,
+   "pushed": "2026-06-23",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null,
+   "open_source": {
+    "license": null,
+    "repo": "blueming85/busan-contract-mcp",
     "public": true,
     "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
    },
@@ -2318,7 +3180,7 @@
    "remote": {
     "url": "https://bootpay-docs-mcp.rupy1014.workers.dev/mcp",
     "http": 200,
-    "cold_ms": 30,
+    "cold_ms": 29,
     "latency_ms": 32,
     "retried": false,
     "transports_tried": [
@@ -2362,9 +3224,33 @@
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
   {
+   "name": "buenosiempre-cmd/kr-univ-rule-mcp",
+   "repo_url": "https://github.com/buenosiempre-cmd/kr-univ-rule-mcp",
+   "stars": 0,
+   "pushed": "2026-07-30",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null,
+   "open_source": {
+    "license": "MIT",
+    "repo": "buenosiempre-cmd/kr-univ-rule-mcp",
+    "public": true,
+    "why": ""
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(MIT) — 띄우려면 직접 빌드해야 한다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
    "name": "burlesquer/coupang-mcp",
    "repo_url": "https://github.com/burlesquer/coupang-mcp",
-   "stars": 1,
+   "stars": 2,
    "pushed": "2026-03-19",
    "archived": false,
    "sources": [
@@ -2492,10 +3378,69 @@
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
   {
+   "name": "changgi/open-go-kr-archive",
+   "repo_url": "https://github.com/changgi/open-go-kr-archive",
+   "stars": 0,
+   "pushed": "2026-04-12",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": {
+    "type": "npm",
+    "id": "open-go-kr-archive-root",
+    "installable": false,
+    "why": "레지스트리에 없다(설치 불가)"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": null,
+    "repo": "changgi/open-go-kr-archive",
+    "public": true,
+    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(라이선스 없음) — 법적으로 재사용이 열려 있지 않다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "choyeonkyu/mcp-ai-agent",
+   "repo_url": "https://github.com/choyeonkyu/mcp-ai-agent",
+   "stars": 0,
+   "pushed": "2025-10-06",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": {
+    "type": "pypi",
+    "id": "mcp",
+    "installable": true,
+    "last_publish": "2026-09-07",
+    "version": "2.2.0"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": null,
+    "repo": "choyeonkyu/mcp-ai-agent",
+    "public": true,
+    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
+   },
+   "self_hosting": {
+    "state": "packaged",
+    "why": "배포판을 설치해 자기 것으로 띄울 수 있다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
    "name": "chrisryugj/archhub-mcp",
    "repo_url": "https://github.com/chrisryugj/archhub-mcp",
    "stars": 65,
-   "pushed": "2026-08-17",
+   "pushed": "2026-09-12",
    "archived": false,
    "sources": [
     "github"
@@ -2503,8 +3448,8 @@
    "remote": {
     "url": "https://archhub-mcp.fly.dev/mcp",
     "http": null,
-    "cold_ms": 5170,
-    "latency_ms": 5170,
+    "cold_ms": 5250,
+    "latency_ms": 5250,
     "retried": true,
     "transports_tried": [
      "streamable-http"
@@ -2540,7 +3485,7 @@
    "name": "chrisryugj/korean-dart-mcp",
    "repo_url": "https://github.com/chrisryugj/korean-dart-mcp",
    "stars": 98,
-   "pushed": "2026-07-30",
+   "pushed": "2026-09-12",
    "archived": false,
    "sources": [
     "github",
@@ -2570,8 +3515,8 @@
   {
    "name": "chrisryugj/korean-law-mcp",
    "repo_url": "https://github.com/chrisryugj/korean-law-mcp",
-   "stars": 2558,
-   "pushed": "2026-09-06",
+   "stars": 2579,
+   "pushed": "2026-09-12",
    "archived": false,
    "sources": [
     "github",
@@ -2580,8 +3525,8 @@
    "remote": {
     "url": "https://korean-law-mcp.fly.dev/mcp",
     "http": 200,
-    "cold_ms": 217,
-    "latency_ms": 196,
+    "cold_ms": 202,
+    "latency_ms": 204,
     "retried": false,
     "transports_tried": [
      "streamable-http"
@@ -2589,7 +3534,7 @@
     "transport": "streamable-http",
     "protocol_version": "2025-06-18",
     "server_name": "korean-law",
-    "warm_ms": 196,
+    "warm_ms": 204,
     "status": "live",
     "status_label": "살아있음 확인",
     "reachable": true,
@@ -2613,8 +3558,8 @@
     "type": "npm",
     "id": "korean-law-mcp",
     "installable": true,
-    "last_publish": "2026-09-06",
-    "version": "4.12.3"
+    "last_publish": "2026-09-10",
+    "version": "4.13.0"
    },
    "self_hostable": true,
    "open_source": {
@@ -2635,8 +3580,8 @@
   {
    "name": "chrisryugj/korean-patent-mcp",
    "repo_url": "https://github.com/chrisryugj/korean-patent-mcp",
-   "stars": 52,
-   "pushed": "2026-08-17",
+   "stars": 53,
+   "pushed": "2026-09-12",
    "archived": false,
    "sources": [
     "github"
@@ -2665,8 +3610,8 @@
   {
    "name": "chrisryugj/schoolinfo-mcp",
    "repo_url": "https://github.com/chrisryugj/schoolinfo-mcp",
-   "stars": 42,
-   "pushed": "2026-08-17",
+   "stars": 43,
+   "pushed": "2026-09-12",
    "archived": false,
    "sources": [
     "github"
@@ -2689,6 +3634,30 @@
    "self_hosting": {
     "state": "packaged",
     "why": "배포판을 설치해 자기 것으로 띄울 수 있다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "chromato99/krx-rule-mcp",
+   "repo_url": "https://github.com/chromato99/krx-rule-mcp",
+   "stars": 0,
+   "pushed": "2026-09-10",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null,
+   "open_source": {
+    "license": "MIT",
+    "repo": "chromato99/krx-rule-mcp",
+    "public": true,
+    "why": ""
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(MIT) — 띄우려면 직접 빌드해야 한다"
    },
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
@@ -2718,19 +3687,81 @@
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
   {
+   "name": "clayop/korean-university-regulation-mcp",
+   "repo_url": "https://github.com/clayop/korean-university-regulation-mcp",
+   "stars": 2,
+   "pushed": "2026-04-06",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": {
+    "url": "https://korean-university-regulation-mcp.clayop.workers.dev/mcp",
+    "http": 200,
+    "cold_ms": 10068,
+    "latency_ms": 10066,
+    "retried": false,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "korean-university-regulation-mcp",
+    "warm_ms": 10066,
+    "status": "live",
+    "status_label": "살아있음 확인",
+    "reachable": true,
+    "needs_key": false,
+    "tool_count": 4,
+    "why": "",
+    "quality": {
+     "described_pct": 50,
+     "desc_median": 20,
+     "input_schema_pct": 100,
+     "output_schema_pct": 0,
+     "annotated_pct": 0,
+     "readonly_pct": 0
+    },
+    "url_source": "readme"
+   },
+   "paid_disclosure": {
+    "disclosed": false
+   },
+   "package": {
+    "type": "npm",
+    "id": "korean-university-regulation-mcp",
+    "installable": true,
+    "last_publish": "2026-04-06",
+    "version": "0.2.1"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": "MIT",
+    "repo": "clayop/korean-university-regulation-mcp",
+    "public": true,
+    "why": ""
+   },
+   "self_hosting": {
+    "state": "packaged",
+    "why": "배포판을 설치해 자기 것으로 띄울 수 있다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
    "name": "com.aikstockdata/mcp",
    "repo_url": "https://github.com/na77tech-creator/aikstockdata",
-   "stars": null,
-   "pushed": null,
-   "archived": null,
+   "stars": 7,
+   "pushed": "2026-09-11",
+   "archived": false,
    "sources": [
+    "github",
     "registry"
    ],
    "remote": {
     "url": "https://mcp.aikstockdata.com/mcp",
     "http": 200,
-    "cold_ms": 67,
-    "latency_ms": 26,
+    "cold_ms": 33,
+    "latency_ms": 23,
     "retried": false,
     "transports_tried": [
      "streamable-http"
@@ -2738,7 +3769,7 @@
     "transport": "streamable-http",
     "protocol_version": "2025-06-18",
     "server_name": "aikstockdata-mcp",
-    "warm_ms": 26,
+    "warm_ms": 23,
     "status": "live",
     "status_label": "살아있음 확인",
     "reachable": true,
@@ -2747,7 +3778,7 @@
     "why": "",
     "quality": {
      "described_pct": 100,
-     "desc_median": 452,
+     "desc_median": 477,
      "input_schema_pct": 75,
      "output_schema_pct": 0,
      "annotated_pct": 100,
@@ -2761,14 +3792,14 @@
    "package": null,
    "self_hostable": null,
    "open_source": {
-    "license": null,
+    "license": "MIT",
     "repo": "na77tech-creator/aikstockdata",
-    "public": null,
-    "why": "저장소를 못 읽었다(404) — 비공개·삭제·이름 변경 중 하나"
+    "public": true,
+    "why": ""
    },
    "self_hosting": {
-    "state": "unknown",
-    "why": "배포판도 공개 소스도 확인하지 못했다 — 불가가 아니라 미확인이다"
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(MIT) — 띄우려면 직접 빌드해야 한다"
    },
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
@@ -2784,8 +3815,8 @@
    "remote": {
     "url": "https://seoul-apt-signal.airblock2026.workers.dev/mcp",
     "http": 200,
-    "cold_ms": 179,
-    "latency_ms": 29,
+    "cold_ms": 27,
+    "latency_ms": 36,
     "retried": false,
     "transports_tried": [
      "streamable-http"
@@ -2793,7 +3824,7 @@
     "transport": "streamable-http",
     "protocol_version": "2024-11-05",
     "server_name": "seoul-apt-signal",
-    "warm_ms": 29,
+    "warm_ms": 36,
     "status": "live",
     "status_label": "살아있음 확인",
     "reachable": true,
@@ -2802,7 +3833,61 @@
     "why": "",
     "quality": {
      "described_pct": 100,
-     "desc_median": 494,
+     "desc_median": 437,
+     "input_schema_pct": 100,
+     "output_schema_pct": 0,
+     "annotated_pct": 0,
+     "readonly_pct": 0
+    },
+    "url_source": "registry"
+   },
+   "paid_disclosure": {
+    "disclosed": false
+   },
+   "package": null,
+   "self_hostable": null,
+   "open_source": {
+    "license": null,
+    "repo": null,
+    "why": "GitHub 저장소 주소가 없어 못 쟀다"
+   },
+   "self_hosting": {
+    "state": "unknown",
+    "why": "배포판도 공개 소스도 확인하지 못했다 — 불가가 아니라 미확인이다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "com.airblockfz/stock-signal-kr",
+   "repo_url": "",
+   "stars": null,
+   "pushed": null,
+   "archived": null,
+   "sources": [
+    "registry"
+   ],
+   "remote": {
+    "url": "https://stock-signal-kr.airblock2026.workers.dev/mcp",
+    "http": 200,
+    "cold_ms": 28,
+    "latency_ms": 28,
+    "retried": false,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2024-11-05",
+    "server_name": "stock-signal-kr",
+    "warm_ms": 28,
+    "status": "live",
+    "status_label": "살아있음 확인",
+    "reachable": true,
+    "needs_key": false,
+    "tool_count": 5,
+    "why": "",
+    "quality": {
+     "described_pct": 100,
+     "desc_median": 430,
      "input_schema_pct": 100,
      "output_schema_pct": 0,
      "annotated_pct": 0,
@@ -2838,8 +3923,8 @@
    "remote": {
     "url": "https://mcp.arcasos.com",
     "http": 200,
-    "cold_ms": 659,
-    "latency_ms": 685,
+    "cold_ms": 652,
+    "latency_ms": 548,
     "retried": false,
     "transports_tried": [
      "streamable-http"
@@ -2847,7 +3932,7 @@
     "transport": "streamable-http",
     "protocol_version": "2025-06-18",
     "server_name": "arcasos-rentals",
-    "warm_ms": 685,
+    "warm_ms": 548,
     "status": "live",
     "status_label": "살아있음 확인",
     "reachable": true,
@@ -2892,8 +3977,8 @@
    "remote": {
     "url": "https://mcp.beauticslab.com/mcp",
     "http": 401,
-    "cold_ms": 254,
-    "latency_ms": 254,
+    "cold_ms": 153,
+    "latency_ms": 153,
     "retried": false,
     "transports_tried": [
      "streamable-http"
@@ -2936,8 +4021,8 @@
    "remote": {
     "url": "https://app.boltena.com/api/ext/mcp",
     "http": 401,
-    "cold_ms": 75,
-    "latency_ms": 75,
+    "cold_ms": 128,
+    "latency_ms": 128,
     "retried": false,
     "transports_tried": [
      "streamable-http"
@@ -2979,8 +4064,8 @@
    "remote": {
     "url": "https://empresskorea.com/kb-agent-network/mcp",
     "http": 403,
-    "cold_ms": 320,
-    "latency_ms": 320,
+    "cold_ms": 304,
+    "latency_ms": 304,
     "retried": false,
     "transports_tried": [
      "streamable-http"
@@ -3041,6 +4126,49 @@
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
   {
+   "name": "com.goodsaegim/goodsaegim",
+   "repo_url": "",
+   "stars": null,
+   "pushed": null,
+   "archived": null,
+   "sources": [
+    "registry"
+   ],
+   "remote": {
+    "url": "https://www.goodsaegim.com/api/mcp",
+    "http": 401,
+    "cold_ms": 132,
+    "latency_ms": 132,
+    "retried": false,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "status": "live",
+    "status_label": "살아있음 확인",
+    "reachable": true,
+    "needs_key": true,
+    "tool_count": null,
+    "why": "인증 필요 — 키 없이는 도구 목록도 못 본다",
+    "url_source": "registry"
+   },
+   "paid_disclosure": {
+    "disclosed": false
+   },
+   "package": null,
+   "self_hostable": null,
+   "open_source": {
+    "license": null,
+    "repo": null,
+    "why": "GitHub 저장소 주소가 없어 못 쟀다"
+   },
+   "self_hosting": {
+    "state": "unknown",
+    "why": "배포판도 공개 소스도 확인하지 못했다 — 불가가 아니라 미확인이다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
    "name": "com.hankookilbo.mcp/hankookilbo-mcp",
    "repo_url": "https://github.com/hkilbo/hankookilbo-mcp",
    "stars": null,
@@ -3052,8 +4180,8 @@
    "remote": {
     "url": "https://mcp.hankookilbo.com/mcp",
     "http": 200,
-    "cold_ms": 205,
-    "latency_ms": 197,
+    "cold_ms": 224,
+    "latency_ms": 217,
     "retried": false,
     "transports_tried": [
      "streamable-http"
@@ -3061,7 +4189,7 @@
     "transport": "streamable-http",
     "protocol_version": "2025-06-18",
     "server_name": "한국일보 뉴스 (Hankookilbo)",
-    "warm_ms": 197,
+    "warm_ms": 217,
     "status": "live",
     "status_label": "살아있음 확인",
     "reachable": true,
@@ -3096,6 +4224,60 @@
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
   {
+   "name": "com.kimchi-sushi/agent-mcp",
+   "repo_url": "",
+   "stars": null,
+   "pushed": null,
+   "archived": null,
+   "sources": [
+    "registry"
+   ],
+   "remote": {
+    "url": "https://kimchi-sushi.com/mcp",
+    "http": 200,
+    "cold_ms": 234,
+    "latency_ms": 214,
+    "retried": false,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "kimchisushi-agent-mcp",
+    "warm_ms": 214,
+    "status": "live",
+    "status_label": "살아있음 확인",
+    "reachable": true,
+    "needs_key": false,
+    "tool_count": 6,
+    "why": "",
+    "quality": {
+     "described_pct": 100,
+     "desc_median": 87,
+     "input_schema_pct": 67,
+     "output_schema_pct": 100,
+     "annotated_pct": 100,
+     "readonly_pct": 100
+    },
+    "url_source": "registry"
+   },
+   "paid_disclosure": {
+    "disclosed": false
+   },
+   "package": null,
+   "self_hostable": null,
+   "open_source": {
+    "license": null,
+    "repo": null,
+    "why": "GitHub 저장소 주소가 없어 못 쟀다"
+   },
+   "self_hosting": {
+    "state": "unknown",
+    "why": "배포판도 공개 소스도 확인하지 못했다 — 불가가 아니라 미확인이다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
    "name": "com.koreastockcheck/mcp",
    "repo_url": "https://github.com/koreastockcheck/mcp",
    "stars": null,
@@ -3107,8 +4289,8 @@
    "remote": {
     "url": "https://mcp.koreastockcheck.com/mcp/{api_key}",
     "http": 401,
-    "cold_ms": 44,
-    "latency_ms": 44,
+    "cold_ms": 42,
+    "latency_ms": 42,
     "retried": false,
     "transports_tried": [
      "streamable-http"
@@ -3140,6 +4322,67 @@
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
   {
+   "name": "com.nmjib/nmjib",
+   "repo_url": "https://github.com/Deall-International/nmjib-mcp",
+   "stars": null,
+   "pushed": null,
+   "archived": null,
+   "sources": [
+    "registry"
+   ],
+   "remote": {
+    "url": "https://nmjib.com/api/mcp",
+    "http": 200,
+    "cold_ms": 243,
+    "latency_ms": 250,
+    "retried": false,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "nmjib",
+    "warm_ms": 250,
+    "status": "live",
+    "status_label": "살아있음 확인",
+    "reachable": true,
+    "needs_key": false,
+    "tool_count": 10,
+    "why": "",
+    "quality": {
+     "described_pct": 100,
+     "desc_median": 268,
+     "input_schema_pct": 100,
+     "output_schema_pct": 0,
+     "annotated_pct": 100,
+     "readonly_pct": 60
+    },
+    "url_source": "registry"
+   },
+   "paid_disclosure": {
+    "disclosed": false
+   },
+   "package": {
+    "type": "npm",
+    "id": "nmjib-mcp",
+    "installable": true,
+    "last_publish": "2026-09-09",
+    "version": "1.0.0"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": "MIT",
+    "repo": "Deall-International/nmjib-mcp",
+    "public": true,
+    "why": ""
+   },
+   "self_hosting": {
+    "state": "packaged",
+    "why": "배포판을 설치해 자기 것으로 띄울 수 있다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
    "name": "com.saaskr/korean-saas-directory",
    "repo_url": "",
    "stars": null,
@@ -3151,8 +4394,8 @@
    "remote": {
     "url": "https://saaskr.com/api/mcp",
     "http": 200,
-    "cold_ms": 387,
-    "latency_ms": 232,
+    "cold_ms": 238,
+    "latency_ms": 228,
     "retried": false,
     "transports_tried": [
      "streamable-http"
@@ -3160,7 +4403,7 @@
     "transport": "streamable-http",
     "protocol_version": "2025-06-18",
     "server_name": "saaskr",
-    "warm_ms": 232,
+    "warm_ms": 228,
     "status": "live",
     "status_label": "살아있음 확인",
     "reachable": true,
@@ -3194,6 +4437,114 @@
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
   {
+   "name": "com.seoapi/naverbot",
+   "repo_url": "",
+   "stars": null,
+   "pushed": null,
+   "archived": null,
+   "sources": [
+    "registry"
+   ],
+   "remote": {
+    "url": "https://naverbot.seoapi.com/mcp",
+    "http": 200,
+    "cold_ms": 27,
+    "latency_ms": 27,
+    "retried": false,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "naverbot",
+    "warm_ms": 27,
+    "status": "live",
+    "status_label": "살아있음 확인",
+    "reachable": true,
+    "needs_key": false,
+    "tool_count": 1,
+    "why": "",
+    "quality": {
+     "described_pct": 100,
+     "desc_median": 141,
+     "input_schema_pct": 100,
+     "output_schema_pct": 0,
+     "annotated_pct": 0,
+     "readonly_pct": 0
+    },
+    "url_source": "registry"
+   },
+   "paid_disclosure": {
+    "disclosed": false
+   },
+   "package": null,
+   "self_hostable": null,
+   "open_source": {
+    "license": null,
+    "repo": null,
+    "why": "GitHub 저장소 주소가 없어 못 쟀다"
+   },
+   "self_hosting": {
+    "state": "unknown",
+    "why": "배포판도 공개 소스도 확인하지 못했다 — 불가가 아니라 미확인이다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "com.thenextgennexus/global-equities-screener-mcp",
+   "repo_url": "",
+   "stars": null,
+   "pushed": null,
+   "archived": null,
+   "sources": [
+    "registry"
+   ],
+   "remote": {
+    "url": "https://nexgendata-mcp-proxy.steve-corbeil.workers.dev/global-equities-screener-mcp/mcp",
+    "http": 200,
+    "cold_ms": 36,
+    "latency_ms": 31,
+    "retried": false,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2024-11-05",
+    "server_name": "global-equities-screener-mcp",
+    "warm_ms": 31,
+    "status": "live",
+    "status_label": "살아있음 확인",
+    "reachable": true,
+    "needs_key": false,
+    "tool_count": 26,
+    "why": "",
+    "quality": {
+     "described_pct": 100,
+     "desc_median": 179,
+     "input_schema_pct": 100,
+     "output_schema_pct": 0,
+     "annotated_pct": 100,
+     "readonly_pct": 100
+    },
+    "url_source": "registry"
+   },
+   "paid_disclosure": {
+    "disclosed": false
+   },
+   "package": null,
+   "self_hostable": null,
+   "open_source": {
+    "license": null,
+    "repo": null,
+    "why": "GitHub 저장소 주소가 없어 못 쟀다"
+   },
+   "self_hosting": {
+    "state": "unknown",
+    "why": "배포판도 공개 소스도 확인하지 못했다 — 불가가 아니라 미확인이다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
    "name": "com.theprotoclinical/commerce",
    "repo_url": "",
    "stars": null,
@@ -3205,8 +4556,8 @@
    "remote": {
     "url": "https://www.theprotoclinical.com/api/ucp/mcp",
     "http": 200,
-    "cold_ms": 153,
-    "latency_ms": 164,
+    "cold_ms": 217,
+    "latency_ms": 142,
     "retried": false,
     "transports_tried": [
      "streamable-http"
@@ -3214,7 +4565,7 @@
     "transport": "streamable-http",
     "protocol_version": "2025-06-18",
     "server_name": "universal-commerce",
-    "warm_ms": 164,
+    "warm_ms": 142,
     "status": "live",
     "status_label": "살아있음 확인",
     "reachable": true,
@@ -3259,8 +4610,8 @@
    "remote": {
     "url": "https://whooing.com/mcp",
     "http": 404,
-    "cold_ms": 321,
-    "latency_ms": 321,
+    "cold_ms": 188,
+    "latency_ms": 188,
     "retried": false,
     "transports_tried": [
      "streamable-http",
@@ -3310,6 +4661,35 @@
    "self_hosting": {
     "state": "source_only",
     "why": "배포판은 없고 소스만 공개(라이선스 없음) — 법적으로 재사용이 열려 있지 않다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "coyaSONG/kra-mcp",
+   "repo_url": "https://github.com/coyaSONG/kra-mcp",
+   "stars": 0,
+   "pushed": "2026-09-11",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": {
+    "type": "npm",
+    "id": "kra-racing-data-mcp-server",
+    "installable": false,
+    "why": "레지스트리에 없다(설치 불가)"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": "MIT",
+    "repo": "coyaSONG/kra-mcp",
+    "public": true,
+    "why": ""
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(MIT) — 띄우려면 직접 빌드해야 한다"
    },
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
@@ -3396,6 +4776,31 @@
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
   {
+   "name": "dahlia/ko-stdict-mcp",
+   "repo_url": "https://github.com/dahlia/ko-stdict-mcp",
+   "stars": 28,
+   "pushed": "2026-03-29",
+   "archived": false,
+   "sources": [
+    "github",
+    "mcpmoa"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null,
+   "open_source": {
+    "license": "AGPL-3.0",
+    "repo": "dahlia/ko-stdict-mcp",
+    "public": true,
+    "why": ""
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(AGPL-3.0) — 띄우려면 직접 빌드해야 한다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
    "name": "dartpointai/dartpoint-mcp",
    "repo_url": "https://github.com/dartpointai/dartpoint-mcp",
    "stars": 3,
@@ -3407,8 +4812,8 @@
    "remote": {
     "url": "https://dartpoint.ai/mcp-sse/mcp/",
     "http": 200,
-    "cold_ms": 23,
-    "latency_ms": 24,
+    "cold_ms": 25,
+    "latency_ms": 25,
     "retried": false,
     "transports_tried": [
      "streamable-http"
@@ -3417,7 +4822,7 @@
     "redirected_from": "https://dartpoint.ai/mcp-sse/mcp",
     "protocol_version": "2025-06-18",
     "server_name": "DartPoint AI MCP Server",
-    "warm_ms": 24,
+    "warm_ms": 25,
     "status": "live",
     "status_label": "살아있음 확인",
     "reachable": true,
@@ -3452,6 +4857,67 @@
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
   {
+   "name": "datagokr-dev/datagokr",
+   "repo_url": "https://github.com/datagokr-dev/datagokr",
+   "stars": 0,
+   "pushed": "2026-09-10",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": {
+    "url": "https://datagokr.dev/mcp",
+    "http": 200,
+    "cold_ms": 138,
+    "latency_ms": 137,
+    "retried": false,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "datagokr-public",
+    "warm_ms": 137,
+    "status": "live",
+    "status_label": "살아있음 확인",
+    "reachable": true,
+    "needs_key": false,
+    "tool_count": 6,
+    "why": "",
+    "quality": {
+     "described_pct": 100,
+     "desc_median": 389,
+     "input_schema_pct": 100,
+     "output_schema_pct": 100,
+     "annotated_pct": 100,
+     "readonly_pct": 100
+    },
+    "url_source": "readme"
+   },
+   "paid_disclosure": {
+    "disclosed": false
+   },
+   "package": {
+    "type": "pypi",
+    "id": "datagokr-mcp",
+    "installable": true,
+    "last_publish": "2026-09-10",
+    "version": "0.1.1"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": "MIT",
+    "repo": "datagokr-dev/datagokr",
+    "public": true,
+    "why": ""
+   },
+   "self_hosting": {
+    "state": "packaged",
+    "why": "배포판을 설치해 자기 것으로 띄울 수 있다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
    "name": "dikehomme/kr-law-mcp",
    "repo_url": "https://github.com/dikehomme/kr-law-mcp",
    "stars": 1,
@@ -3481,10 +4947,39 @@
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
   {
+   "name": "dodopd/kosis-mcp",
+   "repo_url": "https://github.com/dodopd/kosis-mcp",
+   "stars": 0,
+   "pushed": "2026-07-27",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": {
+    "type": "npm",
+    "id": "kosis-mcp-dankkumi",
+    "installable": false,
+    "why": "레지스트리에 없다(설치 불가)"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": null,
+    "repo": "dodopd/kosis-mcp",
+    "public": true,
+    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(라이선스 없음) — 법적으로 재사용이 열려 있지 않다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
    "name": "dolseom/gongsi-mcp",
    "repo_url": "https://github.com/dolseom/gongsi-mcp",
    "stars": 1,
-   "pushed": "2026-09-05",
+   "pushed": "2026-09-13",
    "archived": false,
    "sources": [
     "github"
@@ -3540,6 +5035,59 @@
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
   {
+   "name": "dongkyucho17/onbid-mcp",
+   "repo_url": "https://github.com/dongkyucho17/onbid-mcp",
+   "stars": 0,
+   "pushed": "2026-08-13",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null,
+   "open_source": {
+    "license": "MIT",
+    "repo": "dongkyucho17/onbid-mcp",
+    "public": true,
+    "why": ""
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(MIT) — 띄우려면 직접 빌드해야 한다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "eastho20/korea-stock-mcp-vercel",
+   "repo_url": "https://github.com/eastho20/korea-stock-mcp-vercel",
+   "stars": 0,
+   "pushed": "2026-05-06",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": {
+    "type": "npm",
+    "id": "korea-stock-mcp-vercel",
+    "installable": false,
+    "why": "레지스트리에 없다(설치 불가)"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": null,
+    "repo": "eastho20/korea-stock-mcp-vercel",
+    "public": true,
+    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(라이선스 없음) — 법적으로 재사용이 열려 있지 않다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
    "name": "eastminnn/stock-mate-mcp",
    "repo_url": "https://github.com/eastminnn/stock-mate-mcp",
    "stars": 0,
@@ -3566,8 +5114,8 @@
   {
    "name": "eddmpython/dartlab",
    "repo_url": "https://github.com/eddmpython/dartlab",
-   "stars": 211,
-   "pushed": "2026-09-01",
+   "stars": 219,
+   "pushed": "2026-09-10",
    "archived": false,
    "sources": [
     "github"
@@ -3575,8 +5123,8 @@
    "remote": {
     "url": "https://eddmpython-dartlab.hf.space/mcp/sse",
     "http": 200,
-    "cold_ms": 581,
-    "latency_ms": 581,
+    "cold_ms": 634,
+    "latency_ms": 634,
     "retried": false,
     "transports_tried": [
      "streamable-http",
@@ -3612,6 +5160,147 @@
    "open_source": {
     "license": "Apache-2.0",
     "repo": "eddmpython/dartlab",
+    "public": true,
+    "why": ""
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(Apache-2.0) — 띄우려면 직접 빌드해야 한다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "edward-kim-dev/kr-pc-deals-mcp",
+   "repo_url": "https://github.com/edward-kim-dev/kr-pc-deals-mcp",
+   "stars": 11,
+   "pushed": "2026-03-31",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": {
+    "type": "npm",
+    "id": "kr-pc-deals-mcp",
+    "installable": true,
+    "last_publish": "2026-03-31",
+    "version": "1.0.7"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": "MIT",
+    "repo": "edward-kim-dev/kr-pc-deals-mcp",
+    "public": true,
+    "why": ""
+   },
+   "self_hosting": {
+    "state": "packaged",
+    "why": "배포판을 설치해 자기 것으로 띄울 수 있다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "emceeKim/korea-finance-mcp",
+   "repo_url": "https://github.com/emceeKim/korea-finance-mcp",
+   "stars": 55,
+   "pushed": "2026-07-04",
+   "archived": false,
+   "sources": [
+    "github",
+    "mcpmoa"
+   ],
+   "remote": {
+    "url": "https://korea-finance-mcp-divine-hillside-8872.fly.dev/mcp",
+    "http": 200,
+    "cold_ms": 160,
+    "latency_ms": 152,
+    "retried": false,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "korea-finance-mcp",
+    "warm_ms": 152,
+    "status": "live",
+    "status_label": "살아있음 확인",
+    "reachable": true,
+    "needs_key": false,
+    "tool_count": 25,
+    "why": "",
+    "quality": {
+     "described_pct": 100,
+     "desc_median": 226,
+     "input_schema_pct": 84,
+     "output_schema_pct": 0,
+     "annotated_pct": 100,
+     "readonly_pct": 100
+    },
+    "url_source": "readme"
+   },
+   "paid_disclosure": {
+    "disclosed": false
+   },
+   "package": {
+    "type": "npm",
+    "id": "korea-finance-mcp",
+    "installable": true,
+    "last_publish": "2026-05-25",
+    "version": "1.0.0"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": null,
+    "repo": "emceeKim/korea-finance-mcp",
+    "public": true,
+    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
+   },
+   "self_hosting": {
+    "state": "packaged",
+    "why": "배포판을 설치해 자기 것으로 띄울 수 있다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "epoko77-ai/korean-bill-debate-mcp",
+   "repo_url": "https://github.com/epoko77-ai/korean-bill-debate-mcp",
+   "stars": 26,
+   "pushed": "2026-08-24",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": {
+    "url": "https://korean-bill-debate-mcp.vercel.app/mcp",
+    "http": 401,
+    "cold_ms": 345,
+    "latency_ms": 345,
+    "retried": false,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "status": "live",
+    "status_label": "살아있음 확인",
+    "reachable": true,
+    "needs_key": true,
+    "tool_count": null,
+    "why": "인증 필요 — 키 없이는 도구 목록도 못 본다",
+    "url_source": "readme"
+   },
+   "paid_disclosure": {
+    "disclosed": false
+   },
+   "package": {
+    "type": "npm",
+    "id": "korean-bill-debate-mcp-queue-bridge",
+    "installable": false,
+    "why": "레지스트리에 없다(설치 불가)"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": "Apache-2.0",
+    "repo": "epoko77-ai/korean-bill-debate-mcp",
     "public": true,
     "why": ""
    },
@@ -3739,7 +5428,7 @@
    "name": "geonwoo-jeong/japanese-law-mcp",
    "repo_url": "https://github.com/geonwoo-jeong/japanese-law-mcp",
    "stars": 0,
-   "pushed": "2026-09-02",
+   "pushed": "2026-09-07",
    "archived": false,
    "sources": [
     "github"
@@ -3950,6 +5639,84 @@
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
   {
+   "name": "handbell-H/mcp-kakao_map_mobility",
+   "repo_url": "https://github.com/handbell-H/mcp-kakao_map_mobility",
+   "stars": 0,
+   "pushed": "2026-04-06",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": {
+    "type": "pypi",
+    "id": "mcp",
+    "installable": true,
+    "last_publish": "2026-09-07",
+    "version": "2.2.0"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": null,
+    "repo": "handbell-H/mcp-kakao_map_mobility",
+    "public": true,
+    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
+   },
+   "self_hosting": {
+    "state": "packaged",
+    "why": "배포판을 설치해 자기 것으로 띄울 수 있다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "harimkang/mcp-korea-tourism-api",
+   "repo_url": "https://github.com/harimkang/mcp-korea-tourism-api",
+   "stars": 9,
+   "pushed": "2025-08-12",
+   "archived": false,
+   "sources": [
+    "github",
+    "mcpmoa"
+   ],
+   "remote": {
+    "url": "https://pypi.org/project/mcp",
+    "http": 200,
+    "cold_ms": 125,
+    "latency_ms": 125,
+    "retried": false,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": null,
+    "status": "unverified",
+    "status_label": "확인 못 함",
+    "reachable": false,
+    "why": "HTTP 200",
+    "status_note": "우리 호출로는 확인이 안 됐다 — 죽었다는 뜻이 아니다",
+    "error_body": "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <meta\n      http-equiv=\"Content-Security-Policy\"\n      content=\"default-src 'self'; img-src 'self' data:; media-src 'self' data:; object-src 'none'; style-src 'self' 'sha256-o4vzfmmUENEg4chMjjRP9EuW9ucGnGIGVdbl8d0SHQQ='; script-src 'self' 'sha256-a9bHdQGvRzDwDVzx8m+Rzw+0FHZad8L0zjtBwkxOIz4=';\"\n    />\n    <link\n      href=\"/_fs-ch-1T1wmsGaOgGaSxcX/asset",
+    "url_source": "readme"
+   },
+   "package": {
+    "type": "pypi",
+    "id": "mcp-korea-tourism-api",
+    "installable": true,
+    "last_publish": "2025-04-18",
+    "version": "0.1.2"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": "MIT",
+    "repo": "harimkang/mcp-korea-tourism-api",
+    "public": true,
+    "why": ""
+   },
+   "self_hosting": {
+    "state": "packaged",
+    "why": "배포판을 설치해 자기 것으로 띄울 수 있다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
    "name": "herrozim-ship-it/yureong",
    "repo_url": "https://github.com/herrozim-ship-it/yureong",
    "stars": 0,
@@ -3979,9 +5746,38 @@
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
   {
+   "name": "hichang4u/data-go-mcp-servers",
+   "repo_url": "https://github.com/hichang4u/data-go-mcp-servers",
+   "stars": 0,
+   "pushed": "2026-09-12",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": {
+    "type": "pypi",
+    "id": "data-go-mcp-servers",
+    "installable": false,
+    "why": "레지스트리에 없다(설치 불가)"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": "Apache-2.0",
+    "repo": "hichang4u/data-go-mcp-servers",
+    "public": true,
+    "why": ""
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(Apache-2.0) — 띄우려면 직접 빌드해야 한다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
    "name": "hike-lab/public-data-lens",
    "repo_url": "https://github.com/hike-lab/public-data-lens",
-   "stars": 84,
+   "stars": 85,
    "pushed": "2026-08-25",
    "archived": false,
    "sources": [
@@ -3990,8 +5786,8 @@
    "remote": {
     "url": "https://service.datahub.kr/projects/public-data-lens/mcp",
     "http": 200,
-    "cold_ms": 31,
-    "latency_ms": 25,
+    "cold_ms": 26,
+    "latency_ms": 26,
     "retried": false,
     "transports_tried": [
      "streamable-http"
@@ -3999,7 +5795,7 @@
     "transport": "streamable-http",
     "protocol_version": "2025-06-18",
     "server_name": "datanav",
-    "warm_ms": 25,
+    "warm_ms": 26,
     "status": "live",
     "status_label": "살아있음 확인",
     "reachable": true,
@@ -4036,7 +5832,7 @@
   {
    "name": "hjsh200219/korea-public-data-mcp",
    "repo_url": "https://github.com/hjsh200219/korea-public-data-mcp",
-   "stars": 9,
+   "stars": 10,
    "pushed": "2026-08-12",
    "archived": false,
    "sources": [
@@ -4045,8 +5841,8 @@
    "remote": {
     "url": "https://public-data.up.railway.app/mcp",
     "http": 200,
-    "cold_ms": 521,
-    "latency_ms": 542,
+    "cold_ms": 604,
+    "latency_ms": 524,
     "retried": false,
     "transports_tried": [
      "streamable-http"
@@ -4054,7 +5850,7 @@
     "transport": "streamable-http",
     "protocol_version": "2025-06-18",
     "server_name": "public-data",
-    "warm_ms": 542,
+    "warm_ms": 524,
     "status": "live",
     "status_label": "살아있음 확인",
     "reachable": true,
@@ -4095,6 +5891,46 @@
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
   {
+   "name": "hlucent/airkorea-realtime-mcp",
+   "repo_url": "https://github.com/hlucent/airkorea-realtime-mcp",
+   "stars": 0,
+   "pushed": "2026-08-23",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": {
+    "url": "https://airkorea-realtime-mcp.fly.dev/mcp",
+    "http": null,
+    "cold_ms": 105,
+    "latency_ms": 105,
+    "retried": true,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": null,
+    "status": "down",
+    "status_label": "죽음 확인",
+    "reachable": false,
+    "why": "URLError: <urlopen error [Errno -2] Name or service not known>",
+    "status_note": "DNS에 그 이름이 없다 — 호스트가 사라졌다",
+    "url_source": "readme"
+   },
+   "package": null,
+   "self_hostable": null,
+   "open_source": {
+    "license": "MIT",
+    "repo": "hlucent/airkorea-realtime-mcp",
+    "public": true,
+    "why": ""
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(MIT) — 띄우려면 직접 빌드해야 한다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
    "name": "hlucent/realestate-stats-mcp",
    "repo_url": "https://github.com/hlucent/realestate-stats-mcp",
    "stars": 0,
@@ -4106,8 +5942,8 @@
    "remote": {
     "url": "https://realestate-stats-mcp.fly.dev/mcp",
     "http": null,
-    "cold_ms": 71,
-    "latency_ms": 71,
+    "cold_ms": 106,
+    "latency_ms": 106,
     "retried": true,
     "transports_tried": [
      "streamable-http"
@@ -4146,8 +5982,8 @@
    "remote": {
     "url": "https://safemap-uv-index-mcp.fly.dev/mcp",
     "http": null,
-    "cold_ms": 69,
-    "latency_ms": 69,
+    "cold_ms": 71,
+    "latency_ms": 71,
     "retried": true,
     "transports_tried": [
      "streamable-http"
@@ -4202,7 +6038,7 @@
    "name": "hmmhmmhm/daiso-mcp",
    "repo_url": "https://github.com/hmmhmmhm/daiso-mcp",
    "stars": 327,
-   "pushed": "2026-09-06",
+   "pushed": "2026-09-13",
    "archived": false,
    "sources": [
     "github"
@@ -4229,8 +6065,8 @@
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
   {
-   "name": "hwain-hwang/Real-Estate-Location-Analyzer_MCP",
-   "repo_url": "https://github.com/hwain-hwang/Real-Estate-Location-Analyzer_MCP",
+   "name": "hwain-ai/Real-Estate-Location-Analyzer_MCP",
+   "repo_url": "https://github.com/hwain-ai/Real-Estate-Location-Analyzer_MCP",
    "stars": 0,
    "pushed": "2026-04-05",
    "archived": false,
@@ -4240,8 +6076,8 @@
    "remote": {
     "url": "https://immortal0900-real-estate-location-analyzer-mcp.hf.space/gradio_api/mcp/sse",
     "http": 404,
-    "cold_ms": 815,
-    "latency_ms": 815,
+    "cold_ms": 705,
+    "latency_ms": 705,
     "retried": false,
     "transports_tried": [
      "streamable-http",
@@ -4261,7 +6097,7 @@
    "self_hostable": null,
    "open_source": {
     "license": "MIT",
-    "repo": "hwain-hwang/Real-Estate-Location-Analyzer_MCP",
+    "repo": "hwain-ai/Real-Estate-Location-Analyzer_MCP",
     "public": true,
     "why": ""
    },
@@ -4302,6 +6138,36 @@
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
   {
+   "name": "hypn4/tossinvest-mcp",
+   "repo_url": "https://github.com/hypn4/tossinvest-mcp",
+   "stars": 1,
+   "pushed": "2026-07-30",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": {
+    "type": "pypi",
+    "id": "tossinvest-mcp",
+    "installable": true,
+    "last_publish": "2026-07-30",
+    "version": "0.4.1"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": "Apache-2.0",
+    "repo": "hypn4/tossinvest-mcp",
+    "public": true,
+    "why": ""
+   },
+   "self_hosting": {
+    "state": "packaged",
+    "why": "배포판을 설치해 자기 것으로 띄울 수 있다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
    "name": "iiacjay/dart-briefing-mcp",
    "repo_url": "https://github.com/iiacjay/dart-briefing-mcp",
    "stars": 0,
@@ -4316,6 +6182,49 @@
    "open_source": {
     "license": null,
     "repo": "iiacjay/dart-briefing-mcp",
+    "public": true,
+    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(라이선스 없음) — 법적으로 재사용이 열려 있지 않다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "iiacjay/incheon-airport-mcp",
+   "repo_url": "https://github.com/iiacjay/incheon-airport-mcp",
+   "stars": 0,
+   "pushed": "2026-07-14",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": {
+    "url": "https://incheon-airport-mcp-production.up.railway.app/mcp",
+    "http": 404,
+    "cold_ms": 529,
+    "latency_ms": 529,
+    "retried": false,
+    "transports_tried": [
+     "streamable-http",
+     "sse"
+    ],
+    "transport": null,
+    "status": "unverified",
+    "status_label": "확인 못 함",
+    "reachable": false,
+    "why": "HTTP 404",
+    "status_note": "전송 방식이 안 맞았을 수 있다 — 규격을 지키는 서버도 이 코드를 준다",
+    "sse_why": "HTTP 404",
+    "error_body": "{\"status\":\"error\",\"code\":404,\"message\":\"Application not found\",\"request_id\":\"mpf5_HY-TNa6dbcK-8Y8hA\"}",
+    "url_source": "readme"
+   },
+   "package": null,
+   "self_hostable": null,
+   "open_source": {
+    "license": null,
+    "repo": "iiacjay/incheon-airport-mcp",
     "public": true,
     "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
    },
@@ -4361,31 +6270,20 @@
    ],
    "remote": {
     "url": "https://aidc-ai.io/api/mcp",
-    "http": 200,
-    "cold_ms": 280,
-    "latency_ms": 223,
+    "http": 401,
+    "cold_ms": 258,
+    "latency_ms": 258,
     "retried": false,
     "transports_tried": [
      "streamable-http"
     ],
     "transport": "streamable-http",
-    "protocol_version": "2025-06-18",
-    "server_name": "aidc-design-engine",
-    "warm_ms": 223,
     "status": "live",
     "status_label": "살아있음 확인",
     "reachable": true,
-    "needs_key": false,
-    "tool_count": 7,
-    "why": "",
-    "quality": {
-     "described_pct": 100,
-     "desc_median": 106,
-     "input_schema_pct": 100,
-     "output_schema_pct": 43,
-     "annotated_pct": 0,
-     "readonly_pct": 0
-    },
+    "needs_key": true,
+    "tool_count": null,
+    "why": "인증 필요 — 키 없이는 도구 목록도 못 본다",
     "url_source": "registry"
    },
    "paid_disclosure": {
@@ -4405,6 +6303,81 @@
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
   {
+   "name": "io.github.BK927/overwatch-aio",
+   "repo_url": "https://github.com/BK927/overwatch-aio",
+   "stars": null,
+   "pushed": null,
+   "archived": null,
+   "sources": [
+    "registry"
+   ],
+   "remote": null,
+   "package": {
+    "type": "mcpb",
+    "installable": null,
+    "why": "패키지명이 아니라 주소다 — 이름을 못 읽었다",
+    "unreadable_id": "https://github.com/BK927/overwatch-aio/releases/download/v0.3.2/overwatch-aio-0.3.2.mcpb"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": null,
+    "repo": "BK927/overwatch-aio",
+    "public": true,
+    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(라이선스 없음) — 법적으로 재사용이 열려 있지 않다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "io.github.CSOAI-ORG/korea-ai-basic-act-mcp",
+   "repo_url": "https://github.com/CSOAI-ORG/korea-ai-basic-act-mcp",
+   "stars": null,
+   "pushed": null,
+   "archived": null,
+   "sources": [
+    "registry"
+   ],
+   "remote": {
+    "url": "https://api.meok.ai/v1/governance/korea-ai-basic-act",
+    "http": null,
+    "cold_ms": 8,
+    "latency_ms": 8,
+    "retried": true,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": null,
+    "status": "down",
+    "status_label": "죽음 확인",
+    "reachable": false,
+    "why": "URLError: <urlopen error [Errno -2] Name or service not known>",
+    "status_note": "DNS에 그 이름이 없다 — 호스트가 사라졌다",
+    "url_source": "registry"
+   },
+   "package": {
+    "type": "pypi",
+    "id": "korea-ai-basic-act-mcp",
+    "installable": true,
+    "last_publish": "2026-06-27",
+    "version": "1.0.4"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": null,
+    "repo": "CSOAI-ORG/korea-ai-basic-act-mcp",
+    "public": true,
+    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
+   },
+   "self_hosting": {
+    "state": "packaged",
+    "why": "배포판을 설치해 자기 것으로 띄울 수 있다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
    "name": "io.github.ChloePark85/kr-groundtruth",
    "repo_url": "",
    "stars": null,
@@ -4416,8 +6389,8 @@
    "remote": {
     "url": "https://kr-groundtruth-mcp.vercel.app/api/mcp",
     "http": 200,
-    "cold_ms": 236,
-    "latency_ms": 353,
+    "cold_ms": 240,
+    "latency_ms": 599,
     "retried": false,
     "transports_tried": [
      "streamable-http"
@@ -4425,7 +6398,7 @@
     "transport": "streamable-http",
     "protocol_version": "2025-06-18",
     "server_name": "kr-groundtruth-mcp",
-    "warm_ms": 353,
+    "warm_ms": 599,
     "status": "live",
     "status_label": "살아있음 확인",
     "reachable": true,
@@ -4500,8 +6473,8 @@
    "remote": {
     "url": "https://hawker-gateway.fly.dev/mcp/kr-apt-trades",
     "http": null,
-    "cold_ms": 5237,
-    "latency_ms": 5237,
+    "cold_ms": 5177,
+    "latency_ms": 5177,
     "retried": true,
     "transports_tried": [
      "streamable-http"
@@ -4539,8 +6512,47 @@
    "remote": {
     "url": "https://hawker-gateway.fly.dev/mcp/kr-district-codes",
     "http": null,
-    "cold_ms": 5175,
-    "latency_ms": 5175,
+    "cold_ms": 5095,
+    "latency_ms": 5095,
+    "retried": true,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": null,
+    "status": "unverified",
+    "status_label": "확인 못 함",
+    "reachable": false,
+    "why": "URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)>",
+    "status_note": "우리 호출로는 확인이 안 됐다 — 죽었다는 뜻이 아니다",
+    "url_source": "registry"
+   },
+   "package": null,
+   "self_hostable": null,
+   "open_source": {
+    "license": null,
+    "repo": null,
+    "why": "GitHub 저장소 주소가 없어 못 쟀다"
+   },
+   "self_hosting": {
+    "state": "unknown",
+    "why": "배포판도 공개 소스도 확인하지 못했다 — 불가가 아니라 미확인이다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "io.github.HyosikPark/kr-holidays",
+   "repo_url": "",
+   "stars": null,
+   "pushed": null,
+   "archived": null,
+   "sources": [
+    "registry"
+   ],
+   "remote": {
+    "url": "https://hawker-gateway.fly.dev/mcp/kr-holidays",
+    "http": null,
+    "cold_ms": 5152,
+    "latency_ms": 5152,
     "retried": true,
     "transports_tried": [
      "streamable-http"
@@ -4592,6 +6604,56 @@
    "self_hosting": {
     "state": "source_only",
     "why": "배포판은 없고 소스만 공개(MIT) — 띄우려면 직접 빌드해야 한다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "io.github.Mobiss11/daepak-mcp",
+   "repo_url": "https://github.com/Mobiss11/daepak-mcp",
+   "stars": null,
+   "pushed": null,
+   "archived": null,
+   "sources": [
+    "registry"
+   ],
+   "remote": {
+    "url": "https://daepak.com/mcp",
+    "http": 401,
+    "cold_ms": 280,
+    "latency_ms": 280,
+    "retried": false,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "status": "live",
+    "status_label": "살아있음 확인",
+    "reachable": true,
+    "needs_key": true,
+    "tool_count": null,
+    "why": "인증 필요 — 키 없이는 도구 목록도 못 본다",
+    "url_source": "registry"
+   },
+   "paid_disclosure": {
+    "disclosed": false
+   },
+   "package": {
+    "type": "pypi",
+    "id": "daepak-mcp",
+    "installable": true,
+    "last_publish": "2026-09-04",
+    "version": "2.1.1"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": "MIT",
+    "repo": "Mobiss11/daepak-mcp",
+    "public": true,
+    "why": ""
+   },
+   "self_hosting": {
+    "state": "packaged",
+    "why": "배포판을 설치해 자기 것으로 띄울 수 있다"
    },
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
@@ -4665,41 +6727,69 @@
    ],
    "remote": {
     "url": "https://korean-agriculture-mcp.onrender.com/mcp",
-    "http": 200,
-    "cold_ms": 159,
-    "latency_ms": 176,
-    "retried": false,
+    "http": 503,
+    "cold_ms": 413,
+    "latency_ms": 413,
+    "retried": true,
     "transports_tried": [
      "streamable-http"
     ],
-    "transport": "streamable-http",
-    "protocol_version": "2025-06-18",
-    "server_name": "Korean Agriculture Market",
-    "warm_ms": 176,
-    "status": "live",
-    "status_label": "살아있음 확인",
-    "reachable": true,
-    "needs_key": false,
-    "tool_count": 6,
-    "why": "",
-    "quality": {
-     "described_pct": 100,
-     "desc_median": 199,
-     "input_schema_pct": 100,
-     "output_schema_pct": 100,
-     "annotated_pct": 0,
-     "readonly_pct": 0
-    },
+    "transport": null,
+    "status": "unverified",
+    "status_label": "확인 못 함",
+    "reachable": false,
+    "why": "HTTP 503",
+    "status_note": "우리 호출로는 확인이 안 됐다 — 죽었다는 뜻이 아니다",
+    "error_body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Service Suspended</title>\n</head>\n<body>\nThis service has been suspended.\n</body>\n</html>\n",
     "url_source": "registry"
-   },
-   "paid_disclosure": {
-    "disclosed": false
    },
    "package": null,
    "self_hostable": null,
    "open_source": {
     "license": "MIT",
     "repo": "SongT-50/korean-agriculture-mcp",
+    "public": true,
+    "why": ""
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(MIT) — 띄우려면 직접 빌드해야 한다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "io.github.SongT-50/korean-news-mcp",
+   "repo_url": "https://github.com/SongT-50/korean-news-mcp",
+   "stars": 1,
+   "pushed": "2026-03-08",
+   "archived": false,
+   "sources": [
+    "github",
+    "registry"
+   ],
+   "remote": {
+    "url": "https://korean-news-mcp.onrender.com/mcp",
+    "http": 503,
+    "cold_ms": 169,
+    "latency_ms": 169,
+    "retried": true,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": null,
+    "status": "unverified",
+    "status_label": "확인 못 함",
+    "reachable": false,
+    "why": "HTTP 503",
+    "status_note": "우리 호출로는 확인이 안 됐다 — 죽었다는 뜻이 아니다",
+    "error_body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Service Suspended</title>\n</head>\n<body>\nThis service has been suspended.\n</body>\n</html>\n",
+    "url_source": "registry"
+   },
+   "package": null,
+   "self_hostable": null,
+   "open_source": {
+    "license": "MIT",
+    "repo": "SongT-50/korean-news-mcp",
     "public": true,
     "why": ""
    },
@@ -4721,35 +6811,21 @@
    ],
    "remote": {
     "url": "https://korean-public-data-mcp.onrender.com/mcp",
-    "http": 200,
-    "cold_ms": 172,
-    "latency_ms": 166,
-    "retried": false,
+    "http": 503,
+    "cold_ms": 151,
+    "latency_ms": 151,
+    "retried": true,
     "transports_tried": [
      "streamable-http"
     ],
-    "transport": "streamable-http",
-    "protocol_version": "2025-06-18",
-    "server_name": "Korean Public Data",
-    "warm_ms": 166,
-    "status": "live",
-    "status_label": "살아있음 확인",
-    "reachable": true,
-    "needs_key": false,
-    "tool_count": 6,
-    "why": "",
-    "quality": {
-     "described_pct": 100,
-     "desc_median": 205,
-     "input_schema_pct": 83,
-     "output_schema_pct": 100,
-     "annotated_pct": 0,
-     "readonly_pct": 0
-    },
+    "transport": null,
+    "status": "unverified",
+    "status_label": "확인 못 함",
+    "reachable": false,
+    "why": "HTTP 503",
+    "status_note": "우리 호출로는 확인이 안 됐다 — 죽었다는 뜻이 아니다",
+    "error_body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Service Suspended</title>\n</head>\n<body>\nThis service has been suspended.\n</body>\n</html>\n",
     "url_source": "registry"
-   },
-   "paid_disclosure": {
-    "disclosed": false
    },
    "package": null,
    "self_hostable": null,
@@ -4777,35 +6853,21 @@
    ],
    "remote": {
     "url": "https://korean-stock-mcp.onrender.com/mcp",
-    "http": 200,
-    "cold_ms": 156,
-    "latency_ms": 170,
-    "retried": false,
+    "http": 503,
+    "cold_ms": 154,
+    "latency_ms": 154,
+    "retried": true,
     "transports_tried": [
      "streamable-http"
     ],
-    "transport": "streamable-http",
-    "protocol_version": "2025-06-18",
-    "server_name": "Korean Stock Market",
-    "warm_ms": 170,
-    "status": "live",
-    "status_label": "살아있음 확인",
-    "reachable": true,
-    "needs_key": false,
-    "tool_count": 7,
-    "why": "",
-    "quality": {
-     "described_pct": 100,
-     "desc_median": 238,
-     "input_schema_pct": 86,
-     "output_schema_pct": 100,
-     "annotated_pct": 0,
-     "readonly_pct": 0
-    },
+    "transport": null,
+    "status": "unverified",
+    "status_label": "확인 못 함",
+    "reachable": false,
+    "why": "HTTP 503",
+    "status_note": "우리 호출로는 확인이 안 됐다 — 죽었다는 뜻이 아니다",
+    "error_body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Service Suspended</title>\n</head>\n<body>\nThis service has been suspended.\n</body>\n</html>\n",
     "url_source": "registry"
-   },
-   "paid_disclosure": {
-    "disclosed": false
    },
    "package": null,
    "self_hostable": null,
@@ -4822,6 +6884,61 @@
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
   {
+   "name": "io.github.Wonderfulian/kbv-server",
+   "repo_url": "https://github.com/Wonderfulian/kbv-server",
+   "stars": null,
+   "pushed": null,
+   "archived": null,
+   "sources": [
+    "registry"
+   ],
+   "remote": {
+    "url": "https://kbv-server-f7vfitmlkq-du.a.run.app/mcp",
+    "http": 200,
+    "cold_ms": 156,
+    "latency_ms": 55,
+    "retried": false,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "korea-business-verify",
+    "warm_ms": 55,
+    "status": "live",
+    "status_label": "살아있음 확인",
+    "reachable": true,
+    "needs_key": false,
+    "tool_count": 3,
+    "why": "",
+    "quality": {
+     "described_pct": 100,
+     "desc_median": 235,
+     "input_schema_pct": 100,
+     "output_schema_pct": 100,
+     "annotated_pct": 100,
+     "readonly_pct": 100
+    },
+    "url_source": "registry"
+   },
+   "paid_disclosure": {
+    "disclosed": false
+   },
+   "package": null,
+   "self_hostable": null,
+   "open_source": {
+    "license": "MIT",
+    "repo": "Wonderfulian/kbv-server",
+    "public": true,
+    "why": ""
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(MIT) — 띄우려면 직접 빌드해야 한다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
    "name": "io.github.a-mashiro-art/jp-data",
    "repo_url": "",
    "stars": null,
@@ -4833,8 +6950,8 @@
    "remote": {
     "url": "https://jp-data-api-production.up.railway.app/mcp",
     "http": 404,
-    "cold_ms": 733,
-    "latency_ms": 733,
+    "cold_ms": 724,
+    "latency_ms": 724,
     "retried": false,
     "transports_tried": [
      "streamable-http",
@@ -4847,7 +6964,7 @@
     "why": "HTTP 404",
     "status_note": "전송 방식이 안 맞았을 수 있다 — 규격을 지키는 서버도 이 코드를 준다",
     "sse_why": "HTTP 404",
-    "error_body": "{\"status\":\"error\",\"code\":404,\"message\":\"Application not found\",\"request_id\":\"YXOq_QUyR0i7EFRL6WHkDg\"}",
+    "error_body": "{\"status\":\"error\",\"code\":404,\"message\":\"Application not found\",\"request_id\":\"QLH2I55ATTCKI2JICYBc-A\"}",
     "url_source": "registry"
    },
    "package": null,
@@ -4895,6 +7012,177 @@
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
   {
+   "name": "io.github.aminpiano/nara-tour",
+   "repo_url": "https://github.com/aminpiano/naratour-mvp",
+   "stars": null,
+   "pushed": null,
+   "archived": null,
+   "sources": [
+    "registry"
+   ],
+   "remote": {
+    "url": "https://mcp.nara-tour.com/mcp",
+    "http": 200,
+    "cold_ms": 51,
+    "latency_ms": 29,
+    "retried": false,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "naratour-mcp",
+    "warm_ms": 29,
+    "status": "live",
+    "status_label": "살아있음 확인",
+    "reachable": true,
+    "needs_key": false,
+    "tool_count": 3,
+    "why": "",
+    "quality": {
+     "described_pct": 100,
+     "desc_median": 132,
+     "input_schema_pct": 33,
+     "output_schema_pct": 0,
+     "annotated_pct": 0,
+     "readonly_pct": 0
+    },
+    "url_source": "registry"
+   },
+   "paid_disclosure": {
+    "disclosed": false
+   },
+   "package": null,
+   "self_hostable": null,
+   "open_source": {
+    "license": null,
+    "repo": "aminpiano/naratour-mvp",
+    "public": null,
+    "why": "저장소를 못 읽었다(404) — 비공개·삭제·이름 변경 중 하나"
+   },
+   "self_hosting": {
+    "state": "unknown",
+    "why": "배포판도 공개 소스도 확인하지 못했다 — 불가가 아니라 미확인이다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "io.github.bakyang2/kr-crypto-intelligence",
+   "repo_url": "https://github.com/bakyang2/kr-crypto-intelligence",
+   "stars": null,
+   "pushed": null,
+   "archived": null,
+   "sources": [
+    "registry"
+   ],
+   "remote": {
+    "url": "https://mcp.printmoneylab.com/mcp",
+    "http": 200,
+    "cold_ms": 93,
+    "latency_ms": 91,
+    "retried": false,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "KR Crypto Intelligence",
+    "warm_ms": 91,
+    "status": "live",
+    "status_label": "살아있음 확인",
+    "reachable": true,
+    "needs_key": false,
+    "tool_count": 18,
+    "why": "",
+    "quality": {
+     "described_pct": 100,
+     "desc_median": 561,
+     "input_schema_pct": 44,
+     "output_schema_pct": 100,
+     "annotated_pct": 100,
+     "readonly_pct": 100
+    },
+    "url_source": "registry"
+   },
+   "paid_disclosure": {
+    "disclosed": false
+   },
+   "package": null,
+   "self_hostable": null,
+   "open_source": {
+    "license": "MIT",
+    "repo": "bakyang2/kr-crypto-intelligence",
+    "public": true,
+    "why": ""
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(MIT) — 띄우려면 직접 빌드해야 한다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "io.github.bubilife1202/crossfin",
+   "repo_url": "https://github.com/bubilife1202/crossfin",
+   "stars": null,
+   "pushed": null,
+   "archived": null,
+   "sources": [
+    "registry"
+   ],
+   "remote": {
+    "url": "https://crossfin.dev/api/mcp",
+    "http": 200,
+    "cold_ms": 81,
+    "latency_ms": 80,
+    "retried": false,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "crossfin",
+    "warm_ms": 80,
+    "status": "live",
+    "status_label": "살아있음 확인",
+    "reachable": true,
+    "needs_key": false,
+    "tool_count": 16,
+    "why": "",
+    "quality": {
+     "described_pct": 100,
+     "desc_median": 70,
+     "input_schema_pct": 69,
+     "output_schema_pct": 0,
+     "annotated_pct": 0,
+     "readonly_pct": 0
+    },
+    "url_source": "registry"
+   },
+   "paid_disclosure": {
+    "disclosed": false
+   },
+   "package": {
+    "type": "npm",
+    "id": "crossfin-mcp",
+    "installable": true,
+    "last_publish": "2026-02-25",
+    "version": "1.18.0"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": "MIT",
+    "repo": "bubilife1202/crossfin",
+    "public": true,
+    "why": ""
+   },
+   "self_hosting": {
+    "state": "packaged",
+    "why": "배포판을 설치해 자기 것으로 띄울 수 있다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
    "name": "io.github.choiyounggi/korea-data-mcp",
    "repo_url": "https://github.com/choiyounggi/korea-data-suite",
    "stars": null,
@@ -4921,6 +7209,35 @@
    "self_hosting": {
     "state": "packaged",
     "why": "배포판을 설치해 자기 것으로 띄울 수 있다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "io.github.do-droid/busan-essentials",
+   "repo_url": "https://github.com/do-droid/busan-essentials",
+   "stars": null,
+   "pushed": null,
+   "archived": null,
+   "sources": [
+    "registry"
+   ],
+   "remote": null,
+   "package": {
+    "type": "oci",
+    "installable": null,
+    "why": "패키지명 형식이 아니다 — 이름을 못 읽었다",
+    "unreadable_id": "ghcr.io/do-droid/busan-essentials:0.1.1"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": "MIT",
+    "repo": "do-droid/busan-essentials",
+    "public": true,
+    "why": ""
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(MIT) — 띄우려면 직접 빌드해야 한다"
    },
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
@@ -4984,8 +7301,8 @@
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
   {
-   "name": "io.github.heubme2020/datasinking",
-   "repo_url": "https://github.com/heubme2020/datasinking",
+   "name": "io.github.gejyn14/kiwoom-mcp",
+   "repo_url": "https://github.com/gejyn14/kiwoom-plugin",
    "stars": null,
    "pushed": null,
    "archived": null,
@@ -4995,15 +7312,76 @@
    "remote": null,
    "package": {
     "type": "pypi",
+    "id": "kiwoom-mcp",
+    "installable": true,
+    "last_publish": "2026-07-22",
+    "version": "0.1.2"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": "Apache-2.0",
+    "repo": "gejyn14/kiwoom-plugin",
+    "public": true,
+    "why": ""
+   },
+   "self_hosting": {
+    "state": "packaged",
+    "why": "배포판을 설치해 자기 것으로 띄울 수 있다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "io.github.heubme2020/datasinking",
+   "repo_url": "https://github.com/heubme2020/datasinking",
+   "stars": 4,
+   "pushed": "2026-09-04",
+   "archived": false,
+   "sources": [
+    "github",
+    "registry"
+   ],
+   "remote": null,
+   "package": {
+    "type": "pypi",
     "id": "datasinking",
     "installable": true,
-    "last_publish": "2026-09-03",
-    "version": "0.2.2"
+    "last_publish": "2026-09-12",
+    "version": "0.2.3"
    },
    "self_hostable": true,
    "open_source": {
     "license": "MIT",
     "repo": "heubme2020/datasinking",
+    "public": true,
+    "why": ""
+   },
+   "self_hosting": {
+    "state": "packaged",
+    "why": "배포판을 설치해 자기 것으로 띄울 수 있다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "io.github.java-jaydev/naver-mybox-mcp",
+   "repo_url": "https://github.com/java-jaydev/naver-mybox-mcp",
+   "stars": null,
+   "pushed": null,
+   "archived": null,
+   "sources": [
+    "registry"
+   ],
+   "remote": null,
+   "package": {
+    "type": "pypi",
+    "id": "naver-mybox-mcp",
+    "installable": true,
+    "last_publish": "2026-09-13",
+    "version": "0.1.0"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": "MIT",
+    "repo": "java-jaydev/naver-mybox-mcp",
     "public": true,
     "why": ""
    },
@@ -5055,8 +7433,8 @@
    "remote": {
     "url": "https://korea-flight.kimnchai.com/mcp",
     "http": 200,
-    "cold_ms": 38,
-    "latency_ms": 41,
+    "cold_ms": 43,
+    "latency_ms": 36,
     "retried": false,
     "transports_tried": [
      "streamable-http"
@@ -5064,7 +7442,7 @@
     "transport": "streamable-http",
     "protocol_version": "2025-06-18",
     "server_name": "korea-flight-status",
-    "warm_ms": 41,
+    "warm_ms": 36,
     "status": "live",
     "status_label": "살아있음 확인",
     "reachable": true,
@@ -5109,8 +7487,8 @@
    "remote": {
     "url": "https://mcp.finlab.finance/mcp",
     "http": 200,
-    "cold_ms": 41,
-    "latency_ms": 40,
+    "cold_ms": 56,
+    "latency_ms": 45,
     "retried": false,
     "transports_tried": [
      "streamable-http"
@@ -5118,7 +7496,7 @@
     "transport": "streamable-http",
     "protocol_version": "2025-06-18",
     "server_name": "FinLab",
-    "warm_ms": 40,
+    "warm_ms": 45,
     "status": "live",
     "status_label": "살아있음 확인",
     "reachable": true,
@@ -5164,8 +7542,8 @@
    "remote": {
     "url": "https://api.lazy-mac.com/govdata-korea/mcp",
     "http": 200,
-    "cold_ms": 98,
-    "latency_ms": 108,
+    "cold_ms": 112,
+    "latency_ms": 110,
     "retried": false,
     "transports_tried": [
      "streamable-http"
@@ -5173,7 +7551,7 @@
     "transport": "streamable-http",
     "protocol_version": "2024-11-05",
     "server_name": "govdata-korea",
-    "warm_ms": 108,
+    "warm_ms": 110,
     "status": "live",
     "status_label": "살아있음 확인",
     "reachable": true,
@@ -5219,8 +7597,8 @@
    "remote": {
     "url": "https://notonlystock.com/korea/mcp",
     "http": 401,
-    "cold_ms": 51,
-    "latency_ms": 51,
+    "cold_ms": 145,
+    "latency_ms": 145,
     "retried": false,
     "transports_tried": [
      "streamable-http"
@@ -5269,8 +7647,8 @@
    "remote": {
     "url": "https://kdata-gate.vercel.app/mcp",
     "http": 200,
-    "cold_ms": 367,
-    "latency_ms": 235,
+    "cold_ms": 451,
+    "latency_ms": 366,
     "retried": false,
     "transports_tried": [
      "streamable-http"
@@ -5278,7 +7656,7 @@
     "transport": "streamable-http",
     "protocol_version": "2025-06-18",
     "server_name": "kdata-gate",
-    "warm_ms": 235,
+    "warm_ms": 366,
     "status": "live",
     "status_label": "살아있음 확인",
     "reachable": true,
@@ -5344,6 +7722,62 @@
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
   {
+   "name": "io.github.minsooparkk/korea-tax-law-mcp",
+   "repo_url": "https://github.com/minsooparkk/korea-tax-law-mcp",
+   "stars": 0,
+   "pushed": "2026-09-06",
+   "archived": false,
+   "sources": [
+    "github",
+    "registry"
+   ],
+   "remote": {
+    "url": "https://mcp.taxjarvis.com/mcp",
+    "http": 200,
+    "cold_ms": 42,
+    "latency_ms": 48,
+    "retried": false,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "korea-tax-law",
+    "warm_ms": 48,
+    "status": "live",
+    "status_label": "살아있음 확인",
+    "reachable": true,
+    "needs_key": false,
+    "tool_count": 14,
+    "why": "",
+    "quality": {
+     "described_pct": 100,
+     "desc_median": 93,
+     "input_schema_pct": 93,
+     "output_schema_pct": 14,
+     "annotated_pct": 14,
+     "readonly_pct": 14
+    },
+    "url_source": "registry"
+   },
+   "paid_disclosure": {
+    "disclosed": false
+   },
+   "package": null,
+   "self_hostable": null,
+   "open_source": {
+    "license": "MIT",
+    "repo": "minsooparkk/korea-tax-law-mcp",
+    "public": true,
+    "why": ""
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(MIT) — 띄우려면 직접 빌드해야 한다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
    "name": "io.github.namen-ceo/factbat-public-record-locator",
    "repo_url": "",
    "stars": null,
@@ -5355,8 +7789,8 @@
    "remote": {
     "url": "https://factbat.com/mcp",
     "http": 401,
-    "cold_ms": 63,
-    "latency_ms": 63,
+    "cold_ms": 65,
+    "latency_ms": 65,
     "retried": false,
     "transports_tried": [
      "streamable-http"
@@ -5398,8 +7832,8 @@
    "remote": {
     "url": "https://mcp.namu.ai.kr/mcp",
     "http": 200,
-    "cold_ms": 18,
-    "latency_ms": 19,
+    "cold_ms": 20,
+    "latency_ms": 20,
     "retried": false,
     "transports_tried": [
      "streamable-http"
@@ -5407,7 +7841,7 @@
     "transport": "streamable-http",
     "protocol_version": "2025-06-18",
     "server_name": "seoul-tourism",
-    "warm_ms": 19,
+    "warm_ms": 20,
     "status": "live",
     "status_label": "살아있음 확인",
     "reachable": true,
@@ -5537,7 +7971,7 @@
    "name": "io.github.opendata-kr/narajangteo-prespec-mcp",
    "repo_url": "https://github.com/opendata-kr/narajangteo-prespec-mcp",
    "stars": 0,
-   "pushed": "2026-08-02",
+   "pushed": "2026-09-06",
    "archived": false,
    "sources": [
     "github",
@@ -5565,6 +7999,60 @@
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
   {
+   "name": "io.github.peter120525-cmd/lawmadi-os",
+   "repo_url": "",
+   "stars": null,
+   "pushed": null,
+   "archived": null,
+   "sources": [
+    "registry"
+   ],
+   "remote": {
+    "url": "https://lawmadi.com/mcp",
+    "http": 200,
+    "cold_ms": 179,
+    "latency_ms": 166,
+    "retried": false,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "Lawmadi OS",
+    "warm_ms": 166,
+    "status": "live",
+    "status_label": "살아있음 확인",
+    "reachable": true,
+    "needs_key": false,
+    "tool_count": 19,
+    "why": "",
+    "quality": {
+     "described_pct": 100,
+     "desc_median": 425,
+     "input_schema_pct": 84,
+     "output_schema_pct": 0,
+     "annotated_pct": 0,
+     "readonly_pct": 0
+    },
+    "url_source": "registry"
+   },
+   "paid_disclosure": {
+    "disclosed": false
+   },
+   "package": null,
+   "self_hostable": null,
+   "open_source": {
+    "license": null,
+    "repo": null,
+    "why": "GitHub 저장소 주소가 없어 못 쟀다"
+   },
+   "self_hosting": {
+    "state": "unknown",
+    "why": "배포판도 공개 소스도 확인하지 못했다 — 불가가 아니라 미확인이다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
    "name": "io.github.pipeworx-io/dart-kr",
    "repo_url": "https://github.com/pipeworx-io/mcp-dart-kr",
    "stars": null,
@@ -5576,8 +8064,8 @@
    "remote": {
     "url": "https://gateway.pipeworx.io/dart-kr/mcp",
     "http": 200,
-    "cold_ms": 49,
-    "latency_ms": 34,
+    "cold_ms": 378,
+    "latency_ms": 143,
     "retried": false,
     "transports_tried": [
      "streamable-http"
@@ -5585,20 +8073,20 @@
     "transport": "streamable-http",
     "protocol_version": "2025-06-18",
     "server_name": "pipeworx-gateway",
-    "warm_ms": 34,
+    "warm_ms": 143,
     "status": "live",
     "status_label": "살아있음 확인",
     "reachable": true,
     "needs_key": false,
-    "tool_count": 36,
+    "tool_count": 40,
     "why": "",
     "quality": {
      "described_pct": 100,
-     "desc_median": 703,
+     "desc_median": 770,
      "input_schema_pct": 100,
-     "output_schema_pct": 0,
+     "output_schema_pct": 2,
      "annotated_pct": 100,
-     "readonly_pct": 86
+     "readonly_pct": 88
     },
     "url_source": "registry"
    },
@@ -5631,8 +8119,8 @@
    "remote": {
     "url": "https://gateway.pipeworx.io/ecos-kr/mcp",
     "http": 200,
-    "cold_ms": 37,
-    "latency_ms": 41,
+    "cold_ms": 180,
+    "latency_ms": 464,
     "retried": false,
     "transports_tried": [
      "streamable-http"
@@ -5640,20 +8128,20 @@
     "transport": "streamable-http",
     "protocol_version": "2025-06-18",
     "server_name": "pipeworx-gateway",
-    "warm_ms": 41,
+    "warm_ms": 464,
     "status": "live",
     "status_label": "살아있음 확인",
     "reachable": true,
     "needs_key": false,
-    "tool_count": 35,
+    "tool_count": 39,
     "why": "",
     "quality": {
      "described_pct": 100,
-     "desc_median": 703,
+     "desc_median": 770,
      "input_schema_pct": 100,
-     "output_schema_pct": 0,
+     "output_schema_pct": 3,
      "annotated_pct": 100,
-     "readonly_pct": 86
+     "readonly_pct": 87
     },
     "url_source": "registry"
    },
@@ -5686,8 +8174,8 @@
    "remote": {
     "url": "https://gateway.pipeworx.io/pub-dev/mcp",
     "http": 200,
-    "cold_ms": 34,
-    "latency_ms": 32,
+    "cold_ms": 1142,
+    "latency_ms": 588,
     "retried": false,
     "transports_tried": [
      "streamable-http"
@@ -5695,20 +8183,20 @@
     "transport": "streamable-http",
     "protocol_version": "2025-06-18",
     "server_name": "pipeworx-gateway",
-    "warm_ms": 32,
+    "warm_ms": 588,
     "status": "live",
     "status_label": "살아있음 확인",
     "reachable": true,
     "needs_key": false,
-    "tool_count": 35,
+    "tool_count": 39,
     "why": "",
     "quality": {
      "described_pct": 100,
-     "desc_median": 703,
+     "desc_median": 770,
      "input_schema_pct": 100,
-     "output_schema_pct": 0,
+     "output_schema_pct": 3,
      "annotated_pct": 100,
-     "readonly_pct": 86
+     "readonly_pct": 87
     },
     "url_source": "registry"
    },
@@ -5730,6 +8218,36 @@
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
   {
+   "name": "io.github.redoxnet/lsopenapi",
+   "repo_url": "https://github.com/redoxnet/mcp-lsopenapi",
+   "stars": 2,
+   "pushed": "2026-06-09",
+   "archived": false,
+   "sources": [
+    "github",
+    "registry"
+   ],
+   "remote": null,
+   "package": {
+    "type": "nuget",
+    "id": "RedoxNet.Mcp.LsOpenApi",
+    "installable": null,
+    "why": "조회 경로 없음(nuget)"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": "MIT",
+    "repo": "redoxnet/mcp-lsopenapi",
+    "public": true,
+    "why": ""
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(MIT) — 띄우려면 직접 빌드해야 한다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
    "name": "io.github.richard-kim-79/jejusns",
    "repo_url": "",
    "stars": null,
@@ -5741,8 +8259,8 @@
    "remote": {
     "url": "https://jejusns.com/mcp",
     "http": 200,
-    "cold_ms": 972,
-    "latency_ms": 752,
+    "cold_ms": 1003,
+    "latency_ms": 733,
     "retried": false,
     "transports_tried": [
      "streamable-http"
@@ -5750,7 +8268,7 @@
     "transport": "streamable-http",
     "protocol_version": "2025-06-18",
     "server_name": "jejusns",
-    "warm_ms": 752,
+    "warm_ms": 733,
     "status": "live",
     "status_label": "살아있음 확인",
     "reachable": true,
@@ -5845,7 +8363,7 @@
    "name": "io.github.rubatoyd/kci-openapi-mcp",
    "repo_url": "https://github.com/rubatoyd/KCI_openAPI",
    "stars": 2,
-   "pushed": "2026-09-06",
+   "pushed": "2026-09-13",
    "archived": false,
    "sources": [
     "github",
@@ -5862,6 +8380,65 @@
    "open_source": {
     "license": "MIT",
     "repo": "rubatoyd/KCI_openAPI",
+    "public": true,
+    "why": ""
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(MIT) — 띄우려면 직접 빌드해야 한다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "io.github.rubatoyd/kosis-openapi-mcp",
+   "repo_url": "https://github.com/rubatoyd/kosis-openapi-mcp",
+   "stars": 0,
+   "pushed": "2026-09-13",
+   "archived": false,
+   "sources": [
+    "github",
+    "registry"
+   ],
+   "remote": null,
+   "package": {
+    "type": "mcpb",
+    "installable": null,
+    "why": "패키지명이 아니라 주소다 — 이름을 못 읽었다",
+    "unreadable_id": "https://github.com/rubatoyd/kosis-openapi-mcp/releases/download/v0.1.0/kosis-openapi-mcp.mcpb"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": "MIT",
+    "repo": "rubatoyd/kosis-openapi-mcp",
+    "public": true,
+    "why": ""
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(MIT) — 띄우려면 직접 빌드해야 한다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "io.github.rubatoyd/na-openapi-mcp",
+   "repo_url": "https://github.com/rubatoyd/na-openapi-mcp",
+   "stars": null,
+   "pushed": null,
+   "archived": null,
+   "sources": [
+    "registry"
+   ],
+   "remote": null,
+   "package": {
+    "type": "mcpb",
+    "installable": null,
+    "why": "패키지명이 아니라 주소다 — 이름을 못 읽었다",
+    "unreadable_id": "https://github.com/rubatoyd/na-openapi-mcp/releases/download/v0.1.1/na-openapi-mcp.mcpb"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": "MIT",
+    "repo": "rubatoyd/na-openapi-mcp",
     "public": true,
     "why": ""
    },
@@ -5891,6 +8468,173 @@
    "open_source": {
     "license": "MIT",
     "repo": "rubatoyd/nl-openapi-mcp",
+    "public": true,
+    "why": ""
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(MIT) — 띄우려면 직접 빌드해야 한다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "io.github.sadri-dridi/tz-asia-seoul",
+   "repo_url": "https://github.com/sadri-dridi/named-mcp-utilities",
+   "stars": null,
+   "pushed": null,
+   "archived": null,
+   "sources": [
+    "registry"
+   ],
+   "remote": {
+    "url": "https://agent-observatory-sensor.nolimit-observatory.workers.dev/s/tz-asia-seoul/mcp",
+    "http": 200,
+    "cold_ms": 28,
+    "latency_ms": 26,
+    "retried": false,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-03-26",
+    "server_name": "Asia/Seoul clock",
+    "warm_ms": 26,
+    "status": "live",
+    "status_label": "살아있음 확인",
+    "reachable": true,
+    "needs_key": false,
+    "tool_count": 30,
+    "why": "",
+    "quality": {
+     "described_pct": 100,
+     "desc_median": 55,
+     "input_schema_pct": 100,
+     "output_schema_pct": 0,
+     "annotated_pct": 0,
+     "readonly_pct": 0
+    },
+    "url_source": "registry"
+   },
+   "paid_disclosure": {
+    "disclosed": false
+   },
+   "package": null,
+   "self_hostable": null,
+   "open_source": {
+    "license": null,
+    "repo": "sadri-dridi/named-mcp-utilities",
+    "public": true,
+    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(라이선스 없음) — 법적으로 재사용이 열려 있지 않다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "io.github.sean-park-funda/korea-data-mcp",
+   "repo_url": "https://github.com/sean-park-funda/korea-data-mcp",
+   "stars": 0,
+   "pushed": "2026-09-10",
+   "archived": false,
+   "sources": [
+    "github",
+    "registry"
+   ],
+   "remote": {
+    "url": "https://korea-data-mcp.picks-site.workers.dev/mcp",
+    "http": 200,
+    "cold_ms": 25,
+    "latency_ms": 25,
+    "retried": false,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "korea-data-mcp",
+    "warm_ms": 25,
+    "status": "live",
+    "status_label": "살아있음 확인",
+    "reachable": true,
+    "needs_key": false,
+    "tool_count": 6,
+    "why": "",
+    "quality": {
+     "described_pct": 100,
+     "desc_median": 74,
+     "input_schema_pct": 83,
+     "output_schema_pct": 0,
+     "annotated_pct": 0,
+     "readonly_pct": 0
+    },
+    "url_source": "registry"
+   },
+   "paid_disclosure": {
+    "disclosed": false
+   },
+   "package": null,
+   "self_hostable": null,
+   "open_source": {
+    "license": "MIT",
+    "repo": "sean-park-funda/korea-data-mcp",
+    "public": true,
+    "why": ""
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(MIT) — 띄우려면 직접 빌드해야 한다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "io.github.sean-park-funda/korea-ocean-mcp",
+   "repo_url": "https://github.com/sean-park-funda/korea-ocean-mcp",
+   "stars": 0,
+   "pushed": "2026-09-10",
+   "archived": false,
+   "sources": [
+    "github",
+    "registry"
+   ],
+   "remote": {
+    "url": "https://korea-ocean-mcp.picks-site.workers.dev/mcp",
+    "http": 200,
+    "cold_ms": 34,
+    "latency_ms": 27,
+    "retried": false,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "korea-ocean-mcp",
+    "warm_ms": 27,
+    "status": "live",
+    "status_label": "살아있음 확인",
+    "reachable": true,
+    "needs_key": false,
+    "tool_count": 8,
+    "why": "",
+    "quality": {
+     "described_pct": 100,
+     "desc_median": 73,
+     "input_schema_pct": 100,
+     "output_schema_pct": 0,
+     "annotated_pct": 0,
+     "readonly_pct": 0
+    },
+    "url_source": "registry"
+   },
+   "paid_disclosure": {
+    "disclosed": false
+   },
+   "package": null,
+   "self_hostable": null,
+   "open_source": {
+    "license": "MIT",
+    "repo": "sean-park-funda/korea-ocean-mcp",
     "public": true,
     "why": ""
    },
@@ -6065,8 +8809,8 @@
    "remote": {
     "url": "https://mcp.koreanpulse.dev/mcp",
     "http": 200,
-    "cold_ms": 40,
-    "latency_ms": 38,
+    "cold_ms": 39,
+    "latency_ms": 39,
     "retried": false,
     "transports_tried": [
      "streamable-http"
@@ -6074,7 +8818,7 @@
     "transport": "streamable-http",
     "protocol_version": "2025-06-18",
     "server_name": "koreanpulse",
-    "warm_ms": 38,
+    "warm_ms": 39,
     "status": "live",
     "status_label": "살아있음 확인",
     "reachable": true,
@@ -6213,8 +8957,8 @@
    "remote": {
     "url": "https://academyinfo-mcp-433006350023.asia-northeast3.run.app/mcp",
     "http": 200,
-    "cold_ms": 53,
-    "latency_ms": 150,
+    "cold_ms": 51,
+    "latency_ms": 130,
     "retried": false,
     "transports_tried": [
      "streamable-http"
@@ -6222,7 +8966,7 @@
     "transport": "streamable-http",
     "protocol_version": "2025-06-18",
     "server_name": "academyinfo-mcp",
-    "warm_ms": 150,
+    "warm_ms": 130,
     "status": "live",
     "status_label": "살아있음 확인",
     "reachable": true,
@@ -6293,6 +9037,30 @@
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
   {
+   "name": "jang236/etf-analyzer",
+   "repo_url": "https://github.com/jang236/etf-analyzer",
+   "stars": 0,
+   "pushed": "2026-08-17",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null,
+   "open_source": {
+    "license": null,
+    "repo": "jang236/etf-analyzer",
+    "public": true,
+    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(라이선스 없음) — 법적으로 재사용이 열려 있지 않다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
    "name": "java-jaydev/kiwoom-mcp",
    "repo_url": "https://github.com/java-jaydev/kiwoom-mcp",
    "stars": 3,
@@ -6349,7 +9117,7 @@
    "name": "jaykim429/korea-statistic-MCP-cginside",
    "repo_url": "https://github.com/jaykim429/korea-statistic-MCP-cginside",
    "stars": 2,
-   "pushed": "2026-07-16",
+   "pushed": "2026-09-13",
    "archived": false,
    "sources": [
     "github"
@@ -6371,6 +9139,30 @@
    "self_hosting": {
     "state": "source_only",
     "why": "배포판은 없고 소스만 공개(MIT) — 띄우려면 직접 빌드해야 한다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "jcahn99/gis-accessibility-mcp",
+   "repo_url": "https://github.com/jcahn99/gis-accessibility-mcp",
+   "stars": 0,
+   "pushed": "2026-04-14",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null,
+   "open_source": {
+    "license": null,
+    "repo": "jcahn99/gis-accessibility-mcp",
+    "public": true,
+    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(라이선스 없음) — 법적으로 재사용이 열려 있지 않다"
    },
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
@@ -6444,8 +9236,8 @@
    "remote": {
     "url": "https://coffee.pryzm.gg/coffee/mcp",
     "http": 403,
-    "cold_ms": 211,
-    "latency_ms": 211,
+    "cold_ms": 451,
+    "latency_ms": 451,
     "retried": false,
     "transports_tried": [
      "streamable-http"
@@ -6493,8 +9285,8 @@
    "remote": {
     "url": "https://playmcp.kakao.com/mcp",
     "http": 401,
-    "cold_ms": 80,
-    "latency_ms": 80,
+    "cold_ms": 39,
+    "latency_ms": 39,
     "retried": false,
     "transports_tried": [
      "streamable-http"
@@ -6579,6 +9371,35 @@
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
   {
+   "name": "jinjukimink/subway-congestion-mcp",
+   "repo_url": "https://github.com/jinjukimink/subway-congestion-mcp",
+   "stars": 0,
+   "pushed": "2026-01-23",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": {
+    "type": "pypi",
+    "id": "subway-congestion-mcp",
+    "installable": false,
+    "why": "레지스트리에 없다(설치 불가)"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": null,
+    "repo": "jinjukimink/subway-congestion-mcp",
+    "public": true,
+    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(라이선스 없음) — 법적으로 재사용이 열려 있지 않다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
    "name": "jinmyungjong/korean-law-mcp",
    "repo_url": "https://github.com/jinmyungjong/korean-law-mcp",
    "stars": 0,
@@ -6622,6 +9443,88 @@
    "open_source": {
     "license": null,
     "repo": "jinny-han/data.go.kr-water-api-mcp",
+    "public": true,
+    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(라이선스 없음) — 법적으로 재사용이 열려 있지 않다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "jinny-han/industrial-complex-api-mcp",
+   "repo_url": "https://github.com/jinny-han/industrial-complex-api-mcp",
+   "stars": 0,
+   "pushed": "2026-05-15",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null,
+   "open_source": {
+    "license": null,
+    "repo": "jinny-han/industrial-complex-api-mcp",
+    "public": true,
+    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(라이선스 없음) — 법적으로 재사용이 열려 있지 않다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "jinny-han/vworld-api-mcp",
+   "repo_url": "https://github.com/jinny-han/vworld-api-mcp",
+   "stars": 1,
+   "pushed": "2026-05-11",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": {
+    "type": "npm",
+    "id": "vworld-api-mcp",
+    "installable": false,
+    "why": "레지스트리에 없다(설치 불가)"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": "MIT",
+    "repo": "jinny-han/vworld-api-mcp",
+    "public": true,
+    "why": ""
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(MIT) — 띄우려면 직접 빌드해야 한다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "jjmcpa93-design/g2b-bid-mcp",
+   "repo_url": "https://github.com/jjmcpa93-design/g2b-bid-mcp",
+   "stars": 0,
+   "pushed": "2026-07-27",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": {
+    "type": "npm",
+    "id": "g2b-bid-mcp",
+    "installable": false,
+    "why": "레지스트리에 없다(설치 불가)"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": null,
+    "repo": "jjmcpa93-design/g2b-bid-mcp",
     "public": true,
     "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
    },
@@ -6686,20 +9589,25 @@
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
   {
-   "name": "josanku/wehome-insight",
-   "repo_url": "https://github.com/josanku/wehome-insight",
+   "name": "jo73089622-pixel/gyeongbuk-arch-law-mcp",
+   "repo_url": "https://github.com/jo73089622-pixel/gyeongbuk-arch-law-mcp",
    "stars": 0,
-   "pushed": "2026-05-23",
+   "pushed": "2026-09-05",
    "archived": false,
    "sources": [
     "github"
    ],
    "remote": null,
-   "package": null,
-   "self_hostable": null,
+   "package": {
+    "type": "npm",
+    "id": "gyeongbuk-arch-law-mcp",
+    "installable": false,
+    "why": "레지스트리에 없다(설치 불가)"
+   },
+   "self_hostable": true,
    "open_source": {
     "license": null,
-    "repo": "josanku/wehome-insight",
+    "repo": "jo73089622-pixel/gyeongbuk-arch-law-mcp",
     "public": true,
     "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
    },
@@ -6797,7 +9705,7 @@
    "name": "junghan0611/zotero-config",
    "repo_url": "https://github.com/junghan0611/zotero-config",
    "stars": 3,
-   "pushed": "2026-09-04",
+   "pushed": "2026-09-13",
    "archived": false,
    "sources": [
     "github"
@@ -6808,6 +9716,35 @@
    "open_source": {
     "license": null,
     "repo": "junghan0611/zotero-config",
+    "public": true,
+    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(라이선스 없음) — 법적으로 재사용이 열려 있지 않다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "justcoding-ys/mcp-naver-news",
+   "repo_url": "https://github.com/justcoding-ys/mcp-naver-news",
+   "stars": 0,
+   "pushed": "2025-06-26",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": {
+    "type": "pypi",
+    "id": "mcp-naver-news",
+    "installable": false,
+    "why": "레지스트리에 없다(설치 불가)"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": null,
+    "repo": "justcoding-ys/mcp-naver-news",
     "public": true,
     "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
    },
@@ -6878,7 +9815,7 @@
   {
    "name": "k08200/korea-mcp-suite",
    "repo_url": "https://github.com/k08200/korea-mcp-suite",
-   "stars": 0,
+   "stars": 1,
    "pushed": "2026-05-17",
    "archived": false,
    "sources": [
@@ -6932,7 +9869,7 @@
    "name": "kaicot/kaic-kinder-info",
    "repo_url": "https://github.com/kaicot/kaic-kinder-info",
    "stars": 0,
-   "pushed": "2026-09-04",
+   "pushed": "2026-09-10",
    "archived": false,
    "sources": [
     "github"
@@ -6958,9 +9895,78 @@
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
   {
+   "name": "kebong-3/seogu-mcp",
+   "repo_url": "https://github.com/kebong-3/seogu-mcp",
+   "stars": 0,
+   "pushed": "2026-09-13",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null,
+   "open_source": {
+    "license": null,
+    "repo": "kebong-3/seogu-mcp",
+    "public": true,
+    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(라이선스 없음) — 법적으로 재사용이 열려 있지 않다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "kendrick-na/segeum-matjip",
+   "repo_url": "https://github.com/kendrick-na/segeum-matjip",
+   "stars": 0,
+   "pushed": "2026-07-07",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": {
+    "url": "https://.../mcp",
+    "http": null,
+    "cold_ms": 0,
+    "latency_ms": 0,
+    "retried": true,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": null,
+    "status": "unverified",
+    "status_label": "확인 못 함",
+    "reachable": false,
+    "why": "UnicodeError: label empty or too long",
+    "status_note": "우리 호출로는 확인이 안 됐다 — 죽었다는 뜻이 아니다",
+    "url_source": "readme"
+   },
+   "package": {
+    "type": "npm",
+    "id": "segeum-matjip",
+    "installable": false,
+    "why": "레지스트리에 없다(설치 불가)"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": null,
+    "repo": "kendrick-na/segeum-matjip",
+    "public": true,
+    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(라이선스 없음) — 법적으로 재사용이 열려 있지 않다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
    "name": "keonho-kim/OpenDart-mcp",
    "repo_url": "https://github.com/keonho-kim/OpenDart-mcp",
-   "stars": 4,
+   "stars": 5,
    "pushed": "2025-06-22",
    "archived": false,
    "sources": [
@@ -7201,6 +10207,30 @@
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
   {
+   "name": "kkhwan1/KONEPS_sionlab",
+   "repo_url": "https://github.com/kkhwan1/KONEPS_sionlab",
+   "stars": 0,
+   "pushed": "2026-04-24",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null,
+   "open_source": {
+    "license": "MIT",
+    "repo": "kkhwan1/KONEPS_sionlab",
+    "public": true,
+    "why": ""
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(MIT) — 띄우려면 직접 빌드해야 한다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
    "name": "kknas1/consumer-dispute-mcp",
    "repo_url": "https://github.com/kknas1/consumer-dispute-mcp",
    "stars": 1,
@@ -7241,8 +10271,8 @@
    "remote": {
     "url": "https://stock-data-mcp-production.up.railway.app/mcp",
     "http": 200,
-    "cold_ms": 690,
-    "latency_ms": 496,
+    "cold_ms": 504,
+    "latency_ms": 706,
     "retried": false,
     "transports_tried": [
      "streamable-http"
@@ -7250,7 +10280,7 @@
     "transport": "streamable-http",
     "protocol_version": "2025-06-18",
     "server_name": "Korean Stock Data",
-    "warm_ms": 496,
+    "warm_ms": 706,
     "status": "live",
     "status_label": "살아있음 확인",
     "reachable": true,
@@ -7291,6 +10321,64 @@
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
   {
+   "name": "kmjm231/korea-scholar-mcp",
+   "repo_url": "https://github.com/kmjm231/korea-scholar-mcp",
+   "stars": 0,
+   "pushed": "2026-01-18",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": {
+    "type": "pypi",
+    "id": "korea-scholar-mcp",
+    "installable": false,
+    "why": "레지스트리에 없다(설치 불가)"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": null,
+    "repo": "kmjm231/korea-scholar-mcp",
+    "public": true,
+    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(라이선스 없음) — 법적으로 재사용이 열려 있지 않다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "koreainvestment/koreainvestment-mcp",
+   "repo_url": "https://github.com/koreainvestment/koreainvestment-mcp",
+   "stars": 20,
+   "pushed": "2025-08-27",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": {
+    "type": "pypi",
+    "installable": null,
+    "why": "`kis-final`가 이 저장소의 배포판인지 확인하지 못했다 — README 설치 명령이 의존성 안내일 수 있다",
+    "unattributed_id": "kis-final"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": null,
+    "repo": "koreainvestment/koreainvestment-mcp",
+    "public": true,
+    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(라이선스 없음) — 법적으로 재사용이 열려 있지 않다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
    "name": "koy4648/McpServer",
    "repo_url": "https://github.com/koy4648/McpServer",
    "stars": 0,
@@ -7326,8 +10414,8 @@
    "remote": {
     "url": "https://reevl.co.kr/api/mcp",
     "http": 200,
-    "cold_ms": 46,
-    "latency_ms": 31,
+    "cold_ms": 33,
+    "latency_ms": 37,
     "retried": false,
     "transports_tried": [
      "streamable-http"
@@ -7335,7 +10423,7 @@
     "transport": "streamable-http",
     "protocol_version": "2025-06-18",
     "server_name": "reevl",
-    "warm_ms": 31,
+    "warm_ms": 37,
     "status": "live",
     "status_label": "살아있음 확인",
     "reachable": true,
@@ -7381,7 +10469,7 @@
     "url": "https://softbowl.co.kr/mcp/sbchart2.do",
     "http": 200,
     "cold_ms": 22,
-    "latency_ms": 22,
+    "latency_ms": 24,
     "retried": false,
     "transports_tried": [
      "streamable-http"
@@ -7389,7 +10477,7 @@
     "transport": "streamable-http",
     "protocol_version": "2025-06-18",
     "server_name": "softbowl-mcp-server (sbchart)",
-    "warm_ms": 22,
+    "warm_ms": 24,
     "status": "live",
     "status_label": "살아있음 확인",
     "reachable": true,
@@ -7435,7 +10523,7 @@
     "url": "https://softbowl.co.kr/mcp/sbgrid3.do",
     "http": 200,
     "cold_ms": 22,
-    "latency_ms": 22,
+    "latency_ms": 21,
     "retried": false,
     "transports_tried": [
      "streamable-http"
@@ -7443,7 +10531,7 @@
     "transport": "streamable-http",
     "protocol_version": "2025-06-18",
     "server_name": "softbowl-mcp-server (sbgrid)",
-    "warm_ms": 22,
+    "warm_ms": 21,
     "status": "live",
     "status_label": "살아있음 확인",
     "reachable": true,
@@ -7488,8 +10576,8 @@
    "remote": {
     "url": "https://mydart.eocpa.kr/mcp",
     "http": 200,
-    "cold_ms": 196,
-    "latency_ms": 195,
+    "cold_ms": 193,
+    "latency_ms": 199,
     "retried": false,
     "transports_tried": [
      "streamable-http"
@@ -7497,7 +10585,7 @@
     "transport": "streamable-http",
     "protocol_version": "2025-06-18",
     "server_name": "mydart-mcp",
-    "warm_ms": 195,
+    "warm_ms": 199,
     "status": "live",
     "status_label": "살아있음 확인",
     "reachable": true,
@@ -7531,8 +10619,8 @@
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
   {
-   "name": "kr.gronox/finbridge",
-   "repo_url": "https://github.com/Jakechj/finbridge-mcp",
+   "name": "kr.eocpa/myfss",
+   "repo_url": "",
    "stars": null,
    "pushed": null,
    "archived": null,
@@ -7540,10 +10628,119 @@
     "registry"
    ],
    "remote": {
+    "url": "https://myfss.eocpa.kr/mcp",
+    "http": 200,
+    "cold_ms": 120,
+    "latency_ms": 118,
+    "retried": false,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "myfss",
+    "warm_ms": 118,
+    "status": "live",
+    "status_label": "살아있음 확인",
+    "reachable": true,
+    "needs_key": false,
+    "tool_count": 5,
+    "why": "",
+    "quality": {
+     "described_pct": 100,
+     "desc_median": 1002,
+     "input_schema_pct": 80,
+     "output_schema_pct": 0,
+     "annotated_pct": 100,
+     "readonly_pct": 100
+    },
+    "url_source": "registry"
+   },
+   "paid_disclosure": {
+    "disclosed": false
+   },
+   "package": null,
+   "self_hostable": null,
+   "open_source": {
+    "license": null,
+    "repo": null,
+    "why": "GitHub 저장소 주소가 없어 못 쟀다"
+   },
+   "self_hosting": {
+    "state": "unknown",
+    "why": "배포판도 공개 소스도 확인하지 못했다 — 불가가 아니라 미확인이다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "kr.eocpa/mykifrs",
+   "repo_url": "",
+   "stars": null,
+   "pushed": null,
+   "archived": null,
+   "sources": [
+    "registry"
+   ],
+   "remote": {
+    "url": "https://mykifrs.eocpa.kr/mcp",
+    "http": 200,
+    "cold_ms": 126,
+    "latency_ms": 123,
+    "retried": false,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "mykifrs",
+    "warm_ms": 123,
+    "status": "live",
+    "status_label": "살아있음 확인",
+    "reachable": true,
+    "needs_key": false,
+    "tool_count": 6,
+    "why": "",
+    "quality": {
+     "described_pct": 100,
+     "desc_median": 1004,
+     "input_schema_pct": 100,
+     "output_schema_pct": 0,
+     "annotated_pct": 100,
+     "readonly_pct": 100
+    },
+    "url_source": "registry"
+   },
+   "paid_disclosure": {
+    "disclosed": false
+   },
+   "package": null,
+   "self_hostable": null,
+   "open_source": {
+    "license": null,
+    "repo": null,
+    "why": "GitHub 저장소 주소가 없어 못 쟀다"
+   },
+   "self_hosting": {
+    "state": "unknown",
+    "why": "배포판도 공개 소스도 확인하지 못했다 — 불가가 아니라 미확인이다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "kr.gronox/finbridge",
+   "repo_url": "https://github.com/Jakechj/finbridge-mcp",
+   "stars": 0,
+   "pushed": "2026-09-09",
+   "archived": false,
+   "sources": [
+    "github",
+    "registry"
+   ],
+   "remote": {
     "url": "https://mcp.gronox.kr/mcp",
     "http": 200,
-    "cold_ms": 91,
-    "latency_ms": 83,
+    "cold_ms": 81,
+    "latency_ms": 63,
     "retried": false,
     "transports_tried": [
      "streamable-http"
@@ -7551,20 +10748,20 @@
     "transport": "streamable-http",
     "protocol_version": "2025-06-18",
     "server_name": "finbridge",
-    "warm_ms": 83,
+    "warm_ms": 63,
     "status": "live",
     "status_label": "살아있음 확인",
     "reachable": true,
     "needs_key": false,
-    "tool_count": 37,
+    "tool_count": 44,
     "why": "",
     "quality": {
      "described_pct": 100,
-     "desc_median": 1950,
-     "input_schema_pct": 95,
-     "output_schema_pct": 100,
+     "desc_median": 1840,
+     "input_schema_pct": 91,
+     "output_schema_pct": 91,
      "annotated_pct": 100,
-     "readonly_pct": 95
+     "readonly_pct": 86
     },
     "url_source": "registry"
    },
@@ -7597,8 +10794,8 @@
    "remote": {
     "url": "https://ibtcc.kr/api/mcp",
     "http": 200,
-    "cold_ms": 389,
-    "latency_ms": 237,
+    "cold_ms": 237,
+    "latency_ms": 244,
     "retried": false,
     "transports_tried": [
      "streamable-http"
@@ -7606,7 +10803,7 @@
     "transport": "streamable-http",
     "protocol_version": "2025-06-18",
     "server_name": "ibtcc-competition",
-    "warm_ms": 237,
+    "warm_ms": 244,
     "status": "live",
     "status_label": "살아있음 확인",
     "reachable": true,
@@ -7641,6 +10838,60 @@
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
   {
+   "name": "kr.maedong/maedong",
+   "repo_url": "",
+   "stars": null,
+   "pushed": null,
+   "archived": null,
+   "sources": [
+    "registry"
+   ],
+   "remote": {
+    "url": "https://maedong.kr/mcp",
+    "http": 200,
+    "cold_ms": 302,
+    "latency_ms": 300,
+    "retried": false,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "maedong",
+    "warm_ms": 300,
+    "status": "live",
+    "status_label": "살아있음 확인",
+    "reachable": true,
+    "needs_key": false,
+    "tool_count": 5,
+    "why": "",
+    "quality": {
+     "described_pct": 100,
+     "desc_median": 230,
+     "input_schema_pct": 100,
+     "output_schema_pct": 0,
+     "annotated_pct": 100,
+     "readonly_pct": 100
+    },
+    "url_source": "registry"
+   },
+   "paid_disclosure": {
+    "disclosed": false
+   },
+   "package": null,
+   "self_hostable": null,
+   "open_source": {
+    "license": null,
+    "repo": null,
+    "why": "GitHub 저장소 주소가 없어 못 쟀다"
+   },
+   "self_hosting": {
+    "state": "unknown",
+    "why": "배포판도 공개 소스도 확인하지 못했다 — 불가가 아니라 미확인이다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
    "name": "kr.wandsol/patent-search",
    "repo_url": "",
    "stars": null,
@@ -7652,8 +10903,8 @@
    "remote": {
     "url": "https://mcp.wandsol.kr/mcp",
     "http": 401,
-    "cold_ms": 61,
-    "latency_ms": 61,
+    "cold_ms": 54,
+    "latency_ms": 54,
     "retried": false,
     "transports_tried": [
      "streamable-http"
@@ -7770,36 +11021,6 @@
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
   {
-   "name": "leadbrain/korean-data-mcp",
-   "repo_url": "https://github.com/leadbrain/korean-data-mcp",
-   "stars": 2,
-   "pushed": "2026-03-10",
-   "archived": false,
-   "sources": [
-    "github"
-   ],
-   "remote": null,
-   "package": {
-    "type": "pypi",
-    "id": "korean-data-mcp",
-    "installable": true,
-    "last_publish": "2026-03-21",
-    "version": "0.1.0"
-   },
-   "self_hostable": true,
-   "open_source": {
-    "license": "MIT",
-    "repo": "leadbrain/korean-data-mcp",
-    "public": true,
-    "why": ""
-   },
-   "self_hosting": {
-    "state": "packaged",
-    "why": "배포판을 설치해 자기 것으로 띄울 수 있다"
-   },
-   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
-  },
-  {
    "name": "leejaew/visitkorea-medicaltourism-mcp",
    "repo_url": "https://github.com/leejaew/visitkorea-medicaltourism-mcp",
    "stars": 1,
@@ -7831,7 +11052,7 @@
   {
    "name": "legalize-kr/agent-skills",
    "repo_url": "https://github.com/legalize-kr/agent-skills",
-   "stars": 13,
+   "stars": 15,
    "pushed": "2026-09-06",
    "archived": false,
    "sources": [
@@ -7842,8 +11063,8 @@
     "type": "npm",
     "id": "skills",
     "installable": true,
-    "last_publish": "2026-08-19",
-    "version": "1.5.23"
+    "last_publish": "2026-09-11",
+    "version": "1.5.26"
    },
    "self_hostable": true,
    "open_source": {
@@ -7959,9 +11180,9 @@
    "remote": {
     "url": "https://kosis-mcp-70b9.onrender.com/mcp",
     "http": 400,
-    "cold_ms": 425,
-    "latency_ms": 425,
-    "retried": false,
+    "cold_ms": 4559,
+    "latency_ms": 4559,
+    "retried": true,
     "transports_tried": [
      "streamable-http",
      "sse"
@@ -8015,6 +11236,30 @@
    "open_source": {
     "license": null,
     "repo": "millet04/krx-stock-mcp",
+    "public": true,
+    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(라이선스 없음) — 법적으로 재사용이 열려 있지 않다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "mindm1ner/bangbang-mcp",
+   "repo_url": "https://github.com/mindm1ner/bangbang-mcp",
+   "stars": 0,
+   "pushed": "2026-07-06",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null,
+   "open_source": {
+    "license": null,
+    "repo": "mindm1ner/bangbang-mcp",
     "public": true,
     "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
    },
@@ -8103,6 +11348,64 @@
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
   {
+   "name": "mogoon/evcharger-mcp-kc",
+   "repo_url": "https://github.com/mogoon/evcharger-mcp-kc",
+   "stars": 0,
+   "pushed": "2026-09-08",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": {
+    "type": "npm",
+    "id": "evcharger-mcp-kc",
+    "installable": false,
+    "why": "레지스트리에 없다(설치 불가)"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": null,
+    "repo": "mogoon/evcharger-mcp-kc",
+    "public": true,
+    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(라이선스 없음) — 법적으로 재사용이 열려 있지 않다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "molpass/mcp-newsfeed",
+   "repo_url": "https://github.com/molpass/mcp-newsfeed",
+   "stars": 0,
+   "pushed": "2026-06-20",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": {
+    "type": "npm",
+    "id": "mcp-newsfeed",
+    "installable": false,
+    "why": "레지스트리에 없다(설치 불가)"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": "MIT",
+    "repo": "molpass/mcp-newsfeed",
+    "public": true,
+    "why": ""
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(MIT) — 띄우려면 직접 빌드해야 한다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
    "name": "molpass/mcp-weather",
    "repo_url": "https://github.com/molpass/mcp-weather",
    "stars": 0,
@@ -8129,6 +11432,35 @@
    "self_hosting": {
     "state": "packaged",
     "why": "배포판을 설치해 자기 것으로 띄울 수 있다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "mongle250129/korea-life-mcp",
+   "repo_url": "https://github.com/mongle250129/korea-life-mcp",
+   "stars": 1,
+   "pushed": "2026-07-15",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": {
+    "type": "pypi",
+    "id": "korea-life-mcp",
+    "installable": false,
+    "why": "레지스트리에 없다(설치 불가)"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": null,
+    "repo": "mongle250129/korea-life-mcp",
+    "public": true,
+    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(라이선스 없음) — 법적으로 재사용이 열려 있지 않다"
    },
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
@@ -8323,7 +11655,7 @@
   {
    "name": "nokelan/health-fee-mcp",
    "repo_url": "https://github.com/nokelan/health-fee-mcp",
-   "stars": 0,
+   "stars": 1,
    "pushed": "2026-07-07",
    "archived": false,
    "sources": [
@@ -8332,8 +11664,8 @@
    "remote": {
     "url": "https://health.autotaxsystem.co.kr/mcp",
     "http": 200,
-    "cold_ms": 42,
-    "latency_ms": 42,
+    "cold_ms": 22,
+    "latency_ms": 22,
     "retried": false,
     "transports_tried": [
      "streamable-http",
@@ -8445,8 +11777,8 @@
    "remote": {
     "url": "https://korea-public-data-catalog-mcp-production.up.railway.app/mcp",
     "http": 404,
-    "cold_ms": 524,
-    "latency_ms": 524,
+    "cold_ms": 547,
+    "latency_ms": 547,
     "retried": false,
     "transports_tried": [
      "streamable-http",
@@ -8459,7 +11791,7 @@
     "why": "HTTP 404",
     "status_note": "전송 방식이 안 맞았을 수 있다 — 규격을 지키는 서버도 이 코드를 준다",
     "sse_why": "HTTP 404",
-    "error_body": "{\"status\":\"error\",\"code\":404,\"message\":\"Application not found\",\"request_id\":\"jOH0ugt7Qbim9wS5VOLIQQ\"}",
+    "error_body": "{\"status\":\"error\",\"code\":404,\"message\":\"Application not found\",\"request_id\":\"ofUipPyoS9qKW4xc0ubPiw\"}",
     "url_source": "readme"
    },
    "package": {
@@ -8537,6 +11869,79 @@
    "self_hosting": {
     "state": "source_only",
     "why": "배포판은 없고 소스만 공개(MIT) — 띄우려면 직접 빌드해야 한다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "oksure/bible-ko-mcp",
+   "repo_url": "https://github.com/oksure/bible-ko-mcp",
+   "stars": 3,
+   "pushed": "2026-06-22",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": {
+    "type": "npm",
+    "id": "bible-ko-mcp",
+    "installable": true,
+    "last_publish": "2026-06-22",
+    "version": "0.3.0"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": "MIT",
+    "repo": "oksure/bible-ko-mcp",
+    "public": true,
+    "why": ""
+   },
+   "self_hosting": {
+    "state": "packaged",
+    "why": "배포판을 설치해 자기 것으로 띄울 수 있다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "one.aisa/seo-serp-other-engines",
+   "repo_url": "",
+   "stars": null,
+   "pushed": null,
+   "archived": null,
+   "sources": [
+    "registry"
+   ],
+   "remote": {
+    "url": "https://mcp.aisa.one/seo-serp-other-engines/mcp",
+    "http": 401,
+    "cold_ms": 565,
+    "latency_ms": 565,
+    "retried": false,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "status": "live",
+    "status_label": "살아있음 확인",
+    "reachable": true,
+    "needs_key": true,
+    "tool_count": null,
+    "why": "인증 필요 — 키 없이는 도구 목록도 못 본다",
+    "url_source": "registry"
+   },
+   "paid_disclosure": {
+    "disclosed": false
+   },
+   "package": null,
+   "self_hostable": null,
+   "open_source": {
+    "license": null,
+    "repo": null,
+    "why": "GitHub 저장소 주소가 없어 못 쟀다"
+   },
+   "self_hosting": {
+    "state": "unknown",
+    "why": "배포판도 공개 소스도 확인하지 못했다 — 불가가 아니라 미확인이다"
    },
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
@@ -8640,8 +12045,8 @@
    "remote": {
     "url": "https://medicalaialliance.org/api/mcp",
     "http": 200,
-    "cold_ms": 372,
-    "latency_ms": 401,
+    "cold_ms": 224,
+    "latency_ms": 357,
     "retried": false,
     "transports_tried": [
      "streamable-http"
@@ -8649,7 +12054,7 @@
     "transport": "streamable-http",
     "protocol_version": "2025-06-18",
     "server_name": "MAA Intelligence",
-    "warm_ms": 401,
+    "warm_ms": 357,
     "status": "live",
     "status_label": "살아있음 확인",
     "reachable": true,
@@ -8684,6 +12089,88 @@
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
   {
+   "name": "pchuri/korean-capital-gains-tax-mcp",
+   "repo_url": "https://github.com/pchuri/korean-capital-gains-tax-mcp",
+   "stars": 2,
+   "pushed": "2026-03-24",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": {
+    "type": "npm",
+    "id": "korean-capital-gains-tax-mcp",
+    "installable": false,
+    "why": "레지스트리에 없다(설치 불가)"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": "MIT",
+    "repo": "pchuri/korean-capital-gains-tax-mcp",
+    "public": true,
+    "why": ""
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(MIT) — 띄우려면 직접 빌드해야 한다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "peppermint1231/stock-screener-mcp",
+   "repo_url": "https://github.com/peppermint1231/stock-screener-mcp",
+   "stars": 0,
+   "pushed": "2026-03-24",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null,
+   "open_source": {
+    "license": null,
+    "repo": "peppermint1231/stock-screener-mcp",
+    "public": true,
+    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(라이선스 없음) — 법적으로 재사용이 열려 있지 않다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "pianovirus/kfda-mcp",
+   "repo_url": "https://github.com/pianovirus/kfda-mcp",
+   "stars": 0,
+   "pushed": "2026-06-30",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": {
+    "type": "pypi",
+    "id": "kfda-mcp",
+    "installable": false,
+    "why": "레지스트리에 없다(설치 불가)"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": "MIT",
+    "repo": "pianovirus/kfda-mcp",
+    "public": true,
+    "why": ""
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(MIT) — 띄우려면 직접 빌드해야 한다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
    "name": "pinnaclesoft-ko/be-node-seoul-data-mcp",
    "repo_url": "https://github.com/pinnaclesoft-ko/be-node-seoul-data-mcp",
    "stars": 1,
@@ -8703,6 +12190,59 @@
    "open_source": {
     "license": "MIT",
     "repo": "pinnaclesoft-ko/be-node-seoul-data-mcp",
+    "public": true,
+    "why": ""
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(MIT) — 띄우려면 직접 빌드해야 한다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "pjookim/mcp-visit-korea",
+   "repo_url": "https://github.com/pjookim/mcp-visit-korea",
+   "stars": 2,
+   "pushed": "2025-04-10",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": {
+    "type": "npm",
+    "id": "mcp-ktour",
+    "installable": false,
+    "why": "레지스트리에 없다(설치 불가)"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": null,
+    "repo": "pjookim/mcp-visit-korea",
+    "public": true,
+    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(라이선스 없음) — 법적으로 재사용이 열려 있지 않다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "pollmap/luxon-sangkwon-mcp",
+   "repo_url": "https://github.com/pollmap/luxon-sangkwon-mcp",
+   "stars": 0,
+   "pushed": "2026-04-20",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null,
+   "open_source": {
+    "license": "MIT",
+    "repo": "pollmap/luxon-sangkwon-mcp",
     "public": true,
     "why": ""
    },
@@ -8743,6 +12283,59 @@
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
   {
+   "name": "prscsl/llm-mcp-weekly",
+   "repo_url": "https://github.com/prscsl/llm-mcp-weekly",
+   "stars": 0,
+   "pushed": "2026-05-28",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null,
+   "open_source": {
+    "license": null,
+    "repo": "prscsl/llm-mcp-weekly",
+    "public": true,
+    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(라이선스 없음) — 법적으로 재사용이 열려 있지 않다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "qbong1010/kosis-qbong-mcp",
+   "repo_url": "https://github.com/qbong1010/kosis-qbong-mcp",
+   "stars": 0,
+   "pushed": "2026-06-08",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": {
+    "type": "pypi",
+    "id": "kosis-industrial-mcp",
+    "installable": false,
+    "why": "레지스트리에 없다(설치 불가)"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": null,
+    "repo": "qbong1010/kosis-qbong-mcp",
+    "public": true,
+    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(라이선스 없음) — 법적으로 재사용이 열려 있지 않다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
    "name": "ratelworks/agent-quality-oss",
    "repo_url": "https://github.com/ratelworks/agent-quality-oss",
    "stars": 5,
@@ -8773,10 +12366,39 @@
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
   {
+   "name": "reallygood83/sbinfo",
+   "repo_url": "https://github.com/reallygood83/sbinfo",
+   "stars": 0,
+   "pushed": "2026-07-17",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": {
+    "type": "npm",
+    "id": "sbinfo",
+    "installable": false,
+    "why": "레지스트리에 없다(설치 불가)"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": "MIT",
+    "repo": "reallygood83/sbinfo",
+    "public": true,
+    "why": ""
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(MIT) — 띄우려면 직접 빌드해야 한다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
    "name": "rubatoyd/kakao-book-mcp",
    "repo_url": "https://github.com/rubatoyd/kakao-book-mcp",
-   "stars": 0,
-   "pushed": "2026-09-06",
+   "stars": 1,
+   "pushed": "2026-09-13",
    "archived": false,
    "sources": [
     "github"
@@ -8802,10 +12424,39 @@
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
   {
+   "name": "rubatoyd/law-openapi-mcp",
+   "repo_url": "https://github.com/rubatoyd/law-openapi-mcp",
+   "stars": 0,
+   "pushed": "2026-09-13",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": {
+    "type": "pypi",
+    "id": "law-openapi-mcp",
+    "installable": false,
+    "why": "레지스트리에 없다(설치 불가)"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": "MIT",
+    "repo": "rubatoyd/law-openapi-mcp",
+    "public": true,
+    "why": ""
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(MIT) — 띄우려면 직접 빌드해야 한다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
    "name": "scvcoder/korean-law-alio-mcp",
    "repo_url": "https://github.com/scvcoder/korean-law-alio-mcp",
    "stars": 20,
-   "pushed": "2026-09-04",
+   "pushed": "2026-09-13",
    "archived": false,
    "sources": [
     "github"
@@ -8813,8 +12464,8 @@
    "remote": {
     "url": "https://korean-law-alio-mcp.fly.dev/mcp",
     "http": 200,
-    "cold_ms": 228,
-    "latency_ms": 212,
+    "cold_ms": 240,
+    "latency_ms": 222,
     "retried": false,
     "transports_tried": [
      "streamable-http"
@@ -8822,7 +12473,7 @@
     "transport": "streamable-http",
     "protocol_version": "2025-06-18",
     "server_name": "korean-law-alio",
-    "warm_ms": 212,
+    "warm_ms": 222,
     "status": "live",
     "status_label": "살아있음 확인",
     "reachable": true,
@@ -8846,8 +12497,8 @@
     "type": "npm",
     "id": "korean-law-alio-mcp",
     "installable": true,
-    "last_publish": "2026-05-10",
-    "version": "1.0.8"
+    "last_publish": "2026-09-13",
+    "version": "1.3.1"
    },
    "self_hostable": true,
    "open_source": {
@@ -8855,6 +12506,56 @@
     "repo": "scvcoder/korean-law-alio-mcp",
     "public": true,
     "why": ""
+   },
+   "self_hosting": {
+    "state": "packaged",
+    "why": "배포판을 설치해 자기 것으로 띄울 수 있다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "scvcoder/korean-privacy-law-mcp",
+   "repo_url": "https://github.com/scvcoder/korean-privacy-law-mcp",
+   "stars": 4,
+   "pushed": "2026-09-13",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": {
+    "url": "https://scvcoder-korean-privacy-law-mcp.hf.space/mcp",
+    "http": 401,
+    "cold_ms": 655,
+    "latency_ms": 655,
+    "retried": false,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "status": "live",
+    "status_label": "살아있음 확인",
+    "reachable": true,
+    "needs_key": true,
+    "tool_count": null,
+    "why": "인증 필요 — 키 없이는 도구 목록도 못 본다",
+    "url_source": "readme"
+   },
+   "paid_disclosure": {
+    "disclosed": false
+   },
+   "package": {
+    "type": "npm",
+    "id": "korean-privacy-law-mcp",
+    "installable": true,
+    "last_publish": "2026-09-13",
+    "version": "0.9.0"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": null,
+    "repo": "scvcoder/korean-privacy-law-mcp",
+    "public": true,
+    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
    },
    "self_hosting": {
     "state": "packaged",
@@ -8904,8 +12605,8 @@
    "remote": {
     "url": "https://korean-stat-mcp.seolcoding.com/mcp",
     "http": 401,
-    "cold_ms": 242,
-    "latency_ms": 242,
+    "cold_ms": 303,
+    "latency_ms": 303,
     "retried": false,
     "transports_tried": [
      "streamable-http"
@@ -8956,8 +12657,8 @@
     "type": "pypi",
     "id": "stocklens-mcp",
     "installable": true,
-    "last_publish": "2026-08-27",
-    "version": "0.9.0"
+    "last_publish": "2026-09-11",
+    "version": "1.0.1"
    },
    "self_hostable": true,
    "open_source": {
@@ -9003,6 +12704,114 @@
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
   {
+   "name": "site.star365/data",
+   "repo_url": "",
+   "stars": null,
+   "pushed": null,
+   "archived": null,
+   "sources": [
+    "registry"
+   ],
+   "remote": {
+    "url": "https://data.star365.site/mcp",
+    "http": 200,
+    "cold_ms": 113,
+    "latency_ms": 111,
+    "retried": false,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "star365-data",
+    "warm_ms": 111,
+    "status": "live",
+    "status_label": "살아있음 확인",
+    "reachable": true,
+    "needs_key": false,
+    "tool_count": 10,
+    "why": "",
+    "quality": {
+     "described_pct": 100,
+     "desc_median": 231,
+     "input_schema_pct": 80,
+     "output_schema_pct": 0,
+     "annotated_pct": 100,
+     "readonly_pct": 100
+    },
+    "url_source": "registry"
+   },
+   "paid_disclosure": {
+    "disclosed": false
+   },
+   "package": null,
+   "self_hostable": null,
+   "open_source": {
+    "license": null,
+    "repo": null,
+    "why": "GitHub 저장소 주소가 없어 못 쟀다"
+   },
+   "self_hosting": {
+    "state": "unknown",
+    "why": "배포판도 공개 소스도 확인하지 못했다 — 불가가 아니라 미확인이다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "site.star365/hq",
+   "repo_url": "",
+   "stars": null,
+   "pushed": null,
+   "archived": null,
+   "sources": [
+    "registry"
+   ],
+   "remote": {
+    "url": "https://mcp.star365.site/mcp",
+    "http": 200,
+    "cold_ms": 173,
+    "latency_ms": 158,
+    "retried": false,
+    "transports_tried": [
+     "streamable-http"
+    ],
+    "transport": "streamable-http",
+    "protocol_version": "2025-06-18",
+    "server_name": "star365-mcp",
+    "warm_ms": 158,
+    "status": "live",
+    "status_label": "살아있음 확인",
+    "reachable": true,
+    "needs_key": false,
+    "tool_count": 26,
+    "why": "",
+    "quality": {
+     "described_pct": 100,
+     "desc_median": 259,
+     "input_schema_pct": 50,
+     "output_schema_pct": 0,
+     "annotated_pct": 100,
+     "readonly_pct": 81
+    },
+    "url_source": "registry"
+   },
+   "paid_disclosure": {
+    "disclosed": false
+   },
+   "package": null,
+   "self_hostable": null,
+   "open_source": {
+    "license": null,
+    "repo": null,
+    "why": "GitHub 저장소 주소가 없어 못 쟀다"
+   },
+   "self_hosting": {
+    "state": "unknown",
+    "why": "배포판도 공개 소스도 확인하지 못했다 — 불가가 아니라 미확인이다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
    "name": "sjh9714/electronics-price-mcp",
    "repo_url": "https://github.com/sjh9714/electronics-price-mcp",
    "stars": 0,
@@ -9014,8 +12823,8 @@
    "remote": {
     "url": "https://electronics-price-mcp.jinhyuk9714.workers.dev/mcp",
     "http": 404,
-    "cold_ms": 70,
-    "latency_ms": 70,
+    "cold_ms": 74,
+    "latency_ms": 74,
     "retried": false,
     "transports_tried": [
      "streamable-http",
@@ -9028,7 +12837,7 @@
     "why": "HTTP 404",
     "status_note": "전송 방식이 안 맞았을 수 있다 — 규격을 지키는 서버도 이 코드를 준다",
     "sse_why": "HTTP 404",
-    "error_body": "{\"type\":\"https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-1xxx-errors/\",\"title\":\"Error 1042: Cloudflare Error\",\"status\":404,\"detail\":\"No Workers script was found for this host on workers.dev.\",\"instance\":\"a370c05b68fcd1db\",\"error_code\":1042,\"error_name\":\"workers_dev_script_not_found\",\"error_category\":\"worker\",\"ray_id\":\"a370c05b68fcd1db\",\"timestamp\":\"2026-09-06",
+    "error_body": "{\"type\":\"https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-1xxx-errors/\",\"title\":\"Error 1042: Cloudflare Error\",\"status\":404,\"detail\":\"No Workers script was found for this host on workers.dev.\",\"instance\":\"a3aa94e06ebf5a03\",\"error_code\":1042,\"error_name\":\"workers_dev_script_not_found\",\"error_category\":\"worker\",\"ray_id\":\"a3aa94e06ebf5a03\",\"timestamp\":\"2026-09-13",
     "url_source": "readme"
    },
    "package": {
@@ -9136,7 +12945,7 @@
   {
    "name": "sodam-ai/Langent-MCP_One-Click_Kit",
    "repo_url": "https://github.com/sodam-ai/Langent-MCP_One-Click_Kit",
-   "stars": 4,
+   "stars": 3,
    "pushed": "2026-06-16",
    "archived": false,
    "sources": [
@@ -9154,6 +12963,30 @@
    "self_hosting": {
     "state": "source_only",
     "why": "배포판은 없고 소스만 공개(Apache-2.0) — 띄우려면 직접 빌드해야 한다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "songhwangcross-svg/krx-mcp-server",
+   "repo_url": "https://github.com/songhwangcross-svg/krx-mcp-server",
+   "stars": 0,
+   "pushed": "2026-07-11",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null,
+   "open_source": {
+    "license": null,
+    "repo": "songhwangcross-svg/krx-mcp-server",
+    "public": true,
+    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(라이선스 없음) — 법적으로 재사용이 열려 있지 않다"
    },
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
@@ -9187,6 +13020,35 @@
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
   {
+   "name": "sound0-07/stdict-korean-mcp-server",
+   "repo_url": "https://github.com/sound0-07/stdict-korean-mcp-server",
+   "stars": 0,
+   "pushed": "2025-04-11",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": {
+    "type": "npm",
+    "id": "stdict-korean-mcp-server",
+    "installable": false,
+    "why": "레지스트리에 없다(설치 불가)"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": null,
+    "repo": "sound0-07/stdict-korean-mcp-server",
+    "public": true,
+    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(라이선스 없음) — 법적으로 재사용이 열려 있지 않다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
    "name": "spoyodevelop/korean-weather-mcp",
    "repo_url": "https://github.com/spoyodevelop/korean-weather-mcp",
    "stars": 1,
@@ -9207,6 +13069,36 @@
    "self_hosting": {
     "state": "source_only",
     "why": "배포판은 없고 소스만 공개(라이선스 없음) — 법적으로 재사용이 열려 있지 않다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "ssol-park/booking-checker-mcp",
+   "repo_url": "https://github.com/ssol-park/booking-checker-mcp",
+   "stars": 0,
+   "pushed": "2026-06-13",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": {
+    "type": "npm",
+    "id": "booking",
+    "installable": true,
+    "last_publish": "2022-06-13",
+    "version": "0.1.1"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": null,
+    "repo": "ssol-park/booking-checker-mcp",
+    "public": true,
+    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
+   },
+   "self_hosting": {
+    "state": "packaged",
+    "why": "배포판을 설치해 자기 것으로 띄울 수 있다"
    },
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
@@ -9241,10 +13133,34 @@
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
   {
+   "name": "swansong80-afk/neis-mcp",
+   "repo_url": "https://github.com/swansong80-afk/neis-mcp",
+   "stars": 0,
+   "pushed": "2026-08-20",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null,
+   "open_source": {
+    "license": null,
+    "repo": "swansong80-afk/neis-mcp",
+    "public": true,
+    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(라이선스 없음) — 법적으로 재사용이 열려 있지 않다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
    "name": "syleedlabs/deal-locator-mcp",
    "repo_url": "https://github.com/syleedlabs/deal-locator-mcp",
    "stars": 27,
-   "pushed": "2026-09-05",
+   "pushed": "2026-09-12",
    "archived": false,
    "sources": [
     "github"
@@ -9272,7 +13188,7 @@
   {
    "name": "tae0y/real-estate-mcp",
    "repo_url": "https://github.com/tae0y/real-estate-mcp",
-   "stars": 375,
+   "stars": 376,
    "pushed": "2026-07-18",
    "archived": false,
    "sources": [
@@ -9301,10 +13217,34 @@
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
   {
+   "name": "taxwoong/labor-mcp",
+   "repo_url": "https://github.com/taxwoong/labor-mcp",
+   "stars": 1,
+   "pushed": "2026-09-13",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null,
+   "open_source": {
+    "license": "MIT",
+    "repo": "taxwoong/labor-mcp",
+    "public": true,
+    "why": ""
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(MIT) — 띄우려면 직접 빌드해야 한다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
    "name": "taxwoong/nts-tax-mcp",
    "repo_url": "https://github.com/taxwoong/nts-tax-mcp",
    "stars": 3,
-   "pushed": "2026-08-31",
+   "pushed": "2026-09-11",
    "archived": false,
    "sources": [
     "github"
@@ -9312,8 +13252,8 @@
    "remote": {
     "url": "https://web-production-10fe2.up.railway.app/mcp",
     "http": 404,
-    "cold_ms": 744,
-    "latency_ms": 744,
+    "cold_ms": 747,
+    "latency_ms": 747,
     "retried": false,
     "transports_tried": [
      "streamable-http",
@@ -9326,7 +13266,7 @@
     "why": "HTTP 404",
     "status_note": "전송 방식이 안 맞았을 수 있다 — 규격을 지키는 서버도 이 코드를 준다",
     "sse_why": "HTTP 404",
-    "error_body": "{\"status\":\"error\",\"code\":404,\"message\":\"Application not found\",\"request_id\":\"BTvXqGwyQSWa--_e2prcFg\"}",
+    "error_body": "{\"status\":\"error\",\"code\":404,\"message\":\"Application not found\",\"request_id\":\"E589fk4cSoOi3nvK0_TJvA\"}",
     "url_source": "readme"
    },
    "package": null,
@@ -9358,6 +13298,65 @@
    "open_source": {
     "license": null,
     "repo": "techkwon/teacher-guard",
+    "public": true,
+    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(라이선스 없음) — 법적으로 재사용이 열려 있지 않다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "tenacl/koreandict-mcp-server",
+   "repo_url": "https://github.com/tenacl/koreandict-mcp-server",
+   "stars": 4,
+   "pushed": "2025-04-05",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": {
+    "type": "npm",
+    "id": "koreandict-mcp-server",
+    "installable": true,
+    "last_publish": "2025-04-05",
+    "version": "1.0.0"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": null,
+    "repo": "tenacl/koreandict-mcp-server",
+    "public": true,
+    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
+   },
+   "self_hosting": {
+    "state": "packaged",
+    "why": "배포판을 설치해 자기 것으로 띄울 수 있다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "tjrgus0320/news-crawler-mcp",
+   "repo_url": "https://github.com/tjrgus0320/news-crawler-mcp",
+   "stars": 0,
+   "pushed": "2026-01-29",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": {
+    "type": "pypi",
+    "id": "news-crawler-mcp",
+    "installable": false,
+    "why": "레지스트리에 없다(설치 불가)"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": null,
+    "repo": "tjrgus0320/news-crawler-mcp",
     "public": true,
     "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
    },
@@ -9509,6 +13508,54 @@
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
   {
+   "name": "websfactory/dongtori-mcp",
+   "repo_url": "https://github.com/websfactory/dongtori-mcp",
+   "stars": 0,
+   "pushed": "2026-07-07",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null,
+   "open_source": {
+    "license": null,
+    "repo": "websfactory/dongtori-mcp",
+    "public": true,
+    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(라이선스 없음) — 법적으로 재사용이 열려 있지 않다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "whtjdgns2121-dot/seoul-accessible-transit-mcp",
+   "repo_url": "https://github.com/whtjdgns2121-dot/seoul-accessible-transit-mcp",
+   "stars": 0,
+   "pushed": "2026-07-20",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null,
+   "open_source": {
+    "license": null,
+    "repo": "whtjdgns2121-dot/seoul-accessible-transit-mcp",
+    "public": true,
+    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(라이선스 없음) — 법적으로 재사용이 열려 있지 않다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
    "name": "wintenboy/law-ontology-mcp",
    "repo_url": "https://github.com/wintenboy/law-ontology-mcp",
    "stars": 2,
@@ -9538,6 +13585,35 @@
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
   {
+   "name": "wnduq8/kr-mkt-mcp",
+   "repo_url": "https://github.com/wnduq8/kr-mkt-mcp",
+   "stars": 0,
+   "pushed": "2026-05-05",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": {
+    "type": "pypi",
+    "id": "kr-mkt-mcp",
+    "installable": false,
+    "why": "레지스트리에 없다(설치 불가)"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": "MIT",
+    "repo": "wnduq8/kr-mkt-mcp",
+    "public": true,
+    "why": ""
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(MIT) — 띄우려면 직접 빌드해야 한다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
    "name": "woongaro/korean-law-mcp",
    "repo_url": "https://github.com/woongaro/korean-law-mcp",
    "stars": 1,
@@ -9551,8 +13627,8 @@
     "type": "npm",
     "id": "korean-law-mcp",
     "installable": true,
-    "last_publish": "2026-09-06",
-    "version": "4.12.3"
+    "last_publish": "2026-09-10",
+    "version": "4.13.0"
    },
    "self_hostable": true,
    "open_source": {
@@ -9597,6 +13673,30 @@
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
   {
+   "name": "yang7021lo/giniz-news",
+   "repo_url": "https://github.com/yang7021lo/giniz-news",
+   "stars": 0,
+   "pushed": "2026-05-29",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": null,
+   "self_hostable": null,
+   "open_source": {
+    "license": null,
+    "repo": "yang7021lo/giniz-news",
+    "public": true,
+    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(라이선스 없음) — 법적으로 재사용이 열려 있지 않다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
    "name": "yesetr8/korea-law-mcp-public",
    "repo_url": "https://github.com/yesetr8/korea-law-mcp-public",
    "stars": 0,
@@ -9622,6 +13722,54 @@
    "self_hosting": {
     "state": "source_only",
     "why": "배포판은 없고 소스만 공개(MIT) — 띄우려면 직접 빌드해야 한다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "yonghwan1106/korea-culture-mcp",
+   "repo_url": "https://github.com/yonghwan1106/korea-culture-mcp",
+   "stars": 0,
+   "pushed": "2026-01-12",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": {
+    "url": "https://korea-culture-mcp.vercel.app/mcp",
+    "http": 404,
+    "cold_ms": 261,
+    "latency_ms": 261,
+    "retried": false,
+    "transports_tried": [
+     "streamable-http",
+     "sse"
+    ],
+    "transport": null,
+    "status": "unverified",
+    "status_label": "확인 못 함",
+    "reachable": false,
+    "why": "HTTP 404",
+    "status_note": "전송 방식이 안 맞았을 수 있다 — 규격을 지키는 서버도 이 코드를 준다",
+    "sse_why": "HTTP 404",
+    "error_body": "{\"error\": {\"code\": \"404\", \"message\": \"The deployment could not be found on Vercel.\"}}",
+    "url_source": "readme"
+   },
+   "package": {
+    "type": "npm",
+    "id": "korea-culture-mcp",
+    "installable": false,
+    "why": "레지스트리에 없다(설치 불가)"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": null,
+    "repo": "yonghwan1106/korea-culture-mcp",
+    "public": true,
+    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(라이선스 없음) — 법적으로 재사용이 열려 있지 않다"
    },
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
@@ -9657,7 +13805,7 @@
   {
    "name": "yonghwan86/narajangteo-searcher",
    "repo_url": "https://github.com/yonghwan86/narajangteo-searcher",
-   "stars": 0,
+   "stars": 1,
    "pushed": "2026-06-22",
    "archived": false,
    "sources": [
@@ -9738,6 +13886,122 @@
    "self_hosting": {
     "state": "source_only",
     "why": "배포판은 없고 소스만 공개(라이선스 없음) — 법적으로 재사용이 열려 있지 않다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "yt010108/kr-gov-job-mcp",
+   "repo_url": "https://github.com/yt010108/kr-gov-job-mcp",
+   "stars": 0,
+   "pushed": "2026-07-24",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": {
+    "type": "pypi",
+    "id": "kr-gov-job-mcp",
+    "installable": false,
+    "why": "레지스트리에 없다(설치 불가)"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": null,
+    "repo": "yt010108/kr-gov-job-mcp",
+    "public": true,
+    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(라이선스 없음) — 법적으로 재사용이 열려 있지 않다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "yuneunmi814-cmyk/legal-navigator-mcp",
+   "repo_url": "https://github.com/yuneunmi814-cmyk/legal-navigator-mcp",
+   "stars": 1,
+   "pushed": "2026-09-10",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": {
+    "type": "npm",
+    "id": "legal-navigator-mcp",
+    "installable": false,
+    "why": "레지스트리에 없다(설치 불가)"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": null,
+    "repo": "yuneunmi814-cmyk/legal-navigator-mcp",
+    "public": true,
+    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(라이선스 없음) — 법적으로 재사용이 열려 있지 않다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "yuneunmi814-cmyk/sinmungo-mcp",
+   "repo_url": "https://github.com/yuneunmi814-cmyk/sinmungo-mcp",
+   "stars": 0,
+   "pushed": "2026-08-07",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": {
+    "type": "npm",
+    "id": "sinmungo-helper-mcp",
+    "installable": false,
+    "why": "레지스트리에 없다(설치 불가)"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": null,
+    "repo": "yuneunmi814-cmyk/sinmungo-mcp",
+    "public": true,
+    "why": "저장소는 공개지만 라이선스 파일이 없다 — 기본값은 저작권 전부 유보다"
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(라이선스 없음) — 법적으로 재사용이 열려 있지 않다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "yunkee-lee/mcp-kakao-local",
+   "repo_url": "https://github.com/yunkee-lee/mcp-kakao-local",
+   "stars": 0,
+   "pushed": "2025-05-11",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": {
+    "type": "pypi",
+    "id": "mcp-kakao-local",
+    "installable": false,
+    "why": "레지스트리에 없다(설치 불가)"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": "MIT",
+    "repo": "yunkee-lee/mcp-kakao-local",
+    "public": true,
+    "why": ""
+   },
+   "self_hosting": {
+    "state": "source_only",
+    "why": "배포판은 없고 소스만 공개(MIT) — 띄우려면 직접 빌드해야 한다"
    },
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   },
@@ -9851,10 +14115,40 @@
     "why": "배포판은 없고 소스만 공개(라이선스 없음) — 법적으로 재사용이 열려 있지 않다"
    },
    "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
+  },
+  {
+   "name": "zzjiho/kr-medicine-mcp",
+   "repo_url": "https://github.com/zzjiho/kr-medicine-mcp",
+   "stars": 0,
+   "pushed": "2026-07-26",
+   "archived": false,
+   "sources": [
+    "github"
+   ],
+   "remote": null,
+   "package": {
+    "type": "npm",
+    "id": "kr-medicine-mcp",
+    "installable": true,
+    "last_publish": "2026-07-26",
+    "version": "0.1.5"
+   },
+   "self_hostable": true,
+   "open_source": {
+    "license": "MIT",
+    "repo": "zzjiho/kr-medicine-mcp",
+    "public": true,
+    "why": ""
+   },
+   "self_hosting": {
+    "state": "packaged",
+    "why": "배포판을 설치해 자기 것으로 띄울 수 있다"
+   },
+   "self_hostable_note": "옛 축(=배포 패키지 선언 여부). 뜻이 이름과 달라 self_hosting으로 교체했다"
   }
  ],
- "repackaged_at": "2026-09-07",
- "axes_at": "2026-09-07",
+ "repackaged_at": "2026-09-14",
+ "axes_at": "2026-09-14",
  "merged_endpoints": [
   {
    "kept": "app.sallim/contract-compass",

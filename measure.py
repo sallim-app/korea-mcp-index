@@ -154,7 +154,13 @@ def _request(url: str, *, method: str = "POST", body: bytes | None = None,
                 # **그쪽 해명을 버리지 않는다.** 종전엔 상태코드만 남기고 서버가 보낸 오류
                 # 본문을 버렸다 — 400의 사유가 그 안에 있는데도.
                 "raw": raw, "url": url, "headers": hh}
-    except (urllib.error.URLError, socket.timeout, OSError) as e:
+    except (urllib.error.URLError, socket.timeout, OSError, UnicodeError) as e:
+        # **UnicodeError까지 여기서 받는다(2026-09-14).** 주소 하나가 회차 전체를 죽였다 —
+        # README 자리표시자 `https://내도메인.vercel.app/api/mcp`(jjmcpa93-design/g2b-bid-mcp)에서
+        # urllib이 Host 헤더를 latin-1로 넣다 UnicodeEncodeError를 올렸고, 그것은 OSError가
+        # 아니라 404건 중 259번째에서 프로세스를 끝냈다(measured.json은 한 줄도 안 쓰였다).
+        # 남의 주소 하나가 우리 측정을 통째로 멈추게 두지 않는다 — 다른 전송 실패와 같은 자리에
+        # 적고, 그 주소가 애초에 두드릴 자격이 없다는 판정은 아래 PLACEHOLDER가 따로 한다.
         return {"status": None, "ms": int((time.monotonic() - t0) * 1000),
                 "raw": "", "url": url, "headers": {},
                 "error": f"{type(e).__name__}: {e}"[:160]}
@@ -568,7 +574,11 @@ THIRD_PARTY = re.compile(
     r"mcpservers\.org|antigravity\.google|home-assistant\.io|huggingface\.co|"
     r"cursor\.com|claude\.ai|openai\.com|docs\.[\w.-]+)/", re.I)
 # README가 "여기에 당신 주소를 넣으세요"로 남겨 둔 자리. 실제로 xxxx.ngrok.io를 두드렸다.
-PLACEHOLDER = re.compile(r"//(?:xxx+|yyy+|your|my|host|domain)[\w-]*\.", re.I)
+# **자리표시자는 우리말로도 쓴다(2026-09-14).** `내도메인.vercel.app`이 영어 명단만 보는 이
+# 그물을 그대로 통과해 두드림까지 갔다. 한국어 README를 모으는 목록이 영어 자리표시자만
+# 아는 것은 구멍이 아니라 기본값이었다 — 같은 자리에 우리말을 같이 적는다.
+PLACEHOLDER = re.compile(
+    r"//(?:xxx+|yyy+|your|my|host|domain|내도메인|내서버|도메인|당신|예시)[\w-]*\.", re.I)
 
 
 def third_party_addr(url: str) -> str:

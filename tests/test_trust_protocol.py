@@ -20,6 +20,7 @@ import sys
 
 import pytest
 
+import observed
 import recompute
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -125,7 +126,23 @@ def test_our_own_worse_than_the_axis_says_is_disclosed():
     """우리 셀프호스팅이 축 값보다 실질이 나쁘다는 자기공시가 남아 있는가."""
     ours = [r for r in MEASURED["items"] if r["name"].startswith(recompute.OURS)]
     assert ours, "운영자 서버가 측정본에 없다"
-    assert all((r.get("self_hosting") or {}).get("state") == "source_only" for r in ours)
+    # **우리 줄에 '미확인'을 그냥 두지 않는다(2026-09-14).** 종전엔 전부 `source_only`를
+    # 요구했는데, 모집단이 넓어진 회차에 우리 `korea-stay`가 처음 들어오며 `unknown`으로
+    # 찍혀 이 회귀가 울었다. `unknown`은 **남의 서버에 쓰는 '못 봄' 값**이고 우리 것에
+    # 쓰면 우리가 지는 축에서 숨는 것이다(PROTOCOL ②). 그래서 값을 넓히는 대신 조건을
+    # 건다 — 우리 줄은 `source_only`이거나, 소스가 닫혔다는 자기공시를 이름으로 달고
+    # 그 이름이 게시본 두 곳에 실제로 실려 있어야 한다.
+    for r in ours:
+        state = (r.get("self_hosting") or {}).get("state")
+        if state == "source_only":
+            continue
+        assert r["name"] in observed.SOURCE_CLOSED, \
+            f"{r['name']}: 우리 서버인데 축이 '{state}'인 채로 자기공시가 없다"
+        short = r["name"].split("/")[-1]
+        assert short in README, f"{short}: 자기공시가 README에 안 실렸다"
+        assert short in PROTOCOL, f"{short}: 자기공시가 규약에 안 실렸다"
+    assert not (set(observed.SOURCE_CLOSED) - {r["name"] for r in ours}), \
+        "남의 서버에 '소스 비공개'를 적었다 — 이 명단은 우리 것 전용이다"
     assert "클론해도 답이 안 나온다" in README
     # 규약 문서에도 같은 자기공시가 있어야 한다 — README만 고치고 규약을 방치하면
     # 다음 렌더에서 조용히 빠진다.

@@ -35,6 +35,9 @@ BLOCK = [
     ("https://www.home-assistant.io/integrations/mcp", "남의 문서"),
     ("https://huggingface.co/spaces/MCP", "남의 문서"),
     ("https://xxxx.ngrok.io/mcp", "README placeholder"),
+    # 2026-09-14 회차를 통째로 죽인 주소. 자리표시자를 우리말로 쓴 것뿐인데 영어 명단만 보는
+    # 그물을 통과했고, 두드리는 단계에서 urllib이 latin-1 헤더 인코딩에 걸려 예외로 끝났다.
+    ("https://내도메인.vercel.app/api/mcp", "한국어 자리표시자 — 404건 중 259번째에서 회차가 죽었다"),
 ]
 # 반대편 — 이건 진짜 엔드포인트라 막으면 안 된다(과잉 차단 회귀 방지).
 ALLOW = [
@@ -89,6 +92,12 @@ def main() -> int:
     if measure._tool_quality(["a", "b"]).get("malformed") != 2:
         fails.append("도구가 전부 규격 이탈일 때 공시가 없다")
 
+    # 그물을 지나쳐 두드림까지 가더라도 회차가 죽으면 안 된다(2026-09-14). 이 주소는 헤더
+    # 인코딩에서 걸려 네트워크를 타지 않으므로 오프라인에서 그대로 검사할 수 있다.
+    r = measure._request("https://내도메인.vercel.app/api/mcp", method="GET")
+    if not isinstance(r, dict) or not r.get("error"):
+        fails.append(f"비-latin1 주소를 오류 기록으로 받지 못했다 — {r}")
+
     # 프로토콜 증거 — 200뿐인 것은 확인이 아니다(문서 페이지가 정확히 그렇게 생겼다).
     if not measure.protocol_confirmed({"tool_count": 0}):
         fails.append("도구 0개도 tools/list가 읽힌 것이므로 확인이다")
@@ -100,8 +109,20 @@ def main() -> int:
     for f in fails:
         print("FAIL", f)
     print(f"{'실패 ' + str(len(fails)) + '건' if fails else '통과'} — "
-          f"차단 {len(BLOCK)} · 허용 {len(ALLOW)} · 주소고르기 4 · 규격이탈 2 · 증거규칙 3")
+          f"차단 {len(BLOCK)} · 허용 {len(ALLOW)} · 주소고르기 4 · 규격이탈 2 · 증거규칙 3 · 전송예외 1")
     return 1 if fails else 0
+
+
+def test_addr_gate():
+    """**이 파일은 2026-09-14까지 스위트에서 한 건도 안 돌았다.**
+
+    `pytest tests/ -q`는 `test_` 함수를 수집하는데 여기엔 `main()`밖에 없어, 207건을
+    초록으로 세면서 이 판정기만 통째로 건너뛰고 있었다(`--collect-only` 실측 0건). 남의
+    제품에 사망 선고를 할지 정하는 그물이 정작 회귀 밖에 있었던 것이고, 그래서 같은 날
+    자리표시자 하나가 회차를 죽일 때까지 아무도 몰랐다. 게이트를 새로 만드는 것이 아니라
+    있는 게이트를 실제로 돌게 하는 한 줄이다.
+    """
+    assert main() == 0
 
 
 if __name__ == "__main__":

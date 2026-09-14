@@ -34,7 +34,7 @@ import subprocess
 import sys
 
 import population
-from observed import MISFILED, RENAMED, SCOPE
+from observed import MISFILED, RENAMED, SCOPE, SOURCE_CLOSED
 from render_readme import (
     CAT_EN,
     CATS,
@@ -495,6 +495,11 @@ def loses_section(ctx) -> list[str]:
     paid = [r for r in items if (r.get("paid_disclosure") or {}).get("disclosed")]
     ours_paid = [r for r in paid if r["name"].startswith(OURS)]
     lic_named = " · ".join(f"{e(k)} {v}건" for k, v in lic.most_common() if k)
+    # 운영자 칸은 우리 줄에서 파생한다 — README 쪽과 같은 규칙(2026-09-14, observed.SOURCE_CLOSED).
+    ours_rows = [r for r in items if r["name"].startswith(OURS)]
+    closed = [r["name"].split("/")[-1] for r in ours_rows if r["name"] in SOURCE_CLOSED]
+    ours_src = sum(1 for r in ours_rows
+                   if (r.get("self_hosting") or {}).get("state") == "source_only")
     o = ['<h2 id="지는-항목">우리가 지는 항목</h2>',
          '<p><strong>유리한 축만 재면 그 순위는 판정이 아니라 광고지다.</strong> 원격 MCP인 우리가 '
          '불리한 축을 같이 잰다 — 무엇을 잴지는 결과를 보기 전에 '
@@ -504,9 +509,15 @@ def loses_section(ctx) -> list[str]:
          '<th>운영자(살림)</th></tr></thead><tbody>',
          f'<tr><td>셀프호스팅</td><td>배포판 확인 {sh["packaged"]}건 · 소스만 '
          f'{sh["source_only"]}건 · 미확인 {sh["unknown"]}건</td>'
-         '<td><strong>소스만</strong> — 그리고 클론해도 답이 안 나온다</td></tr>',
+         f'<td><strong>소스만</strong> {ours_src}건 — 그리고 클론해도 답이 안 나온다'
+         + (f' · <strong>소스 비공개 {len(closed)}건</strong>({e(", ".join(closed))}) — '
+            '이 축에서 우리가 제일 나쁘다' if closed else '')
+         + '</td></tr>',
          f'<tr><td>오픈소스</td><td>{lic_named} · 라이선스 확인 못 함 {lic[None]}건</td>'
-         '<td>MIT — <strong>이 축에서는 우리가 지지 않는다</strong></td></tr>',
+         '<td>MIT — <strong>이 축에서는 우리가 지지 않는다</strong>'
+         + (f'. 단 {e(", ".join(closed))}는 저장소가 없어 라이선스도 없다'
+            if closed else '')
+         + '</td></tr>',
          f'<tr><td>무료 한도</td><td>스스로 공시한 서버 {len(paid)}건</td><td>'
          + (f'그 {len(paid)}건이 우리다 — 도구 {e(ours_paid[0]["paid_disclosure"]["total"])}종 중 '
             f'<strong>{e(ours_paid[0]["paid_disclosure"]["paid"])}종 유료</strong>'

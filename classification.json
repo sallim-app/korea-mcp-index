@@ -3782,6 +3782,209 @@
    "is_data_provider": false,
    "why": "금융 멀티 에이전트 프레임워크",
    "by": "llm:haiku"
+  },
+  "be763a34f0f0": {
+   "name": "MarcoYou/open-esg-korea",
+   "category": "금융·증시",
+   "is_data_provider": true,
+   "why": "ESG 등급 등 기업 공시 데이터",
+   "by": "llm:haiku"
+  },
+  "55ad8cc1faac": {
+   "name": "MarcoYou/open-proxy-mcp",
+   "category": "금융·증시",
+   "is_data_provider": true,
+   "why": "DART 공시 조회",
+   "by": "llm:haiku(이전 회차 판정 유지 — 설명만 바뀌어 키만 갱신)"
+  },
+  "66a6d16af712": {
+   "name": "app.apick/all",
+   "category": "공공데이터·행정",
+   "is_data_provider": true,
+   "why": "APICK 다목적 API",
+   "by": "llm:haiku(이전 회차 판정 유지 — 설명만 바뀌어 키만 갱신)"
+  },
+  "12c314aa4920": {
+   "name": "archi.den/den_archi_mcp",
+   "category": "교육·문화",
+   "is_data_provider": false,
+   "why": "한국 건축·시공 학습자료",
+   "by": "llm:haiku(이전 회차 판정 유지 — 설명만 바뀌어 키만 갱신)"
+  },
+  "19c46eb14462": {
+   "name": "com.aikstockdata/mcp",
+   "category": "금융·증시",
+   "is_data_provider": true,
+   "why": "DART 주식 데이터",
+   "by": "llm:haiku(이전 회차 판정 유지 — 설명만 바뀌어 키만 갱신)"
+  },
+  "1489929e605e": {
+   "name": "com.nmjib/nmjib",
+   "category": "커머스·생활",
+   "is_data_provider": true,
+   "why": "인테리어 비용·프로세스 데이터",
+   "by": "llm:haiku"
+  },
+  "f8206a3ed5e6": {
+   "name": "datagokr-dev/datagokr",
+   "category": "공공데이터·행정",
+   "is_data_provider": true,
+   "why": "data.go.kr 공공데이터 API",
+   "by": "llm:haiku"
+  },
+  "ae8472a259a9": {
+   "name": "hichang4u/data-go-mcp-servers",
+   "category": "공공데이터·행정",
+   "is_data_provider": true,
+   "why": "data.go.kr 공공데이터 API",
+   "by": "llm:haiku"
+  },
+  "2da6f33e2760": {
+   "name": "hwain-ai/Real-Estate-Location-Analyzer_MCP",
+   "category": "부동산",
+   "is_data_provider": true,
+   "why": "카카오 API 부동산 입지 분석",
+   "by": "llm:haiku"
+  },
+  "94fd5fde230d": {
+   "name": "io.github.BK927/overwatch-aio",
+   "category": "기타",
+   "is_data_provider": true,
+   "why": "오버워치 2 경기·메타 데이터",
+   "by": "llm:haiku"
+  },
+  "f423c5164b7c": {
+   "name": "io.github.java-jaydev/naver-mybox-mcp",
+   "category": "커머스·생활",
+   "is_data_provider": false,
+   "why": "클라우드 파일 관리 도구",
+   "by": "llm:haiku"
+  },
+  "87e13671b1c3": {
+   "name": "io.github.moon0825/jbnu-lms-student",
+   "category": "교육·문화",
+   "is_data_provider": false,
+   "why": "대학 LMS 읽기 도구",
+   "by": "llm:haiku"
+  },
+  "42deb2a39530": {
+   "name": "io.github.rubatoyd/kosis-openapi-mcp",
+   "category": "공공데이터·행정",
+   "is_data_provider": true,
+   "why": "통계청 KOSIS 공식 통계",
+   "by": "llm:haiku"
+  },
+  "52864cc7d049": {
+   "name": "io.github.rubatoyd/na-openapi-mcp",
+   "category": "교육·문화",
+   "is_data_provider": true,
+   "why": "국회도서관 도서·논문 API",
+   "by": "llm:haiku"
+  },
+  "77c90acbef21": {
+   "name": "io.github.sadri-dridi/tz-asia-seoul",
+   "category": "기타",
+   "is_data_provider": true,
+   "why": "Seoul 타임존 시간 정보",
+   "by": "llm:haiku"
+  },
+  "1c9b6127ee36": {
+   "name": "io.github.sean-park-funda/korea-data-mcp",
+   "category": "날씨·환경",
+   "is_data_provider": true,
+   "why": "한반도 기후·관광 데이터",
+   "by": "llm:haiku"
+  },
+  "955f7c3f6250": {
+   "name": "io.github.sean-park-funda/korea-ocean-mcp",
+   "category": "날씨·환경",
+   "is_data_provider": true,
+   "why": "조석·낚시·해양 예보 데이터",
+   "by": "llm:haiku"
+  },
+  "8684b3b9fe82": {
+   "name": "kebong-3/seogu-mcp",
+   "category": "법령·판례",
+   "is_data_provider": true,
+   "why": "자치법규·조례 검색",
+   "by": "llm:haiku"
+  },
+  "08e418f18c13": {
+   "name": "kr.eocpa/myfss",
+   "category": "금융·증시",
+   "is_data_provider": true,
+   "why": "금융감독 회계감시 문서",
+   "by": "llm:haiku"
+  },
+  "638ebe87be8c": {
+   "name": "kr.eocpa/mykifrs",
+   "category": "세금·재정",
+   "is_data_provider": true,
+   "why": "K-IFRS/K-GAAP 회계기준 정보",
+   "by": "llm:haiku"
+  },
+  "285aaec3654f": {
+   "name": "kr.gronox/finbridge",
+   "category": "금융·증시",
+   "is_data_provider": true,
+   "why": "한국·미국 시장 데이터",
+   "by": "llm:haiku(이전 회차 판정 유지 — 설명만 바뀌어 키만 갱신)"
+  },
+  "1d7ab4d5c2ad": {
+   "name": "kr.maedong/maedong",
+   "category": "금융·증시",
+   "is_data_provider": true,
+   "why": "KOSPI/KOSDAQ 신호·수익률",
+   "by": "llm:haiku"
+  },
+  "66357f192288": {
+   "name": "kr.pe.trading/community",
+   "category": "금융·증시",
+   "is_data_provider": false,
+   "why": "주식 예측 커뮤니티",
+   "by": "llm:haiku"
+  },
+  "f7868e63c4cd": {
+   "name": "minsuko-lab/news_curation_system",
+   "category": "미디어·뉴스",
+   "is_data_provider": false,
+   "why": "뉴스 큐레이션 도구",
+   "by": "llm:haiku"
+  },
+  "b7d60752f92e": {
+   "name": "one.aisa/seo-serp-other-engines",
+   "category": "미디어·뉴스",
+   "is_data_provider": true,
+   "why": "검색엔진 결과 데이터",
+   "by": "llm:haiku"
+  },
+  "8fa727a59169": {
+   "name": "rubatoyd/law-openapi-mcp",
+   "category": "법령·판례",
+   "is_data_provider": true,
+   "why": "법제처 국가법령정보 API",
+   "by": "llm:haiku"
+  },
+  "d3a490627602": {
+   "name": "site.star365/data",
+   "category": "공공데이터·행정",
+   "is_data_provider": true,
+   "why": "공공데이터·기상청·복지정보",
+   "by": "llm:haiku"
+  },
+  "893d7b65c7d2": {
+   "name": "site.star365/hq",
+   "category": "공공데이터·행정",
+   "is_data_provider": true,
+   "why": "공공데이터·건강정보 통합",
+   "by": "llm:haiku"
+  },
+  "8baedcb15017": {
+   "name": "yunsell/ai-agent-skills-korean",
+   "category": "디렉토리·개발자도구",
+   "is_data_provider": false,
+   "why": "한국어 AI 스킬 큐레이션",
+   "by": "llm:haiku"
   }
  }
 }

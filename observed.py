@@ -70,6 +70,30 @@ SCOPE: dict[str, str] = {
     # 전 도구가 키 게이트라 **확인하지 못했다** — 확인 못 한 것을 교정으로 적지 않는다.
     "app.apick/all":
         "전 도구가 API 키 게이트라 종류(데이터형/카탈로그형)조차 확인할 수 없었다",
+    # 한국 데이터 서버가 아니다. 다음 회차부터 모집단 밖이지만(PROTOCOL 개정 이력
+    # 2026-09-14 — 필터는 이미 고쳤고 적용은 회차 사이 규칙을 지켜 다음 주부터다),
+    # **이번 주 표에 실린 이상 그것이 무엇인지는 이번 주에 적는다.**
+    "io.github.sadri-dridi/tz-asia-seoul":
+        "한 저장소(named-mcp-utilities)·한 워커로 레지스트리에 수백 건을 등록한 범용 "
+        "유틸리티 묶음(abs-ok·acre-to-m2·adler32-ok…) 중 한 조각. 한국 신호는 타임존 "
+        "표기 Asia/Seoul뿐이고, 도구 30개도 한국용이 아니다",
+}
+
+
+# 운영자 자기공시 — **우리 서버에는 '미확인'을 쓰지 않는다** (2026-09-14).
+#
+# 계기. 모집단이 넓어진 첫 회차에 우리 `app.sallim/korea-stay`가 처음 표에 들어왔고,
+# 셀프호스팅 축이 `unknown`("배포판도 공개 소스도 확인하지 못했다")으로 찍혔다. 그 값은
+# **남의 서버에 쓰라고 만든 값**이다 — 못 봄 ≠ 없음(기치 ②). 우리 서버는 우리가 답을
+# 안다: `sallim-app`에 korea-stay 저장소가 없다(2026-09-14 실측, GitHub API 공개 4건 =
+# contract-compass·korea-realty·awesome-mcp-servers·korea-mcp-index).
+#
+# 우리가 지는 축에서 '미확인' 뒤에 숨는 것이 PROTOCOL ②가 막으려는 바로 그 동작이라,
+# 우리 것에 한해 사실을 값으로 적고 렌더가 그것을 게시한다. 남의 서버에는 절대 쓰지
+# 않는다 — 남의 저장소가 안 보이는 것은 비공개일 수도, 우리가 못 찾은 것일 수도 있다.
+# 소스를 공개하면 축이 스스로 `source_only`가 되어 이 명단이 필요 없어진다(그때 지운다).
+SOURCE_CLOSED: dict[str, str] = {
+    "app.sallim/korea-stay": "공개 저장소가 없다 — 운영자가 스스로 밝힌다",
 }
 
 
@@ -90,6 +114,14 @@ RENAMED: dict[str, str] = {
     #        주소 중복 제거가 합쳤고, 살아남은 이름이 haklaekim 쪽이라 등수도 거기 붙었다).
     # 근거 ③: 옛 경로는 GitHub 404이고 **리디렉트가 없다** — 그래서 자동으로는 못 잇는다.
     "hike-lab/public-data-lens": "haklaekim/public-data-lens",
+    # hwain-hwang/Real-Estate-Location-Analyzer_MCP → hwain-ai/… (2026-09-14).
+    # 근거 ①: 두 이름의 remote.url이 **바이트 동일**하다
+    #        (https://immortal0900-real-estate-location-analyzer-mcp.hf.space/gradio_api/mcp/sse).
+    # 근거 ②: 옛 경로가 GitHub API에서 **301**이다 — 계정 개명이라 리디렉트가 살아 있다
+    #        (위 public-data-lens와 달리 자동으로도 이을 수 있었던 경우다).
+    # 잇지 않으면 이번 주 표는 이 서버가 죽고 같은 주소의 다른 서버가 태어난 것처럼 읽힌다.
+    "hwain-ai/Real-Estate-Location-Analyzer_MCP":
+        "hwain-hwang/Real-Estate-Location-Analyzer_MCP",
     # yousunjung84-edu/academyinfo-mcp → io.github.yousunjung84-edu/academyinfo (2026-08-31).
     # **저장소가 옮겨간 것이 아니라 표시 이름의 출처가 바뀐 것이다.** 이번 회차에 레지스트리
     # 전수 스윕이 제대로 돌면서(version=latest) 이 서버의 레지스트리 등록이 처음 보였고,

@@ -18,7 +18,7 @@ import re
 import sys
 
 import population
-from observed import MISFILED, RENAMED, SCOPE
+from observed import MISFILED, RENAMED, SCOPE, SOURCE_CLOSED
 
 OURS = ("app.sallim/", "sallim-app/")
 # 웹판(2026-08-29). 저장소 README는 검색엔진이 사실상 안 읽는다 — 그래서 같은 원자료에서
@@ -539,10 +539,20 @@ def main() -> int:
     lic_named = ", ".join(f"{k} {v}건" for k, v in lic.most_common() if k)
     A("| 축 | 이 목록 전체 | 운영자(🏠) |")
     A("|---|---|---|")
+    # **운영자 칸은 우리 줄에서 파생한다**(2026-09-14). 종전엔 "소스만 · MIT"가 문장으로
+    # 박혀 있었는데, 우리 서버가 셋이 되자 그 두 마디가 한 줄(korea-stay·소스 비공개)에
+    # 대해 거짓이 됐다. 손으로 한 마디 더 적으면 다음 회차에 또 썩는다.
+    ours_rows = [r for r in items if r["name"].startswith(OURS)]
+    closed = [r["name"].split("/")[-1] for r in ours_rows if r["name"] in SOURCE_CLOSED]
+    ours_src = sum(1 for r in ours_rows
+                   if (r.get("self_hosting") or {}).get("state") == "source_only")
     A(f"| 셀프호스팅 | 배포판 확인 {sh['packaged']}건 · 소스만 {sh['source_only']}건 · "
-      f"미확인 {sh['unknown']}건 | **소스만** — 그리고 클론해도 답이 안 나온다 |")
+      f"미확인 {sh['unknown']}건 | **소스만** {ours_src}건 — 그리고 클론해도 답이 안 나온다"
+      + (f" · **소스 비공개 {len(closed)}건**({', '.join(closed)}) — 이 축에서 우리가 제일 나쁘다 |"
+         if closed else " |"))
     A(f"| 오픈소스 | {lic_named} · 라이선스 확인 못 함 {lic[None]}건 | "
-      "MIT — **이 축에서는 우리가 지지 않는다** |")
+      "MIT — **이 축에서는 우리가 지지 않는다**"
+      + (f". 단 {', '.join(closed)}는 저장소가 없어 라이선스도 없다 |" if closed else " |"))
     A(f"| 무료 한도 | 스스로 공시한 서버 {len(paid)}건 | "
       + (f"그 {len(paid)}건이 우리다 — 도구 "
          f"{ours_paid[0]['paid_disclosure']['total']}종 중 "

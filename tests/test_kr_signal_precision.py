@@ -96,6 +96,35 @@ def test_russian_server_does_not_reach_keep() -> None:
     assert v["verdict"] == "drop", f'keep/review로 올라왔다: {v}'
 
 
+# ── ③ 타임존 식별자의 seoul ────────────────────────────────────────
+# 2026-09-14 회차에 게시본 「기타」 두 줄 중 하나가 이것이었다. 등록 살포 묶음
+# (`named-mcp-utilities` — abs-ok · acre-to-m2 · adler32-ok …, 엔드포인트 호스트 동일)의
+# 알파벳 한 조각이고, 한국 신호는 `Asia/Seoul` 표기 하나뿐이었다.
+TZ_CASES = [
+    ("io.github.sadri-dridi/tz-asia-seoul", "Current local time in Asia/Seoul.", False),
+    # 좁게 막는지 — 진짜 서울 데이터는 살아 있어야 한다
+    ("io.github.x/seoul-subway", "Seoul subway arrival times from the city open API", True),
+    ("io.github.y/apt-trades", "서울 아파트 실거래가", True),
+    # 타임존을 언급하더라도 다른 한국 신호가 있으면 남는다
+    ("io.github.z/kr-market-hours", "Market hours in Asia/Seoul for KRX listed stocks", True),
+]
+
+
+@pytest.mark.parametrize("name,desc,want_kr", TZ_CASES)
+def test_timezone_id_is_not_a_korea_signal(name: str, desc: str, want_kr: bool) -> None:
+    got = bool(verdict(name, desc)["kr"])
+    assert got is want_kr, (
+        f"{name}: 한국 신호 {got} (기대 {want_kr}) — "
+        "`Asia/Seoul`은 타임존 표기이지 한국 데이터 신호가 아니다"
+    )
+
+
+def test_bulk_registered_timezone_slice_does_not_reach_the_population() -> None:
+    """게시까지 간 그 경로 전체를 못박는다 — kr 신호만이 아니라 verdict."""
+    v = verdict("io.github.sadri-dridi/tz-asia-seoul", "Current local time in Asia/Seoul.")
+    assert v["verdict"] == "drop", f"keep/review로 올라왔다: {v}"
+
+
 # ── 탐지기 생존 ────────────────────────────────────────────────────
 def test_detectors_are_alive() -> None:
     """통과시키는 쪽 고장은 조용하다 — 판별기 자체가 살아 있는지 합성 입력으로 본다."""
@@ -105,3 +134,7 @@ def test_detectors_are_alive() -> None:
     # 로케일 목록 판별기
     assert "한국어" not in fc.strip_locale_list("EN/中文/日本語/한국어")
     assert "한국어" in fc.strip_locale_list("한국어 맞춤법 교정"), "너무 넓게 지운다"
+    # 타임존 식별자 판별기
+    assert "Seoul" not in fc.strip_tz_id("Current local time in Asia/Seoul.")
+    assert "seoul" not in fc.strip_tz_id("io.github.sadri-dridi/tz-asia-seoul")
+    assert "Seoul" in fc.strip_tz_id("Seoul apartment trades"), "너무 넓게 지운다"
