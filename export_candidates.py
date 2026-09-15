@@ -96,13 +96,36 @@ def main() -> int:
     # drop 통을 사유별 건수로만 싣는 것은 3만 건을 간추리기 위한 타협인데, 한 번 게시한
     # 서버가 그 통에 들어가면 독자 입장에서는 **또 조용히 사라진 것**이다. 이어받기가
     # 막으려는 침묵이 바로 그것이라, 이 줄들만은 판정 사유를 붙여 예외로 남긴다.
+    #
+    # **`carryover` 표식만 보면 절반만 막힌다**(codex 교차검증 2026-09-16). 그 표식은
+    # 이번 회차 수집 원천이 **안 돌려준** 줄에만 붙는다. 한 번 게시한 서버가 이번에는
+    # 수집되었지만 필터에서 `drop`되면 표식이 없어 다시 사유별 건수로만 남는다 — 독자가
+    # 보기엔 똑같이 조용히 사라진 것이다(실측 2026-09-16: 그런 줄이 1건 있었다 —
+    # `io.github.aidc2026ai-melon/aidc-mcp-server`, '한국 관련 신호 0'). 그래서 표식이
+    # 아니라 **게시 이력 자체**를 기준으로 본다.
+    # 개명 후 이름도 같은 신원이다 — 원장에는 옛 이름만 있으므로, 이어받기가 확인해 둔
+    # `renamed_to`까지 넣지 않으면 개명한 서버가 drop될 때 다시 조용히 사라진다
+    # (codex 교차검증 2026-09-16).
+    ledger = carryover.load()
+    published = set()
+    for n, e in ledger["items"].items():
+        if e.get("retired"):
+            continue
+        published.add(n.lower())
+        if e.get("renamed_to"):
+            published.add(e["renamed_to"].lower())
+
+    def was_published(i: dict) -> bool:
+        return bool(i.get("carryover")) or (i.get("name") or "").lower() in published
+
     keep = [i for i in items
-            if i["verdict"] in ("keep", "review") or i.get("carryover")]
+            if i["verdict"] in ("keep", "review") or was_published(i)]
     drops = collections.Counter(i["why"][:60] for i in items
-                                if i["verdict"] == "drop" and not i.get("carryover"))
+                                if i["verdict"] == "drop" and not was_published(i))
     out = {
         "note": ("판정 원자료(간추림). keep·review는 판정 사유째로, drop은 사유별 건수만 싣는다"
-                 "(단 게시 이력을 이어받은 줄은 drop이어도 이름째로 싣는다). "
+                 "(단 한 번이라도 게시한 줄은 drop이어도 이름째로 싣는다 — 이어받은 줄이든 "
+                 "이번에 수집돼 필터에서 떨어진 줄이든). "
                  "전체가 필요하면 collect_candidates.py부터 직접 돌려라 — 같은 입력이면 같은 결과다."),
         "buckets": d["buckets"], "boundaries": d.get("boundaries", []),
         "drop_reasons": [{"why": w, "n": n} for w, n in drops.most_common()],
@@ -160,7 +183,6 @@ def main() -> int:
 
     # **게시한 그 자리에서 게시 이력을 적는다**(T-2026W38-309). 다른 곳에 적으면 언젠가
     # 한쪽만 돌아 원장이 게시본보다 뒤처지고, 그때부터 이어받기는 조용히 덜 이어받는다.
-    ledger = carryover.load()
     n_new = carryover.record(ledger, m)
     carryover.save(ledger)
 

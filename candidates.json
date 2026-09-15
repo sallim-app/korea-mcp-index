@@ -1,5 +1,5 @@
 {
- "note": "판정 원자료(간추림). keep·review는 판정 사유째로, drop은 사유별 건수만 싣는다. 전체가 필요하면 collect_candidates.py부터 직접 돌려라 — 같은 입력이면 같은 결과다.",
+ "note": "판정 원자료(간추림). keep·review는 판정 사유째로, drop은 사유별 건수만 싣는다(단 한 번이라도 게시한 줄은 drop이어도 이름째로 싣는다 — 이어받은 줄이든 이번에 수집돼 필터에서 떨어진 줄이든). 전체가 필요하면 collect_candidates.py부터 직접 돌려라 — 같은 입력이면 같은 결과다.",
  "buckets": {
   "keep": 297,
   "drop": 29990,
@@ -23,7 +23,7 @@
  "drop_reasons": [
   {
    "why": "한국 관련 신호 0 — 검색어에 우연히 걸림",
-   "n": 29969
+   "n": 29968
   },
   {
    "why": "MCP 서버가 아니다(조직 프로필·목록 저장소)",
@@ -76,7 +76,8 @@
    ],
    "stars": 1,
    "pushed": "2026-05-19",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "0taemini/maeum-docent-mcp",
@@ -91,7 +92,8 @@
    ],
    "stars": 0,
    "pushed": "2026-06-19",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "2geonhyup/dart-mcp",
@@ -106,7 +108,8 @@
    "pushed": null,
    "kr_domains": [
     "opendart.fss.or.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "4thIS/hackathon_mjc_mcp",
@@ -121,7 +124,8 @@
    ],
    "stars": 0,
    "pushed": "2026-08-07",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "50seok/kr-public-data-mcp",
@@ -139,7 +143,8 @@
    "pushed": "2026-09-03",
    "kr_domains": [
     "data.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "9bow/learn-claude-code",
@@ -154,7 +159,8 @@
    ],
    "stars": 0,
    "pushed": "2026-08-28",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "9bow/learn-loop-engineering",
@@ -169,7 +175,8 @@
    ],
    "stars": 0,
    "pushed": "2026-09-10",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "AI-Dico/korea-law-mcp-public",
@@ -186,7 +193,8 @@
    "pushed": "2026-07-10",
    "kr_domains": [
     "open.law.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "AgentBridge-Lab/korea-space-support-mcp",
@@ -202,7 +210,8 @@
    "kr_domains": [
     "data.jntp.or.kr",
     "www.bizinfo.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "Alfex4936/Hangul-MCP",
@@ -217,7 +226,8 @@
    ],
    "stars": 2,
    "pushed": "2025-06-22",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "Anna-Jeong-MS/mcp-opendart",
@@ -234,7 +244,8 @@
    "pushed": "2025-09-29",
    "kr_domains": [
     "opendart.fss.or.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "Atrani-Labs/visitkorea-tour-mcp",
@@ -253,7 +264,8 @@
     "apis.data.go.kr",
     "data.go.kr",
     "www.data.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "BewitchSK/apartment-price-mcp",
@@ -268,7 +280,8 @@
    ],
    "stars": 0,
    "pushed": "2025-08-05",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "ByteforceAi/bimil-oracle-mcp",
@@ -283,7 +296,8 @@
    ],
    "stars": 0,
    "pushed": "2026-07-14",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "CNI-KaeSoon/public-rules-mcp",
@@ -296,7 +310,8 @@
    ],
    "stars": 0,
    "pushed": "2026-07-02",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "ChangooLee/mcp-kr-legislation",
@@ -313,7 +328,8 @@
    "pushed": "2026-04-28",
    "kr_domains": [
     "www.law.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "ChoHyeonChan/maskingtape",
@@ -328,7 +344,8 @@
    ],
    "stars": 1,
    "pushed": "2026-09-13",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "Choihello/startup-law-mcp",
@@ -350,7 +367,8 @@
     "www.data.go.kr",
     "www.k-startup.go.kr",
     "www.law.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "Claude-MOCOCO/real-estate-mvp",
@@ -365,7 +383,8 @@
    ],
    "stars": 0,
    "pushed": "2026-02-15",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "DECK6/korea-mice-safety-agent",
@@ -378,7 +397,8 @@
    ],
    "stars": 6,
    "pushed": "2026-08-08",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "DatagokrGit/data-go-kr-mcp",
@@ -396,7 +416,8 @@
    "kr_domains": [
     "data.go.kr",
     "www.data.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "Dayoooun/korea-stats-mcp",
@@ -411,7 +432,8 @@
    ],
    "stars": 16,
    "pushed": "2026-09-10",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "Demian-Yim/playmcp-guide",
@@ -426,7 +448,8 @@
    ],
    "stars": 0,
    "pushed": "2026-05-19",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "Donyangyi/agent-naver-login",
@@ -441,7 +464,8 @@
    ],
    "stars": 0,
    "pushed": "2026-02-22",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "DrFirstLee/korea-stock-mcp",
@@ -454,7 +478,8 @@
    ],
    "stars": 3,
    "pushed": "2026-06-05",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "DwvN-Lee/fAInancial-agent",
@@ -469,7 +494,8 @@
    "pushed": "2026-03-26",
    "kr_domains": [
     "opendart.fss.or.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "Everydaily/clova-speech-mcp",
@@ -484,7 +510,8 @@
    ],
    "stars": 0,
    "pushed": "2026-06-05",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "GeeYun086/korea-public-data-mcp",
@@ -506,7 +533,8 @@
     "kci.go.kr",
     "koreaexim.go.kr",
     "ntis.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "GyeongHoKim/naeryeo",
@@ -521,7 +549,8 @@
    ],
    "stars": 3,
    "pushed": "2026-08-10",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "HaChanho/passfit",
@@ -536,7 +565,8 @@
    ],
    "stars": 0,
    "pushed": "2026-07-11",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "Hoodess/naver-mail-mcp-basic",
@@ -551,7 +581,8 @@
    ],
    "stars": 0,
    "pushed": "2026-08-12",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "INNO-HI/weeklaude",
@@ -564,7 +595,8 @@
    ],
    "stars": 3,
    "pushed": "2026-08-24",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "Ihan0316/codex-code-toolkit",
@@ -579,7 +611,8 @@
    ],
    "stars": 0,
    "pushed": "2026-07-23",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "JIKIHY/kosha-mcp",
@@ -598,7 +631,8 @@
     "apis.data.go.kr",
     "data.go.kr",
     "www.data.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "JTech-CO/kr-apartment-market-skill",
@@ -613,7 +647,8 @@
    ],
    "stars": 2,
    "pushed": "2026-08-27",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "Jaeminyx-Stoa/pydbsec",
@@ -626,7 +661,8 @@
    ],
    "stars": 3,
    "pushed": "2026-07-21",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "JeongSeongMok/tossinvest-openapi-mcp",
@@ -639,7 +675,8 @@
    ],
    "stars": 2,
    "pushed": "2026-06-10",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "JinhuiStudy/llm-engineering-bootcamp",
@@ -652,7 +689,8 @@
    ],
    "stars": 3,
    "pushed": "2026-04-25",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "Johnhyeon/dartlens-mcp",
@@ -669,7 +707,8 @@
    "pushed": "2026-08-27",
    "kr_domains": [
     "opendart.fss.or.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "JunbeomL22/dart-krx-mcp",
@@ -684,7 +723,8 @@
    ],
    "stars": 0,
    "pushed": "2026-03-22",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "JungHoonGhae/k-vote-cli",
@@ -702,7 +742,8 @@
     "data.nec.go.kr",
     "info.nec.go.kr",
     "nesdc.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "Kinuk97/mcp-get-weather",
@@ -717,7 +758,8 @@
    ],
    "stars": 0,
    "pushed": "2025-06-19",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "Koomook/data-go-mcp-servers",
@@ -735,7 +777,8 @@
    "pushed": "2025-09-16",
    "kr_domains": [
     "data.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "Lee-seunghyeon2/graduation-project",
@@ -750,7 +793,8 @@
    ],
    "stars": 0,
    "pushed": "2026-09-04",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "Lex6won/vibecode-checker",
@@ -763,7 +807,8 @@
    ],
    "stars": 9,
    "pushed": "2026-09-13",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "MarcoYou/open-esg-korea",
@@ -781,7 +826,8 @@
    "kr_domains": [
     "opendart.fss.or.kr",
     "www.gir.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "MarcoYou/open-proxy-mcp",
@@ -800,7 +846,8 @@
     "dart.fss.or.kr",
     "opendart.fss.or.kr",
     "www.law.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "MikeVenge/krx-dart-mcp",
@@ -815,7 +862,8 @@
    ],
    "stars": 0,
    "pushed": "2026-03-26",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "MosslandOpenDevs/alpha",
@@ -828,7 +876,8 @@
    ],
    "stars": 2,
    "pushed": "2026-09-12",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "Mrbaeksang/korea-stock-analyzer-mcp",
@@ -846,7 +895,8 @@
    "pushed": "2026-07-29",
    "kr_domains": [
     "opendart.fss.or.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "N0WST4NDUP/openlaw-mcp-server",
@@ -863,7 +913,8 @@
    "pushed": "2025-05-12",
    "kr_domains": [
     "open.law.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "NSLC7779/dk-korea-health-mcp",
@@ -882,7 +933,8 @@
    "kr_domains": [
     "data.go.kr",
     "www.data.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "Nicegomting/PyGenAI",
@@ -897,7 +949,8 @@
    ],
    "stars": 0,
    "pushed": "2026-09-11",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "Noah3521/coupang-sourcing",
@@ -912,7 +965,8 @@
    ],
    "stars": 0,
    "pushed": "2026-06-09",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "NotNull92/korea-unipass-mcp",
@@ -929,7 +983,8 @@
    "pushed": "2026-03-11",
    "kr_domains": [
     "unipass.customs.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "OldTemple91/korea-filings-api",
@@ -947,7 +1002,8 @@
    "kr_domains": [
     "dart.fss.or.kr",
     "opendart.fss.or.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "OneVth/danbooru-tag-rag-mcp",
@@ -960,7 +1016,8 @@
    ],
    "stars": 2,
    "pushed": "2026-07-27",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "Park3min/yr-weather-mcp",
@@ -975,7 +1032,8 @@
    ],
    "stars": 0,
    "pushed": "2026-08-11",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "PlateerLab/synaptic-memory",
@@ -988,7 +1046,8 @@
    ],
    "stars": 33,
    "pushed": "2026-07-03",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "PyungkangHong094/mcp-all-korea",
@@ -1004,7 +1063,8 @@
    "kr_domains": [
     "data.go.kr",
     "open.law.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "RealYoungk/opendart_mcp",
@@ -1021,7 +1081,8 @@
    "pushed": "2026-02-08",
    "kr_domains": [
     "opendart.fss.or.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "RealYoungk/openkrx-mcp",
@@ -1036,7 +1097,8 @@
    ],
    "stars": 1,
    "pushed": "2026-02-20",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "Sedong-Choi/jangbogo-mcp",
@@ -1055,7 +1117,8 @@
    "pushed": "2026-07-12",
    "kr_domains": [
     "www.kamis.or.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "Sedong-Choi/kakao-mcp",
@@ -1070,7 +1133,8 @@
    ],
    "stars": 0,
    "pushed": "2026-07-12",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "Sejin-Koo/krx-regulation-mcp",
@@ -1085,7 +1149,8 @@
    ],
    "stars": 0,
    "pushed": "2026-09-13",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "SeoNaRu/korean-law-mcp",
@@ -1101,7 +1166,8 @@
    "pushed": "2026-01-20",
    "kr_domains": [
     "open.law.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "SeoNaRu/lexguard-mcp",
@@ -1119,7 +1185,8 @@
    "kr_domains": [
     "open.law.go.kr",
     "www.law.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "Seonh0/naver-land-mcp",
@@ -1135,7 +1202,8 @@
    ],
    "stars": 7,
    "pushed": "2026-04-17",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "SeoulTower/nani",
@@ -1148,7 +1216,8 @@
    ],
    "stars": 7,
    "pushed": "2026-04-19",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "SinGonKim/korean-med-mcp",
@@ -1171,7 +1240,8 @@
     "www.cancer.go.kr",
     "www.data.go.kr",
     "www.hira.or.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "SkillfulBasher1/construct-cm-bridge",
@@ -1189,7 +1259,8 @@
    "kr_domains": [
     "kcsc.re.kr",
     "law.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "SolarLLM/human-proofreader-mcp",
@@ -1204,7 +1275,8 @@
    ],
    "stars": 2,
    "pushed": "2026-08-25",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "SonAIengine/ku-portal-mcp",
@@ -1218,7 +1290,8 @@
    ],
    "stars": 13,
    "pushed": "2026-08-12",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "TanTenTin/kakao-docs-mcp",
@@ -1233,7 +1306,8 @@
    ],
    "stars": 0,
    "pushed": "2026-07-17",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "Tech-curator/korean-patent-mcp",
@@ -1248,7 +1322,8 @@
    "pushed": "2025-12-16",
    "kr_domains": [
     "plus.kipris.or.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "UrbanWatcherKr/korean-land-mcp",
@@ -1263,7 +1338,8 @@
    "pushed": "2026-04-21",
    "kr_domains": [
     "eum.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "WillyWilley/condensation-mcp",
@@ -1278,7 +1354,8 @@
    ],
    "stars": 0,
    "pushed": "2026-06-28",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "YongjunJeong/mcp-stock-agent",
@@ -1291,7 +1368,8 @@
    ],
    "stars": 0,
    "pushed": "2026-03-03",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "a2a-mcp-multiagent-study/Ticker-Score-Agent",
@@ -1306,7 +1384,8 @@
    ],
    "stars": 0,
    "pushed": "2025-11-03",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "adminhelper/saju-engine",
@@ -1319,7 +1398,8 @@
    ],
    "stars": 3,
    "pushed": "2026-05-30",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "aesthetic-legalism5470/korean-dart-mcp",
@@ -1336,7 +1416,8 @@
    "pushed": "2026-09-13",
    "kr_domains": [
     "opendart.fss.or.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "afrontend/dongnelibrary-mcp-server",
@@ -1351,7 +1432,8 @@
    ],
    "stars": 0,
    "pushed": "2026-01-10",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "agent504330-ux/mcp-korean-stock",
@@ -1366,7 +1448,8 @@
    ],
    "stars": 2,
    "pushed": "2026-04-20",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "ai-screams/HwpForge",
@@ -1380,7 +1463,8 @@
    ],
    "stars": 18,
    "pushed": "2026-09-08",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "ai.atdev/supershopping",
@@ -1393,7 +1477,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "ai.bareun/bareun",
@@ -1406,7 +1491,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "ai.heyyumi/heyyumi",
@@ -1419,7 +1505,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "ai.hotker/hotker",
@@ -1432,7 +1519,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "ai.seldons/korea-business-trade",
@@ -1445,7 +1533,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "ai.smithery/airmang-hwpx-mcp",
@@ -1458,7 +1547,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "ai.smithery/alphago2580-naramarketmcp",
@@ -1474,7 +1564,8 @@
    ],
    "stars": 4,
    "pushed": "2026-02-09",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "ai.smithery/hjsh200219-pharminfo-mcp",
@@ -1487,7 +1578,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "ai.smithery/isnow890-data4library-mcp",
@@ -1501,7 +1593,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "ai.smithery/jjlabsio-korea-stock-mcp",
@@ -1516,7 +1609,8 @@
    ],
    "stars": 176,
    "pushed": "2026-09-10",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "ai.timeplex/booking",
@@ -1529,7 +1623,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "aibridge-leo/tradingview-mcp-aibridge",
@@ -1542,7 +1637,8 @@
    ],
    "stars": 4,
    "pushed": "2026-04-23",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "akatjd/blog-mcp",
@@ -1557,7 +1653,8 @@
    ],
    "stars": 0,
    "pushed": "2026-04-21",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "alice840126-ship-it/korean-law-mcp-setup",
@@ -1574,7 +1671,8 @@
    "pushed": "2026-04-06",
    "kr_domains": [
     "open.law.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "alphago2580/naver_searchad_mcp",
@@ -1589,7 +1687,8 @@
    ],
    "stars": 0,
    "pushed": "2026-02-08",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "altarry-prog/chaekiji-mcp",
@@ -1604,7 +1703,8 @@
    ],
    "stars": 0,
    "pushed": "2026-09-12",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "anboyu-alt/dart-risk-mcp",
@@ -1621,7 +1721,8 @@
    "pushed": "2026-09-13",
    "kr_domains": [
     "opendart.fss.or.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "antisdream/skn29-3rd-4team",
@@ -1637,7 +1738,8 @@
    ],
    "stars": 0,
    "pushed": "2026-06-20",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "antryu/kolaw",
@@ -1650,7 +1752,8 @@
    ],
    "stars": 2,
    "pushed": "2026-05-19",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "app.apick/all",
@@ -1663,7 +1766,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "app.apick/business",
@@ -1676,7 +1780,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "app.apick/finance",
@@ -1689,7 +1794,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "app.apick/identity",
@@ -1702,7 +1808,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "app.apick/ocr",
@@ -1715,7 +1822,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "app.odyssey365/mcp-server",
@@ -1728,7 +1836,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "app.sallim/contract-compass",
@@ -1744,7 +1853,8 @@
    ],
    "stars": 0,
    "pushed": "2026-08-17",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "app.sallim/korea-realty",
@@ -1760,7 +1870,8 @@
    ],
    "stars": 0,
    "pushed": "2026-08-18",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "app.sallim/korea-stay",
@@ -1773,7 +1884,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "app.wishpool/korea-invoice-mcp",
@@ -1786,7 +1898,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "app.wonbuddhism/scripture",
@@ -1799,7 +1912,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "arapodcho/mcp_server_neis_api",
@@ -1814,7 +1928,8 @@
    ],
    "stars": 0,
    "pushed": "2025-11-27",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "archi.den/den_archi_mcp",
@@ -1828,7 +1943,8 @@
    ],
    "stars": 0,
    "pushed": "2026-09-07",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "banatic/Hypercool",
@@ -1841,7 +1957,8 @@
    ],
    "stars": 2,
    "pushed": "2026-08-26",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "bb4rjfl/weathersafetyos-mcp",
@@ -1856,7 +1973,8 @@
    ],
    "stars": 0,
    "pushed": "2026-07-09",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "bhyunco/korea-holiday-mcp",
@@ -1869,7 +1987,8 @@
    ],
    "stars": 0,
    "pushed": "2026-08-28",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "billy-baek/ansimtalk",
@@ -1886,7 +2005,8 @@
    "pushed": "2026-07-13",
    "kr_domains": [
     "www.data.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "blottosicei/here-now-er-mcp",
@@ -1904,7 +2024,8 @@
    "kr_domains": [
     "data.go.kr",
     "www.data.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "blueming85/busan-contract-mcp",
@@ -1919,7 +2040,8 @@
    ],
    "stars": 0,
    "pushed": "2026-06-23",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "bong-u/mcp-server-kakao-map",
@@ -1935,7 +2057,8 @@
    ],
    "stars": 1,
    "pushed": "2026-08-03",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "bootpay/bootpay-mcp",
@@ -1948,7 +2071,8 @@
    ],
    "stars": 2,
    "pushed": "2026-09-02",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "buenosiempre-cmd/kr-univ-rule-mcp",
@@ -1961,7 +2085,8 @@
    ],
    "stars": 0,
    "pushed": "2026-07-30",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "build.naru/contract-compass",
@@ -1974,7 +2099,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "burlesquer/coupang-mcp",
@@ -1989,7 +2115,8 @@
    ],
    "stars": 2,
    "pushed": "2026-03-19",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "busung/naver_blog_mcp",
@@ -2004,7 +2131,8 @@
    ],
    "stars": 0,
    "pushed": "2026-06-28",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "byh3071-cpu/vhk",
@@ -2019,7 +2147,8 @@
    ],
    "stars": 12,
    "pushed": "2026-09-10",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "byungjunjang/litigation-writer",
@@ -2036,7 +2165,8 @@
    "pushed": "2026-08-05",
    "kr_domains": [
     "open.law.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "capitalparser/kreports-dart-mcp",
@@ -2052,7 +2182,8 @@
    "kr_domains": [
     "dart.fss.or.kr",
     "opendart.fss.or.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "capitalparser/public-data-opportunity-mcp",
@@ -2068,7 +2199,8 @@
    "kr_domains": [
     "data.go.kr",
     "www.data.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "cdsassj00/korean-law-ai-chatbot",
@@ -2085,7 +2217,8 @@
    "pushed": "2026-05-10",
    "kr_domains": [
     "open.law.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "changgi/open-go-kr-archive",
@@ -2102,7 +2235,8 @@
    "pushed": "2026-04-12",
    "kr_domains": [
     "open.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "choyeonkyu/mcp-ai-agent",
@@ -2118,7 +2252,8 @@
    ],
    "stars": 0,
    "pushed": "2025-10-06",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "chrisryugj/archhub-mcp",
@@ -2137,7 +2272,8 @@
     "cloud.eais.go.kr",
     "data.go.kr",
     "www.data.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "chrisryugj/kordoc",
@@ -2151,7 +2287,8 @@
    ],
    "stars": 1820,
    "pushed": "2026-09-12",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "chrisryugj/korean-dart-mcp",
@@ -2170,7 +2307,8 @@
    "kr_domains": [
     "dart.fss.or.kr",
     "opendart.fss.or.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "chrisryugj/korean-law-mcp",
@@ -2191,7 +2329,8 @@
     "open.law.go.kr",
     "taxlaw.nts.go.kr",
     "www.law.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "chrisryugj/korean-patent-mcp",
@@ -2207,7 +2346,8 @@
    "kr_domains": [
     "data.go.kr",
     "plus.kipris.or.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "chrisryugj/ollama-mcp-host",
@@ -2223,7 +2363,8 @@
    "kr_domains": [
     "law.go.kr",
     "open.law.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "chrisryugj/schoolinfo-mcp",
@@ -2241,7 +2382,8 @@
    "kr_domains": [
     "open.neis.go.kr",
     "www.schoolinfo.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "chromato99/krx-rule-mcp",
@@ -2256,7 +2398,8 @@
    ],
    "stars": 0,
    "pushed": "2026-09-10",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "civilian7/korean-people-persona",
@@ -2270,7 +2413,8 @@
    ],
    "stars": 24,
    "pushed": "2026-06-11",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "clayop/korean-university-regulation-mcp",
@@ -2283,7 +2427,8 @@
    ],
    "stars": 2,
    "pushed": "2026-04-06",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "com.a11ychk/mcp",
@@ -2296,7 +2441,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "com.aikstockdata/mcp",
@@ -2310,7 +2456,8 @@
    ],
    "stars": 7,
    "pushed": "2026-09-11",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "com.airblockfz/seoul-apt-signal",
@@ -2323,7 +2470,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "com.airblockfz/stock-signal-kr",
@@ -2336,7 +2484,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "com.arcasos/arcasos-rentals",
@@ -2349,7 +2498,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "com.beauticslab/mcp",
@@ -2362,7 +2512,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "com.boltena/erp",
@@ -2375,7 +2526,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "com.dartai/dart",
@@ -2388,7 +2540,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "com.empresskorea/kbeauty-agent-commons",
@@ -2401,7 +2554,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "com.goldpopcon/openapi-mcp",
@@ -2414,7 +2568,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "com.goodsaegim/goodsaegim",
@@ -2427,7 +2582,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "com.hankookilbo.mcp/hankookilbo-mcp",
@@ -2440,7 +2596,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "com.kimchi-sushi/agent-mcp",
@@ -2453,7 +2610,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "com.koreastockcheck/mcp",
@@ -2466,7 +2624,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "com.nmjib/nmjib",
@@ -2479,7 +2638,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "com.saaskr/korean-saas-directory",
@@ -2492,7 +2652,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "com.seoapi/naverbot",
@@ -2505,7 +2666,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "com.thenextgennexus/global-equities-screener-mcp",
@@ -2518,7 +2680,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "com.theprotoclinical/commerce",
@@ -2531,7 +2694,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "com.whooing/whooing",
@@ -2544,7 +2708,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "constant94-dev/public-data-mcp-server",
@@ -2559,7 +2724,8 @@
    ],
    "stars": 0,
    "pushed": "2025-08-24",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "coyaSONG/kra-mcp",
@@ -2574,7 +2740,8 @@
    "pushed": "2026-09-11",
    "kr_domains": [
     "data.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "ctahoon55/taxlaw-mcp",
@@ -2592,7 +2759,8 @@
    "pushed": "2026-09-02",
    "kr_domains": [
     "taxlaw.nts.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "daehyub71/onbid-mcp",
@@ -2609,7 +2777,8 @@
    "pushed": "2026-08-23",
    "kr_domains": [
     "www.data.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "daehyub71/smart-korean-legal-platform",
@@ -2626,7 +2795,8 @@
    "pushed": "2026-04-06",
    "kr_domains": [
     "open.law.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "dahlia/ko-stdict-mcp",
@@ -2642,7 +2812,8 @@
    ],
    "stars": 28,
    "pushed": "2026-03-29",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "dartpointai/dartpoint-mcp",
@@ -2657,7 +2828,8 @@
    "pushed": "2025-06-25",
    "kr_domains": [
     "dart.fss.or.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "datagokr-dev/datagokr",
@@ -2675,7 +2847,8 @@
    "kr_domains": [
     "data.go.kr",
     "www.data.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "dikehomme/kr-law-mcp",
@@ -2693,7 +2866,8 @@
    "kr_domains": [
     "law.go.kr",
     "www.law.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "dodopd/kosis-mcp",
@@ -2708,7 +2882,8 @@
    ],
    "stars": 0,
    "pushed": "2026-07-27",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "dogdogfat/hanlaw-skill",
@@ -2723,7 +2898,8 @@
    "pushed": "2026-04-17",
    "kr_domains": [
     "open.law.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "dolseom/gongsi-mcp",
@@ -2741,7 +2917,8 @@
    "kr_domains": [
     "opendart.fss.or.kr",
     "www.egroup.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "dongkyucho17/krx-etf-mcp",
@@ -2760,7 +2937,8 @@
    "kr_domains": [
     "data.go.kr",
     "www.data.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "dongkyucho17/onbid-mcp",
@@ -2777,7 +2955,8 @@
    "pushed": "2026-08-13",
    "kr_domains": [
     "apis.data.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "drclinic79/mcp-docs-kr",
@@ -2792,7 +2971,8 @@
    ],
    "stars": 0,
    "pushed": "2026-06-12",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "dwook/cosmetics-ad-compliance-mcp",
@@ -2805,7 +2985,8 @@
    ],
    "stars": 0,
    "pushed": "2026-04-21",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "eastho20/korea-stock-mcp-vercel",
@@ -2820,7 +3001,8 @@
    ],
    "stars": 0,
    "pushed": "2026-05-06",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "eastminnn/stock-mate-mcp",
@@ -2835,7 +3017,8 @@
    ],
    "stars": 0,
    "pushed": "2026-01-08",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "eddmpython/dartlab",
@@ -2852,7 +3035,8 @@
    "pushed": "2026-09-10",
    "kr_domains": [
     "opendart.fss.or.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "edward-kim-dev/kr-pc-deals-mcp",
@@ -2865,7 +3049,8 @@
    ],
    "stars": 11,
    "pushed": "2026-03-31",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "emceeKim/korea-finance-mcp",
@@ -2885,7 +3070,8 @@
     "ecos.bok.or.kr",
     "opendart.fss.or.kr",
     "www.data.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "epoko77-ai/korean-bill-debate-mcp",
@@ -2900,7 +3086,8 @@
    "pushed": "2026-08-24",
    "kr_domains": [
     "open.assembly.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "eu.ansvar/south-korea-law-mcp",
@@ -2913,7 +3100,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "farmbit-mdk/korea-market-data-mcp",
@@ -2926,7 +3114,8 @@
    ],
    "stars": 2,
    "pushed": "2026-06-20",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "finalchild/law-mcp",
@@ -2944,7 +3133,8 @@
    "pushed": "2025-07-07",
    "kr_domains": [
     "open.law.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "flytothesky23/obsidian-korean-dart-codex",
@@ -2959,7 +3149,8 @@
    ],
    "stars": 0,
    "pushed": "2026-08-21",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "geonwoo-jeong/japanese-law-mcp",
@@ -2975,7 +3166,8 @@
    ],
    "stars": 0,
    "pushed": "2026-09-07",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "ghga20-ui/eval-bank",
@@ -2993,7 +3185,8 @@
    "kr_domains": [
     "schoolinfo.go.kr",
     "www.schoolinfo.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "gigaminkyu/korean-law-mcp",
@@ -3012,7 +3205,8 @@
     "law.go.kr",
     "open.law.go.kr",
     "www.law.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "gigaminkyu/mcp-rank",
@@ -3025,7 +3219,8 @@
    ],
    "stars": 0,
    "pushed": "2026-09-12",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "giovinazo/alio-mcp",
@@ -3042,7 +3237,8 @@
     "alio.go.kr",
     "www.alio.go.kr",
     "www.g2b.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "giovinazo/ic-dev-advisor",
@@ -3062,7 +3258,8 @@
     "data.go.kr",
     "law.go.kr",
     "www.data.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "giovinazo/open-law",
@@ -3080,7 +3277,8 @@
    "kr_domains": [
     "law.go.kr",
     "www.law.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "guinnessNet/maipharm-domae-mcp",
@@ -3095,7 +3293,8 @@
    ],
    "stars": 0,
    "pushed": "2026-08-09",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "gunh0/kr-mcp-from-scratch",
@@ -3110,7 +3309,8 @@
    ],
    "stars": 2,
    "pushed": "2026-07-05",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "gws8820/shippingtracker",
@@ -3123,7 +3323,8 @@
    ],
    "stars": 1,
    "pushed": "2025-09-15",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "hakkokimkr/nvmcp",
@@ -3138,7 +3339,8 @@
    ],
    "stars": 0,
    "pushed": "2026-09-07",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "handbell-H/mcp-kakao_map_mobility",
@@ -3153,7 +3355,8 @@
    ],
    "stars": 0,
    "pushed": "2026-04-06",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "harimkang/mcp-korea-tourism-api",
@@ -3169,7 +3372,8 @@
    "pushed": "2025-08-12",
    "kr_domains": [
     "www.data.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "herrozim-ship-it/yureong",
@@ -3187,7 +3391,8 @@
    "kr_domains": [
     "law.go.kr",
     "open.law.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "heum-kylee/kakao-auth-callback",
@@ -3202,7 +3407,8 @@
    ],
    "stars": 0,
    "pushed": "2026-07-08",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "hichang4u/data-go-mcp-servers",
@@ -3220,7 +3426,8 @@
    "kr_domains": [
     "data.go.kr",
     "www.data.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "hike-lab/public-data-lens",
@@ -3236,7 +3443,8 @@
    "kr_domains": [
     "data.go.kr",
     "www.data.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "hjsh200219/korea-public-data-mcp",
@@ -3258,7 +3466,8 @@
     "open.law.go.kr",
     "opendart.fss.or.kr",
     "www.data.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "hlucent/airkorea-realtime-mcp",
@@ -3276,7 +3485,8 @@
    "kr_domains": [
     "data.go.kr",
     "www.data.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "hlucent/realestate-stats-mcp",
@@ -3293,7 +3503,8 @@
    "pushed": "2026-08-23",
    "kr_domains": [
     "www.reb.or.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "hlucent/safemap-uv-index-mcp",
@@ -3312,7 +3523,8 @@
    "kr_domains": [
     "safemap.go.kr",
     "www.safemap.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "hmgthb/ai-pb-agent-portfolio",
@@ -3331,7 +3543,8 @@
     "data.go.kr",
     "ecos.bok.or.kr",
     "opendart.fss.or.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "hmmhmmhm/daiso-mcp",
@@ -3344,7 +3557,8 @@
    ],
    "stars": 327,
    "pushed": "2026-09-13",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "hueflowstudio/hueflow-sketchup-mcp",
@@ -3359,7 +3573,8 @@
    ],
    "stars": 7,
    "pushed": "2026-04-27",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "hwain-ai/Real-Estate-Location-Analyzer_MCP",
@@ -3374,7 +3589,8 @@
    ],
    "stars": 0,
    "pushed": "2026-04-05",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "hyeonhoyoonKR/naver-blog-mcp",
@@ -3389,7 +3605,8 @@
    ],
    "stars": 0,
    "pushed": "2026-03-27",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "hypn4/opendart-fss-mcp",
@@ -3407,7 +3624,8 @@
    "kr_domains": [
     "dart.fss.or.kr",
     "opendart.fss.or.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "hypn4/tossinvest-mcp",
@@ -3422,7 +3640,8 @@
    ],
    "stars": 1,
    "pushed": "2026-07-30",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "iiacjay/dart-briefing-mcp",
@@ -3440,7 +3659,8 @@
    "pushed": "2026-07-14",
    "kr_domains": [
     "opendart.fss.or.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "iiacjay/incheon-airport-mcp",
@@ -3457,7 +3677,8 @@
    "pushed": "2026-07-14",
    "kr_domains": [
     "data.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "in.houseduck/house-duck-public",
@@ -3470,7 +3691,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "ink.seosa/seosa",
@@ -3483,7 +3705,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "insung8150/AgentWebSearch-MCP",
@@ -3497,7 +3720,8 @@
    ],
    "stars": 20,
    "pushed": "2026-02-19",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.aidc-ai/design-engine",
@@ -3510,7 +3734,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.BK927/overwatch-aio",
@@ -3523,7 +3748,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.CSOAI-ORG/korea-ai-basic-act-mcp",
@@ -3536,7 +3762,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.ChloePark85/kr-groundtruth",
@@ -3549,7 +3776,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.DeepSearch-Common/korean-stocks",
@@ -3562,7 +3790,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.HyosikPark/kr-apt-trades",
@@ -3575,7 +3804,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.HyosikPark/kr-district-codes",
@@ -3588,7 +3818,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.HyosikPark/kr-holidays",
@@ -3601,7 +3832,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.LJaysk/kr-dart-events",
@@ -3614,7 +3846,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.MUSE-CODE-SPACE/content-genie",
@@ -3628,7 +3861,8 @@
    ],
    "stars": 0,
    "pushed": "2026-07-06",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.Mobiss11/daepak-mcp",
@@ -3641,7 +3875,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.MongLong0214/stockmatrix-mcp",
@@ -3654,7 +3889,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.PJW2004/job-search",
@@ -3667,7 +3903,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.SongT-50/korean-agriculture-mcp",
@@ -3680,7 +3917,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.SongT-50/korean-news-mcp",
@@ -3696,7 +3934,8 @@
    ],
    "stars": 1,
    "pushed": "2026-03-08",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.SongT-50/korean-public-data-mcp",
@@ -3714,7 +3953,8 @@
    ],
    "stars": 1,
    "pushed": "2026-03-08",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.SongT-50/korean-stock-mcp",
@@ -3730,7 +3970,8 @@
    ],
    "stars": 0,
    "pushed": "2026-03-08",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.Wonderfulian/kbv-server",
@@ -3743,7 +3984,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.Yuni9959/wrapguard-mcp",
@@ -3756,7 +3998,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.a-mashiro-art/jp-data",
@@ -3769,7 +4012,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.accentist/buyking-mcp",
@@ -3783,7 +4027,22 @@
    ],
    "stars": 1,
    "pushed": "2026-09-02",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
+  },
+  {
+   "name": "io.github.aidc2026ai-melon/aidc-mcp-server",
+   "repo_url": "https://github.com/aidc2026ai-melon/aidc-ai-io",
+   "verdict": "drop",
+   "why": "한국 관련 신호 0 — 검색어에 우연히 걸림",
+   "categories": [],
+   "sources": [
+    "registry"
+   ],
+   "stars": null,
+   "pushed": null,
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.aminpiano/nara-tour",
@@ -3796,7 +4055,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.bakyang2/kr-crypto-intelligence",
@@ -3809,7 +4069,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.bubilife1202/crossfin",
@@ -3822,7 +4083,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.choiyounggi/korea-data-mcp",
@@ -3835,7 +4097,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.dangamsoft/cafe-mcp",
@@ -3848,7 +4111,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.do-droid/busan-essentials",
@@ -3861,7 +4125,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.do-droid/seoul-essentials",
@@ -3874,7 +4139,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.feelyday/kadlint",
@@ -3887,7 +4153,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.fieldcure/outbox",
@@ -3900,7 +4167,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.fieldcure/publicdata-kr",
@@ -3916,7 +4184,8 @@
    ],
    "stars": 0,
    "pushed": "2026-05-25",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.gejyn14/kiwoom-mcp",
@@ -3929,7 +4198,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.ghdejr11-beep/bazi-api",
@@ -3942,7 +4212,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.heubme2020/datasinking",
@@ -3958,7 +4229,8 @@
    ],
    "stars": 4,
    "pushed": "2026-09-04",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.heungmangoo-art/saju",
@@ -3971,7 +4243,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.hycore220/k-work-trust",
@@ -3984,7 +4257,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.java-jaydev/naver-mybox-mcp",
@@ -3997,7 +4271,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.jayjodev/vivory-mcp-korea",
@@ -4013,7 +4288,8 @@
    ],
    "stars": 0,
    "pushed": "2026-06-05",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.juh5ng/k-data-mcp",
@@ -4026,7 +4302,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.kimnchai/korea-flight-mcp",
@@ -4039,7 +4316,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.kokogo100/ragalgo",
@@ -4053,7 +4331,8 @@
    ],
    "stars": 5,
    "pushed": "2026-01-31",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.koreal6803/finlab-ai",
@@ -4066,7 +4345,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.kuzivaai/regula",
@@ -4079,7 +4359,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.lazymac2x/govdata-korea",
@@ -4092,7 +4373,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.lichtsalz/korea-data",
@@ -4105,7 +4387,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.loved0543-dotcom/kdata-gate",
@@ -4118,7 +4401,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.lovelyquality/korail-mcp",
@@ -4134,7 +4418,8 @@
    ],
    "stars": 3,
    "pushed": "2026-08-26",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.mascari4615/karmolab-mcp",
@@ -4147,7 +4432,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.milcho0604/velog",
@@ -4160,7 +4446,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.minjikim89/korean-saju-calculator",
@@ -4173,7 +4460,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.minsooparkk/korea-tax-law-mcp",
@@ -4189,7 +4477,8 @@
    ],
    "stars": 0,
    "pushed": "2026-09-06",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.moon0825/jbnu-lms-student",
@@ -4202,7 +4491,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.namen-ceo/factbat-public-record-locator",
@@ -4215,7 +4505,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.namuaix/seoul-tourism",
@@ -4228,7 +4519,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.opendata-kr/narajangteo-bid-mcp",
@@ -4245,7 +4537,8 @@
    ],
    "stars": 0,
    "pushed": "2026-09-06",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.opendata-kr/narajangteo-corpinfo",
@@ -4262,7 +4555,8 @@
    ],
    "stars": 0,
    "pushed": "2026-09-06",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.opendata-kr/narajangteo-opening",
@@ -4278,7 +4572,8 @@
    ],
    "stars": 0,
    "pushed": "2026-09-06",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.opendata-kr/narajangteo-prespec-mcp",
@@ -4294,7 +4589,8 @@
    ],
    "stars": 0,
    "pushed": "2026-09-06",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.peter120525-cmd/lawmadi-os",
@@ -4307,7 +4603,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.pipeworx-io/dart-kr",
@@ -4320,7 +4617,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.pipeworx-io/ecos-kr",
@@ -4333,7 +4631,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.pipeworx-io/pub-dev",
@@ -4346,7 +4645,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.qkrehgk1-wq/mcp-korea-worklife",
@@ -4359,7 +4659,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.raphysicst-create/korean-secondary-learning-map-mcp",
@@ -4373,7 +4674,8 @@
    ],
    "stars": 15,
    "pushed": "2026-08-25",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.raphysicst-create/korean-vocational-learning-map-mcp",
@@ -4387,7 +4689,8 @@
    ],
    "stars": 2,
    "pushed": "2026-08-25",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.redoxnet/lsopenapi",
@@ -4401,7 +4704,8 @@
    ],
    "stars": 2,
    "pushed": "2026-06-09",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.richard-kim-79/jejusns",
@@ -4414,7 +4718,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.richard-kim-79/popup-mcp",
@@ -4427,7 +4732,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.rostradamus/klaws",
@@ -4440,7 +4746,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.rubato103/kci-openapi-mcp",
@@ -4453,7 +4760,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.rubato103/nl-openapi-mcp",
@@ -4466,7 +4774,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.rubatoyd/kci-openapi-mcp",
@@ -4480,7 +4789,8 @@
    ],
    "stars": 2,
    "pushed": "2026-09-13",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.rubatoyd/kosis-openapi-mcp",
@@ -4496,7 +4806,8 @@
    ],
    "stars": 0,
    "pushed": "2026-09-13",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.rubatoyd/na-openapi-mcp",
@@ -4509,7 +4820,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.rubatoyd/nl-openapi-mcp",
@@ -4522,7 +4834,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.sadri-dridi/tz-asia-seoul",
@@ -4535,7 +4848,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.sean-park-funda/korea-data-mcp",
@@ -4551,7 +4865,8 @@
    ],
    "stars": 0,
    "pushed": "2026-09-10",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.sean-park-funda/korea-ocean-mcp",
@@ -4565,7 +4880,8 @@
    ],
    "stars": 0,
    "pushed": "2026-09-10",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.semorehq/mcp-commerce",
@@ -4578,7 +4894,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.sharebook-kr/pykrx-mcp",
@@ -4591,7 +4908,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.sjk4425/ncloud",
@@ -4604,7 +4922,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.sjk4425/ncloud-gov",
@@ -4617,7 +4936,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.smilemin07/korean-rnd-regs-mcp",
@@ -4631,7 +4951,8 @@
    ],
    "stars": 11,
    "pushed": "2026-08-25",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.ssd7830-cmyk/korean-firefighter-law-mcp",
@@ -4648,7 +4969,8 @@
    ],
    "stars": 0,
    "pushed": "2026-08-30",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.standardbeagle/dart-query",
@@ -4661,7 +4983,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.taehyeonglim/korean-elementary-learning-map-mcp",
@@ -4675,7 +4998,8 @@
    ],
    "stars": 13,
    "pushed": "2026-08-27",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.tmdrb625-wq/mcp-factory",
@@ -4688,7 +5012,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.whdrnr2583-cmd/koreanpulse",
@@ -4704,7 +5029,8 @@
    ],
    "stars": 3,
    "pushed": "2026-08-26",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.wujinkim/korea-business-verify",
@@ -4717,7 +5043,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.yjhann33-design/korea-stock-insight-mcp",
@@ -4733,7 +5060,8 @@
    ],
    "stars": 0,
    "pushed": "2026-05-20",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.yolstudio26-oss/saroday-mcp-server",
@@ -4746,7 +5074,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.yonghwan1106/mcportal",
@@ -4762,7 +5091,8 @@
    ],
    "stars": 0,
    "pushed": "2026-08-14",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.yourtablecloth/tablecloth-mcp",
@@ -4775,7 +5105,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.yousunjung84-edu/academyinfo",
@@ -4791,7 +5122,8 @@
    ],
    "stars": 0,
    "pushed": "2026-08-16",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "io.github.yujiseok/public-official-mcp-server",
@@ -4804,7 +5136,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "it.marketpilot/marketpilot",
@@ -4817,7 +5150,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "jang236/etf-analyzer",
@@ -4830,7 +5164,8 @@
    ],
    "stars": 0,
    "pushed": "2026-08-17",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "java-jaydev/kiwoom-mcp",
@@ -4843,7 +5178,8 @@
    ],
    "stars": 3,
    "pushed": "2026-03-06",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "java-jaydev/toss-invest-mcp",
@@ -4856,7 +5192,8 @@
    ],
    "stars": 0,
    "pushed": "2026-08-20",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "jaykim429/korea-statistic-MCP-cginside",
@@ -4871,7 +5208,8 @@
    ],
    "stars": 2,
    "pushed": "2026-09-13",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "jcahn99/gis-accessibility-mcp",
@@ -4884,7 +5222,8 @@
    ],
    "stars": 0,
    "pushed": "2026-04-14",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "jcyeom/pubdata-insight-mcp",
@@ -4902,7 +5241,8 @@
    "pushed": "2026-07-31",
    "kr_domains": [
     "data.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "jennifer76cha/nemc-law-search",
@@ -4915,7 +5255,8 @@
    ],
    "stars": 0,
    "pushed": "2026-04-12",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "jeonghwanko/coffee-price-mcp",
@@ -4928,7 +5269,8 @@
    ],
    "stars": 2,
    "pushed": "2026-06-22",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "jeongmk522-netizen/smishing-stop-mcp",
@@ -4948,7 +5290,8 @@
     "data.go.kr",
     "privacy.kisa.or.kr",
     "www.data.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "jeonjeon12/jeonse-ansim-mcp",
@@ -4963,7 +5306,8 @@
    ],
    "stars": 0,
    "pushed": "2026-07-12",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "jhchoi-ptech/data-go-kr-mcp",
@@ -4981,7 +5325,8 @@
    "kr_domains": [
     "data.go.kr",
     "www.data.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "jinjukimink/subway-congestion-mcp",
@@ -4998,7 +5343,8 @@
    "pushed": "2026-01-23",
    "kr_domains": [
     "data.seoul.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "jinmyungjong/korean-law-mcp",
@@ -5013,7 +5359,8 @@
    ],
    "stars": 0,
    "pushed": "2026-06-12",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "jinny-han/data.go.kr-water-api-mcp",
@@ -5031,7 +5378,8 @@
    "kr_domains": [
     "data.go.kr",
     "www.data.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "jinny-han/industrial-complex-api-mcp",
@@ -5047,7 +5395,8 @@
    "kr_domains": [
     "juso.go.kr",
     "www.data.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "jinny-han/vworld-api-mcp",
@@ -5062,7 +5411,8 @@
    ],
    "stars": 1,
    "pushed": "2026-05-11",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "jjmcpa93-design/g2b-bid-mcp",
@@ -5077,7 +5427,8 @@
    ],
    "stars": 0,
    "pushed": "2026-07-27",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "jjonghyun41/kasb-accounting-mcp",
@@ -5093,7 +5444,8 @@
    ],
    "stars": 0,
    "pushed": "2026-09-01",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "jjorae/naver-blog-mcp",
@@ -5108,7 +5460,8 @@
    ],
    "stars": 0,
    "pushed": "2026-08-27",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "jkf87/obsidian-mcp-kr",
@@ -5123,7 +5476,8 @@
    ],
    "stars": 16,
    "pushed": "2026-01-11",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "jkf87/weather-mcp",
@@ -5138,7 +5492,8 @@
    ],
    "stars": 0,
    "pushed": "2025-11-30",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "jo73089622-pixel/gyeongbuk-arch-law-mcp",
@@ -5155,7 +5510,8 @@
    "pushed": "2026-09-05",
    "kr_domains": [
     "law.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "jobeanghun/mcp-guide",
@@ -5170,7 +5526,8 @@
    ],
    "stars": 0,
    "pushed": "2026-06-12",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "jshsakura/oc-korea-weather-time-mcp",
@@ -5187,7 +5544,8 @@
    "pushed": "2026-08-11",
    "kr_domains": [
     "www.data.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "juhyeon-im/PyNps_MCP2607",
@@ -5202,7 +5560,8 @@
    ],
    "stars": 0,
    "pushed": "2026-08-25",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "juhyunchoi-mech/korean-law-mcp",
@@ -5219,7 +5578,8 @@
    "pushed": "2026-04-06",
    "kr_domains": [
     "open.law.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "junghan0611/zotero-config",
@@ -5232,7 +5592,8 @@
    ],
    "stars": 3,
    "pushed": "2026-09-13",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "justcoding-ys/mcp-naver-news",
@@ -5248,7 +5609,8 @@
    ],
    "stars": 0,
    "pushed": "2025-06-26",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "justcoding-ys/mcp-opendart",
@@ -5265,7 +5627,8 @@
    "pushed": "2025-06-25",
    "kr_domains": [
     "opendart.fss.or.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "jwgo/lemory",
@@ -5278,7 +5641,8 @@
    ],
    "stars": 9,
    "pushed": "2026-08-24",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "k08200/korea-mcp-suite",
@@ -5301,7 +5665,8 @@
     "juso.go.kr",
     "www.data.go.kr",
     "www.juso.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "k821209/smartfarm-mcp",
@@ -5318,7 +5683,8 @@
    "pushed": "2026-06-29",
    "kr_domains": [
     "data.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "kaicot/kaic-kinder-info",
@@ -5338,7 +5704,8 @@
     "open.neis.go.kr",
     "www.go-firstschool.go.kr",
     "www.schoolinfo.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "kang-aco/korean-law",
@@ -5355,7 +5722,8 @@
    "pushed": "2026-04-07",
    "kr_domains": [
     "open.law.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "kebong-3/seogu-mcp",
@@ -5370,7 +5738,8 @@
    ],
    "stars": 0,
    "pushed": "2026-09-13",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "kendrick-na/segeum-matjip",
@@ -5388,7 +5757,8 @@
    "kr_domains": [
     "data.seoul.go.kr",
     "www.foodsafetykorea.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "keonho-kim/OpenDart-mcp",
@@ -5405,7 +5775,8 @@
    "pushed": "2025-06-22",
    "kr_domains": [
     "dart.fss.or.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "kim-go-chon/dart-notes-mcp",
@@ -5422,7 +5793,8 @@
    "pushed": "2026-06-23",
    "kr_domains": [
     "opendart.fss.or.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "kimduksoo/naver-land-mcp",
@@ -5438,7 +5810,8 @@
    ],
    "stars": 1,
    "pushed": "2026-03-09",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "kimju1416/naver-land-mcp",
@@ -5454,7 +5827,8 @@
    ],
    "stars": 0,
    "pushed": "2026-07-12",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "kimju1416/realestate-mcp",
@@ -5474,7 +5848,8 @@
     "data.go.kr",
     "www.code.go.kr",
     "www.data.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "kimlawtech/korean-certified-mail",
@@ -5489,7 +5864,8 @@
    ],
    "stars": 9,
    "pushed": "2026-08-29",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "kimlawtech/korean-contracts",
@@ -5505,7 +5881,8 @@
    ],
    "stars": 61,
    "pushed": "2026-08-29",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "kimlawtech/korean-domain-agent",
@@ -5522,7 +5899,8 @@
    "pushed": "2026-08-29",
    "kr_domains": [
     "open.law.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "kimlawtech/speciai-plugin",
@@ -5535,7 +5913,8 @@
    ],
    "stars": 0,
    "pushed": "2026-08-26",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "kjs369369/law-mcp-prompts-biz",
@@ -5552,7 +5931,8 @@
    "pushed": "2026-09-04",
    "kr_domains": [
     "open.law.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "kjs369369/law-mcp-prompts20",
@@ -5569,7 +5949,8 @@
    "pushed": "2026-09-04",
    "kr_domains": [
     "open.law.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "kkhwan1/KONEPS_sionlab",
@@ -5587,7 +5968,8 @@
    "kr_domains": [
     "data.go.kr",
     "www.data.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "kknas1/consumer-dispute-mcp",
@@ -5606,7 +5988,8 @@
     "law.go.kr",
     "open.law.go.kr",
     "www.law.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "kmgvv23/stock-data-mcp",
@@ -5624,7 +6007,8 @@
    "kr_domains": [
     "ecos.bok.or.kr",
     "opendart.fss.or.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "kmjm231/korea-scholar-mcp",
@@ -5637,7 +6021,8 @@
    ],
    "stars": 0,
    "pushed": "2026-01-18",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "koreainvestment/koreainvestment-mcp",
@@ -5650,7 +6035,8 @@
    ],
    "stars": 20,
    "pushed": "2025-08-27",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "koreainvestment/open-trading-api",
@@ -5663,7 +6049,8 @@
    ],
    "stars": 1604,
    "pushed": "2026-08-26",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "koy4648/McpServer",
@@ -5678,7 +6065,8 @@
    ],
    "stars": 0,
    "pushed": "2025-08-08",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "kr.co.imagefactory/adops",
@@ -5691,7 +6079,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "kr.co.reevl/reevl-mcp",
@@ -5704,7 +6093,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "kr.co.softbowl/sbchart2",
@@ -5717,7 +6107,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "kr.co.softbowl/sbgrid3",
@@ -5730,7 +6121,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "kr.drafters/drafters",
@@ -5743,7 +6135,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "kr.eocpa/mydart",
@@ -5756,7 +6149,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "kr.eocpa/myfss",
@@ -5769,7 +6163,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "kr.eocpa/mykifrs",
@@ -5782,7 +6177,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "kr.gronox/finbridge",
@@ -5798,7 +6194,8 @@
    ],
    "stars": 0,
    "pushed": "2026-09-09",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "kr.ibtcc/competition-ratio",
@@ -5811,7 +6208,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "kr.maedong/maedong",
@@ -5824,7 +6222,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "kr.pe.trading/community",
@@ -5837,7 +6236,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "kr.wandsol/patent-search",
@@ -5850,7 +6250,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "kunho-park/mcpack-translator",
@@ -5865,7 +6266,8 @@
    ],
    "stars": 12,
    "pushed": "2026-01-15",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "kwakseongjae/dawn-cut",
@@ -5878,7 +6280,8 @@
    ],
    "stars": 10,
    "pushed": "2026-07-20",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "kyo504/krx-cli",
@@ -5893,7 +6296,8 @@
    ],
    "stars": 1,
    "pushed": "2026-03-20",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "la1av1a/hospital-fee-mcp",
@@ -5908,7 +6312,8 @@
    "pushed": "2026-01-11",
    "kr_domains": [
     "www.hira.or.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "land.moss/alpha-mcp",
@@ -5921,7 +6326,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "lapiogga/caseLaw",
@@ -5938,7 +6344,8 @@
    "pushed": "2026-06-20",
    "kr_domains": [
     "open.law.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "leejaew/visitkorea-medicaltourism-mcp",
@@ -5956,7 +6363,8 @@
    "kr_domains": [
     "data.go.kr",
     "www.data.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "legalize-kr/agent-skills",
@@ -5971,7 +6379,8 @@
    ],
    "stars": 15,
    "pushed": "2026-09-06",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "legalize-kr/cli-tools",
@@ -5986,7 +6395,8 @@
    ],
    "stars": 11,
    "pushed": "2026-09-05",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "leokim90/gov-data-mcp",
@@ -6008,7 +6418,8 @@
     "data.go.kr",
     "smes.go.kr",
     "www.data.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "lesstif/Rovo-forge-law-mcp-app",
@@ -6026,7 +6437,8 @@
    "kr_domains": [
     "law.go.kr",
     "open.law.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "lhy1244-art/korean-ordinance-mcp",
@@ -6043,7 +6455,8 @@
    "pushed": "2026-06-16",
    "kr_domains": [
     "open.law.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "lucidwatper/Kosis-mcp",
@@ -6058,7 +6471,8 @@
    ],
    "stars": 0,
    "pushed": "2026-04-18",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "millet04/krx-stock-mcp",
@@ -6073,7 +6487,8 @@
    ],
    "stars": 0,
    "pushed": "2026-03-07",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "mindm1ner/bangbang-mcp",
@@ -6088,7 +6503,8 @@
    ],
    "stars": 0,
    "pushed": "2026-07-06",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "mindm1ner/gyogwon-mcp",
@@ -6104,7 +6520,8 @@
    ],
    "stars": 0,
    "pushed": "2026-07-08",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "minsuko-lab/news_curation_system",
@@ -6119,7 +6536,8 @@
    ],
    "stars": 0,
    "pushed": "2025-05-30",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "mirulili/Friendantial",
@@ -6134,7 +6552,8 @@
    ],
    "stars": 0,
    "pushed": "2026-02-13",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "mkkim2102/finance-mcp-server-ko",
@@ -6149,7 +6568,8 @@
    ],
    "stars": 0,
    "pushed": "2026-08-14",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "moby-11c/opendart_mcp",
@@ -6166,7 +6586,8 @@
    "pushed": "2026-02-07",
    "kr_domains": [
     "opendart.fss.or.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "modu-ai/moai-cowork",
@@ -6179,7 +6600,8 @@
    ],
    "stars": 301,
    "pushed": "2026-09-03",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "mogoon/evcharger-mcp-kc",
@@ -6192,7 +6614,8 @@
    ],
    "stars": 0,
    "pushed": "2026-09-08",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "molpass/mcp-newsfeed",
@@ -6207,7 +6630,8 @@
    ],
    "stars": 0,
    "pushed": "2026-06-20",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "molpass/mcp-weather",
@@ -6224,7 +6648,8 @@
    "pushed": "2026-06-30",
    "kr_domains": [
     "data.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "mongle250129/korea-life-mcp",
@@ -6239,7 +6664,8 @@
    ],
    "stars": 1,
    "pushed": "2026-07-15",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "nagyeop/kosis_mcp",
@@ -6254,7 +6680,8 @@
    ],
    "stars": 0,
    "pushed": "2026-08-20",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "nds12345-ko/sgis-mcp",
@@ -6267,7 +6694,8 @@
    ],
    "stars": 0,
    "pushed": "2026-08-26",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "nerdlab-dev/crm",
@@ -6282,7 +6710,8 @@
    ],
    "stars": 12,
    "pushed": "2026-09-08",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "nerin81-netizen/arxiv-daily-mcp",
@@ -6297,7 +6726,8 @@
    ],
    "stars": 1,
    "pushed": "2026-07-06",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "ngwoon/korea-realestate-mcp",
@@ -6313,7 +6743,8 @@
    ],
    "stars": 0,
    "pushed": "2026-02-08",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "nine-hundred/naramarket-mcp",
@@ -6328,7 +6759,8 @@
    ],
    "stars": 5,
    "pushed": "2025-05-11",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "nodeul99-dev/dart_basic_mcp",
@@ -6345,7 +6777,8 @@
    "pushed": "2026-08-12",
    "kr_domains": [
     "opendart.fss.or.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "nokelan/KoreanLawMCP",
@@ -6360,7 +6793,8 @@
    ],
    "stars": 0,
    "pushed": "2026-08-08",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "nokelan/health-fee-mcp",
@@ -6375,7 +6809,8 @@
    ],
    "stars": 1,
    "pushed": "2026-07-07",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "ntriq/lawink-mcp",
@@ -6392,7 +6827,8 @@
    "pushed": "2026-06-06",
    "kr_domains": [
     "law.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "nuri428/mcp_kipris",
@@ -6409,7 +6845,8 @@
    "pushed": "2026-08-07",
    "kr_domains": [
     "plus.kipris.or.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "obundh/korea-public-data-catalog-mcp",
@@ -6425,7 +6862,8 @@
    "kr_domains": [
     "data.go.kr",
     "www.data.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "ohhan777/korea_weather",
@@ -6443,7 +6881,8 @@
     "data.go.kr",
     "kari.re.kr",
     "www.data.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "okdoittttt/ko-stock-mcp",
@@ -6460,7 +6899,8 @@
    "pushed": "2026-07-04",
    "kr_domains": [
     "opendart.fss.or.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "oksure/bible-ko-mcp",
@@ -6475,7 +6915,8 @@
    "pushed": "2026-06-22",
    "kr_domains": [
     "bskorea.or.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "one.aisa/seo-serp-other-engines",
@@ -6488,7 +6929,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "open-play-ground/datago-mcp",
@@ -6507,7 +6949,8 @@
     "apis.data.go.kr",
     "data.go.kr",
     "www.data.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "opendata-kr/core",
@@ -6525,7 +6968,8 @@
    "kr_domains": [
     "apis.data.go.kr",
     "data.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "openpharma-org/asia-filings-mcp-server",
@@ -6540,7 +6984,8 @@
    "pushed": "2025-12-18",
    "kr_domains": [
     "opendart.fss.or.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "org.medicalaialliance/intelligence",
@@ -6553,7 +6998,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "pblsketch/korean-teacher-mcp",
@@ -6566,7 +7012,8 @@
    ],
    "stars": 1,
    "pushed": "2026-05-17",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "pchuri/korean-capital-gains-tax-mcp",
@@ -6579,7 +7026,8 @@
    ],
    "stars": 2,
    "pushed": "2026-03-24",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "peppermint1231/stock-screener-mcp",
@@ -6594,7 +7042,8 @@
    ],
    "stars": 0,
    "pushed": "2026-03-24",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "pianovirus/kfda-mcp",
@@ -6613,7 +7062,8 @@
     "data.go.kr",
     "www.data.go.kr",
     "www.mfds.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "pinnaclesoft-ko/be-node-seoul-data-mcp",
@@ -6630,7 +7080,8 @@
    "pushed": "2025-04-03",
    "kr_domains": [
     "openapi.seoul.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "pjookim/mcp-visit-korea",
@@ -6643,7 +7094,8 @@
    ],
    "stars": 2,
    "pushed": "2025-04-10",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "pollmap/luxon-sangkwon-mcp",
@@ -6660,7 +7112,8 @@
     "data.go.kr",
     "data.seoul.go.kr",
     "www.data.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "procpalee/OpenDART-MCP-Server",
@@ -6677,7 +7130,8 @@
    "pushed": "2026-03-29",
    "kr_domains": [
     "opendart.fss.or.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "prscsl/llm-mcp-weekly",
@@ -6693,7 +7147,8 @@
    ],
    "stars": 0,
    "pushed": "2026-05-28",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "psa0426/sw-settlement-mcp",
@@ -6706,7 +7161,8 @@
    ],
    "stars": 2,
    "pushed": "2026-04-03",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "pyospect/noowoolgot",
@@ -6721,7 +7177,8 @@
    ],
    "stars": 0,
    "pushed": "2026-02-27",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "qbong1010/kosis-qbong-mcp",
@@ -6736,7 +7193,8 @@
    ],
    "stars": 0,
    "pushed": "2026-06-08",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "quanttraderkim/korean-name-generator-mcp",
@@ -6749,7 +7207,8 @@
    ],
    "stars": 0,
    "pushed": "2025-09-24",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "ratelworks/agent-quality-oss",
@@ -6764,7 +7223,8 @@
    ],
    "stars": 5,
    "pushed": "2026-08-03",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "reallygood83/sbinfo",
@@ -6781,7 +7241,8 @@
    "pushed": "2026-07-17",
    "kr_domains": [
     "www.schoolinfo.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "rhfl04-dfdf/jychoi_everything-claude-code-ko",
@@ -6796,7 +7257,8 @@
    ],
    "stars": 1,
    "pushed": "2026-03-17",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "rubatoyd/kakao-book-mcp",
@@ -6811,7 +7273,8 @@
    ],
    "stars": 1,
    "pushed": "2026-09-13",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "rubatoyd/law-openapi-mcp",
@@ -6829,7 +7292,8 @@
    "kr_domains": [
     "law.go.kr",
     "open.law.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "scvcoder/korean-law-alio-mcp",
@@ -6847,7 +7311,8 @@
    "kr_domains": [
     "alio.go.kr",
     "open.law.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "scvcoder/korean-privacy-law-mcp",
@@ -6864,7 +7329,8 @@
     "open.law.go.kr",
     "privacy.go.kr",
     "www.privacy.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "seo-jinseok/korean-law-mcp",
@@ -6882,7 +7348,8 @@
    "kr_domains": [
     "law.go.kr",
     "www.law.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "seolcoding/korean-stat-mcp",
@@ -6897,7 +7364,8 @@
    ],
    "stars": 1,
    "pushed": "2026-05-01",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "serithemage/botmadang-mcp",
@@ -6912,7 +7380,8 @@
    ],
    "stars": 3,
    "pushed": "2026-02-03",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "shwi-project/stocklens-mcp",
@@ -6927,7 +7396,8 @@
    ],
    "stars": 1,
    "pushed": "2026-04-20",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "simonsez9510/kosis-mcp",
@@ -6942,7 +7412,8 @@
    ],
    "stars": 0,
    "pushed": "2026-04-10",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "site.star365/data",
@@ -6955,7 +7426,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "site.star365/hq",
@@ -6968,7 +7440,8 @@
    ],
    "stars": null,
    "pushed": null,
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "sjh9714/electronics-price-mcp",
@@ -6981,7 +7454,8 @@
    ],
    "stars": 0,
    "pushed": "2026-08-08",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "slowdevv-shinnoah/naver-searchad-mcp",
@@ -6996,7 +7470,8 @@
    ],
    "stars": 0,
    "pushed": "2026-01-12",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "snaiws/DART-mcp-server",
@@ -7011,7 +7486,8 @@
    "pushed": null,
    "kr_domains": [
     "opendart.fss.or.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "socialkim/korea-onegov-mcp",
@@ -7024,7 +7500,8 @@
    ],
    "stars": 2,
    "pushed": "2026-07-27",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "sodam-ai/Langent-MCP_One-Click_Kit",
@@ -7037,7 +7514,8 @@
    ],
    "stars": 3,
    "pushed": "2026-06-16",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "sodam-ai/Neon-CLI_One-Click_Kit",
@@ -7052,7 +7530,8 @@
    ],
    "stars": 11,
    "pushed": "2026-06-12",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "songhwangcross-svg/krx-mcp-server",
@@ -7067,7 +7546,8 @@
    ],
    "stars": 0,
    "pushed": "2026-07-11",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "sonmeggy/korean-engineering-mcp",
@@ -7086,7 +7566,8 @@
     "codil.or.kr",
     "open.law.go.kr",
     "www.kcsc.re.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "sound0-07/stdict-korean-mcp-server",
@@ -7101,7 +7582,8 @@
    ],
    "stars": 0,
    "pushed": "2025-04-11",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "spoyodevelop/korean-weather-mcp",
@@ -7118,7 +7600,8 @@
    "pushed": "2025-04-13",
    "kr_domains": [
     "apihub.kma.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "ssol-park/booking-checker-mcp",
@@ -7133,7 +7616,8 @@
    ],
    "stars": 0,
    "pushed": "2026-06-13",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "ssuksak/cheongyak-rag-mcp",
@@ -7150,7 +7634,8 @@
    "pushed": "2026-04-22",
    "kr_domains": [
     "data.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "swansong80-afk/neis-mcp",
@@ -7163,7 +7648,8 @@
    ],
    "stars": 0,
    "pushed": "2026-08-20",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "syleedlabs/deal-locator-mcp",
@@ -7181,7 +7667,8 @@
    "kr_domains": [
     "data.go.kr",
     "www.data.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "tae0y/real-estate-mcp",
@@ -7199,7 +7686,8 @@
    "pushed": "2026-07-18",
    "kr_domains": [
     "www.data.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "taxwoong/labor-mcp",
@@ -7219,7 +7707,8 @@
     "nlrc.go.kr",
     "nps.or.kr",
     "open.law.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "taxwoong/nts-tax-mcp",
@@ -7240,7 +7729,8 @@
     "olta.re.kr",
     "open.law.go.kr",
     "taxlaw.nts.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "techkwon/teacher-guard",
@@ -7257,7 +7747,8 @@
    "pushed": "2026-06-22",
    "kr_domains": [
     "law.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "tenacl/koreandict-mcp-server",
@@ -7272,7 +7763,8 @@
    "pushed": "2025-04-05",
    "kr_domains": [
     "stdict.korean.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "tjrgus0320/news-crawler-mcp",
@@ -7287,7 +7779,8 @@
    ],
    "stars": 0,
    "pushed": "2026-01-29",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "tlee0818/data-go-kr-realestate-mcp",
@@ -7304,7 +7797,8 @@
    "pushed": "2026-06-06",
    "kr_domains": [
     "www.data.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "treesoop/hwp-mcp",
@@ -7318,7 +7812,8 @@
    ],
    "stars": 88,
    "pushed": "2026-07-08",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "u2em/coupang-delivery-bookkeeping",
@@ -7333,7 +7828,8 @@
    ],
    "stars": 0,
    "pushed": "2026-08-07",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "uju777/coupang-mcp",
@@ -7348,7 +7844,8 @@
    ],
    "stars": 17,
    "pushed": "2026-04-13",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "updown256/kosis-mcp",
@@ -7363,7 +7860,8 @@
    ],
    "stars": 0,
    "pushed": "2026-07-24",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "uscaidev/galpi-korean-law-mcp",
@@ -7376,7 +7874,8 @@
    ],
    "stars": 1,
    "pushed": "2026-07-21",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "vertical-mcp/dart-mcp",
@@ -7393,7 +7892,8 @@
    "pushed": "2026-04-22",
    "kr_domains": [
     "opendart.fss.or.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "vipermo15-dotcom/cgd-naver-detailpage-mcp",
@@ -7408,7 +7908,8 @@
    ],
    "stars": 0,
    "pushed": "2026-08-10",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "websfactory/dongtori-mcp",
@@ -7423,7 +7924,8 @@
    ],
    "stars": 0,
    "pushed": "2026-07-07",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "whtjdgns2121-dot/seoul-accessible-transit-mcp",
@@ -7441,7 +7943,8 @@
    "pushed": "2026-07-20",
    "kr_domains": [
     "data.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "wintenboy/law-ontology-mcp",
@@ -7458,7 +7961,8 @@
    "pushed": "2026-02-27",
    "kr_domains": [
     "lod.law.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "winterjung/mcp-korean-spell",
@@ -7472,7 +7976,8 @@
    ],
    "stars": 24,
    "pushed": "2025-04-15",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "wjdengus98/MCP_Langgraph_Agent",
@@ -7488,7 +7993,8 @@
    ],
    "stars": 1,
    "pushed": "2026-08-16",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "wlsdnen/claude-code-guide-kr",
@@ -7503,7 +8009,8 @@
    ],
    "stars": 2,
    "pushed": "2026-02-13",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "wnduq8/kr-mkt-mcp",
@@ -7516,7 +8023,8 @@
    ],
    "stars": 0,
    "pushed": "2026-05-05",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "woongaro/korean-law-mcp",
@@ -7534,7 +8042,8 @@
    "kr_domains": [
     "open.law.go.kr",
     "www.law.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "worker-ants/korea-weather-mcp",
@@ -7552,7 +8061,8 @@
    "pushed": "2026-05-13",
    "kr_domains": [
     "apihub.kma.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "xoqhdgh1002/smb-mcp",
@@ -7567,7 +8077,8 @@
    ],
    "stars": 0,
    "pushed": "2026-05-02",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "yachom/fin-multi-agent-advisor",
@@ -7582,7 +8093,8 @@
    ],
    "stars": 0,
    "pushed": "2026-08-31",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "yang7021lo/giniz-news",
@@ -7597,7 +8109,8 @@
    ],
    "stars": 0,
    "pushed": "2026-05-29",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "yesetr8/korea-law-mcp-public",
@@ -7614,7 +8127,8 @@
    "pushed": "2026-04-07",
    "kr_domains": [
     "open.law.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "yonghwan1106/godsaeng-mate-mcp-server",
@@ -7629,7 +8143,8 @@
    ],
    "stars": 0,
    "pushed": "2026-01-14",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "yonghwan1106/korea-culture-mcp",
@@ -7642,7 +8157,8 @@
    ],
    "stars": 0,
    "pushed": "2026-01-12",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "yonghwan1106/korea-health-mcp",
@@ -7657,7 +8173,8 @@
    "pushed": "2026-01-13",
    "kr_domains": [
     "data.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "yonghwan86/narajangteo-searcher",
@@ -7674,7 +8191,8 @@
    "pushed": "2026-06-22",
    "kr_domains": [
     "www.data.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "yoonstudio/invest-stock-app",
@@ -7689,7 +8207,8 @@
    ],
    "stars": 1,
    "pushed": "2026-02-28",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "youngs75/kor-legal-mcp",
@@ -7704,7 +8223,8 @@
    ],
    "stars": 0,
    "pushed": "2026-04-24",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "youngsooco/k-mail-mcp",
@@ -7717,7 +8237,8 @@
    ],
    "stars": 6,
    "pushed": "2026-04-16",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "yt010108/kr-gov-job-mcp",
@@ -7730,7 +8251,8 @@
    ],
    "stars": 0,
    "pushed": "2026-07-24",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "yuneunmi814-cmyk/legal-navigator-mcp",
@@ -7748,7 +8270,8 @@
    "kr_domains": [
     "easylaw.go.kr",
     "law.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "yuneunmi814-cmyk/sinmungo-mcp",
@@ -7763,7 +8286,8 @@
    ],
    "stars": 0,
    "pushed": "2026-08-07",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "yunkee-lee/mcp-kakao-local",
@@ -7778,7 +8302,8 @@
    ],
    "stars": 0,
    "pushed": "2025-05-11",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "yunkee-lee/mcp-naver-maps",
@@ -7793,7 +8318,8 @@
    ],
    "stars": 2,
    "pushed": "2025-05-12",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "yunsell/ai-agent-skills-korean",
@@ -7808,7 +8334,8 @@
    ],
    "stars": 0,
    "pushed": "2026-09-10",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "zeikar/kimcp",
@@ -7822,7 +8349,8 @@
    ],
    "stars": 10,
    "pushed": "2025-05-15",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "zephiris21/news-mcp-crawler",
@@ -7837,7 +8365,8 @@
    ],
    "stars": 0,
    "pushed": "2025-05-06",
-   "kr_domains": null
+   "kr_domains": null,
+   "carryover": null
   },
   {
    "name": "zisu17/korean-taxlaw-mcp",
@@ -7856,7 +8385,8 @@
    "kr_domains": [
     "taxlaw.nts.go.kr",
     "www.olta.re.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "zxc8661/safety-health-chemical-mcp",
@@ -7875,7 +8405,8 @@
     "data.go.kr",
     "open.law.go.kr",
     "www.data.go.kr"
-   ]
+   ],
+   "carryover": null
   },
   {
    "name": "zzjiho/kr-medicine-mcp",
@@ -7893,7 +8424,8 @@
    "kr_domains": [
     "data.go.kr",
     "www.data.go.kr"
-   ]
+   ],
+   "carryover": null
   }
  ]
 }

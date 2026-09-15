@@ -9,7 +9,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "AI-Dico/korea-law-mcp-public": {
    "name": "AI-Dico/korea-law-mcp-public",
@@ -19,7 +22,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "AgentBridge-Lab/korea-space-support-mcp": {
    "name": "AgentBridge-Lab/korea-space-support-mcp",
@@ -29,7 +35,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "Anna-Jeong-MS/mcp-opendart": {
    "name": "Anna-Jeong-MS/mcp-opendart",
@@ -39,7 +48,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "Atrani-Labs/visitkorea-tour-mcp": {
    "name": "Atrani-Labs/visitkorea-tour-mcp",
@@ -49,7 +61,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "BewitchSK/apartment-price-mcp": {
    "name": "BewitchSK/apartment-price-mcp",
@@ -59,7 +74,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "CNI-KaeSoon/public-rules-mcp": {
    "name": "CNI-KaeSoon/public-rules-mcp",
@@ -69,7 +87,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "ChangooLee/mcp-kr-legislation": {
    "name": "ChangooLee/mcp-kr-legislation",
@@ -79,7 +100,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "Choihello/startup-law-mcp": {
    "name": "Choihello/startup-law-mcp",
@@ -89,7 +113,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "DatagokrGit/data-go-kr-mcp": {
    "name": "DatagokrGit/data-go-kr-mcp",
@@ -99,7 +126,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "Dayoooun/korea-stats-mcp": {
    "name": "Dayoooun/korea-stats-mcp",
@@ -109,7 +139,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "DwvN-Lee/fAInancial-agent": {
    "name": "DwvN-Lee/fAInancial-agent",
@@ -119,7 +152,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "Hoodess/naver-mail-mcp-basic": {
    "name": "Hoodess/naver-mail-mcp-basic",
@@ -129,7 +165,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "JIKIHY/kosha-mcp": {
    "name": "JIKIHY/kosha-mcp",
@@ -139,7 +178,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "JIN-Z-pop/korea-ets-mcp": {
    "name": "JIN-Z-pop/korea-ets-mcp",
@@ -159,7 +201,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "Jaeminyx-Stoa/pydbsec": {
    "name": "Jaeminyx-Stoa/pydbsec",
@@ -169,7 +214,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "Johnhyeon/dartlens-mcp": {
    "name": "Johnhyeon/dartlens-mcp",
@@ -179,7 +227,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "JungHoonGhae/gongctl": {
    "name": "JungHoonGhae/gongctl",
@@ -199,7 +250,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "Kinuk97/mcp-get-weather": {
    "name": "Kinuk97/mcp-get-weather",
@@ -209,7 +263,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "Koomook/data-go-mcp-servers": {
    "name": "Koomook/data-go-mcp-servers",
@@ -219,7 +276,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "MarcoYou/open-proxy-mcp": {
    "name": "MarcoYou/open-proxy-mcp",
@@ -229,7 +289,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "MosslandOpenDevs/alpha": {
    "name": "MosslandOpenDevs/alpha",
@@ -239,7 +302,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "Mrbaeksang/korea-stock-analyzer-mcp": {
    "name": "Mrbaeksang/korea-stock-analyzer-mcp",
@@ -249,7 +315,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "N0WST4NDUP/openlaw-mcp-server": {
    "name": "N0WST4NDUP/openlaw-mcp-server",
@@ -259,7 +328,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "NSLC7779/dk-korea-health-mcp": {
    "name": "NSLC7779/dk-korea-health-mcp",
@@ -269,7 +341,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "Nicegomting/PyGenAI": {
    "name": "Nicegomting/PyGenAI",
@@ -279,7 +354,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "NotNull92/korea-unipass-mcp": {
    "name": "NotNull92/korea-unipass-mcp",
@@ -289,7 +367,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "OldTemple91/korea-filings-api": {
    "name": "OldTemple91/korea-filings-api",
@@ -299,7 +380,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "OneVth/danbooru-tag-rag-mcp": {
    "name": "OneVth/danbooru-tag-rag-mcp",
@@ -309,7 +393,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "Park3min/yr-weather-mcp": {
    "name": "Park3min/yr-weather-mcp",
@@ -319,7 +406,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "RealYoungk/opendart_mcp": {
    "name": "RealYoungk/opendart_mcp",
@@ -329,7 +419,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "Sedong-Choi/jangbogo-mcp": {
    "name": "Sedong-Choi/jangbogo-mcp",
@@ -339,7 +432,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "Sedong-Choi/kakao-mcp": {
    "name": "Sedong-Choi/kakao-mcp",
@@ -349,7 +445,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "SeoNaRu/lexguard-mcp": {
    "name": "SeoNaRu/lexguard-mcp",
@@ -359,7 +458,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "Seonh0/naver-land-mcp": {
    "name": "Seonh0/naver-land-mcp",
@@ -369,7 +471,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "SinGonKim/korean-med-mcp": {
    "name": "SinGonKim/korean-med-mcp",
@@ -379,7 +484,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "TanTenTin/kakao-docs-mcp": {
    "name": "TanTenTin/kakao-docs-mcp",
@@ -389,7 +497,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "TheNaham/koreafood-mcp": {
    "name": "TheNaham/koreafood-mcp",
@@ -409,7 +520,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "agent504330-ux/mcp-korean-stock": {
    "name": "agent504330-ux/mcp-korean-stock",
@@ -419,7 +533,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "ai.atdev/supershopping": {
    "name": "ai.atdev/supershopping",
@@ -429,7 +546,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "ai.smithery/alphago2580-naramarketmcp": {
    "name": "ai.smithery/alphago2580-naramarketmcp",
@@ -439,7 +559,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "ai.smithery/hjsh200219-pharminfo-mcp": {
    "name": "ai.smithery/hjsh200219-pharminfo-mcp",
@@ -449,7 +572,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "ai.smithery/isnow890-data4library-mcp": {
    "name": "ai.smithery/isnow890-data4library-mcp",
@@ -459,7 +585,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "ai.smithery/jjlabsio-korea-stock-mcp": {
    "name": "ai.smithery/jjlabsio-korea-stock-mcp",
@@ -469,7 +598,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "ai.timeplex/booking": {
    "name": "ai.timeplex/booking",
@@ -479,7 +611,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "alice840126-ship-it/korean-law-mcp-setup": {
    "name": "alice840126-ship-it/korean-law-mcp-setup",
@@ -489,7 +624,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "alphago2580/naver_searchad_mcp": {
    "name": "alphago2580/naver_searchad_mcp",
@@ -499,7 +637,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "anboyu-alt/dart-risk-mcp": {
    "name": "anboyu-alt/dart-risk-mcp",
@@ -509,7 +650,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "app.apick/all": {
    "name": "app.apick/all",
@@ -519,7 +663,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "app.apick/business": {
    "name": "app.apick/business",
@@ -529,7 +676,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "app.apick/finance": {
    "name": "app.apick/finance",
@@ -539,7 +689,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "app.sallim/contract-compass": {
    "name": "app.sallim/contract-compass",
@@ -549,7 +702,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "app.sallim/korea-realty": {
    "name": "app.sallim/korea-realty",
@@ -559,7 +715,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "app.wishpool/korea-invoice-mcp": {
    "name": "app.wishpool/korea-invoice-mcp",
@@ -569,7 +728,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "bb4rjfl/weathersafetyos-mcp": {
    "name": "bb4rjfl/weathersafetyos-mcp",
@@ -579,7 +741,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "bong-u/mcp-server-kakao-map": {
    "name": "bong-u/mcp-server-kakao-map",
@@ -589,7 +754,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "bootpay/bootpay-mcp": {
    "name": "bootpay/bootpay-mcp",
@@ -599,7 +767,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "burlesquer/coupang-mcp": {
    "name": "burlesquer/coupang-mcp",
@@ -609,7 +780,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "byungjunjang/litigation-writer": {
    "name": "byungjunjang/litigation-writer",
@@ -619,7 +793,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "capitalparser/kreports-dart-mcp": {
    "name": "capitalparser/kreports-dart-mcp",
@@ -629,7 +806,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "capitalparser/public-data-opportunity-mcp": {
    "name": "capitalparser/public-data-opportunity-mcp",
@@ -639,7 +819,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "cdsassj00/korean-law-ai-chatbot": {
    "name": "cdsassj00/korean-law-ai-chatbot",
@@ -649,7 +832,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "choihyeokbin/kakao-real-estate-mcp": {
    "name": "choihyeokbin/kakao-real-estate-mcp",
@@ -669,7 +855,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "chrisryugj/korean-dart-mcp": {
    "name": "chrisryugj/korean-dart-mcp",
@@ -679,7 +868,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "chrisryugj/korean-law-mcp": {
    "name": "chrisryugj/korean-law-mcp",
@@ -689,7 +881,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "chrisryugj/korean-patent-mcp": {
    "name": "chrisryugj/korean-patent-mcp",
@@ -699,7 +894,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "chrisryugj/schoolinfo-mcp": {
    "name": "chrisryugj/schoolinfo-mcp",
@@ -709,7 +907,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "civilian7/korean-people-persona": {
    "name": "civilian7/korean-people-persona",
@@ -719,7 +920,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "com.aikstockdata/mcp": {
    "name": "com.aikstockdata/mcp",
@@ -729,7 +933,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "com.airblockfz/seoul-apt-signal": {
    "name": "com.airblockfz/seoul-apt-signal",
@@ -739,7 +946,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "com.arcasos/arcasos-rentals": {
    "name": "com.arcasos/arcasos-rentals",
@@ -749,7 +959,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "com.beauticslab/mcp": {
    "name": "com.beauticslab/mcp",
@@ -759,7 +972,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "com.boltena/erp": {
    "name": "com.boltena/erp",
@@ -769,7 +985,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "com.empresskorea/kbeauty-agent-commons": {
    "name": "com.empresskorea/kbeauty-agent-commons",
@@ -779,7 +998,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "com.goldpopcon/openapi-mcp": {
    "name": "com.goldpopcon/openapi-mcp",
@@ -789,7 +1011,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "com.hankookilbo.mcp/hankookilbo-mcp": {
    "name": "com.hankookilbo.mcp/hankookilbo-mcp",
@@ -799,7 +1024,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "com.saaskr/korean-saas-directory": {
    "name": "com.saaskr/korean-saas-directory",
@@ -809,7 +1037,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "com.theprotoclinical/commerce": {
    "name": "com.theprotoclinical/commerce",
@@ -819,7 +1050,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "constant94-dev/public-data-mcp-server": {
    "name": "constant94-dev/public-data-mcp-server",
@@ -829,7 +1063,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "daehyub71/smart-korean-legal-platform": {
    "name": "daehyub71/smart-korean-legal-platform",
@@ -839,7 +1076,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "dartpointai/dartpoint-mcp": {
    "name": "dartpointai/dartpoint-mcp",
@@ -849,7 +1089,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "dikehomme/kr-law-mcp": {
    "name": "dikehomme/kr-law-mcp",
@@ -859,7 +1102,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "dolseom/gongsi-mcp": {
    "name": "dolseom/gongsi-mcp",
@@ -869,7 +1115,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "dongkyucho17/krx-etf-mcp": {
    "name": "dongkyucho17/krx-etf-mcp",
@@ -879,7 +1128,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "eastminnn/stock-mate-mcp": {
    "name": "eastminnn/stock-mate-mcp",
@@ -889,7 +1141,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "eddmpython/dartlab": {
    "name": "eddmpython/dartlab",
@@ -899,7 +1154,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "eu.ansvar/south-korea-law-mcp": {
    "name": "eu.ansvar/south-korea-law-mcp",
@@ -909,7 +1167,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "farmbit-mdk/korea-market-data-mcp": {
    "name": "farmbit-mdk/korea-market-data-mcp",
@@ -919,7 +1180,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "fieldcure/fieldcure-mcp-publicdata": {
    "name": "fieldcure/fieldcure-mcp-publicdata",
@@ -939,7 +1203,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "flytothesky23/obsidian-korean-dart-codex": {
    "name": "flytothesky23/obsidian-korean-dart-codex",
@@ -949,7 +1216,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "geonwoo-jeong/japanese-law-mcp": {
    "name": "geonwoo-jeong/japanese-law-mcp",
@@ -959,7 +1229,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "ghga20-ui/eval-bank": {
    "name": "ghga20-ui/eval-bank",
@@ -969,7 +1242,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "giovinazo/alio-mcp": {
    "name": "giovinazo/alio-mcp",
@@ -979,7 +1255,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "giovinazo/ic-dev-advisor": {
    "name": "giovinazo/ic-dev-advisor",
@@ -989,7 +1268,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "guinnessNet/maipharm-domae-mcp": {
    "name": "guinnessNet/maipharm-domae-mcp",
@@ -999,7 +1281,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "gws8820/shippingtracker": {
    "name": "gws8820/shippingtracker",
@@ -1009,7 +1294,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "haklaekim/public-data-lens": {
    "name": "haklaekim/public-data-lens",
@@ -1029,7 +1317,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "hike-lab/public-data-lens": {
    "name": "hike-lab/public-data-lens",
@@ -1039,7 +1330,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "hjsh200219/korea-public-data-mcp": {
    "name": "hjsh200219/korea-public-data-mcp",
@@ -1049,7 +1343,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "hlucent/realestate-stats-mcp": {
    "name": "hlucent/realestate-stats-mcp",
@@ -1059,7 +1356,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "hmmhmmhm/daiso-mcp": {
    "name": "hmmhmmhm/daiso-mcp",
@@ -1069,7 +1369,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "hwain-hwang/Real-Estate-Location-Analyzer_MCP": {
    "name": "hwain-hwang/Real-Estate-Location-Analyzer_MCP",
@@ -1089,7 +1392,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "iiacjay/dart-briefing-mcp": {
    "name": "iiacjay/dart-briefing-mcp",
@@ -1099,7 +1405,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "insung8150/AgentWebSearch-MCP": {
    "name": "insung8150/AgentWebSearch-MCP",
@@ -1109,7 +1418,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.aidc-ai/design-engine": {
    "name": "io.aidc-ai/design-engine",
@@ -1119,7 +1431,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.DeepSearch-Common/korean-stocks": {
    "name": "io.github.DeepSearch-Common/korean-stocks",
@@ -1129,7 +1444,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.LJaysk/kr-dart-events": {
    "name": "io.github.LJaysk/kr-dart-events",
@@ -1139,7 +1457,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.PJW2004/job-search": {
    "name": "io.github.PJW2004/job-search",
@@ -1149,7 +1470,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.SongT-50/korean-agriculture-mcp": {
    "name": "io.github.SongT-50/korean-agriculture-mcp",
@@ -1159,7 +1483,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.SongT-50/korean-public-data-mcp": {
    "name": "io.github.SongT-50/korean-public-data-mcp",
@@ -1169,7 +1496,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.SongT-50/korean-stock-mcp": {
    "name": "io.github.SongT-50/korean-stock-mcp",
@@ -1179,7 +1509,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.a-mashiro-art/jp-data": {
    "name": "io.github.a-mashiro-art/jp-data",
@@ -1189,7 +1522,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.accentist/buyking-mcp": {
    "name": "io.github.accentist/buyking-mcp",
@@ -1199,7 +1535,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.aidc2026ai-melon/aidc-mcp-server": {
    "name": "io.github.aidc2026ai-melon/aidc-mcp-server",
@@ -1219,7 +1558,10 @@
    "last_published": "2026-09-14",
    "rounds": 3,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.choiyounggi/korea-data-mcp": {
    "name": "io.github.choiyounggi/korea-data-mcp",
@@ -1229,7 +1571,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "java-jaydev/kiwoom-mcp": {
    "name": "java-jaydev/kiwoom-mcp",
@@ -1239,7 +1584,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "java-jaydev/toss-invest-mcp": {
    "name": "java-jaydev/toss-invest-mcp",
@@ -1249,7 +1597,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "jayjodev/vivory-mcp": {
    "name": "jayjodev/vivory-mcp",
@@ -1269,7 +1620,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "jcyeom/pubdata-insight-mcp": {
    "name": "jcyeom/pubdata-insight-mcp",
@@ -1279,7 +1633,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "jennifer76cha/nemc-law-search": {
    "name": "jennifer76cha/nemc-law-search",
@@ -1289,7 +1646,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "jeonghwanko/coffee-price-mcp": {
    "name": "jeonghwanko/coffee-price-mcp",
@@ -1299,7 +1659,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "jeongmk522-netizen/smishing-stop-mcp": {
    "name": "jeongmk522-netizen/smishing-stop-mcp",
@@ -1309,7 +1672,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "jeonjeon12/jeonse-ansim-mcp": {
    "name": "jeonjeon12/jeonse-ansim-mcp",
@@ -1319,7 +1685,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "jhchoi-ptech/data-go-kr-mcp": {
    "name": "jhchoi-ptech/data-go-kr-mcp",
@@ -1329,7 +1698,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "jinmyungjong/korean-law-mcp": {
    "name": "jinmyungjong/korean-law-mcp",
@@ -1339,7 +1711,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "jinny-han/data.go.kr-water-api-mcp": {
    "name": "jinny-han/data.go.kr-water-api-mcp",
@@ -1349,7 +1724,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "jkf87/weather-mcp": {
    "name": "jkf87/weather-mcp",
@@ -1359,7 +1737,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "josanku/wehome-insight": {
    "name": "josanku/wehome-insight",
@@ -1379,7 +1760,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "juhyunchoi-mech/korean-law-mcp": {
    "name": "juhyunchoi-mech/korean-law-mcp",
@@ -1389,7 +1773,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "junghan0611/zotero-config": {
    "name": "junghan0611/zotero-config",
@@ -1399,7 +1786,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "justcoding-ys/mcp-opendart": {
    "name": "justcoding-ys/mcp-opendart",
@@ -1409,7 +1799,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "jwgo/lemory": {
    "name": "jwgo/lemory",
@@ -1419,7 +1812,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "k08200/korea-mcp-suite": {
    "name": "k08200/korea-mcp-suite",
@@ -1429,7 +1825,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "k821209/smartfarm-mcp": {
    "name": "k821209/smartfarm-mcp",
@@ -1439,7 +1838,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "kang-aco/korean-law": {
    "name": "kang-aco/korean-law",
@@ -1449,7 +1851,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "keonho-kim/OpenDart-mcp": {
    "name": "keonho-kim/OpenDart-mcp",
@@ -1459,7 +1864,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "kim-go-chon/dart-notes-mcp": {
    "name": "kim-go-chon/dart-notes-mcp",
@@ -1469,7 +1877,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "kimduksoo/naver-land-mcp": {
    "name": "kimduksoo/naver-land-mcp",
@@ -1479,7 +1890,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "kimju1416/naver-land-mcp": {
    "name": "kimju1416/naver-land-mcp",
@@ -1489,7 +1903,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "kimju1416/realestate-mcp": {
    "name": "kimju1416/realestate-mcp",
@@ -1499,7 +1916,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "kimlawtech/korean-certified-mail": {
    "name": "kimlawtech/korean-certified-mail",
@@ -1509,7 +1929,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "kimlawtech/korean-contracts": {
    "name": "kimlawtech/korean-contracts",
@@ -1519,7 +1942,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "kknas1/consumer-dispute-mcp": {
    "name": "kknas1/consumer-dispute-mcp",
@@ -1529,7 +1955,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "kmgvv23/stock-data-mcp": {
    "name": "kmgvv23/stock-data-mcp",
@@ -1539,7 +1968,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "kokogo100/ragalgo-mcp-server": {
    "name": "kokogo100/ragalgo-mcp-server",
@@ -1559,7 +1991,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "kyo504/krx-cli": {
    "name": "kyo504/krx-cli",
@@ -1569,7 +2004,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "la1av1a/hospital-fee-mcp": {
    "name": "la1av1a/hospital-fee-mcp",
@@ -1579,7 +2017,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "lapiogga/caseLaw": {
    "name": "lapiogga/caseLaw",
@@ -1589,7 +2030,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "leadbrain/korean-data-mcp": {
    "name": "leadbrain/korean-data-mcp",
@@ -1609,7 +2053,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "legalize-kr/agent-skills": {
    "name": "legalize-kr/agent-skills",
@@ -1619,7 +2066,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "legalize-kr/cli-tools": {
    "name": "legalize-kr/cli-tools",
@@ -1629,7 +2079,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "leokim90/gov-data-mcp": {
    "name": "leokim90/gov-data-mcp",
@@ -1639,7 +2092,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "lesstif/Rovo-forge-law-mcp-app": {
    "name": "lesstif/Rovo-forge-law-mcp-app",
@@ -1649,7 +2105,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "lovelyquality/korail-mcp": {
    "name": "lovelyquality/korail-mcp",
@@ -1669,7 +2128,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "millet04/krx-stock-mcp": {
    "name": "millet04/krx-stock-mcp",
@@ -1679,7 +2141,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "mindm1ner/gyogwon-mcp": {
    "name": "mindm1ner/gyogwon-mcp",
@@ -1689,7 +2154,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "mkkim2102/finance-mcp-server-ko": {
    "name": "mkkim2102/finance-mcp-server-ko",
@@ -1699,7 +2167,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "moby-11c/opendart_mcp": {
    "name": "moby-11c/opendart_mcp",
@@ -1709,7 +2180,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "molpass/mcp-weather": {
    "name": "molpass/mcp-weather",
@@ -1719,7 +2193,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "nagyeop/kosis_mcp": {
    "name": "nagyeop/kosis_mcp",
@@ -1729,7 +2206,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "nds12345-ko/sgis-mcp": {
    "name": "nds12345-ko/sgis-mcp",
@@ -1739,7 +2219,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "nerin81-netizen/arxiv-daily-mcp": {
    "name": "nerin81-netizen/arxiv-daily-mcp",
@@ -1749,7 +2232,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "ngwoon/korea-realestate-mcp": {
    "name": "ngwoon/korea-realestate-mcp",
@@ -1759,7 +2245,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "nine-hundred/naramarket-mcp": {
    "name": "nine-hundred/naramarket-mcp",
@@ -1769,7 +2258,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "nodeul99-dev/dart_basic_mcp": {
    "name": "nodeul99-dev/dart_basic_mcp",
@@ -1779,7 +2271,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "nokelan/KoreanLawMCP": {
    "name": "nokelan/KoreanLawMCP",
@@ -1789,7 +2284,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "nokelan/health-fee-mcp": {
    "name": "nokelan/health-fee-mcp",
@@ -1799,7 +2297,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "ntriq/lawink-mcp": {
    "name": "ntriq/lawink-mcp",
@@ -1809,7 +2310,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "nuri428/mcp_kipris": {
    "name": "nuri428/mcp_kipris",
@@ -1819,7 +2323,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "obundh/korea-public-data-catalog-mcp": {
    "name": "obundh/korea-public-data-catalog-mcp",
@@ -1829,7 +2336,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "ohhan777/korea_weather": {
    "name": "ohhan777/korea_weather",
@@ -1839,7 +2349,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "okdoittttt/ko-stock-mcp": {
    "name": "okdoittttt/ko-stock-mcp",
@@ -1849,7 +2362,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "open-play-ground/datago-mcp": {
    "name": "open-play-ground/datago-mcp",
@@ -1859,7 +2375,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "opendata-kr/core": {
    "name": "opendata-kr/core",
@@ -1869,7 +2388,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "opendata-kr/narajangteo-bid-mcp": {
    "name": "opendata-kr/narajangteo-bid-mcp",
@@ -1919,7 +2441,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "pinnaclesoft-ko/be-node-seoul-data-mcp": {
    "name": "pinnaclesoft-ko/be-node-seoul-data-mcp",
@@ -1929,7 +2454,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "procpalee/OpenDART-MCP-Server": {
    "name": "procpalee/OpenDART-MCP-Server",
@@ -1939,7 +2467,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "ratelworks/agent-quality-oss": {
    "name": "ratelworks/agent-quality-oss",
@@ -1949,7 +2480,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "redoxnet/mcp-lsopenapi": {
    "name": "redoxnet/mcp-lsopenapi",
@@ -1979,7 +2513,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "seo-jinseok/korean-law-mcp": {
    "name": "seo-jinseok/korean-law-mcp",
@@ -1989,7 +2526,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "seolcoding/korean-stat-mcp": {
    "name": "seolcoding/korean-stat-mcp",
@@ -1999,7 +2539,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "shwi-project/stocklens-mcp": {
    "name": "shwi-project/stocklens-mcp",
@@ -2009,7 +2552,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "simonsez9510/kosis-mcp": {
    "name": "simonsez9510/kosis-mcp",
@@ -2019,7 +2565,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "sjh9714/electronics-price-mcp": {
    "name": "sjh9714/electronics-price-mcp",
@@ -2029,7 +2578,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "slowdevv-shinnoah/naver-searchad-mcp": {
    "name": "slowdevv-shinnoah/naver-searchad-mcp",
@@ -2039,7 +2591,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "smilemin07/korean-rnd-regs-mcp": {
    "name": "smilemin07/korean-rnd-regs-mcp",
@@ -2059,7 +2614,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "sodam-ai/Langent-MCP_One-Click_Kit": {
    "name": "sodam-ai/Langent-MCP_One-Click_Kit",
@@ -2069,7 +2627,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "sonmeggy/korean-engineering-mcp": {
    "name": "sonmeggy/korean-engineering-mcp",
@@ -2079,7 +2640,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "spoyodevelop/korean-weather-mcp": {
    "name": "spoyodevelop/korean-weather-mcp",
@@ -2089,7 +2653,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "ssuksak/cheongyak-rag-mcp": {
    "name": "ssuksak/cheongyak-rag-mcp",
@@ -2099,7 +2666,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "syleedlabs/deal-locator-mcp": {
    "name": "syleedlabs/deal-locator-mcp",
@@ -2109,7 +2679,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "tae0y/real-estate-mcp": {
    "name": "tae0y/real-estate-mcp",
@@ -2119,7 +2692,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "techkwon/teacher-guard": {
    "name": "techkwon/teacher-guard",
@@ -2129,7 +2705,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "tlee0818/data-go-kr-realestate-mcp": {
    "name": "tlee0818/data-go-kr-realestate-mcp",
@@ -2139,7 +2718,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "uju777/coupang-mcp": {
    "name": "uju777/coupang-mcp",
@@ -2149,7 +2731,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "updown256/kosis-mcp": {
    "name": "updown256/kosis-mcp",
@@ -2159,7 +2744,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "uscaidev/galpi-korean-law-mcp": {
    "name": "uscaidev/galpi-korean-law-mcp",
@@ -2169,7 +2757,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "vertical-mcp/dart-mcp": {
    "name": "vertical-mcp/dart-mcp",
@@ -2179,7 +2770,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "whdrnr2583-cmd/koreanpulse": {
    "name": "whdrnr2583-cmd/koreanpulse",
@@ -2199,7 +2793,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "woongaro/korean-law-mcp": {
    "name": "woongaro/korean-law-mcp",
@@ -2209,7 +2806,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "worker-ants/korea-weather-mcp": {
    "name": "worker-ants/korea-weather-mcp",
@@ -2219,7 +2819,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "wowzoo/korea-weather-mcp": {
    "name": "wowzoo/korea-weather-mcp",
@@ -2239,7 +2842,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "yjhann33-design/korea-stock-insight-mcp": {
    "name": "yjhann33-design/korea-stock-insight-mcp",
@@ -2259,7 +2865,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "yonghwan1106/mcportal": {
    "name": "yonghwan1106/mcportal",
@@ -2279,7 +2888,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "yoonstudio/invest-stock-app": {
    "name": "yoonstudio/invest-stock-app",
@@ -2289,7 +2901,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "youngs75/kor-legal-mcp": {
    "name": "youngs75/kor-legal-mcp",
@@ -2299,7 +2914,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "yousunjung84-edu/academyinfo-mcp": {
    "name": "yousunjung84-edu/academyinfo-mcp",
@@ -2319,7 +2937,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "zxc8661/safety-health-chemical-mcp": {
    "name": "zxc8661/safety-health-chemical-mcp",
@@ -2329,7 +2950,10 @@
    "last_published": "2026-09-14",
    "rounds": 6,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "GeeYun086/korea-public-data-mcp": {
    "name": "GeeYun086/korea-public-data-mcp",
@@ -2339,7 +2963,10 @@
    "last_published": "2026-09-14",
    "rounds": 5,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "a2a-mcp-multiagent-study/Ticker-Score-Agent": {
    "name": "a2a-mcp-multiagent-study/Ticker-Score-Agent",
@@ -2349,7 +2976,10 @@
    "last_published": "2026-09-14",
    "rounds": 5,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "ai.heyyumi/heyyumi": {
    "name": "ai.heyyumi/heyyumi",
@@ -2359,7 +2989,10 @@
    "last_published": "2026-09-14",
    "rounds": 5,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "com.koreastockcheck/mcp": {
    "name": "com.koreastockcheck/mcp",
@@ -2369,7 +3002,10 @@
    "last_published": "2026-09-14",
    "rounds": 5,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "daehyub71/onbid-mcp": {
    "name": "daehyub71/onbid-mcp",
@@ -2379,7 +3015,10 @@
    "last_published": "2026-09-14",
    "rounds": 5,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "hlucent/safemap-uv-index-mcp": {
    "name": "hlucent/safemap-uv-index-mcp",
@@ -2389,7 +3028,10 @@
    "last_published": "2026-09-14",
    "rounds": 5,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "hmgthb/ai-pb-agent-portfolio": {
    "name": "hmgthb/ai-pb-agent-portfolio",
@@ -2399,7 +3041,10 @@
    "last_published": "2026-09-14",
    "rounds": 3,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "kjs369369/law-mcp-prompts20": {
    "name": "kjs369369/law-mcp-prompts20",
@@ -2409,7 +3054,10 @@
    "last_published": "2026-09-14",
    "rounds": 5,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "socialkim/korea-onegov-mcp": {
    "name": "socialkim/korea-onegov-mcp",
@@ -2419,7 +3067,10 @@
    "last_published": "2026-09-14",
    "rounds": 5,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "zephiris21/news-mcp-crawler": {
    "name": "zephiris21/news-mcp-crawler",
@@ -2429,7 +3080,10 @@
    "last_published": "2026-09-14",
    "rounds": 5,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "zisu17/korean-taxlaw-mcp": {
    "name": "zisu17/korean-taxlaw-mcp",
@@ -2439,7 +3093,10 @@
    "last_published": "2026-09-14",
    "rounds": 5,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "50seok/kr-public-data-mcp": {
    "name": "50seok/kr-public-data-mcp",
@@ -2449,7 +3106,10 @@
    "last_published": "2026-09-14",
    "rounds": 4,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "ai.hotker/hotker": {
    "name": "ai.hotker/hotker",
@@ -2459,7 +3119,10 @@
    "last_published": "2026-09-14",
    "rounds": 4,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "antisdream/skn29-3rd-4team": {
    "name": "antisdream/skn29-3rd-4team",
@@ -2469,7 +3132,10 @@
    "last_published": "2026-09-14",
    "rounds": 4,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "build.naru/contract-compass": {
    "name": "build.naru/contract-compass",
@@ -2479,7 +3145,10 @@
    "last_published": "2026-09-14",
    "rounds": 4,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "com.whooing/whooing": {
    "name": "com.whooing/whooing",
@@ -2489,7 +3158,10 @@
    "last_published": "2026-09-14",
    "rounds": 4,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "exclusiveyon-a11y/reevl-plugins": {
    "name": "exclusiveyon-a11y/reevl-plugins",
@@ -2509,7 +3181,10 @@
    "last_published": "2026-09-14",
    "rounds": 4,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "giovinazo/open-law": {
    "name": "giovinazo/open-law",
@@ -2519,7 +3194,10 @@
    "last_published": "2026-09-14",
    "rounds": 4,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.ChloePark85/kr-groundtruth": {
    "name": "io.github.ChloePark85/kr-groundtruth",
@@ -2529,7 +3207,10 @@
    "last_published": "2026-09-14",
    "rounds": 4,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.HyosikPark/kr-apt-trades": {
    "name": "io.github.HyosikPark/kr-apt-trades",
@@ -2539,7 +3220,10 @@
    "last_published": "2026-09-14",
    "rounds": 4,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.HyosikPark/kr-district-codes": {
    "name": "io.github.HyosikPark/kr-district-codes",
@@ -2549,7 +3233,10 @@
    "last_published": "2026-09-14",
    "rounds": 4,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.MongLong0214/stockmatrix-mcp": {
    "name": "io.github.MongLong0214/stockmatrix-mcp",
@@ -2559,7 +3246,10 @@
    "last_published": "2026-09-14",
    "rounds": 4,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.do-droid/seoul-essentials": {
    "name": "io.github.do-droid/seoul-essentials",
@@ -2569,7 +3259,10 @@
    "last_published": "2026-09-14",
    "rounds": 4,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.fieldcure/publicdata-kr": {
    "name": "io.github.fieldcure/publicdata-kr",
@@ -2579,7 +3272,10 @@
    "last_published": "2026-09-14",
    "rounds": 4,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.juh5ng/k-data-mcp": {
    "name": "io.github.juh5ng/k-data-mcp",
@@ -2589,7 +3285,10 @@
    "last_published": "2026-09-14",
    "rounds": 4,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.kimnchai/korea-flight-mcp": {
    "name": "io.github.kimnchai/korea-flight-mcp",
@@ -2599,7 +3298,10 @@
    "last_published": "2026-09-14",
    "rounds": 4,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.koreal6803/finlab-ai": {
    "name": "io.github.koreal6803/finlab-ai",
@@ -2609,7 +3311,10 @@
    "last_published": "2026-09-14",
    "rounds": 4,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.lazymac2x/govdata-korea": {
    "name": "io.github.lazymac2x/govdata-korea",
@@ -2619,7 +3324,10 @@
    "last_published": "2026-09-14",
    "rounds": 4,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.lichtsalz/korea-data": {
    "name": "io.github.lichtsalz/korea-data",
@@ -2629,7 +3337,10 @@
    "last_published": "2026-09-14",
    "rounds": 4,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.loved0543-dotcom/kdata-gate": {
    "name": "io.github.loved0543-dotcom/kdata-gate",
@@ -2639,7 +3350,10 @@
    "last_published": "2026-09-14",
    "rounds": 4,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.lovelyquality/korail-mcp": {
    "name": "io.github.lovelyquality/korail-mcp",
@@ -2649,7 +3363,10 @@
    "last_published": "2026-09-14",
    "rounds": 4,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.namen-ceo/factbat-public-record-locator": {
    "name": "io.github.namen-ceo/factbat-public-record-locator",
@@ -2659,7 +3376,10 @@
    "last_published": "2026-09-14",
    "rounds": 4,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.namuaix/seoul-tourism": {
    "name": "io.github.namuaix/seoul-tourism",
@@ -2669,7 +3389,10 @@
    "last_published": "2026-09-14",
    "rounds": 4,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.opendata-kr/narajangteo-bid-mcp": {
    "name": "io.github.opendata-kr/narajangteo-bid-mcp",
@@ -2679,7 +3402,10 @@
    "last_published": "2026-09-14",
    "rounds": 4,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.opendata-kr/narajangteo-corpinfo": {
    "name": "io.github.opendata-kr/narajangteo-corpinfo",
@@ -2689,7 +3415,10 @@
    "last_published": "2026-09-14",
    "rounds": 4,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.opendata-kr/narajangteo-opening": {
    "name": "io.github.opendata-kr/narajangteo-opening",
@@ -2699,7 +3428,10 @@
    "last_published": "2026-09-14",
    "rounds": 4,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.opendata-kr/narajangteo-prespec-mcp": {
    "name": "io.github.opendata-kr/narajangteo-prespec-mcp",
@@ -2709,7 +3441,10 @@
    "last_published": "2026-09-14",
    "rounds": 4,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.pipeworx-io/dart-kr": {
    "name": "io.github.pipeworx-io/dart-kr",
@@ -2719,7 +3454,10 @@
    "last_published": "2026-09-14",
    "rounds": 4,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.pipeworx-io/ecos-kr": {
    "name": "io.github.pipeworx-io/ecos-kr",
@@ -2729,7 +3467,10 @@
    "last_published": "2026-09-14",
    "rounds": 4,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.pipeworx-io/pub-dev": {
    "name": "io.github.pipeworx-io/pub-dev",
@@ -2739,7 +3480,10 @@
    "last_published": "2026-09-14",
    "rounds": 4,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.rubato103/kci-openapi-mcp": {
    "name": "io.github.rubato103/kci-openapi-mcp",
@@ -2749,7 +3493,10 @@
    "last_published": "2026-09-14",
    "rounds": 4,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.rubato103/nl-openapi-mcp": {
    "name": "io.github.rubato103/nl-openapi-mcp",
@@ -2759,7 +3506,10 @@
    "last_published": "2026-09-14",
    "rounds": 4,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.rubatoyd/kci-openapi-mcp": {
    "name": "io.github.rubatoyd/kci-openapi-mcp",
@@ -2769,7 +3519,10 @@
    "last_published": "2026-09-14",
    "rounds": 4,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.rubatoyd/nl-openapi-mcp": {
    "name": "io.github.rubatoyd/nl-openapi-mcp",
@@ -2779,7 +3532,10 @@
    "last_published": "2026-09-14",
    "rounds": 4,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.semorehq/mcp-commerce": {
    "name": "io.github.semorehq/mcp-commerce",
@@ -2789,7 +3545,10 @@
    "last_published": "2026-09-14",
    "rounds": 4,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.sharebook-kr/pykrx-mcp": {
    "name": "io.github.sharebook-kr/pykrx-mcp",
@@ -2799,7 +3558,10 @@
    "last_published": "2026-09-14",
    "rounds": 4,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.smilemin07/korean-rnd-regs-mcp": {
    "name": "io.github.smilemin07/korean-rnd-regs-mcp",
@@ -2809,7 +3571,10 @@
    "last_published": "2026-09-14",
    "rounds": 4,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.ssd7830-cmyk/korean-firefighter-law-mcp": {
    "name": "io.github.ssd7830-cmyk/korean-firefighter-law-mcp",
@@ -2819,7 +3584,10 @@
    "last_published": "2026-09-14",
    "rounds": 4,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.standardbeagle/dart-query": {
    "name": "io.github.standardbeagle/dart-query",
@@ -2829,7 +3597,10 @@
    "last_published": "2026-09-14",
    "rounds": 4,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.whdrnr2583-cmd/koreanpulse": {
    "name": "io.github.whdrnr2583-cmd/koreanpulse",
@@ -2839,7 +3610,10 @@
    "last_published": "2026-09-14",
    "rounds": 4,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.wujinkim/korea-business-verify": {
    "name": "io.github.wujinkim/korea-business-verify",
@@ -2849,7 +3623,10 @@
    "last_published": "2026-09-14",
    "rounds": 4,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.yjhann33-design/korea-stock-insight-mcp": {
    "name": "io.github.yjhann33-design/korea-stock-insight-mcp",
@@ -2859,7 +3636,10 @@
    "last_published": "2026-09-14",
    "rounds": 4,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.yonghwan1106/mcportal": {
    "name": "io.github.yonghwan1106/mcportal",
@@ -2869,7 +3649,10 @@
    "last_published": "2026-09-14",
    "rounds": 4,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.yousunjung84-edu/academyinfo": {
    "name": "io.github.yousunjung84-edu/academyinfo",
@@ -2879,7 +3662,10 @@
    "last_published": "2026-09-14",
    "rounds": 4,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.yujiseok/public-official-mcp-server": {
    "name": "io.github.yujiseok/public-official-mcp-server",
@@ -2889,7 +3675,10 @@
    "last_published": "2026-09-14",
    "rounds": 4,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "juhyeon-im/PyNps_MCP2607": {
    "name": "juhyeon-im/PyNps_MCP2607",
@@ -2899,7 +3688,10 @@
    "last_published": "2026-09-14",
    "rounds": 4,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "kr.co.softbowl/sbchart2": {
    "name": "kr.co.softbowl/sbchart2",
@@ -2909,7 +3701,10 @@
    "last_published": "2026-09-14",
    "rounds": 4,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "kr.co.softbowl/sbgrid3": {
    "name": "kr.co.softbowl/sbgrid3",
@@ -2919,7 +3714,10 @@
    "last_published": "2026-09-14",
    "rounds": 4,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "kr.eocpa/mydart": {
    "name": "kr.eocpa/mydart",
@@ -2929,7 +3727,10 @@
    "last_published": "2026-09-14",
    "rounds": 4,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "kr.gronox/finbridge": {
    "name": "kr.gronox/finbridge",
@@ -2939,7 +3740,10 @@
    "last_published": "2026-09-14",
    "rounds": 4,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "kr.ibtcc/competition-ratio": {
    "name": "kr.ibtcc/competition-ratio",
@@ -2949,7 +3753,10 @@
    "last_published": "2026-09-14",
    "rounds": 4,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "kr.wandsol/patent-search": {
    "name": "kr.wandsol/patent-search",
@@ -2959,7 +3766,10 @@
    "last_published": "2026-09-14",
    "rounds": 4,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "org.medicalaialliance/intelligence": {
    "name": "org.medicalaialliance/intelligence",
@@ -2969,7 +3779,10 @@
    "last_published": "2026-09-14",
    "rounds": 4,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "rubatoyd/kakao-book-mcp": {
    "name": "rubatoyd/kakao-book-mcp",
@@ -2979,7 +3792,10 @@
    "last_published": "2026-09-14",
    "rounds": 4,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "SkillfulBasher1/construct-cm-bridge": {
    "name": "SkillfulBasher1/construct-cm-bridge",
@@ -2989,7 +3805,10 @@
    "last_published": "2026-09-14",
    "rounds": 2,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "ctahoon55/taxlaw-mcp": {
    "name": "ctahoon55/taxlaw-mcp",
@@ -2999,7 +3818,10 @@
    "last_published": "2026-09-14",
    "rounds": 2,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "gigaminkyu/korean-law-mcp": {
    "name": "gigaminkyu/korean-law-mcp",
@@ -3009,7 +3831,10 @@
    "last_published": "2026-09-14",
    "rounds": 2,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.heubme2020/datasinking": {
    "name": "io.github.heubme2020/datasinking",
@@ -3019,7 +3844,10 @@
    "last_published": "2026-09-14",
    "rounds": 2,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.richard-kim-79/jejusns": {
    "name": "io.github.richard-kim-79/jejusns",
@@ -3029,7 +3857,10 @@
    "last_published": "2026-09-14",
    "rounds": 2,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "jjonghyun41/kasb-accounting-mcp": {
    "name": "jjonghyun41/kasb-accounting-mcp",
@@ -3039,7 +3870,10 @@
    "last_published": "2026-09-14",
    "rounds": 2,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "kaicot/kaic-kinder-info": {
    "name": "kaicot/kaic-kinder-info",
@@ -3049,7 +3883,10 @@
    "last_published": "2026-09-14",
    "rounds": 2,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "kjs369369/law-mcp-prompts-biz": {
    "name": "kjs369369/law-mcp-prompts-biz",
@@ -3059,7 +3896,10 @@
    "last_published": "2026-09-14",
    "rounds": 2,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "taxwoong/nts-tax-mcp": {
    "name": "taxwoong/nts-tax-mcp",
@@ -3069,7 +3909,10 @@
    "last_published": "2026-09-14",
    "rounds": 2,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "042Jason/kosis-mcp": {
    "name": "042Jason/kosis-mcp",
@@ -3079,7 +3922,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "4thIS/hackathon_mjc_mcp": {
    "name": "4thIS/hackathon_mjc_mcp",
@@ -3089,7 +3935,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "DrFirstLee/korea-stock-mcp": {
    "name": "DrFirstLee/korea-stock-mcp",
@@ -3099,7 +3948,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "GyeongHoKim/naeryeo": {
    "name": "GyeongHoKim/naeryeo",
@@ -3109,7 +3961,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "HaChanho/passfit": {
    "name": "HaChanho/passfit",
@@ -3119,7 +3974,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "JeongSeongMok/tossinvest-openapi-mcp": {
    "name": "JeongSeongMok/tossinvest-openapi-mcp",
@@ -3129,7 +3987,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "JunbeomL22/dart-krx-mcp": {
    "name": "JunbeomL22/dart-krx-mcp",
@@ -3139,7 +4000,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "MarcoYou/open-esg-korea": {
    "name": "MarcoYou/open-esg-korea",
@@ -3149,7 +4013,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "MikeVenge/krx-dart-mcp": {
    "name": "MikeVenge/krx-dart-mcp",
@@ -3159,7 +4026,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "Noah3521/coupang-sourcing": {
    "name": "Noah3521/coupang-sourcing",
@@ -3169,7 +4039,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "RealYoungk/openkrx-mcp": {
    "name": "RealYoungk/openkrx-mcp",
@@ -3179,7 +4052,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "SeoNaRu/korean-law-mcp": {
    "name": "SeoNaRu/korean-law-mcp",
@@ -3189,7 +4065,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "SonAIengine/ku-portal-mcp": {
    "name": "SonAIengine/ku-portal-mcp",
@@ -3199,7 +4078,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "Tech-curator/korean-patent-mcp": {
    "name": "Tech-curator/korean-patent-mcp",
@@ -3209,7 +4091,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "UrbanWatcherKr/korean-land-mcp": {
    "name": "UrbanWatcherKr/korean-land-mcp",
@@ -3219,7 +4104,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "afrontend/dongnelibrary-mcp-server": {
    "name": "afrontend/dongnelibrary-mcp-server",
@@ -3229,7 +4117,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "ai.seldons/korea-business-trade": {
    "name": "ai.seldons/korea-business-trade",
@@ -3239,7 +4130,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "aibridge-leo/tradingview-mcp-aibridge": {
    "name": "aibridge-leo/tradingview-mcp-aibridge",
@@ -3249,7 +4143,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "antryu/kolaw": {
    "name": "antryu/kolaw",
@@ -3259,7 +4156,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "app.sallim/korea-stay": {
    "name": "app.sallim/korea-stay",
@@ -3269,7 +4169,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "app.wonbuddhism/scripture": {
    "name": "app.wonbuddhism/scripture",
@@ -3279,7 +4182,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "arapodcho/mcp_server_neis_api": {
    "name": "arapodcho/mcp_server_neis_api",
@@ -3289,7 +4195,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "bhyunco/korea-holiday-mcp": {
    "name": "bhyunco/korea-holiday-mcp",
@@ -3299,7 +4208,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "billy-baek/ansimtalk": {
    "name": "billy-baek/ansimtalk",
@@ -3309,7 +4221,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "blottosicei/here-now-er-mcp": {
    "name": "blottosicei/here-now-er-mcp",
@@ -3319,7 +4234,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "blueming85/busan-contract-mcp": {
    "name": "blueming85/busan-contract-mcp",
@@ -3329,7 +4247,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "buenosiempre-cmd/kr-univ-rule-mcp": {
    "name": "buenosiempre-cmd/kr-univ-rule-mcp",
@@ -3339,7 +4260,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "changgi/open-go-kr-archive": {
    "name": "changgi/open-go-kr-archive",
@@ -3349,7 +4273,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "choyeonkyu/mcp-ai-agent": {
    "name": "choyeonkyu/mcp-ai-agent",
@@ -3359,7 +4286,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "chromato99/krx-rule-mcp": {
    "name": "chromato99/krx-rule-mcp",
@@ -3369,7 +4299,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "clayop/korean-university-regulation-mcp": {
    "name": "clayop/korean-university-regulation-mcp",
@@ -3379,7 +4312,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "com.airblockfz/stock-signal-kr": {
    "name": "com.airblockfz/stock-signal-kr",
@@ -3389,7 +4325,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "com.goodsaegim/goodsaegim": {
    "name": "com.goodsaegim/goodsaegim",
@@ -3399,7 +4338,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "com.kimchi-sushi/agent-mcp": {
    "name": "com.kimchi-sushi/agent-mcp",
@@ -3409,7 +4351,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "com.nmjib/nmjib": {
    "name": "com.nmjib/nmjib",
@@ -3419,7 +4364,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "com.seoapi/naverbot": {
    "name": "com.seoapi/naverbot",
@@ -3429,7 +4377,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "com.thenextgennexus/global-equities-screener-mcp": {
    "name": "com.thenextgennexus/global-equities-screener-mcp",
@@ -3439,7 +4390,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "coyaSONG/kra-mcp": {
    "name": "coyaSONG/kra-mcp",
@@ -3449,7 +4403,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "dahlia/ko-stdict-mcp": {
    "name": "dahlia/ko-stdict-mcp",
@@ -3459,7 +4416,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "datagokr-dev/datagokr": {
    "name": "datagokr-dev/datagokr",
@@ -3469,7 +4429,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "dodopd/kosis-mcp": {
    "name": "dodopd/kosis-mcp",
@@ -3479,7 +4442,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "dongkyucho17/onbid-mcp": {
    "name": "dongkyucho17/onbid-mcp",
@@ -3489,7 +4455,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "eastho20/korea-stock-mcp-vercel": {
    "name": "eastho20/korea-stock-mcp-vercel",
@@ -3499,7 +4468,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "edward-kim-dev/kr-pc-deals-mcp": {
    "name": "edward-kim-dev/kr-pc-deals-mcp",
@@ -3509,7 +4481,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "emceeKim/korea-finance-mcp": {
    "name": "emceeKim/korea-finance-mcp",
@@ -3519,7 +4494,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "epoko77-ai/korean-bill-debate-mcp": {
    "name": "epoko77-ai/korean-bill-debate-mcp",
@@ -3529,7 +4507,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "handbell-H/mcp-kakao_map_mobility": {
    "name": "handbell-H/mcp-kakao_map_mobility",
@@ -3539,7 +4520,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "harimkang/mcp-korea-tourism-api": {
    "name": "harimkang/mcp-korea-tourism-api",
@@ -3549,7 +4533,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "hichang4u/data-go-mcp-servers": {
    "name": "hichang4u/data-go-mcp-servers",
@@ -3559,7 +4546,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "hlucent/airkorea-realtime-mcp": {
    "name": "hlucent/airkorea-realtime-mcp",
@@ -3569,7 +4559,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "hwain-ai/Real-Estate-Location-Analyzer_MCP": {
    "name": "hwain-ai/Real-Estate-Location-Analyzer_MCP",
@@ -3579,7 +4572,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "hypn4/tossinvest-mcp": {
    "name": "hypn4/tossinvest-mcp",
@@ -3589,7 +4585,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "iiacjay/incheon-airport-mcp": {
    "name": "iiacjay/incheon-airport-mcp",
@@ -3599,7 +4598,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.BK927/overwatch-aio": {
    "name": "io.github.BK927/overwatch-aio",
@@ -3609,7 +4611,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.CSOAI-ORG/korea-ai-basic-act-mcp": {
    "name": "io.github.CSOAI-ORG/korea-ai-basic-act-mcp",
@@ -3619,7 +4624,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.HyosikPark/kr-holidays": {
    "name": "io.github.HyosikPark/kr-holidays",
@@ -3629,7 +4637,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.Mobiss11/daepak-mcp": {
    "name": "io.github.Mobiss11/daepak-mcp",
@@ -3639,7 +4650,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.SongT-50/korean-news-mcp": {
    "name": "io.github.SongT-50/korean-news-mcp",
@@ -3649,7 +4663,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.Wonderfulian/kbv-server": {
    "name": "io.github.Wonderfulian/kbv-server",
@@ -3659,7 +4676,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.aminpiano/nara-tour": {
    "name": "io.github.aminpiano/nara-tour",
@@ -3669,7 +4689,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.bubilife1202/crossfin": {
    "name": "io.github.bubilife1202/crossfin",
@@ -3679,7 +4702,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.do-droid/busan-essentials": {
    "name": "io.github.do-droid/busan-essentials",
@@ -3689,7 +4715,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.gejyn14/kiwoom-mcp": {
    "name": "io.github.gejyn14/kiwoom-mcp",
@@ -3699,7 +4728,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.java-jaydev/naver-mybox-mcp": {
    "name": "io.github.java-jaydev/naver-mybox-mcp",
@@ -3709,7 +4741,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.minsooparkk/korea-tax-law-mcp": {
    "name": "io.github.minsooparkk/korea-tax-law-mcp",
@@ -3719,7 +4754,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.peter120525-cmd/lawmadi-os": {
    "name": "io.github.peter120525-cmd/lawmadi-os",
@@ -3729,7 +4767,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.redoxnet/lsopenapi": {
    "name": "io.github.redoxnet/lsopenapi",
@@ -3739,7 +4780,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.rubatoyd/kosis-openapi-mcp": {
    "name": "io.github.rubatoyd/kosis-openapi-mcp",
@@ -3749,7 +4793,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.rubatoyd/na-openapi-mcp": {
    "name": "io.github.rubatoyd/na-openapi-mcp",
@@ -3759,7 +4806,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.sadri-dridi/tz-asia-seoul": {
    "name": "io.github.sadri-dridi/tz-asia-seoul",
@@ -3769,7 +4819,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.sean-park-funda/korea-data-mcp": {
    "name": "io.github.sean-park-funda/korea-data-mcp",
@@ -3779,7 +4832,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "io.github.sean-park-funda/korea-ocean-mcp": {
    "name": "io.github.sean-park-funda/korea-ocean-mcp",
@@ -3789,7 +4845,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "jang236/etf-analyzer": {
    "name": "jang236/etf-analyzer",
@@ -3799,7 +4858,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "jcahn99/gis-accessibility-mcp": {
    "name": "jcahn99/gis-accessibility-mcp",
@@ -3809,7 +4871,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "jinjukimink/subway-congestion-mcp": {
    "name": "jinjukimink/subway-congestion-mcp",
@@ -3819,7 +4884,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "jinny-han/industrial-complex-api-mcp": {
    "name": "jinny-han/industrial-complex-api-mcp",
@@ -3829,7 +4897,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "jinny-han/vworld-api-mcp": {
    "name": "jinny-han/vworld-api-mcp",
@@ -3839,7 +4910,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "jjmcpa93-design/g2b-bid-mcp": {
    "name": "jjmcpa93-design/g2b-bid-mcp",
@@ -3849,7 +4923,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "jo73089622-pixel/gyeongbuk-arch-law-mcp": {
    "name": "jo73089622-pixel/gyeongbuk-arch-law-mcp",
@@ -3859,7 +4936,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "justcoding-ys/mcp-naver-news": {
    "name": "justcoding-ys/mcp-naver-news",
@@ -3869,7 +4949,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "kebong-3/seogu-mcp": {
    "name": "kebong-3/seogu-mcp",
@@ -3879,7 +4962,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "kendrick-na/segeum-matjip": {
    "name": "kendrick-na/segeum-matjip",
@@ -3889,7 +4975,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "kkhwan1/KONEPS_sionlab": {
    "name": "kkhwan1/KONEPS_sionlab",
@@ -3899,7 +4988,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "kmjm231/korea-scholar-mcp": {
    "name": "kmjm231/korea-scholar-mcp",
@@ -3909,7 +5001,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "koreainvestment/koreainvestment-mcp": {
    "name": "koreainvestment/koreainvestment-mcp",
@@ -3919,7 +5014,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "kr.eocpa/myfss": {
    "name": "kr.eocpa/myfss",
@@ -3929,7 +5027,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "kr.eocpa/mykifrs": {
    "name": "kr.eocpa/mykifrs",
@@ -3939,7 +5040,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "kr.maedong/maedong": {
    "name": "kr.maedong/maedong",
@@ -3949,7 +5053,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "mindm1ner/bangbang-mcp": {
    "name": "mindm1ner/bangbang-mcp",
@@ -3959,7 +5066,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "mogoon/evcharger-mcp-kc": {
    "name": "mogoon/evcharger-mcp-kc",
@@ -3969,7 +5079,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "molpass/mcp-newsfeed": {
    "name": "molpass/mcp-newsfeed",
@@ -3979,7 +5092,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "mongle250129/korea-life-mcp": {
    "name": "mongle250129/korea-life-mcp",
@@ -3989,7 +5105,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "oksure/bible-ko-mcp": {
    "name": "oksure/bible-ko-mcp",
@@ -3999,7 +5118,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "one.aisa/seo-serp-other-engines": {
    "name": "one.aisa/seo-serp-other-engines",
@@ -4009,7 +5131,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "pchuri/korean-capital-gains-tax-mcp": {
    "name": "pchuri/korean-capital-gains-tax-mcp",
@@ -4019,7 +5144,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "peppermint1231/stock-screener-mcp": {
    "name": "peppermint1231/stock-screener-mcp",
@@ -4029,7 +5157,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "pianovirus/kfda-mcp": {
    "name": "pianovirus/kfda-mcp",
@@ -4039,7 +5170,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "pjookim/mcp-visit-korea": {
    "name": "pjookim/mcp-visit-korea",
@@ -4049,7 +5183,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "pollmap/luxon-sangkwon-mcp": {
    "name": "pollmap/luxon-sangkwon-mcp",
@@ -4059,7 +5196,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "prscsl/llm-mcp-weekly": {
    "name": "prscsl/llm-mcp-weekly",
@@ -4069,7 +5209,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "qbong1010/kosis-qbong-mcp": {
    "name": "qbong1010/kosis-qbong-mcp",
@@ -4079,7 +5222,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "reallygood83/sbinfo": {
    "name": "reallygood83/sbinfo",
@@ -4089,7 +5235,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "rubatoyd/law-openapi-mcp": {
    "name": "rubatoyd/law-openapi-mcp",
@@ -4099,7 +5248,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "scvcoder/korean-privacy-law-mcp": {
    "name": "scvcoder/korean-privacy-law-mcp",
@@ -4109,7 +5261,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "site.star365/data": {
    "name": "site.star365/data",
@@ -4119,7 +5274,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "site.star365/hq": {
    "name": "site.star365/hq",
@@ -4129,7 +5287,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "songhwangcross-svg/krx-mcp-server": {
    "name": "songhwangcross-svg/krx-mcp-server",
@@ -4139,7 +5300,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "sound0-07/stdict-korean-mcp-server": {
    "name": "sound0-07/stdict-korean-mcp-server",
@@ -4149,7 +5313,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "ssol-park/booking-checker-mcp": {
    "name": "ssol-park/booking-checker-mcp",
@@ -4159,7 +5326,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "swansong80-afk/neis-mcp": {
    "name": "swansong80-afk/neis-mcp",
@@ -4169,7 +5339,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "taxwoong/labor-mcp": {
    "name": "taxwoong/labor-mcp",
@@ -4179,7 +5352,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "tenacl/koreandict-mcp-server": {
    "name": "tenacl/koreandict-mcp-server",
@@ -4189,7 +5365,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "tjrgus0320/news-crawler-mcp": {
    "name": "tjrgus0320/news-crawler-mcp",
@@ -4199,7 +5378,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "websfactory/dongtori-mcp": {
    "name": "websfactory/dongtori-mcp",
@@ -4209,7 +5391,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "whtjdgns2121-dot/seoul-accessible-transit-mcp": {
    "name": "whtjdgns2121-dot/seoul-accessible-transit-mcp",
@@ -4219,7 +5404,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "wnduq8/kr-mkt-mcp": {
    "name": "wnduq8/kr-mkt-mcp",
@@ -4229,7 +5417,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "yang7021lo/giniz-news": {
    "name": "yang7021lo/giniz-news",
@@ -4239,7 +5430,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "yonghwan1106/korea-culture-mcp": {
    "name": "yonghwan1106/korea-culture-mcp",
@@ -4249,7 +5443,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "yt010108/kr-gov-job-mcp": {
    "name": "yt010108/kr-gov-job-mcp",
@@ -4259,7 +5456,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "yuneunmi814-cmyk/legal-navigator-mcp": {
    "name": "yuneunmi814-cmyk/legal-navigator-mcp",
@@ -4269,7 +5469,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "yuneunmi814-cmyk/sinmungo-mcp": {
    "name": "yuneunmi814-cmyk/sinmungo-mcp",
@@ -4279,7 +5482,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "yunkee-lee/mcp-kakao-local": {
    "name": "yunkee-lee/mcp-kakao-local",
@@ -4289,7 +5495,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   },
   "zzjiho/kr-medicine-mcp": {
    "name": "zzjiho/kr-medicine-mcp",
@@ -4299,7 +5508,10 @@
    "last_published": "2026-09-14",
    "rounds": 1,
    "retired": null,
-   "renamed_to": null
+   "renamed_to": null,
+   "gone_streak": 0,
+   "gone_last_day": "",
+   "gone_round": ""
   }
  },
  "count": 430,

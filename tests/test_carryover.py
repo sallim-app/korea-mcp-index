@@ -40,6 +40,19 @@ def ledger_of(*names, **kw):
     return led
 
 
+def publish_round(led, day, name="some/other"):
+    """그 날 회차가 **게시까지 성사됐다**고 원장에 적는다(export_candidates가 하는 일).
+
+    은퇴 계수는 실행이 아니라 회차를 센다. 원장은 수집 직후·게시 전에 저장되므로,
+    게시가 없으면 다음 날 재실행도 같은 회차다(codex 2026-09-16). 그래서 회차가 넘어가는
+    시험은 그 사이에 게시가 있었음을 이렇게 모사한다.
+    """
+    carryover.record(led, {"measured_at": day, "items": [
+        {"name": name, "repo_url": f"https://github.com/{name}",
+         "remote": {"url": f"https://{name.split('/')[0]}.test/mcp"}}]})
+    return led
+
+
 def alive(path, **kw):
     return {"state": "alive", "full_name": kw.get("full_name", path),
             "repo_url": f"https://github.com/{kw.get('full_name', path)}",
@@ -154,6 +167,7 @@ def test_gone_repo_is_retired_only_after_repeated_evidence():
     assert carried == []
     assert led["items"]["dead/repo"]["retired"] is None, "한 번 보고 끊었다"
     assert any("확인 중" in n for n in notes), "보류를 값으로 말해야 한다"
+    publish_round(led, "2026-09-21")
     carried, notes = carryover.carry_forward(led, [], resolve=gone, day="2026-09-28")
     assert led["items"]["dead/repo"]["retired"]["why"] == "저장소 소멸 실측(HTTP 404 × 2회차)"
     assert any("은퇴" in n and "HTTP 404" in n for n in notes)
@@ -184,6 +198,65 @@ def test_alive_again_clears_the_gone_streak():
     assert led["items"]["flaky/repo"]["gone_streak"] == 1
     carryover.carry_forward(led, [], resolve=alive, day="2026-09-28")
     assert led["items"]["flaky/repo"]["gone_streak"] == 0
+
+
+def test_reappearing_in_collection_clears_the_gone_streak():
+    """이번 회차에 다시 잡혔으면 연속이 끊긴다(codex 2026-09-16).
+
+    되살리기 대상이 아니라 `continue`로 빠지는 길이라 계수 초기화가 빠져 있었다.
+    그대로 두면 옛 404 하나가 원장에 남아 몇 회차 뒤 404 하나와 붙어 **연속 2회차**로
+    읽히고, 살아 있는 남의 서버가 은퇴한다.
+    """
+    led = ledger_of("flaky/repo")
+    led["items"]["flaky/repo"]["last_remote"] = ""
+    gone = lambda p: {"state": "gone", "why": "HTTP 404"}          # noqa: E731
+    carryover.carry_forward(led, [], resolve=gone, day="2026-09-21")
+    assert led["items"]["flaky/repo"]["gone_streak"] == 1
+    # 이번 회차 수집에 다시 들어왔다 — 두드릴 것도 없다.
+    publish_round(led, "2026-09-21")
+    carryover.carry_forward(led, [{"name": "flaky/repo",
+                                   "repo_url": "https://github.com/flaky/repo"}],
+                            resolve=gone, day="2026-09-28")
+    assert led["items"]["flaky/repo"]["gone_streak"] == 0, "다시 잡혔는데 연속을 안 끊었다"
+    publish_round(led, "2026-09-28")
+    carryover.carry_forward(led, [], resolve=gone, day="2026-10-05")
+    assert led["items"]["flaky/repo"]["retired"] is None, "비연속 404 두 번으로 은퇴시켰다"
+
+
+def test_unknown_between_two_404s_does_not_retire():
+    """404·unknown·404는 '연속 2회차 같은 답'이 아니다(codex 2026-09-16).
+
+    은퇴 공시가 그렇게 말하는데 계수는 누적이었다 — 공시와 코드가 갈리면 공시가 거짓이 된다.
+    """
+    led = ledger_of("flappy/repo")
+    led["items"]["flappy/repo"]["last_remote"] = ""
+    gone = lambda p: {"state": "gone", "why": "HTTP 404"}          # noqa: E731
+    unknown = lambda p: {"state": "unknown", "why": "HTTP 403"}    # noqa: E731
+    carryover.carry_forward(led, [], resolve=gone, day="2026-09-21")
+    publish_round(led, "2026-09-21")
+    carryover.carry_forward(led, [], resolve=unknown, day="2026-09-28")
+    assert led["items"]["flappy/repo"]["gone_streak"] == 0, "404가 아닌 답이 연속을 안 끊었다"
+    publish_round(led, "2026-09-28")
+    carryover.carry_forward(led, [], resolve=gone, day="2026-10-05")
+    assert led["items"]["flappy/repo"]["retired"] is None, "비연속 404 두 번으로 은퇴시켰다"
+
+
+def test_budget_exhaustion_neither_counts_nor_clears_the_streak():
+    """**안 물어본 회차는 답이 아니다**(codex 2026-09-16).
+
+    예산이 소진돼 확인을 미룬 회차가 연속을 끊으면, 물어보지도 않고 지난 회차의 404
+    증거를 우리가 지우는 것이다 — 세는 쪽으로도 지우는 쪽으로도 움직이지 않는다.
+    """
+    led = ledger_of("dead/repo")
+    led["items"]["dead/repo"]["last_remote"] = ""
+    gone = lambda p: {"state": "gone", "why": "HTTP 404"}          # noqa: E731
+    carryover.carry_forward(led, [], resolve=gone, day="2026-09-21")
+    assert led["items"]["dead/repo"]["gone_streak"] == 1
+    publish_round(led, "2026-09-21")
+    _, notes = carryover.carry_forward(led, [], resolve=gone, day="2026-09-28", budget=0)
+    assert any("확인 미룸" in n for n in notes), "미룬 것을 공시하지 않았다"
+    assert led["items"]["dead/repo"]["gone_streak"] == 1, "안 물어보고 연속을 끊었다"
+    assert led["items"]["dead/repo"]["retired"] is None, "안 물어보고 회차를 셌다"
 
 
 def test_unknown_is_not_death():
@@ -291,6 +364,69 @@ def test_export_records_the_ledger_and_lists_dropped_carryovers(tmp_path):
     listed = {i["name"] for i in cand["items"]}
     assert "gone/topic" in listed, "이어받은 줄이 drop 통에서 또 조용히 사라졌다"
     assert "plain/drop" not in listed, "보통 drop까지 싣게 되면 3만 건이 실린다"
+
+
+def test_previously_published_row_is_named_even_when_collected_and_dropped(tmp_path):
+    """이번 회차에 **수집은 됐는데** 필터에서 떨어진 옛 게시 줄도 이름째 실린다.
+
+    `carryover` 표식은 수집 원천이 안 돌려준 줄에만 붙는다 — 그래서 표식만 보면
+    '수집됐지만 drop'인 줄이 사유별 건수로만 남아 독자에게는 똑같이 조용히 사라진다
+    (codex 교차검증 2026-09-16, 실측 1건). 기준은 표식이 아니라 게시 이력이다.
+    """
+    (tmp_path / "measured.json").write_text(json.dumps(
+        {"measured": 0, "unmeasurable": 0, "boundaries": [], "criteria_note": "t",
+         "measured_at": "2026-09-21", "axes_at": "2026-09-21", "items": []},
+        ensure_ascii=False), encoding="utf-8")
+    led = carryover.empty_ledger()
+    led["items"]["old/published"] = {
+        "name": "old/published", "repo_url": "https://github.com/old/published",
+        "last_remote": "", "first_published": "2026-09-07", "last_published": "2026-09-14",
+        "rounds": 2, "retired": None, "renamed_to": None}
+    (tmp_path / "published_history.json").write_text(json.dumps(led, ensure_ascii=False),
+                                                     encoding="utf-8")
+    (tmp_path / "candidates_filtered.json").write_text(json.dumps({
+        "buckets": {}, "boundaries": [],
+        "items": [{"name": "old/published", "repo_url": "https://github.com/old/published",
+                   "verdict": "drop", "why": "한국 관련 신호 0 — 검색어에 우연히 걸림"},
+                  {"name": "plain/drop", "repo_url": "https://github.com/plain/drop",
+                   "verdict": "drop", "why": "한국 관련 신호 0 — 검색어에 우연히 걸림"}]},
+        ensure_ascii=False), encoding="utf-8")
+    r = subprocess.run([sys.executable, str(ROOT / "export_candidates.py")],
+                       cwd=tmp_path, capture_output=True, text=True)
+    assert r.returncode == 0, r.stdout + r.stderr
+    cand = json.loads((tmp_path / "candidates.json").read_text(encoding="utf-8"))
+    listed = {i["name"] for i in cand["items"]}
+    assert "old/published" in listed, "한 번 게시한 줄이 표식이 없다는 이유로 또 조용히 사라졌다"
+    assert "plain/drop" not in listed, "게시한 적 없는 drop까지 실으면 3만 건이 실린다"
+
+
+def test_renamed_published_row_is_named_under_its_new_name(tmp_path):
+    """개명한 옛 게시 줄이 새 이름으로 수집돼 drop되어도 이름째 실린다.
+
+    원장에는 옛 이름만 있으므로 이름만 대조하면 개명 한 번으로 다시 조용해진다
+    (codex 교차검증 2026-09-16). 이어받기가 확인해 둔 `renamed_to`가 그 다리다.
+    """
+    (tmp_path / "measured.json").write_text(json.dumps(
+        {"measured": 0, "unmeasurable": 0, "boundaries": [], "criteria_note": "t",
+         "measured_at": "2026-09-21", "axes_at": "2026-09-21", "items": []},
+        ensure_ascii=False), encoding="utf-8")
+    led = carryover.empty_ledger()
+    led["items"]["old/name"] = {
+        "name": "old/name", "repo_url": "https://github.com/old/name", "last_remote": "",
+        "first_published": "2026-09-07", "last_published": "2026-09-14", "rounds": 2,
+        "retired": None, "renamed_to": "new/name"}
+    (tmp_path / "published_history.json").write_text(json.dumps(led, ensure_ascii=False),
+                                                     encoding="utf-8")
+    (tmp_path / "candidates_filtered.json").write_text(json.dumps({
+        "buckets": {}, "boundaries": [],
+        "items": [{"name": "new/name", "repo_url": "https://github.com/new/name",
+                   "verdict": "drop", "why": "한국 관련 신호 0 — 검색어에 우연히 걸림"}]},
+        ensure_ascii=False), encoding="utf-8")
+    r = subprocess.run([sys.executable, str(ROOT / "export_candidates.py")],
+                       cwd=tmp_path, capture_output=True, text=True)
+    assert r.returncode == 0, r.stdout + r.stderr
+    cand = json.loads((tmp_path / "candidates.json").read_text(encoding="utf-8"))
+    assert "new/name" in {i["name"] for i in cand["items"]}, "개명한 게시 줄이 또 조용히 사라졌다"
 
 
 def test_registry_named_row_keeps_its_name_when_source_repo_is_alive():
@@ -407,6 +543,13 @@ def test_same_day_rerun_does_not_count_as_a_second_round():
         carryover.carry_forward(led, [], resolve=gone, day="2026-09-21")
     assert led["items"]["dead/repo"]["gone_streak"] == 1, "같은 날 재실행을 회차로 셌다"
     assert led["items"]["dead/repo"]["retired"] is None
+    # **게시 전 재실행은 날짜가 달라도 같은 회차다**(codex 2026-09-16). 원장은 수집 직후에
+    # 저장되므로, 뒤 단계가 깨져 게시가 안 된 회차를 다음 날 다시 돌리는 것은 실행 두 번이지
+    # 회차 두 번이 아니다 — 그걸 회차로 세면 살아 있을지 모르는 서버가 하루 만에 은퇴한다.
+    carryover.carry_forward(led, [], resolve=gone, day="2026-09-22")
+    assert led["items"]["dead/repo"]["gone_streak"] == 1, "게시 없는 다음 날 재실행을 회차로 셌다"
+    assert led["items"]["dead/repo"]["retired"] is None
+    publish_round(led, "2026-09-21")
     carryover.carry_forward(led, [], resolve=gone, day="2026-09-28")
     assert led["items"]["dead/repo"]["retired"] is not None
 

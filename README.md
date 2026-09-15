@@ -411,6 +411,7 @@
 
 ```
 collect  공식 레지스트리 전수 + GitHub 검색 + mcpmoa 공개 API
+         + 게시 이력 이어받기 — 한 번 실은 서버가 안 잡히면 되살려 다시 판정한다
 filter   한국 관련성(한글·.go.kr·기관명) → 후보 좁히기
 enrich   README에서 엔드포인트·패키지·기관 도메인 추출
 classify 분야·데이터제공형 판정 (LLM, 결과는 classification.json에 고정)

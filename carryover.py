@@ -121,7 +121,7 @@ def record(ledger: dict, measured: dict, day: str | None = None) -> int:
                     e["rounds"] = e.get("rounds", 0) + 1
             # 다시 게시됐으면 은퇴를 취소한다 — 은퇴는 상태이지 낙인이 아니다
             e["retired"] = None
-            e["gone_streak"], e["gone_last_day"] = 0, ""
+            e["gone_streak"], e["gone_last_day"], e["gone_round"] = 0, "", ""
     return new
 
 
@@ -216,6 +216,20 @@ def already_here(e: dict, names: set, repo_eps: dict, eps: set) -> bool:
     return False
 
 
+def _streak_reset(e: dict) -> None:
+    """404가 **아닌 답을 실제로 받았으면** 소멸 연속 계수를 끊는다.
+
+    답을 받은 때만이다 — 확인 예산 소진처럼 **안 물어본** 회차는 끊지 않는다
+    (codex 2026-09-16). 물어보지도 않고 끊으면 지난 회차의 404 증거를 우리가 지운다.
+
+    은퇴 공시는 **연속 회차가 같은 답일 때만**이라고 말한다. 그 말이 참이려면 404가
+    아닌 답이 하나라도 끼는 순간 계수가 0으로 돌아가야 한다 — 누적이면 비연속 404
+    두 번으로 살아 있는 서버가 영구 은퇴한다.
+    """
+    if e.get("gone_streak"):
+        e["gone_streak"], e["gone_last_day"], e["gone_round"] = 0, "", ""
+
+
 def carry_forward(ledger: dict, collected, resolve=None, day: str = "",
                   token: str | None = None, budget: int = RESOLVE_BUDGET) -> tuple[list, list]:
     """수집 결과에 **게시 이력만 있고 이번엔 안 잡힌** 서버를 되살린다.
@@ -229,6 +243,10 @@ def carry_forward(ledger: dict, collected, resolve=None, day: str = "",
     """
     resolve = resolve or (lambda p: resolve_github(p, token))
     names, repo_eps, eps = present_keys(collected)
+    # **회차의 신원 = 마지막으로 게시가 성사된 날.** 원장은 게시 전에 저장되므로 실행
+    # 날짜로는 회차를 셀 수 없다(아래 404 분기 주석). 게시가 한 번도 없으면 실행 날짜뿐이다.
+    round_key = max((x.get("last_published") or "") for x in ledger["items"].values()) if ledger["items"] else ""
+    round_key = round_key or day
     carried, notes = [], []
     retired, renamed, unresolved, pending, deferred = [], [], [], [], []
     budget_left = budget
@@ -237,6 +255,11 @@ def carry_forward(ledger: dict, collected, resolve=None, day: str = "",
         if e.get("retired"):
             continue
         if already_here(e, names, repo_eps, eps):
+            # 이번 회차에 다시 잡혔다 = 404가 아닌 답이다. **연속 계수를 끊는다**
+            # (codex 교차검증 2026-09-16). 안 끊으면 지난 회차의 404 하나가 원장에
+            # 남아, 몇 회차 뒤의 404 하나와 붙어 **연속 2회차로 읽히고** 살아 있는
+            # 남의 서버가 은퇴한다 — 아래 404 분기가 공시하는 '연속'이 거짓이 된다.
+            _streak_reset(e)
             continue
 
         path = gh_path(e)
@@ -246,6 +269,8 @@ def carry_forward(ledger: dict, collected, resolve=None, day: str = "",
         if path is None:
             # GitHub 저장소가 없는 등록(레지스트리 전용). 소멸을 확인할 통로가 없으므로
             # **확인 못 함을 사망으로 읽지 않는다** — 마지막 게시 기록대로 이어받고 공시한다.
+            # 예산 소진과 같은 이유로 계수를 건드리지 않는다 — 두드릴 곳이 없어 못 물어본
+            # 것이지, 404가 아닌 답을 받은 것이 아니다.
             unresolved.append(name)
             carried.append(_item(name, e, {"state": "unknown", "why": "GitHub 저장소 없음"},
                                  day, with_remote=True))
@@ -254,6 +279,10 @@ def carry_forward(ledger: dict, collected, resolve=None, day: str = "",
 
         if budget_left <= 0:
             # 확인 예산 소진. **버리지 않고 미룬다** — 마지막 기록대로 이어받고 공시한다.
+            # **여기서는 연속 계수를 건드리지 않는다**(codex 2026-09-16). 예산 소진은
+            # 답이 아니라 **안 물어본 것**이다 — 끊는 것도 관측이라, 물어보지도 않고
+            # 끊으면 지난 회차의 404 증거를 우리가 지우는 셈이 된다. 늘리지도 줄이지도
+            # 않고 그대로 두는 것이 '못 봄 ≠ 없음'의 양쪽 방향이다.
             deferred.append(name)
             carried.append(_item(name, e, {"state": "unknown", "why": "확인 예산 소진"},
                                  day, with_remote=True))
@@ -286,12 +315,18 @@ def carry_forward(ledger: dict, collected, resolve=None, day: str = "",
             # 두 회차에서 같은 답이 나와야 은퇴다(일시적 비공개·이전 중일 수 있다).
             # **회차를 세는 것이지 실행을 세는 것이 아니다**(codex 2026-09-15). 같은 날
             # 수집기를 두 번 돌리면 연속 2회차로 읽혀 살아 있을지 모르는 서버가 은퇴한다.
-            if day and e.get("gone_last_day") == day:
+            #
+            # 날짜만으로는 절반만 막힌다(codex 2026-09-16). 원장은 **수집 직후·게시 전에**
+            # 저장되므로, 뒤 단계(필터·측정·내보내기)가 깨져 그 회차가 게시되지 않은 채
+            # 다음 날 다시 돌리면 날짜가 달라 새 회차로 세어진다 — 실행 두 번이 회차
+            # 두 번으로 둔갑한다. 그래서 회차의 신원을 **마지막으로 게시된 날**로 잡는다:
+            # 게시가 성사되기 전의 재시도는 전부 같은 회차다.
+            if day and (e.get("gone_last_day") == day or e.get("gone_round") == round_key):
                 pending.append(f"{name}({r['why']} {e.get('gone_streak', 0)}/{GONE_ROUNDS}회차, "
-                               "같은 날 재실행이라 세지 않음)")
+                               "게시 전 재실행이라 세지 않음)")
                 continue
             e["gone_streak"] = e.get("gone_streak", 0) + 1
-            e["gone_last_day"] = day
+            e["gone_last_day"], e["gone_round"] = day, round_key
             if e["gone_streak"] >= GONE_ROUNDS:
                 e["retired"] = {"day": day,
                                 "why": f"저장소 소멸 실측({r['why']} × {e['gone_streak']}회차)"}
@@ -322,7 +357,11 @@ def carry_forward(ledger: dict, collected, resolve=None, day: str = "",
             absorb(carried[-1], names, repo_eps, eps)
             continue
 
+        # 404도 alive도 아닌 답(403 한도·네트워크 실패 등). **이것도 404가 아니므로
+        # 연속을 끊는다**(codex 교차검증 2026-09-16) — 안 끊으면 404·unknown·404가
+        # '연속 2회차 같은 답'으로 계산돼 공시와 어긋난 은퇴가 난다.
         unresolved.append(f"{name}({r['why']})")
+        _streak_reset(e)
         carried.append(_item(name, e, r, day, with_remote=True))
         absorb(carried[-1], names, repo_eps, eps)
 
