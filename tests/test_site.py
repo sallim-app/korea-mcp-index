@@ -591,3 +591,46 @@ def test_every_page_carries_analytics_and_feedback():
             assert wid and re.fullmatch(
                 r"[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
                 wid.group(1)), f"website-id가 uuid가 아니다: {f}"
+def test_mobile_tables_have_a_readable_column_floor():
+    """모바일에서 표가 글자 단위로 쪼개지지 않게 하는 CSS 계약(2026-09-19, T-2026W37-188).
+
+    계기 실측(393px·chromium·file:// 로컬 렌더): 측정값 표(7열)의 서버 열이 **47.6px ·
+    한 셀 20줄 · 행 높이 1362px**이었다 — 세로 리본이라 읽을 수 없다. 원인은 `body`의
+    `overflow-wrap:anywhere`가 셀까지 내려와 **열의 min-content를 한 글자로** 만든 것이다.
+    표는 `width:100%`라 컨테이너 안으로 억지로 줄어들고, 그래서 `.tw`가 이미 갖고 있던
+    가로 스크롤이 **절대 발화하지 않았다**(scrollWidth 423 / clientWidth 365 — 열은
+    짜부라진 채 58px만 넘쳤다).
+
+    처방은 셀에 **최소 열폭**을 주어 표가 실제로 넘치게 하는 것이다. 수리 후 같은 표는
+    서버 열 104px · 행 높이 438px · `.tw` scrollWidth 479 > clientWidth 365다.
+
+    `overflow-wrap:anywhere`는 **일부러 셀에 남겼다**. 셀에서 `normal`로 풀면 긴 영문
+    식별자(`UNEXPECTED_EOF_WHILE_READING]` · `capitalparser/public-data-opportunity-mcp`)가
+    그 열의 min-content가 되어, 393px에서 3열 표 15개 중 10개가 불필요하게 가로로
+    넘쳤다(실측 표 폭 574px·671px). 남겨 두면 긴 토큰은 열 안에서 접히고 최소폭은
+    아래 규칙이 지킨다.
+
+    그래서 고정하는 것은 **두 짝**이다 — ①최소 열폭 ②그것이 흘러 나갈 `.tw`의 가로
+    스크롤. 하나만 남으면 다시 글자 단위로 쪼개진다(①이 없을 때) 또는 표가 화면 밖으로
+    잘려 나간다(②가 없을 때). 그리고 최소폭이 너무 크면 열 적은 표까지 스크롤이 생기니
+    상한도 같이 박는다 — 3열 표가 360px 기기(컨테이너 332px)에서 안 넘치는 값이다.
+    """
+    with tempfile.TemporaryDirectory() as tmp:
+        r, out = build(tmp)
+        assert r.returncode == 0, r.stderr
+        css = re.search(r"<style>(.*?)</style>",
+                        (out / "index.html").read_text(encoding="utf-8"), re.S).group(1)
+        # ② 배관: 최소폭이 넘칠 곳이 있어야 한다
+        assert re.search(r"\.tw\{[^}]*overflow-x:auto", css), \
+            ".tw의 가로 스크롤이 사라졌다 — 최소 열폭이 화면 밖으로 잘려 나간다"
+        # ① 최소 열폭이 **모바일 미디어쿼리 안에** 있어야 한다(데스크탑 열 폭은 건드리지 않는다)
+        i = css.index("@media (max-width:640px){.wrap")
+        mobile = css[i:css.index("@media", i + 10)]
+        floors = [float(m.group(1)) for m in
+                  re.finditer(r"\.tw[^{}]*\btd\b[^{}]*\{[^}]*min-width:([\d.]+)rem", mobile)]
+        assert floors, ("모바일 표 셀의 min-width 최소 열폭이 없다 — 이 규칙이 없으면 "
+                        "body의 overflow-wrap:anywhere가 열을 한 글자 폭으로 줄인다:\n"
+                        + mobile[:400])
+        assert min(floors) >= 6, f"최소 열폭이 6rem 미만이라 글자 단위 쪼개짐을 못 막는다: {floors}"
+        assert max(floors) * 16 * 3 <= 340, (
+            f"최소 열폭이 너무 커서 3열 표가 360px 기기에서 넘친다: {floors}")
