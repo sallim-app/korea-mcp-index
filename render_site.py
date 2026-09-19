@@ -206,7 +206,7 @@ footer{margin-top:3rem;padding-top:1rem;border-top:1px solid var(--line);font-si
 color:var(--ink3)}
 @media (max-width:640px){.wrap{padding:1rem .8rem 4rem}h1{font-size:1.5rem}
 .kv{grid-template-columns:1fr;gap:.05rem .5rem}.kv dd{margin-bottom:.5rem}
-.tw td:not(.n){min-width:6.5rem}}
+.tw td:not(.n){min-width:6.5rem}.tw td.nm{min-width:10rem}.tw td.pr{min-width:14rem}}
 @media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#141413;--raised:#1c1c1a;
 --sunken:#232320;--ink1:#f0efea;--ink2:#c9c6bf;--ink3:#a09d95;--line:#2e2e2a;--line2:#43423d;
 --link:#5fc7da;--ok:#4ade80;--warn:#e3b341;--bad:#f87171}}
@@ -371,7 +371,7 @@ def measure_row(ctx, rec) -> str:
                     f'<code>{e(rec["name"])}</code>로 옮겨졌다 — 주소가 같아 같은 서버로 이었고, '
                     f'등수는 옛 이름으로 받은 것이다</div>')
     err = ctx["err_of"].get(rec["name"])
-    return ("<tr><td>" + name_link(ctx, rec) + "".join(bits) + "</td>"
+    return ('<tr><td class="nm">' + name_link(ctx, rec) + "".join(bits) + "</td>"
             f'<td class="n">{e(rm.get("tool_count") or "—")}</td>'
             f'<td class="n">{e(warm or "—")}</td>'
             f'<td class="n">{("<strong>" + e(cold) + "</strong>") if slow else e(cold or "—")}</td>'
@@ -1062,7 +1062,7 @@ def build_index(ctx) -> None:
           # 총평의 길이가 서버마다 달라서, 우리 행은 41%만 보이고(남은 107자가 전부 칭찬,
           # 잘린 156자가 전부 감점) 남의 행은 82~100%가 보였다. 화면 효과는
           # "우리 행만 순수 칭찬"이다. 표가 길어지는 대가로 편향을 없앤다.
-          f'<td>{e(why)}</td></tr>')
+          f'<td class="pr">{e(why)}</td></tr>')
     W('</tbody></table></div>',
       '<p>종합 1등은 없다. 가중치를 우리가 정하면 우리가 상위권인 이 표에서 그 설계를 반박할 '
       '방법이 없기 때문이다. 순위는 분야 안에서만 매긴다.</p>')

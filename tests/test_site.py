@@ -614,23 +614,54 @@ def test_mobile_tables_have_a_readable_column_floor():
     스크롤. 하나만 남으면 다시 글자 단위로 쪼개진다(①이 없을 때) 또는 표가 화면 밖으로
     잘려 나간다(②가 없을 때). 그리고 최소폭이 너무 크면 열 적은 표까지 스크롤이 생기니
     상한도 같이 박는다 — 3열 표가 360px 기기(컨테이너 332px)에서 안 넘치는 값이다.
+
+    **바닥이 하나뿐이면 산문 열이 세로 리본으로 남는다(2026-09-19 2차, 같은 과제).**
+    위 규칙만으로도 글자 단위 쪼개짐은 멎었지만, 첫 화면 「한눈에」 4열 표의 총평 열은
+    393px에서 126.5px·**29줄·행 높이 704px**였다 — 한 행을 읽는 데 화면 두 장이다.
+    측정값 7열 표의 서버 이름 열도 104px·18줄·438px였다. 6.5rem을 전 셀에 그대로
+    올리면 3열 표까지 넘치므로(위 상한), **산문·이름 열에만 더 높은 바닥**을 준다:
+    `td.pr`(총평) 14rem · `td.nm`(서버 이름) 10rem. 같은 393px 재측정 — 총평 열
+    224px·16줄·386px(표 전체 높이 2410→1284), 이름 열 160px·12줄·291px(664→456)이고
+    `.tw`는 505/365·535/365로 기존 가로 스크롤을 그대로 쓴다. 320·360·393px 전부
+    문서 가로 넘침 0이고 데스크탑 1280px은 규칙이 미디어쿼리 안이라 전/후 동일하다
+    (표 폭 858.8px 불변). 더 넓히는 것은 이득이 꺾인다 — 총평 16rem은 15줄로 1줄
+    줄이면서 스크롤만 32px 늘었다.
+
+    **클래스 바닥은 조용히 죽을 수 있다.** 셀렉터가 아무 셀에도 안 걸리면 CSS는
+    에러 없이 통과하고 표만 다시 리본이 된다. 그래서 규칙마다 그 클래스가 **렌더된
+    HTML에 실제로 찍혔는지**까지 같이 본다.
     """
     with tempfile.TemporaryDirectory() as tmp:
         r, out = build(tmp)
         assert r.returncode == 0, r.stderr
-        css = re.search(r"<style>(.*?)</style>",
-                        (out / "index.html").read_text(encoding="utf-8"), re.S).group(1)
+        html = (out / "index.html").read_text(encoding="utf-8")
+        css = re.search(r"<style>(.*?)</style>", html, re.S).group(1)
         # ② 배관: 최소폭이 넘칠 곳이 있어야 한다
         assert re.search(r"\.tw\{[^}]*overflow-x:auto", css), \
             ".tw의 가로 스크롤이 사라졌다 — 최소 열폭이 화면 밖으로 잘려 나간다"
         # ① 최소 열폭이 **모바일 미디어쿼리 안에** 있어야 한다(데스크탑 열 폭은 건드리지 않는다)
         i = css.index("@media (max-width:640px){.wrap")
         mobile = css[i:css.index("@media", i + 10)]
-        floors = [float(m.group(1)) for m in
-                  re.finditer(r"\.tw[^{}]*\btd\b[^{}]*\{[^}]*min-width:([\d.]+)rem", mobile)]
-        assert floors, ("모바일 표 셀의 min-width 최소 열폭이 없다 — 이 규칙이 없으면 "
-                        "body의 overflow-wrap:anywhere가 열을 한 글자 폭으로 줄인다:\n"
-                        + mobile[:400])
-        assert min(floors) >= 6, f"최소 열폭이 6rem 미만이라 글자 단위 쪼개짐을 못 막는다: {floors}"
-        assert max(floors) * 16 * 3 <= 340, (
-            f"최소 열폭이 너무 커서 3열 표가 360px 기기에서 넘친다: {floors}")
+        rules = re.findall(r"(\.tw[^{}]*\btd\b[^{}]*)\{[^}]*min-width:([\d.]+)rem", mobile)
+        assert rules, ("모바일 표 셀의 min-width 최소 열폭이 없다 — 이 규칙이 없으면 "
+                       "body의 overflow-wrap:anywhere가 열을 한 글자 폭으로 줄인다:\n"
+                       + mobile[:400])
+        base = [float(v) for sel, v in rules if not re.search(r"\btd\.", sel)]
+        wide = {re.search(r"\btd\.(\w+)", sel).group(1): float(v)
+                for sel, v in rules if re.search(r"\btd\.", sel)}
+        assert base, f"모든 셀에 걸리는 기본 바닥이 없다 — 클래스 붙은 열만 지켜진다: {rules}"
+        assert min(base) >= 6, f"최소 열폭이 6rem 미만이라 글자 단위 쪼개짐을 못 막는다: {base}"
+        assert max(base) * 16 * 3 <= 340, (
+            f"기본 최소 열폭이 너무 커서 3열 표가 360px 기기에서 넘친다: {base}")
+        # ③ 산문·이름 열의 넓은 바닥 — 있어야 하고, 기본보다 넓어야 하고, **살아 있어야** 한다
+        assert wide, ("산문 열 전용 바닥이 없다 — 기본 바닥만 남으면 「한눈에」 총평 열이 "
+                      "393px에서 126.5px·29줄 세로 리본으로 돌아간다")
+        for cls, floor in sorted(wide.items()):
+            assert floor > max(base), \
+                f".tw td.{cls}의 바닥 {floor}rem이 기본 {max(base)}rem보다 넓지 않다 — 규칙이 무의미하다"
+            assert floor * 16 <= 280, (
+                f".tw td.{cls}의 바닥 {floor}rem은 한 열이 모바일 컨테이너(393px에서 365px)보다 "
+                "넓어져 그 열 하나도 화면에 안 담긴다")
+            assert f'class="{cls}"' in html, (
+                f".tw td.{cls} 규칙이 렌더된 HTML의 어느 셀에도 안 걸린다 — 죽은 CSS라 "
+                "표는 조용히 리본으로 돌아간다")
