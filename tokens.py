@@ -51,6 +51,27 @@ def _pointer(key: str) -> str | None:
     return _read_env_file(POINTER_FILE, key)
 
 
+def credential_file(key: str = "GITHUB_TOKEN") -> str | None:
+    """`key`의 자격이 들어 있는 **env 파일 경로**. 없으면 None.
+
+    `token()`은 값을 돌려주지만, 값이 아니라 **파일**이 필요한 소비자가 있다 —
+    `deploy-pages.sh`가 그렇다: wrangler는 `CLOUDFLARE_API_TOKEN`과
+    `CLOUDFLARE_ACCOUNT_ID` 둘을 환경에서 읽으므로, 서브셸에서 파일을 통째로
+    `source` 하는 쪽이 값을 하나씩 셸 변수로 옮기는 것보다 샐 자리가 적다.
+
+    경로를 소스에 박지 않는 이유는 `token()`과 같다(이 저장소는 공개된다) —
+    배선은 `.tokenpath.local`에 있고 그 파일은 커밋되지 않는다.
+    """
+    paths = os.environ.get(f"{key}_FILE") or _pointer(f"{key}_FILE")
+    if not paths:
+        return None
+    for path in paths.split(":"):
+        path = path.strip()
+        if path and Path(path).exists():
+            return path
+    return None
+
+
 def token(key: str = "GITHUB_TOKEN") -> str | None:
     """`key` 자격증명의 값. 못 찾으면 None — 호출부가 인증 없이 돌지 결정한다.
 
