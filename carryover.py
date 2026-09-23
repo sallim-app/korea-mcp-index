@@ -90,6 +90,20 @@ def save(ledger: dict, path: str = LEDGER) -> None:
         f.write("\n")
 
 
+def mark_deployed(day: str, path: str = LEDGER) -> str:
+    """**독자가 새 값을 봤다**를 원장에 찍는다 — `deploy-pages.sh`의 라이브 재검증 뒤에만.
+
+    회차 계수(`carry_forward`의 `round_key`)가 이 도장을 본다. `record()`는 배포보다
+    먼저 돌기 때문에 그것만으로 회차를 넘기면 배포가 실패한 회차도 회차로 세어진다
+    (codex 교차검증 2026-09-23). 도장을 못 찍으면 계수가 멈출 뿐이다 — 못 본 것을
+    버리는 쪽이 아니라 세지 않는 쪽으로 넘어진다(기치 ②).
+    """
+    ledger = load(path)
+    ledger["last_deployed"] = day
+    save(ledger, path)
+    return day
+
+
 def record(ledger: dict, measured: dict, day: str | None = None) -> int:
     """게시본(measured.json)을 원장에 적는다. 새로 적은 건수를 돌려준다.
 
@@ -200,7 +214,27 @@ def absorb(it: dict, names: set, repo_eps: dict, eps: set) -> None:
         repo_eps.setdefault(k, set()).update(v)
 
 
-def already_here(e: dict, names: set, repo_eps: dict, eps: set) -> bool:
+def ledger_repo_addrs(ledger: dict) -> dict:
+    """저장소 → **그 저장소로 게시된 주소들**(원장이 아는 만큼). `already_here`의 근거다.
+
+    "저장소가 같으면 같은 서버냐"는 물음에 이번 회차만으로는 답이 안 나온다 — GitHub
+    검색 줄에는 주소가 없기 때문이다(주소는 보강 단계가 README에서 찾는다). 그래서
+    **원장에 묻는다**: 그 저장소로 우리가 게시한 주소가 하나뿐이면 이름이 둘이어도 한
+    서버의 별칭이고(레지스트리명↔GitHub명), 둘 이상이면 한 저장소가 여러 서버를 내는
+    곳이다(`lead788/apick-mcp` → `app.apick/{all,business,finance}`, 주소 3개).
+    """
+    out: dict = {}
+    for x in ledger.get("items", {}).values():
+        if x.get("retired"):
+            continue
+        r0, a0 = norm_repo(x.get("repo_url")), norm_repo(x.get("last_remote"))
+        if r0 and a0:
+            out.setdefault(r0, set()).add(a0)
+    return out
+
+
+def already_here(e: dict, names: set, repo_eps: dict, eps: set,
+                 repo_addrs: dict | None = None) -> bool:
     """원장 항목이 이번 회차에 **이미 들어와 있는가**(present_keys 주석의 규칙)."""
     if e["name"] in names:
         return True
@@ -210,9 +244,32 @@ def already_here(e: dict, names: set, repo_eps: dict, eps: set) -> bool:
     ru = norm_repo(e.get("repo_url"))
     if ru and ru in repo_eps:
         their = repo_eps[ru]
-        # 주소가 서로 어긋나지 않을 때만 같은 서버로 읽는다
-        if not le or not their or le in their:
+        # **저장소가 같다고 같은 서버는 아니다**(present_keys 주석의 apick 실측). 이 갈래는
+        # 양쪽 다 주소를 안 밝혔을 때만 저장소를 신원으로 읽는다 — 레지스트리명↔GitHub명
+        # 별칭 쌍(`io.github.fieldcure/publicdata-kr` ↔ `fieldcure/…`)이 그 경우다.
+        if not le:
             return True
+        if le in their:
+            return True
+        if their:
+            # 양쪽 다 주소를 밝혔는데 어긋난다 — 형제 서버다(2026-08-31 실측).
+            return False
+        # **여기가 고친 자리다**(T-2026W39-49). 원장은 주소를 아는데 이번 회차의 그 저장소
+        # 줄들은 주소를 안 밝혔다. 종전 식은 그 침묵(`not their`)을 '같은 서버'로 읽었고,
+        # 그래서 한 저장소가 여러 서버를 내는 곳에서 **형제가 아니라 유령이 가렸다**:
+        # `app.apick/{all,business,finance}` 셋이 레지스트리에서 동시에 빠진 회차에 GitHub
+        # 검색이 소스 저장소 `lead788/apick-mcp` 한 줄만(주소 없음) 돌려주면 `their`가 빈
+        # 집합이 되고 셋 다 '이미 있다'로 읽혀 **경계 공시 한 줄 없이** 표에서 증발한다.
+        # 그 상태는 다음 회차에도 같아서 영구 누락이다 — 이어받기가 막으러 온 그 침묵이다.
+        #
+        # 그렇다고 무조건 되살리면 반대쪽으로 넘어진다: 실측 2026-09-23, 지금 원장·후보로
+        # 재보니 그렇게 고쳤을 때 되살아나는 2건(`smilemin07/korean-rnd-regs-mcp` ·
+        # `kokogo100/ragalgo-mcp-server`)은 형제가 아니라 **레지스트리명↔GitHub명 별칭**이라
+        # 매 회차 한 줄씩 더 실린다. 그래서 추측하지 않고 **원장에 묻는다**
+        # (`ledger_repo_addrs`): 그 저장소로 게시된 주소가 하나뿐이면 그 한 서버의 다른
+        # 이름이고, 둘 이상이면 이 줄이 그중 어느 것인지 알 수 없으니 이어받아 다시
+        # 판정받게 한다. 원장이 주소를 모르는 저장소(둘 다 `not le`)는 위에서 이미 갈렸다.
+        return len((repo_addrs or {}).get(ru) or ()) <= 1
     return False
 
 
@@ -228,6 +285,35 @@ def _streak_reset(e: dict) -> None:
     """
     if e.get("gone_streak"):
         e["gone_streak"], e["gone_last_day"], e["gone_round"] = 0, "", ""
+        # 은퇴는 그 연속 위에 서 있다 — 연속이 끊기면 **아직 확정되지 않은 은퇴**도
+        # 같이 무너진다. 확정된 은퇴는 위쪽에서 이미 `continue`로 빠져 여기 못 온다.
+        e["retired"] = None
+
+
+def retirement_is_final(e: dict, round_key: str) -> bool:
+    """이 은퇴가 **확정**인가 — 은퇴를 쓴 그 회차가 실제로 게시됐는가.
+
+    계기(T-2026W39-49). 원장은 **수집 직후·게시 전에** 저장된다
+    (`collect_candidates.py`의 `carryover.save`). 그래서 은퇴는 그 회차가 공개되기도 전에
+    디스크에 박히고, `retired`가 박히는 순간 이 순회가 맨 위에서 건너뛰므로 **다시는
+    두드리지 않는다** — 뒤 단계(필터·측정·내보내기)가 깨져 그 회차가 끝내 게시되지 않아도
+    은퇴만은 남는다. 은퇴한 줄은 이어받지도, drop 이름으로 싣지도 않으므로 그 서버는
+    **경계 공시 한 줄 없이 공개 목록에서 영구히 사라진다.** '연속 2회차 실측'이라 공시하는
+    규칙이, 정작 두 번째 관측이 속한 회차가 세상에 안 나와도 끝을 내는 셈이다.
+
+    그래서 은퇴에 **그것을 쓴 회차의 열쇠**를 같이 적고, 열쇠가 아직 지금 회차와 같으면
+    (= 그 사이 게시가 한 번도 없었으면) 확정으로 치지 않는다. 확정 전에는 보통 줄처럼
+    다시 확인하므로, 저장소가 돌아왔으면 은퇴가 풀린다(`_streak_reset`·alive 갈래).
+    회차가 넘어가면(게시가 성사되면) 그대로 확정이다 — 유예이지 무효화가 아니다.
+
+    회차 표식이 없는 옛 기록은 그대로 확정으로 존중한다(소급 부활 금지).
+    """
+    ret = e.get("retired")
+    if not ret:
+        return False
+    if not isinstance(ret, dict) or not ret.get("round"):
+        return True
+    return ret["round"] != round_key
 
 
 def carry_forward(ledger: dict, collected, resolve=None, day: str = "",
@@ -243,18 +329,33 @@ def carry_forward(ledger: dict, collected, resolve=None, day: str = "",
     """
     resolve = resolve or (lambda p: resolve_github(p, token))
     names, repo_eps, eps = present_keys(collected)
+    repo_addrs = ledger_repo_addrs(ledger)
     # **회차의 신원 = 마지막으로 게시가 성사된 날.** 원장은 게시 전에 저장되므로 실행
     # 날짜로는 회차를 셀 수 없다(아래 404 분기 주석). 게시가 한 번도 없으면 실행 날짜뿐이다.
-    round_key = max((x.get("last_published") or "") for x in ledger["items"].values()) if ledger["items"] else ""
+    #
+    # **'게시'는 `record()`가 아니라 독자가 새 값을 본 것이다**(codex 교차검증 2026-09-23).
+    # `record()`는 `export_candidates.py`가 렌더·배포보다 **먼저** 부른다 — 그것만으로
+    # 회차를 넘기면, 배포가 실패해 라이브가 낡은 채로 남은 회차에도 계수가 전진해
+    # 잠정 은퇴가 확정된다(이 수리가 막으러 온 바로 그 고착이 창만 좁혀져 남는다).
+    # 그래서 `deploy-pages.sh`가 **라이브 재검증까지 통과한 뒤** 찍는 도장을 먼저 본다.
+    # 도장이 아직 없는 원장은 종전대로 게시 기록을 쓴다(전환기·부트스트랩).
+    round_key = ledger.get("last_deployed") or ""
+    if not round_key:
+        round_key = max((x.get("last_published") or "")
+                        for x in ledger["items"].values()) if ledger["items"] else ""
     round_key = round_key or day
     carried, notes = [], []
     retired, renamed, unresolved, pending, deferred = [], [], [], [], []
+    reopened: list = []
     budget_left = budget
 
     for name, e in sorted(ledger["items"].items()):
         if e.get("retired"):
-            continue
-        if already_here(e, names, repo_eps, eps):
+            if retirement_is_final(e, round_key):
+                continue
+            # 은퇴를 쓴 회차가 아직 게시되지 않았다 — 확정이 아니므로 다시 확인한다.
+            reopened.append(name)
+        if already_here(e, names, repo_eps, eps, repo_addrs):
             # 이번 회차에 다시 잡혔다 = 404가 아닌 답이다. **연속 계수를 끊는다**
             # (codex 교차검증 2026-09-16). 안 끊으면 지난 회차의 404 하나가 원장에
             # 남아, 몇 회차 뒤의 404 하나와 붙어 **연속 2회차로 읽히고** 살아 있는
@@ -328,7 +429,8 @@ def carry_forward(ledger: dict, collected, resolve=None, day: str = "",
             e["gone_streak"] = e.get("gone_streak", 0) + 1
             e["gone_last_day"], e["gone_round"] = day, round_key
             if e["gone_streak"] >= GONE_ROUNDS:
-                e["retired"] = {"day": day,
+                # **회차 열쇠를 같이 적는다**(T-2026W39-49) — 이 회차가 게시돼야 확정이다.
+                e["retired"] = {"day": day, "round": round_key,
                                 "why": f"저장소 소멸 실측({r['why']} × {e['gone_streak']}회차)"}
                 retired.append(f"{name}({r['why']}×{e['gone_streak']})")
             else:
@@ -336,7 +438,11 @@ def carry_forward(ledger: dict, collected, resolve=None, day: str = "",
             continue
 
         if r["state"] == "alive":
-            e["gone_streak"], e["gone_last_day"] = 0, ""
+            # 200을 받았다 — 연속도 **확정 전 은퇴도** 여기서 풀린다(T-2026W39-49).
+            # `gone_round`까지 지운다: 안 지우면 옛 열쇠가 남아, 게시 없는 재실행 구간에
+            # 404가 다시 와도 `gone_round == round_key`에 걸려 세지 않는 길이 생긴다.
+            e["gone_streak"], e["gone_last_day"], e["gone_round"] = 0, "", ""
+            e["retired"] = None
             if not name_is_repo:
                 # 저장소는 살아 있다. 이름은 원장 것(= 게시된 신원)을 그대로 쓴다.
                 carried.append(_item(name, e, {**r, "full_name": name,
@@ -349,7 +455,7 @@ def carry_forward(ledger: dict, collected, resolve=None, day: str = "",
                 e["renamed_to"] = full
             # **개명 후 이름으로 이미 들어와 있으면 이어받지 않는다** — 중복이 된다.
             if already_here({**e, "name": full, "repo_url": r["repo_url"]},
-                            names, repo_eps, eps):
+                            names, repo_eps, eps, repo_addrs):
                 if full != name:
                     renamed.append(f"{name} → {full}")
                 continue
@@ -370,9 +476,14 @@ def carry_forward(ledger: dict, collected, resolve=None, day: str = "",
             "게시 이력 이어받기 " + str(len(carried)) + "건 — 지난 게시본에 있었으나 이번 "
             "수집 원천이 안 돌려준 서버다(GitHub 검색은 질의당 상위 100건만 준다). "
             "판정·측정은 면제되지 않는다: " + ", ".join(i["name"] for i in carried))
+    if reopened:
+        notes.append("게시 이력 은퇴 재확인 " + str(len(reopened)) + "건 — 은퇴를 적은 회차가 "
+                     "아직 게시되지 않아 확정으로 치지 않고 다시 확인했다(원장은 게시 전에 "
+                     "저장된다): " + ", ".join(reopened))
     if retired:
         notes.append("게시 이력 은퇴 " + str(len(retired)) + "건 — 저장소 소멸을 실측으로 "
-                     "확인해 이어받기를 끝냈다: " + ", ".join(retired))
+                     "확인해 이어받기를 끝냈다(이 회차가 게시돼야 확정이다 — 게시 전 "
+                     "재실행에서는 다시 확인한다): " + ", ".join(retired))
     if renamed:
         notes.append("게시 이력 개명 " + str(len(renamed)) + "건 — 옛 이름이 사라진 것처럼 "
                      "보였으나 개명이고 새 이름으로 이미 수집됐다(중복 방지): "

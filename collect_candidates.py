@@ -270,6 +270,11 @@ def main() -> int:
     ledger = carryover.load()
     carried, cnotes = carryover.carry_forward(ledger, list(merged.values()),
                                               day=today, token=token)
+    # **여기 저장되는 원장은 아직 게시 전이다.** 그래서 이 저장이 남기는 은퇴는 확정이
+    # 아니라 잠정이다 — `carry_forward`가 은퇴에 회차 열쇠를 같이 적고, 그 회차가
+    # 게시(`export_candidates.record`)될 때까지는 다음 실행이 그 줄을 다시 확인한다
+    # (T-2026W39-49). 이 구분이 없으면 뒤 단계가 깨져 끝내 게시되지 않은 회차의 은퇴가
+    # 그대로 굳어, 남의 서버가 경계 공시 한 줄 없이 공개 목록에서 영구히 사라진다.
     carryover.save(ledger)
     for it in carried:
         merged.setdefault(it["name"], it)

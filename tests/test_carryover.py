@@ -139,6 +139,71 @@ def test_sibling_servers_from_one_repo_do_not_mask_each_other():
     assert [i["name"] for i in carried] == ["app.apick/all"], "형제 줄이 이어받기를 가렸다"
 
 
+def test_address_less_repo_row_does_not_mask_its_sibling_servers():
+    """**주소를 안 밝힌 저장소 줄 하나가 형제 전부를 가리면 안 된다**(T-2026W39-49).
+
+    종전 식은 "저장소가 같고 이번 회차 그 저장소 줄들이 주소를 안 밝혔으면(`not their`)
+    같은 서버"로 읽었다. GitHub 검색 줄에는 주소가 없으므로(주소는 보강 단계가 찾는다),
+    레지스트리가 `app.apick/*`를 통째로 못 돌려준 회차에 소스 저장소 한 줄만 잡히면
+    `their`가 빈 집합이 되고 **형제 셋이 다 '이미 있다'로 읽혀 경계 공시 한 줄 없이
+    표에서 증발한다.** 그 상태는 다음 회차에도 같아서 영구 누락이다.
+    """
+    repo = "https://github.com/lead788/apick-mcp"
+    led = ledger_of("app.apick/all", remote="https://apick.app/mcp/all")
+    for n, ep in (("app.apick/business", "https://apick.app/mcp/business"),
+                  ("app.apick/finance", "https://apick.app/mcp/finance")):
+        led["items"][n] = {**led["items"]["app.apick/all"], "name": n, "last_remote": ep}
+    for n in led["items"]:
+        led["items"][n]["repo_url"] = repo
+    # 이번 회차에 잡힌 것은 소스 저장소 한 줄뿐이고, 그 줄은 주소를 안 밝혔다.
+    collected = [{"name": "lead788/apick-mcp", "repo_url": repo}]
+    carried, notes = carryover.carry_forward(
+        led, collected, resolve=lambda p: alive(p, full_name="lead788/apick-mcp"),
+        day="2026-09-21")
+    assert sorted(i["name"] for i in carried) == ["app.apick/all", "app.apick/business",
+                                                  "app.apick/finance"], \
+        "주소 없는 저장소 줄 하나가 형제 서버 전부를 조용히 가렸다"
+    assert all(i["remotes"][0]["url"].startswith("https://apick.app/mcp/") for i in carried)
+    assert any("이어받기 3건" in n for n in notes), "되살렸으면 값으로 공시해야 한다"
+
+
+def test_alias_pair_without_addresses_still_counts_as_present():
+    """주소가 **양쪽 다** 없으면 저장소가 유일한 신원이다 — 별칭 쌍은 그대로 안 이어받는다.
+
+    원장 430건 중 300건이 주소 없이 남아 있고, 그중 상당수가 레지스트리명↔GitHub명
+    별칭 쌍이다(`io.github.fieldcure/publicdata-kr` ↔ `fieldcure/fieldcure-mcp-publicdata`).
+    위 수리가 이쪽까지 열면 매 회차 별칭이 한 줄씩 더 실린다.
+    """
+    repo = "https://github.com/fieldcure/fieldcure-mcp-publicdata"
+    led = ledger_of("io.github.fieldcure/publicdata-kr")
+    led["items"]["io.github.fieldcure/publicdata-kr"]["repo_url"] = repo
+    collected = [{"name": "fieldcure/fieldcure-mcp-publicdata", "repo_url": repo}]
+    carried, _ = carryover.carry_forward(led, collected, resolve=alive, day="2026-09-21")
+    assert carried == [], "주소가 양쪽 다 없는 별칭 쌍을 한 줄 더 실었다"
+
+
+def test_single_address_repo_alias_is_not_revived_as_a_second_row():
+    """저장소로 게시된 주소가 **하나뿐**이면 이름이 둘이어도 한 서버다 — 안 이어받는다.
+
+    위 수리의 반대쪽 난간(실측 2026-09-23). 무조건 되살리게 고치면 지금 원장·후보에서
+    `smilemin07/korean-rnd-regs-mcp`·`kokogo100/ragalgo-mcp-server` 2건이 매 회차 한 줄씩
+    더 실린다 — 둘 다 형제가 아니라 레지스트리명↔GitHub명 별칭이다. 추측하지 않고
+    **원장이 아는 주소 수**로 가른다.
+    """
+    repo = "https://github.com/smilemin07/korean-rnd-regs-mcp"
+    ep = "https://mcp.rndmanagers.org/mcp"
+    led = ledger_of("smilemin07/korean-rnd-regs-mcp", remote=ep)
+    led["items"]["io.github.smilemin07/korean-rnd-regs-mcp"] = {
+        **led["items"]["smilemin07/korean-rnd-regs-mcp"],
+        "name": "io.github.smilemin07/korean-rnd-regs-mcp", "last_remote": ""}
+    for n in led["items"]:
+        led["items"][n]["repo_url"] = repo
+    # 이번 회차엔 레지스트리 이름만 잡혔고, 그 줄은 주소를 안 밝혔다(패키지형 등록).
+    collected = [{"name": "io.github.smilemin07/korean-rnd-regs-mcp", "repo_url": repo}]
+    carried, _ = carryover.carry_forward(led, collected, resolve=alive, day="2026-09-21")
+    assert carried == [], "한 주소짜리 저장소의 별칭을 한 줄 더 실었다"
+
+
 def test_same_endpoint_under_another_name_counts_as_present():
     """주소가 같으면 같은 서버다 — 이름이 달라도 이어받지 않는다(질의문자열은 무시)."""
     led = ledger_of("sallim-app/contract-compass", remote="https://contract.sallim.app/mcp")
@@ -429,6 +494,68 @@ def test_renamed_published_row_is_named_under_its_new_name(tmp_path):
     assert "new/name" in {i["name"] for i in cand["items"]}, "개명한 게시 줄이 또 조용히 사라졌다"
 
 
+def _export_run(tmp_path, led, items):
+    """`export_candidates`를 tmp에서 실제로 돌리고 `candidates.json`의 이름들을 준다."""
+    (tmp_path / "measured.json").write_text(json.dumps(
+        {"measured": 0, "unmeasurable": 0, "boundaries": [], "criteria_note": "t",
+         "measured_at": "2026-09-21", "axes_at": "2026-09-21", "items": []},
+        ensure_ascii=False), encoding="utf-8")
+    (tmp_path / "published_history.json").write_text(json.dumps(led, ensure_ascii=False),
+                                                     encoding="utf-8")
+    (tmp_path / "candidates_filtered.json").write_text(json.dumps(
+        {"buckets": {}, "boundaries": [], "items": items}, ensure_ascii=False),
+        encoding="utf-8")
+    r = subprocess.run([sys.executable, str(ROOT / "export_candidates.py")],
+                       cwd=tmp_path, capture_output=True, text=True)
+    assert r.returncode == 0, r.stdout + r.stderr
+    cand = json.loads((tmp_path / "candidates.json").read_text(encoding="utf-8"))
+    return {i["name"] for i in cand["items"]}
+
+
+def test_renamed_row_is_named_by_its_address_when_renamed_to_was_never_written(tmp_path):
+    """**이름은 개명 한 번에 끊긴다 — 주소는 안 끊긴다**(T-2026W39-49).
+
+    `renamed_to`는 이어받기가 저장소를 두드려 개명을 확인했을 때만 적힌다. 그런데
+    이어받기는 그 서버가 이번 회차에 이미 들어와 있으면 두드리기 전에 빠지고, 개명한
+    서버가 새 이름으로 수집된 회차가 바로 그 경우다 — 그래서 원장에는 옛 이름만 남는다
+    (실측: 원장 430건 중 `renamed_to`가 붙은 줄 0건). 그 상태에서 새 이름이 필터에
+    떨어지면 이름 대조가 실패해 다시 사유별 건수로만 남는다.
+    """
+    ep = "https://svc.test/mcp"
+    led = carryover.empty_ledger()
+    led["items"]["old/name"] = {
+        "name": "old/name", "repo_url": "https://github.com/old/name", "last_remote": ep,
+        "first_published": "2026-09-07", "last_published": "2026-09-14", "rounds": 2,
+        "retired": None, "renamed_to": None}          # ← 개명이 원장에 안 적혔다
+    listed = _export_run(tmp_path, led, [
+        {"name": "new/name", "repo_url": "https://github.com/new/name", "verdict": "drop",
+         "why": "한국 관련 신호 0 — 검색어에 우연히 걸림",
+         "remotes": [{"url": ep + "?via=official"}]},
+        {"name": "plain/drop", "repo_url": "https://github.com/plain/drop",
+         "verdict": "drop", "why": "한국 관련 신호 0 — 검색어에 우연히 걸림",
+         "remotes": [{"url": "https://never.test/mcp"}]}])
+    assert "new/name" in listed, "개명한 게시 줄이 이름만 대조하다 또 조용히 사라졌다"
+    assert "plain/drop" not in listed, "게시한 적 없는 drop까지 실으면 3만 건이 실린다"
+
+
+def test_retired_row_collected_again_is_still_named_when_dropped(tmp_path):
+    """은퇴는 "이어받기를 끝냈다"이지 "게시한 적 없다"가 아니다.
+
+    은퇴한 줄이 이번 회차에 **다시 수집됐다면** 은퇴의 전제(저장소 소멸)가 이미 뒤집힌
+    것이다 — 그 줄이야말로 drop 사유를 달고 이름째 보여야 한다.
+    """
+    led = carryover.empty_ledger()
+    led["items"]["was/retired"] = {
+        "name": "was/retired", "repo_url": "https://github.com/was/retired",
+        "last_remote": "", "first_published": "2026-08-31", "last_published": "2026-09-07",
+        "rounds": 2, "renamed_to": None,
+        "retired": {"day": "2026-09-14", "round": "2026-09-07", "why": "저장소 소멸 실측"}}
+    listed = _export_run(tmp_path, led, [
+        {"name": "was/retired", "repo_url": "https://github.com/was/retired",
+         "verdict": "drop", "why": "한국 관련 신호 0 — 검색어에 우연히 걸림"}])
+    assert "was/retired" in listed, "은퇴했다는 이유로 게시 이력이 지워졌다"
+
+
 def test_registry_named_row_keeps_its_name_when_source_repo_is_alive():
     """레지스트리 이름으로 게시된 줄은 저장소 이름으로 바뀌지 않는다 — 신원이 주소이기 때문."""
     led = ledger_of("app.apick/all", remote="https://apick.app/mcp/all")
@@ -552,6 +679,97 @@ def test_same_day_rerun_does_not_count_as_a_second_round():
     publish_round(led, "2026-09-21")
     carryover.carry_forward(led, [], resolve=gone, day="2026-09-28")
     assert led["items"]["dead/repo"]["retired"] is not None
+
+
+def test_retirement_written_before_publishing_is_not_final():
+    """**게시되지 않은 회차의 은퇴는 확정이 아니다**(T-2026W39-49).
+
+    원장은 수집 직후·게시 전에 저장된다. `retired`가 박히는 순간 순회가 맨 위에서
+    건너뛰므로 다시는 두드리지 않는데, 뒤 단계가 깨져 그 회차가 끝내 게시되지 않아도
+    은퇴만은 남는다 — 은퇴한 줄은 이어받지도, drop 이름으로 싣지도 않으니 그 서버는
+    **경계 공시 한 줄 없이 공개 목록에서 영구히 사라진다.** 게시가 성사될 때까지는
+    보통 줄처럼 다시 확인해야 한다.
+    """
+    gone = lambda p: {"state": "gone", "why": "HTTP 404"}          # noqa: E731
+    led = ledger_of("flipped/private")
+    led["items"]["flipped/private"]["last_remote"] = ""
+    carryover.carry_forward(led, [], resolve=gone, day="2026-09-21")
+    publish_round(led, "2026-09-21")
+    carryover.carry_forward(led, [], resolve=gone, day="2026-09-28")
+    assert led["items"]["flipped/private"]["retired"] is not None, "연속 2회차인데 안 적었다"
+
+    # 이 회차(09-28)는 끝내 게시되지 않았다 — 다음 날 재실행하면 다시 확인해야 한다.
+    called = []
+    _, notes = carryover.carry_forward(
+        led, [], resolve=lambda p: called.append(p) or alive(p), day="2026-09-29")
+    assert "flipped/private" in called, "게시 전 은퇴를 확정으로 읽고 다시 안 두드렸다"
+    assert led["items"]["flipped/private"]["retired"] is None, "200을 받고도 은퇴가 안 풀렸다"
+    assert any("은퇴 재확인" in n for n in notes), "재확인을 값으로 공시하지 않았다"
+
+
+def test_round_counter_waits_for_the_deploy_stamp(tmp_path):
+    """**'게시'는 `record()`가 아니라 독자가 새 값을 본 것이다**(codex 교차검증 2026-09-23).
+
+    `record()`는 `export_candidates.py`가 렌더·배포보다 먼저 부른다 — 그것만으로 회차를
+    넘기면 배포가 실패해 라이브가 낡은 채로 남은 회차에도 계수가 전진해 잠정 은퇴가
+    굳는다. 도장(`mark_deployed`)이 찍힌 원장은 그 도장을 회차의 신원으로 쓴다.
+    """
+    gone = lambda p: {"state": "gone", "why": "HTTP 404"}          # noqa: E731
+    path = str(tmp_path / "published_history.json")
+    led = ledger_of("maybe/dead")
+    led["items"]["maybe/dead"]["last_remote"] = ""
+    led["last_deployed"] = "2026-09-07"
+    carryover.save(led, path)
+
+    led = carryover.load(path)
+    carryover.carry_forward(led, [], resolve=gone, day="2026-09-21")
+    assert led["items"]["maybe/dead"]["gone_streak"] == 1
+    # export는 돌았지만(=record) 배포가 실패했다 — 도장이 없으니 같은 회차다.
+    publish_round(led, "2026-09-21")
+    carryover.carry_forward(led, [], resolve=gone, day="2026-09-28")
+    assert led["items"]["maybe/dead"]["gone_streak"] == 1, "배포가 실패한 회차를 회차로 셌다"
+    assert led["items"]["maybe/dead"]["retired"] is None
+
+    # 라이브 재검증까지 통과했다 — 이제 회차가 넘어간다.
+    carryover.save(led, path)
+    carryover.mark_deployed("2026-09-28", path)
+    led = carryover.load(path)
+    carryover.carry_forward(led, [], resolve=gone, day="2026-10-05")
+    assert led["items"]["maybe/dead"]["gone_streak"] == 2
+    assert led["items"]["maybe/dead"]["retired"] is not None, "도장을 찍었는데도 안 셌다"
+
+
+def test_retirement_becomes_final_once_its_round_is_published():
+    """유예이지 무효화가 아니다 — 회차가 게시되면 은퇴는 그대로 확정이고 다시 안 두드린다."""
+    gone = lambda p: {"state": "gone", "why": "HTTP 404"}          # noqa: E731
+    led = ledger_of("really/dead")
+    led["items"]["really/dead"]["last_remote"] = ""
+    carryover.carry_forward(led, [], resolve=gone, day="2026-09-21")
+    publish_round(led, "2026-09-21")
+    carryover.carry_forward(led, [], resolve=gone, day="2026-09-28")
+    assert led["items"]["really/dead"]["retired"]["round"] == "2026-09-21"
+    publish_round(led, "2026-09-28")                     # 그 회차가 게시됐다
+    called = []
+    carryover.carry_forward(led, [], resolve=lambda p: called.append(p) or alive(p),
+                            day="2026-10-05")
+    assert "really/dead" not in called, "확정된 은퇴를 매주 다시 두드린다"
+    assert led["items"]["really/dead"]["retired"] is not None
+
+
+def test_reappearing_in_collection_undoes_an_unconfirmed_retirement():
+    """게시 전 은퇴인데 그 서버가 이번 회차 수집에 다시 들어왔다 — 은퇴가 풀려야 한다."""
+    gone = lambda p: {"state": "gone", "why": "HTTP 404"}          # noqa: E731
+    led = ledger_of("came/back")
+    led["items"]["came/back"]["last_remote"] = ""
+    carryover.carry_forward(led, [], resolve=gone, day="2026-09-21")
+    publish_round(led, "2026-09-21")
+    carryover.carry_forward(led, [], resolve=gone, day="2026-09-28")
+    assert led["items"]["came/back"]["retired"] is not None
+    carryover.carry_forward(led, [{"name": "came/back",
+                                   "repo_url": "https://github.com/came/back"}],
+                            resolve=gone, day="2026-09-29")
+    assert led["items"]["came/back"]["retired"] is None, "다시 잡혔는데 은퇴가 남았다"
+    assert led["items"]["came/back"]["gone_streak"] == 0
 
 
 def test_resolve_budget_defers_instead_of_dropping():

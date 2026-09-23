@@ -108,7 +108,7 @@ fi
 # 라이브가 낡은 채로 "검증됨"이 되는 정확히 그 구멍이다.
 echo "[4/4] 라이브 재검증 ($SITE_URL)"
 want="$(md5sum < "$OUT/index.json" | cut -d' ' -f1)"
-got=""; body="$(mktemp)"; trap 'rm -f "$body"' EXIT
+got=""; code=000; body="$(mktemp)"; trap 'rm -f "$body"' EXIT
 # 재시도는 CF 엣지 전파를 기다리는 장치다. 회귀 테스트는 로컬 서버를 두드리므로 기다릴
 # 것이 없다 — 횟수를 주입할 수 있어야 **실패하는 길**도 검사 가능한 시간 안에 들어온다.
 for i in $(seq 1 "${VERIFY_TRIES:-5}"); do
@@ -118,8 +118,11 @@ for i in $(seq 1 "${VERIFY_TRIES:-5}"); do
   [ "$code" = 200 ] && [ "$got" = "$want" ] && break
   sleep "${VERIFY_SLEEP:-6}"
 done
-if [ "$got" != "$want" ]; then
-  echo "!! 라이브 index.json이 방금 만든 것과 다르다 — 배포가 도달하지 않았다." >&2
+# **본문만 보면 상태코드를 버린다**(codex 교차검증 2026-09-23). 같은 바이트를 500으로
+# 돌려주는 엣지가 있어도 md5만 맞으면 통과해 `DONE`을 찍는다 — 우리가 주장하려는 것은
+# "독자가 새 값을 **받는다**"이므로 200도 같이 성립해야 한다. 루프의 탈출 조건과 같은 식이다.
+if [ "$code" != 200 ] || [ "$got" != "$want" ]; then
+  echo "!! 라이브 index.json이 방금 만든 것과 다르다(HTTP $code) — 배포가 도달하지 않았다." >&2
   echo "   라이브: $(python3 -c 'import json,sys;d=json.load(open(sys.argv[1]));print("measured_at",d.get("measured_at"),"generated_at",d.get("generated_at"))' "$body" 2>/dev/null || echo '판독 불가')" >&2
   echo "   방금 만든 것: $(python3 -c 'import json,sys;d=json.load(open(sys.argv[1]));print("measured_at",d.get("measured_at"),"generated_at",d.get("generated_at"))' "$OUT/index.json")" >&2
   echo "   롤백: Cloudflare Pages $PROJECT → 직전 배포로 Rollback" >&2
@@ -143,5 +146,13 @@ bad="$(printf '%s\n' "${paths[@]}" | grep . | timeout 180 xargs -P 8 -I{} sh -c 
 nf="$(curl -s -o /dev/null -w '%{http_code}' --max-time 10 "$SITE_URL/__no-such-page-$$")" || nf=000
 [ "$nf" = 404 ] || { echo "!! 없는 주소가 HTTP $nf 다 — 전수 200 판정을 믿을 수 없다" >&2; exit 1; }
 echo "    없는 주소 → 404 (전수 200 판정이 유효)"
+
+# **여기까지 와야 '게시'다.** 회차 계수(carryover)가 이 도장을 본다 — `record()`는 배포보다
+# 먼저 돌므로, 그것만으로 회차를 넘기면 배포가 실패한 회차도 회차로 세어져 아직 확정되지
+# 않은 은퇴가 굳는다(codex 교차검증 2026-09-23). --verify-only 재검증에는 안 찍는다.
+if [ "$do_deploy" = 1 ]; then
+  python3 -c 'import carryover,sys; print("    게시 도장:", carryover.mark_deployed(sys.argv[1]))' \
+    "$(date +%F)"
+fi
 
 echo "DONE — $SITE_URL 가 방금 만든 산출물과 같다(index.json md5 $want)"

@@ -106,17 +106,36 @@ def main() -> int:
     # 개명 후 이름도 같은 신원이다 — 원장에는 옛 이름만 있으므로, 이어받기가 확인해 둔
     # `renamed_to`까지 넣지 않으면 개명한 서버가 drop될 때 다시 조용히 사라진다
     # (codex 교차검증 2026-09-16).
+    #
+    # **그런데 이름은 개명 한 번에 끊긴다**(T-2026W39-49). `renamed_to`는 이어받기가
+    # 저장소를 두드려 개명을 **확인했을 때만** 적힌다 — 그리고 이어받기는 그 서버가 이번
+    # 회차에 이미 들어와 있으면(`already_here`) 두드리기 전에 빠진다. 개명한 서버가 새
+    # 이름으로 수집된 회차가 바로 그 경우라, 원장에는 옛 이름만 남고 `renamed_to`는 영영
+    # 안 적힌다(실측: 원장 430건 중 `renamed_to`가 붙은 줄 0건). 그 상태에서 새 이름이
+    # 필터에 떨어지면 이름 대조가 실패해 다시 사유별 건수로만 남는다 — 이름을 신원으로
+    # 쓰는 한 개명은 이력을 끊는다.
+    #
+    # 그래서 **주소로도 대조한다**(`주소가 신원이고 저장소는 거처다` — carryover 독스트링).
+    # 개명은 이름을 바꾸지 주소를 바꾸지 않는다. 저장소로는 대조하지 않는다 — 한 저장소가
+    # 여러 서버를 내므로(app.apick 9개) 게시한 적 없는 형제에 '게시함'이 붙는다.
+    #
+    # 은퇴한 줄도 뺄 이유가 없다 — 은퇴는 "이어받기를 끝냈다"는 뜻이지 "게시한 적 없다"가
+    # 아니다. 은퇴했는데 이번 회차에 다시 수집돼 drop되면 그 전제가 이미 뒤집힌 것이라,
+    # 그 줄이야말로 이름째로 보여야 한다.
     ledger = carryover.load()
-    published = set()
+    published, published_eps = set(), set()
     for n, e in ledger["items"].items():
-        if e.get("retired"):
-            continue
         published.add(n.lower())
         if e.get("renamed_to"):
             published.add(e["renamed_to"].lower())
+        if e.get("last_remote"):
+            published_eps.add(carryover.norm_repo(e["last_remote"]))
 
     def was_published(i: dict) -> bool:
-        return bool(i.get("carryover")) or (i.get("name") or "").lower() in published
+        if i.get("carryover") or (i.get("name") or "").lower() in published:
+            return True
+        return any(carryover.norm_repo(r.get("url")) in published_eps
+                   for r in (i.get("remotes") or []) if r.get("url"))
 
     keep = [i for i in items
             if i["verdict"] in ("keep", "review") or was_published(i)]
