@@ -175,3 +175,38 @@ def test_every_unmeasured_candidate_has_a_row_not_just_a_count():
         html = (out / "not-measured.html").read_text(encoding="utf-8")
     missing = [n for n in covered if n not in html]
     assert not missing, f"안 잰 후보가 명단에 없다: {missing[:5]}"
+
+
+def test_machine_note_counts_unmeasured_reasons_over_all_unmeasured():
+    """기계용 설명의 미측정 내역은 **미측정 전체**에서 센다(T-2026W38-310, codex 지적 3).
+
+    종전엔 "후보 N건이 있고(그중 X건은 review 보류, Y건은 keep인데 미측정)"의 X·Y를
+    승격분(promoted)에서만 셌다 — N건 중 LLM이 아니라고 한 줄·미분류 줄의 사유가
+    사라지고 review·keep 수가 과소로 적혀, counts는 맞아도 원인 설명이 거짓이 됐다.
+    """
+    import datetime as dt
+
+    import render_site as R
+
+    def it(n, v):
+        return {"name": n, "verdict": v}
+
+    prom = [it("p/1", "review")]
+    off = [it(f"o/{i}", "review") for i in range(5)] + [it("o/k", "keep")]
+    uncl = [it("u/1", "keep")]
+    nm = prom + off + uncl
+    pop = {"total": len(nm), "measured": [], "not_measured": nm, "promoted": prom,
+           "promoted_review": prom, "promoted_keep": [], "review_off": off,
+           "unclassified": uncl, "cls": {}}
+    site = R.Site("https://x", "/nonexistent-out", "")
+    ctx = dict(site=site, pop=pop, ts="2026-09-01", today=dt.date.today(), axes_ts="a",
+               pkg_ts="p", cats_live=[], cls={}, dead=[], downs=[], err_of={}, graded={},
+               inst=[], items=[], live=[], off=[], page_of={}, rank_of={}, unmeasured=[],
+               unver=[], cat_page={})
+    R.build_machine(ctx)
+    doc = json.loads(dict(site.extra)["index.json"])
+    note = next(x for x in json.dumps(doc, ensure_ascii=False).split('", "')
+                if "한 번도 두드리지 않은" in x)
+    assert "후보 8건이 있고(그중 6건은 키워드 판정기가 review로 보류, 2건은 keep" in note, note
+    assert "1건은 우리 LLM 분류기가 데이터 제공형이라고, 6건은 아니라고" in note, note
+    assert "1건은 LLM 판정이 아직 없다" in note, note

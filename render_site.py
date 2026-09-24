@@ -1625,11 +1625,19 @@ def build_machine(ctx) -> None:
              f"measured_population({len(ctx['items'])})은 같은 주소를 합친 뒤의 **행 수**라 "
              f"후보 이름 수보다 작을 수 있다. **한 번도 두드리지 않은** 후보 "
              f"{len(ctx['pop']['not_measured']) if ctx['pop'] else 0}건이 있고"
-             + (f"(그중 {len(ctx['pop']['promoted_review'])}건은 키워드 판정기가 review로 "
-                f"보류, {len(ctx['pop']['promoted_keep'])}건은 keep인데 미측정)"
-                if ctx['pop'] and ctx['pop']['promoted'] else "")
+             # **내역은 미측정 전체에서 센다**(codex 2026-09-13 지적 3, T-2026W38-310).
+             # 종전엔 승격분(promoted)의 review/keep 수를 "그중"으로 붙여, 미측정 N건 중
+             # review_off·미분류 줄의 사유가 사라지고 review 수가 과소로 적혔다.
+             + (f"(그중 {sum(1 for i in ctx['pop']['not_measured'] if i.get('verdict') == 'review')}"
+                f"건은 키워드 판정기가 review로 보류, "
+                f"{sum(1 for i in ctx['pop']['not_measured'] if i.get('verdict') == 'keep')}"
+                f"건은 keep인데 이번 회차 미측정)"
+                if ctx['pop'] and ctx['pop']['not_measured'] else "")
              + f", 그중 {len(ctx['pop']['promoted']) if ctx['pop'] else 0}건은 우리 LLM "
-             f"분류기가 데이터 제공형이라고 판정했다(명단 "
+             f"분류기가 데이터 제공형이라고, "
+             f"{len(ctx['pop']['review_off']) if ctx['pop'] else 0}건은 아니라고 판정했고 "
+             f"{len(ctx['pop']['unclassified']) if ctx['pop'] else 0}건은 LLM 판정이 아직 "
+             f"없다(명단 "
              + site.url_of("not-measured") + "). "
              f"2026-09-14 이전 회차의 이 필드는 잰 줄 수였다 — 그때는 이 차이가 "
              f"게시본 어디에도 없었다."),
