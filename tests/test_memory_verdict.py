@@ -12,8 +12,8 @@
 **현실을 먼저 따라잡은 서버가 틀린 서버로 게시된다.** 문장은 그럴듯해 읽어서는 안 걸린다.
 
 그래서 배관으로 건다: 채점 문장이 '역사적·역대 최고·사상 최대' 같은 **과거 기준값**을 꺼내면,
-그 자리 주변에 그 기준을 **이번에 확인한 출처**(재호출·공시 번호·URL)가 있거나, 그 말이 옛
-판정을 인용해 정정하는 자리여야 한다. 둘 다 없으면 기억 판정으로 보고 실패한다.
+**같은 문장에** 그 기준을 이번에 확인한 출처(재호출·공시 번호·URL)가 있거나, 기준값 앞에 '종전'이
+와서 옛 판정을 인용해 거둬들이는 자리여야 한다. 둘 다 없으면 기억 판정으로 보고 실패한다.
 
 실행: python3 -m pytest tests/test_memory_verdict.py -q
 """
@@ -27,13 +27,16 @@ GRADES = ROOT / "grades"
 # 과거 기준값을 잣대로 꺼내는 말투 — 이 말이 나오면 그 문장은 '세상이 어땠는가'를 주장한다.
 MEMORY_BENCHMARK = re.compile(r"역사적|역대\s*(최고|최대|최저)|사상\s*(최고|최대|최저)")
 
-# 이번에 확인한 출처, 또는 옛 판정을 인용해 거둬들이는 자리.
-SOURCED_OR_RETRACTED = re.compile(
-    r"재호출|다시\s*불러|rcpNo|https?://|공시\s*번호"
-    r"|정정|종전|반박|오판"
-)
+# 이번에 확인한 출처 — 같은 문장 안에 있어야 한다.
+SOURCED = re.compile(r"재호출|다시\s*불러|rcpNo|https?://")
 
-WINDOW = 120
+# 옛 판정을 인용해 거둬들이는 자리 — 같은 문장에서 기준값 **앞에** '종전'이 와야 한다.
+# '정정'·'반박' 같은 낱말만으로는 통과시키지 않는다(codex 교차검증 2026-09-28): "정정할 필요가
+# 없다"처럼 판정을 유지하는 문장도 그 낱말을 품는다.
+RETRACTED_BEFORE = re.compile(r"종전")
+
+# 문장 경계. 소수점(17.6조)·URL의 점은 뒤에 공백이 없어 쪼개지지 않는다.
+SENTENCE = re.compile(r"(?<=[.!?])\s+")
 
 
 def _texts():
@@ -56,11 +59,18 @@ def _texts():
 
 
 def _unsourced(text: str) -> list[str]:
+    """과거 기준값을 출처 없이 잣대로 쓴 문장들.
+
+    한계: 같은 문장에 무관한 URL이 있으면 통과한다 — 이 회귀는 의미를 읽지 않고, 출처를
+    적을 자리를 강제할 뿐이다. 의미 검수는 채점 프롬프트 ④(강한 모델의 주장 판정) 몫이다.
+    """
     bad = []
-    for m in MEMORY_BENCHMARK.finditer(text):
-        near = text[max(0, m.start() - WINDOW):m.end() + WINDOW]
-        if not SOURCED_OR_RETRACTED.search(near):
-            bad.append(near)
+    for sent in SENTENCE.split(text):
+        for m in MEMORY_BENCHMARK.finditer(sent):
+            if SOURCED.search(sent) or RETRACTED_BEFORE.search(sent[:m.start()]):
+                continue
+            bad.append(sent)
+            break
     return bad
 
 
@@ -70,6 +80,10 @@ def test_detector_catches_the_known_case():
                 "역대 최고 분기 영업이익(약 17.6조)의 3배이고")
     assert _unsourced(original), "실사고 원문을 못 잡는다 — 게이트가 죽었다"
     assert not _unsourced("종전 문장은 '역대 최고 분기 영업이익(약 17.6조)'을 잣대로 삼은 오판이었다")
+    # 판정을 유지하면서 '정정'이란 낱말만 품은 문장은 통과시키지 않는다
+    assert _unsourced("정정할 필요가 없다 — 역대 최고 분기 영업이익(약 17.6조)의 3배다")
+    # 거둬들임은 같은 문장 안에서만 — 딴 문장의 '종전'은 이 문장을 풀어 주지 않는다
+    assert _unsourced("종전 판정을 유지한다. 역대 최고 분기 영업이익(약 17.6조)의 3배다")
 
 
 def test_grades_scanned():
