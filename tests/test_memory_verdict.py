@@ -12,8 +12,8 @@
 **현실을 먼저 따라잡은 서버가 틀린 서버로 게시된다.** 문장은 그럴듯해 읽어서는 안 걸린다.
 
 그래서 배관으로 건다: 채점 문장이 '역사적·역대 최고·사상 최대' 같은 **과거 기준값**을 꺼내면,
-**같은 문장에** 그 기준을 이번에 확인한 출처(재호출·공시 번호·URL)가 있거나, 기준값 앞에 '종전'이
-와서 옛 판정을 인용해 거둬들이는 자리여야 한다. 둘 다 없으면 기억 판정으로 보고 실패한다.
+**같은 문장에** 그 기준을 이번에 확인한 출처(공시 번호·URL)가 있거나, 기준값 앞에 '종전'이 와서
+옛 판정을 인용하고 그 판정을 틀렸다고 끝맺는 자리여야 한다. 둘 다 없으면 기억 판정으로 보고 실패한다.
 
 실행: python3 -m pytest tests/test_memory_verdict.py -q
 """
@@ -27,13 +27,16 @@ GRADES = ROOT / "grades"
 # 과거 기준값을 잣대로 꺼내는 말투 — 이 말이 나오면 그 문장은 '세상이 어땠는가'를 주장한다.
 MEMORY_BENCHMARK = re.compile(r"역사적|역대\s*(최고|최대|최저)|사상\s*(최고|최대|최저)")
 
-# 이번에 확인한 출처 — 같은 문장 안에 있어야 한다.
-SOURCED = re.compile(r"재호출|다시\s*불러|rcpNo|https?://")
+# 이번에 확인한 출처 — 같은 문장 안에 있어야 한다. '재호출'·'다시 불러' 같은 낱말은 넣지 않는다:
+# "다시 불러 대조하지 않은"처럼 부정문에도 나온다. 대조했다면 가리킬 번호나 주소가 있다.
+SOURCED = re.compile(r"rcpNo|https?://")
 
-# 옛 판정을 인용해 거둬들이는 자리 — 같은 문장에서 기준값 **앞에** '종전'이 와야 한다.
-# '정정'·'반박' 같은 낱말만으로는 통과시키지 않는다(codex 교차검증 2026-09-28): "정정할 필요가
-# 없다"처럼 판정을 유지하는 문장도 그 낱말을 품는다.
+# 옛 판정을 인용해 거둬들이는 자리 — 같은 문장에서 기준값 **앞에** '종전'이 오고, 그 문장이
+# 그 판정을 **틀렸다고 끝맺어야** 한다(codex 교차검증 2026-09-28, 두 차례): '정정' 낱말만으로는
+# "정정할 필요가 없다"가 통과하고, '종전'만으로는 "종전 역대 최고치는 17.6조이므로 오류다"처럼
+# 옛 오판을 그대로 되풀이한 문장이 통과한다.
 RETRACTED_BEFORE = re.compile(r"종전")
+RETRACTION_VERDICT = re.compile(r"오판|틀렸|반박돼|반박됐|거둔다|거뒀")
 
 # 문장 경계. 소수점(17.6조)·URL의 점은 뒤에 공백이 없어 쪼개지지 않는다.
 SENTENCE = re.compile(r"(?<=[.!?])\s+")
@@ -67,7 +70,8 @@ def _unsourced(text: str) -> list[str]:
     bad = []
     for sent in SENTENCE.split(text):
         for m in MEMORY_BENCHMARK.finditer(sent):
-            if SOURCED.search(sent) or RETRACTED_BEFORE.search(sent[:m.start()]):
+            if SOURCED.search(sent) or (RETRACTED_BEFORE.search(sent[:m.start()])
+                                        and RETRACTION_VERDICT.search(sent)):
                 continue
             bad.append(sent)
             break
@@ -84,6 +88,10 @@ def test_detector_catches_the_known_case():
     assert _unsourced("정정할 필요가 없다 — 역대 최고 분기 영업이익(약 17.6조)의 3배다")
     # 거둬들임은 같은 문장 안에서만 — 딴 문장의 '종전'은 이 문장을 풀어 주지 않는다
     assert _unsourced("종전 판정을 유지한다. 역대 최고 분기 영업이익(약 17.6조)의 3배다")
+    # '종전'이 앞에 있어도 옛 오판을 되풀이하면 통과시키지 않는다
+    assert _unsourced("종전 역대 최고치는 17.6조이므로 57.2조는 오류다")
+    # 부정문 속 '다시 불러'는 출처가 아니다
+    assert _unsourced("도구를 다시 불러 대조하지 않았지만 역대 최고치(약 17.6조)의 3배라 오류다")
 
 
 def test_grades_scanned():
