@@ -36,9 +36,18 @@ SOURCED = re.compile(r"rcpNo\s*\d{14}|https?://\S+\.\S+")
 # "정정할 필요가 없다"가 통과하고, '종전'만으로는 "종전 역대 최고치는 17.6조이므로 오류다"처럼
 # 옛 오판을 그대로 되풀이한 문장이 통과한다.
 RETRACTED_BEFORE = re.compile(r"종전")
-# 부정형('오판이 아니었다'·'틀렸다고 볼 수 없다')은 거둬들임이 아니다.
-RETRACTION_VERDICT = re.compile(
-    r"오판(?![이은]?\s*아니)|틀렸(?!다고\s*(볼|할)\s*수\s*없)|반박(돼|됐)(?!다고\s*(볼|할)\s*수\s*없)|거둔다|거뒀")
+
+# 거둬들임을 말하는 낱말. 부정형은 낱말 뒤 꼬리로 따로 가른다 — lookahead로 낱낱이 막으면
+# '오판은 결코 아니었다'·'오판이라고 볼 수 없다'처럼 부사·인용형이 낄 때마다 새로 뚫린다(codex 2026-09-28).
+RETRACTION_VERDICT = re.compile(r"오판|틀렸|반박(돼|됐)|거둔다|거뒀")
+# 거둬들임 낱말 뒤, 같은 문장 안에 이것이 있으면 부정된 것으로 본다.
+NEGATED_AFTER = re.compile(r"아니|없|않|못")
+
+
+def _retracted(sent: str) -> bool:
+    """문장이 옛 판정을 틀렸다고 끝맺는가 — 거둬들임 낱말이 있고 그 뒤가 부정되지 않았다."""
+    return any(not NEGATED_AFTER.search(sent[m.end():]) for m in RETRACTION_VERDICT.finditer(sent))
+
 
 # 문장 경계. 소수점(17.6조)·URL의 점은 뒤에 공백이 없어 쪼개지지 않는다.
 SENTENCE = re.compile(r"(?<=[.!?])\s+")
@@ -85,8 +94,7 @@ def _unsourced(text: str) -> list[str]:
     bad = []
     for sent in SENTENCE.split(text):
         for m in MEMORY_BENCHMARK.finditer(sent):
-            if SOURCED.search(sent) or (RETRACTED_BEFORE.search(sent[:m.start()])
-                                        and RETRACTION_VERDICT.search(sent)):
+            if SOURCED.search(sent) or (RETRACTED_BEFORE.search(sent[:m.start()]) and _retracted(sent)):
                 continue
             bad.append(sent)
             break
@@ -113,6 +121,9 @@ def test_detector_catches_the_known_case():
     # 부정된 거둬들임은 거둬들임이 아니다
     assert _unsourced("종전 역대 최고치 판단은 오판이 아니었다")
     assert _unsourced("종전 역대 최고치 판단은 오판은 아니었다")
+    assert _unsourced("종전 역대 최고치 판단은 오판은 결코 아니었다")
+    assert _unsourced("종전 역대 최고치 판단을 오판이라고 볼 수 없다")
+    assert _unsourced("종전 역대 최고치 판단이 틀렸다고 하기 어렵지 않다")
 
 
 def test_grades_scanned():
