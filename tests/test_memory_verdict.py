@@ -12,8 +12,8 @@
 **현실을 먼저 따라잡은 서버가 틀린 서버로 게시된다.** 문장은 그럴듯해 읽어서는 안 걸린다.
 
 그래서 배관으로 건다: 채점 문장이 '역사적·역대 최고·사상 최대' 같은 **과거 기준값**을 꺼내면,
-**같은 문장에** 그 기준을 이번에 확인한 출처(공시 번호·URL)가 있거나, 기준값 앞에 '종전'이 와서
-옛 판정을 인용하고 그 판정을 틀렸다고 끝맺는 자리여야 한다. 둘 다 없으면 기억 판정으로 보고 실패한다.
+**같은 문장에** 그 기준을 이번에 확인한 출처(공시 번호·URL)가 있거나, 기준값 앞에 정정 표식
+`[YYYY-MM-DD 정정] 종전`이 붙어 옛 판정을 인용하는 자리여야 한다. 둘 다 없으면 기억 판정으로 보고 실패한다.
 
 실행: python3 -m pytest tests/test_memory_verdict.py -q
 """
@@ -31,34 +31,13 @@ MEMORY_BENCHMARK = re.compile(r"역사적|역대\s*(최고|최대|최저)|사상
 # "다시 불러 대조하지 않은"처럼 부정문에도 나온다. 대조했다면 가리킬 번호나 주소가 있다.
 SOURCED = re.compile(r"rcpNo\s*\d{14}|https?://\S+\.\S+")
 
-# 옛 판정을 인용해 거둬들이는 자리 — 같은 문장에서 기준값 **앞에** '종전'이 오고, 그 문장이
-# 그 판정을 **틀렸다고 끝맺어야** 한다(codex 교차검증 2026-09-28, 두 차례): '정정' 낱말만으로는
-# "정정할 필요가 없다"가 통과하고, '종전'만으로는 "종전 역대 최고치는 17.6조이므로 오류다"처럼
-# 옛 오판을 그대로 되풀이한 문장이 통과한다.
-RETRACTED_BEFORE = re.compile(r"종전")
-
-# 거둬들임을 말하는 낱말. 부정형은 낱말 뒤 꼬리로 따로 가른다 — lookahead로 낱낱이 막으면
-# '오판은 결코 아니었다'·'오판이라고 볼 수 없다'처럼 부사·인용형이 낄 때마다 새로 뚫린다(codex 2026-09-28).
-RETRACTION_VERDICT = re.compile(r"오판|틀렸|반박(돼|됐)|거둔다|거뒀")
-# 거둬들임 낱말의 **자기 절** 안에 이것이 있으면 부정된 것으로 본다. 절은 쉼표·줄표·'었고/였고/며'
-# 에서 끊는다 — 문장 끝까지 보면 '오판이었고 근거도 없었다'의 뒷절 '없'이 앞절을 부정한 것으로
-# 읽히고, 낱말 하나만 살아도 통과시키면 '오판이 아니었지만 …은 오판이었다'가 뚫린다(codex 2026-09-28).
-NEGATED = re.compile(r"아니|없|않|못")
-CLAUSE_END = re.compile(r"[,，—]|(었|였)고\s|며\s|지만")
-
-
-def _retracted(sent: str) -> bool:
-    """문장이 옛 판정을 틀렸다고 끝맺는가 — 거둬들임 낱말이 있고, **그중 하나라도** 자기 절에서
-    부정됐으면 거둬들임으로 보지 않는다(엇갈린 문장은 통과가 아니라 차단 쪽으로)."""
-    hits = list(RETRACTION_VERDICT.finditer(sent))
-    if not hits:
-        return False
-    for m in hits:
-        tail = sent[m.end():]
-        end = CLAUSE_END.search(tail)
-        if NEGATED.search(tail[:end.start()] if end else tail):
-            return False
-    return True
+# 옛 판정을 인용해 거둬들이는 자리 — **형식 표식**으로만 인정한다: 같은 문장에서 기준값 앞에
+# `[YYYY-MM-DD 정정] 종전`. 낱말로 뜻을 읽으려던 시도('정정'·'오판'·부정어 꼬리 가르기)는 codex
+# 교차검증(2026-09-28)에서 다섯 차례 연달아 뚫렸다 — "정정할 필요가 없다", "오판은 결코 아니었다",
+# "오판, 즉 잘못이 아니었다"… 한국어 부정은 정규식으로 닫히지 않는다. 표식은 정정을 쓰는 사람만
+# 일부러 붙이는 형식이라 채점 문장이 우연히 품지 않고, 붙였으면 그 문장이 정정이라고 스스로
+# 서명한 것이다(뜻이 맞는지는 사람·codex 검수 몫).
+RETRACTION_MARK = re.compile(r"\[\d{4}-\d{2}-\d{2}\s*정정\]\s*종전")
 
 
 # 문장 경계. 소수점(17.6조)·URL의 점은 뒤에 공백이 없어 쪼개지지 않는다.
@@ -106,7 +85,7 @@ def _unsourced(text: str) -> list[str]:
     bad = []
     for sent in SENTENCE.split(text):
         for m in MEMORY_BENCHMARK.finditer(sent):
-            if SOURCED.search(sent) or (RETRACTED_BEFORE.search(sent[:m.start()]) and _retracted(sent)):
+            if SOURCED.search(sent) or RETRACTION_MARK.search(sent[:m.start()]):
                 continue
             bad.append(sent)
             break
@@ -118,27 +97,17 @@ def test_detector_catches_the_known_case():
     original = ("1분기 매출 133.9조·영업이익 57.2조는 영업이익률 42.7%(역사적 밴드 5~25% 초과)이자 "
                 "역대 최고 분기 영업이익(약 17.6조)의 3배이고")
     assert _unsourced(original), "실사고 원문을 못 잡는다 — 게이트가 죽었다"
-    assert not _unsourced("종전 문장은 '역대 최고 분기 영업이익(약 17.6조)'을 잣대로 삼은 오판이었다")
-    # 판정을 유지하면서 '정정'이란 낱말만 품은 문장은 통과시키지 않는다
+    assert not _unsourced("[2026-09-28 정정] 종전 문장은 '역대 최고 분기 영업이익(약 17.6조)'을 잣대로 삼은 오판이었다")
+    # 표식 없는 '정정'·'종전'·'오판' 낱말은 거둬들임이 아니다
     assert _unsourced("정정할 필요가 없다 — 역대 최고 분기 영업이익(약 17.6조)의 3배다")
-    # 거둬들임은 같은 문장 안에서만 — 딴 문장의 '종전'은 이 문장을 풀어 주지 않는다
-    assert _unsourced("종전 판정을 유지한다. 역대 최고 분기 영업이익(약 17.6조)의 3배다")
-    # '종전'이 앞에 있어도 옛 오판을 되풀이하면 통과시키지 않는다
     assert _unsourced("종전 역대 최고치는 17.6조이므로 57.2조는 오류다")
-    # 부정문 속 '다시 불러'는 출처가 아니다
+    assert _unsourced("종전 역대 최고치 판단은 오판, 즉 잘못이 아니었다")
+    # 표식은 같은 문장, 기준값 앞에만 — 딴 문장의 표식은 이 문장을 풀어 주지 않는다
+    assert _unsourced("[2026-09-28 정정] 종전 판정을 유지한다. 역대 최고 분기 영업이익(약 17.6조)의 3배다")
+    # 출처는 번호·주소가 붙어야 출처다
     assert _unsourced("도구를 다시 불러 대조하지 않았지만 역대 최고치(약 17.6조)의 3배라 오류다")
-    # 번호 없는 'rcpNo' 낱말은 출처가 아니다
     assert _unsourced("rcpNo 확인 필요: 역대 최고치의 3배")
     assert not _unsourced("DART rcpNo 20260730800103 기준 역대 최고 분기 실적이다")
-    # 부정된 거둬들임은 거둬들임이 아니다
-    assert _unsourced("종전 역대 최고치 판단은 오판이 아니었다")
-    assert _unsourced("종전 역대 최고치 판단은 오판은 아니었다")
-    assert _unsourced("종전 역대 최고치 판단은 오판은 결코 아니었다")
-    assert _unsourced("종전 역대 최고치 판단을 오판이라고 볼 수 없다")
-    assert _unsourced("종전 역대 최고치 판단이 틀렸다고 하기 어렵지 않다")
-    assert _unsourced("종전 역대 최고치 판단은 오판이 아니었지만, 출처 누락은 오판이었다")
-    # 뒷절의 부정어가 앞절의 거둬들임을 뒤집지 않는다
-    assert not _unsourced("종전 역대 최고치 판단은 오판이었고 근거도 없었다")
 
 
 def test_grades_scanned():
