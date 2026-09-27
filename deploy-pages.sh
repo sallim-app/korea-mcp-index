@@ -53,6 +53,13 @@ fi
 # **지금 올리려는 디렉토리**가 지금의 measured.json에서 나온 것인가. --verify-only로
 # 남의 회차 산출물을 올리거나, 렌더가 다른 --out에 떨어진 채 옛 site/를 올리는 길을 막는다.
 echo "[2/4] 사전검사"
+# 채점 문장 게이트 — 남의 서버에 대한 틀린 공개 주장을 올리지 않는다(2026-09-28, T-2026W40-11).
+# 회차 프롬프트는 커밋 전에 pytest를 돌리지만, 이 스크립트는 사람·다른 회차가 따로 부르는
+# 길목이라 그 순서에 기대지 않는다: 기억 판정(test_memory_verdict)·오귀속(test_attribution)이
+# 빨가면 배포하지 않는다. --verify-only는 아무것도 올리지 않으니 건너뛴다.
+if [ "$do_render" = 1 ] || [ "$do_deploy" = 1 ]; then
+  python3 -m pytest -q tests/test_memory_verdict.py tests/test_attribution.py
+fi
 python3 - "$OUT" <<'PY'
 import json, pathlib, sys
 out = pathlib.Path(sys.argv[1])

@@ -29,14 +29,16 @@ MEMORY_BENCHMARK = re.compile(r"역사적|역대\s*(최고|최대|최저)|사상
 
 # 이번에 확인한 출처 — 같은 문장 안에 있어야 한다. '재호출'·'다시 불러' 같은 낱말은 넣지 않는다:
 # "다시 불러 대조하지 않은"처럼 부정문에도 나온다. 대조했다면 가리킬 번호나 주소가 있다.
-SOURCED = re.compile(r"rcpNo|https?://")
+SOURCED = re.compile(r"rcpNo\s*\d{14}|https?://\S+\.\S+")
 
 # 옛 판정을 인용해 거둬들이는 자리 — 같은 문장에서 기준값 **앞에** '종전'이 오고, 그 문장이
 # 그 판정을 **틀렸다고 끝맺어야** 한다(codex 교차검증 2026-09-28, 두 차례): '정정' 낱말만으로는
 # "정정할 필요가 없다"가 통과하고, '종전'만으로는 "종전 역대 최고치는 17.6조이므로 오류다"처럼
 # 옛 오판을 그대로 되풀이한 문장이 통과한다.
 RETRACTED_BEFORE = re.compile(r"종전")
-RETRACTION_VERDICT = re.compile(r"오판|틀렸|반박돼|반박됐|거둔다|거뒀")
+# 부정형('오판이 아니었다'·'틀렸다고 볼 수 없다')은 거둬들임이 아니다.
+RETRACTION_VERDICT = re.compile(
+    r"오판(?!이?\s*아니)|틀렸(?!다고\s*(볼|할)\s*수\s*없)|반박(돼|됐)(?!다고\s*(볼|할)\s*수\s*없)|거둔다|거뒀")
 
 # 문장 경계. 소수점(17.6조)·URL의 점은 뒤에 공백이 없어 쪼개지지 않는다.
 SENTENCE = re.compile(r"(?<=[.!?])\s+")
@@ -92,6 +94,11 @@ def test_detector_catches_the_known_case():
     assert _unsourced("종전 역대 최고치는 17.6조이므로 57.2조는 오류다")
     # 부정문 속 '다시 불러'는 출처가 아니다
     assert _unsourced("도구를 다시 불러 대조하지 않았지만 역대 최고치(약 17.6조)의 3배라 오류다")
+    # 번호 없는 'rcpNo' 낱말은 출처가 아니다
+    assert _unsourced("rcpNo 확인 필요: 역대 최고치의 3배")
+    assert not _unsourced("DART rcpNo 20260730800103 기준 역대 최고 분기 실적이다")
+    # 부정된 거둬들임은 거둬들임이 아니다
+    assert _unsourced("종전 역대 최고치 판단은 오판이 아니었다")
 
 
 def test_grades_scanned():
