@@ -63,7 +63,7 @@ Other lists tell you a server exists. This one tells you whether it **works righ
 |---|---|---|---|
 | [공공데이터·행정](#공공데이터행정) | [hike-lab/public-data-lens](https://github.com/hike-lab/public-data-lens) | 1건 | 실제 값이 아니라 포털 메타데이터를 주는 카탈로그형이고 그 설계에 맞는 Q2에서는 실재·구체·검증 가능한 포인터를 냈다 — 다만 '서울시 인구' 같은 자명한 질의에 0건을 돌려주는 검색 재현율과… |
 | [법령·판례](#법령판례) | [chrisryugj/korean-law-mcp](https://github.com/chrisryugj/korean-law-mcp) | 1건 | 법제처 실시간 조회로 두 질문 모두에 현행 원문을 대 준 유일한 서버이고 조문 번호·형량 수치가 실제와 맞았다 — 약점은 서버가 아니라 전달 형식에 있다… |
-| [금융·증시](#금융증시) | [com.aikstockdata/mcp](https://github.com/na77tech-creator/aikstockdata) | 5건 | 코스피 시총 랭킹은 이 분야에서 유일하게 실측 정합한 답을 냈지만, 정작 실적(DART) 계열 수치는 스케일이 무너져 있어 시세는 믿고 실적은 못 믿는 서버다. |
+| [금융·증시](#금융증시) | [com.aikstockdata/mcp](https://github.com/na77tech-creator/aikstockdata) | 3건 | 코스피 시총 랭킹과 삼성전자 실적 모두 원문 대조로 맞는 값을 낸 서버다 — 실적 수치는 DART 공시와 일치한다(2026-09-28 대조). |
 | [부동산](#부동산) | [app.sallim/korea-realty](https://github.com/sallim-app/korea-realty) 🏠 | 4건 | 이 목록 운영사 서버이지만 같은 잣대로 봐도 두 질문 다 실제로 답이 나온 유일한 서버다 — 단위·집계법·기준시각·분산 경고·유찰 하자 경고를 원문이 스스로 달아 주고 재호출 대조에서 수치가… |
 | [커머스·생활](#커머스생활) | [ai.timeplex/booking](https://timeplex.ai) | 0건 | 이 분야 질문에 끝까지 답한 유일한 서버로 값도 원문과 축자 일치하나, 등록 매장이 1곳뿐이고 lang='ko'로 응답하면서 메뉴명은 일본어 원문 그대로라(답변이 대신 번역했다) 서버가 약속한… |
 
@@ -159,16 +159,16 @@ Other lists tell you a server exists. This one tells you whether it **works righ
 
 ## 금융·증시
 
-> 두 질문을 다 감당할 서버는 없고, 실제로 쓰려면 갈라 써야 한다 — 시장 전체 스냅샷(시총 랭킹·주가)은 com.aikstockdata/mcp가 유일하게 실측 정합한 상위 10을 냈고(역산 주식수가 실제와 일치), 개별 기업 재무제표는 korea-stock-analyzer-mcp의 2025년 연결 매출 333.6조·영업이익 43.6조·마진 13.07%가 유일하게 삼성전자 실제 규모대 안에 들어왔다.
+> 두 질문을 다 감당할 서버는 없고, 실제로 쓰려면 갈라 써야 한다 — 시장 전체 스냅샷(시총 랭킹·주가)은 com.aikstockdata/mcp가 유일하게 실측 정합한 상위 10을 냈고(역산 주식수가 실제와 일치), 개별 기업 실적은 aikstockdata(2026년 1분기·반기 누계)와 korea-stock-analyzer-mcp(2025년 연간 연결 매출 333.6조·영업이익 43.6조)가 각각 공시와 맞는 값을 냈다.
 
 <sub>위 총평의 서버 수는 **분야 교정 전** 기준이다 — 이 분야에서 2건이 아래 「분야 교정」으로 빠졌다.</sub>
 
 | Server | Tools | Warm | Cold | Desc | Annot | Errors |
 |---|---|---|---|---|---|---|
-| [com.aikstockdata/mcp](https://github.com/na77tech-creator/aikstockdata) | 12 | 23 | 33 | 100% | 100% | 5 |
+| [com.aikstockdata/mcp](https://github.com/na77tech-creator/aikstockdata) | 12 | 23 | 33 | 100% | 100% | 3 |
 | [Mrbaeksang/korea-stock-analyzer-mcp](https://github.com/Mrbaeksang/korea-stock-analyzer-mcp) | 6 | 216 | 541 | 100% | 100% | 4 |
 
-1. **aikstockdata/mcp** — 코스피 시총 랭킹은 이 분야에서 유일하게 실측 정합한 답을 냈지만, 정작 실적(DART) 계열 수치는 스케일이 무너져 있어 시세는 믿고 실적은 못 믿는 서버다.
+1. **aikstockdata/mcp** — 코스피 시총 랭킹과 삼성전자 실적 모두 원문 대조로 맞는 값을 낸 서버다 — 실적 수치는 DART 공시와 일치한다(2026-09-28 대조). 남는 흠은 1~6월 누계를 '2026.06 잠정'으로만 적어 분기 값으로 읽히게 한 표기와 스냅샷 지연이다. [2026-09-28 정정] 종전 총평의 '실적(DART) 계열 수치는 스케일이 무너져 있어 실적은 못 믿는 서버'는 채점 모델의 기억을 잣대로 한 오판이었다.
 2. **Mrbaeksang/korea-stock-analyzer-mcp** — 개별 종목 재무제표는 이 분야에서 가장 정확했으나 시장 전체를 훑는 랭킹·스크리닝 도구가 없어 '상위 종목' 유형 질문에는 구조적으로 답하지 못한다.
 
 <sub>순위는 **실제로 물어본 결과**다 — 같은 질문을 각 서버에 던지고 답변을 채점했다. 이 회차는 서버당 **1회**만 물었다 — **재현성은 재지 않았다**(다시 물으면 등수가 갈릴 수 있다). 다음 채점 회차부터 3회로 잰다. 질문·호출기록·답변은 [answers/](answers)에, 채점은 [grades/](grades)에, 기준은 [JUDGING.md](JUDGING.md)에 있다.</sub>
