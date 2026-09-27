@@ -38,7 +38,7 @@ SOURCED = re.compile(r"rcpNo\s*\d{14}|https?://\S+\.\S+")
 RETRACTED_BEFORE = re.compile(r"종전")
 # 부정형('오판이 아니었다'·'틀렸다고 볼 수 없다')은 거둬들임이 아니다.
 RETRACTION_VERDICT = re.compile(
-    r"오판(?!이?\s*아니)|틀렸(?!다고\s*(볼|할)\s*수\s*없)|반박(돼|됐)(?!다고\s*(볼|할)\s*수\s*없)|거둔다|거뒀")
+    r"오판(?![이은]?\s*아니)|틀렸(?!다고\s*(볼|할)\s*수\s*없)|반박(돼|됐)(?!다고\s*(볼|할)\s*수\s*없)|거둔다|거뒀")
 
 # 문장 경계. 소수점(17.6조)·URL의 점은 뒤에 공백이 없어 쪼개지지 않는다.
 SENTENCE = re.compile(r"(?<=[.!?])\s+")
@@ -61,6 +61,19 @@ def _texts():
                         yield f"{path.name}:{name}:q{q.get('q')}:{k}", v
                 for i, e in enumerate(q.get("사실오류") or []):
                     yield f"{path.name}:{name}:q{q.get('q')}:사실오류[{i}]", e
+
+
+def _ranking_texts():
+    """사이트가 실제로 렌더하는 ranking.json의 문장들 — grades/를 고치고 재산출을 빠뜨리거나
+    ranking.json을 직접 고친 경우에도 게시 경로 쪽에서 걸리게 한다(codex 교차검증 2026-09-28)."""
+    d = json.loads((ROOT / "ranking.json").read_text(encoding="utf-8"))
+    for key, item in (d.get("items") or {}).items():
+        for f in ("note", "순위_근거"):
+            if isinstance(item.get(f), str):
+                yield f"ranking.json:{key}:{f}", item[f]
+        for t in item.get("top") or []:
+            if isinstance(t.get("why"), str):
+                yield f"ranking.json:{key}:{t.get('name')}:why", t["why"]
 
 
 def _unsourced(text: str) -> list[str]:
@@ -99,6 +112,7 @@ def test_detector_catches_the_known_case():
     assert not _unsourced("DART rcpNo 20260730800103 기준 역대 최고 분기 실적이다")
     # 부정된 거둬들임은 거둬들임이 아니다
     assert _unsourced("종전 역대 최고치 판단은 오판이 아니었다")
+    assert _unsourced("종전 역대 최고치 판단은 오판은 아니었다")
 
 
 def test_grades_scanned():
@@ -107,7 +121,7 @@ def test_grades_scanned():
 
 def test_no_memory_benchmark_without_source():
     """과거 기준값을 출처 없이 잣대로 쓴 채점 문장이 있으면 실패."""
-    bad = [(where, near[:160]) for where, text in _texts() for near in _unsourced(text)]
+    bad = [(where, near[:160]) for where, text in [*_texts(), *_ranking_texts()] for near in _unsourced(text)]
     assert not bad, (
         "채점 모델의 기억(과거 기준값)으로 남의 서버 수치를 판정한 문장이 있다 — 도구를 다시 불러 "
         f"대조하고 출처를 같은 자리에 적어라(mcp-index-grade-prompt.md): {bad[:3]}")
