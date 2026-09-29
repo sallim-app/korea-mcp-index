@@ -13,7 +13,8 @@
 
 그래서 배관으로 건다: 채점 문장이 '역사적·역대 최고·사상 최대' 같은 **과거 기준값**을 꺼내면,
 **같은 문장에** 그 기준을 이번에 확인한 출처(공시 번호·URL)가 있거나, 기준값 앞에 정정 표식
-`[YYYY-MM-DD 정정] 종전`이 붙어 옛 판정을 인용하는 자리여야 한다. 둘 다 없으면 기억 판정으로 보고 실패한다.
+`[YYYY-MM-DD 정정] 종전`이 붙고 기준값이 **같은 절의 따옴표 안에서** 옛 판정을 인용하는 자리여야
+한다(표식이 뒤 절의 새 판정까지 면제하지 않게, 2026-09-29). 둘 다 없으면 기억 판정으로 보고 실패한다.
 
 실행: python3 -m pytest tests/test_memory_verdict.py -q
 """
@@ -42,6 +43,16 @@ RETRACTION_MARK = re.compile(r"\[\d{4}-\d{2}-\d{2}\s*정정\]\s*종전")
 
 # 문장 경계. 소수점(17.6조)·URL의 점은 뒤에 공백이 없어 쪼개지지 않는다.
 SENTENCE = re.compile(r"(?<=[.!?])\s+")
+
+# 절 경계 — 정정 표식은 **자기 절 안에서만** 효력이 있다. `;`·역접 접속어 뒤는 새 판정이다:
+# "[정정] 종전 …; 그러나 역대 최고치는 17.6조" 에서 뒤 절은 옛 판정의 인용이 아니라 새로 기억을
+# 잣대로 쓴 것이다(codex 교차검증 2026-09-29). 쉼표·줄표는 경계로 삼지 않는다 — 실제 정정문이
+# 인용을 줄표로 풀어 쓴다(grades/금융·증시.json 사실오류[0]). 그 자리는 아래 인용 조건이 막는다.
+CLAUSE = re.compile(r"\s*[;；]\s*|,?\s+(?=(?:그러나|하지만|그런데|반면|다만|그렇지만)(?:\s|,))")
+
+# 따옴표 인용 — 정정 표식이 풀어 주는 것은 **따옴표로 옛 문장을 인용한 기준값**뿐이다. 표식 뒤라도
+# 따옴표 밖의 기준값은 지금 쓰는 판정이다: "[정정] 종전 '…'는 오판이었다 — 역대 최고치는 17.6조다".
+QUOTED = re.compile(r"'[^']*'|\"[^\"]*\"|‘[^’]*’|“[^”]*”|「[^」]*」|『[^』]*』")
 
 
 def _texts():
@@ -81,14 +92,22 @@ def _unsourced(text: str) -> list[str]:
 
     한계: 같은 문장에 무관한 URL이 있으면 통과한다 — 이 회귀는 의미를 읽지 않고, 출처를
     적을 자리를 강제할 뿐이다. 의미 검수는 채점 프롬프트 ④(강한 모델의 주장 판정) 몫이다.
+
+    출처는 문장 단위로 인정한다. 정정 표식은 **같은 절에서 표식 뒤, 따옴표 안의 기준값만**
+    풀어 준다 — 표식 하나로 같은 문장 뒤의 새 기억 판정까지 면제되지 않게(codex 2026-09-29).
     """
     bad = []
     for sent in SENTENCE.split(text):
-        for m in MEMORY_BENCHMARK.finditer(sent):
-            if SOURCED.search(sent) or RETRACTION_MARK.search(sent[:m.start()]):
-                continue
-            bad.append(sent)
-            break
+        if SOURCED.search(sent):
+            continue
+        for clause in CLAUSE.split(sent):
+            mark = RETRACTION_MARK.search(clause)
+            quotes = [q.span() for q in QUOTED.finditer(clause)]
+            if any(not (mark and mark.end() <= m.start()
+                        and any(lo < m.start() and m.end() < hi for lo, hi in quotes))
+                   for m in MEMORY_BENCHMARK.finditer(clause)):
+                bad.append(sent)
+                break
     return bad
 
 
@@ -104,6 +123,17 @@ def test_detector_catches_the_known_case():
     assert _unsourced("종전 역대 최고치 판단은 오판, 즉 잘못이 아니었다")
     # 표식은 같은 문장, 기준값 앞에만 — 딴 문장의 표식은 이 문장을 풀어 주지 않는다
     assert _unsourced("[2026-09-28 정정] 종전 판정을 유지한다. 역대 최고 분기 영업이익(약 17.6조)의 3배다")
+    # 표식은 자기 절, 따옴표 안의 기준값만 푼다 — 같은 문장 뒤 새 판정은 면제되지 않는다(codex 2026-09-29)
+    assert _unsourced("[2026-09-28 정정] 종전 '역대 최고 분기'는 오판이었다; 그러나 역대 최고치는 17.6조다")
+    assert _unsourced("[2026-09-28 정정] 종전 '역대 최고 분기'는 오판이었다; '역대 최고치'는 17.6조다")
+    assert _unsourced("[2026-09-28 정정] 종전 '역대 최고 분기'는 오판이었다 그러나 '역대 최고치'는 17.6조다")
+    assert _unsourced("[2026-09-28 정정] 종전 '역대 최고 분기'는 오판이었다 — 역대 최고치는 17.6조다")
+    assert _unsourced("[2026-09-28 정정] 종전 '역대 최고 분기'는 오판이었다, 역대 최고치는 17.6조다")
+    assert _unsourced("[2026-09-28 정정] 종전 판정은 오판이었다, 역대 최고치는 17.6조다")
+    assert _unsourced("'역대 최고치' [2026-09-28 정정] 종전 판정은 오판이었다")
+    # 실제 정정문 형태 — 여러 기준값을 따옴표로 인용하고 줄표로 풀어 쓴다
+    assert not _unsourced("[2026-09-28 정정] 종전 문장은 '역사적 밴드 5~25%'·'역대 최고 분기 영업이익(약 17.6조)'"
+                          "을 잣대로 삼았다 — 도구를 다시 불러 대조하지 않은 판정")
     # 출처는 번호·주소가 붙어야 출처다
     assert _unsourced("도구를 다시 불러 대조하지 않았지만 역대 최고치(약 17.6조)의 3배라 오류다")
     assert _unsourced("rcpNo 확인 필요: 역대 최고치의 3배")
