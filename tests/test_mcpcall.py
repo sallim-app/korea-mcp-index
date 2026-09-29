@@ -97,3 +97,13 @@ def test_tool_is_error_is_nonzero_but_text_shown(monkeypatch, capsys):
     install(monkeypatch, session_server({"isError": True, "content": [{"type": "text", "text": "없는 종목"}]}))
     rc, out, _ = run(monkeypatch, capsys, ["call", "https://x.test/mcp", "t1", "{}"])
     assert rc == mcpcall.RC_TOOL_ERROR and "없는 종목" in out
+
+
+def test_handshake_gets_the_call_timeout(monkeypatch, capsys):
+    """핸드셰이크도 종전 호출 허용(40초)을 쓴다 — measure 기본 15초로 줄이면 느린 서버가 호출 실패로 오판된다."""
+    rec = install(monkeypatch, session_server({"content": [{"type": "text", "text": "ok"}]}))
+    seen = []
+    orig = rec.__call__
+    monkeypatch.setattr("urllib.request.urlopen", lambda req, timeout=None: (seen.append(timeout), orig(req, timeout))[1])
+    rc, _, _ = run(monkeypatch, capsys, ["call", "https://x.test/mcp", "t1", "{}"])
+    assert rc == 0 and seen and all(t == mcpcall.CALL_TIMEOUT for t in seen), seen

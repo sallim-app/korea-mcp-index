@@ -289,7 +289,7 @@ def _tools_from(raw: str) -> list | None:
     return None
 
 
-def _handshake(url: str) -> tuple[dict | None, dict]:
+def _handshake(url: str, timeout: int = TIMEOUT) -> tuple[dict | None, dict]:
     """`initialize` → `notifications/initialized`. `(세션정보, 원응답)`.
 
     **이것이 없으면 규격을 지키는 서버는 우리를 거절한다.** 실측 2026-09-03:
@@ -300,7 +300,8 @@ def _handshake(url: str) -> tuple[dict | None, dict]:
                        "params": {"protocolVersion": PROTOCOL_VERSION,
                                   "capabilities": {},
                                   "clientInfo": {"name": CLIENT_NAME,
-                                                 "version": CLIENT_VERSION}}})
+                                                 "version": CLIENT_VERSION}}},
+                 timeout=timeout)
     if r.get("status") not in (200, 202):
         return None, r
     res = _rpc_result(r.get("raw") or "")
@@ -315,7 +316,7 @@ def _handshake(url: str) -> tuple[dict | None, dict]:
     # 결과를 판정에 쓰지 않는다 — 실패해도 tools/list를 시도해 본다.
     _jsonrpc(sess["endpoint"],
              {"jsonrpc": "2.0", "method": "notifications/initialized"},
-             session=sess["session_id"], protocol=sess["protocol"])
+             session=sess["session_id"], protocol=sess["protocol"], timeout=timeout)
     return sess, r
 
 

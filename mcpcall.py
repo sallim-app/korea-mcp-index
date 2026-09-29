@@ -46,7 +46,7 @@ def rpc(url: str, method: str, params: dict) -> dict:
     그대로 안고 있었다. 실패는 `{"error": ...}`로, 성공은 JSON-RPC 응답 그대로 돌려준다.
     """
     measure.UA = UA   # 두드리개와 같은 전송을 쓰되 남의 서버 로그엔 용도를 바로 적는다
-    sess, r0 = measure._handshake(url)
+    sess, r0 = measure._handshake(url, timeout=CALL_TIMEOUT)  # 종전 40초 허용을 핸드셰이크에도
     if sess is None:
         st = r0.get("status")
         why = r0.get("error") or (f"HTTP {st}" if st else "응답 없음")
