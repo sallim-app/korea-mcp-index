@@ -1486,8 +1486,12 @@ def build_method(ctx) -> None:
       f'<li><strong>채점자도 모델이다.</strong> 근거를 전부 공개하는 것으로 줄일 수는 있어도 '
       f'없앨 수는 없다 — 이유와 실측 근거는 '
       f'<a href="{REPO}/blob/main/JUDGING.md">JUDGING.md</a>에 있다</li>',
-      '<li><strong>한 번 물어본 순위다.</strong> 다시 물으면 등수가 갈릴 수 있다 — 우리 서버로 '
-      '재 보니 질문 네 자리 중 두 곳이 갈렸다. 다음 채점 회차부터 3회로 잰다</li>',
+      ('<li><strong>세 번 물었어도 ‘갈릴 수 있다’까지만 말한다.</strong> 서버마다 세 회차가 '
+       '무엇이 갈렸는지는 채점 원자료의 재현성 칸에 적었지만, 몇 %로 갈리는지는 이 표본(질문 두 개 '
+       '× 3회)으로 못 댄다</li>'
+       if ctx["cat_runs"] and min(ctx["cat_runs"].values()) >= 3 else
+       '<li><strong>한 번 물어본 순위다.</strong> 다시 물으면 등수가 갈릴 수 있다 — 우리 서버로 '
+       '재 보니 질문 네 자리 중 두 곳이 갈렸다. 다음 채점 회차부터 3회로 잰다</li>'),
       f'<li><strong>측정 항목을 우리가 골랐다.</strong> 원자료 공개로 줄일 수는 있어도 없앨 수는 '
       f'없다 — 무엇을 고정했고 무엇을 언제 왜 바꿨는지는 '
       f'<a href="{REPO}/blob/main/PROTOCOL.md">신뢰 규약</a>에 있다. '

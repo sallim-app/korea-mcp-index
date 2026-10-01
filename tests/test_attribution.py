@@ -104,9 +104,11 @@ def _cases() -> list[tuple[str, int, str, str]]:
 
 def test_parser_still_sees_the_known_case():
     """파서가 산출물과 어긋나면 이 회귀는 조용히 0건을 검사한다 — 실사고 1건을 못박는다."""
-    md = (ANSWERS / "aikstockdata.md").read_text(encoding="utf-8")
+    # 실사고 원본은 2026-08-19 회차 기록이다 — 2026-10-01 정규 회차가 answers/<서버>.md를 3회차로
+    # 덮으면서 원본은 answers/2026-08-19/로 보존했다(그 회차엔 직접 호출이 0건이었다).
+    md = (ANSWERS / "2026-08-19" / "aikstockdata.md").read_text(encoding="utf-8")
     assert 2 in _direct_call_questions(md), (
-        "answers/aikstockdata.md 질문 2의 '직접 API 호출' 줄을 못 읽었다 — 파서가 표 형식과 어긋났다")
+        "answers/2026-08-19/aikstockdata.md 질문 2의 '직접 API 호출' 줄을 못 읽었다 — 파서가 표 형식과 어긋났다")
     assert _grade_texts("com.aikstockdata/mcp", 2), "그 질문의 채점 문장을 grades/에서 못 찾았다"
 
 
@@ -118,7 +120,11 @@ def test_direct_call_output_is_not_blamed_on_the_server():
     사실이 함께 있어야 한다.
     """
     cases = _cases()
-    assert cases, "직접 호출로 답한 질문의 채점 문장이 하나도 안 잡혔다 — 파서 드리프트"
+    # 이번 회차 answers/에 직접 호출이 없으면 검사할 문장이 없는 것이 정상이다. 파서가 조용히
+    # 0건을 내는 드리프트는 위 test_parser_still_sees_the_known_case가 보존본으로 따로 잡는다.
+    direct = [p for p in ANSWERS.glob("*.md") if _direct_call_questions(p.read_text(encoding="utf-8"))]
+    if direct:
+        assert cases, f"직접 호출 답변 {len(direct)}건인데 채점 문장이 하나도 안 잡혔다 — 파서 드리프트"
     bad = []
     for server, q, field, text in cases:
         for m in ATTRIBUTES_TO_SERVER.finditer(text):

@@ -233,12 +233,24 @@ def test_stale_ranks_are_labelled_in_the_machine_feed():
     codex 교차검증 지적(2026-08-29): 무응답 서버가 `index.json`에는 2위·3위로 남는데
     HTML 순위표에는 없어, 사람용과 기계용이 어긋났다. 등수를 지우는 대신 회차를 밝힌다.
     """
+    # 종전엔 **지금 원자료에** 회차가 어긋난 등수가 있다고 가정했다(2026-09 내내 참 — 채점 후
+    # 죽은 서버가 있었다). 2026-10-01 정규 회차가 전원을 다시 재면서 그 상태가 사라져 이 검사가
+    # 시점 사실을 붙든 채 빨개졌다. 그래서 상태를 직접 만든다: 등수가 있는 서버 하나를 이번 주
+    # 응답 없음으로 바꿔 렌더한다.
+    d = json.loads((ROOT / "measured.json").read_text(encoding="utf-8"))
+    ranked = {t["name"] for v in json.loads((ROOT / "ranking.json").read_text(encoding="utf-8"))
+              ["items"].values() for t in v["top"]}
+    victim = next(i for i in d["items"] if i["name"] in ranked
+                  and (i.get("remote") or {}).get("status") == "live")
+    victim["remote"].update({"status": "down", "status_label": "죽음 확인", "reachable": False,
+                             "http": None, "why": "test: 응답 없음으로 바꿔 렌더"})
     with tempfile.TemporaryDirectory() as tmp:
-        r, out = build(tmp)
+        r, out = build(tmp, data_patch={"items": d["items"]})
         assert r.returncode == 0, r.stderr
         m = json.loads((out / "index.json").read_text(encoding="utf-8"))
         html = (out / "index.html").read_text(encoding="utf-8")
         stale = [s for s in m["servers"] if s["rank_in_category"] and not s["rank_is_current"]]
+        assert victim["name"] in {s["name"] for s in stale}, victim["name"]
         for s in m["servers"]:
             if s["rank_in_category"]:
                 assert s["rank_is_current"] is not None
