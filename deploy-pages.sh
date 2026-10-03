@@ -136,6 +136,23 @@ if [ "$code" != 200 ] || [ "$got" != "$want" ]; then
   exit 1
 fi
 
+# index.json만 보면 **같은 회차의 템플릿·CSS 수리**가 미반영이어도 통과한다 — 데이터가 안
+# 바뀌었으니 md5가 그대로다(T-2026W39-95). 렌더 산출물(첫 화면 HTML — CSS는 인라인)도 바이트로
+# 대조한다. CF Pages는 HTML을 고쳐 쓰지 않는다(2026-10-03 실측: 라이브 / md5 = site/index.html md5).
+want_html="$(md5sum < "$OUT/index.html" | cut -d' ' -f1)"; got_html=""; hcode=000
+for i in $(seq 1 "${VERIFY_TRIES:-5}"); do
+  hcode="$(curl -s -o "$body" -w '%{http_code}' --max-time 20 "$SITE_URL/?cb=$$-h$i")" || hcode=000
+  got_html="$(md5sum < "$body" | cut -d' ' -f1)"
+  [ "$hcode" = 200 ] && [ "$got_html" = "$want_html" ] && break
+  sleep "${VERIFY_SLEEP:-6}"
+done
+if [ "$hcode" != 200 ] || [ "$got_html" != "$want_html" ]; then
+  echo "!! 라이브 첫 화면 HTML이 방금 렌더한 index.html과 다르다(HTTP $hcode) — 템플릿·CSS 변경이 도달하지 않았다." >&2
+  echo "   롤백: Cloudflare Pages $PROJECT → 직전 배포로 Rollback" >&2
+  exit 1
+fi
+echo "    첫 화면 HTML → HTTP 200 · md5 일치(렌더 산출물 반영)"
+
 # 사이트맵에 적은 주소는 **우리가 색인해 달라고 제출한 주소**다. 하나라도 404면 그건
 # 남에게 하는 거짓 약속이라 배포 실패로 센다. 판정 목록의 정본은 방금 만든 sitemap.xml이다.
 mapfile -t paths < <(grep -o '<loc>[^<]*</loc>' "$OUT/sitemap.xml" \

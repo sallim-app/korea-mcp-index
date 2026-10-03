@@ -160,3 +160,15 @@ def test_red_when_everything_returns_200(rendered):
     finally:
         srv.shutdown()
         shutil.rmtree(tmp, ignore_errors=True)
+
+
+def test_red_when_live_html_is_stale_but_index_json_same(live):
+    """T-2026W39-95 — 같은 회차의 템플릿·CSS 수리는 index.json md5를 안 바꾼다. 첫 화면 HTML이
+    낡았으면 index.json이 같아도 빨개져야 한다."""
+    out, served, port = live
+    page = served / "index.html"
+    page.write_text(page.read_text(encoding="utf-8").replace("</body>", "<!-- 낡은 템플릿 --></body>"),
+                    encoding="utf-8")
+    r = _verify(out, port)
+    assert r.returncode != 0, f"낡은 템플릿을 통과시켰다:\n{r.stdout}"
+    assert "첫 화면 HTML" in r.stderr
