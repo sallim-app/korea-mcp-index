@@ -295,7 +295,7 @@
 
 | 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 | 사실오류 |
 |---|---|---|---|---|---|---|
-| [ai.timeplex/booking](https://timeplex.ai)<br><sub>뷰티·웰니스 예약. 등록 매장 1곳</sub> | 5 | 416 | 399 | 100% | 100% | 1 |
+| [ai.timeplex/booking](https://timeplex.ai)<br><sub>뷰티·웰니스 예약. 등록 매장 10곳(2026-10-01 회차 확인)</sub> | 5 | 416 | 399 | 100% | 100% | 1 |
 | [com.arcasos/arcasos-rentals](https://arcasos.com)<br><sub>주 단위 단기임차. 총계 미공시로 항상 10건에서 조용히 잘린다</sub> | 3 | 548 | 652 | 100% | 0% | 3 |
 | [com.theprotoclinical/commerce](https://www.theprotoclinical.com/)<br><sub>특정 Shopify 스토어 한 곳의 결제 엔드포인트(UCP)</sub> | 13 | 142 | 217 | 100% | 0% | 1 |
 

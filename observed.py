@@ -78,7 +78,7 @@ SCOPE: dict[str, str] = {
     "Choihello/startup-law-mcp":
         "창업 법령 조문과 K-Startup 창업지원사업 전용 — 일반 법령 질문은 범위 밖",
     "ai.timeplex/booking":
-        "뷰티·웰니스 예약. 등록 매장 1곳",
+        "뷰티·웰니스 예약. 등록 매장 10곳(2026-10-01 회차 확인)",
     "com.arcasos/arcasos-rentals":
         "주 단위 단기임차. 총계 미공시로 항상 10건에서 조용히 잘린다",
     # app.apick/all의 종전 문구("종류조차 확인할 수 없었다")는 2026-10-01 회차 채점자가 도구
