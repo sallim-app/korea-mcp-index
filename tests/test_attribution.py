@@ -134,3 +134,30 @@ def test_direct_call_output_is_not_blamed_on_the_server():
     assert not bad, (
         "직접 호출로 받은 출력을 서버 탓으로 적었다(= 남의 서버에 대한 틀린 공개 주장): "
         f"{bad[:3]}")
+
+
+# ── 방법론 문서의 철회된 귀속 (2026-10-11, 야간 품질 함대 codex F3) ──────────────────
+# 2026-09-16 정정(PROTOCOL.md 개정 이력, 이슈 #1)은 grades/만 고쳤고 JUDGING.md에는
+# '서버가 시가총액을 10배 틀리게 줬다'는 같은 사고가 **방법론의 근거 사례로** 두 곳 남았다.
+# 채점 문장을 고쳐도 그 문장을 인용한 문서가 그대로면 공개 주장은 철회되지 않은 것이다.
+JUDGING = ROOT / "JUDGING.md"
+RETRACTED = [
+    re.compile(r"서버가\s*준\s*10배"),
+    re.compile(r"10배\s*틀리게\s*돌려줬"),
+]
+# 시가총액 자릿수 사례를 서버에 귀속하는 말투
+MCAP_TO_SERVER = re.compile(r"서버가\s*(준|낸|돌려준|내놓은)|돌려줬다|서버의?\s*(결함|오류)")
+
+
+def test_judging_does_not_repeat_retracted_server_blame():
+    text = JUDGING.read_text(encoding="utf-8")
+    for rx in RETRACTED:
+        m = rx.search(text)
+        assert not m, f"JUDGING.md가 2026-09-16에 철회한 서버 귀속을 다시 담았다: {m.group(0)!r}"
+    for para in re.split(r"\n\s*\n", text):
+        if "시가총액" not in para:
+            continue
+        if MCAP_TO_SERVER.search(para):
+            assert "2026-09-16" in para and "정정" in para, (
+                "JUDGING.md의 시가총액 사례 문단이 서버 귀속 말투를 쓰면서 2026-09-16 정정을 "
+                f"같은 문단에 달지 않았다:\n{para[:400]}")
