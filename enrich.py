@@ -36,7 +36,7 @@ UA = "sallim-mcp-index/0.1 (+https://github.com/sallim-app)"
 # 여기서 새면 거기서 잡고, 거기 명단이 뒤처지면 '같은 주소 2곳 이상' 규칙이 잡는다.
 SKIP_HOST = re.compile(
     r"localhost|127\.0\.0\.1|0\.0\.0\.0|example\.(com|org)|your-|<|\{|"
-    r"modelcontextprotocol\.io|github\.com|npmjs\.com|readthedocs|"
+    r"modelcontextprotocol\.io|github\.com|npmjs\.com|npmjs\.org|pypi\.org|readthedocs|"
     r"shields\.io|badge|\.svg|\.png|img\.|raw\.githubusercontent|"
     r"glama\.ai|lobehub\.com|//(?:www\.)?smithery\.ai|mcp\.so|pulsemcp\.com|"
     r"mcpservers\.org|antigravity\.google|home-assistant\.io|huggingface\.co|"
@@ -45,7 +45,12 @@ SKIP_HOST = re.compile(
     # 우리말 자리표시자도 같은 것이다(2026-09-14, `내도메인.vercel.app`). measure.py의
     # PLACEHOLDER와 짝이고, 회귀가 두 그물을 같은 주소로 함께 두드린다.
     r"//(?:xxx+|yyy+|host|domain|내도메인|내서버|도메인|당신|예시)[\w-]*\.", re.I)
-RE_ENDPOINT = re.compile(r"https://[\w.-]+(?::\d+)?(?:/[\w./-]*)?/(?:mcp|sse)\b", re.I)
+# 2026-10-11(야간 품질 함대 codex F1): 두 구멍. ① `\b`는 `-` 앞에서도 끝나서
+# `https://pypi.org/project/mcp-korea-tourism-api/`를 `https://pypi.org/project/mcp`로 잘라 잡았다
+# → 끝을 `(?![\w-])`로. ② 호스트 문자군 `[\w.-]+`가 README의 생략 표기 `https://.../mcp`를
+# 주소로 받았다 → 빈 라벨 없는 `라벨(.라벨)+`만. 패키지 레지스트리 호스트는 SKIP_HOST가 막는다.
+RE_ENDPOINT = re.compile(
+    r"https://[\w-]+(?:\.[\w-]+)+(?::\d+)?(?:/[\w./-]*)?/(?:mcp|sse)(?![\w-])", re.I)
 # 2026-08-20(T-2026W34-107): **첫 토큰이 패키지명이라는 가정이 틀렸다.**
 #   `pip install -r requirements.txt` → `-r`을, `uvx --from git+…` → `--from`을 패키지명으로
 #   잡았고(문자군에 `-`가 있다), 측정 쪽이 그 이름을 레지스트리에서 못 찾아 남의 서버 15건을

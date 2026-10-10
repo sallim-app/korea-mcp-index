@@ -574,6 +574,10 @@ THIRD_PARTY = re.compile(
     r"^https://(?:www\.)?(?:glama\.ai|lobehub\.com|smithery\.ai|mcp\.so|pulsemcp\.com|"
     r"mcpservers\.org|antigravity\.google|home-assistant\.io|huggingface\.co|"
     r"cursor\.com|claude\.ai|openai\.com|docs\.[\w.-]+)/", re.I)
+# 패키지 레지스트리 페이지는 서버가 아니라 배포판 안내다(2026-10-11, codex F1 —
+# `pypi.org/project/mcp-…`가 `/mcp`로 잘려 `unverified`로 /down에 실렸다).
+PKG_REGISTRY = re.compile(r"^https://(?:www\.)?(?:pypi\.org|(?:registry\.)?npmjs\.(?:com|org))/",
+                          re.I)
 # README가 "여기에 당신 주소를 넣으세요"로 남겨 둔 자리. 실제로 xxxx.ngrok.io를 두드렸다.
 # **자리표시자는 우리말로도 쓴다(2026-09-14).** `내도메인.vercel.app`이 영어 명단만 보는 이
 # 그물을 그대로 통과해 두드림까지 갔다. 한국어 README를 모으는 목록이 영어 자리표시자만
@@ -586,8 +590,15 @@ def third_party_addr(url: str) -> str:
     """이 주소가 그 서버의 것이 아니라고 볼 근거가 있으면 사유를, 없으면 빈 문자열."""
     if THIRD_PARTY.search(url):
         return "제3자 디렉터리·문서 사이트 주소"
+    if PKG_REGISTRY.search(url):
+        return "패키지 레지스트리 페이지 주소(서버가 아니라 배포판 안내)"
     if PLACEHOLDER.search(url):
         return "README의 placeholder 주소"
+    # `https://.../mcp` — README의 생략 표기. 빈 라벨·점 하나 없는 호스트는 주소가 아니다
+    # (2026-10-11, codex F1: 두드려서 UnicodeError가 났고 그게 `unverified`로 게시됐다).
+    host = urllib.parse.urlsplit(url).hostname or ""
+    if "." not in host or any(not lab for lab in host.split(".")):
+        return "README의 생략 표기(호스트가 주소가 아니다)"
     return ""
 
 
