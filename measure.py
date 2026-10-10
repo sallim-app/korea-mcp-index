@@ -586,20 +586,34 @@ PLACEHOLDER = re.compile(
     r"//(?:xxx+|yyy+|your|my|host|domain|내도메인|내서버|도메인|당신|예시)[\w-]*\.", re.I)
 
 
+def not_an_endpoint(url: str) -> str:
+    """출처와 무관하게 **서버 주소일 수 없는** 것이면 사유를, 아니면 빈 문자열.
+
+    third_party_addr의 명단·자리표시자 판정은 README 추정분에만 건다(레지스트리 자기신고
+    `mydart.eocpa.kr`가 `my…` 자리표시자 규칙에 걸린다). 이 둘은 구조로 판정되므로 출처를
+    가리지 않는다 — 게시 이력에서 이어받은 주소(carryover, confidence 없음)도 여기를 지난다
+    (2026-10-11 predeploy codex: 이어받기 경로가 README 그물을 우회했다).
+    """
+    if PKG_REGISTRY.search(url):
+        return "패키지 레지스트리 페이지 주소(서버가 아니라 배포판 안내)"
+    # `https://.../mcp` — README의 생략 표기. 빈 라벨·점 하나 없는 호스트는 주소가 아니다
+    # (2026-10-11, codex F1: 두드려서 UnicodeError가 났고 그게 `unverified`로 게시됐다).
+    try:
+        host = urllib.parse.urlsplit(url).hostname or ""
+    except ValueError:
+        host = ""
+    if "." not in host or any(not lab for lab in host.split(".")):
+        return "README의 생략 표기(호스트가 주소가 아니다)"
+    return ""
+
+
 def third_party_addr(url: str) -> str:
     """이 주소가 그 서버의 것이 아니라고 볼 근거가 있으면 사유를, 없으면 빈 문자열."""
     if THIRD_PARTY.search(url):
         return "제3자 디렉터리·문서 사이트 주소"
-    if PKG_REGISTRY.search(url):
-        return "패키지 레지스트리 페이지 주소(서버가 아니라 배포판 안내)"
     if PLACEHOLDER.search(url):
         return "README의 placeholder 주소"
-    # `https://.../mcp` — README의 생략 표기. 빈 라벨·점 하나 없는 호스트는 주소가 아니다
-    # (2026-10-11, codex F1: 두드려서 UnicodeError가 났고 그게 `unverified`로 게시됐다).
-    host = urllib.parse.urlsplit(url).hostname or ""
-    if "." not in host or any(not lab for lab in host.split(".")):
-        return "README의 생략 표기(호스트가 주소가 아니다)"
-    return ""
+    return not_an_endpoint(url)
 
 
 # **한 README가 /mcp 주소를 여러 개 뱉으면 그건 설치 안내문이다**(codex 교차검증 2026-08-19).
@@ -633,13 +647,15 @@ def pick_endpoint(remotes: list, shared: dict) -> tuple:
     if len(readme) >= BOILERPLATE_MIN and len(readme) == len(remotes):
         return None, (f"README에 /mcp 주소가 {len(readme)}개 있다 — 자기 주소가 아니라 "
                       "클라이언트 설치 안내문이다")
-    usable = [r for r in remotes
-              if r.get("confidence") != "readme" or not third_party_addr(r["url"])]
+    def _why(r):
+        return (third_party_addr(r["url"]) if r.get("confidence") == "readme"
+                else not_an_endpoint(r["url"]))
+    usable = [r for r in remotes if not _why(r)]
     usable.sort(key=lambda r: shared.get(r["url"], 0) if r.get("confidence") == "readme" else 0)
     if usable:
         return usable[0], ""
     if remotes:
-        return None, f"{third_party_addr(remotes[0]['url'])}({remotes[0]['url']})"
+        return None, f"{_why(remotes[0])}({remotes[0]['url']})"
     return None, ""
 
 

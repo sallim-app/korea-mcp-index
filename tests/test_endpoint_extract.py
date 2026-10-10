@@ -76,3 +76,17 @@ def test_measured_json_has_no_bad_readme_addresses():
            if i.get("remote") and i["remote"].get("url_source") == "readme"
            and measure.third_party_addr(i["remote"]["url"])]
     assert not bad, f"게시 원자료에 남의·가짜 주소로 잰 줄이 있다: {bad}"
+
+
+def test_carryover_remote_cannot_bypass_the_gate():
+    """게시 이력(published_history.json)의 last_remote는 confidence 없이 이어받는다 —
+    README 그물이 readme 출처에만 걸리면 두 가짜 주소가 다음 회차에 그대로 되살아난다
+    (2026-10-11 predeploy codex 지적)."""
+    for u in BAD:
+        pick, why = measure.pick_endpoint(
+            [{"type": "streamable-http", "url": u, "needs_auth": False}], {})
+        assert pick is None and why, (u, pick, why)
+    # 레지스트리 자기신고 주소는 자리표시자 규칙(`my…`)에 걸려도 그대로 통과해야 한다.
+    for u in ["https://mydart.eocpa.kr/mcp", "https://korean-law-mcp.fly.dev/mcp"]:
+        pick, _ = measure.pick_endpoint([{"type": "streamable-http", "url": u}], {})
+        assert pick and pick["url"] == u, u
