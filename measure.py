@@ -30,6 +30,7 @@
 """
 import argparse
 import collections
+import ipaddress
 import json
 import re
 import socket
@@ -602,6 +603,11 @@ def not_an_endpoint(url: str) -> str:
         host = urllib.parse.urlsplit(url).hostname or ""
     except ValueError:
         host = ""
+    try:
+        ipaddress.ip_address(host)        # IP 리터럴(IPv6는 점이 없다)은 주소다
+        return ""
+    except ValueError:
+        pass
     if "." not in host or any(not lab for lab in host.split(".")):
         return "README의 생략 표기(호스트가 주소가 아니다)"
     return ""

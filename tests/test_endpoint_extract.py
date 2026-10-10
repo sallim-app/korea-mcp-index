@@ -87,6 +87,7 @@ def test_carryover_remote_cannot_bypass_the_gate():
             [{"type": "streamable-http", "url": u, "needs_auth": False}], {})
         assert pick is None and why, (u, pick, why)
     # 레지스트리 자기신고 주소는 자리표시자 규칙(`my…`)에 걸려도 그대로 통과해야 한다.
-    for u in ["https://mydart.eocpa.kr/mcp", "https://korean-law-mcp.fly.dev/mcp"]:
+    for u in ["https://mydart.eocpa.kr/mcp", "https://korean-law-mcp.fly.dev/mcp",
+              "https://[2001:db8::1]/mcp", "https://203.0.113.7:8443/mcp"]:
         pick, _ = measure.pick_endpoint([{"type": "streamable-http", "url": u}], {})
         assert pick and pick["url"] == u, u
