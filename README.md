@@ -101,10 +101,19 @@
 1. **datagokr-dev/datagokr** — 공공데이터포털에서 무엇을 어떻게 받는지 찾는 용도로는 이 분야에서 가장 안정적이다. 다만 미리보기가 시간초과로 실패해 실제 수치까지는 못 가므로 통계 값이 필요하면 통계 서버를 함께 써야 한다.
 2. **hike-lab/public-data-lens** — 공공데이터포털 목록을 정밀하게 걸러 보는 데는 쓸 만하지만, '대기질' 같은 일반 검색에서 전국 표준 자료가 뒤로 밀려 처음 찾는 사람에게는 덜 친절하다. 실제 수치는 주지 않는다.
 3. **Dayoooun/korea-stats-mcp** — KOSIS 수치를 실제로 돌려주는 유일한 서버이고 값도 다른 원장과 맞지만, 지역 추세는 region 인자를 써야만 나와서 약한 모델은 전국 값을 대신 답했다. 통계 값이 필요하면 쓸 만하나 공공데이터포털 안내용은 아니다.
+4. **hjsh200219/korea-public-data-mcp** — 법령·통관·공시·보건의료 등 공공 API를 넓게 묶은 서버라 이 분야 두 질문에는 맞는 도구가 없었다. 공공데이터포털 자료 찾기나 인구 통계 용도로는 권하지 않는다.
 
 <sub>순위는 **실제로 물어본 결과**다 — 같은 질문을 각 서버에 던지고 답변을 채점했다. 서버당 **3회** 물어 재현성까지 채점했다. 질문·호출기록·답변은 [answers/](answers)에, 채점은 [grades/](grades)에, 기준은 [JUDGING.md](JUDGING.md)에 있다.</sub>
 
-<details><summary>채점하지 않은 13건</summary>
+<details><summary>채점됨 — 4위 이하 1건</summary>
+
+| 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 | 사실오류 |
+|---|---|---|---|---|---|---|
+| [hjsh200219/korea-public-data-mcp](https://github.com/hjsh200219/korea-public-data-mcp) | 19 | 524 | 604 | 100% | 100% | 0 |
+
+</details>
+
+<details><summary>채점하지 않은 12건</summary>
 
 | 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 | 사실오류 |
 |---|---|---|---|---|---|---|
@@ -112,7 +121,6 @@
 | [io.github.pipeworx-io/ecos-kr](https://github.com/pipeworx-io/mcp-ecos-kr) | 39 | 464 | 180 | 100% | 100% | — |
 | [io.github.loved0543-dotcom/kdata-gate](https://github.com/loved0543-dotcom/kdata-gate-mcp) | 26 | 366 | 451 | 100% | 0% | — |
 | [site.star365/hq](https://star365.site/) | 26 | 158 | 173 | 100% | 100% | — |
-| [hjsh200219/korea-public-data-mcp](https://github.com/hjsh200219/korea-public-data-mcp) | 19 | 524 | 604 | 100% | 100% | — |
 | [io.github.richard-kim-79/jejusns](https://jejusns.com) | 16 | 733 | 1003 | 100% | 0% | — |
 | [kr.eocpa/mydart](https://eocpa.kr/mydart) | 16 | 199 | 193 | 100% | 100% | — |
 | [site.star365/data](https://data.star365.site/) | 10 | 111 | 113 | 100% | 100% | — |
@@ -144,15 +152,23 @@
 1. **chrisryugj/korean-law-mcp** — 일반 법령 전반을 법제처 현행 원문으로 조회할 수 있고 두 질문 모두 맞는 조문과 형량을 돌려준 유일한 서버라 이 분야에서 먼저 쓸 만하다. 다만 search_law만으로는 조문에 닿지 못하는 경우가 있어 legal_research나 조문 지정 조회를 함께 써야 답이 안정된다.
 2. **sallim/contract-compass** — 국가계약법·지방계약법 같은 공공계약 조문은 세목과 금액까지 정확히 돌려주지만 도로교통법 같은 일반 법령은 담지 않으므로, 공공계약·세법 질문용으로 고르고 일반 법령은 다른 서버와 함께 써야 한다. 응답이 스스로 '현행 여부 미검증'을 공시하고 있어 인용 전에 그 공시를 확인할 필요가 있다.
 3. **scvcoder/korean-law-alio-mcp** — 도구 목록은 125종으로 크지만 이번에 다시 불러도 법령 조회 도구가 법제처 API 키 오류로 isError를 내 법령 질문에는 지금 쓸 수 없다. ALIO 공공기관 규정 조회는 동작하므로 공공기관 내부 규정을 찾을 때만 쓸 만하다.
+4. **Choihello/startup-law-mcp** — 이 서버는 창업 관련 법령과 K-Startup 지원사업을 다루는 도구라 국가계약법·도로교통법 질문에는 맞지 않으며, 창업 세액감면이나 지원사업 자격 같은 질문에 쓸 서버다.
 
 <sub>순위는 **실제로 물어본 결과**다 — 같은 질문을 각 서버에 던지고 답변을 채점했다. 서버당 **3회** 물어 재현성까지 채점했다. 질문·호출기록·답변은 [answers/](answers)에, 채점은 [grades/](grades)에, 기준은 [JUDGING.md](JUDGING.md)에 있다.</sub>
 
-<details><summary>채점하지 않은 2건</summary>
+<details><summary>채점됨 — 4위 이하 1건</summary>
+
+| 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 | 사실오류 |
+|---|---|---|---|---|---|---|
+| [Choihello/startup-law-mcp](https://github.com/Choihello/startup-law-mcp)<br><sub>창업 법령 조문과 K-Startup 창업지원사업 전용 — 일반 법령 질문은 범위 밖</sub> | 13 | 122 | 134 | 100% | 0% | 0 |
+
+</details>
+
+<details><summary>채점하지 않은 1건</summary>
 
 | 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 | 사실오류 |
 |---|---|---|---|---|---|---|
 | [io.github.peter120525-cmd/lawmadi-os](https://lawmadi.com) | 19 | 166 | 179 | 100% | 0% | — |
-| [Choihello/startup-law-mcp](https://github.com/Choihello/startup-law-mcp)<br><sub>창업 법령 조문과 K-Startup 창업지원사업 전용 — 일반 법령 질문은 범위 밖</sub> | 13 | 122 | 134 | 100% | 0% | — |
 
 </details>
 
@@ -171,10 +187,19 @@
 1. **aikstockdata/mcp** — 삼성전자 실적은 DART 기간·연결 여부를 밝힌 최신 반기 누적값을 세 번 모두 정확히 내준다. 시총 상위 목록도 list_stocks(filter=all)로 나오지만 기본값이 흑자전환이라 약한 모델은 세 번 다 못 찾았다.
 2. **kmgvv23/stock-data-mcp** — KRX·DART 원천 API를 거의 그대로 중계해 값 자체는 정확하고 시총 상위 목록도 나오지만, 연도·정렬·단위를 모델이 직접 챙겨야 해서 '최근 실적'을 2024년으로 답하는 일이 세 번 다 났다.
 3. **Mrbaeksang/korea-stock-analyzer-mcp** — 연간 사업보고서 기준 재무는 정확하고 연결·단위 표기가 분명하지만, 분기·반기 실적이 없어 '최근 실적'이 한 해 넘게 늦고 시총 순위는 아예 못 한다.
+4. **MosslandOpenDevs/alpha** — 유튜브 여론·뉴스 제목을 합성한 시장 해설 서버라 실적 수치는 운이 좋으면 이벤트 별칭에서 나오지만 전망치와 섞여 있고, 시총 같은 시세 데이터는 없다. 종목 데이터가 필요하면 쓰지 않는 편이 낫다.
 
 <sub>순위는 **실제로 물어본 결과**다 — 같은 질문을 각 서버에 던지고 답변을 채점했다. 서버당 **3회** 물어 재현성까지 채점했다. 질문·호출기록·답변은 [answers/](answers)에, 채점은 [grades/](grades)에, 기준은 [JUDGING.md](JUDGING.md)에 있다.</sub>
 
-<details><summary>채점하지 않은 13건</summary>
+<details><summary>채점됨 — 4위 이하 1건</summary>
+
+| 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 | 사실오류 |
+|---|---|---|---|---|---|---|
+| [MosslandOpenDevs/alpha](https://github.com/MosslandOpenDevs/alpha) | 12 | 29 | 34 | 100% | 0% | 1 |
+
+</details>
+
+<details><summary>채점하지 않은 12건</summary>
 
 | 서버 | 도구 | 웜ms | 콜드ms | 설명 | 주석 | 사실오류 |
 |---|---|---|---|---|---|---|
@@ -185,7 +210,6 @@
 | [emceeKim/korea-finance-mcp](https://github.com/emceeKim/korea-finance-mcp) | 25 | 152 | 160 | 100% | 100% | — |
 | [io.github.bakyang2/kr-crypto-intelligence](https://github.com/bakyang2/kr-crypto-intelligence) | 18 | 91 | 93 | 100% | 100% | — |
 | [io.github.bubilife1202/crossfin](https://github.com/bubilife1202/crossfin) | 16 | 80 | 81 | 100% | 0% | — |
-| [MosslandOpenDevs/alpha](https://github.com/MosslandOpenDevs/alpha) | 12 | 29 | 34 | 100% | 0% | — |
 | [bootpay/bootpay-mcp](https://github.com/bootpay/bootpay-mcp) | 9 | 32 | 29 | 100% | 0% | — |
 | [io.github.whdrnr2583-cmd/koreanpulse](https://github.com/whdrnr2583-cmd/koreanpulse) | 7 | 39 | 39 | 100% | 100% | — |
 | [com.airblockfz/stock-signal-kr](https://airblockfz.com) | 5 | 28 | 28 | 100% | 0% | — |

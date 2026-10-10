@@ -62,7 +62,10 @@ def main() -> int:
         # 4개 질문 자리 중 2곳이 등급이 갈렸다(variance/). 회차수를 안 적으면 독자는
         # 그 순위가 한 번의 주사위인지 세 번의 합의인지 알 방법이 없다.
         items[f"graded:{cat}"] = {
-            "category": cat, "top": top[:3], "전체순위": [t["name"] for t in top],
+            # `top`은 **채점받은 전원**의 등수 레코드다(2026-10-11). 종전 `top[:3]`은 4위 이하를
+            # 이름만 `전체순위`에 남겨, 렌더러가 그들을 "답변 품질을 채점하지 않았다"로 게시했다
+            # — 잰 것을 안 쟀다고 공시한 결함. "상위 3개 먼저"는 렌더러의 노출 설계다.
+            "category": cat, "top": top, "전체순위": [t["name"] for t in top],
             "분야교정": moved, "회차수": int(d.get("회차수") or 1),
             "note": d.get("분야_총평", ""), "candidates": len(d["servers"]),
             "by": "opus(실제 질문·답변 채점)", "순위_근거": d.get("순위_근거", "")}
@@ -76,8 +79,8 @@ def main() -> int:
               open("ranking.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print(f"ranking.json 재산출 — 분야 {len(items)}개")
     for v in items.values():
-        errs = sum(t["사실오류"] for t in v["top"])
-        print(f"  {v['category']:<14} {' › '.join(t['name'].split('/')[-1][:20] for t in v['top'])}"
+        errs = sum(t["사실오류"] for t in v["top"][:3])
+        print(f"  {v['category']:<14} {' › '.join(t['name'].split('/')[-1][:20] for t in v['top'][:3])}"
               f"   (상위3 사실오류 {errs}건"
               + (f" · 분야교정 {len(v['분야교정'])}건 제외" if v["분야교정"] else "") + ")")
     return 0

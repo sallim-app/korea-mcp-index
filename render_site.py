@@ -573,7 +573,9 @@ def cat_block(ctx, c, full=True) -> list[str]:
         if mis:
             o.append(f'<p class="sub">위 총평의 서버 수는 <strong>분야 교정 전</strong> 기준이다 — '
                      f'이 분야에서 {len(mis)}건이 아래 「분야 교정」으로 빠졌다.</p>')
-    o += measure_table(ctx, judged or rest[:3])
+    # 표는 상위 3개만 먼저 보인다(노출 설계). 4위 이하도 **채점받은 것**이라 아래
+    # 「채점됨 4위 이하」로 따로 접는다 — 「채점하지 않은」에 섞으면 잰 것을 안 쟀다고 공시한다.
+    o += measure_table(ctx, judged[:3] or rest[:3])
     if judged:
         o.append("<ol>")
         for r in judged:
@@ -614,6 +616,10 @@ def cat_block(ctx, c, full=True) -> list[str]:
                  f'<a href="{REPO}/tree/main/answers">answers/</a>에, 채점은 '
                  f'<a href="{REPO}/tree/main/grades">grades/</a>에, 기준은 '
                  f'<a href="{REPO}/blob/main/JUDGING.md">JUDGING.md</a>에 있다.</p>')
+    if judged[3:]:
+        o.append(f'<details><summary>채점됨 — 4위 이하 {len(judged[3:])}건</summary>')
+        o += measure_table(ctx, judged[3:])
+        o.append('</details>')
     if judged and rest:
         o.append(f'<details><summary>채점하지 않은 {len(rest)}건</summary>')
         o += measure_table(ctx, rest)

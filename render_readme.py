@@ -620,7 +620,9 @@ def main() -> int:
                 A(f"<sub>위 총평의 서버 수는 **분야 교정 전** 기준이다 — 이 분야에서 "
                   f"{len(mis)}건이 아래 「분야 교정」으로 빠졌다.</sub>")
                 A("")
-        top = judged
+        # 표는 상위 3개만 먼저(노출 설계). 4위 이하도 채점받은 것이라 아래 「채점됨 4위 이하」로
+        # 따로 접는다 — 「채점하지 않은」에 섞으면 잰 것을 안 쟀다고 공시한다(2026-10-11).
+        top = judged[:3]
         out.extend(head(en))
         for r in (top or rest[:3] if not judged else top):
             A(row(r, en, err_of, ranked=r["name"] in rank_of))
@@ -661,6 +663,15 @@ def main() -> int:
             A(f"<sub>순위는 **실제로 물어본 결과**다 — 같은 질문을 각 서버에 던지고 "
               f"답변을 채점했다. {runs} 질문·호출기록·답변은 [answers/](answers)에, 채점은 "
               "[grades/](grades)에, 기준은 [JUDGING.md](JUDGING.md)에 있다.</sub>")
+            A("")
+        if judged[3:]:
+            A("<details><summary>" + f"채점됨 — 4위 이하 {len(judged[3:])}건" + "</summary>")
+            A("")
+            out.extend(head(en))
+            for r in judged[3:]:
+                A(row(r, en, err_of, ranked=True))
+            A("")
+            A("</details>")
             A("")
         if judged and rest:
             A("<details><summary>" + f"채점하지 않은 {len(rest)}건" + "</summary>")
