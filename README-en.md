@@ -141,7 +141,7 @@ Other lists tell you a server exists. This one tells you whether it **works righ
 
 ## 법령·판례
 
-> 두 질문 모두 맞는 조문과 형량을 돌려준 서버는 chrisryugj/korean-law-mcp 하나였고, app.sallim/contract-compass는 공공계약 질문에서 가장 완결된 답을 줬지만 도로교통법은 범위 밖이었다. scvcoder/korean-law-alio-mcp는 법령 도구가 API 키 오류로 죽어 있었고, Choihello/startup-law-mcp는 창업 법령 서버라 이 분야 질문에 맞지 않았다.
+> 두 질문 모두 맞는 조문과 형량을 돌려준 서버는 chrisryugj/korean-law-mcp 하나였고, app.sallim/contract-compass는 공공계약 질문에서 가장 완결된 답을 줬지만 도로교통법은 범위 밖이었다. scvcoder/korean-law-alio-mcp는 사용자 키를 받는 BYOK 서버인데 이번 회차는 키 없이 불러 법령 도구를 재지 못했고([2026-10-12 정정] 종전 '법령 도구가 API 키 오류로 죽어 있었고'는 오판)…
 
 | Server | Tools | Warm | Cold | Desc | Annot | Errors |
 |---|---|---|---|---|---|---|
@@ -151,7 +151,7 @@ Other lists tell you a server exists. This one tells you whether it **works righ
 
 1. **chrisryugj/korean-law-mcp** — 일반 법령 전반을 법제처 현행 원문으로 조회할 수 있고 두 질문 모두 맞는 조문과 형량을 돌려준 유일한 서버라 이 분야에서 먼저 쓸 만하다. 다만 search_law만으로는 조문에 닿지 못하는 경우가 있어 legal_research나 조문 지정 조회를 함께 써야 답이 안정된다.
 2. **sallim/contract-compass** — 국가계약법·지방계약법 같은 공공계약 조문은 세목과 금액까지 정확히 돌려주지만 도로교통법 같은 일반 법령은 담지 않으므로, 공공계약·세법 질문용으로 고르고 일반 법령은 다른 서버와 함께 써야 한다. 응답이 스스로 '현행 여부 미검증'을 공시하고 있어 인용 전에 그 공시를 확인할 필요가 있다.
-3. **scvcoder/korean-law-alio-mcp** — 도구 목록은 125종으로 크지만 이번에 다시 불러도 법령 조회 도구가 법제처 API 키 오류로 isError를 내 법령 질문에는 지금 쓸 수 없다. ALIO 공공기관 규정 조회는 동작하므로 공공기관 내부 규정을 찾을 때만 쓸 만하다.
+3. **scvcoder/korean-law-alio-mcp** — 도구 목록은 125종이고, 법령 조회 도구는 사용자 본인의 법제처 Open API 인증키(OC, 무료 발급)를 주소 ?oc=·apikey 헤더·도구 인자 apiKey로 넣어 쓰는 BYOK 설계다(서버 README). 이번 회차는 키 없이 불러 법령 도구가 'API 키가 필요합니다'로 응답했으므로 키를 넣었을 때의 법령 답변 품질은 재지 못했다 — 못 봄이지 못 씀이 아니다. 키 없이 동작하는 ALIO 공공기관 규정 조회는 이번에 답을 냈다.
 4. **Choihello/startup-law-mcp** — 이 서버는 창업 관련 법령과 K-Startup 지원사업을 다루는 도구라 국가계약법·도로교통법 질문에는 맞지 않으며, 창업 세액감면이나 지원사업 자격 같은 질문에 쓸 서버다.
 
 <sub>순위는 **실제로 물어본 결과**다 — 같은 질문을 각 서버에 던지고 답변을 채점했다. 서버당 **3회** 물어 재현성까지 채점했다. 질문·호출기록·답변은 [answers/](answers)에, 채점은 [grades/](grades)에, 기준은 [JUDGING.md](JUDGING.md)에 있다.</sub>
