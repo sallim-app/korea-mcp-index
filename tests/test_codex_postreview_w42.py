@@ -206,6 +206,35 @@ def test_sse_open_breaks_a_trickle_without_newlines(monkeypatch):
     assert time.monotonic() - t0 < 3, "개행 없는 스트림에 붙잡혔다 — 벽시간 상한이 readline을 못 끊는다"
 
 
+class _Chunked(io.RawIOBase):
+    """readline(n)을 실제 소켓처럼 n바이트에서 끊어 돌려주는 스트림."""
+
+    def __init__(self, payload: bytes):
+        self.buf = payload
+        self.headers = {"Content-Type": "text/event-stream"}
+        self.status = 200
+
+    def readline(self, n=-1):
+        i = self.buf.find(b"\n")
+        end = len(self.buf) if i < 0 else i + 1
+        if n is not None and n >= 0:
+            end = min(end, n)
+        out, self.buf = self.buf[:end], self.buf[end:]
+        return out
+
+    def close(self):
+        pass
+
+
+def test_sse_open_keeps_endpoint_longer_than_one_read():
+    """교차검증 3차 지적: readline(4096) 조각을 완전한 줄로 처리해 4KiB를 넘는 세션 URL을 잘랐다."""
+    path = "/messages?session_id=" + "a" * 5000
+    s = _Chunked(b"event: endpoint\ndata: " + path.encode() + b"\n\n")
+    stream, ep, meta = measure._sse_read_endpoint(s, "https://sse.example/sse", 10,
+                                                  time.monotonic() + 5)
+    assert ep == "https://sse.example" + path, (len(ep or ""), meta)
+
+
 def test_llms_txt_misfiled_without_current_rank_is_not_called_ungraded():
     """교차검증 2차 지적: 분야 교정은 채점자 판정이다 — ranking.json에서 빠졌어도 '미채점'이 아니다."""
     from observed import MISFILED

@@ -408,16 +408,23 @@ def _sse_hard_stop(resp) -> None:
 
 
 def _sse_read_endpoint(r, url: str, ms: int, deadline: float) -> tuple:
-    ev, data, read = None, [], 0
+    ev, data, read, buf = None, [], 0, b""
     while read < SSE_READ_MAX and time.monotonic() < deadline:
         try:
-            # 한 줄에도 상한 — 개행이 안 와도 4KiB마다 마감을 다시 본다
-            line = r.readline(4096)
+            # 한 번 읽기에 상한 — 개행이 안 와도 4KiB마다 마감을 다시 본다
+            piece = r.readline(4096)
         except (OSError, ValueError, AttributeError):
             break
-        if not line:
+        if not piece:
             break
-        read += len(line)
+        read += len(piece)
+        # 4KiB 조각은 줄이 아니다 — 개행이 올 때까지 이어 붙인다. 조각을 줄로 읽으면 4KiB를
+        # 넘는 endpoint 주소가 잘려 정상 서버의 핸드셰이크가 실패한다(교차검증 3차 지적,
+        # T-2026W42-10). 줄 전체도 SSE_READ_MAX(누적 상한) 안에서만 모은다.
+        buf += piece
+        if not piece.endswith(b"\n"):
+            continue
+        line, buf = buf, b""
         s = line.decode("utf-8", "replace").rstrip("\r\n")
         if s.startswith("event:"):
             ev = s[6:].strip()
