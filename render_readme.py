@@ -50,21 +50,44 @@ DOUBLE_EMPH = re.compile(r'\*{4,}')
 #   down       죽음 확인    — 호스트가 없다는 직접 증거(DNS 미해결·연결 거부)가 있다
 # 라벨 정본은 measure.STATUS_LABEL이고 tests/test_mcp_probe.py가 둘이 어긋나면 실패한다.
 STATUS_LABEL = {"live": "살아있음 확인", "unverified": "확인 못 함", "down": "죽음 확인"}
-_DOWN_SIGNS = ("Name or service not known", "nodename nor servname",
-               "Temporary failure in name resolution", "No address associated",
-               "Connection refused", "ConnectionRefusedError")
+# '죽음 확인' 증거 판정은 measure._down_evidence 하나뿐이다 — 종전엔 신호 목록이 여기에
+# 복제돼 있었고, 일시적 DNS 실패(EAI_AGAIN)까지 '죽음'으로 읽었다(T-2026W42-10).
+from measure import DNS_TRANSIENT_SIGNS, _down_evidence
+
+
+def addr_registered(rec: dict, s0: dict | None = None) -> bool:
+    """측정한 주소가 관리자가 등록한 주소인가(README 추정이 아니라).
+
+    **정본은 측정본의 `remote.url_source`다**(measure.py가 실제로 두드린 주소의 출처를
+    기록한다, codex 사후 재검증 T-2026W42-10). 종전엔 저장소가 추적하지 않는
+    `candidates_filtered.json`의 첫 주소로만 판정해서, 새 체크아웃에서는 그 파일이 없어
+    등록 주소까지 전부 'README 추정'으로 게시되고 등록 주소 집계가 0건이 됐다. 후보
+    파일은 `url_source`가 없는 옛 회차 측정본을 읽을 때만 쓴다.
+    """
+    rm = rec.get("remote") or {}
+    if rm.get("url_source"):
+        return rm["url_source"] != "readme"
+    r0 = ((s0 or {}).get("remotes") or [{}])[0]
+    return bool(r0.get("url")) and r0.get("confidence") != "readme"
 
 
 def status_of(rec: dict) -> str:
     """레코드의 세 갈래 판정. 옛 회차 원자료(`status` 없음)도 안전하게 읽는다."""
     rm = rec.get("remote") or {}
     st = rm.get("status")
+    why = f'{rm.get("why") or ""} {rm.get("error") or ""}'
+    # 저장된 'down'도 다시 본다 — 판정 규칙이 고쳐지기 전 회차의 측정본은 일시적 DNS
+    # 실패를 'down'으로 적어 두었다. 그 흔적이 있으면 '확인 못 함'으로 내린다(저장본의
+    # why가 원 오류가 아닐 수 있어, 증거 부재가 아니라 일시 실패 흔적으로만 내린다).
+    if st == "down":
+        why += f' {rm.get("sse_why") or ""}'
+        return ("unverified" if any(x in why for x in DNS_TRANSIENT_SIGNS)
+                else "down")
     if st in STATUS_LABEL:
         return st
     if rm.get("reachable"):
         return "live"
-    why = f'{rm.get("why") or ""} {rm.get("error") or ""}'
-    return "down" if any(x in why for x in _DOWN_SIGNS) else "unverified"
+    return "down" if _down_evidence(why) else "unverified"
 
 
 def emph(text: str) -> str:
@@ -347,8 +370,7 @@ def main() -> int:
         # **주소의 출처를 측정본까지 끌고 온다.** 관리자가 레지스트리에 등록한 주소가
         # 응답하지 않는 것과, 우리가 README에서 추정한 주소가 응답하지 않는 것은
         # 주장의 무게가 다르다. 이 구분이 없으면 남의 제품에 과한 낙인을 찍는다.
-        r0 = (s0.get("remotes") or [{}])[0]
-        it["addr_registered"] = bool(r0.get("url")) and r0.get("confidence") != "readme"
+        it["addr_registered"] = addr_registered(it, s0)
     rem = [r for r in items if r.get("remote")]
     live = [r for r in rem if r["remote"].get("reachable")]
     dead = [r for r in rem if not r["remote"].get("reachable")]

@@ -40,6 +40,7 @@ from render_readme import (
     CATS,
     OURS,
     STATUS_LABEL,
+    addr_registered,
     clip,
     dedupe_by_endpoint,
     disp,
@@ -1712,11 +1713,20 @@ def build_machine(ctx) -> None:
     for c in ctx["cats_live"]:
         lines.append(f"### {c}")
         lines.append(f"- [분야 페이지]({site.url_of(ctx['cat_page'][c])})")
+        # **분야 교정 서버의 등수는 여기서도 무효다**(codex 사후 재검증 T-2026W42-10).
+        # 상세 페이지·index.json은 MISFILED 등수를 무효로 적는데 이 파일만 "N위"를 그대로
+        # 실어, AI가 읽는 표면에서 틀린 분야 질문으로 매긴 등수가 현재 등수로 나갔다.
+        def _rank(r):
+            return None if r["name"] in MISFILED else ctx["rank_of"].get(r["name"])
         for r in sorted([r for r in ctx["live"]
                          if (ctx["cls"].get(r["name"]) or {}).get("category") == c],
-                        key=lambda r: ctx["rank_of"].get(r["name"], (99, ""))[0]):
-            rk = ctx["rank_of"].get(r["name"])
+                        key=lambda r: (_rank(r) or (99, ""))[0]):
+            rk = _rank(r)
             tag = f"{rk[0]}위" if rk else "미채점"
+            if r["name"] in MISFILED:
+                tag = (f"분야 교정 — 실제 분야 '{MISFILED[r['name']][1]}'"
+                       + (" · 채점 등수 무효(이 분야 질문으로 매긴 값이다)"
+                          if r["name"] in ctx["rank_of"] else " · 미채점"))
             ep = (r.get("remote") or {}).get("url") or ""
             lines.append(f"- [{r['name']}]({site.url_of(ctx['page_of'][r['name']])}): {tag} · "
                          f"도구 {(r.get('remote') or {}).get('tool_count') or '—'}종 · "
@@ -1847,8 +1857,7 @@ def main() -> int:
     for it in items:
         s0 = src.get(it["name"]) or {}
         it.setdefault("website_url", s0.get("website_url"))
-        r0 = (s0.get("remotes") or [{}])[0]
-        it["addr_registered"] = bool(r0.get("url")) and r0.get("confidence") != "readme"
+        it["addr_registered"] = addr_registered(it, s0)
     rem = [r for r in items if r.get("remote")]
     live = [r for r in rem if r["remote"].get("reachable")]
     dead = [r for r in rem if not r["remote"].get("reachable")]

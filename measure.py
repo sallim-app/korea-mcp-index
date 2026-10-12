@@ -94,20 +94,26 @@ LIVE = "live"              # 살아있음 확인 — MCP 응답을 실제로 받
 UNVERIFIED = "unverified"  # 확인 못 함 — 우리 호출로는 확인이 안 됐다. 죽었다는 뜻이 아니다
 DOWN = "down"              # 죽음 확인 — 호스트 자체가 없다는 직접 증거가 있다
 STATUS_LABEL = {LIVE: "살아있음 확인", UNVERIFIED: "확인 못 함", DOWN: "죽음 확인"}
-# '죽음 확인'을 붙일 자격이 있는 증거는 이것뿐이다 — 이름이 DNS에 없거나, 포트가 연결을
-# 거부했거나. 타임아웃·TLS 오류·4xx·5xx는 전부 '확인 못 함'이다(우리 쪽일 수 있다).
-DOWN_SIGNS = ("Name or service not known", "nodename nor servname",
-              "Temporary failure in name resolution", "No address associated",
-              "Connection refused", "ConnectionRefusedError")
+# '죽음 확인'을 붙일 자격이 있는 증거는 이것뿐이다 — 이름이 DNS에 **영구히** 없거나, 포트가
+# 연결을 거부했거나. 타임아웃·TLS 오류·4xx·5xx는 전부 '확인 못 함'이다(우리 쪽일 수 있다).
+# **"Temporary failure in name resolution"(EAI_AGAIN)은 증거가 아니다**(codex 사후 재검증
+# T-2026W42-10) — 우리 리졸버가 그 순간 답을 못 받았다는 뜻이지 이름이 없다는 뜻이 아니다.
+# 종전엔 이것도 '죽음 확인'으로 묶어 우리 DNS가 흔들린 회차에 남의 서버에 사망을 공시할 수
+# 있었다. 못 봄 ≠ 없음. 판정 함수는 이것 하나이고 render_readme.status_of도 이걸 부른다.
+DNS_GONE_SIGNS = ("Name or service not known", "nodename nor servname",
+                  "No address associated")
+REFUSED_SIGNS = ("Connection refused", "ConnectionRefusedError")
+DNS_TRANSIENT_SIGNS = ("Temporary failure in name resolution",)
+DOWN_SIGNS = DNS_GONE_SIGNS + REFUSED_SIGNS
 
 
 def _down_evidence(err: str) -> str:
     """이 오류가 '죽음 확인'을 붙일 자격이 있나. 있으면 사유를, 없으면 빈 문자열."""
-    if not err:
+    if not err or any(s in err for s in DNS_TRANSIENT_SIGNS):
         return ""
-    if any(s in err for s in DOWN_SIGNS[:4]):
+    if any(s in err for s in DNS_GONE_SIGNS):
         return "DNS에 그 이름이 없다 — 호스트가 사라졌다"
-    if any(s in err for s in DOWN_SIGNS[4:]):
+    if any(s in err for s in REFUSED_SIGNS):
         return "연결이 거부됐다 — 그 포트에 아무것도 없다"
     return ""
 
@@ -378,8 +384,12 @@ def _sse_open(url: str) -> tuple:
         r.close()
         return None, None, {"status": r.status, "ms": ms, "raw": "",
                             "why": "GET은 200인데 SSE 스트림이 아니다"}
+    # **벽시간 상한**(codex 사후 재검증 T-2026W42-10). 소켓 타임아웃은 줄 하나 사이의
+    # 침묵만 잰다 — heartbeat가 SSE_TIMEOUT보다 자주 오면 64KiB가 찰 때까지 붙잡혔다.
+    # _sse_wait와 같은 단위의 monotonic 마감을 건다.
+    deadline = time.monotonic() + SSE_TIMEOUT
     ev, data, read = None, [], 0
-    while read < SSE_READ_MAX:
+    while read < SSE_READ_MAX and time.monotonic() < deadline:
         try:
             line = r.readline()
         except OSError:
