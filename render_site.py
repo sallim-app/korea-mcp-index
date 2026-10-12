@@ -1724,9 +1724,11 @@ def build_machine(ctx) -> None:
             rk = _rank(r)
             tag = f"{rk[0]}위" if rk else "미채점"
             if r["name"] in MISFILED:
-                tag = (f"분야 교정 — 실제 분야 '{MISFILED[r['name']][1]}'"
-                       + (" · 채점 등수 무효(이 분야 질문으로 매긴 값이다)"
-                          if r["name"] in ctx["rank_of"] else " · 미채점"))
+                # 교정 자체가 채점자 판정이다 — 이 분야 질문으로 채점됐고 그 등수를 무효로
+                # 한 것이지 안 잰 게 아니다. ranking.json에서 빠졌어도 '미채점'이라 쓰지 않는다.
+                was, now, _ = MISFILED[r["name"]]
+                tag = (f"분야 교정 — 실제 분야 '{now}' · '{was}' 질문으로 채점한 "
+                       "등수는 무효(이 서버를 잰 값이 아니다)")
             ep = (r.get("remote") or {}).get("url") or ""
             lines.append(f"- [{r['name']}]({site.url_of(ctx['page_of'][r['name']])}): {tag} · "
                          f"도구 {(r.get('remote') or {}).get('tool_count') or '—'}종 · "

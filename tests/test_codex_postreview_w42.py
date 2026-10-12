@@ -166,3 +166,57 @@ def test_sse_open_has_a_wall_clock_deadline(monkeypatch):
     assert stream is None and ep is None
     assert hb.lines < 100, f"heartbeat {hb.lines}줄을 읽도록 붙잡혔다 — 벽시간 상한이 없다"
     assert time.monotonic() - t0 < 1.5
+
+
+def test_sse_open_breaks_a_trickle_without_newlines(monkeypatch):
+    """교차검증 2차 지적: 개행 없이 바이트를 흘리면 readline()이 안 돌아와 루프 마감이
+    무력하다. 실제 로컬 소켓으로 재현한다(바깥은 안 두드린다)."""
+    import socket
+    import threading
+    srv = socket.socket()
+    srv.bind(("127.0.0.1", 0))
+    srv.listen(1)
+    port = srv.getsockname()[1]
+    stop = threading.Event()
+
+    def serve():
+        c, _ = srv.accept()
+        c.recv(4096)
+        c.sendall(b"HTTP/1.1 200 OK\r\nContent-Type: text/event-stream\r\n\r\n")
+        t_end = time.monotonic() + 6     # 상한이 없을 때도 스위트가 영영 안 끝나지 않게
+        try:
+            while not stop.is_set() and time.monotonic() < t_end:
+                c.sendall(b"x")          # 개행 없이 소켓 타임아웃보다 자주
+                time.sleep(0.02)
+        except OSError:
+            pass
+        finally:
+            c.close()
+
+    th = threading.Thread(target=serve, daemon=True)
+    th.start()
+    monkeypatch.setattr(measure, "SSE_TIMEOUT", 0.5)
+    t0 = time.monotonic()
+    try:
+        stream, ep, _ = measure._sse_open(f"http://127.0.0.1:{port}/sse")
+    finally:
+        stop.set()
+        srv.close()
+    assert stream is None and ep is None
+    assert time.monotonic() - t0 < 3, "개행 없는 스트림에 붙잡혔다 — 벽시간 상한이 readline을 못 끊는다"
+
+
+def test_llms_txt_misfiled_without_current_rank_is_not_called_ungraded():
+    """교차검증 2차 지적: 분야 교정은 채점자 판정이다 — ranking.json에서 빠졌어도 '미채점'이 아니다."""
+    from observed import MISFILED
+    with tempfile.TemporaryDirectory() as tmp:
+        cwd = _copy_repo(tmp)
+        out = _render(cwd)
+        llms = (out / "llms.txt").read_text(encoding="utf-8")
+        seen = 0
+        for ln in llms.splitlines():
+            for name, (_was, now, _why) in MISFILED.items():
+                if f"[{name}]" in ln:
+                    seen += 1
+                    assert "미채점" not in ln and "무효" in ln and now in ln, ln
+        assert seen, "분야 교정 서버가 llms.txt에 한 건도 없다 — 검사가 헛돈다"

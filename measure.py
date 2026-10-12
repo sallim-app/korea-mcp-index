@@ -35,6 +35,7 @@ import json
 import re
 import socket
 import sys
+import threading
 import time
 import urllib.error
 import urllib.parse
@@ -384,15 +385,35 @@ def _sse_open(url: str) -> tuple:
         r.close()
         return None, None, {"status": r.status, "ms": ms, "raw": "",
                             "why": "GET은 200인데 SSE 스트림이 아니다"}
-    # **벽시간 상한**(codex 사후 재검증 T-2026W42-10). 소켓 타임아웃은 줄 하나 사이의
+    # **벽시간 상한**(codex 사후 재검증 T-2026W42-10). 소켓 타임아웃은 recv 하나 사이의
     # 침묵만 잰다 — heartbeat가 SSE_TIMEOUT보다 자주 오면 64KiB가 찰 때까지 붙잡혔다.
-    # _sse_wait와 같은 단위의 monotonic 마감을 건다.
+    # 루프 마감만으로는 개행 없이 바이트를 흘리는 서버의 readline()을 못 끊으므로(교차검증
+    # 2차 지적) 마감 시각에 소켓을 shutdown하는 감시 타이머를 같이 건다 — 막힌 recv가 깨어난다.
     deadline = time.monotonic() + SSE_TIMEOUT
+    guard = threading.Timer(SSE_TIMEOUT, _sse_hard_stop, (r,))
+    guard.daemon = True
+    guard.start()
+    try:
+        return _sse_read_endpoint(r, url, ms, deadline)
+    finally:
+        guard.cancel()
+
+
+def _sse_hard_stop(resp) -> None:
+    """막힌 readline을 깨운다 — 밑단 소켓을 shutdown(close만으론 recv가 안 깬다)."""
+    try:
+        resp.fp.raw._sock.shutdown(socket.SHUT_RDWR)
+    except Exception:  # noqa: BLE001, S110 — 이미 닫혔거나 구조가 다르면 할 일이 없다
+        pass
+
+
+def _sse_read_endpoint(r, url: str, ms: int, deadline: float) -> tuple:
     ev, data, read = None, [], 0
     while read < SSE_READ_MAX and time.monotonic() < deadline:
         try:
-            line = r.readline()
-        except OSError:
+            # 한 줄에도 상한 — 개행이 안 와도 4KiB마다 마감을 다시 본다
+            line = r.readline(4096)
+        except (OSError, ValueError, AttributeError):
             break
         if not line:
             break
