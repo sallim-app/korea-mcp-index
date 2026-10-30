@@ -1749,7 +1749,9 @@ def build_machine(ctx) -> None:
             ep = (r.get("remote") or {}).get("url") or ""
             lines.append(f"- [{r['name']}]({site.url_of(ctx['page_of'][r['name']])}): {tag} · "
                          f"도구 {(r.get('remote') or {}).get('tool_count') or '—'}종 · "
-                         f"{ts} 측정" + (f" · 엔드포인트 {ep}" if ep else ""))
+                         f"{ts} 측정" + (f" · 엔드포인트 {ep}" if ep else "")
+                         # index.json operated_by_us와 같은 판정 — AI가 읽는 행에서도 가른다
+                         + (" · 이 목록 운영자의 서버" if r["name"].startswith(OURS) else ""))
         lines.append("")
     answered = sum(1 for r in ctx["dead"] if r["remote"].get("http"))
     reg_dead = [r for r in ctx["dead"] if r.get("addr_registered")]
