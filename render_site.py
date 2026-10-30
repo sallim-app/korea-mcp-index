@@ -97,21 +97,25 @@ def slug(name: str) -> str:
 
 
 def ago(day: str, today: dt.date) -> str:
-    """며칠 지난 값인지. 이 목록의 값은 '지금 되느냐'라서 나이가 값의 일부다."""
+    """며칠 지난 값인지. 이 목록의 값은 '지금 되느냐'라서 나이가 값의 일부다.
+
+    정적 HTML이라 이 값은 **렌더한 날** 기준으로 박힌다 — 방문한 날 기준이 아니다.
+    그래서 문구가 기준 시점을 스스로 밝힌다(2026-10-31, 야간 품질 스윕 F5)."""
     try:
         d0 = dt.date.fromisoformat(day)
     except (TypeError, ValueError):
         return ""
     n = (today - d0).days
+    basis = "이 페이지 생성일 기준 "
     if n <= 0:
-        return "오늘"
+        return basis + "당일"
     if n == 1:
-        return "하루 전"
+        return basis + "하루 전"
     if n < 14:
-        return f"{n}일 전"
+        return basis + f"{n}일 전"
     if n < 60:
-        return f"{n}일 전 — 주간 회차를 한 번 이상 걸렀다"
-    return f"{n}일 전 — <strong>오래된 값이다</strong>"
+        return basis + f"{n}일 전 — 주간 회차를 한 번 이상 걸렀다"
+    return basis + f"{n}일 전 — <strong>오래된 값이다</strong>"
 
 
 def self_disclosure(name: str) -> str | None:
