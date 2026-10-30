@@ -42,7 +42,13 @@ GITHUB = "https://api.github.com/search/repositories"
 PAGE = 100
 # 서버당 1행(version=latest) 기준 실측 259페이지에서 커서가 소진된다. 상한은 폭주 방지용
 # 여유값이고, 걸리면 숨기지 않고 `truncated`로 공시한다.
-MAX_PAGES = 400
+# **400은 두 달 만에 천장이 됐다**(2026-10-31 실측, GitHub 이슈 #2 조사 중). 레지스트리가
+# 25,829개(08-31)에서 **53,287개**(10-31, 533페이지에서 커서 소진)로 늘어, 400페이지 상한이
+# 이름순 `io.github.pipeworx-io/nyfed-markets` 뒤 13,287개를 통째로 못 보고 있었다 —
+# `kr.*`(`kr.co.reevl`·`kr.lifelaw`·`kr.eocpa` …)가 전부 그 뒤에 있다. 현재 판정기로 그
+# 구간에서만 keep 54 · review 25건. 증가 속도(월 ~1.4만)로 1,500페이지(15만 개)면 반년 남짓
+# 버틴다 — 걸리면 지금처럼 `truncated`가 뜨고, 그때는 공시만 보지 말고 이 값을 올려라.
+MAX_PAGES = 1500
 
 # ASCII만 걸린다(레지스트리 한글 미지원 실측). 한글 전용 항목은 3차가 맡는다.
 REGISTRY_TERMS = ["korea", "korean", "kr-", "molit", "kosis", "naver", "kakao",
@@ -170,6 +176,11 @@ def from_registry() -> tuple[dict, list]:
                 continue
             found.setdefault(name, {
                 "name": name, "description": s.get("description") or "",
+                # **`title`도 판정 입력이다**(2026-10-31, GitHub 이슈 #2). 레지스트리 자기신고의
+                # 사람용 이름인데 버리고 있었다 — `io.boim/vendors`는 설명이 "Korean businesses
+                # …, public-procurement vendors and live public bids."라 데이터형 신호가 0이고
+                # 그 신호(`Directory`)가 title "BOIM Korea Vendor Directory"에만 있었다.
+                "title": s.get("title") or "",
                 "packages": [{"type": p.get("registryType"), "id": p.get("identifier"),
                               "version": p.get("version")} for p in (s.get("packages") or [])],
                 "remotes": [{"type": r.get("type"), "url": r.get("url"),

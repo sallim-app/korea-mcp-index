@@ -1031,7 +1031,7 @@ def build_index(ctx) -> None:
     W('</tbody></table></div>')
     if pop and pop["promoted"]:
         why_deferred = (
-            '이름·설명 문자열만 보는 키워드 판정기가 “데이터 제공형 신호가 없다”며 '
+            '이름·제목·설명 문자열만 보는 키워드 판정기가 “데이터 제공형 신호가 없다”며 '
             '<code>review</code>로 미뤄 뒀기 때문이다'
             if len(pop["promoted_review"]) == len(pop["promoted"]) else
             f'{len(pop["promoted_review"])}건은 키워드 판정기가 <code>review</code>로 '
@@ -1375,7 +1375,7 @@ def build_not_measured(ctx) -> None:
       '서버다. 가동·도구 수·지연이 이 목록에 없는 이유는 그 서버들이 안 돼서가 아니라 '
       '<strong>우리가 안 쟀기 때문</strong>이다.</p>')
     if prom:
-        W('<p><strong>판정기가 둘이고, 둘이 어긋난 자리가 여기다.</strong> ① 이름·설명의 '
+        W('<p><strong>판정기가 둘이고, 둘이 어긋난 자리가 여기다.</strong> ① 이름·제목·설명의 '
           '문자열만 보는 키워드 판정기(<code>filter_candidates.py</code>)는 '
           '<code>keep</code>/<code>review</code>/<code>drop</code> 셋으로 가르는데, '
           '<code>review</code>는 “주제가 아니다”가 아니라 <strong>“문자열로는 판정이 '

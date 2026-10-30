@@ -873,7 +873,7 @@ def main() -> int:
                 if i["name"].startswith("app.sallim/")
                 or "sallim-app/" in (i.get("repo_url") or "")]
         # 사유는 값에서 뽑는다 — 같은 통에 `keep`이 섞이면 "미뤘다"가 거짓이 된다.
-        why_deferred = ("이름·설명 문자열만 보는 키워드 판정기가 `review`로 미뤘고 "
+        why_deferred = ("이름·제목·설명 문자열만 보는 키워드 판정기가 `review`로 미뤘고 "
                         "측정은 그 판정기의 `keep`만 읽었기 때문이다"
                         if len(pop["promoted_review"]) == len(pop["promoted"]) else
                         f"{len(pop['promoted_review'])}건은 키워드 판정기가 `review`로 "

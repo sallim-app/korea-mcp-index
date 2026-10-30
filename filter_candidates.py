@@ -91,6 +91,22 @@ LOCALE_LIST = re.compile(
     rf"(?:{_LANG_NAME}\s*[/,|·・]\s*한국어)|(?:한국어\s*[/,|·・]\s*{_LANG_NAME})", re.I
 )
 
+# **영어 언어 목록 안의 `Korean`도 같다** (2026-10-31, title 입력 개정과 같은 커밋).
+# 레지스트리 `title`을 판정 입력에 넣자 `com.master-setter/pokemon-tcg`("Pokémon TCG cards in
+# 14 languages … deepest Korean/Thai/Chinese")가 title의 `Catalog`로 review→keep이 됐다 —
+# 한국 신호는 언어 목록 자리의 `Korean` 하나였다. 위 `한국어` 규칙과 같은 자리를 영어로 막는다.
+# **좁게**: 다른 언어 이름과 구분자(`/ , | ·`)로 잇닿은 `Korean`만 — "Korean stock prices"·
+# "Korean and Japanese markets"처럼 구분자가 아닌 말로 이어진 것은 그대로 신호다.
+_OTHER_LANG_EN = (
+    r"(?:EN|JA|JP|ZH|English|Japanese|Chinese|Thai|Vietnamese|Indonesian|Hindi|Arabic|"
+    r"Spanish|French|German|Portuguese|Italian|Russian|Espa(?:ñ|n)ol|Fran(?:ç|c)ais|Deutsch|"
+    r"中文|日本語)"
+)
+LOCALE_LIST_EN = re.compile(
+    rf"(?:(?<![A-Za-z]){_OTHER_LANG_EN}\s*[/,|·・]\s*Korean(?![A-Za-z]))"
+    rf"|(?:(?<![A-Za-z])Korean\s*[/,|·・]\s*{_OTHER_LANG_EN}(?![A-Za-z]))"
+)
+
 
 # **타임존 식별자 안의 `seoul`은 한국 데이터 신호가 아니다** (2026-09-14).
 #
@@ -113,16 +129,26 @@ def strip_tz_id(text: str) -> str:
 
 
 def strip_locale_list(text: str) -> str:
-    """언어 목록 자리의 `한국어`만 지운다. 나머지 글자는 건드리지 않는다."""
+    """언어 목록 자리의 `한국어`·`Korean`만 지운다. 나머지 글자는 건드리지 않는다."""
     prev = None
     while prev != text:
         prev = text
         text = LOCALE_LIST.sub(lambda m: m.group(0).replace("한국어", " "), text)
+        text = LOCALE_LIST_EN.sub(lambda m: m.group(0).replace("Korean", " "), text)
     return text
 
 
 def classify(item: dict) -> dict:
     name, desc = item["name"], item.get("description") or ""
+    # **레지스트리 `title`을 설명과 같은 입력으로 읽는다**(2026-10-31, GitHub 이슈 #2).
+    # 판정 입력은 "등록자가 스스로 쓴 문자열"이고 title도 그중 하나다 — 이름 하나를
+    # 예외로 넣는 게 아니라 버리던 자기신고 필드를 되살리는 것이다. 실사례 `io.boim/vendors`:
+    # 설명엔 데이터형 단어가 없고 title "BOIM Korea Vendor Directory"에만 있어 `review`로
+    # 떨어졌고, review는 LLM 분류가 돌아야만 측정 모집단에 든다(population.py).
+    # 설명 칸에 이미 같은 말이 있으면 중복 신호를 만들지 않도록 덧붙이지 않는다.
+    title = (item.get("title") or "").strip()
+    if title and title.lower() not in desc.lower():
+        desc = f"{title} — {desc}" if desc.strip() else title
     # **설명을 못 읽은 이어받기 줄을 `drop`으로 읽지 않는다**(2026-09-15, T-2026W38-309).
     # 게시 이력으로 되살린 줄인데 저장소가 404(비공개 전환 포함)면 설명이 빈 문자열로
     # 온다. 그 상태로 판정하면 이름에 한국 단어가 없는 서버가 **신호 0**으로 떨어지는데,
@@ -209,7 +235,7 @@ def main() -> int:
     json.dump({"buckets": buckets, "dupe_slugs": dupes,
                "boundaries": raw.get("boundaries", []) + [
                    "슬러그 병합은 마지막 경로 조각 휴리스틱이다 — 동명이인을 합칠 수 있다",
-                   "keep/drop 판정(축①②)은 이름·설명 문자열만 본다 — 도구 목록을 안 본다",
+                   "keep/drop 판정(축①②)은 이름·제목(레지스트리 title)·설명 문자열만 본다 — 도구 목록을 안 본다",
                    f"축③(조인·계산)은 도구 목록을 본 {sum(1 for o in out if o['axis3']['signal'] != 'unknown')}건만 "
                    f"라벨했다. 나머지 {a3.get('unknown', 0)}건은 unknown이며 **파생이 없다는 뜻이 아니다**",
                    "축③은 도구 **이름**의 동사류를 본다. 그 계산을 원천이 이미 주는지는 대조하지 않았다 "
