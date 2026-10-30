@@ -114,6 +114,14 @@ def ago(day: str, today: dt.date) -> str:
     return f"{n}일 전 — <strong>오래된 값이다</strong>"
 
 
+def self_disclosure(name: str) -> str | None:
+    """운영자 자기공시 — **우리 서버에만** 돌려준다(observed.SOURCE_CLOSED, 2026-09-14).
+
+    남의 이름이 명단에 섞여도 None이다: 남의 저장소가 안 보이는 것은 비공개일 수도,
+    우리가 못 찾은 것일 수도 있어 '미확인'이 맞다(못 봄 ≠ 없음)."""
+    return SOURCE_CLOSED.get(name) if name.startswith(OURS) else None
+
+
 def graded_at() -> str | None:
     """채점 원자료가 마지막으로 바뀐 날 (저장소 이력). 못 읽으면 None — 오늘로 때우지 않는다."""
     try:
@@ -826,9 +834,12 @@ def server_page(ctx, rec) -> None:
     ax = [("라이선스", (e(os_.get("license")) if os_.get("license") else "확인 못 함")
            + (f' <span class="sub">{e(os_.get("why"))}</span>' if os_.get("why") else "")
            + lic_caveat),
-          ("셀프호스팅", {"packaged": "배포판 확인", "source_only": "소스만",
-                       "unknown": "미확인"}.get(shh.get("state"), e(shh.get("state") or "—"))
-           + (f' <span class="sub">{e(shh.get("why"))}</span>' if shh.get("why") else ""))]
+          ("셀프호스팅", (f'소스 비공개 <span class="sub">{e(self_disclosure(rec["name"]))}</span>'
+                       if self_disclosure(rec["name"]) else
+                       {"packaged": "배포판 확인", "source_only": "소스만",
+                        "unknown": "미확인"}.get(shh.get("state"), e(shh.get("state") or "—"))
+                       + (f' <span class="sub">{e(shh.get("why"))}</span>'
+                          if shh.get("why") else "")))]
     if pkg:
         ax.append(("배포 패키지",
                    f'{e(pkg.get("type"))} <code>{e(pkg.get("id"))}</code>'
@@ -862,6 +873,10 @@ def server_page(ctx, rec) -> None:
     elif not rk:
         unknowns.append("<strong>답변 품질을 채점하지 않았다</strong> — 표에 도구·지연만 있는 "
                         "것은 못 재서이지 나빠서가 아니다")
+    if self_disclosure(rec["name"]):
+        # 우리 서버는 우리가 답을 안다 — '미확인' 뒤에 숨지 않고 자기공시를 싣는다(PROTOCOL ②).
+        unknowns.append("셀프호스팅은 밖에서 잰 값이 아니라 <strong>운영자 자기공시</strong>다 — "
+                        f"{e(self_disclosure(rec['name']))}")
     if shh.get("state") == "source_only":
         unknowns.append("소스가 공개돼 있다는 것과 <strong>클론해 띄우면 같은 답이 나온다</strong>는 "
                         "것은 다르다 — 후자는 재지 않았다")
@@ -1581,6 +1596,8 @@ def build_machine(ctx) -> None:
             "fact_errors": ctx["err_of"].get(r["name"]),
             "license": (r.get("open_source") or {}).get("license"),
             "self_hosting": (r.get("self_hosting") or {}).get("state"),
+            # 우리 서버 자기공시(observed.SOURCE_CLOSED) — 축 값은 그대로 두고 공시만 덧붙인다
+            "self_hosting_note": self_disclosure(r["name"]),
             "package_match_suspect": pkg_suspect(r) or None,
             "operated_by_us": r["name"].startswith(OURS),
             "symptom": (rm.get("why") or None) if not rm.get("reachable") else None,
