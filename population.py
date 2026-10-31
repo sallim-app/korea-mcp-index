@@ -113,13 +113,27 @@ def summary(candidates: str = CANDIDATES, classification: str = CLASSIFICATION,
     # 줄이 섞여** 거짓 라벨이 되고 후보 총계도 부푼다. 통은 판정으로 가른다.
     items = [i for i in (src.get("items") or []) if i.get("verdict") in ("keep", "review")]
     done = measured_names(measured)
-    not_measured = sorted((i for i in items if i["name"] not in done),
+
+    def names(i):
+        return [i["name"], *(i.get("also_known_as") or [])]
+
+    def is_done(i):
+        return any(n in done for n in names(i))
+
+    # **한 줄은 한 통에만 든다**(codex 교차검증 2026-10-31). `promoted`는 `provides_data`로
+    # 어느 이름으로든 보는데 `review_off`·`unclassified`가 대표 이름만 보면, 옛 이름은
+    # '데이터 제공형'·새 이름은 '아님'(또는 미분류)인 별칭 승격 서버가 두 통에 동시에 들어
+    # 같은 서버에 상반된 라벨이 붙고 분류별 합계가 부푼다(예: `land.moss/alpha-mcp` ↔
+    # `MosslandOpenDevs/alpha`가 부분 측정 회차에 안 잰 쪽에 떨어지면). 승격이 먼저고,
+    # 나머지를 '어느 이름으로든 분류가 있나'로 가른다. 잰 것도 어느 이름으로든 센다.
+    not_measured = sorted((i for i in items if not is_done(i)),
                           key=lambda i: i["name"])
+    not_promoted = [i for i in not_measured if not provides_data(cls, i)]
     return {
         "total": len(items),
         "keep": [i for i in items if i["verdict"] == "keep"],
         "review": [i for i in items if i["verdict"] == "review"],
-        "measured": [i for i in items if i["name"] in done],
+        "measured": [i for i in items if is_done(i)],
         "not_measured": not_measured,
         # 안 잰 것 중 LLM이 "데이터 제공형"이라 한 것 = 쟀어야 하는 것.
         # **여기 `keep`이 섞일 수 있다**(codex 교차검증 2026-09-14): `--limit` 부분 측정이나
@@ -133,9 +147,8 @@ def summary(candidates: str = CANDIDATES, classification: str = CLASSIFICATION,
         # 안 잰 것 중 **LLM이** "데이터 제공형이 아니다"라 한 것. 키워드 판정기 쪽은
         # `review`이고 그것은 "주제 밖"이 아니라 **신호 부족·판정 보류**다 — 둘을 "모두
         # 주제 밖이라 했다"로 합쳐 쓰면 113건에 거짓 라벨이 붙는다(codex 2026-09-14).
-        "review_off": [i for i in not_measured
-                       if i["name"] in cls and not cls[i["name"]].get("is_data_provider")],
-        "unclassified": [i for i in not_measured if i["name"] not in cls],
+        "review_off": [i for i in not_promoted if any(n in cls for n in names(i))],
+        "unclassified": [i for i in not_promoted if not any(n in cls for n in names(i))],
         "cls": cls,
     }
 

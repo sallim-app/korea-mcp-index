@@ -263,9 +263,9 @@ def test_renamed_by_address_follows_the_ledger_address():
     items = [{"name": "reg/one", "remote": {"url": "https://one.test/mcp?x=1"}},
              {"name": "other/two", "remote": {"url": "https://two.test/mcp"}}]
     assert carryover.renamed_by_address(led, items, {"old/one"}) == {"reg/one": "old/one"}
-    # 옛 이름이 아직 측정본에 있으면(이름 또는 병합 이름) 잇지 않는다.
+    # 옛 이름이 아직 대표 이름으로 측정본에 있으면 잇지 않는다.
     assert carryover.renamed_by_address(
-        led, [{**items[0], "also_known_as": ["old/one"]}], {"old/one"}) == {}
+        led, [{**items[0], "name": "old/one"}], {"old/one"}) == {}
     # 지금 이름이 제 이름으로 따로 등수를 받았으면 잇지 않는다 — 한 서버에 등수 둘.
     assert carryover.renamed_by_address(led, items, {"old/one", "reg/one"}) == {}
     # 같은 주소의 줄이 둘이면 어느 쪽인지 모른다 — 추측하지 않는다.
@@ -274,6 +274,71 @@ def test_renamed_by_address_follows_the_ledger_address():
     # 은퇴한 원장 항목은 잇지 않는다.
     led["items"]["old/one"]["retired"] = {"day": "2026-10-01", "why": "x"}
     assert carryover.renamed_by_address(led, items, {"old/one"}) == {}
+
+
+def test_rank_survives_when_the_ranked_name_is_folded_into_also_known_as():
+    """**등수를 받은 이름이 병합 이름(`also_known_as`)으로 접혀도 등수가 그 줄을 따라간다**
+    (codex 교차검증 2026-10-31, carryover.py:274).
+
+    렌더러·CSV의 등수 조회는 대표 이름과 `observed.RENAMED`만 본다. 종전에는 병합 이름을
+    '측정본에 있다'로 쳐서 잇지 않았으므로, `link_published_aliases`가 옛 이름을 그 줄에
+    넣는 순간 등수가 사라졌다 — 실측 재현: 현 원장·측정본에 link를 돌리면
+    `renamed_by_address`가 `{dev.datagokr/datagokr, land.moss/alpha-mcp}` → `{}`가 되어
+    공공데이터·행정 1위와 금융·증시 4위가 다음 회차에 미채점으로 나갈 참이었다.
+    """
+    old, new, ep = "Org/alpha", "land.org/alpha-mcp", "https://alpha.example/api/mcp"
+    led = ledger_of(old, remote=ep)
+    rows = [{"name": new, "remote": {"url": ep}, "remotes": [{"url": ep}]}]
+    assert carryover.renamed_by_address(led, rows, {old}) == {new: old}
+    # 다음 회차 경로 그대로: 수집이 옛 이름을 그 줄에 접는다 → 그래도 이어야 한다.
+    assert carryover.link_published_aliases(led, rows) == [f"{old} → {new}"]
+    assert rows[0]["also_known_as"] == [old]
+    assert carryover.renamed_by_address(led, rows, {old}) == {new: old}
+    # 원장에 주소가 없어도(엔드포인트 병합만으로 접힌 이름) 병합 이름으로 잇는다.
+    assert carryover.renamed_by_address({"items": {}}, rows, {old}) == {new: old}
+    # 지금 이름이 제 이름으로 따로 등수를 받았으면 여전히 잇지 않는다 — 한 서버에 등수 둘.
+    assert carryover.renamed_by_address(led, rows, {old, new}) == {}
+    # 같은 옛 이름을 두 줄이 들고 있으면 어느 쪽인지 모른다 — 추측하지 않는다.
+    two = rows + [{"name": "x/other", "also_known_as": [old]}]
+    assert carryover.renamed_by_address({"items": {}}, two, {old}) == {}
+
+
+def test_population_summary_puts_an_alias_promoted_row_in_one_bucket(tmp_path):
+    """**별칭 승격된 안 잰 줄은 한 통에만 든다**(codex 교차검증 2026-10-31, population.py:128).
+
+    옛 이름 분류는 '데이터 제공형'·새 이름은 '아님'(또는 미분류)이면, 종전에는 `promoted`와
+    `review_off`(또는 `unclassified`)에 동시에 들어 같은 서버에 상반된 라벨이 붙고 합계가
+    부풀었다(`land.moss/alpha-mcp` ↔ `MosslandOpenDevs/alpha` 모양 — 부분 측정 회차에 터진다).
+    """
+    import population
+    cand = {"items": [
+        {"name": "land.org/a", "verdict": "review", "also_known_as": ["Org/a"]},
+        {"name": "reg/b", "verdict": "review", "also_known_as": ["Org/b"]},
+        {"name": "plain/c", "verdict": "review"},
+        {"name": "plain/d", "verdict": "review"},
+        {"name": "reg/e", "verdict": "review", "also_known_as": ["Org/e"]},
+    ]}
+    cls = {"Org/a": {"name": "Org/a", "is_data_provider": True},
+           "land.org/a": {"name": "land.org/a", "is_data_provider": False},
+           "Org/b": {"name": "Org/b", "is_data_provider": True},
+           "plain/c": {"name": "plain/c", "is_data_provider": False},
+           "Org/e": {"name": "Org/e", "is_data_provider": False}}
+    # 잰 것은 병합 이름으로 실려 있어도 잰 것이다.
+    meas = {"items": [{"name": "Org/e"}]}
+    for fn, obj in [("candidates.json", cand), ("classification.json", {"items": cls}),
+                    ("measured.json", meas)]:
+        (tmp_path / fn).write_text(json.dumps(obj, ensure_ascii=False), encoding="utf-8")
+    s = population.summary(str(tmp_path / "candidates.json"),
+                           str(tmp_path / "classification.json"),
+                           str(tmp_path / "measured.json"))
+    nm = lambda k: sorted(i["name"] for i in s[k])  # noqa: E731
+    assert nm("measured") == ["reg/e"]
+    assert nm("promoted") == ["land.org/a", "reg/b"]
+    assert nm("review_off") == ["plain/c"]
+    assert nm("unclassified") == ["plain/d"]
+    # 안 잰 줄 하나는 정확히 한 통 — 합계가 안 잰 수와 같다.
+    assert (len(s["promoted"]) + len(s["review_off"]) + len(s["unclassified"])
+            == len(s["not_measured"]) == 4)
 
 
 def test_endpoint_merge_moves_the_merged_rows_aliases_too():

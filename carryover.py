@@ -260,8 +260,9 @@ def renamed_by_address(ledger: dict, measured_items, wanted) -> dict[str, str]:
     `{새 이름: 옛 이름}` — `observed.RENAMED`와 같은 모양이다. 손으로 적던 그 표의 판정
     기준("같은 서버라는 근거는 이름이 아니라 주소다")을 그대로 기계로 돈다: 원장이 기억하는
     옛 이름의 마지막 게시 주소와 **바이트 동일한**(정규화 후) 주소를 지금 들고 있는 줄이
-    정확히 하나일 때만 잇는다. 그 줄이 제 이름으로 따로 등수를 받았으면 잇지 않는다 —
-    한 서버가 두 등수를 갖게 된다.
+    정확히 하나일 때만 잇는다. 옛 이름이 어느 줄의 `also_known_as`에 남아 있으면 그 줄로
+    잇는다(원장보다 먼저 — 우리 병합이 이미 한 서버라 판정한 것이다). 그 줄이 제 이름으로
+    따로 등수를 받았으면 잇지 않는다 — 한 서버가 두 등수를 갖게 된다.
 
     계기(2026-10-31): 공공데이터·행정 1위 `datagokr-dev/datagokr`가 같은 저장소·같은 주소
     (`https://datagokr.dev/mcp`)인 채로 레지스트리 이름 `dev.datagokr/datagokr`로 잡혀,
@@ -269,19 +270,29 @@ def renamed_by_address(ledger: dict, measured_items, wanted) -> dict[str, str]:
     """
     present = set()
     by_ep: dict = {}
+    by_aka: dict = {}
     for i in measured_items:
         present.add(i["name"])
-        present.update(i.get("also_known_as") or [])
+        for a in i.get("also_known_as") or []:
+            by_aka.setdefault(a, []).append(i["name"])
         ep = norm_repo((i.get("remote") or {}).get("url"))
         if ep:
             by_ep.setdefault(ep, []).append(i["name"])
     wanted = set(wanted)
     out: dict[str, str] = {}
     for old in sorted(wanted - present):
-        e = (ledger.get("items") or {}).get(old)
-        if not e or e.get("retired"):
-            continue
-        hits = by_ep.get(norm_repo(e.get("last_remote")), []) if e.get("last_remote") else []
+        # **병합 이름(`also_known_as`)으로 남아 있는 것은 '있다'가 아니라 '이어야 한다'다**
+        # (codex 교차검증 2026-10-31). 렌더러·CSV의 등수 조회는 대표 이름과 `RENAMED`만
+        # 본다 — 병합 이름을 '측정본에 있다'로 치고 건너뛰면 그 등수는 아무도 못 찾는다.
+        # 그런데 `link_published_aliases`(2026-10-31)가 바로 그 자리에 옛 이름을 넣으므로,
+        # 다음 회차에 공공데이터·행정 1위(datagokr)·금융·증시 4위(alpha)가 미채점으로 나갈
+        # 참이었다. 병합 이름은 우리 병합이 한 줄로 묶은 것이라 주소보다 강한 근거다.
+        hits = by_aka.get(old, [])
+        if not hits:
+            e = (ledger.get("items") or {}).get(old)
+            if not e or e.get("retired"):
+                continue
+            hits = by_ep.get(norm_repo(e.get("last_remote")), []) if e.get("last_remote") else []
         if len(hits) != 1:
             continue
         new = hits[0]
