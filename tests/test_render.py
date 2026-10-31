@@ -92,7 +92,7 @@ def test_no_private_or_personal_paths():
 
 # ── 순위 신뢰 회귀 (2026-08-19, "순위가 신뢰가 안 가는데?") ──────────────────
 
-# **채점 명단과 이번 주 명단은 어긋나게 되어 있다.** 가동은 매주, 순위는 매월 1일이다
+# **채점 명단과 이번 주 명단은 어긋나게 되어 있다.** 가동은 매주, 순위는 매월 첫 화요일(14:00 KST)이다
 # (README「어떻게 재나」). 그 사이에 채점받은 서버가 죽거나 이름이 바뀌면 이번 주 표에는
 # 없다 — 그건 결함이 아니라 이 제품의 설계다. 2026-08-24 첫 주간 회차에서 실제로 둘 다
 # 일어났다(obundh 404 · haklaekim→hike-lab 개명).
@@ -294,7 +294,7 @@ def test_judging_doc_matches_current_method():
     """
     j = (ROOT / "JUDGING.md").read_text(encoding="utf-8")
     assert "실제로 물어보고" in j, "JUDGING.md가 실측 채점 방식을 안 적는다"
-    for must in ("3회", "매월 1일", "재현성"):
+    for must in ("3회", "매월 첫 화요일", "재현성"):
         assert must in j, f"JUDGING.md에 {must}가 없다"
 
 

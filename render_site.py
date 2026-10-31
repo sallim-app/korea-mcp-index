@@ -621,7 +621,7 @@ def cat_block(ctx, c, full=True) -> list[str]:
                 bits.append(f"{rk_}위 {e(disp(n))}({why_gone})")
             o.append('<p class="sub"><strong>빠진 등수</strong> — 지난 채점 회차의 '
                      + " · ".join(bits)
-                     + '. 순위는 매월 1일에만 다시 매기므로 그때까지 번호는 그대로 둔다 — '
+                     + '. 순위는 매월 첫 화요일(14:00 KST)에만 다시 매기므로 그때까지 번호는 그대로 둔다 — '
                        '빈자리를 위로 당기면 재채점 없이 등수가 오른 것처럼 보인다.</p>')
         n = ctx["cat_runs"].get(c, 1)
         runs = (f"서버당 <strong>{n}회</strong> 물어 재현성까지 채점했다." if n >= 2 else
@@ -1491,7 +1491,7 @@ def build_method(ctx) -> None:
       '<td>매월</td></tr>',
       '<tr><td>grade</td><td>그 답을 원문과 대조해 채점한다(Opus) → 순위</td><td>매월</td></tr>',
       '</tbody></table></div>',
-      '<p><strong>가동은 매주, 순위는 매월 1일</strong>에 다시 잰다. 서버가 안 바뀌면 채점 결과도 '
+      '<p><strong>가동은 매주, 순위는 매월 첫 화요일</strong>(14:00 KST)에 다시 잰다. 서버가 안 바뀌면 채점 결과도 '
       '안 바뀌는데 매주 재호출하는 것은 새 정보가 아니라 남의 서버에 지우는 부하다.</p>',
       '<p>두드릴 때는 <code>tools/list</code>를 보내고, <strong>200이 온 서버에 한해</strong> '
       '간격을 두고 2회 더 불러 웜을 잰다(콜드 1 + 웜 2). User-Agent로 우리를 밝힌다.</p>',

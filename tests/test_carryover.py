@@ -289,7 +289,7 @@ def test_endpoint_merge_moves_the_merged_rows_aliases_too():
 
 def test_classification_follows_a_derived_rename(monkeypatch):
     """주소로 이은 쌍은 **등수를 받은 옛 이름의 분류**를 쓴다 — 새 이름의 분류 한 줄이
-    재채점 없이 등수를 「주제 밖」으로 옮기면 안 된다(순위는 매월 1일에만 다시 매긴다)."""
+    재채점 없이 등수를 「주제 밖」으로 옮기면 안 된다(순위는 매월 첫 화요일(14:00 KST)에만 다시 매긴다)."""
     import observed
     monkeypatch.setitem(observed.RENAMED, "reg/one", "old/one")
     monkeypatch.setitem(observed.DERIVED_RENAMED, "reg/one", "old/one")
