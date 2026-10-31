@@ -50,6 +50,19 @@ from render_readme import (
 
 REPO = "https://github.com/sallim-app/korea-mcp-index"
 
+# **살림 형제 사이트** (2026-10-31 유입 경로 점검). 종전 푸터엔 저장소 링크뿐이라 이 사이트에서
+# 형제 사이트로 가는 크롤 가능한 길이 0개였다. 문구·주소는 공통 브리프의 정본 표 그대로다 —
+# 자기 자신(mcp-index)은 뺀다. JS 핸들러가 아니라 평범한 `<a href>`여야 봇이 따라간다.
+SALLIM_FAMILY = (
+    ("https://sallim.app/", "살림"),
+    ("https://blog.sallim.app/", "살림 부동산 블로그"),
+    ("https://realty.sallim.app/", "살림 부동산 MCP"),
+    ("https://contract.sallim.app/", "계약나침반"),
+    ("https://stay.sallim.app/", "살림 숙소 MCP"),
+    ("https://eatlog.sallim.app/", "eatlog"),
+)
+ALL_SERVERS = "all-servers"   # 전체 서버 목록 페이지 이름(→ /all-servers)
+
 # 페이지마다 붙는 두 개의 <script>. **여기 한 자리에만 둔다** — 페이지가 90개가 넘어
 # 손으로 붙이면 다음 회차에 새로 생긴 페이지만 조용히 빠진다.
 #
@@ -282,7 +295,14 @@ class Page:
                      + ' › '.join(f'<a href="{e(s.url_of(p))}">{e(n)}</a>' for n, p in self.crumbs)
                      + '</nav>')
         o += self.body
-        o += ['<footer>',
+        o += ['<footer>']
+        if ALL_SERVERS in s.by_name:
+            # 모든 페이지 → 전체 목록 → 모든 상세. 상세가 sitemap에만 있는 고아가 되지 않게
+            # 어느 페이지에서든 두 번 안에 닿는 길을 둔다.
+            o.append(f'<p><a href="{e(s.url_of(ALL_SERVERS))}">한국 MCP 서버 전체 목록</a> · '
+                     f'<a href="{e(s.url_of("index"))}">분야별 실측 순위</a></p>')
+        o += ['<p>살림의 다른 사이트 — '
+              + ' · '.join(f'<a href="{u}">{e(n)}</a>' for u, n in SALLIM_FAMILY) + '</p>',
               f'<p>측정값과 원자료 전부 공개 — <a href="{REPO}">저장소</a> · '
               f'<a href="{REPO}/blob/main/measured.json">measured.json</a> · '
               f'<a href="{REPO}/blob/main/axes.csv">axes.csv</a> · '
@@ -655,6 +675,27 @@ def cat_block(ctx, c, full=True) -> list[str]:
     return o
 
 
+def server_title(nm: str, cat) -> str:
+    """검색어 「<서버이름> MCP」·「한국 MCP 서버」에 맞춘 제목. 이름에 이미 mcp가 있으면
+    「… MCP MCP」로 겹치지 않게 분야 쪽에 붙인다."""
+    field = cat or "한국 데이터"
+    if "mcp" in nm.lower():
+        return f"{nm} — {field} MCP 서버 실측 | 한국 MCP 서버 목록"
+    return f"{nm} MCP 서버 — {field} 실측 | 한국 MCP 서버 목록"
+
+
+def related_servers(ctx, name, cat, limit=12) -> list[dict]:
+    """같은 분야의 다른 서버 — 채점 등수 순, 그다음 도구 수 순. 상세끼리 서로 잇는 길이다."""
+    if not cat:
+        return []
+    rank_of = ctx["rank_of"]
+    same = [r for r in ctx["probed"] if r["name"] != name and ctx["cat_of"].get(r["name"]) == cat]
+    same.sort(key=lambda r: (0 if r["name"] in rank_of and r["name"] not in MISFILED else 1,
+                             rank_of.get(r["name"], (999,))[0],
+                             -((r.get("remote") or {}).get("tool_count") or 0), r["name"]))
+    return same[:limit]
+
+
 def server_page(ctx, rec) -> None:
     """서버 하나 = URL 하나. 앵커가 아니라 진짜 주소여야 검색에서 그 서버 이름으로 잡힌다."""
     site, cls = ctx["site"], ctx["cls"]
@@ -696,7 +737,7 @@ def server_page(ctx, rec) -> None:
                    f"({gateway_of(rec)})다.")
     desc = f"{nm} — {cat or '분야 미상'} MCP 서버. {state}.{caveat} 측정값·근거 전부 공개."
 
-    pg = Page(site, ctx["page_of"][name], f"{nm} — 한국 데이터 MCP 실측", desc,
+    pg = Page(site, ctx["page_of"][name], server_title(nm, cat), desc,
               crumbs=[("한국 데이터 MCP 실측 목록", "index")]
               + ([(cat, ctx["cat_page"][cat])] if cat in ctx["cat_page"] else [])
               + [(nm, ctx["page_of"][name])],
@@ -911,9 +952,51 @@ def server_page(ctx, rec) -> None:
       f'<p class="sub">값이 틀렸거나 고쳤다면 <a href="{REPO}/issues">이슈</a>로 알려 달라 — '
       '다음 회차에 다시 잰다. 경쟁 서비스여도 받는다. 분야가 틀렸다·주소를 잘못 짚었다·채점이 '
       '틀렸다도 같은 창구다.</p>')
+    rel = related_servers(ctx, name, cat)
+    if rel:
+        W(f'<h2>같은 분야의 다른 MCP 서버</h2>',
+          f'<p class="sub">{e(cat)} 분야로 분류된 다른 서버다 — 채점받은 것은 등수 순, 나머지는 '
+          f'도구 수 순. 이 순서는 추천이 아니다.</p>',
+          '<ul>' + "".join(f'<li>{name_link(ctx, r)}</li>' for r in rel) + '</ul>')
     W(f'<nav class="nav"><a href="{e(site.url_of("index"))}">← 전체 목록</a>'
       + (f' <a href="{e(site.url_of(ctx["cat_page"][cat]))}">{e(cat)} 분야</a>'
-         if cat in ctx["cat_page"] else "") + '</nav>')
+         if cat in ctx["cat_page"] else "")
+      + f' <a href="{e(site.url_of(ALL_SERVERS))}">서버 전체 이름순</a></nav>')
+
+
+def build_all_servers(ctx) -> None:
+    """두드려 본 서버 **전부**를 한 페이지에 — 홈의 분야 표는 상위·접힘 위주라 일부 상세가
+    홈에서 닿지 않았다(2026-10-31 실측: 상세 199개 중 8개가 sitemap에만 있는 고아)."""
+    site, probed = ctx["site"], ctx["probed"]
+    groups: dict[str, list[dict]] = {}
+    for r in probed:
+        groups.setdefault(ctx["cat_of"].get(r["name"]) or "분야 미분류", []).append(r)
+    order = [c for c in CATS if c in groups] + sorted(c for c in groups if c not in CATS)
+    desc = (f"{ctx['ts']} 측정에서 우리가 직접 호출해 본 한국 MCP 서버 {len(probed)}개 전체 목록 — "
+            f"공공데이터·법령·금융·부동산 등 분야별로 묶고 서버마다 측정 상세 페이지로 잇는다. "
+            f"남의 서버와 우리 서버를 같은 목록에 싣는다.")
+    pg = Page(site, ALL_SERVERS, f"한국 MCP 서버 전체 목록 — 분야별 {len(probed)}개", desc,
+              crumbs=[("한국 데이터 MCP 실측 목록", "index"), ("전체 목록", ALL_SERVERS)],
+              priority="0.7", changefreq="weekly")
+    W = pg.w
+    W('<h1>한국 MCP 서버 전체 목록</h1>',
+      f'<p class="lede">{e(ctx["ts"])} 측정에서 우리가 직접 호출해 본 서버 '
+      f'<strong>{len(probed)}개</strong>를 분야별·이름순으로 싣는다. 이름을 누르면 그 서버의 '
+      f'측정값·근거 페이지로 간다. 순위와 채점은 <a href="{e(site.url_of("index"))}">분야별 '
+      f'실측 순위</a>에 있다.</p>',
+      '<p class="sub">상태 표기는 그 측정 순간의 관측이다 — '
+      f'「{e(STATUS_LABEL["unverified"])}」은 사망이 아니다.</p>')
+    for c in order:
+        rs = sorted(groups[c], key=lambda r: disp(r["name"]).lower())
+        head = (f'<a href="{e(site.url_of(ctx["cat_page"][c]))}">{e(c)}</a>'
+                if c in ctx["cat_page"] else e(c))
+        W(f'<h2>{head} <span class="sub">({len(rs)})</span></h2>', '<ul>')
+        for r in rs:
+            st = status_of(r) if r.get("remote") else None
+            lab = STATUS_LABEL.get(st, "") if st else ""
+            W(f'<li>{name_link(ctx, r)}' + (f' <span class="sub">— {e(lab)}</span>' if lab else "")
+              + '</li>')
+        W('</ul>')
 
 
 def build_index(ctx) -> None:
@@ -927,12 +1010,13 @@ def build_index(ctx) -> None:
     # **헤드라인에 caveat을 넣는다**(fresh-eyes 2026-08-29). 종전엔 48%만 meta·og·JSON-LD에
     # 실리고 "추정 주소였다"는 한 클릭 안쪽에만 있었다 — 검색·AI가 물어가는 문장에는 caveat이
     # 한 글자도 없었다. 그 48%에는 우리가 주소를 잘못 짚었을 수 있는 건이 섞여 있다.
-    desc = (f"한국의 데이터를 다루는 MCP 서버를 직접 붙여서 잰 목록. {ts} 기준 주소를 확인한 "
+    desc = (f"한국 MCP 서버 목록 — 공공데이터·법령·금융·부동산 등 한국 데이터를 다루는 MCP "
+            f"서버를 직접 붙여서 잰 목록. {ts} 기준 주소를 확인한 "
             f"{len(rem)}건 중 {len(dead)}건이 우리 호출에 도구 목록을 주지 않았다 — 다만 그중 "
             f"{answered}건은 HTTP 상태코드를 돌려줬고, 관리자가 직접 등록한 주소만 세면 "
             f"{len(reg_dead)}/{len(reg_all)}({reg_pct}%)다. 도구 수·응답 지연·설명 비율과 "
             f"실제 질문 채점 결과를 분야별로 공개한다.")
-    pg = Page(site, "index", "한국 데이터 MCP 실측 목록 — 지금 되는 서버가 어디까지인가",
+    pg = Page(site, "index", "한국 MCP 서버 목록 — 공공데이터·부동산·법령 MCP 실측 비교",
               desc, changefreq="weekly", priority="1.0",
               jsonld={"@context": "https://schema.org", "@type": "Dataset",
                       "name": "한국 데이터 MCP 실측 목록",
@@ -956,7 +1040,8 @@ def build_index(ctx) -> None:
     W('<h1>한국 데이터 MCP — 실측 목록</h1>')
     W('<p class="lede">한국의 데이터를 AI에게 주는 <strong>MCP</strong>(Model Context '
       'Protocol — AI가 바깥 데이터·도구를 부르는 규격) 서버를 '
-      '<strong>직접 붙여서 재고</strong> 그 값을 공개한다.</p>')
+      '<strong>직접 붙여서 재고</strong> 그 값을 공개한다. '
+      f'<a href="{e(site.url_of(ALL_SERVERS))}">전체 서버 {len(ctx["probed"])}개 이름순 목록</a>.</p>')
     W(f'<p>다른 목록은 “있다”를 말한다. 이 목록은 <strong>지금 되냐</strong>를 잰다. '
       f'{e(ts)} 기준 주소를 확인한 {len(rem)}건 중 '
       f'<strong>{len(dead)}건({pct}%)이 우리 호출에 도구 목록을 주지 않았다</strong>.</p>',
@@ -1151,7 +1236,8 @@ def build_index(ctx) -> None:
       '서버만 계단식으로 올라가고 남은 자기 최악의 순간에 박제된다.</p>',
       f'<p class="sub">방법론과 한계는 <a href="{e(site.url_of("method"))}">어떻게 재나 · 믿으면 '
       f'안 되는 부분</a>에 따로 있다.</p>')
-    W(f'<nav class="nav"><a href="{e(site.url_of("method"))}">어떻게 재나</a>'
+    W(f'<nav class="nav"><a href="{e(site.url_of(ALL_SERVERS))}">전체 서버 목록</a>'
+      f'<a href="{e(site.url_of("method"))}">어떻게 재나</a>'
       f'<a href="{e(site.url_of("down"))}">응답 없는 서버 {len(dead)}건</a>'
       f'<a href="{e(site.url_of("self-hosted"))}">설치형 {len(inst)}건</a>'
       f'<a href="{e(site.url_of("index.json"))}">JSON</a>'
@@ -1925,7 +2011,12 @@ def main() -> int:
            "cat_page": cat_page, "dead_names": {r["name"] for r in dead},
            "down_names": {r["name"] for r in downs}, "ts": ts,
            "today": today, "ts_ago": ago(ts, today), "axes_ts": d.get("axes_at"),
-           "pkg_ts": d.get("repackaged_at"), "graded": graded_at()}
+           "pkg_ts": d.get("repackaged_at"), "graded": graded_at(),
+           "probed": probed,
+           # 분야 교정된 서버는 실제 분야로 묶는다(server_page와 같은 규칙).
+           "cat_of": {r["name"]: (MISFILED[r["name"]][1] if r["name"] in MISFILED
+                                  else (cls.get(r["name"]) or {}).get("category"))
+                      for r in probed}}
     site.date_footer = (
         f'가동 측정 {e(ts)} · 축 측정 {e(ctx["axes_ts"])}'
         + (f' · 패키지 축 {e(ctx["pkg_ts"])}' if ctx["pkg_ts"] else "")
@@ -1938,6 +2029,7 @@ def main() -> int:
         build_category(ctx, c)
     for r in probed:
         server_page(ctx, r)
+    build_all_servers(ctx)
     build_down(ctx)
     build_selfhosted(ctx)
     build_not_measured(ctx)

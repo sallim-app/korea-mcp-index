@@ -683,3 +683,62 @@ def test_mobile_tables_have_a_readable_column_floor():
             assert f'class="{cls}"' in html, (
                 f".tw td.{cls} 규칙이 렌더된 HTML의 어느 셀에도 안 걸린다 — 죽은 CSS라 "
                 "표는 조용히 리본으로 돌아간다")
+
+
+def test_every_server_page_is_reachable_by_links_from_home():
+    """상세가 sitemap에만 있는 고아면 GSC 노출 0이 된다(2026-10-31 실측: 199개 중 8개 고아,
+    선례 D-2026W32-25 블로그 110편). 홈에서 링크만 따라 **전 상세에 2클릭 안에** 닿아야 한다."""
+    from collections import deque
+    with tempfile.TemporaryDirectory() as tmp:
+        r, out = build(tmp)
+        assert r.returncode == 0, r.stderr
+
+        def local(u):
+            if not u.startswith(BASE + "/"):
+                return None
+            t = u[len(BASE) + 1:].split("#")[0]
+            if not t:
+                return "index.html"
+            return t if "." in t.rsplit("/", 1)[-1] else t + ".html"
+
+        depth = {"index.html": 0}
+        q = deque(["index.html"])
+        while q:
+            p = q.popleft()
+            f = out / p
+            if not p.endswith(".html") or not f.exists():
+                continue
+            for u in re.findall(r'href="([^"]+)"', f.read_text(encoding="utf-8")):
+                t = local(u)
+                if t and t not in depth and (out / t).exists():
+                    depth[t] = depth[p] + 1
+                    q.append(t)
+        servers = {f"servers/{p.name}" for p in (out / "servers").glob("*.html")}
+        orphans = sorted(servers - set(depth))
+        assert not orphans, f"홈에서 안 닿는 상세 {len(orphans)}개: {orphans[:5]}"
+        assert max(depth[s] for s in servers) <= 2
+
+
+def test_server_pages_link_siblings_and_match_search_terms():
+    """상세끼리·분야로 잇고, 제목이 「<이름> MCP」·「한국 MCP 서버」 검색어를 담는다.
+    푸터엔 살림 형제 사이트가 크롤 가능한 <a href>로 있어야 한다(naru 가족과는 섞지 않는다)."""
+    with tempfile.TemporaryDirectory() as tmp:
+        r, out = build(tmp)
+        assert r.returncode == 0, r.stderr
+        pages = sorted((out / "servers").glob("*.html"))
+        with_rel = 0
+        for f in pages:
+            t = f.read_text(encoding="utf-8")
+            title = re.search(r"<title>([^<]+)</title>", t).group(1)
+            assert "MCP" in title and "한국 MCP 서버" in title, title
+            if "같은 분야의 다른 MCP 서버" in t:
+                with_rel += 1
+            for u in ("https://sallim.app/", "https://blog.sallim.app/",
+                      "https://realty.sallim.app/", "https://contract.sallim.app/"):
+                assert f'<a href="{u}">' in t, (f.name, u)
+            assert "naru.build" not in t, f"살림 페이지에 naru 가족 링크: {f.name}"
+            assert BASE + "/all-servers" in t
+        assert with_rel >= len(pages) * 0.9, f"형제 링크 있는 상세 {with_rel}/{len(pages)}"
+        idx = (out / "index.html").read_text(encoding="utf-8")
+        assert "한국 MCP 서버" in re.search(r"<title>([^<]+)</title>", idx).group(1)
+        assert BASE + "/all-servers" in idx
