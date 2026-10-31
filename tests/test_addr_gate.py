@@ -85,6 +85,29 @@ def main() -> int:
     if not pick:
         fails.append("레지스트리 자기신고 주소를 버렸다")
 
+    # --- IDE 설치 배지는 엔드포인트가 아니다 (2026-10-31, chrisryugj/korean-law-mcp) ---
+    # README의 "VS Code에 설치" 배지가 `/redirect/mcp`로 잘려 골라졌고 HTML 200을 받아
+    # 살아 있는 서버가 「확인 못 함」으로 게시될 뻔했다. 출처(readme·자기신고)를 가리지 않는다.
+    for url in ("https://insiders.vscode.dev/redirect/mcp",
+                "https://vscode.dev/redirect/mcp/install?name=x&config=%7B%7D",
+                "https://cursor.com/en/install-mcp?name=x&config=e30%3D",
+                "https://cursor.com/install-mcp?name=x",
+                "cursor://anysphere.cursor-deeplink/mcp/install?name=x",
+                "vscode:mcp/install?%7B%7D"):
+        if not measure.not_an_endpoint(url):
+            fails.append(f"IDE 설치 링크를 엔드포인트로 통과시켰다: {url}")
+        pick, _ = measure.pick_endpoint([{"url": url}], {})
+        if pick:
+            fails.append(f"자기신고 경로로 IDE 설치 링크를 골랐다: {url}")
+    pick, _ = measure.pick_endpoint(
+        [R("https://insiders.vscode.dev/redirect/mcp"), R("https://korean-law-mcp.fly.dev/mcp")], {})
+    if not pick or pick["url"] != "https://korean-law-mcp.fly.dev/mcp":
+        fails.append(f"설치 배지 다음의 실주소를 못 골랐다 — 고른 것: {pick}")
+    # 과잉 차단 방지 — 호스트가 IDE가 아니면 경로에 redirect가 있어도 막지 않는다
+    for url in ("https://foo.example.com/redirect/mcp", "https://redirect.example.com/mcp"):
+        if measure.not_an_endpoint(url):
+            fails.append(f"IDE가 아닌 호스트를 설치 링크로 막았다: {url}")
+
     # --- 규격 이탈 서버 하나가 전체 측정을 죽이면 안 된다 ---
     q = measure._tool_quality([{"name": "a", "description": "x" * 30}, "문자열", None])
     if q.get("malformed") != 2:
@@ -109,7 +132,7 @@ def main() -> int:
     for f in fails:
         print("FAIL", f)
     print(f"{'실패 ' + str(len(fails)) + '건' if fails else '통과'} — "
-          f"차단 {len(BLOCK)} · 허용 {len(ALLOW)} · 주소고르기 4 · 규격이탈 2 · 증거규칙 3 · 전송예외 1")
+          f"차단 {len(BLOCK)} · 허용 {len(ALLOW)} · 주소고르기 4 · 설치배지 9 · 규격이탈 2 · 증거규칙 3 · 전송예외 1")
     return 1 if fails else 0
 
 

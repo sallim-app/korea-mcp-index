@@ -571,7 +571,13 @@ def test_missing_rank_footnote_separates_unverified_from_down():
         if not notes:
             return  # 이번 회차엔 빠진 등수가 없다 — 없는 것을 지어내 검사하지 않는다
         blob = "\n".join(notes)
-        assert STATUS_LABEL["unverified"] in blob or STATUS_LABEL["down"] in blob, (
+        # 사유는 셋 중 하나다 — 죽음 확인·확인 못 함, 그리고 **후보 이탈**(render_site의 셋째
+        # 갈래). 종전 단언은 앞의 둘만 받아, 빠진 등수가 후보 이탈 하나뿐인 회차에 빨개졌다
+        # (2026-10-31: korean-law-mcp의 거짓 「확인 못 함」을 고치자 그게 가리던 것이 드러났다).
+        # 막으려던 것은 판정에서 파생하지 않고 손으로 박은 "응답 없음"이다.
+        assert ("응답 없음" not in blob
+                and (STATUS_LABEL["unverified"] in blob or STATUS_LABEL["down"] in blob
+                     or "후보에서 빠졌다" in blob)), (
             "빠진 등수 각주가 판정 어휘를 쓰지 않는다 — 손으로 박은 문구로 되돌아갔다:\n" + blob[:400]
         )
 

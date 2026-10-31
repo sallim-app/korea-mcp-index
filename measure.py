@@ -621,6 +621,18 @@ PKG_REGISTRY = re.compile(r"^https://(?:www\.)?(?:pypi\.org|(?:registry\.)?npmjs
 # **자리표시자는 우리말로도 쓴다(2026-09-14).** `내도메인.vercel.app`이 영어 명단만 보는 이
 # 그물을 그대로 통과해 두드림까지 갔다. 한국어 README를 모으는 목록이 영어 자리표시자만
 # 아는 것은 구멍이 아니라 기본값이었다 — 같은 자리에 우리말을 같이 적는다.
+# **IDE 설치 배지는 서버가 아니라 클라이언트로 가는 문이다(2026-10-31).** README 첫머리의
+# "VS Code에 설치" 배지 `insiders.vscode.dev/redirect/mcp/install?config=…`가 추출기에서
+# `/redirect/mcp`로 잘려 엔드포인트로 골라졌고, 그 주소는 VS Code 웹 화면(HTML 200)을 줘서
+# chrisryugj/korean-law-mcp(살아 있는 서버)가 「확인 못 함」으로 게시될 뻔했다. 진짜 주소는
+# 배지의 config 안에 인코딩돼 있다. 판정은 이름 명단이 아니라 성격으로 — 호스트가 IDE이고
+# 경로가 설치 리다이렉트(`/redirect`·`install-mcp`)이거나, 아예 IDE 딥링크 스킴(`vscode:`·
+# `cursor:` 등)이면 출처를 가리지 않고 주소가 아니다.
+INSTALL_LINK = re.compile(
+    r"^(?:(?:vscode|vscode-insiders|cursor|windsurf|zed|lmstudio):|"
+    r"https?://(?:[\w-]+\.)*(?:vscode\.dev|visualstudio\.com|cursor\.(?:com|sh)|"
+    r"windsurf\.com|codeium\.com|lmstudio\.ai)/(?:[\w-]+/)*?(?:redirect|install-mcp)(?![\w-]))",
+    re.I)
 PLACEHOLDER = re.compile(
     r"//(?:xxx+|yyy+|your|my|host|domain|내도메인|내서버|도메인|당신|예시)[\w-]*\.", re.I)
 
@@ -635,6 +647,8 @@ def not_an_endpoint(url: str) -> str:
     """
     if PKG_REGISTRY.search(url):
         return "패키지 레지스트리 페이지 주소(서버가 아니라 배포판 안내)"
+    if INSTALL_LINK.search(url):
+        return "IDE 설치 리다이렉트·딥링크(서버가 아니라 클라이언트 설치 배지)"
     # `https://.../mcp` — README의 생략 표기. 빈 라벨·점 하나 없는 호스트는 주소가 아니다
     # (2026-10-11, codex F1: 두드려서 UnicodeError가 났고 그게 `unverified`로 게시됐다).
     try:

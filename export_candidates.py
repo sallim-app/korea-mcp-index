@@ -53,7 +53,12 @@ def merge_by_endpoint(items: list) -> tuple[list, int]:
         cand, cur = i.get("repo_url") or "", prev.get("repo_url") or ""
         if cand and (not cur or ("sallim-app/" in cand and "sallim-app/" not in cur)):
             prev["repo_url"] = cand
-        prev.setdefault("also_known_as", []).append(i["name"])
+        aka = prev.setdefault("also_known_as", [])
+        # 합쳐지는 줄이 이미 들고 있던 다른 이름(게시 이력이 이어 붙인 옛 이름 등)도 옮긴다 —
+        # 안 옮기면 그 이름이 여기서 흔적 없이 사라진다(이 함수 독스트링의 규칙 그대로).
+        for n in [i["name"], *(i.get("also_known_as") or [])]:
+            if n not in aka and n != prev["name"]:
+                aka.append(n)
     return dedup, dropped
 
 
@@ -148,9 +153,14 @@ def main() -> int:
                  "전체가 필요하면 collect_candidates.py부터 직접 돌려라 — 같은 입력이면 같은 결과다."),
         "buckets": d["buckets"], "boundaries": d.get("boundaries", []),
         "drop_reasons": [{"why": w, "n": n} for w, n in drops.most_common()],
-        "items": [{k: i.get(k) for k in ("name", "repo_url", "verdict", "why", "categories",
-                                         "sources", "stars", "pushed", "kr_domains",
-                                         "carryover")} for i in keep],
+        # `also_known_as`는 있는 줄에만 싣는다 — 같은 서버의 다른 이름(게시 이력이 주소로
+        # 이어 붙인 옛 이름)이고, `population.provides_data`가 공개본만으로 같은 모집단을
+        # 다시 뽑으려면 필요하다. 없는 줄에까지 null을 박으면 원자료가 매주 수백 줄 흔들린다.
+        "items": [{**{k: i.get(k) for k in ("name", "repo_url", "verdict", "why", "categories",
+                                            "sources", "stars", "pushed", "kr_domains",
+                                            "carryover")},
+                   **({"also_known_as": i["also_known_as"]} if i.get("also_known_as") else {})}
+                  for i in keep],
     }
     json.dump(out, open("candidates.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 

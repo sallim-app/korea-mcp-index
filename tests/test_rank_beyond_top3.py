@@ -43,6 +43,17 @@ def _graded_ranks() -> dict[str, tuple[str, int, int]]:
     return out
 
 
+def _shown_as(name: str) -> str:
+    """채점 당시 이름 → 이번 주 표에 실린 이름(observed.RENAMED — 손으로 적은 쌍 + 원장 주소로
+    이은 쌍). 개명한 서버의 등수 줄은 **지금 이름**으로 나간다(2026-10-31: 4위
+    `MosslandOpenDevs/alpha`가 같은 주소의 레지스트리 이름 `land.moss/alpha-mcp`로 잡혔다).
+    옛 이름으로 찾으면 총평 문단에 남은 옛 이름에 걸려 '등수 줄이 없다'로 거짓 실패하고,
+    반대로 개명 서버를 건너뛰면 이 회귀가 그 서버를 영영 안 본다."""
+    from observed import RENAMED
+    back = {old: new for new, old in RENAMED.items()}
+    return back.get(name, name)
+
+
 def test_ranking_json_keeps_every_graded_rank():
     """ranking.json이 3위까지만 레코드를 갖고 나머지를 이름만 남기면 렌더러가 미채점으로 읽는다."""
     rk = json.loads((ROOT / "ranking.json").read_text(encoding="utf-8"))["items"]
@@ -65,14 +76,14 @@ def test_graded_below_top3_published_as_graded():
         rows = {s["name"]: s for s in idx["servers"]}
         bad = []
         for name, (_cat, rank, errs) in graded.items():
-            s = rows.get(name)
+            s = rows.get(_shown_as(name))
             if not s:
                 continue  # 이번 주 목록에 없는 서버(개명·소멸)는 이 회귀의 대상이 아니다
             if s["rank_in_category"] != rank or s["fact_errors"] != errs:
                 bad.append((name, rank, errs, s["rank_in_category"], s["fact_errors"]))
         assert not bad, f"index.json 등수·사실오류가 grades/와 다르다(이름·기대·실제): {bad}"
         for name, (_cat, rank, _errs) in deep.items():
-            s = rows.get(name)
+            s = rows.get(_shown_as(name))
             if not s:
                 continue
             page = out / s["page"][len(BASE):].lstrip("/")
@@ -88,6 +99,7 @@ def test_readme_ranks_below_top3():
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
     import render_readme
     for name, (_cat, rank, _errs) in _graded_ranks().items():
+        name = _shown_as(name)
         if rank <= 3 or f"[{render_readme.disp(name)}]" not in readme \
                 and render_readme.disp(name) not in readme:
             continue

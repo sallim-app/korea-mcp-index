@@ -214,6 +214,83 @@ def absorb(it: dict, names: set, repo_eps: dict, eps: set) -> None:
         repo_eps.setdefault(k, set()).update(v)
 
 
+def link_published_aliases(ledger: dict, items) -> list[str]:
+    """이번 회차에 **다른 이름으로** 들어온 게시 서버를 그 줄에 이어 붙인다 — `["옛 → 새", …]`.
+
+    계기(2026-10-31). 레지스트리 스윕 상한을 올리자(7b934b4) `land.moss/alpha-mcp`가 처음
+    잡혔고, 그 주소(`https://alpha.moss.land/api/mcp`)는 9-14 게시본의 `MosslandOpenDevs/alpha`
+    주소 그대로였다. `already_here`는 주소로 '이미 있다'를 맞게 판정해 이어받기를 건너뛰었다
+    — 그런데 그 줄은 **새 이름**으로만 판정받았다. 키워드 판정기는 review로 미뤘고 LLM
+    분류는 새 이름에 '데이터 제공형 아님'을 달아, 측정 모집단 밖으로 떨어졌다. 채점에서
+    금융·증시 4위를 받은 서버가 **같은 주소로 수집됐는데도** 표에서 "후보에서 빠졌다"로
+    사라진 것이다. 이어받기가 막으러 온 침묵이 이름 하나 바뀐 틈으로 다시 났다.
+
+    그래서 주소로 같은 서버라 판정한 그 자리에서 **게시된 이름을 그 줄의 `also_known_as`에
+    남긴다** — 엔드포인트 병합이 쓰는 바로 그 자리다(`export_candidates.merge_by_endpoint`).
+    이름으로 붙는 판정(분류·등수)이 옛 이름을 찾아갈 길이 그것뿐이다.
+
+    주소로만 잇는다 — 저장소로는 잇지 않는다(`present_keys`의 apick 실측: 한 저장소가 여러
+    서버를 낸다). 이미 그 이름으로 들어와 있으면 건드리지 않는다.
+    """
+    by_ep: dict = {}
+    names = set()
+    for i in items:
+        names.add(i["name"])
+        names.update(i.get("also_known_as") or [])
+        eps = {norm_repo(r.get("url")) for r in (i.get("remotes") or []) if r.get("url")}
+        eps |= {norm_repo((i.get("remote") or {}).get("url"))} - {""}
+        for ep in eps:
+            by_ep.setdefault(ep, []).append(i)
+    linked = []
+    for name, e in sorted(ledger.get("items", {}).items()):
+        if e.get("retired") or name in names:
+            continue
+        ep = norm_repo(e.get("last_remote"))
+        for row in by_ep.get(ep, []) if ep else []:
+            aka = row.setdefault("also_known_as", [])
+            if name not in aka and name != row["name"]:
+                aka.append(name)
+                linked.append(f"{name} → {row['name']}")
+    return linked
+
+
+def renamed_by_address(ledger: dict, measured_items, wanted) -> dict[str, str]:
+    """`wanted`(이름으로 붙은 판정 — 등수)의 이름이 측정본에 없을 때 **같은 주소의 지금 이름**.
+
+    `{새 이름: 옛 이름}` — `observed.RENAMED`와 같은 모양이다. 손으로 적던 그 표의 판정
+    기준("같은 서버라는 근거는 이름이 아니라 주소다")을 그대로 기계로 돈다: 원장이 기억하는
+    옛 이름의 마지막 게시 주소와 **바이트 동일한**(정규화 후) 주소를 지금 들고 있는 줄이
+    정확히 하나일 때만 잇는다. 그 줄이 제 이름으로 따로 등수를 받았으면 잇지 않는다 —
+    한 서버가 두 등수를 갖게 된다.
+
+    계기(2026-10-31): 공공데이터·행정 1위 `datagokr-dev/datagokr`가 같은 저장소·같은 주소
+    (`https://datagokr.dev/mcp`)인 채로 레지스트리 이름 `dev.datagokr/datagokr`로 잡혀,
+    순위표 1위 자리가 "이번 주 후보에서 빠졌다"로 비었다.
+    """
+    present = set()
+    by_ep: dict = {}
+    for i in measured_items:
+        present.add(i["name"])
+        present.update(i.get("also_known_as") or [])
+        ep = norm_repo((i.get("remote") or {}).get("url"))
+        if ep:
+            by_ep.setdefault(ep, []).append(i["name"])
+    wanted = set(wanted)
+    out: dict[str, str] = {}
+    for old in sorted(wanted - present):
+        e = (ledger.get("items") or {}).get(old)
+        if not e or e.get("retired"):
+            continue
+        hits = by_ep.get(norm_repo(e.get("last_remote")), []) if e.get("last_remote") else []
+        if len(hits) != 1:
+            continue
+        new = hits[0]
+        if new == old or new in wanted or new in out:
+            continue
+        out[new] = old
+    return out
+
+
 def ledger_repo_addrs(ledger: dict) -> dict:
     """저장소 → **그 저장소로 게시된 주소들**(원장이 아는 만큼). `already_here`의 근거다.
 
@@ -328,6 +405,9 @@ def carry_forward(ledger: dict, collected, resolve=None, day: str = "",
     측정이 답하게 한다(collect_candidates.merge_sources의 같은 규칙).
     """
     resolve = resolve or (lambda p: resolve_github(p, token))
+    collected = list(collected)
+    # 다른 이름으로 이미 들어온 게시 서버는 **이어받지 않고 이어 붙인다**(link_published_aliases).
+    linked = link_published_aliases(ledger, collected)
     names, repo_eps, eps = present_keys(collected)
     repo_addrs = ledger_repo_addrs(ledger)
     # **회차의 신원 = 마지막으로 게시가 성사된 날.** 원장은 게시 전에 저장되므로 실행
@@ -476,6 +556,10 @@ def carry_forward(ledger: dict, collected, resolve=None, day: str = "",
             "게시 이력 이어받기 " + str(len(carried)) + "건 — 지난 게시본에 있었으나 이번 "
             "수집 원천이 안 돌려준 서버다(GitHub 검색은 질의당 상위 100건만 준다). "
             "판정·측정은 면제되지 않는다: " + ", ".join(i["name"] for i in carried))
+    if linked:
+        notes.append("게시 이력 이름 잇기 " + str(len(linked)) + "건 — 지난 게시본의 서버가 같은 "
+                     "주소, 다른 이름으로 수집됐다. 옛 이름을 그 줄의 also_known_as에 남겨 "
+                     "이름으로 붙은 판정(분류·등수)이 따라가게 했다: " + ", ".join(linked))
     if reopened:
         notes.append("게시 이력 은퇴 재확인 " + str(len(reopened)) + "건 — 은퇴를 적은 회차가 "
                      "아직 게시되지 않아 확정으로 치지 않고 다시 확인했다(원장은 게시 전에 "

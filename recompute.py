@@ -42,6 +42,8 @@ def load():
     d = json.load(open("measured.json", encoding="utf-8"))
     try:
         cls = {v["name"]: v for v in json.load(open("classification.json", encoding="utf-8"))["items"].values()}
+        from observed import classification_with_renames
+        cls = classification_with_renames(cls)   # 렌더와 같은 규칙 — 공개 표 둘이 어긋나지 않게
     except OSError:
         cls = {}
     rank, errs = {}, {}
@@ -53,6 +55,14 @@ def load():
                     errs[t["name"]] = t["사실오류"]
     except OSError:
         pass
+    # 개명한 서버의 등수를 잇는다(렌더와 같은 규칙, observed.RENAMED) — 안 이으면 README는
+    # 1위라 적는데 공개 표(axes.csv)의 그 줄 등수 칸은 비어 두 원자료가 어긋난다.
+    from observed import RENAMED
+    for new, old in RENAMED.items():
+        if old in rank and new not in rank:
+            rank[new] = rank[old]
+        if old in errs and new not in errs:
+            errs[new] = errs[old]
     return d, cls, rank, errs
 
 

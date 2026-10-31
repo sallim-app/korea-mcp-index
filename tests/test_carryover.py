@@ -213,6 +213,97 @@ def test_same_endpoint_under_another_name_counts_as_present():
     assert carried == []
 
 
+def test_same_endpoint_under_another_name_keeps_the_published_name(monkeypatch):
+    """**주소로 '이미 있다'고 판정했으면 그 줄에 게시된 이름을 남긴다**(2026-10-31).
+
+    실사고: 9-14 게시·금융·증시 4위 `MosslandOpenDevs/alpha`의 주소가 레지스트리 이름
+    `land.moss/alpha-mcp`로 잡혔다. 이어받기는 맞게 건너뛰었지만 그 줄은 새 이름으로만
+    판정받아 review·'데이터 제공형 아님'으로 측정 모집단 밖에 떨어졌고, 표에는 "이번 주
+    후보에서 빠졌다"로 나갔다 — 같은 주소로 수집됐는데도. 이름으로 붙는 판정이 옛 이름을
+    찾아갈 길(`also_known_as`)이 없어서였다.
+    """
+    import population
+    old, new, ep = "Org/alpha", "land.org/alpha-mcp", "https://alpha.example/api/mcp"
+    led = ledger_of(old, remote=ep)
+    collected = [{"name": new, "repo_url": "https://github.com/Org/alpha-mcp",
+                  "remotes": [{"url": ep + "/"}]}]
+    carried, notes = carryover.carry_forward(led, collected, resolve=alive, day="2026-10-31")
+    assert carried == [], "같은 주소인데 한 줄 더 실었다"
+    assert collected[0].get("also_known_as") == [old], "게시된 이름이 그 줄에 안 남았다"
+    assert any("이름 잇기 1건" in n and old in n for n in notes), "이은 것을 공시하지 않았다"
+    # 그리고 그 이름이 실제로 쓰인다 — 새 이름의 분류가 '아님'이어도 옛 이름의 분류로
+    # 측정 모집단에 든다. 이 단언이 없으면 이름을 남기기만 하고 아무도 안 읽는 상태가 된다.
+    row = {**collected[0], "verdict": "review"}
+    cls = {old: {"name": old, "is_data_provider": True},
+           new: {"name": new, "is_data_provider": False}}
+    assert population.measurable([row], cls) == [row]
+    # 대조군: 옛 이름이 없으면 종전처럼 안 잰다(모집단을 넓히는 것이 아니다).
+    assert population.measurable([{**row, "also_known_as": []}], cls) == []
+
+
+def test_link_does_not_touch_rows_already_present_by_name_or_siblings():
+    """이미 그 이름으로 들어와 있으면, 또 주소가 다르면(형제 서버) 잇지 않는다."""
+    led = ledger_of("a/x", remote="https://x.test/mcp")
+    led["items"]["a/y"] = {**led["items"]["a/x"], "name": "a/y",
+                           "last_remote": "https://y.test/mcp"}
+    rows = [{"name": "a/x", "remotes": [{"url": "https://x.test/mcp"}]},
+            {"name": "reg/x", "remotes": [{"url": "https://x.test/mcp"}]},
+            {"name": "reg/z", "remotes": [{"url": "https://z.test/mcp"}]}]
+    assert carryover.link_published_aliases(led, rows) == []
+    assert all(not r.get("also_known_as") for r in rows)
+
+
+def test_renamed_by_address_follows_the_ledger_address():
+    """등수를 받은 이름이 측정본에 없으면 **같은 주소의 지금 이름**으로 잇는다(2026-10-31).
+
+    실사고: 공공데이터·행정 1위 `datagokr-dev/datagokr`가 같은 저장소·같은 주소로
+    `dev.datagokr/datagokr`가 되자 1위 자리가 "후보에서 빠졌다"로 비었다.
+    """
+    led = ledger_of("old/one", remote="https://one.test/mcp")
+    items = [{"name": "reg/one", "remote": {"url": "https://one.test/mcp?x=1"}},
+             {"name": "other/two", "remote": {"url": "https://two.test/mcp"}}]
+    assert carryover.renamed_by_address(led, items, {"old/one"}) == {"reg/one": "old/one"}
+    # 옛 이름이 아직 측정본에 있으면(이름 또는 병합 이름) 잇지 않는다.
+    assert carryover.renamed_by_address(
+        led, [{**items[0], "also_known_as": ["old/one"]}], {"old/one"}) == {}
+    # 지금 이름이 제 이름으로 따로 등수를 받았으면 잇지 않는다 — 한 서버에 등수 둘.
+    assert carryover.renamed_by_address(led, items, {"old/one", "reg/one"}) == {}
+    # 같은 주소의 줄이 둘이면 어느 쪽인지 모른다 — 추측하지 않는다.
+    dup = items + [{"name": "reg/one-b", "remote": {"url": "https://one.test/mcp"}}]
+    assert carryover.renamed_by_address(led, dup, {"old/one"}) == {}
+    # 은퇴한 원장 항목은 잇지 않는다.
+    led["items"]["old/one"]["retired"] = {"day": "2026-10-01", "why": "x"}
+    assert carryover.renamed_by_address(led, items, {"old/one"}) == {}
+
+
+def test_endpoint_merge_moves_the_merged_rows_aliases_too():
+    """합쳐지는 줄이 들고 있던 옛 이름도 살아남은 줄로 옮긴다 — 안 옮기면 거기서 사라진다."""
+    import export_candidates
+    rows = [{"name": "a/one", "remote": {"url": "https://e.test/mcp"}},
+            {"name": "reg/one", "remote": {"url": "https://e.test/mcp/"},
+             "also_known_as": ["old/one"]}]
+    out, n = export_candidates.merge_by_endpoint(rows)
+    assert n == 1 and len(out) == 1
+    assert out[0]["also_known_as"] == ["reg/one", "old/one"]
+
+
+def test_classification_follows_a_derived_rename(monkeypatch):
+    """주소로 이은 쌍은 **등수를 받은 옛 이름의 분류**를 쓴다 — 새 이름의 분류 한 줄이
+    재채점 없이 등수를 「주제 밖」으로 옮기면 안 된다(순위는 매월 1일에만 다시 매긴다)."""
+    import observed
+    monkeypatch.setitem(observed.RENAMED, "reg/one", "old/one")
+    monkeypatch.setitem(observed.DERIVED_RENAMED, "reg/one", "old/one")
+    cls = {"old/one": {"name": "old/one", "category": "금융·증시", "is_data_provider": True},
+           "reg/one": {"name": "reg/one", "category": "미디어·뉴스", "is_data_provider": False}}
+    got = observed.classification_with_renames(cls)
+    assert got["reg/one"]["category"] == "금융·증시" and got["reg/one"]["is_data_provider"]
+    assert got["reg/one"]["inherited_from"] == "old/one"
+    assert cls["reg/one"]["category"] == "미디어·뉴스", "입력을 제자리에서 고쳤다"
+    # 손으로 적은 쌍은 종전 규칙 그대로 — 새 이름에 분류가 있으면 그것을 쓴다.
+    monkeypatch.delitem(observed.DERIVED_RENAMED, "reg/one")
+    assert observed.classification_with_renames(cls)["reg/one"]["category"] == "미디어·뉴스"
+
+
 def test_also_known_as_counts_as_present():
     """엔드포인트 병합으로 옮겨진 이름도 '이번 회차에 있다'로 친다."""
     led = ledger_of("b/two")

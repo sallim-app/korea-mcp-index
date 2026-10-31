@@ -18,7 +18,7 @@ import re
 import sys
 
 import population
-from observed import MISFILED, RENAMED, SCOPE, SOURCE_CLOSED
+from observed import MISFILED, RENAMED, SCOPE, SOURCE_CLOSED, classification_with_renames
 
 OURS = ("app.sallim/", "sallim-app/")
 # 웹판(2026-08-29). 저장소 README는 검색엔진이 사실상 안 읽는다 — 그래서 같은 원자료에서
@@ -325,6 +325,9 @@ def main() -> int:
 
     d = json.load(open("measured.json", encoding="utf-8"))
     cls = {v["name"]: v for v in json.load(open("classification.json", encoding="utf-8"))["items"].values()}
+    # 개명 쌍을 따라 분류를 잇는다 — 등수를 받은 서버가 새 이름의 분류 한 줄로 분야를
+    # 옮기거나 「주제 밖」이 되면 재채점 없이 등수가 사라진다(observed 주석).
+    cls = classification_with_renames(cls)
     # **안 잰 것을 잰 것 옆에 싣는다**(2026-09-14, T-2026W38-18) — 근거·명단은 population.py.
     pop = population.summary()
     try:

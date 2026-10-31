@@ -34,7 +34,7 @@ import subprocess
 import sys
 
 import population
-from observed import MISFILED, RENAMED, SCOPE, SOURCE_CLOSED
+from observed import MISFILED, RENAMED, SCOPE, SOURCE_CLOSED, classification_with_renames
 from render_readme import (
     CAT_EN,
     CATS,
@@ -380,8 +380,11 @@ def measure_row(ctx, rec) -> str:
     if SCOPE.get(rec["name"]):
         bits.append(f'<div class="sub">{e(SCOPE[rec["name"]])}</div>')
     if RENAMED.get(rec["name"]):
-        bits.append(f'<div class="sub">저장소가 <code>{e(RENAMED[rec["name"]])}</code> → '
-                    f'<code>{e(rec["name"])}</code>로 옮겨졌다 — 주소가 같아 같은 서버로 이었고, '
+        # 어휘는 README `renamed_note`와 같이 중립으로 둔다 — 개명에는 저장소 이전과 **표기
+        # 출처 변경**(레지스트리 이름이 GitHub 경로를 대체: academyinfo·datagokr)이 섞여 있어,
+        # "저장소가 옮겨졌다"는 후자에 대해 사실이 아니다(datagokr-dev/datagokr는 그대로 있다).
+        bits.append(f'<div class="sub">지난 회차 표기 <code>{e(RENAMED[rec["name"]])}</code> → '
+                    f'<code>{e(rec["name"])}</code> — 주소가 같아 같은 서버로 이었고, '
                     f'등수는 옛 이름으로 받은 것이다</div>')
     err = ctx["err_of"].get(rec["name"])
     return ('<tr><td class="nm">' + name_link(ctx, rec) + "".join(bits) + "</td>"
@@ -798,7 +801,7 @@ def server_page(ctx, rec) -> None:
               '빈자리를 위로 당기면 재채점 없이 등수가 오른 것처럼 보이기 때문이다.</p></div>')
         if RENAMED.get(name):
             W(f'<p class="sub"><strong>이 등수는 옛 이름 <code>{e(RENAMED[name])}</code>으로 '
-              f'받은 것이다.</strong> 저장소가 <code>{e(name)}</code>로 옮겨졌고 엔드포인트가 '
+              f'받은 것이다.</strong> 지금 표기는 <code>{e(name)}</code>이고 엔드포인트가 '
               f'같아 같은 서버로 이었다 — 채점 원자료(<a href="{REPO}/tree/main/grades">grades/'
               f'</a>)에는 옛 이름으로만 적혀 있다.</p>')
         W(f'<blockquote>{e(why)}</blockquote>')
@@ -1835,6 +1838,7 @@ def main() -> int:
     d = json.load(open("measured.json", encoding="utf-8"))
     cls = {v["name"]: v for v in json.load(open("classification.json",
                                                encoding="utf-8"))["items"].values()}
+    cls = classification_with_renames(cls)   # README와 같은 규칙(observed 주석)
     # **잰 것 옆에 안 잰 것을 같은 표에 싣는다**(2026-09-14, T-2026W38-18) — 키워드 판정기가
     # `review`로 미룬 것 중 우리 LLM 분류기가 데이터 제공형이라 한 건이 측정 밖에 있는데
     # 이 표는 그 모집단을 「후보 전체」라고 적고 있었다. 근거·명단은 population.py.

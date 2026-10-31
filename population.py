@@ -44,6 +44,18 @@ def is_data_provider(cls: dict, name: str) -> bool:
     return bool(rec and rec.get("is_data_provider"))
 
 
+def provides_data(cls: dict, item: dict) -> bool:
+    """그 줄의 **어느 이름으로든** LLM이 데이터 제공형이라 했는가.
+
+    `also_known_as`는 같은 서버의 다른 이름이다 — 엔드포인트 병합, 그리고 게시 이력이 주소로
+    이어 붙인 옛 이름(`carryover.link_published_aliases`). 분류는 이름으로 붙으므로 새 이름만
+    보면 같은 서버가 **이름이 바뀐 것만으로** 측정 모집단에서 떨어진다(실측 2026-10-31:
+    `land.moss/alpha-mcp` = 9-14 게시·금융·증시 4위 `MosslandOpenDevs/alpha`, 같은 주소).
+    """
+    return any(is_data_provider(cls, n)
+               for n in [item["name"], *(item.get("also_known_as") or [])])
+
+
 def measurable(items: list, cls: dict, bucket: str = "keep") -> list:
     """**재는 모집단.** keep + (review인데 LLM이 데이터 제공형이라 한 것).
 
@@ -53,13 +65,13 @@ def measurable(items: list, cls: dict, bucket: str = "keep") -> list:
         return [i for i in items if i["verdict"] == bucket]
     return [i for i in items
             if i["verdict"] == "keep"
-            or (i["verdict"] == "review" and is_data_provider(cls, i["name"]))]
+            or (i["verdict"] == "review" and provides_data(cls, i))]
 
 
 def promoted(items: list, cls: dict) -> list:
     """승격분만 — review인데 LLM이 데이터 제공형이라 한 것."""
     return [i for i in items
-            if i["verdict"] == "review" and is_data_provider(cls, i["name"])]
+            if i["verdict"] == "review" and provides_data(cls, i)]
 
 
 def measured_names(measured: str = "measured.json") -> set:
@@ -113,11 +125,11 @@ def summary(candidates: str = CANDIDATES, classification: str = CLASSIFICATION,
         # **여기 `keep`이 섞일 수 있다**(codex 교차검증 2026-09-14): `--limit` 부분 측정이나
         # 후보·측정본의 회차 불일치면 keep인데 안 잰 것이 생긴다. 그때 "키워드 판정기가
         # 미뤘다"고 쓰면 거짓이므로, 통은 섞어 두고 **사유는 줄마다 verdict로** 적는다.
-        "promoted": [i for i in not_measured if is_data_provider(cls, i["name"])],
+        "promoted": [i for i in not_measured if provides_data(cls, i)],
         "promoted_review": [i for i in not_measured
-                            if i["verdict"] == "review" and is_data_provider(cls, i["name"])],
+                            if i["verdict"] == "review" and provides_data(cls, i)],
         "promoted_keep": [i for i in not_measured
-                          if i["verdict"] == "keep" and is_data_provider(cls, i["name"])],
+                          if i["verdict"] == "keep" and provides_data(cls, i)],
         # 안 잰 것 중 **LLM이** "데이터 제공형이 아니다"라 한 것. 키워드 판정기 쪽은
         # `review`이고 그것은 "주제 밖"이 아니라 **신호 부족·판정 보류**다 — 둘을 "모두
         # 주제 밖이라 했다"로 합쳐 쓰면 113건에 거짓 라벨이 붙는다(codex 2026-09-14).

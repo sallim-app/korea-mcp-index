@@ -169,6 +169,71 @@ RENAMED: dict[str, str] = {
     "kr.co.reevl/reevl-mcp": "exclusiveyon-a11y/reevl-plugins",
 }
 
+
+
+def _derive_renames() -> dict[str, str]:
+    """**등수를 받은 이름이 측정본에 없으면 같은 주소의 지금 이름으로 잇는다**(2026-10-31).
+
+    위 표는 손으로 적는다 — 그래서 사람이 알아챈 회차에만 잇는다. 판정 기준은 이미
+    기계로 돌 수 있는 것("주소가 같을 때만")이고, 옛 이름의 마지막 게시 주소는 게시 이력
+    원장(`published_history.json`, carryover.py)이 들고 있다. 판정 본체는
+    `carryover.renamed_by_address`다 — 여기는 파일을 읽어 넘길 뿐이다.
+
+    계기: `datagokr-dev/datagokr`(공공데이터·행정 1위)가 같은 저장소·같은 주소로 레지스트리
+    이름 `dev.datagokr/datagokr`가 되자 1위 자리가 "이번 주 후보에서 빠졌다"로 비었다.
+    academyinfo(2026-08-31)와 같은 경로인데 그때는 사람이 위 표에 한 줄 적어 이었다.
+
+    렌더·사이트·테스트가 모두 이 모듈의 `RENAMED`를 읽으므로 여기서 한 번 채우면 셋이
+    같은 표를 본다(한쪽만 채우면 표와 검사가 어긋나고 그 어긋남은 조용하다).
+    파일이 없으면 아무것도 잇지 않는다 — 모르는 것을 잇지 않는다.
+    """
+    import json
+    import os
+
+    import carryover
+    root = os.path.dirname(os.path.abspath(__file__))
+    try:
+        with open(os.path.join(root, "ranking.json"), encoding="utf-8") as f:
+            rk = json.load(f)["items"]
+        with open(os.path.join(root, "measured.json"), encoding="utf-8") as f:
+            items = json.load(f)["items"]
+        ledger = carryover.load(os.path.join(root, carryover.LEDGER))
+    except (OSError, ValueError, KeyError):
+        return {}
+    ranked = {t["name"] for v in rk.values() for t in v["top"]}
+    # 손으로 적은 쌍이 이미 다루는 이름은 건드리지 않는다.
+    ranked -= set(RENAMED.values())
+    got = carryover.renamed_by_address(ledger, items, ranked)
+    return {n: o for n, o in got.items() if n not in RENAMED}
+
+
+# 원장에서 주소로 이은 쌍(등수를 받은 옛 이름 → 지금 이름). 손으로 적은 쌍과 구분해 둔다 —
+# 이 쌍은 **등수를 잇기 위해** 생긴 것이라, 이름으로 붙은 분류도 등수를 받은 쪽을 따른다
+# (`classification_with_renames`).
+DERIVED_RENAMED: dict[str, str] = _derive_renames()
+RENAMED.update(DERIVED_RENAMED)
+
+
+def classification_with_renames(cls: dict) -> dict:
+    """이름으로 붙은 LLM 분류를 개명 쌍을 따라 잇는다. `cls`(이름 → 레코드)의 사본을 돌려준다.
+
+    손으로 적은 쌍: 새 이름에 분류가 없을 때만 옛 것을 쓴다(SCOPE·MISFILED와 같은 규칙).
+    주소로 이은 쌍(`DERIVED_RENAMED`): **등수를 받은 옛 이름의 분류를 쓴다.** 순위는 매월
+    1일에만 다시 매기고, 그 등수는 옛 이름의 분야에서 채점자가 실제 질문으로 받은 것이다.
+    주간 회차에서 새 이름에 붙은 분류 한 줄이 그 분야를 바꾸면 **재채점 없이 등수가
+    사라진다** — 이 회차가 하면 안 되는 일이다(실측 2026-10-31: `land.moss/alpha-mcp`는
+    새 이름으로 '미디어·뉴스·데이터 제공형 아님'이 붙었고, 옛 이름 `MosslandOpenDevs/alpha`는
+    금융·증시 4위로 DART 대조 값이 맞았다). 다음 채점 회차가 새 이름으로 다시 판정한다.
+    """
+    out = dict(cls)
+    for new, old in RENAMED.items():
+        if old not in cls:
+            continue
+        if new in DERIVED_RENAMED or new not in cls:
+            out[new] = {**cls[old], "name": new, "inherited_from": old}
+    return out
+
+
 # 이름만 바뀐 서버가 옛 이름으로 받아 둔 공시를 그대로 잇는다. 손으로 두 번 적지 않는다 —
 # 한쪽만 고치면 표와 근거가 어긋나고, 그 어긋남은 조용하다.
 for _new, _old in RENAMED.items():

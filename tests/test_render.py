@@ -484,8 +484,35 @@ def test_renamed_servers_keep_their_rank_and_say_so():
         ranked_old = any(t["name"] == old
                          for v in RANKING["items"].values() for t in v["top"])
         if ranked_old:
-            assert re.search(rf"^\d+\. \*\*{re.escape(new)}\*\*", README, re.M), \
-                f"{new}가 등수를 잇지 못했다"
+            # 순위 줄은 표시 이름(`disp`)으로 나간다 — 역DNS 레지스트리 이름은 앞 라벨이
+            # 접힌다(`dev.datagokr/datagokr` → `datagokr/datagokr`). 원래 이름으로 찾으면
+            # 레지스트리 이름으로 개명한 서버(2026-10-31 첫 사례)를 '못 이었다'로 거짓 실패한다.
+            import render_readme
+            assert re.search(rf"^\d+\. \*\*{re.escape(render_readme.disp(new))}\*\*",
+                             README, re.M), f"{new}가 등수를 잇지 못했다"
+
+
+def test_ranked_server_found_at_its_published_address_is_not_called_gone():
+    """**등수를 받은 서버가 같은 주소로 다른 이름에 잡혔으면 '빠진 등수'가 아니다**(2026-10-31).
+
+    실사고: 공공데이터·행정 1위 `datagokr-dev/datagokr`(→ `dev.datagokr/datagokr`)와 금융·증시
+    4위 `MosslandOpenDevs/alpha`(→ `land.moss/alpha-mcp`)가 **같은 주소로 측정본에 있는데**
+    README는 둘을 "이번 주 후보에서 빠졌다"로 적었다. 이름을 신원으로 쓴 탓이다.
+
+    시점 사실을 박지 않는다 — 원장(published_history.json)의 마지막 게시 주소와 측정본의
+    주소를 그 자리에서 대조해 대상을 파생한다(이름을 적어 두면 다음 개명에 헛돈다).
+    """
+    import carryover
+    import render_readme
+    led = carryover.load(str(ROOT / carryover.LEDGER))
+    ranked = {t["name"] for v in RANKING["items"].values() for t in v["top"]}
+    pairs = carryover.renamed_by_address(led, MEASURED["items"], ranked)
+    for new, old in pairs.items():
+        assert f"위 {old}(" not in README, f"{old}가 같은 주소({new})로 있는데 '빠진 등수'로 나갔다"
+        rank = next(t["rank"] for v in RANKING["items"].values() for t in v["top"]
+                    if t["name"] == old)
+        assert re.search(rf"^{rank}\. \*\*{re.escape(render_readme.disp(new))}\*\*",
+                         README, re.M), f"{new}가 {old}의 {rank}위를 잇지 못했다"
 
 
 def test_this_index_does_not_list_itself():
