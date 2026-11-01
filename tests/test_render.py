@@ -187,10 +187,17 @@ def test_glance_agrees_with_the_category_rankings():
     축별 1위가 그대로 남았다. 그 결과 첫 화면 1위 셋이 본문에서 각각 3위·3위·2위였다.
     **순위 근거가 둘이면 반드시 어긋난다** — 같은 값에서 나오는지 검사한다.
     """
+    import sys
+    sys.path.insert(0, str(ROOT))
+    from observed import RENAMED
+
     block = README.split("## 한눈에")[1].split("\n## ")[0]
     for v in RANKING["items"].values():
         first = next(t["name"] for t in v["top"] if t["rank"] == 1)
-        assert first.split("/")[-1] in block, f"{v['category']} 1위({first})가 한눈에 없다"
+        # 등수는 옛 이름으로 받았어도 한눈에는 지금 이름으로 나온다(observed.RENAMED = 새→옛).
+        names = {first} | {new for new, old in RENAMED.items() if old == first}
+        assert any(n.split("/")[-1] in block for n in names), \
+            f"{v['category']} 1위({first})가 한눈에 없다"
 
 
 def test_no_all_empty_columns():
