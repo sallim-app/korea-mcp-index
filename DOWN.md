@@ -1,6 +1,6 @@
 # 확인하지 못한 서버
 
-2026-10-31 측정에서 **우리가 살아있음을 확인하지 못한** 목록. **사망 명단이 아니다** — 확인 못 함(unverified)과 죽음 확인(down)은 다른 값이고, 이 문서는 그 둘을 갈라 싣는다.
+2026-11-01 측정에서 **우리가 살아있음을 확인하지 못한** 목록. **사망 명단이 아니다** — 확인 못 함(unverified)과 죽음 확인(down)은 다른 값이고, 이 문서는 그 둘을 갈라 싣는다.
 
 `죽음 확인`은 호스트가 없다는 직접 증거(DNS에 이름 없음·연결 거부)가 있을 때만 붙인다. 그 밖의 전부 — 4xx·5xx·타임아웃·TLS 오류 — 는 `확인 못 함`이다. 우리 두드리개가 못 본 것을 남의 사망으로 적지 않기 위해서다.
 
@@ -18,7 +18,7 @@
 | [hlucent/realestate-stats-mcp](https://github.com/hlucent/realestate-stats-mcp) | 죽음 확인 | URLError: <urlopen error [Errno -2] Name or service not known> | `https://realestate-stats-mcp.fly.dev/mcp` |
 | [hlucent/safemap-uv-index-mcp](https://github.com/hlucent/safemap-uv-index-mcp) | 죽음 확인 | URLError: <urlopen error [Errno -2] Name or service not known> | `https://safemap-uv-index-mcp.fly.dev/mcp` |
 
-## 확인 못 함 — 등록된 주소 — 20건
+## 확인 못 함 — 등록된 주소 — 16건
 
 관리자가 공식 레지스트리에 **직접 등록한** 주소다. 주장이 강하지만 **그래도 사망 판정이 아니다** — 우리가 확인하지 못했다는 뜻이다.
 
@@ -36,10 +36,6 @@
 | [io.github.HyosikPark/kr-district-codes](https://hawker-gateway.fly.dev) | 확인 못 함 | URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in… | `https://hawker-gateway.fly.dev/mcp/kr-district-codes` |
 | [io.github.HyosikPark/kr-holidays](https://hawker-gateway.fly.dev) | 확인 못 함 | URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in… | `https://hawker-gateway.fly.dev/mcp/kr-holidays` |
 | [io.github.Mobiss11/daepak-mcp](https://github.com/Mobiss11/daepak-mcp) | 확인 못 함 | URLError: <urlopen error timed out> | `https://daepak.com/mcp` |
-| [io.github.SongT-50/korean-agriculture-mcp](https://github.com/SongT-50/korean-agriculture-mcp) | 확인 못 함 | HTTP 503 | `https://korean-agriculture-mcp.onrender.com/mcp` |
-| [io.github.SongT-50/korean-news-mcp](https://github.com/SongT-50/korean-news-mcp) | 확인 못 함 | HTTP 503 | `https://korean-news-mcp.onrender.com/mcp` |
-| [io.github.SongT-50/korean-public-data-mcp](https://github.com/SongT-50/korean-public-data-mcp) | 확인 못 함 | HTTP 503 | `https://korean-public-data-mcp.onrender.com/mcp` |
-| [io.github.SongT-50/korean-stock-mcp](https://github.com/SongT-50/korean-stock-mcp) | 확인 못 함 | HTTP 503 | `https://korean-stock-mcp.onrender.com/mcp` |
 | [io.github.a-mashiro-art/jp-data](https://jp-data-api-production.up.railway.app) | 확인 못 함 | HTTP 404 | `https://jp-data-api-production.up.railway.app/mcp` |
 | [io.github.lichtsalz/korea-data](https://github.com/lichtsalz/korea-data) | 확인 못 함 | HTTP 200 | `https://notonlystock.com/korea/mcp` |
 | [io.github.loved0543-dotcom/kdata-gate](https://github.com/loved0543-dotcom/kdata-gate-mcp) | 확인 못 함 | HTTP 404 | `https://kdata-gate.vercel.app/mcp` |
@@ -54,7 +50,7 @@
 | [042Jason/kosis-mcp](https://github.com/042Jason/kosis-mcp) | 확인 못 함 | HTTP 404 | `https://kosis-mcp-production.up.railway.app/mcp` |
 | [chexteam1-svg/opendart-mcp](https://github.com/chexteam1-svg/opendart-mcp) | 확인 못 함 | HTTP 404 | `https://opendart-mcp-37uz.onrender.com/mcp` |
 | [chrisryugj/archhub-mcp](https://github.com/chrisryugj/archhub-mcp) | 확인 못 함 | URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in… | `https://archhub-mcp.fly.dev/mcp` |
-| [chromato99/krx-rule-mcp](https://github.com/chromato99/krx-rule-mcp) | 확인 못 함 | URLError: <urlopen error timed out> | `https://krx-rule-mcp.chromato99.com/mcp` |
+| [chromato99/krx-rule-mcp](https://github.com/chromato99/krx-rule-mcp) | 확인 못 함 | HTTP 502 | `https://krx-rule-mcp.chromato99.com/mcp` |
 | [hwain-ai/Real-Estate-Location-Analyzer_MCP](https://github.com/hwain-ai/Real-Estate-Location-Analyzer_MCP) | 확인 못 함 | HTTP 404 | `https://immortal0900-real-estate-location-analyzer-mcp.hf.space/gradio_api/mcp/sse` |
 | [iiacjay/incheon-airport-mcp](https://github.com/iiacjay/incheon-airport-mcp) | 확인 못 함 | HTTP 404 | `https://incheon-airport-mcp-production.up.railway.app/mcp` |
 | [lucidwatper/Kosis-mcp](https://github.com/lucidwatper/Kosis-mcp) | 확인 못 함 | HTTP 400 | `https://kosis-mcp-70b9.onrender.com/mcp` |

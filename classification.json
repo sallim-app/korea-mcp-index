@@ -5518,6 +5518,62 @@
    "is_data_provider": false,
    "why": "WordPress 자동발행 스킬",
    "by": "llm:haiku"
+  },
+  "c8b1ed85d8eb": {
+   "name": "UiHyeon-Kim/ai-context-vault",
+   "category": "디렉토리·개발자도구",
+   "is_data_provider": false,
+   "why": "설정 공유 예시, 데이터 조회 없음",
+   "by": "llm:haiku"
+  },
+  "5475121dbc53": {
+   "name": "dev.workers.deanhiki.krtools/korean-tools",
+   "category": "한국어·언어",
+   "is_data_provider": false,
+   "why": "텍스트 변환 유틸, 조회 기능 없음",
+   "by": "llm:haiku"
+  },
+  "9be74aeb6ec1": {
+   "name": "io.github.YoungsoonLee/korea-data-mcp",
+   "category": "공공데이터·행정",
+   "is_data_provider": true,
+   "why": "한국 공공데이터 조회",
+   "by": "llm:haiku"
+  },
+  "e72f1b4762c7": {
+   "name": "io.github.babo072/ktourinfo",
+   "category": "교육·문화",
+   "is_data_provider": true,
+   "why": "관광지·축제 정보 제공",
+   "by": "llm:haiku"
+  },
+  "d15bf3014424": {
+   "name": "kgu25kkwak/JOBWAY-API-MCP",
+   "category": "공공데이터·행정",
+   "is_data_provider": true,
+   "why": "공공 고용 데이터 조회",
+   "by": "llm:haiku"
+  },
+  "79837061295b": {
+   "name": "net.festivaltimes/festivals",
+   "category": "교육·문화",
+   "is_data_provider": true,
+   "why": "축제·콘서트 정보 조회",
+   "by": "llm:haiku"
+  },
+  "0527e9a29720": {
+   "name": "taip-tech/tax2ai-mcp",
+   "category": "법령·판례",
+   "is_data_provider": true,
+   "why": "세법 법령·결정례 조회",
+   "by": "llm:haiku"
+  },
+  "4fac1b12b8a6": {
+   "name": "tyyun96/disaster-response-agent",
+   "category": "날씨·환경",
+   "is_data_provider": true,
+   "why": "재난·뉴스 데이터 수집",
+   "by": "llm:haiku"
   }
  }
 }
