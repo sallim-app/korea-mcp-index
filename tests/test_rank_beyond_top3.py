@@ -106,4 +106,6 @@ def test_readme_ranks_below_top3():
         assert re.search(rf"^{rank}\. \*\*{re.escape(render_readme.disp(name))}\*\*",
                          readme, re.M), f"{name}: README 순위 줄에 {rank}위가 없다"
         for blk in re.findall(r"<details><summary>채점하지 않은.*?</details>", readme, re.S):
-            assert render_readme.disp(name) not in blk, f"{name}: 채점받았는데 '채점하지 않은'에 있다"
+            # 이름 경계로 본다(2026-11-03): `pokt-agent`가 `pokt-agent-x402` 줄 안에서 부분일치로 걸렸다.
+            hit = re.search(rf"(?<![\w.-]){re.escape(render_readme.disp(name))}(?![\w.-])", blk)
+            assert not hit, f"{name}: 채점받았는데 '채점하지 않은'에 있다"

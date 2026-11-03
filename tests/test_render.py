@@ -149,8 +149,11 @@ def test_table_order_matches_the_judgement():
         rows = "\n".join(ln for ln in block[0].splitlines() if ln.startswith("| ["))
         pos, kept = [], 0
         for t in sorted(v["top"], key=lambda x: x["rank"]):
-            n = _shown_as(t["name"]).split("/")[-1]
-            p = rows.find(n)
+            # 링크 표기 `[전체 이름](` 로 찾는다(2026-11-03). 꼬리만으로 찾으면 `site.star365/data`의
+            # `data`가 `dev.datagokr/datagokr` 줄에서 걸려 순서 위반으로 둔갑했다.
+            p = rows.find(f"[{_shown_as(t['name'])}](")
+            if p < 0:
+                p = rows.find(_shown_as(t["name"]).split("/")[-1])
             if p < 0:
                 assert _accounted_for(t["name"]), \
                     f"{v['category']}: {t['name']}이 설명 없이 표에서 사라졌다"
