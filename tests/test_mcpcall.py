@@ -107,3 +107,61 @@ def test_handshake_gets_the_call_timeout(monkeypatch, capsys):
     monkeypatch.setattr("urllib.request.urlopen", lambda req, timeout=None: (seen.append(timeout), orig(req, timeout))[1])
     rc, _, _ = run(monkeypatch, capsys, ["call", "https://x.test/mcp", "t1", "{}"])
     assert rc == 0 and seen and all(t == mcpcall.CALL_TIMEOUT for t in seen), seen
+
+
+# ── 상대 응답 절단(2026-11-04, IN-0b3d6746717d) ─────────────────────────────────────────
+# 실측: emceeKim/korea-finance-mcp는 tools/list는 답하고 tools/call만 HTTP 200 머리 뒤 청크 스트림을
+# 끝맺지 않고 끊는다(HTTP/1.1 = IncompleteRead(0 bytes read) · HTTP/2 = stream INTERNAL_ERROR).
+# 종전엔 예외가 새어 호출기가 트레이스백으로 죽었고(rc=1 — 하필 '도구 isError'와 같은 값이다)
+# 2026-11-03 월간 채점에 '우리 호출 실패'로 적혔다. 받은 조각을 살려 읽고, 못 읽으면 원인을
+# '상대 응답 절단'으로 갈라 rc=4로 낸다.
+
+class TruncatedResponse(FakeResponse):
+    """read()가 받은 조각을 담은 IncompleteRead를 올리는 응답 — 청크 스트림 도중 끊김의 대역."""
+
+    def __init__(self, partial: bytes, headers=None):
+        super().__init__(200, b"", headers or {"Content-Type": "text/event-stream"})
+        self._partial = partial
+
+    def read(self, *a):
+        import http.client
+        raise http.client.IncompleteRead(self._partial)
+
+
+def truncating_server(partial: bytes):
+    base = session_server({})
+
+    def handler(c):
+        if (c["body"] or {}).get("method") == "tools/call":
+            return TruncatedResponse(partial)
+        return base(c)
+    return handler
+
+
+def test_peer_truncation_with_readable_partial_is_used_and_disclosed(monkeypatch, capsys):
+    """끊겼어도 조각 안에 id가 맞는 응답이 온전히 있으면 그것을 쓰고, 절단을 공시한다."""
+    msg = json.dumps({"jsonrpc": "2.0", "id": 2,
+                      "result": {"content": [{"type": "text", "text": "삼성전자 00126380"}]}})
+    partial = ("event: message\ndata: " + msg + "\n\n").encode()
+    install(monkeypatch, truncating_server(partial))
+    rc, out, err = run(monkeypatch, capsys, ["call", "https://x.test/mcp", "t1", "{}"])
+    assert rc == mcpcall.RC_OK and out.strip() == "삼성전자 00126380"
+    assert "응답 절단 후 부분 수신" in err and f"{len(partial)}바이트" in err
+
+
+@pytest.mark.parametrize("partial", [b"", b'event: message\ndata: {"jsonrpc":"2.0","id":2,"resu'])
+def test_peer_truncation_unreadable_is_peer_cause_not_ours(monkeypatch, capsys, partial):
+    """조각으로 못 읽으면 rc=4(상대 응답 절단) — 우리 호출 실패(3)도 도구 오류(1)도 아니고, stdout은 비운다."""
+    install(monkeypatch, truncating_server(partial))
+    rc, out, err = run(monkeypatch, capsys, ["call", "https://x.test/mcp", "t1", "{}"])
+    assert rc == mcpcall.RC_PEER_TRUNCATED == 4
+    assert out == "" and "상대 응답 절단" in err and f"{len(partial)}바이트" in err
+
+
+def test_measure_request_keeps_partial_instead_of_raising(monkeypatch):
+    """두드리개 전송층이 IncompleteRead를 예외로 흘리지 않고 부분 수신을 값으로 공시한다."""
+    import measure
+    install(monkeypatch, lambda c: TruncatedResponse(b"data: {}\n"))
+    r = measure._request("https://x.test/mcp", body=b"{}")
+    assert r["status"] == 200 and r["raw"] == "data: {}\n"
+    assert r["body_incomplete"]["received_bytes"] == 9

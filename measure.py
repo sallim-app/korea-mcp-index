@@ -30,6 +30,7 @@
 """
 import argparse
 import collections
+import http.client
 import ipaddress
 import json
 import re
@@ -138,11 +139,26 @@ def _request(url: str, *, method: str = "POST", body: bytes | None = None,
             # JSON을 반토막 내고 파싱에 실패해 "도구 ?개"로 보고했다 — 우리가 제품에서 금지하는
             # 조용한 절단을 측정기가 저지른 것이다(2026-08-18, 우리 서버 대조로 발견).
             # 상한은 폭주 방어용으로만 두고, 걸리면 값으로 공시한다.
-            raw = r.read(MAX_BODY + 1).decode("utf-8", "replace")
-            return {"status": r.status, "ms": int((time.monotonic() - t0) * 1000),
-                    "raw": raw, "url": url,
-                    "headers": {k.lower(): v for k, v in r.headers.items()},
-                    "body_truncated": len(raw) > MAX_BODY}
+            incomplete = None
+            try:
+                body_b = r.read(MAX_BODY + 1)
+            except http.client.IncompleteRead as e:
+                # **받은 만큼은 버리지 않는다(2026-11-04, IN-0b3d6746717d).** 상대가 200 머리를
+                # 보내고 청크 스트림을 끝맺지 않은 채 끊으면(실측 emceeKim/korea-finance-mcp:
+                # HTTP/1.1은 IncompleteRead, HTTP/2는 INTERNAL_ERROR) 종전엔 예외가 그대로 새어
+                # 호출기가 트레이스백으로 죽었고 '우리 호출 실패'로 적혔다. 그건 우리 쪽 실패가
+                # 아니라 **상대 응답 절단**이다 — 부분 수신분과 함께 그 사실을 값으로 공시한다.
+                body_b = e.partial or b""
+                incomplete = {"received_bytes": len(body_b),
+                              "expected": e.expected}
+            raw = body_b.decode("utf-8", "replace")
+            out = {"status": r.status, "ms": int((time.monotonic() - t0) * 1000),
+                   "raw": raw, "url": url,
+                   "headers": {k.lower(): v for k, v in r.headers.items()},
+                   "body_truncated": len(raw) > MAX_BODY}
+            if incomplete is not None:
+                out["body_incomplete"] = incomplete
+            return out
     except urllib.error.HTTPError as e:
         hh = {k.lower(): v for k, v in (e.headers or {}).items()}
         raw = e.read().decode("utf-8", "replace")[:2000]
