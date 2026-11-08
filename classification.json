@@ -5574,6 +5574,377 @@
    "is_data_provider": true,
    "why": "재난·뉴스 데이터 수집",
    "by": "llm:haiku"
+  },
+  "01776f41c4a7": {
+   "name": "ANNJUNGCHAN/housing-mcp",
+   "category": "부동산",
+   "is_data_provider": true,
+   "why": "청약정보 조회 및 분석",
+   "by": "llm:haiku"
+  },
+  "ee4f0a3a8199": {
+   "name": "KIMDONGWOOK12/job-radar",
+   "category": "커머스·생활",
+   "is_data_provider": true,
+   "why": "채용공고 수집·분류",
+   "by": "llm:haiku"
+  },
+  "d415eea93f68": {
+   "name": "Sovereign-Music-Lab/DeepChord",
+   "category": "기타",
+   "is_data_provider": false,
+   "why": "로컬-퍼스트 피아노 작곡",
+   "by": "llm:haiku"
+  },
+  "3f60b37a2e88": {
+   "name": "XBOSS-Corp/xboss-connect",
+   "category": "세금·재정",
+   "is_data_provider": true,
+   "why": "세무·급여 통합 플랫폼",
+   "by": "llm:haiku"
+  },
+  "6aa1ed427cb5": {
+   "name": "altarry-prog/Bucheonlibrary-mcp",
+   "category": "교육·문화",
+   "is_data_provider": false,
+   "why": "도서관 도서 검색(읽기전용)",
+   "by": "llm:haiku"
+  },
+  "ecbb6e1ce098": {
+   "name": "app.stashhh/stashhh",
+   "category": "커머스·생활",
+   "is_data_provider": false,
+   "why": "개인 저장함 조회·정리",
+   "by": "llm:haiku"
+  },
+  "dbe09d44174b": {
+   "name": "codus1111/pension-salary",
+   "category": "세금·재정",
+   "is_data_provider": true,
+   "why": "국민연금·DART 연봉 추정",
+   "by": "llm:haiku"
+  },
+  "7590c7cfea42": {
+   "name": "com.seoulstart/seoulstart",
+   "category": "부동산",
+   "is_data_provider": true,
+   "why": "외국인 일자리·부동산 정보",
+   "by": "llm:haiku"
+  },
+  "599da315cdc7": {
+   "name": "hany202507/finance-ai-skills",
+   "category": "세금·재정",
+   "is_data_provider": false,
+   "why": "회계·세무 검토 자동화",
+   "by": "llm:haiku"
+  },
+  "7f5c2c66578b": {
+   "name": "ilhae-ai/origin-ilhae-mcp",
+   "category": "디렉토리·개발자도구",
+   "is_data_provider": false,
+   "why": "Origin 한글 환경 최적화",
+   "by": "llm:haiku"
+  },
+  "b7f75f64b978": {
+   "name": "io.github.CloudCorpRecords/hangulport",
+   "category": "한국어·언어",
+   "is_data_provider": false,
+   "why": "한국어 형태소분석·교정",
+   "by": "llm:haiku"
+  },
+  "f6569c7cb95d": {
+   "name": "io.github.CloudCorpRecords/procureport",
+   "category": "공공데이터·행정",
+   "is_data_provider": true,
+   "why": "나라장터 공개입찰 조회",
+   "by": "llm:haiku"
+  },
+  "76200e21a31a": {
+   "name": "io.github.babo072/kfestivals",
+   "category": "교육·문화",
+   "is_data_provider": true,
+   "why": "한국 축제·공연 정보",
+   "by": "llm:haiku"
+  },
+  "f92c11eec9ee": {
+   "name": "io.github.babo072/sazuai",
+   "category": "기타",
+   "is_data_provider": false,
+   "why": "사주·운세 계산기",
+   "by": "llm:haiku"
+  },
+  "a5a0c438b0bd": {
+   "name": "io.github.eddyParkGG/bamsai",
+   "category": "금융·증시",
+   "is_data_provider": true,
+   "why": "한국 우량주 시세 조회",
+   "by": "llm:haiku"
+  },
+  "fe984b5096ad": {
+   "name": "io.github.hs85-newbie/korea-finance-factcheck",
+   "category": "금융·증시",
+   "is_data_provider": true,
+   "why": "금융 수치 팩트체크",
+   "by": "llm:haiku"
+  },
+  "957efbacc36b": {
+   "name": "io.github.jaypark8780/baedang",
+   "category": "금융·증시",
+   "is_data_provider": true,
+   "why": "배당주·ETF 수익률 조회",
+   "by": "llm:haiku"
+  },
+  "acdbcab49e37": {
+   "name": "io.github.laplacetec/ecommerce-analytics",
+   "category": "커머스·생활",
+   "is_data_provider": true,
+   "why": "이커머스 매출·광고비 분석",
+   "by": "llm:haiku"
+  },
+  "bfb086fe4c26": {
+   "name": "io.github.ok0/korean-parenting-mcp",
+   "category": "의료·복지",
+   "is_data_provider": true,
+   "why": "임신·출산·육아 정보",
+   "by": "llm:haiku"
+  },
+  "8c281ae14b01": {
+   "name": "io.github.seojaehong/k-labor",
+   "category": "세금·재정",
+   "is_data_provider": false,
+   "why": "노동법·급여 계산 자동화",
+   "by": "llm:haiku"
+  },
+  "29f6ae8b8826": {
+   "name": "io.github.seojaehong/sanjae-apply",
+   "category": "의료·복지",
+   "is_data_provider": false,
+   "why": "산재보험 신청 자동화",
+   "by": "llm:haiku"
+  },
+  "7ef1ddeb453f": {
+   "name": "io.github.seothief/insurance-claim-mcp",
+   "category": "의료·복지",
+   "is_data_provider": false,
+   "why": "보험료 추정 계산기",
+   "by": "llm:haiku"
+  },
+  "69b696223459": {
+   "name": "janghoyeol/korea-data-mcp",
+   "category": "공공데이터·행정",
+   "is_data_provider": true,
+   "why": "공공데이터 포털 통합",
+   "by": "llm:haiku"
+  },
+  "c181b16cf6af": {
+   "name": "jdleaf96/dart-guard-mcp",
+   "category": "금융·증시",
+   "is_data_provider": true,
+   "why": "DART 전자공시 조회",
+   "by": "llm:haiku"
+  },
+  "ecf449bf561c": {
+   "name": "kr.co.knockwatch/coin-check",
+   "category": "금융·증시",
+   "is_data_provider": true,
+   "why": "업비트 코인 거래신호",
+   "by": "llm:haiku"
+  },
+  "4f78d77c3d95": {
+   "name": "kr.co.prebid/prebid",
+   "category": "공공데이터·행정",
+   "is_data_provider": true,
+   "why": "나라장터 입찰정보 조회",
+   "by": "llm:haiku"
+  },
+  "d664d45713a2": {
+   "name": "kwakseongjae/auto-hwp",
+   "category": "디렉토리·개발자도구",
+   "is_data_provider": false,
+   "why": "한글(HWP) 브라우저 편집",
+   "by": "llm:haiku"
+  },
+  "a2880b7fcb9b": {
+   "name": "me.wehome/stays",
+   "category": "커머스·생활",
+   "is_data_provider": true,
+   "why": "한국 홈스테이 검색·예약",
+   "by": "llm:haiku"
+  },
+  "7c5e1f18d0c0": {
+   "name": "purplemacaron/blank",
+   "category": "기타",
+   "is_data_provider": false,
+   "why": "로컬 AI 에이전트 하네스",
+   "by": "llm:haiku"
+  },
+  "0580c0efdb30": {
+   "name": "raphysicst-create/edunet-mcp",
+   "category": "교육·문화",
+   "is_data_provider": true,
+   "why": "한국 교사 교육망 도구",
+   "by": "llm:haiku"
+  },
+  "6618f001f8d2": {
+   "name": "recastfai/lawkit",
+   "category": "법령·판례",
+   "is_data_provider": true,
+   "why": "법령 조문·국세청 예규 조회",
+   "by": "llm:haiku"
+  },
+  "e35eec289821": {
+   "name": "space.finquest/finquest",
+   "category": "금융·증시",
+   "is_data_provider": true,
+   "why": "DART·주식·채권 통합 분석",
+   "by": "llm:haiku"
+  },
+  "16e33072daa5": {
+   "name": "steamnayo-ux/weather-briefing",
+   "category": "날씨·환경",
+   "is_data_provider": true,
+   "why": "기상청·에어코리아 날씨 정보",
+   "by": "llm:haiku"
+  },
+  "c622d3584884": {
+   "name": "tjdal4418-sketch/ai-office",
+   "category": "세금·재정",
+   "is_data_provider": false,
+   "why": "회계·세무 업무 자동화",
+   "by": "llm:haiku"
+  },
+  "372c23a22206": {
+   "name": "today.thekorean/news",
+   "category": "미디어·뉴스",
+   "is_data_provider": true,
+   "why": "한국 뉴스 기사·요약",
+   "by": "llm:haiku"
+  },
+  "53166da25b3b": {
+   "name": "today.thekorean/speller",
+   "category": "한국어·언어",
+   "is_data_provider": false,
+   "why": "한국어 맞춤법 검사기",
+   "by": "llm:haiku"
+  },
+  "43434519fb1c": {
+   "name": "topnotcher107-dotcom/korea-university-mcp",
+   "category": "교육·문화",
+   "is_data_provider": true,
+   "why": "한국 대학 공시 정보",
+   "by": "llm:haiku"
+  },
+  "a37792472289": {
+   "name": "vector2967/uou-mcp",
+   "category": "교육·문화",
+   "is_data_provider": true,
+   "why": "울산대 학식·학사일정 조회",
+   "by": "llm:haiku"
+  },
+  "e8997852b64b": {
+   "name": "xyz.comepass/korean-companies",
+   "category": "금융·증시",
+   "is_data_provider": true,
+   "why": "DART·조달청 기업정보 조회",
+   "by": "llm:haiku"
+  },
+  "bdda9395ddc1": {
+   "name": "ChoHyeonChan/maskingtape",
+   "category": "기타",
+   "is_data_provider": false,
+   "why": "PII 마스킹 도구",
+   "by": "llm:haiku(이전 회차 판정 유지 — 설명만 바뀌어 키만 갱신)"
+  },
+  "19a411dd186b": {
+   "name": "ai.heyyumi/heyyumi",
+   "category": "커머스·생활",
+   "is_data_provider": true,
+   "why": "한국 식당 검색·예약 데이터",
+   "by": "llm:haiku(이전 회차 판정 유지 — 설명만 바뀌어 키만 갱신)"
+  },
+  "1238c4940ea9": {
+   "name": "app.apick/all",
+   "category": "공공데이터·행정",
+   "is_data_provider": true,
+   "why": "한국 데이터·건물등기·검색",
+   "by": "llm:haiku(이전 회차 판정 유지 — 설명만 바뀌어 키만 갱신)"
+  },
+  "a5f382f75954": {
+   "name": "banatic/Hypercool",
+   "category": "기타",
+   "is_data_provider": false,
+   "why": "급식·시간표 위젯 앱",
+   "by": "llm:haiku(이전 회차 판정 유지 — 설명만 바뀌어 키만 갱신)"
+  },
+  "46a29f397dbb": {
+   "name": "com.easykmarket.vote/votebox-law",
+   "category": "공공데이터·행정",
+   "is_data_provider": true,
+   "why": "투표법령 조회",
+   "by": "llm:haiku(이전 회차 판정 유지 — 설명만 바뀌어 키만 갱신)"
+  },
+  "1bb36c560df1": {
+   "name": "com.founderssaid/founderssaid",
+   "category": "교육·문화",
+   "is_data_provider": true,
+   "why": "창업자 인터뷰 2000건",
+   "by": "llm:haiku(이전 회차 판정 유지 — 설명만 바뀌어 키만 갱신)"
+  },
+  "3f7b4a9ff4e8": {
+   "name": "com.unclepony/gaian",
+   "category": "기타",
+   "is_data_provider": false,
+   "why": "AI 커뮤니티 보드",
+   "by": "llm:haiku(이전 회차 판정 유지 — 설명만 바뀌어 키만 갱신)"
+  },
+  "5c4cee8b055e": {
+   "name": "dev.workers.dermatologicalbeautyllc.celadon-wholesale-mcp/celadon-wholesale",
+   "category": "커머스·생활",
+   "is_data_provider": true,
+   "why": "화장품 도매 가격",
+   "by": "llm:haiku(이전 회차 판정 유지 — 설명만 바뀌어 키만 갱신)"
+  },
+  "afd9a57c1950": {
+   "name": "io.boim/vendors",
+   "category": "공공데이터·행정",
+   "is_data_provider": true,
+   "why": "한국 기업·공공조달업체·입찰공고",
+   "by": "llm:haiku(이전 회차 판정 유지 — 설명만 바뀌어 키만 갱신)"
+  },
+  "ce6a20cb00a6": {
+   "name": "io.github.UpstageAI/korean-tax-calc-mcp",
+   "category": "세금·재정",
+   "is_data_provider": false,
+   "why": "한국 세금 계산 (93개 도구)",
+   "by": "llm:haiku(이전 회차 판정 유지 — 설명만 바뀌어 키만 갱신)"
+  },
+  "3164177a7f51": {
+   "name": "io.github.Wonderfulian/kbv-server",
+   "category": "디렉토리·개발자도구",
+   "is_data_provider": true,
+   "why": "한국 기업 검색·확인",
+   "by": "llm:haiku(이전 회차 판정 유지 — 설명만 바뀌어 키만 갱신)"
+  },
+  "df0c33bd2efd": {
+   "name": "io.github.richard-kim-79/jejusns",
+   "category": "부동산",
+   "is_data_provider": true,
+   "why": "제주 아파트 실거래·병원·채용 데이터",
+   "by": "llm:haiku(이전 회차 판정 유지 — 설명만 바뀌어 키만 갱신)"
+  },
+  "8093a59461ed": {
+   "name": "kr.lifelaw/kr-law",
+   "category": "법령·판례",
+   "is_data_provider": true,
+   "why": "한국 법령·판례·세법",
+   "by": "llm:haiku(이전 회차 판정 유지 — 설명만 바뀌어 키만 갱신)"
+  },
+  "8c960c9d0783": {
+   "name": "now.abis/dongbang-interior",
+   "category": "커머스·생활",
+   "is_data_provider": false,
+   "why": "인테리어 상담 서비스 (데이터 아님)",
+   "by": "llm:haiku(이전 회차 판정 유지 — 설명만 바뀌어 키만 갱신)"
   }
  }
 }
