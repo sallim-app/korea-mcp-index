@@ -1565,7 +1565,7 @@ def build_method(ctx) -> None:
     W('<h1>어떻게 재나</h1>',
       '<div class="tw" tabindex="0" role="region" aria-label="가로로 스크롤되는 표"><table><thead><tr><th>단계</th><th>하는 일</th><th>주기</th></tr></thead>'
       '<tbody>',
-      '<tr><td>collect</td><td>공식 레지스트리 전수 + GitHub 검색 + mcpmoa 공개 API</td>'
+      '<tr><td>collect</td><td>공식 레지스트리 전수 + GitHub 검색 + mcpmoa 공개 API + 제보(tips.json)</td>'
       '<td>—</td></tr>',
       '<tr><td>filter</td><td>한국 관련성(한글·.go.kr·기관명) → 후보 좁히기</td><td>—</td></tr>',
       '<tr><td>enrich</td><td>README에서 엔드포인트·패키지·기관 도메인 추출</td><td>—</td></tr>',

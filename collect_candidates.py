@@ -38,6 +38,11 @@ REGISTRY = "https://registry.modelcontextprotocol.io/v0/servers"
 # 명시 차단한다 — UA 이름으로 우회하지 않는다.
 # 우리가 빌리는 것은 **발견**이지 판정이 아니다. 그들의 25건도 우리 실호출이 다시 가른다.
 MCPMOA = "https://mcpmoa.com/api/v1/servers.json"
+# 5차 원천(2026-11-09, T-2026W46-05): **제보**. 위 원천이 구조적으로 못 보는 서버가 있다 —
+# 레지스트리에 등록하지 않고, 공개 저장소도 없고, playmcp 같은 SPA 스토어에만 있는 상용
+# 커넥터다(첫 사례 줍고 `www.jupgo.co.kr/mcp`: 레지스트리 `search=jupgo` 0건). 사람이 알려 준
+# 것은 발견일 뿐 판정이 아니다 — 같은 필터·같은 측정을 거친다.
+TIPS = "tips.json"
 GITHUB = "https://api.github.com/search/repositories"
 PAGE = 100
 # 서버당 1행(version=latest) 기준 실측 259페이지에서 커서가 소진된다. 상한은 폭주 방지용
@@ -224,6 +229,32 @@ def from_mcpmoa() -> tuple[dict, list]:
     return found, notes
 
 
+def from_tips(path: str = TIPS) -> tuple[dict, list]:
+    """제보 원천. 파일이 없으면 0건이고, 깨졌으면 숨기지 않고 공시한다."""
+    try:
+        with open(path, encoding="utf-8") as f:
+            rows = json.load(f).get("items") or []
+    except FileNotFoundError:
+        return {}, []
+    except Exception as e:
+        return {}, [f"제보 원천({path}) 읽기 실패({type(e).__name__}) — 0건 아님, 미확인"]
+    found = {}
+    for t in rows:
+        name = t.get("name")
+        if not name:
+            continue
+        found[name] = {"name": name, "description": t.get("description") or "",
+                       "title": t.get("title") or "",
+                       "remotes": [{"type": r.get("type"), "url": r.get("url"),
+                                    "needs_auth": bool(r.get("needs_auth"))}
+                                   for r in (t.get("remotes") or []) if r.get("url")],
+                       "repo_url": t.get("repo_url") or "",
+                       "website_url": t.get("website_url") or "",
+                       "categories": set(t.get("categories") or []),
+                       "sources": {"tip"}, "terms": {"제보"}}
+    return found, []
+
+
 def from_github(token: str | None) -> tuple[dict, list]:
     found, notes = {}, []
     for kw, cat in queries():
@@ -268,9 +299,10 @@ def main() -> int:
     reg, n1 = from_registry()
     gh, n2 = from_github(token)
     moa, n3 = from_mcpmoa()
-    notes = n1 + n2 + n3
+    tips, n4 = from_tips()
+    notes = n1 + n2 + n3 + n4
 
-    merged = merge_sources(reg, gh, moa)
+    merged = merge_sources(reg, gh, moa, tips)
 
     # **4층: 우리 자신의 게시 이력**(2026-09-14, T-2026W38-309). 위 세 원천은 매 회차
     # 세상을 새로 긁으므로, 별 0~2개짜리 서버는 GitHub 검색 상위 100건 밖으로 밀리는
@@ -297,11 +329,11 @@ def main() -> int:
               open("candidates_raw.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 
     print(f"레지스트리(전수) {len(reg)} · GitHub {len(gh)} · mcpmoa {len(moa)} · "
-          f"게시이력 이어받기 {len(carried)} · 합집합 {len(merged)}건")
+          f"제보 {len(tips)} · 게시이력 이어받기 {len(carried)} · 합집합 {len(merged)}건")
     # **원천을 더할 때 한 층을 빠뜨리면 이 수가 항상 그만큼 틀린다**(codex 2026-09-15:
-    # 종전 식은 mcpmoa를 빼고 세고 있었다). 네 층 전부를 더한다.
+    # 종전 식은 mcpmoa를 빼고 세고 있었다). 다섯 층 전부를 더한다.
     print(f"repo_url로 병합해 "
-          f"{len(reg) + len(gh) + len(moa) + len(carried) - len(merged)}건이 합쳐졌다")
+          f"{len(reg) + len(gh) + len(moa) + len(tips) + len(carried) - len(merged)}건이 합쳐졌다")
     import collections
     cov = collections.Counter(c for d in merged.values() for c in (d.get("categories") or []))
     print("\n■ 분야별 수확 (분야가 검색어를 낳는다)")
