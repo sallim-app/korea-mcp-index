@@ -1,0 +1,148 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://mcp-index.sallim.app/index.json",
+ "title": "한국 데이터 MCP 실측 목록 — index.json (부분 스키마)",
+ "description": "게시본 index.json 의 계약 중 기계가 기대도 되는 부분. 순위 밖 사유 필드는 2026-11-10(T-2026W46-14) 추가 — rank_in_category 가 null 이거나 rank_is_current=false 인 줄은 unranked_reason·unranked_reason_text·unranked_reason_basis 가 반드시 non-null 이고, 순위표에 서 있는 줄은 셋 다 null 이다. 코드 정본은 unranked.py VOCAB(tests/test_unranked_reason.py 가 이 enum과 대조한다).",
+ "type": "object",
+ "required": [
+  "measured_at",
+  "servers",
+  "counts",
+  "status_vocabulary",
+  "unranked_vocabulary",
+  "unranked_by_category"
+ ],
+ "properties": {
+  "unranked_vocabulary": {
+   "type": "object",
+   "additionalProperties": {
+    "type": "string"
+   }
+  },
+  "unranked_by_category": {
+   "type": "object",
+   "additionalProperties": {
+    "type": "object",
+    "additionalProperties": {
+     "type": "integer",
+     "minimum": 1
+    }
+   }
+  },
+  "servers": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "name",
+     "bucket",
+     "category",
+     "status",
+     "rank_in_category",
+     "rank_is_current",
+     "unranked_reason",
+     "unranked_reason_text",
+     "unranked_reason_basis"
+    ],
+    "properties": {
+     "bucket": {
+      "enum": [
+       "comparable",
+       "unmeasurable",
+       "off_topic",
+       "unverified",
+       "down"
+      ]
+     },
+     "rank_in_category": {
+      "type": [
+       "integer",
+       "null"
+      ]
+     },
+     "rank_is_current": {
+      "type": [
+       "boolean",
+       "null"
+      ]
+     },
+     "unranked_reason": {
+      "enum": [
+       "payment_required",
+       "credential_required",
+       "client_unsupported",
+       "no_tools",
+       "category_corrected",
+       "category_not_graded",
+       "awaiting_round",
+       "round_skipped",
+       "round_unmeasured",
+       "off_topic",
+       "transport_mismatch",
+       "unverified",
+       "down",
+       null
+      ]
+     },
+     "unranked_reason_text": {
+      "type": [
+       "string",
+       "null"
+      ]
+     },
+     "unranked_reason_basis": {
+      "type": [
+       "string",
+       "null"
+      ]
+     }
+    },
+    "allOf": [
+     {
+      "if": {
+       "properties": {
+        "rank_in_category": {
+         "type": "null"
+        }
+       }
+      },
+      "then": {
+       "properties": {
+        "unranked_reason": {
+         "type": "string"
+        },
+        "unranked_reason_text": {
+         "type": "string",
+         "minLength": 1
+        },
+        "unranked_reason_basis": {
+         "type": "string"
+        }
+       }
+      }
+     },
+     {
+      "if": {
+       "properties": {
+        "rank_is_current": {
+         "const": false
+        }
+       }
+      },
+      "then": {
+       "properties": {
+        "unranked_reason": {
+         "type": "string"
+        },
+        "unranked_reason_text": {
+         "type": "string",
+         "minLength": 1
+        }
+       }
+      }
+     }
+    ]
+   }
+  }
+ }
+}

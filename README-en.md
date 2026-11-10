@@ -20,6 +20,22 @@ Other lists tell you a server exists. This one tells you whether it **works righ
 | **재지 않은 후보**(한 번도 두드리지 않음) | 166건 |
 | **후보 전체** | 735건 |
 
+**Why not ranked** — every probed server missing from the rankings (158) carries a reason (web edition category pages, server pages, and `unranked_reason` in index.json). Unranked is not a verdict — reasons are derived mechanically from probe results and grading records, and our own servers follow the same rule.
+
+| Reason (code) | Count |
+|---|---|
+| `payment_required` | 5 |
+| `credential_required` | 37 |
+| `client_unsupported` | 3 |
+| `no_tools` | 1 |
+| `category_corrected` | 23 |
+| `category_not_graded` | 35 |
+| `awaiting_round` | 8 |
+| `off_topic` | 13 |
+| `transport_mismatch` | 18 |
+| `unverified` | 10 |
+| `down` | 5 |
+
 * [왜 만드나](#왜-만드나)
 * [한눈에](#한눈에)
 * [우리가 지는 항목](#우리가-지는-항목)

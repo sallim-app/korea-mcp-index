@@ -34,6 +34,7 @@ import subprocess
 import sys
 
 import population
+import unranked
 from observed import MISFILED, RENAMED, SCOPE, SOURCE_CLOSED, classification_with_renames
 from render_readme import (
     CAT_EN,
@@ -870,6 +871,16 @@ def server_page(ctx, rec) -> None:
               f'않는다.</p>')
         W(f'<blockquote>“{e(why.rstrip())}{tail}” <span class="sub">— 채점자</span></blockquote>')
 
+    # ── 순위 밖 사유(T-2026W46-14) — 순위표에 없는 모든 서버에 같은 규칙으로 ──
+    ur = ctx["unranked"].get(name)
+    if ur:
+        code, text, basis = ur
+        W('<h2 id="unranked">순위에 없는 이유</h2>',
+          f'<p><strong>{e(unranked.VOCAB[code].split(" — ")[0])}</strong> — {e(text)}</p>',
+          f'<p class="sub">사유 코드 <code>{e(code)}</code> · 근거 '
+          f'<a href="{REPO}/blob/main/{e(basis)}">{e(basis)}</a>. 순위 밖은 나쁘다는 판정이 '
+          f'아니다 — 우리가 잴 수 없었거나 아직 재지 않은 조건을 그대로 적은 것이다.</p>')
+
     # ── 축 ──
     os_ = rec.get("open_source") or {}
     shh = rec.get("self_hosting") or {}
@@ -1274,6 +1285,7 @@ def build_category(ctx, c) -> None:
          + (f' · 채점 원자료 최종 변경 {e(ctx["graded"])} (저장소 이력)' if ctx["graded"] else "")
          + '</p>')
     pg.w(*cat_block(ctx, c, full=True))
+    pg.w(*unranked_section(ctx, c))
     pg.w(*legend(ctx))
     pg.w(f'<nav class="nav"><a href="{e(site.url_of("index"))}">← 전체 목록</a>'
          f'<a href="{e(site.url_of("method"))}">어떻게 재나</a></nav>')
@@ -1631,6 +1643,75 @@ def build_method(ctx) -> None:
       f'<nav class="nav"><a href="{e(site.url_of("index"))}">← 전체 목록</a></nav>')
 
 
+def unranked_by_category(ctx) -> dict[str, dict[str, int]]:
+    """{분야: {사유 코드: 건수}} — 배열 안(ctx["unranked"])과 배열 밖(설치형·주소 없음·미측정)."""
+    out: dict[str, dict[str, int]] = {}
+    for r in ctx.get("probed", []):
+        u = ctx.get("unranked", {}).get(r["name"])
+        if u:
+            d = out.setdefault(ctx["cat_of"].get(r["name"]) or "분야 미분류", {})
+            d[u[0]] = d.get(u[0], 0) + 1
+    for c, codes in ctx.get("unranked_outside", {}).items():
+        d = out.setdefault(c, {})
+        for k, n in codes.items():
+            d[k] = d.get(k, 0) + n
+    return {c: dict(sorted(v.items())) for c, v in sorted(out.items())}
+
+
+def unranked_section(ctx, c) -> list[str]:
+    """분야 페이지의 「순위 밖」 절 — 사유별 건수 + 펼치기 목록. 우리 서버도 같은 표에 선다."""
+    site = ctx["site"]
+    rows = [r for r in ctx["probed"]
+            if ctx["cat_of"].get(r["name"]) == c and r["name"] in ctx["unranked"]]
+    outside = ctx["unranked_outside"].get(c, {})
+    n_out = sum(outside.values())
+    if not rows and not n_out:
+        return []
+    by: dict[str, list[dict]] = {}
+    for r in rows:
+        by.setdefault(ctx["unranked"][r["name"]][0], []).append(r)
+    order = [k for k in unranked.VOCAB if k in by]
+    o = [f'<h2 id="unranked">순위 밖 {len(rows) + n_out}곳 — 왜 순위에 없나</h2>',
+         '<p>이 분야로 분류됐지만 위 순위표에 없는 서버다. <strong>순위 밖은 나쁘다는 판정이 '
+         '아니다</strong> — 대부분은 우리가 잴 수 없었던 조건(결제·키 요구, 우리 호출기 한계, '
+         '채점 회차 뒤 편입)이다. 사유는 가동 측정과 채점 기록에서 기계적으로 옮겼고, 서버마다 '
+         '근거 파일을 상세 페이지에 적었다. 이 목록을 만든 곳의 서버도 같은 규칙을 따른다.</p>',
+         '<div class="tw" tabindex="0" role="region" aria-label="가로로 스크롤되는 표"><table>'
+         '<thead><tr><th>사유</th><th class="n">건수</th></tr></thead><tbody>']
+    for k in order:
+        o.append(f'<tr><td>{e(unranked.VOCAB[k])}</td><td class="n">{len(by[k])}</td></tr>')
+    links = {"install_only": site.url_of("self-hosted"),
+             "no_address_no_package": "#no-address",
+             "not_measured": site.url_of("not-measured")}
+    for k in unranked.OUTSIDE:
+        if outside.get(k):
+            o.append(f'<tr><td>{e(unranked.VOCAB[k])} <span class="sub">(가동을 못 재 상세 '
+                     f'페이지가 없다 — <a href="{e(links[k])}">명단</a>)</span></td>'
+                     f'<td class="n">{outside[k]}</td></tr>')
+    o.append('</tbody></table></div>')
+    # 주소·패키지 없음은 명단 페이지가 따로 없다 — 여기서 저장소 링크로 편다.
+    noaddr = sorted((r for r in ctx["items"] if not r.get("remote") and not r.get("package")
+                     and (ctx["cls"].get(r["name"]) or {}).get("category") == c),
+                    key=lambda r: r["name"].lower())
+    for k in order:
+        rs = sorted(by[k], key=lambda r: disp(r["name"]).lower())
+        o.append(f'<details><summary>{e(unranked.VOCAB[k].split(" — ")[0])} '
+                 f'{len(rs)}곳</summary><ul>')
+        for r in rs:
+            o.append(f'<li>{name_link(ctx, r)} — {e(ctx["unranked"][r["name"]][1])}</li>')
+        o.append('</ul></details>')
+    if noaddr:
+        o.append(f'<details id="no-address"><summary>주소·패키지 없음 {len(noaddr)}곳'
+                 '</summary><p class="sub">원격 주소도 배포 패키지도 찾지 못해 가동을 재지 '
+                 '못했다 — “작동하지 않는다”가 아니라 <strong>확인하지 못했다</strong>는 '
+                 '뜻이다.</p><ul>')
+        for r in noaddr:
+            o.append('<li>' + (f'<a href="{e(r["repo_url"])}" rel="noopener">{e(r["name"])}</a>'
+                               if r.get("repo_url") else e(r["name"])) + '</li>')
+        o.append('</ul></details>')
+    return o
+
+
 def build_machine(ctx) -> None:
     """기계가 읽는 표면. 사람 페이지와 **같은 값**이어야 한다 — 따로 쓰면 따로 썩는다."""
     site, ts = ctx["site"], ctx["ts"]
@@ -1688,6 +1769,11 @@ def build_machine(ctx) -> None:
                            if not rm.get("reachable") else
                            "지난 채점 회차의 등수다 — 이번 회차엔 비교 가능한 값을 얻지 못해 "
                            "사람용 순위표에서는 빠져 있다")),
+            # rank_in_category 가 null 이거나 rank_is_current=false 면 반드시 채워진다
+            # (tests/test_unranked_reason.py). 코드 뜻은 unranked_vocabulary.
+            "unranked_reason": (ctx.get("unranked", {}).get(r["name"]) or (None,) * 3)[0],
+            "unranked_reason_text": (ctx.get("unranked", {}).get(r["name"]) or (None,) * 3)[1],
+            "unranked_reason_basis": (ctx.get("unranked", {}).get(r["name"]) or (None,) * 3)[2],
             "fact_errors": ctx["err_of"].get(r["name"]),
             "license": (r.get("open_source") or {}).get("license"),
             "self_hosting": (r.get("self_hosting") or {}).get("state"),
@@ -1735,6 +1821,13 @@ def build_machine(ctx) -> None:
             "가동은 매주·순위는 매월이라 두 값의 회차가 다르다 — rank_is_current=false 인 줄은 "
             "지난 회차의 등수이고 이번 회차 순위표에는 없다(사유는 rank_note). 등수를 지우지 "
             "않는 이유는, 빈자리를 위로 당기면 재채점 없이 등수가 오른 것처럼 보이기 때문이다.",
+            "순위표에 서 있지 않은 줄(rank_in_category=null 또는 rank_is_current=false)에는 "
+            "unranked_reason(코드)·unranked_reason_text(한 문장)·unranked_reason_basis(근거 "
+            "파일)가 반드시 있다. 사유는 가동 측정 갈래와 채점 회차 기록(ranking.json·grades/·"
+            "rounds/·answers/)에서 기계적으로 파생한다 — 서버 이름으로 정한 예외는 없고, "
+            "운영자 서버도 같은 규칙이다. 결제·키 요구로 빠진 것은 서버 결함 판정이 아니라 "
+            "우리가 자격 없이 잰다는 조건의 결과다. 코드 뜻은 unranked_vocabulary, 분야별 "
+            "건수는 unranked_by_category 다.",
             "license=null 은 '오픈소스 아님'이 아니라 '확인 못 함'이다.",
             "배포 패키지는 이름으로 맞춘 것이라 남의 패키지가 붙을 수 있다 — 기계로 잡히는 "
             "경우만 package_match_suspect 에 사유가 들어간다(못 잡는 경우가 더 많다).",
@@ -1787,6 +1880,10 @@ def build_machine(ctx) -> None:
                        len(ctx["pop"]["promoted"]) if ctx["pop"] else None),
                    "candidates_total": (ctx["pop"]["total"] if ctx["pop"]
                                         else len(ctx["items"]))},
+        "unranked_vocabulary": unranked.VOCAB,
+        # 분야별 순위 밖 건수 — 배열 안(코드별)과 배열 밖(install_only·no_address_no_package·
+        # not_measured)을 한 표에. 배열 밖 셋은 상세 줄이 없어 건수로만 공시한다.
+        "unranked_by_category": unranked_by_category(ctx),
         "status_vocabulary": {
             "live": "살아있음 확인 — MCP 응답을 실제로 받았다",
             "unverified": "확인 못 함 — 우리 호출로 확인이 안 됐다. 죽었다는 뜻이 아니다",
@@ -1808,6 +1905,13 @@ def build_machine(ctx) -> None:
         ],
         "servers": rows,
     }
+    # 부분 스키마(순위 밖 사유 계약 포함)를 같은 자리에 싣는다 — 정본은 저장소 index.schema.json
+    try:
+        site.extra.append(("index.schema.json",
+                           pathlib.Path("index.schema.json").read_text(encoding="utf-8")))
+        doc["schema"] = site.url_of("index.schema.json")
+    except OSError:
+        pass
     site.extra.append(("index.json", json.dumps(doc, ensure_ascii=False, indent=1) + "\n"))
 
     lines = ["# 한국 데이터 MCP — 실측 목록", "",
@@ -1834,7 +1938,9 @@ def build_machine(ctx) -> None:
                          if (ctx["cls"].get(r["name"]) or {}).get("category") == c],
                         key=lambda r: (_rank(r) or (99, ""))[0]):
             rk = _rank(r)
-            tag = f"{rk[0]}위" if rk else "미채점"
+            _u = ctx.get("unranked", {}).get(r["name"])
+            tag = (f"{rk[0]}위" if rk else
+                   f"순위 밖 — {unranked.VOCAB[_u[0]].split(' — ')[0]}" if _u else "미채점")
             if r["name"] in MISFILED:
                 # 교정 자체가 채점자 판정이다 — 이 분야 질문으로 채점됐고 그 등수를 무효로
                 # 한 것이지 안 잰 게 아니다. ranking.json에서 빠졌어도 '미채점'이라 쓰지 않는다.
@@ -2019,6 +2125,13 @@ def main() -> int:
            "cat_of": {r["name"]: (MISFILED[r["name"]][1] if r["name"] in MISFILED
                                   else (cls.get(r["name"]) or {}).get("category"))
                       for r in probed}}
+    # **순위 밖 사유**(2026-11-10, T-2026W46-14) — 순위표에 서 있지 않은 모든 줄에 왜 없는지를
+    # 판정 기록에서 파생해 붙인다. 이름 예외표 없음(근거·어휘는 unranked.py).
+    ctx["judging"] = unranked.Judging()
+    ctx["unranked"] = unranked.derive_all(
+        ctx["judging"], live=live, unmeasured=unmeasured, dead=dead, off=off,
+        rank_of=rank_of, cat_of=lambda r: ctx["cat_of"].get(r["name"]), status_of=status_of)
+    ctx["unranked_outside"] = unranked.outside_counts(items, cls, pop)
     site.date_footer = (
         f'가동 측정 {e(ts)} · 축 측정 {e(ctx["axes_ts"])}'
         + (f' · 패키지 축 {e(ctx["pkg_ts"])}' if ctx["pkg_ts"] else "")

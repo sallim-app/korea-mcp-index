@@ -483,6 +483,33 @@ def main() -> int:
         A(f"| {emph('후보 전체')} | {pop['total']}건 |")
     A("")
 
+    # ── 순위 밖 사유(2026-11-10, T-2026W46-14) — 사이트·index.json과 같은 파생(unranked.py) ──
+    import unranked
+    ur = unranked.derive_all(
+        unranked.Judging(), live=live, unmeasured=unmeasured, dead=dead, off=off,
+        rank_of=rank_of, status_of=status_of,
+        cat_of=lambda r: (MISFILED[r["name"]][1] if r["name"] in MISFILED
+                          else (cls.get(r["name"]) or {}).get("category")))
+    ucount: dict[str, int] = {}
+    for code, _t, _b in ur.values():
+        ucount[code] = ucount.get(code, 0) + 1
+    A("**순위 밖 사유** — 두드려 본 서버 중 순위표에 없는 "
+      f"{len(ur)}건에는 전부 왜 없는지를 적는다(웹판 분야 페이지 「순위 밖」 절·서버 상세 "
+      "페이지, index.json `unranked_reason`). 순위 밖은 나쁘다는 판정이 아니다 — 사유는 가동 "
+      "측정과 채점 기록에서 기계적으로 옮기고, 이 목록 운영자의 서버도 같은 규칙을 따른다."
+      if not en else
+      f"**Why not ranked** — every probed server missing from the rankings ({len(ur)}) carries "
+      "a reason (web edition category pages, server pages, and `unranked_reason` in "
+      "index.json). Unranked is not a verdict — reasons are derived mechanically from probe "
+      "results and grading records, and our own servers follow the same rule.")
+    A("")
+    A("| 사유 | 건수 |" if not en else "| Reason (code) | Count |")
+    A("|---|---|")
+    for code in unranked.VOCAB:
+        if ucount.get(code):
+            A(f"| {unranked.VOCAB[code] if not en else '`' + code + '`'} | {ucount[code]} |")
+    A("")
+
     # ── 목차 ──
     cats_live = [c for c in CATS if any(cls.get(r["name"], {}).get("category") == c for r in live)]
     A("* [왜 만드나](#왜-만드나)")
