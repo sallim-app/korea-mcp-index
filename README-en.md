@@ -24,7 +24,7 @@ Other lists tell you a server exists. This one tells you whether it **works righ
 
 | Reason (code) | Count |
 |---|---|
-| `payment_required` | 5 |
+| `payment_required` | 4 |
 | `credential_required` | 37 |
 | `client_unsupported` | 3 |
 | `no_tools` | 1 |
@@ -33,7 +33,7 @@ Other lists tell you a server exists. This one tells you whether it **works righ
 | `awaiting_round` | 8 |
 | `off_topic` | 13 |
 | `transport_mismatch` | 18 |
-| `unverified` | 10 |
+| `unverified` | 11 |
 | `down` | 5 |
 
 * [왜 만드나](#왜-만드나)

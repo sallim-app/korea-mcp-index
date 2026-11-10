@@ -124,7 +124,12 @@ def test_reason_mapping_from_probe_buckets():
     j = unranked.Judging(ROOT)
     assert j.reason("x/y", "down", {"why": "DNS"}, "부동산")[0] == "down"
     assert j.reason("x/y", "unverified", {"http": 404}, "부동산")[0] == "transport_mismatch"
-    assert j.reason("x/y", "unverified", {"http": 402}, "부동산")[0] == "payment_required"
+    # 402 상태코드만으로는 결제 요구라 적지 않는다(본문 근거가 있어야) — codex 지적 2026-11-10
+    assert j.reason("x/y", "unverified", {"http": 402}, "부동산")[0] == "unverified"
+    assert j.reason("x/y", "unverified", {"http": 402, "error_body": "Unavailable Shop"},
+                    "부동산")[0] == "unverified"
+    assert j.reason("x/y", "unverified", {"http": 402, "error_body": '{"x402Version":1}'},
+                    "부동산")[0] == "payment_required"
     assert j.reason("x/y", "unverified", {"http": 502}, "부동산")[0] == "unverified"
     assert j.reason("x/y", "unmeasurable", {"http": 401}, "부동산")[0] == "credential_required"
     assert j.reason("x/y", "unmeasurable", {"http": 400}, "부동산")[0] == "no_tools"

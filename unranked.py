@@ -74,6 +74,14 @@ def _classify(text: str, default: str) -> str:
     return default
 
 
+def _pay_evidence(rm: dict) -> bool:
+    """HTTP 402 **상태코드만으로는** 결제 요구라 적지 않는다 — 서버가 다른 뜻으로 402를 쓰기도
+    한다(codex 교차검증 2026-11-10: 본문이 'Unavailable Shop'인 402). 응답 본문에 결제 신호
+    (x402·payment·결제)가 있을 때만 결제 요구로 옮긴다. 없으면 '확인 못 함'에 남는다."""
+    body = " ".join(str(rm.get(k) or "") for k in ("error_body", "why", "sse_why"))
+    return bool(re.search(r"x402|payment|결제", body, re.I))
+
+
 def _git_json(root: pathlib.Path, rev: str, path: str):
     try:
         r = subprocess.run(["git", "show", f"{rev}:{path}"], cwd=root, capture_output=True,
@@ -196,11 +204,11 @@ class Judging:
                     + (f"({sym})" if sym else "") + " — 응답을 받을 수 없어 채점하지 않는다.",
                     "measured.json")
         if bucket == "unverified":
-            if http == 402:
+            if http == 402 and _pay_evidence(rm):
                 return ("payment_required",
-                        "가동 측정에서 우리 호출에 HTTP 402(결제 요구)가 와 MCP 응답을 확인하지 "
-                        "못했다 — 사망 판정이 아니고, 결제 없이 부르는 우리 방식으로는 잴 수 없다.",
-                        "measured.json")
+                        "가동 측정에서 우리 호출에 HTTP 402와 결제 요구 본문이 와 MCP 응답을 "
+                        "확인하지 못했다 — 사망 판정이 아니고, 결제 없이 부르는 우리 방식으로는 "
+                        "잴 수 없다.", "measured.json")
             if http in TRANSPORT_MISMATCH:
                 return ("transport_mismatch",
                         f"가동 측정에서 우리 호출에 HTTP {http}가 왔다 — 전송 방식이 안 맞았을 수 "
@@ -214,8 +222,8 @@ class Judging:
             return ("off_topic", "데이터를 주는 서버가 아니라고 분류돼(이 목록의 주제 밖) 순위 "
                     "대상이 아니다 — 서버 품질 판정이 아니다.", "classification.json")
         if bucket == "unmeasurable":
-            if http == 402:
-                return ("payment_required", "키 없이 부르자 HTTP 402(결제 요구)로 도구 목록을 "
+            if http == 402 and _pay_evidence(rm):
+                return ("payment_required", "키 없이 부르자 HTTP 402와 결제 요구 본문으로 도구 목록을 "
                         "받지 못했다 — 우리는 결제·키 없이 재므로 비교할 값이 없다(서버 결함 판정 "
                         "아님).", "measured.json")
             if http in (401, 403) or rm.get("needs_key"):
